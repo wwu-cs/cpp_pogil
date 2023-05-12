@@ -1,0 +1,135 @@
+\model{Representing Graphs}
+
+Now, to the implementation part of graphs.
+There are two standard ways to represent a graph in code.
+One representation uses an adjacency matrix.
+The other representation uses adjacency lists.
+\par\vskip 10pt
+
+\textbf{Adjacency Matrix}
+
+\par\vskip 10pt
+An adjacency matrix M is a $|V| x |V|$ (2D array) of integers.
+You can number the vertices 0 to $|V|-1$ (or have a mapping of vertex names to numbers 0 to $|V|-1$).
+If there is no edge from vertex x and vertex y, then $M[x][y]=0$ (note that book uses infinity; either value works as long as the implementation knows how to treat the value representing ``no edge'').
+If there is an edge from vertex x to y with cost C, then $M[x][y] = C$.
+
+\par\vskip 10pt
+If the graph is directed, $M[x][y]$ does not need to equal $M[y][x]$.
+If the graph is undirected, $M[x][y] = M[y][x]$.
+If the graph edges have no costs, then M contains just 0's and 1's (and can store bits instead of ints).
+\par\vskip 10pt
+
+\textbf{Adjacency List}
+
+\par\vskip 10pt
+An adjacency list L is a list (linked list or array) of vertices.
+Each vertex stores a list of the vertices that are adjacent to it.
+If the edges have costs, then the adjacent vertices are stored as (V, C) pairs where V is the vertex and C is the cost.
+\par\vskip 10pt
+
+Here is the adjacency matrix for the first graph in this handout:
+
+
+\begin{tabular}{ c | c c c c c }
+    & A & B & C & D & E \\ \hline
+  a & 0 & 0 & 0 & 0 & 0 \\
+  b & 0 & 0 & 1 & 0 & 2 \\
+  c & 0 & 3 & 2 & 0 & 0 \\
+  d & 0 & 4 & 5 & 0 & 0 \\
+  e & 6 & 0 & 0 & 7 & 1 \\
+\end{tabular}
+\par\vskip 10pt
+
+Here is the adjacency list for the first graph in this handout:
+
+\begin{tabular}{ l }
+  a $-> \{\}$                       \\
+  b $-> \{(c, 1), (e, 2)\}$         \\
+  c $-> \{(b, 3), (c, 2)\}$         \\
+  d $-> \{(b, 4), (c, 5)\}$         \\
+  e $-> \{(a, 6), (d, 7), (e, 1)\}$ \\
+\end{tabular}
+
+\newpage
+
+\Q Here is the adjacency matrix for an undirected graph.
+Draw the circles and edges (links) below.
+
+\par\vskip 10pt
+\begin{tabular}{ c | c c c c c }
+    & a & b & c & d \\
+  a & 0 & 2 & 1 & 0 \\
+  b & 2 & 0 & 3 & 1 \\
+  c & 1 & 3 & 0 & 4 \\
+  d & 0 & 1 & 4 & 0 \\
+\end{tabular}
+
+% \begin{answer}[.5in]
+% \end{answer}
+
+\Q Here is the adjacency list for an undirected unweighted graph.
+Draw the circles and edges (links) below.
+
+\par\vskip 10pt
+\begin{tabular}{ l }
+  $a -> \{c, e\} $      \\
+  $b -> \{c, d\} $      \\
+  $c -> \{a, b, d, e\}$ \\
+  $d -> \{b, c, e\} $   \\
+  $e -> \{a, c, d\} $   \\
+\end{tabular}
+
+% \begin{answer}[.5in]
+% \end{answer}
+
+% \newpage
+\Q What is the maximum number of edges an undirected graph with 5 vertices can have? \ans{}
+
+\Q What is the maximum number of edges a directed graph with 5 vertices can have? 
+
+\ans{}
+
+\newpage
+A \textit{sparse} graph is a graph that has few edges compared to the number of vertices in the graph.
+
+\Q Draw a sparse graph here:
+
+\begin{answer}[1in]
+\end{answer}
+
+A \textit{dense} graph is a graph that has lots of edges compared to the number of vertices in the graph.
+
+\Q Draw a dense graph here:
+
+\begin{answer}[1in]
+\end{answer}
+
+
+\Q Suppose you know your graph is sparse. Would you use the adjacency matrix or adjacency list representation?
+
+\ans[.25in]{X} matrix \ans[.25in]{} list
+
+
+\Q Suppose you know your graph is dense. Would you use the adjacency matrix or adjacency list
+representation?
+
+\ans[.25in]{X} matrix \ans[.25in]{} list
+
+\Q Suppose you want to determine if node a is connected to node c in a graph.
+Node a is mapped to position 0 in the matrix and list representations.
+Node c is mapped to position 2 in the matrix and list representations.
+\par\vskip 10pt
+
+How long (worst-case) does it take to determine if a is connected to c using the matrix representation?
+O(\ans[.25in]{X})
+\par\vskip 10pt
+
+How long (worst-case) does it take to determine if a is connected to c using the adjacency list representation?
+Assume the list of adjacent nodes is not in order. O(\ans[.25in]{X})
+\par\vskip 10pt
+
+\Q What questions does your group have about graphs?
+
+\begin{answer}[1in]
+\end{answer}

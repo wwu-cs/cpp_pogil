@@ -1,0 +1,67 @@
+\model{Normalize Function Analysis}
+
+Below is a Java method.  It maps values that are in the range $[min .. max]$ to the range $[0 .. 1]$.
+
+
+\begin{javalst}
+void normalize(double[] array, double min, double max) {
+    for (int i = 0; i < array.length; i++) {
+        array[i] = (array[i] - min) / (max - min);
+    }
+}
+\end{javalst}
+
+\Q
+Suppose an array \texttt{a} contains the values \texttt{\{5, 15, 10\}} and the
+method is called with the following method call:
+\begin{verbatim}
+normalize(a, 5, 15);
+\end{verbatim}
+
+What are the contents of the array after this method call?
+
+\begin{answer}[1.25in]
+\end{answer}
+
+\Q
+How many operations does the method execute when \texttt{normalize(a, 5, 15)} is called?
+\\
+{\small Note: the initialization of the variable \texttt{i} executes before the first
+iteration of the loop. The iteration and comparison statements occur after
+each iteration of the loop.}
+
+\begin{answer}[1.25in]
+\end{answer}
+
+\Q
+Suppose the \texttt{normalize} method is called with an array of length 20 as
+an argument.  How many operations are executed by the method?
+
+\begin{answer}[1.25in]
+\end{answer}
+
+\Q
+Suppose the \texttt{normalize} method is called with an array of length $n$ as
+an argument.  How many operations are executed by the method?
+
+\begin{answer}[1.25in]
+\end{answer}
+
+\Q
+We say that the \texttt{normalize} method runs in \emph{linear} time. Another
+way to say this is that the method is $\Theta(n)$.  Complete the following
+sentence: \\
+\ \\
+A method is $\Theta(n)$ (or executes in linear time) if...
+
+\begin{answer}[1.25in]
+\end{answer}
+
+\Q
+We say that \emph{quadratic} time methods are $\Theta(n^{2})$. Complete the
+following sentence: \\
+\ \\
+A method is $\Theta(n^{2})$ (or executes in quadratic time) if...
+
+\begin{answer}[1.25in]
+\end{answer}

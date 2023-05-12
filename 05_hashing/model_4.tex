@@ -1,0 +1,153 @@
+{\bf\large Model 4: Open Address Linear Probing}
+
+
+When a collision occurs, the linear probing technique finds the first unoccupied cell in the hash table to insert the item.
+In this case, ``eggs'' cannot go into position 5, cannot go into position 6, but position 7 is open.
+We put ``eggs'' into position 7 in the table above.
+Do that now.
+\par\vskip 10pt
+
+One drawback of linear probing is that the runtime for insertion can now go to O(N) instead of O(1) for a hash table of size N.
+A second drawback of linear probing is that it produces primary clustering.
+When keys hash to the same value, the sequence of looking for open spots is the same.
+Suppose two new keys hash to location 5; both inserts would follow the same process of looking at position 5, 6, 7, 8 (and position 9 for the second key).
+Suppose a third key hashes to location 5; now this would try to insert the key into position 5, 6, 7, 8, 9.
+It would then wrap-around to looking at position 0 and insert it there since position 0 is empty.
+\par\vskip 10pt
+
+But, the upside is that linear probing is simple to implement.
+Note that most hash table implementations use more sophisticated collision resolution techniques, which we will see later.
+\par\vskip 10pt
+
+\textbf{Delete}
+
+We have just examined the insert operation using linear probing.
+Now, let's consider the delete operation.
+Suppose the hash table contains the following keys:
+
+
+\includegraphics[width=.9\textwidth]{figures/hashing2.png}
+
+
+Now, we want to delete the key ``potato''.
+Suppose we just remove it by setting the position to NULL (empty box):
+
+
+\includegraphics[width=.9\textwidth]{figures/hashing3.png}
+
+
+Now, let's suppose I want to delete ``salad''.
+Its hash value is 125082698.
+So, its location is 8.
+We look at position 8 in the table.
+It's null, so we conclude that ``salad'' is not in the table.
+Uh -- that's not quite right.
+``salad'' is in the table.
+We just didn't find it.
+\par\vskip 10pt
+
+So, we need to do something a little more sophisticated to delete items.
+Table entries can store keys, NULL (empty), or a special symbol representing that the item was deleted.
+So, we'll use ``D'' as a special symbol to denote that an item was deleted.
+Suppose we delete ``potato'', as in the above example.
+This time, though, we put ``D'' in that position.
+
+
+\includegraphics[width=.9\textwidth]{figures/hashing4.png}
+
+
+Now, when we go to delete ``salad'', we first look in position 8.
+We see that it has ``D''.
+So, we use linear probing to continue looking for the item ``salad''.
+We look at position 9.
+There it is, so we can set that position to ``D''.
+
+
+\includegraphics[width=.9\textwidth]{figures/hashing5.png}
+
+
+Now, suppose we want to delete ``beans''.
+Its hash location is 4.
+We look up T[4].
+It has ``milk'', so we go to T[5].
+It has ``apple''. We go to T[6].
+It has ``coconut''.
+We go to T[7].
+It has ``eggs''.
+We go to T[8].
+It has ``D''.
+We go to T[9].
+It has ``D''.
+We go to T[0] (wrap-around).
+It has NULL, so we conclude that ``beans'' is not in the dictionary.
+
+\Q Delete the key ``eggs''.
+Recall that this key maps to location 5.
+Update the table above.
+What strings are compared during the delete operation?
+\begin{answer}[1in]
+\end{answer}
+
+\Q Now, insert the key ``mango''.
+This key maps to location 5.
+Update the table above.
+What location does ``mango'' go into? \ans{}
+What strings are compared during the insert?
+\begin{answer}[1in]
+\end{answer}
+
+Note that a dictionary holds just one copy of each key.
+If we try to insert ``milk'' into the hash table, it would look at location 4 and see that it already has ``milk'' and not update the hash table.
+\par\vskip 10pt
+
+\textbf{Finding}
+
+Searching for items in a dictionary is similar to the insertion and deletion processes.
+We need to hash the key, gets its hash value, and map it to the hash table location.
+We look at that location.
+If it is empty, we return -1.
+If it has what we are looking for, we return the location (or the actual key/value contents in the dictionary).
+Else, we go to the next position and continue this process.
+
+\begin{pythlst}
+D = special delete symbol
+Find(H, key):
+    value = hash(key)
+    location = value % H.size
+    origLocation = location
+    while (H[location] != empty):
+        if (key == H[location]):
+            return location
+        # note: H[location] does not equal key or H[location] is D
+        location++
+        location = location % H.size
+        if (location == origLocation):
+            return -1 # gone through entire hash table
+    return -1
+\end{pythlst}
+
+Suppose the hash table has:
+
+
+\includegraphics[width=.9\textwidth]{figures/hashing6.png}
+
+
+\Q Find ``corn''. This hashes to the location 1. How many string comparisons are done? \ans{} Which strings are they ones compared?
+\begin{answer}[1in]
+\end{answer}
+
+\Q Find ``mango''. This hashes to the location 5. How many string comparisons are done? \ans{} Which strings are they ones compared?
+\begin{answer}[1in]
+\end{answer}
+
+\Q Find ``eggs''. This hashes to the location 5. How many string comparisons are done? \ans{} Which strings are they ones compared?
+\begin{answer}[1in]
+\end{answer}
+
+Chaining is another major technique to resolve collisions in a hash table.
+Instead of each hash table cell containing a single dictionary item, we instead have a pointer to a linked list of dictionary items.
+
+\Q Does your group have questions about hash functions and/or hash tables?
+
+\begin{answer}[1in]
+\end{answer}

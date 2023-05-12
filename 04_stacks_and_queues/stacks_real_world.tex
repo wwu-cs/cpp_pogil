@@ -1,0 +1,77 @@
+\model{Stacks - Real World}
+
+Consider the following situations:
+
+\begin{itemize}
+  \item A pile of papers or books on a table, where the top item is usually
+        the most recently added.
+  \item In arithmetic expressions, each ")" matches the most recent unmatched "(".
+        In Java programming, each "\}" matches the most recent unmatched "\{".
+        In HTML, each </DIV> matches the most recent unmatched <DIV>.
+        In each case, a parsing program must keep track of all unmatched symbols.
+  \item If method A calls B, and B calls C, then when C ends control returns to B,
+        and when B ends control returns to A.
+        (Control returns to the most recently called method).
+  \item As people, if we have too many tasks or questions of similar importance,
+        we tend to focus on the most recent ones.
+\end{itemize}
+
+\Q (3 min) These situations are all examples of \textbf{stacks}.
+Summarize their key common characteristics in 2-4 complete English sentences.
+
+\begin{answer}[1in]
+  Stacks are first-in, last-out (or last-in, first-out) - the most recently added item is the next removed.
+\end{answer}
+
+\Q (2 min) List any variations or exceptions to these characteristics.
+
+\begin{answer}[1in]
+  Variations include stacks with multiple ways to access other element
+  TODO: skip this Q or rephrase to be more directed
+
+  REPORT OUT: key characteristics and variations, so teams have a common understanding.
+\end{answer}
+
+\newpage
+\Q (3 min) Trace the following actions in a stack (steps a through e are provided as examples).
+
+\begin{center}
+  \newcolumntype{s}{>{\columncolor{lightgray}} p{.25cm}}
+  \begin{tabular}{ |r|l|p{.25cm}|l|l|l|l|p{.25cm}|l| }
+    \hline
+    \rowcolor{lightgray} & \textbf{action} &  & \multicolumn{4}{|c|}{\textbf{contents}} &              & \textbf{outcome}                                                                                 \\
+    \hline
+    a.                   & empty stack     &  &                                         &              &                  &              &  &                                                             \\
+    \hline
+    b.                   & get top item    &  &                                         &              &                  &              &  & ERROR - empty stack                                         \\
+    \hline
+    c.                   & add A           &  & A                                       &              &                  &              &  &                                                             \\
+    \hline
+    d.                   & add B           &  & A                                       & B            &                  &              &  &                                                             \\
+    \hline
+    e.                   & remove top item &  & A                                       &              &                  &              &  & B is removed                                                \\
+    \hline
+    f.                   & get top item    &  & \ans[1em]{A}                            & \ans[1em]{}  & \ans[1em]{}      & \ans[1em]{}  &  & \ans[2.5in]{}                                               \\
+    \hline
+    g.                   & add C           &  & \ans[1em]{A}                            & \ans[1em]{C} & \ans[1em]{}      & \ans[1em]{}  &  & \ans[2.5in]{}                                               \\
+    \hline
+    h.                   & add D           &  & \ans[1em]{A}                            & \ans[1em]{C} & \ans[1em]{D}     & \ans[1em]{}  &  & \ans[2.5in]{}                                               \\
+    \hline
+    i.                   & get top item    &  & \ans[1em]{A}                            & \ans[1em]{C} & \ans[1em]{D}     & \ans[1em]{}  &  & \ans[2.5in]{D is returned (not removed)}                    \\
+    \hline
+    j.                   & add E           &  & \ans[1em]{A}                            & \ans[1em]{C} & \ans[1em]{D}     & \ans[1em]{E} &  & \ans[2.5in]{}                                               \\
+    \hline
+    k.                   & add F           &  & \ans[1em]{A}                            & \ans[1em]{C} & \ans[1em]{D}     & \ans[1em]{E} &  & \ans[2.5in]{possible stack full, depends on implementation} \\
+    \hline
+  \end{tabular}
+\end{center}
+
+\vspace{20pt}
+
+\begin{quote}
+  Otherwise, my whole career has just been flinging myself
+
+  at whatever is most overdue first and letting everything else stack up.
+
+  -- Cathy Guisewite, American cartoonist, 1950-
+\end{quote}

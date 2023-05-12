@@ -1,0 +1,545 @@
+\documentclass{exam}
+%\documentclass[answers]{exam}
+\setlength{\textheight}{9.5in}
+\setlength{\textwidth}{6.5in}
+\setlength{\topmargin}{-0.75in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage[table]{xcolor}
+\usepackage{hhline}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{multicol}
+\usepackage{fancyvrb}
+
+% for syntax highlighting
+\usepackage{minted}
+\usemintedstyle[cpp]{xcode}
+
+% for overlay of output
+\usepackage[overlay,showboxes]{textpos}
+
+\pagestyle{plain}
+
+\setlength\columnsep{50pt}
+\newcommand{\key}{\hfill
+      \raisebox{-.3\height}{\includegraphics[width=0.6in]{figures/key.png}}}
+
+\begin{document}
+\thispagestyle{empty}
+\setlength{\parindent}{0pt}
+
+\begin{center}
+    \Large Activity \#3: Linked List \\[5pt]
+    \large Recorder's Report\\[20pt]
+    \normalsize
+    \begin{tabular}{lrp{0.1in}lr}
+        Manager:  & \fillin[][2.25in] &  & Reader: & \fillin[][2.25in]            \\[15pt]
+        Recorder: & \fillin[][2.25in] &  & Driver:    & \fillin[][2.25in]            \\[15pt]
+        Date:     & \fillin[][2.25in] &  & Score:     & Satisfactory \hspace{10pt} /
+        \hspace{10pt} Not Satisfactory
+    \end{tabular}
+\end{center}
+\par\vskip 15pt
+
+Record your team's answers to the key questions (marked with
+\raisebox{-.3\height}{\includegraphics[width=0.5in]{figures/key.png}})
+below.
+\begin{enumerate}[(a)]
+    \itemsep 1.35in
+    \item Model 1, Question \#5
+    \item Model 1, Question \#6
+    \item Model 2, Question \#15
+    \item Model 4, Question \#18
+\end{enumerate}
+
+\clearpage\pagenumbering{arabic}
+
+\begin{center}
+    \Large Activity \#3: Linked List \\[5pt]
+    \large Activity Guide\\[20pt]
+\end{center}
+\vskip -30pt\null
+
+\begin{center}
+    \fbox{
+        \begin{minipage}{5.5in}
+            {\bf Learning Objectives:} Students will be able to:
+            \begin{itemize}
+                \item Content:\\[-20pt]
+                      \begin{itemize}
+                          \itemsep 0pt
+                          \item Explain the structure of linked list
+                          \item Explain difference between a single, circular, and double linked list
+                      \end{itemize}
+                \item Process\\[-20pt]
+                      \begin{itemize}
+                          \itemsep 0pt
+                          \item Write code that adds, removes, and accesses a linked list\\[-5pt]
+                      \end{itemize}
+            \end{itemize}
+        \end{minipage}
+    }
+\end{center}
+\par\vskip 10pt
+
+    {\bf\large Model 1: Linked List} \\
+\begin{enumerate}
+
+    Suppose you want to model a collection of retail items.
+
+    \begin{minted}[
+          bgcolor=gray!15,
+          baselinestretch=1
+        ]{cpp}
+typedef struct retail_item {
+  int id;
+  char * name;
+  int price;
+} retail_item;
+\end{minted}
+
+    We could create an inventory of retail\_items and store them into an array, as follows:
+
+    \begin{minted}[
+          bgcolor=gray!15,
+          baselinestretch=1
+        ]{cpp}
+retail_item inventory[10000];
+\end{minted}
+
+
+    Or, we could create an array of pointers to retail\_items like this:
+
+    \begin{minted}[
+          bgcolor=gray!15,
+          baselinestretch=1
+        ]{cpp}
+retail_item * inventory_p[10000];
+\end{minted}
+
+    What do we need to do to complete the following tasks?
+
+    \begin{itemize}
+        \itemsep 0pt
+        \item Add a new retail item
+        \item Remove a retail item from the array
+        \item Update the price of a retail item (let's say it goes on sale)
+        \item Print all retail items
+        \item Find an item in the array (think HW 2)
+        \item Get total number of retail items in the array
+    \end{itemize}
+
+    \item For these tasks, which are fast to do when retail items are stored in an array? Which take longer?
+          \begin{solution}[0.6in]
+          \end{solution}
+    \item What if the store has more than 10000 items?
+          \begin{solution}[0.6in]
+          \end{solution}
+    \item What if the store has much fewer than 10000 items?
+          \begin{solution}[0.6in]
+          \end{solution}
+
+          \newpage
+          \textbf{Linked Lists}
+
+          A linked list is an alternate model for storing a list of items; it can grow and shrink dynamically.
+          A linked list is a chain of nodes, where each node has:
+
+          \begin{itemize}
+              \item storage for a data item (or pointer to a data item)
+              \item a pointer to the next node (the last item's pointer is NULL)
+              \item there is a pointer to the first node in the list
+          \end{itemize}
+
+          To create a linked list of retail\_items:
+
+          \begin{minted}[
+          bgcolor=gray!15,
+          baselinestretch=1
+        ]{cpp}
+typedef struct retail_item_list_tag retail_item_list;
+struct retail_item_list_tag {
+  retail_item item;
+  retail_item_list * next;
+};
+\end{minted}
+
+          So, a single node would look like, where the first three boxes are retail\_item struct members and the fourth box is the pointer to the next retail item:
+
+          \includegraphics[height=2.8cm]{figures/single_node.png}
+
+
+          A linked list would look like:
+
+          \includegraphics[height=10cm]{figures/linked_list.png}
+
+          In memory, the consecutive nodes of the linked list do not need to occupy sequential places in memory (remember: an array is laid out in contiguous memory).
+          Each individual node would be stored in contiguous bytes as a struct object; however, the location of the wheat thins node could be after the location of basketball which is after the Clorox wipes in memory.
+
+          \newpage
+          In the above picture, the memory could look like:
+
+          \begin{tabular}{ l l l }
+              Memory address & Data     & Corresponds to                        \\ \hline\hline
+              2000           & 3012     & Id of second item in linked list      \\
+              2004           & 9000     & Pointer to ``Clorox Wipes''           \\
+              2012           & 450      & Price of second item in linked list   \\
+              2016           & 2050     & Pointer to third item in linked list  \\
+              ...            &          &                                       \\
+              2050           & 9009     & Id of third item in linked list       \\
+              2054           & 4000     & Pointer to ``Basketball''             \\
+              2062           & 1299     & Price of third item in linked list    \\
+              2066           & 0 / NULL & NULL                                  \\
+              ...            &          &                                       \\
+              3000           & 3008     & top                                   \\
+              3008           & 1002     & Id of first item in linked list       \\
+              3012           & 10000    & Pointer to ``Wheat thins''            \\
+              3020           & 389      & Price of first item in linked list    \\
+              3024           & 2000     & Pointer to second item in linked list \\
+              ...            &          &                                       \\
+              ...            &          &                                       \\
+          \end{tabular}
+
+          \textit{Creating a linked list node}
+
+          You can create a local variable as a node, like this:
+
+          \begin{minted}[
+          bgcolor=gray!15,
+          baselinestretch=1
+        ]{cpp}
+retail_item_list r1 = {{9009, “Basketball”, 1299}, NULL};
+retail_item_list r2 = {{3012, “Clorox wipes”, 450}, &r1};
+retail_item_list r3 = {{1002, “Wheat thins”, 389}, &r2};
+retail_item_list * top = &r3;
+\end{minted}
+
+          However, this is pretty unusual.
+          It requires that you know all the members of the list; in this case, it may make more sense to use an array.
+          Instead, we can write a function to create a linked list node and return a pointer to it.
+
+          \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1,
+          linenos
+        ]{cpp}
+retail_item_list * create_retail_item_list(
+      int product_id,
+      char * product_name,
+      int product_price,
+      retail_item_list * next_item
+    ) {
+  retail_item_list *ret = malloc(sizeof(retail_item_list));
+  ret->item.id = product_id;
+  ret->item.name = product_name;
+  ret->item.price = product_price;
+  ret->next = next_item;
+  return ret;
+}
+\end{minted}
+
+          So, to use this function in the code:
+
+          \begin{minted}[
+          bgcolor=gray!15,
+          baselinestretch=1
+        ]{cpp}
+retail_item_list * top = NULL;
+// insert basketball
+top = create_retail_item_list(9009, “Basketball”, 1299, top);
+// insert Clorox wipes
+top = create_retail_item_list(3012, “Clorox wipes”, 450, top);
+// insert wheat thins
+top = create_retail_item_list(1002, “Wheat thins”, 389, top);
+\end{minted}
+
+          What if instead we have a pointer to \texttt{retail\_item} in the  \texttt{retail\_item\_list} struct instead?
+
+          \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1,
+          linenos
+        ]{cpp}
+typedef struct retail_item_list_tag retail_item_list;
+struct retail_item_list_tag {
+retail_item * item;
+  // pointer to retail_item object
+  retail_item_list * next;
+}
+\end{minted}
+
+    \item What would the picture look like now? (assume the same 3 items are put in the list)
+          \begin{solution}[3in]
+          \end{solution}
+
+    \item What are some advantages of linked lists?
+          \begin{solution}[0.8in]
+          \end{solution}
+
+    \item What are some disadvantages of linked lists?
+          \begin{solution}[0.8in]
+          \end{solution}
+
+    \item When are arrays a better choice?
+          \begin{solution}[0.8in]
+          \end{solution}
+
+    \item When are linked lists a better choice?
+          \begin{solution}[0.8in]
+          \end{solution}
+
+          \newpage
+          \textbf{Summary}
+
+          Linked lists are a FUNDAMENTAL data structure in CS.
+          They are often used in job interviews.
+          \textit{Example:
+              Write the code to define a linked list of integers.
+              Write the code to traverse the linked list and find its
+              length.}
+
+
+          What might we want to do with a linked list?
+
+          \begin{itemize}
+              \item Create an empty linked list
+              \item Determine the number of nodes in a linked list (length)
+              \item Print the elements of the linked list
+              \item Find an element in the linked list
+              \item Insert item at beginning (head of list)
+              \item Insert item at end (tail of list)
+              \item Insert item in between certain items (for example, keep data in sorted order)
+              \item Remove first item
+              \item Remove last item
+              \item Remove a particular item
+              \item Remove the entire list
+              \item Reverse the list
+              \item Sort the list
+              \item Split into two lists
+              \item Merge two linked lists
+          \end{itemize}
+
+    \item Can you think of other operations you might want to do?
+          \begin{solution}[2in]
+          \end{solution}
+
+
+          We will now use a linked list of integers to simplify the discussion and some of these operations.
+          Note that your textbook shows the implementation of several of the functions from the above list.
+
+          \newpage
+
+          {\bf\large Model 2: A C++ Program} \\
+          \begin{center}
+              \centering {\bf C++ Code}\vskip -15pt\null
+              \footnotesize
+              \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1,
+          linenos
+        ]{cpp}
+#include <stdlib.h>
+#include <stdio.h>
+
+typedef struct nodeTag Node;
+/* a Node represents one node in the linked list */
+struct nodeTag {
+  int num;     // value stored in node
+  Node * next; // pointer to next node in list
+};
+
+/* function prototypes on linked lists */
+Node * makeNode(int n, Node * nextItem);
+int length(Node * list);
+void print(Node * list);
+void insertTail(int n, Node * list);
+Node * find(int n, Node * list);
+int remove(Node * toRemove, Node ** listPtr);
+
+/* main function */
+int main(void) {
+  // create linked list
+  Node * top = NULL;
+  top = makeNode(6, top);
+  top = makeNode(10, top);
+  top = makeNode(-3, top);
+  top = makeNode(2, top);
+  print(top);
+  
+  // q1: What does the picture of top look like now?
+  int len = length(top);
+  printf("Length of list: %d\n", len);
+  
+  // q2: What is the value of len?
+  insertTail(25, &top);
+  print(top);
+  
+  // q3: What does the picture of top look like now?
+  Node * ten = find(10, top);
+  if(ten == NULL) {
+    printf("Not found: 10\n");
+  } else {
+    printf("Found: 10, memory location: %p\n", ten);
+  }
+  printf("removing 10:\n");
+  int ret = remove(ten, &top);
+  print(top);
+  
+  // q4: What does the picture of top look like now?
+  printf("removing 2:\n");
+  Node * two = find(2, top);
+  ret = remove(two, &top);
+  print(top);
+  
+  // q5: What does the picture of top look like now?
+  printf("removing 15:\n");
+  Node * fifteen = find(15, top);
+  ret = remove(fifteen, &top);
+  print(top);
+  return EXIT_SUCCESS;
+}
+        \end{minted}
+
+          \end{center}
+          \newpage
+          {\it\large Refer to Model 2 above as your team develops consensus answers
+              to the questions below.}
+          \par\vskip 10pt
+
+          %  \begin{enumerate}
+    \itemsep 20pt
+
+    \item Without seeing the code implementation, answer the questions in the comments in the main function above.
+
+          \begin{enumerate}[(a)]
+              \itemsep 12pt
+              \item q1: What does the picture of top look like now?
+                    \begin{solution}[1.2in]
+                    \end{solution}
+              \item q2: What is the value of len?
+                    \begin{solution}[1.2in]
+                    \end{solution}
+              \item q3: What does the picture of top look like now?
+                    \begin{solution}[1.2in]
+                    \end{solution}
+              \item q4: What does the picture of top look like now?
+                    \begin{solution}[1.2in]
+                    \end{solution}
+              \item q5: What does the picture of top look like now?
+                    \begin{solution}[1.2in]
+                    \end{solution}
+          \end{enumerate}
+
+          \newpage
+
+    \item Write the code snippet to insert at the bottom of the main function (before the return) to insert a node with a value of 11 at the front of {\tt top}:
+          \begin{solution}[0.7in]
+          \end{solution}
+
+    \item  Write the code snippet to insert at the bottom of the main function (before the return) to insert a node with value -8 at the back of {\tt top}:
+          \begin{solution}[0.7in]
+          \end{solution}
+
+
+
+    \item This code can be found in {\tt activity3a.cpp}.
+          Run it.
+          Review the implementations of \texttt{makeNode}, \texttt{length}, \texttt{print}, \texttt{insertTail}, \texttt{find}, and \texttt{remove}.
+
+          Now that you can see the function definitions, do you need to edit any answers in question 1?
+          If so, write your new answers to the right of your original answers.
+
+
+    \item  Why must the functions \texttt{insertTail} and \texttt{remove} take \texttt{Node ** listPtr} as parameters instead of \texttt{Node *list}?
+          \begin{solution}[0.7in]
+          \end{solution}
+
+    \item  Complete the function definition for \texttt{insertHead}.
+          This function should insert a new node with value n at the head of the list pointed to by listPtr.
+          \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15
+        ]{cpp}
+void insertHead(int n, Node ** listPtr) {
+
+
+
+
+
+
+}
+\end{minted}
+
+
+          {\bf\large Model 3: Circular linked lists}
+
+    \item  If the linked list's last node does not have next assigned as NULL, but rather another node in the list, we have a circular linked list.
+          Write a code snippet to create 3 nodes in main that creates a circular linked list.
+          Use numbers 1, 2, and 3 for the values of the linked list.
+
+          \begin{solution}[1in]
+          \end{solution}
+
+          \newpage
+          {\bf\large Model 4: Doubly linked lists} \\
+
+          We can create a linked list struct like this:
+
+          \begin{center}
+              \centering {\bf C++ Code}\vskip -15pt\null
+              \small
+              \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1,
+          linenos
+        ]{cpp}
+typedef struct nodeTag Node;
+
+struct nodeTag {
+  int num;     // value stored in node
+  Node * next; // pointer to next node in list
+  Node * prev; // pointer to previous node in the list
+};
+\end{minted}
+          \end{center}
+
+          This is called a \textit{doubly linked list}, since it has a link to the next item and a link to the previous item.
+          What's nice about doubly linked lists is that they allow for forward and backward traversal. It does
+          require more overhead – each node has an extra field. Plus, for backward traversal to start at the end of
+          the list, one must know the address of the last Node in the list.
+
+    \item  Suppose we had definitions for functions to create doubly linked lists and inserted the values 2, 4, and 6 (inserted at the back each time).
+          What does the picture of a doubly linked list look like?
+
+          \includegraphics[width=\textwidth]{figures/double_linked_fillin.png}
+
+    \item  Write the function definition for \texttt{numPos}.
+          This function should return the number of items in the linked list (passed as a parameter) whose \texttt{num} value is greater than 0.
+          \begin{solution}[1in]
+          \end{solution}
+    \item  If you wrote the function for \texttt{numPos} iteratively, try to write a recursive version.
+          If you wrote it recursively, try to write it iteratively.
+          \begin{solution}[1in]
+          \end{solution}
+
+    \item  What questions does your group have about linked lists?
+
+
+\end{enumerate}
+
+\end{document}

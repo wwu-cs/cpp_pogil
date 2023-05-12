@@ -1,0 +1,106 @@
+\model{Queues - Array Implementation}
+
+A queue ADT can be implemented in multiple ways, as you will see.
+For now, we will consider how to implement a queue using an array, e.g.:
+
+\begin{javabox}
+public class AQueue<T> implements IQueue<T> {
+    // field(s)
+    private T [] data;
+
+    // constructor(s)
+    public Queue<T>(int maxSize) {
+        // allocate data (Java can't create generic arrays)
+        this.data = (T[]) new Object[maxSize];
+    }
+
+    // methods
+
+}
+\end{javabox}
+
+
+\Q (2 min) Show the contents of the data array after each operation.
+Assume we start with an empty queue. If you use additional fields (e.g. to keep track
+of positions in the array),  add a column for each one and show how its value changes.
+
+
+\begin{center}
+      \begin{tabular}{ |r|l|c|c|c|c|c|c|c| }
+            \hline
+            \rowcolor{lightgray} & \textbf{Operation}         & \textbf{[0]}  & \textbf{[1]}  & \textbf{[2]}  & \textbf{[3]}  & \ans[.2in]{} & \ans[.2in]{start} & \ans[.2in]{end} \\
+            \hline
+            a.                   & Create new data structure. & \ans[.2in]{}  & \ans[.2in]{}  & \ans[.2in]{}  & \ans[.2in]{}  & \ans[.2in]{} & \ans[.2in]{0}     & \ans[.2in]{0}   \\
+            \hline
+            b.                   & Add value 'A'.             & \ans[.2in]{A} & \ans[.2in]{}  & \ans[.2in]{}  & \ans[.2in]{}  & \ans[.2in]{} & \ans[.2in]{0}     & \ans[.2in]{1}   \\
+            \hline
+            c.                   & Add value 'B'.             & \ans[.2in]{A} & \ans[.2in]{B} & \ans[.2in]{}  & \ans[.2in]{}  & \ans[.2in]{} & \ans[.2in]{0}     & \ans[.2in]{2}   \\
+            \hline
+            d.                   & Remove value.              & \ans[.2in]{}  & \ans[.2in]{B} & \ans[.2in]{}  & \ans[.2in]{}  & \ans[.2in]{} & \ans[.2in]{1}     & \ans[.2in]{2}   \\
+            \hline
+            e.                   & Add value 'C'.             & \ans[.2in]{}  & \ans[.2in]{B} & \ans[.2in]{C} & \ans[.2in]{}  & \ans[.2in]{} & \ans[.2in]{1}     & \ans[.2in]{3}   \\
+            \hline
+            f.                   & Get current size.          & \ans[.2in]{}  & \ans[.2in]{B} & \ans[.2in]{C} & \ans[.2in]{}  & \ans[.2in]{} & \ans[.2in]{1}     & \ans[.2in]{3}   \\
+            \hline
+            g.                   & Remove value.              & \ans[.2in]{}  & \ans[.2in]{}  & \ans[.2in]{C} & \ans[.2in]{}  & \ans[.2in]{} & \ans[.2in]{2}     & \ans[.2in]{3}   \\
+            \hline
+            h.                   & Add value 'D'.             & \ans[.2in]{}  & \ans[.2in]{}  & \ans[.2in]{C} & \ans[.2in]{D} & \ans[.2in]{} & \ans[.2in]{2}     & \ans[.2in]{4}   \\
+            \hline
+      \end{tabular}
+\end{center}
+
+
+\begin{answer}[1em]
+      NOTE: a slower approach only stores the end index, and shifts all vales left  when removing
+\end{answer}
+
+\newpage
+\Q (2 min) For each queue method, write a complete English sentence
+to describe \textbf{how it could be implemented} using an array, and its \textbf{O() performance}.
+
+Hint: Ideally, the methods should be O(1), or O(N) at worst.
+
+
+\begin{center}
+      \renewcommand{\arraystretch}{2}
+      \begin{tabular}{ |r|l|l|l| }
+            \hline
+            \rowcolor{lightgray} & \textbf{method}          & \textbf{implementation}                                          & \textbf{O()}  \\
+            \hline
+            a.                   & \ans[1.2in]{add or enqueue} & \ans[4in]{this.data[ this.end ] = value; this.end++;}               & \ans[.2in]{1} \\
+            \hline
+            b.                   & \ans[1.5in]{get}         & \ans[4in]{return this.data[ this.start ];}                      & \ans[.2in]{1} \\
+            \hline
+            c.                   & \ans[1.5in]{remove or dequeue}      & \ans[4in]{this.start++; return this.array[ this.start - 1 ];} & \ans[.2in]{1} \\
+            \hline
+            d.                   & \ans[1.5in]{}            & \ans[4in]{}                                                      & \ans[.2in]{}  \\
+            \hline
+            e.                   & \ans[1.5in]{}            & \ans[4in]{}                                                      & \ans[.2in]{}  \\
+            \hline
+      \end{tabular}
+\end{center}
+
+
+
+\begin{answer}[1em]
+      NOTE: a slower approach only stores the end index, and shifts all values left when removing - O(N)
+\end{answer}
+
+\Q (2 min) For an array implementation, a queue is somewhat more difficult than a stack.
+Explain why this is the case and what extra thought is required to implement a queue.
+
+\begin{answer}[1in]
+      A Stack adds and removes at the top, so the values at the bottom (array index 0) rarely change.
+      A Queue adds at one end and removes at the other, so both ends change.
+      If the head is at index 0, remove is O(N).
+      A circular array is O(1) to add and remove, but more complex.
+\end{answer}
+
+Review progress with the facilitator before continuing.
+
+
+\begin{quote}
+An Englishman, even if he is alone, forms an orderly queue of one.
+
+-- George Mikes, British writer, 1912-1987
+\end{quote}

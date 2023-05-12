@@ -1,0 +1,73 @@
+\model{Queues - Real World}
+
+Consider the following situations:
+\begin{enumerate}
+  \item People standing in a checkout line at a store or fast-food restaurant.
+  \item Suitcases or packages on a conveyor belt.
+  \item Phone callers on hold waiting for the "next available customer service representative".
+  \item Documents waiting to be printed on a printer.
+\end{enumerate}
+
+\Q (3 min) These situations are all examples of \textbf{queues}.
+Summarize their key common characteristics in 2-4 complete English sentences.
+
+\begin{answer}[1in]
+  Queues are a first-in, first-out sequence - items are removed in the order they were added.
+\end{answer}
+
+\Q (2 min) List any variations or exceptions to these characteristics.
+
+\begin{answer}[1in]
+  Variations include one queue with multiple outputs (e.g. line at a bank),
+  or queues with priorities (higher priorities are processed before lower priorities).
+  TODO: skip this Q or rephrase to be more directed
+
+  REPORT OUT: key characteristics and variations, so teams have a common understanding.
+\end{answer}
+
+
+\newpage
+\Q (3 min) Trace the following actions in a queue (steps a through e are provided as examples).
+
+\begin{center}
+  \newcolumntype{s}{>{\columncolor{lightgray}} p{.25cm}}
+  \begin{tabular}{ |r|l|p{.25cm}|l|l|l|l|p{.25cm}|l| }
+    \hline
+    \rowcolor{lightgray} & \textbf{action}   &  & \multicolumn{4}{|c|}{\textbf{contents}} &              & \textbf{outcome}                                                              \\
+    \hline
+    a.                   & empty queue       &  &                                         &              &                  &              &  &                                          \\
+    \hline
+    b.                   & get first item    &  &                                         &              &                  &              &  & ERROR - empty queue                      \\
+    \hline
+    c.                   & add A             &  & A                                       &              &                  &              &  &                                          \\
+    \hline
+    d.                   & add B             &  & A                                       & B            &                  &              &  &                                          \\
+    \hline
+    e.                   & remove first item &  & B                                       &              &                  &              &  & A is removed                             \\
+    \hline
+    f.                   & get first item    &  & \ans[1em]{B}                            & \ans[1em]{}  & \ans[1em]{}      & \ans[1em]{}  &  & \ans[2.5in]{B is returned (not removed)} \\
+    \hline
+    g.                   & add C             &  & \ans[1em]{B}                            & \ans[1em]{C} & \ans[1em]{}      & \ans[1em]{}  &  & \ans[2.5in]{}                            \\
+    \hline
+    h.                   & add D             &  & \ans[1em]{B}                            & \ans[1em]{C} & \ans[1em]{D}     & \ans[1em]{}  &  & \ans[2.5in]{}                            \\
+    \hline
+    i.                   & get first item    &  & \ans[1em]{B}                            & \ans[1em]{C} & \ans[1em]{D}     & \ans[1em]{}  &  & \ans[2.5in]{B is returned (not removed)} \\
+    \hline
+    j.                   & add E             &  & \ans[1em]{B}                            & \ans[1em]{C} & \ans[1em]{D}     & \ans[1em]{E} &  & \ans[2.5in]{} \\
+    \hline
+    k.                   & add F             &  & \ans[1em]{B}                            & \ans[1em]{C} & \ans[1em]{D}     & \ans[1em]{E} &  & \ans[2.5in]{possible stack full, depends on implementation} \\
+    \hline
+  \end{tabular}
+\end{center}
+
+\begin{center}
+\includegraphics[width=2in]{figures/alice.jpeg}
+\end{center}
+
+\begin{quote}
+The Queen had only one way of settling all difficulties, great or small.
+
+'Off with his head!' she said, without even looking round.
+
+--- Lewis Carroll, Alice in Wonderland
+\end{quote}

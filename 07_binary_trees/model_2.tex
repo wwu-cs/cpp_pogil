@@ -1,0 +1,219 @@
+
+\model{Binary Trees}
+
+A tree is a fundamental data structure in computing.
+We generally draw trees with the root node at the top of the tree (upside-down from regular trees you see in nature).
+\par\vskip 10pt
+
+\includegraphics[width=.9\textwidth]{figures/trees_example.png}
+
+\textbf{Some more vocabulary about trees:}
+
+\textit{Children} are ordered left to right; a parent could have 0 or more children.
+
+A tree with 0 nodes is an \textit{empty} tree.
+
+\textit{Ancestors} of a node N are the nodes in the path from N to the root of the tree.
+
+\textit{Descendants} of a node N are the set of nodes that can be reached from any downward path from N.
+
+The \textit{height} of the tree is the number of nodes along the longest (deepest) path of the tree.
+The height of an empty tree is 0.
+
+The \textit{subtree} at node N is node N with all its descendants.
+
+\Q How could trees be useful for modeling data in computing applications?
+
+\begin{answer}[1in]
+\end{answer}
+
+\begin{itemize}
+    \item Example: From Java, class hierarchies.
+    \item Example: From Coding, recursive function calls (hw 2, mazes).
+    \item Example: From Data Compression, Huffman coding.
+    \item Example: From Phone Menus, sequence of instructions (press 1 if you want to make a reservation, press 2 if you want to check on a reservation, press 3 if you want to speak to an operator; pressing 1 then asks, press 1 if you are making a reservation within the US, press 2 if you are making a reservation within Canada, etc.)
+\end{itemize}
+\par\vskip 10pt
+
+A \textbf{BINARY} tree is a tree in which each node has at most two children.
+Children are named left child or right child.
+
+Each node contains:
+
+\begin{tabular}{|l|}
+    \hline
+    Data (key,value) pairs if a dictionary \\ \hline
+    Left child                             \\ \hline
+    Right child                            \\ \hline
+\end{tabular}
+
+\begin{cpplst}
+typedef int TreeData; // can change type with primitive or struct type
+typedef struct TreeNodeTag TreeNode;
+
+struct TreeNodeTag {
+  TreeData value; // value stored in node
+  TreeNode * left; // left child
+  TreeNode * right; // right child
+};
+\end{cpplst}
+
+
+The left child is a pointer to another tree node.
+The right child is a pointer to another tree node.
+For simplicity, we will store just one data item per node (but this data item could be a struct that contains key, value pairs).
+\par\vskip 10pt
+
+Suppose T is a binary tree, where each node has at most two children.
+
+\Q Draw a binary tree with 6 nodes (labeled A, B, C, D, E, F) where there are exactly 3 leaves.
+
+
+\begin{answer}[1.5in]
+\end{answer}
+
+
+Recall that the height of a tree is the number of nodes of the longest (deepest) path from the root to a leaf node.
+
+\par\vskip 10pt
+
+What is the height of your tree? \ans{}
+
+\par\vskip 10pt
+
+
+\Q Draw a binary tree with 6 nodes where there is exactly 1 leaf.
+
+\begin{answer}[1.5in]
+\end{answer}
+
+What is the height of your tree? \ans{}
+
+\newpage
+Assume a binary tree has height H.
+
+\Q What is the maximum \# of leaf nodes in a tree of height H? \ans{}
+
+\Q What is the maximum \# of nodes in a tree of height H? (pack them in) \ans{}
+
+\Q What is the minimum \# of leaf nodes in a tree of height H? \ans{}
+
+\Q What is the minimum \# of nodes in a tree of height H? \ans{}
+
+\par\vskip 10pt
+
+\textit{In general, trees only speed things up if the tree is ``full'', meaning that we have close to the maximum number of nodes in a tree for a given height.
+    A long, skinny tree does not outperform a linked list.}
+\par\vskip 10pt
+
+Here is a binary tree of arithmetic expressions.
+
+
+\includegraphics[width=.4\textwidth]{figures/trees_arithmetic_expression.png}
+
+We can traverse the tree in one of three ways:
+
+\begin{itemize}
+    \item Preorder: examine node, left subtree, right subtree
+    \item Inorder: examine left subtree, node, right subtree
+    \item Postorder: examine left subtree, right subtree, node
+\end{itemize}
+
+If you get confused about the names, think about \textbf{*when*} the node is examined. First (pre), Second (in), Third (post).
+
+In the example above, here are the orders of these traversals:
+
+\begin{itemize}
+    \item Preorder: + x 2 5 4
+    \item Inorder: 2 x 5 + 4
+    \item Postorder: 2 5 x 4 +
+\end{itemize}
+
+Sometimes, the order of traversal does not matter for certain operations.
+For example, if you want to know how many nodes are in a tree, the way you traverse the tree does not impact your result.
+Any traversal would be fine.
+Sometimes, though, order does matter.
+If you want to print a tree such that each level of a tree is indented further to the right, you would want to examine the tree in preorder fashion.
+If you are evaluating an expression tree, such as the one above, you would want to do this in postorder (get value of children before processing new operator).
+
+Here is the code for inorder traversal. Note that visit is also defined for visiting the node.
+
+\begin{cpplst}
+
+/* inorder
+ * visits the nodes inorder (left, current, right) traversal
+ */
+void inorder(TreeNode * t) {
+  if(t != NULL) {
+    inorder(t->left);
+    visit(t);
+    inorder(t->right);
+  }
+}
+\end{cpplst}
+
+
+\Q Write the code to do preorder traversal:
+
+\begin{cpplst}
+void preorder(TreeNode * t) {
+
+
+
+
+
+
+
+
+
+
+}
+\end{cpplst}
+
+
+Suppose a tree has this structure:
+
+\includegraphics[width=.3\textwidth]{figures/trees3.png}
+
+\Q What is the inorder traversal of this tree? \ans{}
+
+\Q What is the preorder traversal of this tree? \ans{}
+
+\newpage
+\Q Write the recursive function to return the number of leaves in a tree.
+This should be written recursively, since the tree data structure is recursive.
+Recall that if t is null, there are no leaves.
+If it's right child and left child are both null, t is a leaf, so return 1.
+Else, add together the recursive calls to process the left subtree and right subtree.
+
+\begin{cpplst}
+int numLeaves(TreeNode * t) {
+
+
+
+
+
+
+
+
+}
+\end{cpplst}
+
+\Q Write a function to count the number of interior nodes with two children.
+
+\begin{answer}[1.5in]
+\end{answer}
+
+\Q Assume a binary tree is traversed in-order and preorder.
+Here is the output.
+What does the tree look like?
+
+Inorder: E F D B A C G H
+
+Preorder: D E F G A B C H
+
+\begin{answer}[2in]
+\end{answer}
+
+\Q What questions does your group have about binary trees?
+

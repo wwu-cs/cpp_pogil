@@ -1,0 +1,205 @@
+\model{BST Basics}
+
+A \textbf{BINARY SEARCH} tree is a binary tree in which the data (keys) are stored in order such that all nodes to the right of node N have keys bigger than N and all nodes to the left of node N have keys smaller than N.
+\par\vskip 10pt
+
+BSTs give us a good data structure to implement the dictionary ADT (insert, find, delete, create, print).
+\par\vskip 10pt
+
+Here is a simple BST where the keys are ints:
+\par\vskip 10pt
+
+\begin{tikzpicture}
+    \Tree
+    [.8
+    [.2
+    -3
+    [.4
+    3
+    7
+    ]
+    ]
+    9
+    ]
+\end{tikzpicture}
+
+\begin{itemize}
+    \item Choose any node in the tree.
+    \item Its left subtree descendants are less than the node's value.
+    \item Its right subtree descendants are greater than the node's value.
+\end{itemize}
+
+\Q Is this a valid binary search tree? \ans[.5in]{} yes \ans[.5in]{X} no
+
+If no, explain why.
+
+\begin{tikzpicture}
+    \Tree
+    [.5
+            [.4
+                    [.1
+                        \edge[blank]; \node[blank]{};
+                        3
+                    ]
+                \edge[blank]; \node[blank]{};
+            ]
+            [.8
+                7
+                11
+            ]
+    ]
+\end{tikzpicture}
+
+\newpage
+\Q Is this a valid binary search tree? \ans[.5in]{X} yes \ans[.5in]{} no
+
+If no, explain why.
+
+\begin{tikzpicture}
+    \Tree
+    [.8
+            [.5
+                    [.2
+                        \edge[blank]; \node[blank]{};
+                        4
+                    ]
+                6
+            ]
+            [.11
+                    [.10
+                        \edge[blank]; \node[blank]{};
+                        15
+                    ]
+                    [.18
+                        \edge[blank]; \node[blank]{};
+                        20
+                    ]
+            ]
+    ]
+\end{tikzpicture}
+
+\Q Is this a valid binary search tree? \ans[.5in]{X} yes \ans[.5in]{} no
+
+If no, explain why.
+
+\begin{tikzpicture}
+    \Tree
+    [.8
+            [.5
+                    [.2
+                        \edge[blank]; \node[blank]{};
+                        4
+                    ]
+                7
+                6
+            ]
+            [.11
+                    [.9
+                        \edge[blank]; \node[blank]{};
+                        10
+                    ]
+                    [.18
+                        \edge[blank]; \node[blank]{};
+                        20
+                    ]
+            ]
+    ]
+\end{tikzpicture}
+
+\textbf{Inserting new nodes}
+
+How do we insert new nodes into a BST?
+
+
+\begin{tikzpicture}
+    \Tree
+    [.5
+            [.4
+                    [.1
+                        \edge[blank]; \node[blank]{};
+                        3
+                    ]
+                \edge[blank]; \node[blank]{};
+            ]
+            [.8
+                7
+                11
+            ]
+    ]
+\end{tikzpicture}
+
+
+\Q Suppose we want to insert the value 6. Where does it go?
+
+\Q Now, we want to insert 0. Where does it go?
+
+\Q Now, we want to insert 9. Where does it go?
+
+\newpage
+Inserting into a BST is quite simple. Insertions happen at the leaves.
+Here is an iterative version:
+
+\footnotesize
+\begin{cpplst}
+/* insert
+ * inserts data item d into tree; note that this is a BST so it is ordered
+ */
+void insert(TreeData d, TreeNode **tptr) {
+    // create new node for data
+    TreeNode *toInsert = newTreeNode(d);
+    TreeNode *curr = *tptr;
+    if (curr == NULL) {
+        *tptr = toInsert; // make this the tree
+        return;
+    }
+    // check value of t to see if new node should be to the right or left of curr
+    while (curr != NULL) {
+        if (d < curr->value) { // goes to left
+            if (curr->left == NULL) {
+                curr->left = toInsert;
+                return;
+            }
+            // keep going left
+            curr = curr->left;
+        } else { // goes to right
+            if (curr->right == NULL) {
+                curr->right = toInsert;
+                return;
+            }
+            // keep going right
+            curr = curr->right;
+        }
+    }
+}
+/* newTreeNode
+ * helper function, creates a new tree node with value d
+ * returns the address of the new node
+ */
+TreeNode *newTreeNode(TreeData d) {
+    TreeNode *toReturn = (TreeNode *)malloc(sizeof(TreeNode));
+    toReturn->value = d;
+    toReturn->left = NULL;
+    toReturn->right = NULL;
+    return toReturn;
+}
+\end{cpplst}
+
+\normalsize
+Here is a recursive version to insert an item:
+
+\footnotesize
+\begin{cpplst}
+/* insertR (this function is written recursively)
+ * inserts data item d into tree; note that this is a BST so it is ordered
+ */
+void insertR(TreeData d, TreeNode **tptr) {
+    if (*tptr == NULL) {
+        *tptr = newTreeNode(d);
+    } else if (d < (*tptr)->value) {
+        insertR(d, &(*tptr)->left);
+    } else {
+        insertR(d, &(*tptr)->right);
+    }
+}
+\end{cpplst}
+\normalsize

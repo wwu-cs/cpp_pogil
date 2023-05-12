@@ -1,0 +1,77 @@
+\model{Stacks - Array Implementation}
+
+A stack ADT can be implemented in multiple ways, as you will see.
+For now, we will consider how to implement a stack using an array, e.g.:
+
+\begin{javabox}
+public class AStack<T> implements IStack<T> {
+    // field(s)
+    private T [] data;
+
+    // constructor(s)
+    public Stack<T>(int maxSize) {
+        // allocate data (Java can't create generic arrays)
+        this.data = (T[]) new Object[maxSize];
+    }
+
+    // methods
+}
+\end{javabox}
+
+
+\Q (3 min) \textbf{Show the contents of the data array after each operation.}
+Assume we start with an empty stack. If you use additional fields (e.g. to keep track
+of positions in the array),  add a column for each one and show how its value changes.
+
+
+\begin{center}
+      \begin{tabular}{ |r|l|c|c|c|c|c|c|c| }
+            \hline
+            \rowcolor{lightgray} & \textbf{Operation}         & \textbf{[0]}  & \textbf{[1]}  & \textbf{[2]} & \textbf{[3]} & \ans[.2in]{} & \ans[.2in]{} & \ans[.2in]{size} \\
+            \hline
+            a.                   & Create new data structure. & \ans[.2in]{}  & \ans[.2in]{}  & \ans[.2in]{} & \ans[.2in]{} & \ans[.2in]{} & \ans[.2in]{} & \ans[.2in]{0}    \\
+            \hline
+            b.                   & Add value 'A'.             & \ans[.2in]{A} & \ans[.2in]{}  & \ans[.2in]{} & \ans[.2in]{} & \ans[.2in]{} & \ans[.2in]{} & \ans[.2in]{1}    \\
+            \hline
+            c.                   & Add value 'B'.             & \ans[.2in]{A} & \ans[.2in]{B} & \ans[.2in]{} & \ans[.2in]{} & \ans[.2in]{} & \ans[.2in]{} & \ans[.2in]{2}    \\
+            \hline
+            d.                   & Remove value.              & \ans[.2in]{A} & \ans[.2in]{}  & \ans[.2in]{} & \ans[.2in]{} & \ans[.2in]{} & \ans[.2in]{} & \ans[.2in]{1}    \\
+            \hline
+            e.                   & Add value 'C'.             & \ans[.2in]{A} & \ans[.2in]{C} & \ans[.2in]{} & \ans[.2in]{} & \ans[.2in]{} & \ans[.2in]{} & \ans[.2in]{2}    \\
+            \hline
+            f.                   & Get current size.          & \ans[.2in]{A} & \ans[.2in]{C} & \ans[.2in]{} & \ans[.2in]{} & \ans[.2in]{} & \ans[.2in]{} & \ans[.2in]{2}    \\
+            \hline
+            g.                   & Remove value.              & \ans[.2in]{A} & \ans[.2in]{}  & \ans[.2in]{} & \ans[.2in]{} & \ans[.2in]{} & \ans[.2in]{} & \ans[.2in]{1}    \\
+            \hline
+            h.                   & Add value 'D'.             & \ans[.2in]{A} & \ans[.2in]{D} & \ans[.2in]{} & \ans[.2in]{} & \ans[.2in]{} & \ans[.2in]{} & \ans[.2in]{2}    \\
+            \hline
+      \end{tabular}
+\end{center}
+
+\newpage
+\Q (2 min) For each stack method, write a complete English sentence
+to describe \textbf{how it could be implemented} using an array, and its \textbf{O() performance}.
+
+Hint: Ideally, the methods should be O(1), or O(N) at worst.
+
+
+\begin{center}
+      \renewcommand{\arraystretch}{2}
+      \begin{tabular}{ |r|l|l|l| }
+            \hline
+            \rowcolor{lightgray} & \textbf{method}         & \textbf{implementation}                                  & \textbf{O()}  \\
+            \hline
+            a.                   & \ans[1.2in]{add or push}   & \ans[4in]{this.data[ this.size ] = value; this.size++;}     & \ans[.2in]{1} \\
+            \hline
+            b.                   & \ans[1.5in]{get or peek}   & \ans[4in]{return this.data[ this.size - 1 ];  }           & \ans[.2in]{1} \\
+            \hline
+            c.                   & \ans[1.5in]{remove or pop} & \ans[4in]{this.start--; return this.data[ this.size ]; } & \ans[.2in]{1} \\
+            \hline
+            d.                   & \ans[1.5in]{size}       & \ans[4in]{return this.size;}                             & \ans[.2in]{1}  \\
+            \hline
+            e.                   & \ans[1.5in]{}           & \ans[4in]{}                                              & \ans[.2in]{}  \\
+            \hline
+      \end{tabular}
+\end{center}
+
+Review progress with the facilitator before continuing.

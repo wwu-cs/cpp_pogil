@@ -1,0 +1,99 @@
+\model{Analysis Functions}
+
+Label each of the following methods either $\Theta(1)$, $\Theta(n)$, or $\Theta(n^{2})$.
+
+\begin{javalst}
+int max(int a, int b) {
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  }
+}
+\end{javalst}
+
+\Q
+The \texttt{max} method is $\Theta(\hspace{1 pc})$. Justify your answer.
+
+
+\begin{answer}[.25in]
+\end{answer}
+
+
+\begin{javalst}
+int maxElement(int[ ] array) {
+  int max = array[0];
+  for (int i = 0; i < array.length; i++) {
+    if (array[i] > max) {
+      max = array[i];
+    }//end if
+  } //end for
+  return max;
+}
+\end{javalst}
+
+
+\Q
+The \texttt{maxElement} method is $\Theta(\hspace{1 pc})$. Justify your answer.
+
+
+\begin{answer}[.25in]
+\end{answer}
+
+\begin{javalst}
+int maxSubseqSum(int[ ] array) {
+  int max = array[0];
+  for (int i = 0; i < array.length; i++) {
+    int sum = 0;
+    for (int j = i; j < array.length; j++) {
+      sum += j;
+      if (sum > max) {
+        max = sum;
+      } //end if
+    } //end for
+  } //end for
+  return max;
+}
+\end{javalst}
+
+
+\Q
+The \texttt{maxSubseqSum} method is $\Theta(\hspace{1 pc})$. Justify your answer.
+
+
+\begin{answer}[.25in]
+\end{answer}
+
+\newpage
+\Q
+We are using the number of operations a method executes as a measure
+of its run time.  In a few complete sentences, explain why we are using
+this measure of time rather than a wall-clock measure of time (\emph{i.e.},
+minutes, seconds, \emph{etc}.).
+
+\begin{answer}[1.25in]
+\end{answer}
+
+\Q
+Why is knowing that a method is $\Theta(n)$ more valuable than knowing that
+it takes fifteen seconds to execute on a 2.7GHz i7? In the space below,
+list the pros and cons for each statement.\\
+\begin{itemize}
+    \item ``The method is $\Theta(n)$.''
+          \begin{answer}[1.25in]
+          \end{answer}
+
+    \item ``The method took 15s on my i7.''
+          \begin{answer}[1.25in]
+          \end{answer}
+\end{itemize}
+
+
+
+\Q
+Is it possible that there are inputs for which a $\Theta(1)$ method
+executes more operations than a $\Theta(n)$ method that has the same
+specification? Why or why not?
+
+\begin{answer}[1.25in]
+\end{answer}

@@ -1,0 +1,133 @@
+\model{Creating a Tree}
+
+\textbf{Finding keys}
+
+Now, how would we find an element in the tree?
+
+\begin{tikzpicture}
+    \Tree
+    [.5
+            [.3
+                1
+                4
+            ]
+            [.8
+                7
+                11
+            ]
+    ]
+\end{tikzpicture}
+
+Let's find 7.
+Start with the root.
+If the item is equal to 7, return true (or a pointer to this item).
+If the item you are looking for is \textgreater ~ than the root, treat right subtree as root.
+Otherwise, treat left subtree as root.
+Keep applying this procedure until you hit a leaf.
+\par\vskip 10pt
+
+\Q What nodes are examined when looking for 7? \ans{}
+\par\vskip 10pt
+
+\Q Now, look for 4. What nodes are examined when looking for 4? \ans{}
+\par\vskip 10pt
+
+You will implement the find function in lab.
+\par\vskip 10pt
+
+\textbf{Creating a new tree}
+\par\vskip 10pt
+
+Creating a new tree is pretty straightforward.
+A tree with no items is NULL.
+
+\begin{cpplst}
+    TreeNode * tree = NULL;
+\end{cpplst}
+
+To instantiate a tree with a list of items, we could do this:
+
+\begin{cpplst}
+/* createTree
+ * creates a binary search tree with data stored in array a
+ */
+TreeNode *createTree(TreeData a[], int size) {
+    if (size <= 0) {
+        return NULL;
+    }
+    TreeNode *toReturn = newTreeNode(a[0]); // insert first item from list
+    int i;
+    for (i = 1; i < size; i++) {
+        insert(a[i], &toReturn);
+    }
+    return toReturn;
+}
+\end{cpplst}
+
+\newpage
+An optional dictionary operation is size. Here is an implementation of size:
+
+\begin{cpplst}
+/* size
+ * returns the number of nodes in the tree
+ */
+int size(TreeNode *t) {
+    if (t == NULL) {
+        return 0;
+    }
+    return 1 + size(t->left) + size(t->right);
+}
+\end{cpplst}
+
+Suppose you create an empty tree and items are inserted as follows:
+
+\begin{cpplst}
+    TreeNode * tree = NULL;
+    insert(5, &tree);
+    insert(8, &tree);
+    insert(2, &tree);
+    insert(1, &tree);
+    insert(10, &tree);
+    insert(7, &tree);
+    insert(9, &tree);
+    insert(12, &tree);
+\end{cpplst}
+
+\Q What does the BST look like?
+\begin{answer}[2in]
+\end{answer}
+
+\Q What nodes are examined when finding 7?
+\begin{answer}[0.5in]
+\end{answer}
+
+\Q What nodes are examined when finding 3?
+\begin{answer}[0.5in]
+\end{answer}
+
+\newpage
+\Q Now, suppose this is a new tree and insertions are done in this order:
+
+\begin{cpplst}
+    TreeNode * tree = NULL;
+    insert(1, &tree);
+    insert(3, &tree);
+    insert(4, &tree);
+    insert(6, &tree);
+    insert(7, &tree);
+    insert(8, &tree);
+    insert(9, &tree);
+\end{cpplst}
+
+What does this tree look like?
+\begin{answer}[2in]
+\end{answer}
+
+There are ways to balance trees, so we get the win of searches happening closer to $O(log_2N)$ rather than $O(N)$.
+You can read about specific kinds of trees, such as red-black trees and AVL trees that support tree rotations.
+
+\Q Give an insertion order of the same nodes in problem 4 that results in a full (complete) BST where most interior nodes have two children.
+Show the tree that results from this insertion order.
+
+\begin{answer}[2in]
+\end{answer}
