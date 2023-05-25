@@ -17,7 +17,7 @@ Each subfolder contains various files used in the homework. Including a README.m
 
 
 
-[CS POGIL Website](http://cspogil.org/)
+[CS POGIL Site](http://cspogil.org/)
 
 
 [Cliff Kussmaul - CS 2 Full](https://drive.google.com/drive/u/3/folders/1Vh9wTBKTshuHJxSUpFNQ4CIyMpb7iOVf)
