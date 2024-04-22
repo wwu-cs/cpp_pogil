@@ -1,6 +1,7 @@
 # CS C++ Pogil Activities
 
-These POGIL activities are a mix of original activities and adapted Python or Java activitities to C++.
+These POGIL activities are a mix of original activities and adapted Python or Java activities to C++.
+We are sharing our C++ POGIL activities following the example of [Chris Mayfield](https://github.com/ChrisMayfield/cspogil/).
 
 **POGIL activities for CS1 and CS2.**
 
