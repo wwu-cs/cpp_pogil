@@ -60,7 +60,7 @@ public class StringCompL implements Comparator<String> {
 }
 public class CityCompA implements Comparator<City> {
   public int     compare(City c1, City c2) {
-    return (int)( c1.getArea() – c2.getArea() );
+    return (int)( c1.getArea() - c2.getArea() );
   }
   public boolean equals (Object o) { return false; }
 }
