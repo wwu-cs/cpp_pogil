@@ -1,0 +1,811 @@
+\documentclass{exam}
+%\documentclass[answers]{exam}
+\hbadness=99999
+\setlength{\textheight}{9.5in}
+\setlength{\textwidth}{6.8in}
+\setlength{\topmargin}{-0.75in}
+\setlength{\oddsidemargin}{-0.1in}
+\setlength{\evensidemargin}{-0.1in}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage[table]{xcolor}
+\usepackage{hhline}
+\usepackage{graphicx}
+\usepackage{tikz}
+%\usepackage{pgfplots}
+\usepackage{multicol}
+\usepackage{fancyvrb}
+
+% for syntax highlighting
+\usepackage{minted}
+\usemintedstyle[cpp]{xcode}
+
+% for overlay of output
+\usepackage[overlay,showboxes]{textpos}
+
+\pagestyle{plain}
+
+\setlength\columnsep{50pt}
+\newcommand{\key}{\hfill
+      \raisebox{-.3\height}{\includegraphics[width=0.6in]{figures/key.png}}}
+
+\begin{document}
+  \thispagestyle{empty}
+  \setlength{\parindent}{0pt}
+
+  \begin{center}
+    \Large Activity \#15: Coding Style \\[5pt]
+    \large Recorder's Report\\[20pt]
+    \normalsize
+    \begin{tabular}{lrp{0.1in}lr}
+      Manager:  & \fillin[][2.0in] & & Presenter: & \fillin[][2.0in]\\[15pt]
+      Recorder: & \fillin[][2.0in] & & Driver:    & \fillin[][2.0in]\\[15pt]
+      Date:     & \fillin[][2.0in] & & Score:     & Satisfactory \hspace{10pt} /
+      \hspace{10pt} Not Satisfactory
+    \end{tabular}
+  \end{center}
+  \par\vskip 15pt
+  
+  Record your team's answers to the key questions (marked with
+  \raisebox{-.3\height}{\includegraphics[width=0.5in]{figures/key.png}})
+  below.
+  \begin{enumerate}[(a)]
+    \itemsep 1.75in
+    \item Model 1, Question \#8
+    \item Model 2, Question \#12
+    \item Model 3, Question \#17
+  \end{enumerate}
+
+  \clearpage\pagenumbering{arabic} 
+  
+  \begin{center}
+    \Large Activity \#15: Coding Style \\[5pt]
+    \large Activity Guide\\[20pt]
+  \end{center}
+  \vskip -30pt\null
+
+  \begin{center}
+    \fbox{
+      \begin{minipage}{5.5in}
+        {\bf Learning Objectives:} Students will be able to:
+        \begin{itemize}
+          \item Content:\\[-20pt]
+            \begin{itemize}
+              \itemsep 0pt
+              \item Identify good C++ programming style for variables, expressions, and functions
+              \item Articulate style guidelines for variables, expressions, and functions in C++
+              \item Identify good style in coding practices
+            \end{itemize}
+          \item Process\\[-20pt]
+            \begin{itemize}
+              \itemsep 0pt
+              \item Rewrite code to improve its style \\[-5pt]
+            \end{itemize}
+        \end{itemize}
+      \end{minipage}
+      }
+  \end{center}
+  \par\vskip 10pt
+  
+
+  {\bf\large Model 1: Variables and Expressions} \\[-5pt]
+  \begin{center}
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{|p{3in}|p{3in}|}
+      \hline
+      \rowcolor{orange!20} 
+        \begin{minipage}{2.8in}\centering {\bf Code Block $X$}\end{minipage} & 
+        \begin{minipage}{2.8in}\centering {\bf Code Block $Y$}\end{minipage} \\
+      \hline
+      \begin{minipage}{3in}
+        \small
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+        ]{cpp}
+int i1 = 10, i2 = 5;
+double c1 = 9.99, c2 = 4.99; 
+double d1 = 0.06, d2 = 0.99;
+double s1 = i1*c1+i2*c2;
+double t1 = s1+s1*d1+i1*d2;
+        \end{minted}
+        \vskip 70pt\null
+      \end{minipage}
+      &
+      \begin{minipage}{3in}
+        \small
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+        ]{cpp}
+int numCD      = 10;
+int numMP3     = 5;
+double costCD  = 9.99;
+double costMP3 = 4.99;
+double shipCD  = 0.99;
+double rateTax = 0.06;
+double subCost = (numCD * costCD) + 
+                 (numMP3 * costMP3);
+double subShip = numCD * shipCD;
+double subTax  = subCost * rateTax;
+double total   = subCost + subTax + subShip;
+        \end{minted} 
+      \end{minipage}
+      \\
+      \hline
+    \end{tabular} 
+  \end{center}  
+  \par\vskip 10pt
+  
+  {\it\large Refer to Model 1 above as your team develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+    
+  \begin{enumerate}
+    \itemsep 20pt
+
+    \item Determine which code block above ($X$ or $Y$) matches the
+      description below.
+      \par\vskip 15pt
+      
+      \begin{enumerate}[(a)]
+        \itemsep 15pt
+        \item Is shorter and would take less time to type: \hfill \fillin[$X$][1in] \hspace{1in}\null
+        \item Uses more variables: \hfill \fillin[$Y$][1in] \hspace{1in}\null
+        \item Would be easier to edit or debug: \hfill \fillin[$Y$][1in] \hspace{1in}\null
+      \end{enumerate}
+      \ifprintanswers\vskip -20pt\null\fi
+      
+    \item When we study foreign languages we learn about:
+      \begin{itemize}
+        \item {\it Syntax} -- The rules used to spell words and construct
+          grammatically correct sentences
+        \item {\it Semantics} -- The meanings of words and how to interpret sentences
+        \item {\it Style} -- The distinctive voice of an author
+          expressed within the rules of syntax and semantics          
+      \end{itemize}
+      All three of these are also present in a programming language.
+      Are the differences between code block $X$ and $Y$ above
+      differences in syntax, semantics, or style?  Explain.
+      \begin{solution}[0.5in]
+        \par
+        They are differences in style since both are syntactically
+        correct (both will compile) and semantically equivalent (the
+        both compute the same value).
+      \end{solution}
+      
+\newpage      
+      
+    \item Each pair of code blocks below is syntactically and
+      semantically equivalent.  Decide which one is better based only
+      on the style.  Enter $X$, $Y$, or ? (if you think they are
+      equally good).
+
+      {\renewcommand{\arraystretch}{2.3}
+      \begin{tabular}{|c|p{2.55in}|p{2.55in}|c|}
+        \hline
+        \rowcolor{orange!20} & Block $X$ & Block $Y$ & Choice \\
+        \hline
+        (a) & 
+          \mintinline{cpp}|int i1 = 3, i2 = 7;| 
+          & 
+          \mintinline{cpp}|int numClosed = 3, numOpen = 7;| 
+          & 
+          \fillin[$Y$][0.4in] \\
+        \hline
+        (b) &
+          \mintinline{cpp}|int numCat = 2, numDog = 5;| 
+          & 
+          \mintinline{cpp}|int numCat = 2, dogNum = 5;| 
+          & 
+          \fillin[$X$][0.4in] \\
+        \hline
+        (c) &
+          \mintinline{cpp}|int numson = 3, isdone = true;|
+          & 
+          \mintinline{cpp}|int numSon = 3, isDone = true;| 
+          & 
+          \fillin[$Y$][0.4in] \\
+        \hline
+        (d) &
+          \begin{minipage}{2.5in}
+            \par\vskip 10pt
+            \mintinline{cpp}|int costCoffee = 2, costTea = 1;|\\
+            \mintinline{cpp}|int soldCoffee = 4, soldTea = 6;|\\
+          \end{minipage}
+          & 
+          \begin{minipage}{2.5in}
+            \par\vskip 10pt
+            \mintinline{cpp}|int costCoffee = 2, costTea = 1;|\\
+            \mintinline{cpp}|int soldTea = 6, soldCoffee = 4;|\\
+          \end{minipage}
+          & 
+          \fillin[$X$][0.4in] \\
+        \hline
+      \end{tabular}}
+      
+    \item Based on your answers above, describe what you think is a 
+      good style for naming variables.
+      \begin{solution}[1in]
+        \par
+        Variable names should be chosen to match the purpose of a
+        variable.  If they are composed of multiple words, those words
+        should be separated in some way (capitals, underscores, etc).
+        Their names should be consistent (same order to compound
+        words, etc).
+      \end{solution}
+      
+    \item Each pair of code blocks below is syntactically and
+      semantically equivalent.  Decide which one is better based only on
+      the style.  Enter $X$, $Y$, or ? (if you think they are equally good).
+      
+      {\renewcommand{\arraystretch}{2.3}
+      \begin{tabular}{|c|p{2.5in}|p{2.5in}|c|}
+        \hline
+        \rowcolor{orange!20} & Block $X$ & Block $Y$ & Choice \\
+        \hline
+        (a) & 
+          \mintinline{cpp}|s1=i1*c1+i2*c2;|
+          & 
+          \mintinline{cpp}|s1 = i1*c1 + i2*c2;|
+          & 
+          \fillin[$Y$][0.5in] \\
+        \hline
+        (b) &
+          \mintinline{cpp}|s1=(i1*c1)+(i2*c2);|
+          & 
+          \mintinline{cpp}|s1=i1*c1+i2*c2;|
+          & 
+          \fillin[$X$][0.5in] \\
+        \hline
+        (c) &
+          \mintinline{cpp}|s1 = c1*i1 + i2*c2;|
+          & 
+          \mintinline{cpp}|s1 = i1*c1 + i2*c2;|
+          & 
+          \fillin[$Y$][0.5in] \\
+        \hline
+        (d) &
+          \begin{minipage}{2in}
+            \begin{minted}[
+              frame=none,
+              bgcolor=white,
+            ]{cpp}
+float total = nCD*sCD +
+  (nCD*cCD + nMP3*cMP3) *
+  (1+rateTax);
+            \end{minted} 
+          \end{minipage}
+          & 
+          \begin{minipage}{2in}
+            \begin{minted}[
+              frame=none,
+              bgcolor=white,
+            ]{cpp}
+float cost  = nCD*cCD + nMP3*cMP3;
+float ship  = nCD*sCD;
+float tax   = cost * rateTax;
+float total = cost + tax + ship;
+            \end{minted} 
+          \end{minipage}
+          & 
+          \fillin[$Y$][0.5in] \\
+        \hline
+      \end{tabular}}
+      
+    \item Based on your answers above, describe what you think is a
+      good style for writing expressions.
+      \begin{solution}[1in]
+        \par
+        Expressions should make use of white space to separate out
+        different parts.  Using parentheses to group things, even if
+        not required, is also a good idea.  It is better to split long
+        expressions up into individual sub-computations that have
+        meaning in the context of the problem being solved.
+      \end{solution}
+
+\newpage
+      
+    \item Code that can be read and understood without separate
+      documentation is called {\it self-documenting code}.  What are
+      some way to make expressions self-documenting?
+      \begin{solution}[1in]
+        \begin{itemize}
+          \item Use variable names that have meaning in the context of
+            the problem being solved.
+          \item Split long computations up into meaningful steps.
+          \item Group pieces of the computation together so that the
+            order of precedence is clearly seen.
+        \end{itemize}
+      \end{solution}
+      \par\ifprintanswers\vskip -40pt\else\vskip -20pt\fi\null
+
+    \item Rewrite the code below to be self-documenting.  Use
+      your style recommendations above.\key\\[-2.5mm]
+      \begin{center}
+        \begin{minipage}{5.25in}
+          \begin{minted}[
+            frame=lines,
+            framesep=2mm,
+            bgcolor=gray!15,
+            baselinestretch=1.2
+          ]{cpp}
+// calculate trip cost from 2-way flights, nights in hotels, and meals
+double fc=500, ch=150, mc=30, nn=5;         // costs and number nights
+double c = 2*fc+ch*nn+3*mc*nn;                // compute total cost
+          \end{minted}
+        \end{minipage}
+      \end{center}
+      \begin{solution}[2in]
+        \scriptsize\vskip -35pt\null
+        \begin{center}
+          \begin{minipage}{4.25in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+              linenos
+            ]{cpp}
+// calculate trip cost from 2-way flights, nights in hotels, and meals
+double flightPrice = 500;
+double hotelPrice  = 150;
+double mealPrice   = 30;
+int    numNights   = 5;
+double travelCost  = 2 * flightPrice;
+double lodgingCost = numNights * hotelPrice;
+double mealCost    = 3 * numNights * mealPrice;
+double totalCost   = travelCost + lodgingcost + mealCost;
+            \end{minted}
+          \end{minipage}
+          \vskip -10pt\null
+        \end{center}
+      \end{solution}      
+
+      
+  {\bf\large Model 2: Function Calls} \\[-20pt]
+  \begin{center}
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{|p{3in}|p{3in}|}
+      \hline
+      \rowcolor{orange!20} 
+        \begin{minipage}{2.8in}\centering {\bf Code Block $X$}\end{minipage} & 
+        \begin{minipage}{2.8in}\centering {\bf Code Block $Y$}\end{minipage} \\
+      \hline
+      \begin{minipage}{3in}
+        \scriptsize
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+        ]{cpp}
+int i1 = f1("c"); int i2 = f2("m"); 
+int c1 = f3("c"); int c2 = f4("m");
+int s1 = g1(i1,c1)+g1(i2*c2); 
+int t1 = s1 + h1(s1) + h2(i1,f5("c"));
+        \end{minted}
+        \vskip 30pt\null
+      \end{minipage}
+      &
+      \begin{minipage}{3in}
+        \scriptsize
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+        ]{cpp}
+int numCD      = getNum ("CD");
+int numMP3     = getNum ("MP3");
+double costCD  = getCost("CD");
+double costMP3 = getCost("MP3");
+double subCost = getSubCost(numCD, costCD) +
+                 getSubCost(numMP3, costMP3);
+double subShip = getSubShip(numCD, getShip("CD"));
+double total   = subCost + subShip + getTax(subCost);
+        \end{minted} 
+      \end{minipage}
+      \\
+      \hline
+    \end{tabular} 
+  \end{center}  
+  \par\vskip 10pt
+  
+  {\it\large Refer to Model 2 above as your team develops consensus answers
+    to the questions below.}
+    \par\vskip -20pt\null
+
+  \item Determine which code block above ($X$ or $Y$) matches the
+    description below.
+    \par\vskip 15pt
+    
+    \begin{enumerate}[(a)]
+      \itemsep 15pt
+      \item Is shorter and would take less time to type: \hfill \fillin[$X$][1in] \hspace{1in}\null
+      \item Declares more variables: \hfill \fillin[$Y$][1in] \hspace{1in}\null
+      \item Would be easier to update or debug if a problem is found: \hfill \fillin[$Y$][1in] \hspace{1in}\null
+    \end{enumerate}
+
+\newpage
+
+    \item Each pair of code blocks below is syntactically and
+      semantically equivalent.  Decide which one is better based only
+      on the style.  Enter $X$, $Y$, or ? (if you think they are
+      equally good).
+
+      {\renewcommand{\arraystretch}{2.3}
+      \begin{tabular}{|c|p{2.5in}|p{2.5in}|c|}
+        \hline
+        \rowcolor{orange!20} & Block $X$ & Block $Y$ & Choice \\
+        \hline
+        (a) & 
+          \mintinline{cpp}|tree(pic,x,y);|
+          & 
+          \mintinline{cpp}|drawTree(pic,x,y);|
+          & 
+          \fillin[$Y$][0.5in] \\
+        \hline
+        (b) &
+          \mintinline{cpp}|checkSize(a);|
+          & 
+          \mintinline{cpp}|hasValidSize(a);|
+          & 
+          \fillin[$Y$][0.5in] \\
+        \hline
+        (c) &
+          \begin{minipage}{2in}
+            \par\vskip 10pt
+            \mintinline{cpp}|getCostToShip(item,num);|\\
+            \mintinline{cpp}|getCostOfTax (item,num);|\\
+          \end{minipage}
+          & 
+          \begin{minipage}{2in}
+            \par\vskip 10pt
+            \mintinline{cpp}|getShipCost (num,item);|\\
+            \mintinline{cpp}|getCostOfTax(item,num);|\\
+          \end{minipage}
+          & 
+          \fillin[$X$][0.5in] \\
+        \hline
+      \end{tabular}}
+      
+  \item Determine which type of C++ programming concept, a {\bf variable} or a {\bf function},
+    best matches each description below.
+    \par\vskip 15pt
+    
+    \begin{enumerate}[(a)]
+      \itemsep 15pt
+      \item Is used to represent information \hfill \fillin[variable][2in]
+      \item Is used to represent an action or a set of steps \hfill \fillin[function][2in]
+      \item Should be named with a verb or a verb phrase \hfill \fillin[function][2in]
+      \item Should be named with a noun or a noun phrase \hfill \fillin[variable][2in]
+    \end{enumerate}
+    \vskip -30pt\null
+    
+  \item Based on the above, what do you think is good style for naming
+    and calling functions?\key\\[-2.5mm]
+    \begin{solution}[1in]
+      \par
+      Functions should be named using verbs.  Their parameter lists should be consistent (i.e. two
+      functions with the same parameters should use the same order).  Their names should be
+      descriptive of what they actually do.
+    \end{solution}
+
+
+  {\bf\large Model 3: Comments} \\[-20pt]
+  \begin{center}
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{|p{3in}|p{3in}|}
+      \hline
+      \rowcolor{orange!20} 
+        \begin{minipage}{2.8in}\centering {\bf Code Block $X$}\end{minipage} & 
+        \begin{minipage}{2.8in}\centering {\bf Code Block $Y$}\end{minipage} \\
+      \hline
+      \begin{minipage}{3in}
+        \scriptsize
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+        ]{cpp}
+// call getNum()        
+int numCD      = getNum ("CD");
+int numMP3     = getNum ("MP3");
+// call getCost()
+double costCD  = getCost("CD");
+double costMP3 = getCost("MP3");
+// call SubCost
+double subCost = getSubCost(numCD, costCD) +
+                 getSubCost(numMP3, costMP3);
+// call getSubShip()
+double subShip = getSubShip(numCD, getShip("CD"));
+// call getTax()
+double total   = subCost + subShip + getTax(subCost);        
+        \end{minted}
+      \end{minipage}
+      &
+      \begin{minipage}{3in}
+        \scriptsize
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+        ]{cpp}
+// get the number of each item type
+int numCD      = getNum ("CD");
+int numMP3     = getNum ("MP3");
+// get the cost of each item type
+double costCD  = getCost("CD");
+double costMP3 = getCost("MP3");
+// combine subtotals from each item
+double subCost = getSubCost(numCD, costCD) +
+                 getSubCost(numMP3, costMP3);
+// add in shipping and tax to get grand total                 
+double subShip = getSubShip(numCD, getShip("CD"));
+double total   = subCost + subShip + getTax(subCost);        
+        \end{minted} 
+        \par\vskip 3pt\null
+      \end{minipage}
+      \\
+      \hline
+    \end{tabular} 
+  \end{center}  
+  \par\vskip 10pt
+                                                
+      
+  {\it\large Refer to Model 3 above as your team develops consensus answers
+    to the questions below.}
+
+\newpage         
+
+  \item Determine which code block above ($X$ or $Y$) matches the
+    description below.
+    \par\vskip 15pt
+    
+    \begin{enumerate}[(a)]
+      \itemsep 15pt
+      \item Has the most lines with comments: \hfill \fillin[$X$][1in]
+      \item Has comments that explain how and why the code works: \hfill \fillin[$Y$][1in]
+      \item Has comments that could be generated automatically by a computer program: \hfill \fillin[$X$][1in]
+    \end{enumerate}
+    
+    \item Based on your observations above, describe what you think is good style for comments.
+      \begin{solution}[1in]
+        \par
+        Comments should describe what the task being performed in the related lines of code
+        actually is.  They should not use the same names and/or jargon that is used in the code.
+      \end{solution}
+      
+    \item Use your observations to suggest good comments for the two comment lines in the code
+      below.
+      \begin{center}
+        \begin{tabular}{p{3in}p{3in}}
+          \begin{minipage}{3in}
+            \small
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2
+            ]{cpp}
+int getRange (vector<int> valList) {
+  /* COMMENT A */
+  int min = valList.at(0);
+  int max = valList.at(0);
+  /* COMMENT B */
+  for(int i=0; i<valList.size(); i++) {
+    if (valList.at(i) < min) 
+      min = valList.at(i);
+    if (valList.at(i) > max)
+      max = valList.at(i);
+  }
+  return (min - max);
+}
+            \end{minted}
+          \end{minipage}
+          &
+          \begin{minipage}{3in}
+            \begin{enumerate}[(a)]
+              \item \mintinline{cpp}|/* COMMENT A */|
+                \begin{solution}[1in]
+                  \par
+                  Default minimum and maximum are first value in the vector
+                \end{solution}
+              \item \mintinline{cpp}|/* COMMENT B */|
+                \begin{solution}[1in]
+                  \par
+                  Search through vector looking for smaller and/or larger values
+                \end{solution}
+            \end{enumerate}
+          \end{minipage}
+        \end{tabular}
+      \end{center}
+
+    \item Good programming style is important not just for naming variables and functions or
+      making comments.  It is also important in other coding practices.  For each
+      pair of practices below, decide in which case it would be easier to find and fix any
+      errors. Enter $X$, $Y$, or ? (if you think they are equally good).
+
+      {\renewcommand{\arraystretch}{2}
+      \begin{tabular}{|c|p{2.5in}|p{2.5in}|c|}
+        \hline
+        \rowcolor{orange!20} & Block $X$ & Block $Y$ & Choice \\
+        \hline
+        (a) & 10 existing lines of code (LoC)
+            & 100 existing LoC
+            & \fillin[$X$][0.5in] \\
+        \hline
+        (b) & 100 new LoC
+            & 90 working LoC plus 10 new LoC
+            & \fillin[$Y$][0.5in] \\
+        \hline
+        (c) & 1000 new LoC
+            & 900 working LoC plus 100 new LoC
+            & \fillin[$Y$][0.5in] \\
+        \hline
+        (d) & 1000 working LoC plus 10 new LoC
+            & 500 working LoC plus 100 new LoC
+            & \fillin[$X$][0.5in] \\
+        \hline
+        (e) & 1000 LoC all in one function
+            & 1000 LoC split across 20 functions
+            & \fillin[$Y$][0.5in] \\
+        \hline
+        (f) & 100 LoC with 10 \mintinline{cpp}|if-else| blocks
+            & 100 LoC with 5 \mintinline{cpp}|if-else| blocks
+            & \fillin[?][0.5in] \\
+        \hline
+      \end{tabular}}
+      
+      {\renewcommand{\arraystretch}{2.3}
+      \begin{tabular}{|c|p{2.5in}|p{2.5in}|c|}
+        \hline
+        \rowcolor{orange!20} & Block $X$ & Block $Y$ & Choice \\
+        \hline
+        (g) & 100 LoC with four independent loops
+            & 100 LoC two pairs of nested loops
+            & \fillin[$X$][0.5in] \\
+        \hline
+        (h) &
+          \begin{minipage}{2in}
+            \small
+            \begin{minted}[
+              frame=none,
+              bgcolor=white,
+            ]{cpp}
+// code with the structure
+if (...) {
+  if (...) {
+    ...
+  } else {
+    ...
+  }
+} else {
+  if (...) {
+    ...
+  } else {
+    ...
+  }
+}
+            \end{minted} 
+          \end{minipage}
+          & 
+          \begin{minipage}{2in}
+            \small
+            \begin{minted}[
+              frame=none,
+              bgcolor=white,
+            ]{cpp}
+// code with the structure
+if (...) {
+  ...
+} else if (...) {
+  ...
+} else if (...) {
+  ...
+} else if (...) {
+  ...
+}
+            \end{minted}
+            \par\vskip 35pt\null
+          \end{minipage}
+          &
+          \fillin[$X$][0.5in] \\
+        \hline
+        (h) &
+          \begin{minipage}{2in}
+            \small
+            \begin{minted}[
+              frame=none,
+              bgcolor=white,
+            ]{cpp}
+// code with the structure
+for(int i=0; i<n; i++) {
+  if (...) {
+    ...
+  } else {
+    ...
+  }
+}
+            \end{minted}
+            \par\vskip 10pt\null
+          \end{minipage}
+          & 
+          \begin{minipage}{2in}
+            \small
+            \begin{minted}[
+              frame=none,
+              bgcolor=white,
+            ]{cpp}
+// code with the structure
+if (...) {
+  for(int i; i<n; i++) {
+    ...
+  }
+} else {  
+  for(int i; i<n; i++) {
+    ...
+  }
+}
+            \end{minted}
+          \end{minipage}
+          &
+          \fillin[$X$][0.5in] \\
+        \hline
+      \end{tabular}}
+      \par\vskip -30pt\null
+
+    \item Based on your answers, summarize advice for good practices in writing and
+      debugging code.\hspace{5pt}\key\\[-2.5mm]
+      \ifprintanswers\vskip -20pt\null\fi
+      \begin{solution}[1in]
+        \begin{itemize}
+          \itemsep 0pt
+          \item You should write code in small chunks, testing after each chunk
+          \item You should break your code up into functions that accomplish a single task
+          \item You should streamline \mintinline{cpp}|if-else| statements and loops to avoid
+            nesting if possible
+          \item If you must nest, you should try to avoid repeated blocks (i.e. the same
+            \mintinline{cpp}|for| loop in two different parts of an \mintinline{cpp}|if| statement)
+        \end{itemize}
+      \end{solution}
+      \ifprintanswers\vskip -35pt\null\fi
+      
+    \item Individually, think of a time that it was difficult for you to write or debug a
+      program.  How could the advice above have helped you?
+      \begin{solution}[0.5in]
+        Answers will vary
+        \par\vskip 0.75in
+      \end{solution}
+      \ifprintanswers\vskip -35pt\null\fi
+      
+    \item Share your answers to the previous question with your group and summarize any
+      insights below.
+      \begin{solution}[0.5in]
+        Answers will vary
+        \par\vskip 0.75in
+      \end{solution}
+
+  \end{enumerate}
+  
+  \vfill
+  
+  \begin{center}
+    \it 
+    Debugging is twice as hard as writing the code in the first place. Therefore, if you\\
+    write the code as cleverly as possible, you are, by definition, not smart 
+    enough to debug it.\\
+    \rm
+    - Brian Kernighan, author of The C Programming Language  
+  \end{center}
+    
+\end{document}

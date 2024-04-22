@@ -1,0 +1,616 @@
+\documentclass{exam}
+%\documentclass[answers]{exam}
+\hbadness=99999
+\setlength{\textheight}{9.5in}
+\setlength{\textwidth}{6.5in}
+\setlength{\topmargin}{-0.75in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+%\usepackage{pgfplots}
+\usepackage{multicol}
+
+% for syntax highlighting
+\usepackage{minted}
+\usemintedstyle[cpp]{xcode}
+
+% for overlay of output
+\usepackage[overlay,showboxes]{textpos}
+
+\pagestyle{plain}
+
+\setlength\columnsep{50pt}
+\newcommand{\key}{\hfill
+      \raisebox{-.3\height}{\includegraphics[width=0.6in]{figures/key.png}}}
+
+\begin{document}
+  \thispagestyle{empty}
+  \setlength{\parindent}{0pt}
+
+  \begin{center}
+    \Large Activity \#8: For Loops \\[5pt]
+    \large Recorder's Report\\[20pt]
+    \normalsize
+    \begin{tabular}{lrp{0.1in}lr}
+      Manager:  & \fillin[][2.0in] & & Presenter: & \fillin[][2.0in]\\[15pt]
+      Recorder: & \fillin[][2.0in] & & Driver:    & \fillin[][2.0in]\\[15pt]
+      Date:     & \fillin[][2.0in] & & Score:     & Satisfactory \hspace{10pt} /
+      \hspace{10pt} Not Satisfactory
+    \end{tabular}
+  \end{center}
+  \par\vskip 15pt
+  
+  Record your team's answers to the key questions (marked with
+  \raisebox{-.3\height}{\includegraphics[width=0.5in]{figures/key.png}})
+  below.
+  \begin{enumerate}[(a)]
+    \itemsep 1.75in
+    \item Model 1, Question \#5
+    \item Model 2, Question \#13 (write the whole code snippet)
+    \item Model 3, Question \#18
+  \end{enumerate}
+
+  \clearpage\pagenumbering{arabic} 
+  
+  \begin{center}
+    \Large Activity \#8: For Loops \\[5pt]
+    \large Activity Guide\\[20pt]
+  \end{center}
+
+  \begin{center}
+    \fbox{
+      \begin{minipage}{5.5in}
+        {\bf Learning Objectives:} Students will be able to:
+        \begin{itemize}
+          \item Content:\\[-20pt]
+            \begin{itemize}
+              \itemsep 0pt
+              \item Explain the difference between a {\tt while} loop and a {\tt for} loop.
+              \item Explain the syntax of a {\tt for} loop in C++.
+              \item Explain how an {\bf accumulator} is used in a {\tt for} loop.
+              \item Explain how the {\bf increment operator} and {\bf decrement operator} work.
+            \end{itemize}
+          \item Process\\[-20pt]
+            \begin{itemize}
+              \itemsep 0pt
+              \item Write code that includes {\tt for} loops. \\[-5pt]
+            \end{itemize}
+        \end{itemize}
+      \end{minipage}
+      }
+  \end{center}
+  \par\vskip 10pt
+  
+
+  {\bf\large Model 1: Two C++ Programs} \\[-15pt]
+  \begin{center}
+    \small
+    \begin{tabular}{p{2.5in}p{0.5in}p{2.5in}}
+      \begin{minipage}{2.5in}
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+          linenos,
+          firstnumber=7
+        ]{cpp}
+  string name;
+  cout << "Enter your name: ";
+  cin >> name;
+  int x = 0;
+  while (x < 10) {
+    cout << name << endl;
+    x = x + 1;
+  }
+  cout << "Nice to meet you!" << endl;
+        \end{minted}
+      \end{minipage}
+      & &
+      \begin{minipage}{2.5in}
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+          linenos,
+          firstnumber=7
+        ]{cpp}
+  string name;
+  cout << "Enter your name: ";
+  cin >> name;
+  for (int x = 0; x < 10; x += 1) {
+    cout << name << endl;
+  }
+  cout << "Nice to meet you!" << endl;
+        \end{minted}
+      \end{minipage}
+    \end{tabular}
+  \end{center}
+  \TPMargin{5pt}
+  
+  
+  {\it\large Refer to Model 1 above as your team develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+    
+  \begin{enumerate}
+    \itemsep 20pt
+    
+    \item What is the output of each program?  Note that you saw the
+      first program in the previous activity and {\tt activity08a.cpp}
+      contains the second program.
+      \begin{solution}[0.5in]
+        The output of the two programs is identical -- the entered
+        name is printed ten times.
+      \end{solution}
+      
+    \item The loop shown on the right is called a {\tt for} loop.
+      Identify the code that makes up each part of the loop and the line
+      on which it appears.
+      \par\vskip 15pt
+      
+      \begin{enumerate}[(a)]
+        \itemsep 15pt
+        \item The Initialization Statement: \hfill
+          \fillin[\mintinline{cpp}|int x = 0| on line 10][4in]
+        \item The Test Condition: \hfill
+          \fillin[\mintinline{cpp}|x < 10| on line 10][4in]
+        \item The Update Statement: \hfill
+          \fillin[\mintinline{cpp}|x += 1| on line 10][4in]
+      \end{enumerate}
+    
+
+    \item You should have noted above that both programs produce the
+      same output.  Which is more concise?
+      \begin{solution}[0.5in]
+        The {\tt for} loop is more concise.
+      \end{solution}
+      
+\newpage
+
+    \item What output will each of the following code snippets
+      produce?  You can use {\tt activity08a.cpp} to check your
+      answers.
+      \par\vskip 10pt
+      \begin{enumerate}[(a)]
+        \item \begin{tabular}{p{3in}p{2.5in}}
+          \begin{minipage}{3in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{cpp}
+  for (int i = 0; i < 5; i += 1) {
+    cout << i << " ";
+  }
+            \end{minted}
+          \end{minipage}
+          &
+          \fillin[\tt 1 2 3 4 5][2.5in]
+        \end{tabular}
+        
+        \item \begin{tabular}{p{3in}p{2.5in}}
+          \begin{minipage}{3in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{cpp}
+  for (int i = 1; i < 5; i += 1) {
+    cout << i << " ";
+  }
+            \end{minted}
+          \end{minipage}
+          &
+          \fillin[\tt 1 2 3 4][2.5in]
+        \end{tabular}
+
+        \item \begin{tabular}{p{3in}p{2.5in}}
+          \begin{minipage}{3in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{cpp}
+  for (int i = 2; i <= 6; i += 1) {
+    cout << i << " ";
+  }
+            \end{minted}
+          \end{minipage}
+          &
+          \fillin[\tt 2 3 4 5 6][2.5in]
+        \end{tabular}
+
+        \item \begin{tabular}{p{3in}p{2.5in}}
+          \begin{minipage}{3in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{cpp}
+  for (int i = 2; i <= 6; i += 2) {
+    cout << i << " ";
+  }
+            \end{minted}
+          \end{minipage}
+          &
+          \fillin[\tt 2 4 6][2.5in]
+        \end{tabular}
+      \end{enumerate}
+      \par\vskip -40pt\null
+      
+    \item Complete the missing code in the {\tt for} loops below so
+      that they print the indicated output.\key\\[-2.5mm]
+
+      \begin{enumerate}[(a)]
+        \begin{multicols}{2}
+          \item Even numbers from 100 to  200, inclusive\par
+            \begin{minipage}{2.6in}
+              \ifprintanswers
+              \begin{minted}[
+                frame=lines,
+                framesep=2mm,
+                bgcolor=gray!15,
+                baselinestretch=1.5,
+              ]{cpp}
+  for (int i=100; i<=200; i+=1) {
+    cout << i << " ";
+  }
+              \end{minted}
+              \else\large
+              \begin{minted}[
+                frame=lines,
+                framesep=2mm,
+                bgcolor=gray!15,
+                baselinestretch=1.5,
+              ]{cpp}
+  for (                     ) {
+    cout << i << " ";
+  }
+              \end{minted}
+              \fi
+            \end{minipage}
+          \item {\tt 5 4 3 2 1 0}\par
+            \begin{minipage}{2.6in}
+              \ifprintanswers
+              \begin{minted}[
+                frame=lines,
+                framesep=2mm,
+                bgcolor=gray!15,
+                baselinestretch=1.5,
+              ]{cpp}
+  for (int i=5; i>=0; i-=1) {
+    cout << i << " ";
+  }
+              \end{minted}
+              \else\large
+              \begin{minted}[
+                frame=lines,
+                framesep=2mm,
+                bgcolor=gray!15,
+                baselinestretch=1.5,
+              ]{cpp}
+  for (                     ) {
+    cout << i << " ";
+  }
+              \end{minted}
+              \fi
+            \end{minipage}          
+        \end{multicols}
+      \end{enumerate}
+      
+  \item Based on your solutions above, answer the following questions about the {\tt for} loop.
+    \begin{enumerate}[(a)]
+      \item Why do we start a for loop with something like
+        \mintinline{cpp}|int i=1| instead of \mintinline{cpp}|int i==1|?
+        \begin{solution}[0.5in]
+          We are assigning {\tt i} the initial value 1, not checking
+          to see if it equals 1.
+        \end{solution}
+      \item Do you think we always need the \mintinline{cpp}|int| in
+        front of the \mintinline{cpp}|i=1| in the {\tt for} loop
+        initialization?
+        \begin{solution}[0.5in]
+          No.  We only need it if the variable {\tt i} has not already been declared.
+        \end{solution}
+      \item Is it better to use a {\tt for} loop when you know how
+        many times the loop should execute ({\it counter-controlled}) or
+        when you don't know ({\it sentinel-controlled})?
+        \begin{solution}[0.5in]
+          The {\tt for} loop is naturally a counter-controlled loop
+          as a counter is built into it.
+        \end{solution}
+    \end{enumerate}
+
+\newpage
+
+  \item Rewrite the following {\tt while} loop as a {\tt for} loop that does the same thing.
+      \begin{center}
+        \begin{tabular}{p{2.75in}p{2.75in}}
+          \begin{minipage}{2.75in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{cpp}
+  int cnt = 20;            
+  while (cnt >= 10) {
+    cnt -= 2;
+    cout << cnt << " ";
+  }
+            \end{minted}
+          \end{minipage}
+          &
+          \begin{minipage}{2.75in}
+            \begin{solution}
+              \footnotesize
+              \begin{minted}[
+                frame=lines,
+                framesep=2mm,
+                bgcolor=gray!15,
+                baselinestretch=1.2,
+              ]{cpp}
+  for (int cnt=18; cnt >= 8; cnt -= 2) {
+    cout << cnt << " ";
+  }
+              \end{minted}
+            \end{solution}
+          \end{minipage}                  
+        \end{tabular}
+      \end{center}
+      \ifprintanswers\else\par\vskip 10pt\fi
+  
+  {\bf\large Model 2: Another C++ Code Snippet} \\[-20pt]
+  
+  \begin{center}
+    \small
+    \begin{minipage}{5.5in}
+      \begin{minted}[
+        frame=lines,
+        framesep=2mm,
+        bgcolor=gray!15,
+        baselinestretch=1.2,
+        linenos,
+        firstnumber=5
+      ]{cpp}
+  int number;
+  int total = 0;
+  for (int i = 0; i < 5; i += 1) {
+    cout << "Enter a number: ";
+    cin >> number;
+    total += number;
+  }
+  cout << "The total is: " << total << endl;
+      \end{minted}
+    \end{minipage}
+  \end{center}
+
+  {\it\large Refer to Model 2 above as your team develops consensus answers
+    to the questions below.}
+    \par\vskip 5pt
+
+    \item The code for this program is in {\tt
+      activity08b.cpp}.  Run it and explain what the program does.
+      \begin{solution}[1in]
+        \par
+        The program prompts the user for five numbers and then prints
+        out the sum of those five numbers.
+      \end{solution}
+      
+    \item Explain what each of the indicated lines of code from the model above does.
+      \par\vskip 10pt
+      \begin{enumerate}[(a)]
+        \itemsep 15pt
+        \item Line 6:    \hfill \fillin[Initializes the variable {\tt total} to zero][5.25in]
+        \item Line 7:    \hfill \fillin[Sets up the {\tt for} loop to repeat five times.][5.25in]
+        \item Line 10:   \hfill \fillin[Adds the user-entered number to the accumulated total][5.25in]
+      \end{enumerate}
+      
+    \item An {\it accumulator} is a variable that stores the sum of a group of values.  Which variable 
+      in this model is an accumulator?  Check all that apply.
+      
+      \begin{checkboxes}
+        \begin{multicols}{3}
+          \choice {\tt number}
+          \correctchoice {\tt total}
+          \choice {\tt i}
+        \end{multicols}
+      \end{checkboxes}
+
+    \item Why is the variable {\tt total} initialized to zero in line 2 of the model?
+      \begin{solution}[0.5in]
+        \par
+        Because we need to start the loop with nothing accumulated so that after the loop is
+        done, total will contain just the sum of the five numbers entered.
+      \end{solution}
+
+    \item Would it be possible to use the same variable as both a counter and an accumulator? Explain.
+      \begin{solution}[0.5in]
+        \par
+        No.  A counter must count how many times the loop executes, so 
+        it can not accumulate a sum of a group of values.
+      \end{solution}
+
+    \item An accumulator can also store the product of a set of numbers.  How, if at all, would you \key\\[-2.5mm]
+      change the following lines of the model to compute $5!$ ($5! = 1\times 2\times 3\times 4\times 5$ is called ``five factorial'').
+      
+      \begin{enumerate}[(a)]
+        \item How would you change \mintinline{cpp}|int total = 0;| on line 6?
+          \begin{solution}[0.5in]
+            It would become \mintinline{cpp}|int total=1;| to initialize the accumulator to 1 instead of 0.
+          \end{solution}
+        \item How would you change \mintinline{cpp}|for (int i = 0; i < 5; i += 1)| on line 7?
+          \begin{solution}[0.5in]
+            This does not need to change.
+          \end{solution}
+        \item How would you change lines 8-9 in the model?
+          \begin{solution}[0.5in]
+            They would be deleted since user input is no longer needed.
+          \end{solution}
+        \item How would you change \mintinline{cpp}|total += number| on line 10 of the model?
+          \begin{solution}[0.5in]
+            It would become \mintinline{cpp}|total *= i+1| to multiply the accumulator by the counter.
+          \end{solution}
+      \end{enumerate}
+      \par\vskip 20pt
+            
+
+  {\bf\large Model 3: Increment / Decrement Operators} \\[-5pt]
+  \begin{center}
+    \renewcommand{\arraystretch}{1.4}
+    \begin{tabular}{|c|c|c|c|}
+      \hline
+      \rowcolor{orange!20} Initial {\tt x} Value & Statement & Final {\tt y} value & Final {\tt x} Value \\
+      \hline
+      2 & \mintinline{cpp}|y = x++;| & 2 & 3 \\
+      \hline
+      2 & \mintinline{cpp}|y = ++x;| & 3 & 3 \\
+      \hline
+      2 & \mintinline{cpp}|y = x--;| & 2 & 1 \\
+      \hline
+      2 & \mintinline{cpp}|y = --x;| & 1 & 1 \\
+      \hline
+    \end{tabular}
+  \end{center}
+  \par\vskip 10pt
+  
+  {\it\large Refer to Model 3 above as your team develops consensus answers
+    to the questions below.}
+
+    \item Based on the model above, describe what each operator does.
+      \par\vskip 20pt
+      
+      \begin{enumerate}[(a)]
+        \itemsep 15pt
+        \item \mintinline{cpp}|++| \hspace{20pt} 
+          \fillin[Adds one to the variable involved.][5.25in]
+        \item \mintinline{cpp}|--| \hspace{20pt}
+          \fillin[Subtracts one from the variable involved.][5.25in]
+      \end{enumerate}
+
+\newpage
+
+    \item Rewrite the following {\tt for} loop to use an {\it increment operator}.
+    
+      \begin{center}
+        \begin{tabular}{p{2.75in}p{2.75in}}
+          \begin{minipage}{2.75in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{cpp}
+  for (int i=5; i<=10; i+=1) {
+    cout << i << " ";
+  }
+            \end{minted}
+          \end{minipage}
+          &
+          \begin{minipage}{2.75in}
+            \begin{solution}
+              \scriptsize
+              \begin{minted}[
+                frame=lines,
+                framesep=2mm,
+                bgcolor=gray!15,
+                baselinestretch=1.2,
+              ]{cpp}
+  for (int i=5; i<=10; i++) {
+    cout << i << " ";
+  }
+              \end{minted}
+            \end{solution}
+          \end{minipage}                  
+        \end{tabular}
+      \end{center}
+
+
+    \item Rewrite the following {\tt while} loop to use an {\it decrement operator}.
+    
+      \begin{center}
+        \begin{tabular}{p{2.75in}p{2.75in}}
+          \begin{minipage}{2.75in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{cpp}
+  int counter = 10;            
+  while (counter > 0) {
+    cout << "text" << endl;
+    counter = counter - 1;
+  }
+            \end{minted}
+          \end{minipage}
+          &
+          \begin{minipage}{2.75in}
+            \begin{solution}
+              \scriptsize
+              \begin{minted}[
+                frame=lines,
+                framesep=2mm,
+                bgcolor=gray!15,
+                baselinestretch=1.2,
+              ]{cpp}
+  int counter = 10;            
+  while (counter > 0) {
+    cout << "text" << endl;
+    counter--;
+  }
+              \end{minted}
+            \end{solution}
+          \end{minipage}                  
+        \end{tabular}
+      \end{center}
+
+    \item Why are increment and decrement operators especially useful for counters?
+      \begin{solution}[0.5in]
+        Because they are a compact way to add or subtract one to a counter.
+      \end{solution}
+    
+    \item Note that there are two versions of the {\it increment operator}: a {\it pre-increment} version \key\\[-2.5mm]
+      (i.e. {\tt ++x}) and a {\it post-increment} version (i.e. {\tt x++}).  The same is true of the decrement operator.
+      Use the file {\tt activity08c.cpp} to assist as you complete the missing entries in the table below.
+      
+      \begin{center}
+        \renewcommand{\arraystretch}{1.8}
+        \begin{tabular}{|c|c|c|c|}
+          \hline
+          \rowcolor{orange!20} Initial {\tt x} Value & Expression & Expression Value & Final {\tt x} Value \\
+          \hline
+          5 & {\tt 3 + 2*(x++)} & \ifprintanswers 13\fi & 6 \\
+          \hline
+          3 & {\tt 5 - (++x) / 2} & 3 & \ifprintanswers 4\fi  \\
+          \hline
+          \ifprintanswers 1\fi & {\tt 6 * (--x)} & 0 & 0\\
+          \hline
+          -3 & \ifprintanswers {\tt 2+(x--)}\fi & -1 & -4\\
+          \hline
+        \end{tabular}
+      \end{center}
+      
+    \item Based on your work above, what is the difference between the pre- and post- versions of these operators?
+      \begin{solution}[0.5in]
+        \par
+        The pre- version changes the value of the variable before it is used in the expression.  The post- version changes the
+        value after it has been used in the expression.
+      \end{solution}
+
+  \end{enumerate}  
+    
+\end{document}

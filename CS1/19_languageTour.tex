@@ -1,0 +1,819 @@
+\documentclass{exam}
+%\documentclass[answers]{exam}
+\hbadness=99999
+\setlength{\textheight}{9.5in}
+\setlength{\textwidth}{6.5in}
+\setlength{\topmargin}{-0.75in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage[table]{xcolor}
+\usepackage{hhline}
+\usepackage{graphicx}
+\usepackage{tikz}
+%\usepackage{pgfplots}
+\usepackage{multicol}
+\usepackage{fancyvrb}
+\usepackage{hyperref}
+
+% for links
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  filecolor=magenta,
+  urlcolor=blue
+}
+
+% for syntax highlighting
+\usepackage{minted}
+\usemintedstyle[cpp]{xcode}
+
+% for overlay of output
+\usepackage[overlay,showboxes]{textpos}
+
+\pagestyle{plain}
+
+\setlength\columnsep{50pt}
+\newcommand{\key}{\hfill
+      \raisebox{-.3\height}{\includegraphics[width=0.6in]{figures/key.png}}}
+
+\begin{document}
+  \thispagestyle{empty}
+  \setlength{\parindent}{0pt}
+
+  \begin{center}
+    \Large Activity \#19: A Programming Language Tour \\[5pt]
+    \large Recorder's Report\\[20pt]
+    \normalsize
+    \begin{tabular}{lrp{0.1in}lr}
+      Manager:  & \fillin[][2.0in] & & Presenter: & \fillin[][2.0in]\\[15pt]
+      Recorder: & \fillin[][2.0in] & & Driver:    & \fillin[][2.0in]\\[15pt]
+      Date:     & \fillin[][2.0in] & & Score:     & Satisfactory \hspace{10pt} /
+      \hspace{10pt} Not Satisfactory
+    \end{tabular}
+  \end{center}
+  \par\vskip 15pt
+  
+  Record your team's answers to the key questions (marked with
+  \raisebox{-.3\height}{\includegraphics[width=0.5in]{figures/key.png}})
+  below.
+  \begin{enumerate}[(a)]
+    \itemsep 1in
+    \item Model 1, Question \#4
+    \item Model 2, Question \#6
+    \item Model 3, Question \#10
+    \item Model 4, Question \#16
+    \item Model 5, Question \#23
+  \end{enumerate}
+
+  \clearpage\pagenumbering{arabic} 
+  
+  \begin{center}
+    \Large Activity \#19: A Programming Language Tour \\[5pt]
+    \large Activity Guide\\[20pt]
+  \end{center}
+  \vskip -30pt\null
+
+  \begin{center}
+    \fbox{
+      \begin{minipage}{5.5in}
+        {\bf Learning Objectives:} Students will be able to:
+        \begin{itemize}
+          \item Content:\\[-20pt]
+            \begin{itemize}
+              \itemsep 0pt
+              \item Observe key differences between several programming languages
+            \end{itemize}
+          \item Process\\[-20pt]
+            \begin{itemize}
+              \itemsep 0pt
+              \item Write code to solve a problem in several different programming languages\\[-5pt]
+            \end{itemize}
+        \end{itemize}
+      \end{minipage}
+      }
+  \end{center}
+  \par\vskip 10pt
+  
+  There are roughly 700 different languages included on 
+  Wikipedia's list of {\it notable} programming languages
+  (\url{https://en.wikipedia.org/wiki/List_of_programming_languages}).
+  Not even a computer science professor can learn all of them!
+  But once you've learned a few languages, it becomes
+  easier to pick up new ones. In this activity you will explore a
+  particular mathematical problem and its solution in a few different
+  languages.  You will also get the chance to observe what is similar
+  and what is different in those languages.
+  \par\vskip 10pt
+
+  {\bf\large Model 1: Computing the Value of $\pi$} \\
+  \[
+    \frac{\pi}{4} 
+       \, = \, \frac{1}{1} \, -\, \frac{1}{3} \, +\, \frac{1}{5} \, -\, \frac{1}{7} \, +\, \cdots
+  \]\vskip 5pt
+  
+  {\it\large Refer to Model 1 above as your team develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+    
+  \begin{enumerate}
+    \itemsep 20pt
+ 
+    \item How does the {\bf denominator} (bottom) change from term to
+      term in this series of fractions?
+      \ifprintanswers\vskip -20pt\null\fi
+      \begin{solution}[0.4in]
+        It goes up by two, hitting all the odd numbers.
+      \end{solution}
+      \ifprintanswers\vskip -30pt\null\fi
+
+    \item How does the {\bf sign} (plus or minus) change from term to term?
+      \ifprintanswers\vskip -20pt\null\fi
+      \begin{solution}[0.4in]
+        It alternates between positive and negative.
+      \end{solution}
+      \ifprintanswers\vskip -30pt\null\fi
+      
+    \item Fill in the missing values (white cells) in the table below to estimate
+      $\pi$ with 2, 3, 4, and 5 terms.
+      \vskip -20pt\null
+      \begin{center}
+        \renewcommand{\arraystretch}{2}
+        \begin{tabular}{|l*{7}{|p{0.5in}}|}
+          \hline
+          \rowcolor{orange!20} & 
+            \vskip -12pt\centering$\displaystyle +\frac{1}{1}$ & 
+            \vskip -12pt\centering$\displaystyle -\frac{1}{3}$ &
+            \vskip -12pt\centering$\displaystyle +\frac{1}{5}$ &
+            \vskip -12pt\centering$\displaystyle -\frac{1}{7}$ &
+            \vskip -12pt\centering$\displaystyle +\frac{1}{9}$ &
+            Approx. of $\frac{\pi}{4}$ & 
+            Approx. of $\pi$ \\
+          \hline
+            a. 1 term & 
+            \centering $+1.0$ & 
+            \cellcolor{gray!40} &
+            \cellcolor{gray!40} &
+            \cellcolor{gray!40} &
+            \cellcolor{gray!40} &
+            \centering 1.0 &
+            \hfill 4.0\hfill\null \\
+          \hline
+            b. 2 terms &
+            \centering $+1.0$ &
+            \centering $-0.333$ &
+            \cellcolor{gray!40} &
+            \cellcolor{gray!40} &
+            \cellcolor{gray!40} &
+            \ifprintanswers\centering 0.667\fi &
+            \ifprintanswers\hfill 2.668\hfill\null\fi \\
+          \hline
+            c. 3 terms &
+            \centering $+1.0$ &
+            \centering $-0.333$ &
+            \ifprintanswers\centering $+0.2$\fi &
+            \cellcolor{gray!40} &
+            \cellcolor{gray!40} &
+            \ifprintanswers\centering 0.867\fi &
+            \ifprintanswers\hfill 3.468\hfill\null\fi \\
+          \hline
+            d. 4 terms & 
+            \centering $+1.0$ &
+            \centering $-0.333$ &
+            \ifprintanswers\centering $+0.2$\fi &
+            \ifprintanswers\centering $-0.143$\fi &
+            \cellcolor{gray!40} &
+            \ifprintanswers\centering 0.724\fi &
+            \ifprintanswers\hfill 2.896\hfill\null\fi \\
+          \hline
+            e. 5 terms &
+            \centering $+1.0$ &
+            \centering $-0.333$ &
+            \ifprintanswers\centering $+0.2$\fi &
+            \ifprintanswers\centering $-0.143$\fi &
+            \ifprintanswers\centering $+0.111$\fi &
+            \ifprintanswers\centering 0.835\fi &
+            \ifprintanswers\hfill 3.34\hfill\null\fi \\
+          \hline
+        \end{tabular}
+      \end{center}
+      \vskip -35pt\null
+
+    \item The infinite series above can be rewritten in several ways.
+      Fill in the empty numerators in\key\\[-2.5mm] the series below to provide an
+      equivalent series.
+      
+      {\Large
+        \[
+          \pi = 
+          \ifprintanswers
+            \enskip \frac{4}{1} \enskip +
+            \enskip \frac{-4}{3} \enskip +
+            \enskip \frac{4}{5} \enskip +
+            \enskip \frac{-4}{7} \enskip +
+            \enskip \frac{4}{9} \enskip + \enskip \cdots
+          \else
+            \enskip \frac{\enskip\null\enskip}{1} \enskip + 
+            \enskip \frac{\enskip\null\enskip}{3} \enskip + 
+            \enskip \frac{\enskip\null\enskip}{5} \enskip + 
+            \enskip \frac{\enskip\null\enskip}{7} \enskip + 
+            \enskip \frac{\enskip\null\enskip}{9} \enskip + \enskip \cdots
+          \fi
+        \]
+      }
+
+\newpage
+      
+
+  {\bf\large Model 2: A Python Function to Estimate $\pi$} \\[-20pt]
+  \begin{center}
+    \begin{minipage}{4in}
+      \scriptsize
+      \begin{minted}[
+        frame=lines,
+        framesep=2mm,
+        bgcolor=gray!15,
+        baselinestretch=1.2,
+        linenos
+      ]{python}
+# Python function to estimate pi using a given number of terms
+def estimatePi(terms):
+  if ( terms <= 0 ): return(0.0)  # check for bad inputs
+  numerator = -1.0
+  pi        = 0.0
+  for i in range(0,terms,1):      # loop from 0 to terms-1
+    numerator   *= -1
+    denominator  = 2*i + 1
+    pi          += numerator/denominator
+  return(4*pi)
+    
+# Python function to test the estimatePi() function above
+def testEstimatePi():
+  vals = [ -1, 0, 1, 2, 10, 100 ]
+  for i in vals: print i, estimatePi(i)
+  
+testEstimatePi()                 # Run the test function
+      \end{minted}
+    \end{minipage}
+  \end{center}  
+  
+  {\it\large Refer to Model 2 above as your team develops consensus answers
+    to the questions below.}
+    \par\vskip -20pt\null
+    
+  \item The {\it Python} programming language was designed by Guido
+    van Rossum to be clear and concise.  Python has many specialized
+    modules such as: {\it AstroPy} for astronomy, {\it PyGame} for video
+    games, {\it SciPy} for scientific computing, and {\it PsychoPy} for
+    behavioral science experiments.  Answer the following questions
+    based on the Python code above.
+    \par\vskip 15pt
+    
+    \begin{enumerate}[(a)]
+      \itemsep 15pt
+      \item What character marks the start of a comment?
+        \hfill\fillin[\tt \#][1.5in]
+      \item What character assigns a value to a variable?
+        \hfill\fillin[\tt =][1.5in]
+      \item What keyword starts an {\it if} statement?
+        \hfill\fillin[{\tt if}][1.5in]
+      \item What keyword starts a loop?
+        \hfill\fillin[{\tt for}][1.5in]
+      \item How are the values that the loop counter goes through given?
+        \hfill\fillin[{\tt range(0,terms,1)}][1.5in]      
+      \item What keyword specifies the results of a function?
+        \hfill\fillin[{\tt return}][1.5in]             
+      \item On what line is output printed?
+        \hfill\fillin[Line 15 ({\tt print})][1.5in]      
+      \item What marks the start and end of a list of values?
+        \hfill\fillin[Square brackets][1.5in]       
+      \item What marks the start of the body of block of code (if,
+        loop, function, etc)?
+        \hfill\fillin[Colon ({\tt :})][1.5in]        
+      \item What marks the end of the body of block of code (if,
+        loop, function, etc)?
+        \hfill\fillin[Ending indentation][1.5in]        
+    \end{enumerate}
+    \vskip -35pt\null
+      
+  \item How alike are Python and C++?  Give at least two similarities
+    and two differences.\key\\[-2.5mm]
+    \begin{solution}[0.5in]
+      Answers will vary but examples include:
+      \begin{itemize}
+        \item Similarities: both use {\tt if} and {\tt for} for branches and loops
+        \item Differences: no semicolons or curly braces, no variable types
+      \end{itemize}
+    \end{solution}
+    
+\newpage
+
+  \item An online Python interpreter is available at
+    \url{https://repl.it/languages/python}.  Copy the code in {\tt activity19.py}
+    into this interpreter and run it.  What is the estimated value of $\pi$
+    with 100 terms?
+    \begin{solution}[0.5in]
+      It is 3.13159290356
+    \end{solution}
+    
+  \item Now make the following changes to your program, testing those
+    changes in the interpreter.  Record how you implement each change.
+    
+    \begin{enumerate}[(a)]
+      \item Add 1000 to the list of test values.
+        \begin{solution}[1in]
+          Change line 14 to \mintinline{python}|vals = [ -1. 0. 1, 2, 10, 100, 1000 ]|
+        \end{solution}
+      \item Set {\tt numerator = 4.0} on line 4 and
+        adjust the code so that it still returns the correct value
+        of $\pi$.
+        \begin{solution}[1in]
+          \begin{itemize}
+            \itemsep 0pt
+            \item Change line 4 to \mintinline{python}|  numerator = 4.0|
+            \item Move line 7 to after line 9
+            \item Change line 10 to \mintinline{python}|  return(pi)|
+          \end{itemize}
+        \end{solution}
+      \item Change the loop starting on line 6 so that it steps
+        through odd integers only (1, 3, 5, etc) and adjust the body
+        of the loop so that the function still returns the correct value.
+        \begin{solution}[1in]
+          \begin{itemize}
+            \itemsep 0pt
+            \item Change line 6 to \mintinline{python}|  for i in range(1,terms+1,2):|
+            \item Change line 8 to \mintinline{python}|    denominator = i|
+          \end{itemize}
+        \end{solution}
+    \end{enumerate}        
+        
+
+  {\bf\large Model 3: A JavaScript Function to Estimate $\pi$} \\[-20pt]
+  \begin{center}
+    \begin{minipage}{4in}
+      \scriptsize
+      \begin{minted}[
+        frame=lines,
+        framesep=2mm,
+        bgcolor=gray!15,
+        baselinestretch=1.2,
+        linenos
+      ]{javascript}
+/* JavaScript function to estimate pi using a given number of terms */
+function estimatePi(terms) {
+  if (terms <= 0) { return 0.0; }      // check for bad inputs
+  var numerator = -1.0;
+  var pi        = 0.0;
+  for ( var i = 0; i < terms; i++ ) {  // loop from 0 to terms-1
+    numerator   *= -1;
+    denominator  = 2*i + 1;
+    pi          += numerator/denominator;
+  }
+  return 4*pi;
+}
+
+/* JavaScript function to test the estimatePi() function above */
+function testEstimatePi() {
+  var vals = [ -1, 0, 1, 2, 10, 100 ];
+  for (var i = 0; i < vals.length; i++ ) {
+    console.log( vals[i] + " " + estimatePi(vals[i]) );
+  }
+}
+
+testEstimatePi();                      // Run the test function
+      \end{minted}
+    \end{minipage}
+  \end{center}    
+      
+  {\it\large Refer to Model 3 above as your team develops consensus answers
+    to the questions below.}
+
+\newpage
+
+    \item The {\it JavaScript} language runs in all major web browsers
+    and is primarily used for client-side computation.  Despite their
+    names, JavaScript and Java are {\bf not} closely related.  Answer
+    the following questions based on the JavaScript code above.
+    \par\vskip 15pt
+    
+    \begin{enumerate}[(a)]
+      \itemsep 15pt
+      \item What character marks a comment?
+        \hfill\fillin[{\tt //} or {\tt /* */}][1.5in]
+      \item What keyword specifies the results of a function?
+        \hfill\fillin[{\tt return}][1.5in]             
+      \item What keyword declares a variable?
+        \hfill\fillin[\tt var][1.5in]      
+      \item What command prints output?
+        \hfill\fillin[\tt console.log][1.5in]       
+      \item What marks the start and end of a list of values?
+        \hfill\fillin[Square brackets][1.5in]
+      \item What marks a block of code (body of if, loop, function, etc)?
+        \hfill\fillin[Curly braces][1.5in]        
+    \end{enumerate}
+    \vskip -35pt\null
+      
+  \item How alike are JavaScript and C++?  Give at least two similarities
+    and two differences.\key\\[-2.5mm]
+    \ifprintanswers\vskip -20pt\null\fi
+    \begin{solution}[0.5in]
+      Answers will vary but may include:
+      \begin{itemize}
+        \itemsep 0pt
+        \item Similarities: both use curly braces and semicolons
+        \item Differences: no variable types, functions declared with {\tt function} keyword
+      \end{itemize}
+    \end{solution}
+    \ifprintanswers\vskip -35pt\null\fi
+    
+  \item Give one way in which JavaScript is more similar to Python
+    than it is to C++.
+    \ifprintanswers\vskip -20pt\null\fi
+    \begin{solution}[0.5in]
+      Variables do not have a static type.
+    \end{solution}
+    \ifprintanswers\vskip -35pt\null\fi
+
+  \item An online JavaScript interpreter is available at
+    \url{https://repl.it/languages/javascript}.  Copy the code in {\tt activity19.js}
+    into this interpreter and find the estimated value of
+    $\pi$ with 10 terms.
+    \ifprintanswers\vskip -20pt\null\fi
+    \begin{solution}[0.5in]
+      It is 3.0418396189294032
+    \end{solution}
+    \ifprintanswers\vskip -35pt\null\fi
+    
+  \item Now make the following changes to your program, testing those
+    changes in the interpreter.  Record how you implement each change.
+    
+    \begin{enumerate}[(a)]
+      \item Add 1000 to the list of test values.
+        \begin{solution}[1in]
+          Change line 16 to \mintinline{javascript}|var vals = [ -1, 0, 1, 2, 10, 100, 1000];|
+        \end{solution}
+      \item Set {\tt numerator = 4.0} on line 4 and
+        adjust the code so that it still returns the correct value
+        of $\pi$.
+        \begin{solution}[1in]
+          \begin{itemize}
+            \itemsep 0pt
+            \item Change line 4 to \mintinline{javascript}|var numerator = 4.0;|
+            \item Move line 7 to after line 9
+          \end{itemize}
+        \end{solution}
+        
+\newpage
+
+      \item Change the loop starting on line 6 so that it steps
+        through odd integers only (1, 3, 5, etc) and adjust the body
+        of the loop so that the function still returns the correct value.
+        \ifprintanswers\vskip -10pt\null\fi
+        \begin{solution}[1in]
+          \begin{itemize}
+            \itemsep 0pt
+            \item Change line 6 to \mintinline{javascript}| for ( var i = 1; i <= terms; i++) {|
+            \item Change line 8 to \mintinline{javascript}| denominator = i;|
+            \item Change line 11 to \mintinline{javascript}| return pi;|
+          \end{itemize}
+        \end{solution}
+        \ifprintanswers\vskip -25pt\null\fi
+    \end{enumerate}
+    
+  \item Indentation is required in Python, but not in C++ or
+    JavaScript (or most other languages).  Thus, the function
+    {\tt testEstimatePi()} could be written as:
+    
+    \begin{center}
+      \begin{minipage}{4in}
+        \scriptsize
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2
+        ]{javascript}
+function testEstimatePi() {var vals=[-1,0,1,2,10,100]; for (var
+i=0;i<vals.length;i++){console.log(vals[i]+" "+estimatePi(vals[i]));}
+        \end{minted}
+      \end{minipage}
+    \end{center}
+    Explain why it is still a good idea to indent code in these
+    languages.
+    \ifprintanswers\vskip -20pt\null\fi
+    \begin{solution}[0.5in]
+      It makes the code much more readable.
+    \end{solution}
+    
+  {\bf\large Model 4: An R Function to Estimate $\pi$} \\[-20pt]
+  \begin{center}
+    \begin{minipage}{4in}
+      \scriptsize
+      \begin{minted}[
+        frame=lines,
+        framesep=2mm,
+        bgcolor=gray!15,
+        baselinestretch=1.2,
+        linenos
+      ]{R}
+# R function to estimate pi using a given number of terms
+estimatePi <- function(terms) {
+  if ( terms <= 0 ) { return(0.0) }      # check for bad inputs
+  -1.0 -> numerator
+   0.0 -> pi
+  for ( i in seq(0,terms-1,1) ) {        # loop from 0 to terms-1
+    numerator   <- -numerator
+    denominator <- 2*i + 1
+    pi          <- pi + numerator / denominator
+  }
+  return(4*pi)
+}
+
+# R function to test the estimatePi() function above
+testEstimatePi <- function() {
+  vals <- c( -1, 0, 1, 2, 10, 100 )
+  for ( i in vals ) { cat(i, estimatePi(i), "\n") }
+}
+
+testEstimatePi()                         # Run the test function
+      \end{minted}
+    \end{minipage}
+  \end{center}    
+      
+  {\it\large Refer to Model 4 above as your team develops consensus answers
+    to the questions below.}
+
+  \item The {\it R} language was designed by Ihaka and Robert
+    Gentlemen for statistical computing and graphics, based on the
+    language {\it S}, originally developed by John Chambers at Bell
+    Labs.  Answer the following questions based on the R code above.
+    \par\vskip 15pt
+    
+    \begin{enumerate}[(a)]
+      \itemsep 15pt
+      \item What character marks a comment?
+        \hfill\fillin[\tt \#][1.5in]
+      \item What assigns a value to a variable (look for two options)?
+        \hfill\fillin[{\tt ->} or {\tt <-}][1.5in]             
+      \item What keyword starts an {\it if} statement?
+        \hfill\fillin[\tt if][1.5in]      
+      \item What keyword starts a loop?
+        \hfill\fillin[\tt for][1.5in]
+        
+\newpage
+
+      \item What keyword starts a function definition?
+        \hfill\fillin[\tt function][1.5in]
+      \item What keyword specifies the results of a function?
+        \hfill\fillin[\tt return][1.5in]
+      \item What command prints output?
+        \hfill\fillin[\tt cat][1.5in]
+      \item What marks a block of code (body of if, loop, function, etc)?
+        \hfill\fillin[Curly Braces][1.5in]
+    \end{enumerate}
+    \vskip -35pt\null
+      
+  \item Why might R's creators have chosen these unusual assignment
+    operators?  What confusion \key\\[-2.5mm] might it avoid?
+    \ifprintanswers\vskip -20pt\null\fi
+    \begin{solution}[0.5in]
+      It always points towards the variable, avoiding the confusion
+      about which side of the {\tt =} the variable can appear on.
+    \end{solution}
+    \ifprintanswers\vskip -35pt\null\fi
+    
+  \item Besides the assignment operator discussed above, give one difference between R
+    code and each of Python, JavaScript, and C++ code.
+    \ifprintanswers\vskip -20pt\null\fi
+    \begin{solution}[0.5in]
+      Answers will vary but may include:
+      \begin{itemize}
+        \itemsep 0pt
+        \item the use of \mintinline{r}|seq(0,terms-1,1)| in the {\tt for} loop
+        \item The use of \mintinline{r}|c(-1,0,1,2,10,100)| to create an array (vector actually)      
+      \end{itemize}
+    \end{solution}
+    \ifprintanswers\vskip -35pt\null\fi
+
+  \item An online R interpreter is available at
+    \url{https://repl.it/languages/rlang}.  Copy the code in {\tt activity19.R}
+    into this interpreter and run it.  What is the estimated value of
+    $\pi$ with 2 terms?
+    \ifprintanswers\vskip -20pt\null\fi
+    \begin{solution}[0.5in]
+      It is 2.666667
+    \end{solution}
+    \ifprintanswers\vskip -35pt\null\fi
+    
+  \item Now make the following changes to your program, testing those
+    changes in the interpreter.  Record how you implement each change.
+    
+    \begin{enumerate}[(a)]
+      \item Add 1000 to the list of test values.
+        \ifprintanswers\vskip -20pt\null\fi
+        \begin{solution}[1in]
+          Change line 16 to \mintinline{r}|vals <- c( -1, 0, 1, 2, 10, 100, 1000)|
+        \end{solution}
+        \ifprintanswers\vskip -15pt\null\fi
+      \item Set {\tt numerator = 4.0} on line 4 and
+        adjust the code so that it still returns the correct value
+        of $\pi$.
+        \ifprintanswers\vskip -20pt\null\fi
+        \begin{solution}[1in]
+          \begin{itemize}
+            \itemsep 0pt
+            \item Change line 4 to \mintinline{r}|4.0 -> numerator|
+            \item Move line 7 to below line 9
+          \end{itemize}
+        \end{solution}
+        \ifprintanswers\vskip -15pt\null\fi
+      \item Change the loop starting on line 6 so that it steps
+        through odd integers only (1, 3, 5, etc) and adjust the body
+        of the loop so that the function still returns the correct value.
+        \ifprintanswers\vskip -20pt\null\fi
+        \begin{solution}[1in]
+          \begin{itemize}
+            \itemsep 0pt
+            \item Change line 6 to \mintinline{r}|for ( i in seq(1,terms,2) ) {|
+            \item Change line 8 to \mintinline{r}|denominator <- i|
+            \item Change line 11 to \mintinline{r}|return(pi)|
+          \end{itemize}
+        \end{solution}
+        \ifprintanswers\vskip -15pt\null\fi
+    \end{enumerate}   
+
+\newpage
+
+  {\bf\large Model 5: Recursive Programs to Estimate $\pi$} \\[-15pt]
+  \begin{center}
+    \begin{tabular}{p{2.7in}p{0.2in}p{2.7in}}
+      \begin{minipage}{2.7in}
+        \scriptsize A Recursive Python Program
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+          linenos
+        ]{Python}
+# Python function to estimate pi
+def estimatePi(terms):
+  if ( terms <= 0 ): return 0.0
+  val = 4.0 / (2*terms - 1)
+  if (terms % 2 == 0): val *= -1
+  return val + estimatePi(terms-1)
+  
+# Function to test estimatePi
+def testEstimatePi():
+  vals = [ -1, 0, 1, 2, 10, 100 ]
+  for i in vals: print i, estimatePi(i)
+  
+testEstimatePi()
+        \end{minted}
+        \par\vskip 40pt\null
+      \end{minipage}
+      & &
+      \begin{minipage}{2.7in}
+        \scriptsize A Scheme / LISP Program
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+          linenos
+        ]{scheme}
+; Scheme function to estimate pi
+(define estimatePi
+  (lambda (terms)
+    (if (<= terms 0)
+      0
+      (+ (estimatePi (- terms 1))
+        (/ (if (odd? terms) +4 -4)
+          (+ terms terms -1)
+          )))))
+        
+; Function to test estimatePi
+(define testEstimatePi
+  (lambda ()
+    (define vals `(-1 0 1 2 10 100))
+    (map estimatePi vals)   
+  ))
+  
+(testEstimatePi)
+        \end{minted}
+      \end{minipage}
+    \end{tabular}
+  \end{center}    
+      
+  {\it\large Refer to Model 5 above as your team develops consensus answers
+    to the questions below.}
+
+  \item The Python code above estimates $\pi$ using the same series,
+    but with a different approach.  Answer the following questions based
+    on the {\it Python} code above.
+    \par\vskip 15pt
+    
+    \begin{enumerate}[(a)]
+      \itemsep 15pt
+      \item What variable(s) are defined in the {\tt testEstimatePi()} function?
+        \hfill\fillin[{\tt vals} and {\tt i}][1.5in]
+      \item What function is called by {\tt testEstimatePi()}?
+        \hfill\fillin[{\tt estimatePi()}][1.5in]             
+      \item What variable(s) are defined in the {\tt estimatePi()} function?
+        \hfill\fillin[{\tt terms} and {\tt val}][1.5in]
+      \item What function is called by {\tt estimatePi()}?
+        \hfill\fillin[\tt estimatePi()][1.5in]       
+      \item When {\tt estimatePi(0)} is called, what value is returned?
+        \hfill\fillin[\tt 0.0][1.5in]
+      \item When {\tt estimatePi(1)} is called, what function call is made on line 6?
+        \hfill\fillin[\tt estimatePi(0)][1.5in]
+      \item When {\tt estimatePi(1)} is called, what value is returned?
+        \hfill\fillin[\tt 4.0/1 + 0.0 = 4.0][1.5in]
+      \item When {\tt estimatePi(2)} is called, what function call is made on line 6?
+        \hfill\fillin[\tt estimatePi(1)][1.5in]
+      \item When {\tt estimatePi(2)} is called, what value is returned?
+        \hfill\fillin[\tt -4.0/3 + 4.0 = 2.6667][1.5in]
+    \end{enumerate}
+      
+  \item A function that calls itself is called a {\it recursive}
+    function.  While possibly confusing at first, recursive functions
+    can be both powerful and flexible.  Which function(s) in the {\it
+    Python} code above is recursive?
+    \ifprintanswers\vskip -20pt\null\fi
+    \begin{solution}[0.5in]
+      The function {\tt estimatePi()}
+    \end{solution}
+    
+\newpage
+
+  \item If recursive function {\it always} calls itself it will never
+    end, and eventually the computer will run out of memory.  Situations
+    when a recursive function {\it does} call itself are called {\it
+    recursive cases} and those when it {\it does not} are called
+    {\it base cases}.  What are the base and recursive cases
+    for the function {\tt estimatePi()}?
+    \ifprintanswers\vskip -20pt\null\fi
+    \begin{solution}[0.5in]
+      The base case is when {\tt terms = 0}, everything else is a recursive case.
+    \end{solution}
+    \ifprintanswers\vskip -35pt\null\fi
+
+  \item The {\it Scheme} language is a dialect of the {\it LISP}
+    (short for LISt Processing) language, which\key\\[-2.5mm] was developed in the
+    1970's by Guy Steele and Gerald Sussman for artificial intelligence.
+    Ideally, in Scheme programs the value of a variable never changes,
+    and functions always return something useful.  Thus, Scheme is
+    called a {\it functional language}.  Scheme also uses {\it
+    recursion} (functions that call themselves) instead of loops.
+    Answer the following questions based on the {\it Scheme} code above.
+    \par\vskip 15pt
+    
+    \begin{enumerate}[(a)]
+      \itemsep 15pt
+      \item What marks a comment in {\it Scheme}?
+        \hfill\fillin[\tt ;][1.5in] 
+      \item What keyword assigns a value to a name?
+        \hfill\fillin[\tt define][1.5in]             
+      \item What keyword defines a function?
+        \hfill\fillin[\tt lambda][1.5in]
+      \item What expression subtracts 1 from {\tt terms}?
+        \hfill\fillin[\tt (- terms 1)][1.5in]       
+      \item What expression checks whether {\tt terms} is odd?
+        \hfill\fillin[\tt (odd? terms) ][1.5in]
+      \item If that expression evaluates to true, what value is returned?
+        \hfill\fillin[\tt +4][1.5in]
+      \item If that expression evaluates to false, what value is returned?
+        \hfill\fillin[\tt -4][1.5in]
+      \item When {\tt estimatePi(2)} is called, what function call is made?
+        \hfill\fillin[\tt estimatePi(1)][1.5in]
+    \end{enumerate}
+    
+  \item You'll notice that Scheme uses parentheses quite a bit.  Some
+    people jokingly claim that ``LISP'' stands for ``Lost In Stupid
+    Parentheses''. How many pairs of parentheses are used in
+    defining each of the functions {\tt estimatePi} and {\tt testEstimatePi}?
+    \ifprintanswers\vskip -20pt\null\fi
+    \begin{solution}[0.75in]
+      There are 11 pairs of parentheses in {\tt estimatePi} and 6 in {\tt testEstimatePi}.
+    \end{solution}
+    \ifprintanswers\vskip -35pt\null\fi
+
+  \item An online {\tt Scheme} interpreter is available at
+    \url{https://repl.it/languages/scheme}.  Copy the Scheme code
+    from {\tt activity19.scm} into this interpreter and run it. Then determine the 
+    approximation of $\pi$ with 10000 terms by adding 10000 to the
+    list of test values.
+    \ifprintanswers\vskip -20pt\null\fi
+    \begin{solution}[1in]
+      Change line 14 to \mintinline{scheme}|(define vals `(-1 0 1 2 10 100 10000))|
+      and we get the estimate 3.131592035585537 with 10000 terms.
+    \end{solution}
+    \ifprintanswers\vskip -35pt\null\fi
+
+
+  \end{enumerate}
+    
+\end{document}

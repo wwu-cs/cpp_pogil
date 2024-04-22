@@ -1,0 +1,373 @@
+\documentclass{exam}
+%\documentclass[answers]{exam}
+\hbadness=99999
+\setlength{\textheight}{9.5in}
+\setlength{\textwidth}{6.5in}
+\setlength{\topmargin}{-0.75in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+%\usepackage{pgfplots}
+\usepackage{multicol}
+
+% for syntax highlighting
+\usepackage{minted}
+\usemintedstyle[cpp]{xcode}
+
+% for overlay of output
+\usepackage[overlay,showboxes]{textpos}
+
+\pagestyle{plain}
+
+\setlength\columnsep{50pt}
+\newcommand{\key}{\hfill
+      \raisebox{-.3\height}{\includegraphics[width=0.6in]{figures/key.png}}}
+
+\begin{document}
+  \thispagestyle{empty}
+  \setlength{\parindent}{0pt}
+
+  \begin{center}
+    \Large Activity \#4: C++ Types and Typecasting \\[5pt]
+    \large Recorder's Report\\[20pt]
+    \normalsize
+    \begin{tabular}{lrp{0.1in}lr}
+      Manager:  & \fillin[][2.0in] & & Presenter: & \fillin[][2.0in]\\[15pt]
+      Recorder: & \fillin[][2.0in] & & Driver:    & \fillin[][2.0in]\\[15pt]
+      Date:     & \fillin[][2.0in] & & Score:     & Satisfactory \hspace{10pt} /
+      \hspace{10pt} Not Satisfactory
+    \end{tabular}
+  \end{center}
+  \par\vskip 15pt
+  
+  Record your team's answers to the key questions (marked with
+  \raisebox{-.3\height}{\includegraphics[width=0.5in]{figures/key.png}})
+  below.
+  \begin{enumerate}[(a)]
+    \itemsep 1.75in
+    \item Model 1, Question \#5
+    \item Model 2, Question \#8.b
+    \item Model 3, Question \#15
+  \end{enumerate}
+
+  \clearpage\pagenumbering{arabic} 
+  
+  \begin{center}
+    \Large Activity \#4: C++ Types and Typecasting \\[5pt]
+    \large Activity Guide\\[20pt]
+  \end{center}
+
+  \begin{center}
+    \fbox{
+      \begin{minipage}{5.5in}
+        {\bf Learning Objectives:} Students will be able to:
+        \begin{itemize}
+          \item Content:\\[-20pt]
+            \begin{itemize}
+              \itemsep 0pt
+              \item Explain how the size of a variable type affects the range of values it can store.
+              \item Explain how a {\tt char} variable encodes non-numeric values as numbers.
+              \item Recognize an implicit type cast in a C++ program
+              \item Predict the side effects of an explicit type cast.
+            \end{itemize}
+          \item Process\\[-20pt]
+            \begin{itemize}
+              \itemsep 0pt
+              \item Write C++ code for an explicit type cast.              
+              \item Evaluate C++ code as a computer would execute it.\\[-5pt]
+            \end{itemize}
+        \end{itemize}
+      \end{minipage}
+      }
+  \end{center}
+  \par\vskip 10pt
+  
+  
+  {\bf\large Model 1: Type Sizes} \\[5pt]
+  Primitive data types in C++ have predefined sizes, which determines 
+  the range of values that can be stored in each data type.  Several examples
+  are given below.
+  
+  \begin{center}
+    \renewcommand{\arraystretch}{1.8}
+    \begin{tabular}{|l|c|c|c|c|}
+      \hline
+      \cellcolor{orange!20} type & {\tt bool} & {\tt char} & {\tt int} & {\tt double} \\
+      \hline
+      \cellcolor{orange!20} size & 1 byte & 1 byte & 4 bytes & 8 bytes \\
+      \hline
+    \end{tabular}
+  \end{center}
+  
+  {\it\large Refer to Model 1 above as your team develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+    
+  \begin{enumerate}
+    \itemsep 20pt
+
+    \item A single {\bf bit} has only two values (0 or 1), whereas two bits can store four values (00, 01, 10, and 11).
+      \par\vskip 20pt
+      \begin{enumerate}[(a)]
+        \item How many different values can be stored in three bits, and what are they?
+          \begin{solution}[0.75in]
+            8 different values: 000, 001, 010, 011, 100, 101, 110, and 111
+          \end{solution}
+        \item What is the smallest binary number in your list in part (a) and what is its base 10 value?
+          \begin{solution}[0.75in]
+            The smallest number is 000 and its base 10 value is 0.
+          \end{solution}
+        \item What is the largest binary number in your list in part (a) and what is its base 10 value?
+          \begin{solution}[0.75in]
+            The smallest number is 111 and its base 10 value is 7.
+          \end{solution}
+      \end{enumerate}
+      
+    \item A {\bf byte} is equivalent to 8 bits.  How many values can be stored in a single byte, and what is the largest
+      possible value?  You may wish to use Google as a calculator to solve this problem.
+      \begin{solution}[0.75in]
+        A byte can hold $2^8 = 256$ values and the largest is 255.
+      \end{solution}
+      
+\newpage
+
+    \item Complete the following table to determine how many values can be stored in a different number of bytes.  The first
+      one is done for you.
+      
+      \begin{center}
+        \renewcommand{\arraystretch}{2}
+        \begin{tabular}{|c|c|c|c|}
+          \hline
+          \rowcolor{orange!20} \# bytes & \# bits & number of values & largest unsigned number possible \\
+          \hline
+          1 byte & 8 & $2^8 = 256$ & 255 \\
+          \hline
+          2 bytes & \ifprintanswers 16\fi & \ifprintanswers $2^{16}=65,536$\fi & \ifprintanswers 65,535 \fi\\
+          \hline
+          4 bytes & \ifprintanswers 32\fi & \ifprintanswers $2^{32}=4,294,967,296$\fi & \ifprintanswers 4,294,967,295\fi\\
+          \hline
+          8 bytes & \ifprintanswers 64\fi & \ifprintanswers $2^{64}$\fi & \ifprintanswers $2^{64}-1$\fi\\
+          \hline
+          $x$ bytes & \ifprintanswers $8x$\fi & \ifprintanswers $2^{8x}$\fi & \ifprintanswers $2^{8x}-1$\fi\\
+          \hline
+        \end{tabular}        
+      \end{center}
+      
+    \item What is the largest value that a {\tt unsigned short int} variable (of size 2 bytes) can hold?
+      \begin{solution}[0.5in]
+        An {\tt unsigned short int} can hold $2^16 = 65,536$ values, the largest is 65,535.
+      \end{solution}
+    
+    \item What happens when you write a C++ assignment statement to set a {\tt unsigned short int}\key\\[-2.5mm] variable equal to one more than this value?
+      Try it out using the file `activity04a.cpp`.  Why?
+      \begin{solution}[1in]
+        \par
+        The value wraps around to 0.  That is, the number 65535, represented as 1111111111111111 becomes 0000000000000000
+        when we add one to it.
+      \end{solution}
+      
+  
+  {\bf\large Model 2: ASCII Character Codes} \\
+  The American Standard Code for Information Interchange is a system that assigns a numeric value to various characters.  A
+  selection of assignments from that system is shown below.
+  
+    \begin{center}
+    \footnotesize\renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{|c|c||c|c||c|c||c|c||c|c||c|c|}
+      \hline
+      \rowcolor{orange!20} Code & Symbol & Code & Symbol & Code & Symbol & Code & Symbol & Code & Symbol & Code & Symbol \\
+      \hline
+        32 & (space) & 48 & 0 & 64 & @ & 80 & P & 96  & ` & 112 & p \\
+        33 & !       & 49 & 1 & 65 & A & 81 & Q & 97  & a & 113 & q \\
+        34 & "       & 50 & 2 & 66 & B & 82 & R & 98  & b & 114 & r \\
+        35 & \#      & 51 & 3 & 67 & C & 83 & S & 99  & c & 115 & s \\
+        36 & \$      & 52 & 4 & 68 & D & 84 & T & 100 & d & 116 & t \\
+        37 & \%      & 53 & 5 & 69 & E & 85 & U & 101 & e & 117 & u \\
+        38 & \&      & 54 & 6 & 70 & F & 86 & V & 102 & f & 118 & v \\
+        39 & '       & 55 & 7 & 71 & G & 87 & W & 103 & g & 119 & w \\
+        40 & (       & 56 & 8 & 72 & H & 88 & X & 104 & h & 120 & x \\
+        41 & )       & 57 & 9 & 73 & I & 89 & Y & 105 & i & 121 & y \\
+        42 & *       & 58 & : & 74 & J & 90 & Z & 106 & j & 122 & z \\
+        43 & +       & 59 & ; & 75 & K & 91 & [ & 107 & k & 123 & \{ \\
+        44 & ,       & 60 & \textless & 76 & L & 92 & $\backslash$ & 108 & l & 124 & $\vert$ \\
+        45 & -       & 61 & = & 77 & M & 93 & ] & 109 & m & 125 & \} \\
+        46 & .       & 62 & \textgreater & 78 & N & 94 & \^{} & 110 & b & 126 & \textasciitilde \\
+        47 & /       & 63 & ? & 79 & O & 95 & \_ & 110 & o & 127 & \\
+        \hline
+    \end{tabular}
+    \end{center}
+
+  {\it\large Refer to Model 2 above as your team develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+
+\newpage
+
+    \item Determine the numeric value associated with each character below in the ASCII system.
+      \begin{enumerate}[(a)]
+        \itemsep 10pt
+        \begin{multicols}{2}
+          \item capital A   \hspace{7pt}  \fillin[65][1.5in]
+          \item lowercase f \hspace{1pt}  \fillin[102][1.5in]
+          \item capital Z   \hspace{8pt}  \fillin[90][1.5in]
+          \item number 0    \hspace{34pt} \fillin[48][1.5in]
+          \item open square bracket       \fillin[91][1.35in]
+          \item plus sign   \hspace{38pt} \fillin[43][1.5in]
+        \end{multicols}
+      \end{enumerate}
+      
+    \item Based on your work in model 1, how many distinct characters can be stored in a C++ {\tt char} variable?
+      \begin{solution}[0.5in]
+        A {\tt char} variable is 1 byte, so it can hold 256 different characters.
+      \end{solution}
+
+    \item In the file {\tt activity04b.cpp} you will find two character variables and a statement that outputs
+      the ``sum'' of the two variables.
+      \par\vskip 10pt
+      
+      \begin{enumerate}[(a)]
+        \item What is the output for each pair of variable values?
+          \begin{enumerate}[i.]
+            \begin{multicols}{2}
+              \item \mintinline{cpp}|char charOne = '(';|\\\mintinline{cpp}|char charTwo = ')';|\\[10pt]
+                \fillin[ sum = Q ][2in]\par\vskip 20pt
+              \item \mintinline{cpp}|char charOne = '!';|\\\mintinline{cpp}|char charTwo = ':';|\\[10pt]
+                \fillin[ sum = [ ][2in]\par\vskip 20pt
+              \item \mintinline{cpp}|char charOne = '1';|\\\mintinline{cpp}|char charTwo = '4';|\\[10pt]
+                \fillin[ sum = e ][2in]\par\vskip 20pt
+              \item \mintinline{cpp}|char charOne = '%';|\\\mintinline{cpp}|char charTwo = '=';|\\[10pt]
+                \fillin[ sum = b ][2in]\par\vskip 20pt
+            \end{multicols}
+          \end{enumerate}
+          \par\vskip 20pt
+          
+        \item Explain how C++ calculated these answers.  Refer to the ASCII table given in the model. \key\\[-2.5mm]
+          \begin{solution}[1in]
+            \par
+            C++ computes the answers by adding the ASCII code numbers together.  The character that is output is the character
+            that has an ASCII code that matches the sum of the two initial characters' ASCII codes.
+          \end{solution}
+      \end{enumerate}
+      
+    \item An {\it implicit type cast} happens when C++ treats a variable of one type as if it were a variable of another type.
+      This happened in the program above.
+      \begin{enumerate}
+        \item How can you tell that an implicit type cast happen in the program above?
+          \begin{solution}[0.5in]
+            \par
+            Because the ``characters'' were added together as if they were integer values.
+          \end{solution}
+        \item Do you think the type of the variables {\tt charOne} and {\tt charTwo} actually change?
+          \begin{solution}[0.5in]
+            \par
+            No, types in C++ can not be changed.  You can verify that these variables are still characters 
+            outputting their value, which will be printed as a character, not a number.
+          \end{solution}
+      \end{enumerate}
+      
+      
+\newpage
+
+  {\bf\large Model 3: A C++ Program} \\[-10pt]
+  \begin{center}
+    \begin{minipage}{5.5in}
+      \begin{minted}[
+        frame=lines,
+        framesep=2mm,
+        bgcolor=gray!15,
+        baselinestretch=1.2,
+        linenos
+      ]{cpp}
+#include <iostream>
+using namespace std;
+
+int main() {
+  // ----------------------------------------- declare variables
+  double floatOne,floatTwo;
+  int integer = 35;
+  // ----------------------------------------- part I
+  floatOne = integer;
+  cout << "original number: " << integer << endl;
+  cout << "after conversion: " << floatOne << endl << endl;
+  // ----------------------------------------- part II
+  floatOne = 3.9;
+  floatTwo = static_cast<int>(floatOne);
+  cout << "second number: " << floatOne << endl;
+  cout << "after conversion: " << floatTwo << endl;
+}      
+      \end{minted}
+    \end{minipage}
+  \end{center}
+  \TPMargin{5pt}
+  
+  {\it\large Refer to Model 3 above as your group develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+    
+      \item This program can be found in {\tt activity02c.cpp}.  Run it and then answer the following questions.
+        \par\vskip 20pt
+        \begin{enumerate}[(a)]
+          \itemsep 15pt
+          \item What is the printed value of the variable {\tt integer} in part I?  \hfill \fillin[35][1.5in]
+          \item What is the printed value of the variable {\tt floatOne} in part I?  \hfill \fillin[35][1.5in]
+          \item What is the printed value of the variable {\tt floatOne} in part II? \hfill \fillin[3.9][1.5in]
+          \item What is the printed value of the variable {\tt floatTwo} in part II? \hfill \fillin[3][1.5in]
+        \end{enumerate}
+                
+      \item Lines 9 and 14 are both examples of {\it type casting}.  What is a type cast?
+        \begin{solution}[0.5in]
+          It is when a variable of one type is treated as if it were a variable of another type.
+        \end{solution}
+        
+      \item In the previous model we saw the term {\it implicit type casting}.  Another type of type casting is {\it explicit
+        type casting}.  Which statement (line 9 or 14) is an example of an explicit type cast? 
+        \begin{solution}[0.5in]
+          Line 14 is an explicit type cast because we specifically asked the computer to treat {\tt floatOne} as an integer.
+        \end{solution}
+        
+\newpage
+
+    \item What is the difference between an implicit type cast and an explicit type cast?
+      \begin{solution}[1in]
+        \par
+        An implicit type cast happens automatically, while an explicit type cast is asked for.
+      \end{solution}
+      
+    \item What is the C++ syntax for an explicit type cast?  Give an example other than the one in the model.
+      \begin{solution}[1in]
+        \par
+        The syntax is \mintinline{cpp}|static_cast<newType>(variable)|.  Examples will vary.
+      \end{solution}
+      
+    \item Write a snippet of code that will output the string WWU without using the ``W'' or\key\\[-2.5mm] ``U'' characters.
+      Hint: use explicit type casting and the ASCII table seen in model 2.\\
+      Feel free to test your code in the file {\tt activity04c.cpp}.
+      \begin{solution}[1in]
+        \par
+  \begin{center}
+    \begin{minipage}{5.5in}
+      \begin{minted}[
+        frame=lines,
+        framesep=2mm,
+        bgcolor=gray!15,
+        baselinestretch=1.2,
+        linenos
+      ]{cpp}
+  cout << static_cast<char>(87);
+  cout << static_cast<char>(87);
+  cout << static_cast<char>(85);
+      \end{minted}
+    \end{minipage}
+  \end{center}
+      \end{solution}
+        
+  \end{enumerate}  
+    
+\end{document}

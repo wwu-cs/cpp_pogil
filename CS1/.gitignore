@@ -1,0 +1,11 @@
+*.aux
+*.log
+*.out
+*.pdf
+*.gz
+~$*.pptx
+*.pyg
+
+.vscode
+*.pygstyle
+*.pygtex

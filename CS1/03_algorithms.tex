@@ -1,0 +1,319 @@
+\documentclass{exam}
+%\documentclass[answers]{exam}
+\hbadness=99999
+\setlength{\textheight}{9.5in}
+\setlength{\textwidth}{6.5in}
+\setlength{\topmargin}{-0.75in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+%\usepackage{pgfplots}
+\usepackage{multicol}
+\usepackage[
+  colorlinks=true,
+  pdftex,
+  pdfauthor={Jonathan Duncan},
+]{hyperref}
+
+% for syntax highlighting
+\usepackage{minted}
+\usemintedstyle[cpp]{xcode}
+
+% for overlay of output
+\usepackage[overlay,showboxes]{textpos}
+
+\pagestyle{plain}
+
+\setlength\columnsep{50pt}
+\newcommand{\key}{\hfill
+      \raisebox{-.3\height}{\includegraphics[width=0.6in]{figures/key.png}}}
+
+\begin{document}
+  \thispagestyle{empty}
+  \setlength{\parindent}{0pt}
+
+  \begin{center}
+    \Large Activity \#3: Algorithmic Thinking \\[5pt]
+    \large Recorder's Report\\[20pt]
+    \normalsize
+    \begin{tabular}{lrp{0.1in}lr}
+      Manager:  & \fillin[][2.0in] & & Presenter: & \fillin[][2.0in]\\[15pt]
+      Recorder: & \fillin[][2.0in] & & Driver:    & \fillin[][2.0in]\\[15pt]
+      Date:     & \fillin[][2.0in] & & Score:     & Satisfactory \hspace{10pt} /
+      \hspace{10pt} Not Satisfactory
+    \end{tabular}
+  \end{center}
+  \par\vskip 15pt
+  
+  Record your team's answers to the key questions (marked with
+  \raisebox{-.3\height}{\includegraphics[width=0.5in]{figures/key.png}})
+  below.
+  \begin{enumerate}[(a)]
+    \item Model 1, Question \#4
+      \par\vskip 1.5in
+    \item Model 2, Question \#5
+      \par\vskip 3.5in
+    \item Model 3, Question \#16
+  \end{enumerate}
+
+  \clearpage\pagenumbering{arabic} 
+  
+  \begin{center}
+    \Large Activity \#3: Algorithmic Thinking \\[5pt]
+    \large Activity Guide\\[20pt]
+  \end{center}
+
+  \begin{center}
+    \fbox{
+      \begin{minipage}{5.5in}
+        {\bf Learning Objectives:} Students will be able to:
+        \begin{itemize}
+          \item Content:\\[-20pt]
+            \begin{itemize}
+              \itemsep 0pt
+              \item Explain to other students how to duplicate a model
+              \item Understand the need for clarity when describing an algorithm.
+              \item Analyze the efficiency of oral and written algorithms.
+            \end{itemize}
+          \item Process\\[-20pt]
+            \begin{itemize}
+              \itemsep 0pt
+              \item Create oral algorithms
+              \item Create a written algorithm
+            \end{itemize}
+        \end{itemize}
+      \end{minipage}
+      }
+  \end{center}
+  \par\vskip 10pt
+  
+  
+  {\bf\large Model 1: Google Directions from KRH to Walmart} \\
+  \begin{center}
+    \fcolorbox{black}{orange!20}{
+    \begin{minipage}{3.5in}
+      \begin{enumerate}
+        \itemsep -2pt
+        \item Head south towards SW 4th Street
+        \item Turn left onto SW 4th Street
+        \item Travel 499 feet
+        \item Turn right onto S. College Avenue
+        \item Travel 0.7 miles
+        \item Turn left onto Lamperti Lane
+        \item Travel 0.2 miles
+        \item Continue onto SE Lamperti Street
+        \item Travel 469 feet
+        \item Turn right into Walmart Parking Lot
+        \item Destination will be on the right
+      \end{enumerate}
+    \end{minipage}
+    }
+  \end{center}
+  \par\vskip 10pt
+  
+  {\it\large Refer to Model 1 above as your team develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+    
+  \begin{enumerate}
+    \itemsep 20pt
+    
+    \item Give at least one assumption that is being made in the
+      directions above.
+      \begin{solution}[0.75in]
+        We are assuming that the individual is driving a car.
+      \end{solution}
+      \vfill
+
+    \item List at least two additional instructions that could be
+      added to improve on these directions.  Indicate where in the list
+      they should be added.
+      \begin{solution}[1in]
+        \begin{itemize}
+          \item Before 1: Get into your car
+          \item Between items 3 and 4: Stop at the intersection until
+            the light turns green.
+          \item Answers will vary{\ldots} 
+        \end{itemize}
+      \end{solution}
+      \vfill
+      
+\newpage      
+      
+    \item An {\it algorithm} is a series of instructions that can be
+      repeated over and over with the same results. Based on your
+      answers above, give two important things to consider when 
+      describing an algorithm.      
+      \begin{solution}[1in]
+        \begin{itemize}
+          \item The context that is assumed
+          \item The completeness of the list of instructions
+          \item The preciseness of each instruction
+          \item etc{\ldots} 
+        \end{itemize}
+      \end{solution}
+      
+      
+    \item Think about the process of brushing your teeth.  Write down
+      step-by-step instructions\key\\[-3.5mm] (e.g. an algorithm) that
+      would allow somebody who has never brushed their teeth before\\
+      to successfully accomplish this task.
+      \begin{solution}[2.5in]
+        Answers will vary.
+      \end{solution}
+      \vfill
+      
+  
+  {\bf\large Model 2: An Object Built Using LEGOs} \\[-10pt]
+    \begin{center}
+      \fcolorbox{black}{orange!20}{
+        \begin{minipage}{5in}
+          \vskip 5pt
+          {\bf Important Instructions}
+          \hrule\vskip 5pt
+          This model is an object built with LEGO-like blocks. In our
+	  online environment, we will use the following online LEGO 
+	  environment.
+	  \begin{center}
+  	    \href{https://www.mecabricks.com/en/workshop}{https://www.mecabricks.com/en/workshop}
+	  \end{center}
+	  It is important that you follow the rules below precisely.
+          \begin{enumerate}
+            \item Your {\bf driver} should show the video
+	    ``MecaBricks.mp4'' to the entire group.  This can be found
+	    in Teams.
+            \item Your {\bf manager} should watch the video
+	    ``ManagerOnly.mp4'' {\bf by themselves}.  Nobody
+	    else should watch this video.  
+	    \item Based on the object the manager sees in this video,
+	    he or she should give instructions to the driver as to
+	    how to build the object.
+            \item Your {\bf team recorder} should write down all
+	    instructions that are given by the manager.
+          \end{enumerate}
+          Limit yourself to 5 minutes to complete this task.\vskip -4pt\null
+        \end{minipage}
+      }
+    \end{center}
+
+  {\it\large Refer to Model 2 above as your team develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+    
+    \item Give yourself a five minute timmer and then begin constructing
+      your object.  Remember\key\\[-3.5mm] that the {\bf team manager} is
+      the only one who can give instructions and the {\bf team driver}\\
+      and {\bf presenter} may not see the original model.  Work until
+      your five minute timer runs out.
+      \vfill
+      
+    \item How many total instructions were given during your build
+      time? \hfill \fillin[][2in]
+      
+    \item Looking through your list of instructions.  Identify several
+      that were useful and copy them below.
+      \begin{solution}[0.75in]
+        Answers will vary.
+      \end{solution}
+      
+    \item Looking through your list of instructions again, identify
+      several that weren't helpful and list them.
+      \begin{solution}[0.75in]
+        Answers will vary.
+      \end{solution}
+      
+    \item Describe the types of instructions that work best in
+      defining an algorithm.
+      \begin{solution}[1in]
+        Answers will vary.
+      \end{solution}
+      
+    \item How was this activity related to computer programming?  How
+      is it different?
+      \begin{solution}[1in]
+        Answers will vary.
+      \end{solution}
+      
+\newpage
+
+  {\bf\large Model 3: Your Own Object Built Using LEGOs} \\[-10pt]
+    \begin{center}
+      \fcolorbox{black}{orange!20}{
+        \begin{minipage}{5in}
+          \vskip 5pt
+          {\bf Important Instructions}
+          \hrule\vskip 5pt
+	  Work together to construct a simple object using the LEGO 
+	  building program.  Once you are finished, take a screen shot
+	  of it to show later.
+        \end{minipage}
+      }
+    \end{center}
+    \par\vskip 10pt
+  
+  {\it\large Refer to Model 3 above as your team develops consensus answers
+    to the questions below.}
+    
+      \item Develop a written algorithm (list of instructions) for
+        building your object.
+	\par\vskip 1.5in
+        
+      \item Post your algorithm and a list of the number of each size
+        of brick used in the general Teams channel.
+        
+      \item Pick one of the other team's algorithm to construct their
+        object. Reply to their instructions with a screen shot of your
+	object.
+        
+      \item How well did the other group do at building your object?      
+        \begin{solution}[0.75in]
+          Answers vary.
+        \end{solution}
+        
+      \item Suppose the object they built doesn't match your original.
+        Describe a scenario in which it would be:
+        \begin{enumerate}[(a)]
+          \item the fault of the other team.
+            \begin{solution}[0.75in]
+              The the other team did not follow the list of
+              instructions correctly, it would be their fault.
+            \end{solution}
+          \item the fault of your team.
+            \begin{solution}[0.75in]
+              If we did provided an incomplete or imprecise algorithm,
+              it would be our fault.
+            \end{solution}
+        \end{enumerate}
+	
+	\newpage
+            
+      \item Suppose a program you write does not do what you intended
+        it to do.  Describe a scenario\key\\[-2.5mm] in which it would be:
+        \begin{enumerate}[(a)]
+          \item the computer's fault.
+            \begin{solution}[0.75in]
+              If there is a bug in the program that is running your
+              code or possibly faulty hardware.
+            \end{solution}
+          \item your fault as the programmer.
+            \begin{solution}[0.75in]
+              If the code we gave was inaccurate.
+            \end{solution}
+        \end{enumerate}
+              
+      \item Which of the scenarios in the previous problem do you
+        think is most likely?
+        \begin{solution}[0.5in]
+          It is most likely the programmers fault.
+        \end{solution}        
+        
+  \end{enumerate}  
+    
+\end{document}

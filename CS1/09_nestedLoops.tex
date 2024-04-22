@@ -1,0 +1,656 @@
+\documentclass{exam}
+%\documentclass[answers]{exam}
+\hbadness=99999
+\setlength{\textheight}{9.5in}
+\setlength{\textwidth}{6.5in}
+\setlength{\topmargin}{-0.75in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+%\usepackage{pgfplots}
+\usepackage{multicol}
+\usepackage{fancyvrb}
+
+% for syntax highlighting
+\usepackage{minted}
+\usemintedstyle[cpp]{xcode}
+
+% for overlay of output
+\usepackage[overlay,showboxes]{textpos}
+
+\pagestyle{plain}
+
+\setlength\columnsep{50pt}
+\newcommand{\key}{\hfill
+      \raisebox{-.3\height}{\includegraphics[width=0.6in]{figures/key.png}}}
+
+\begin{document}
+  \thispagestyle{empty}
+  \setlength{\parindent}{0pt}
+
+  \begin{center}
+    \Large Activity \#9: Nested Loops \\[5pt]
+    \large Recorder's Report\\[20pt]
+    \normalsize
+    \begin{tabular}{lrp{0.1in}lr}
+      Manager:  & \fillin[][2.0in] & & Presenter: & \fillin[][2.0in]\\[15pt]
+      Recorder: & \fillin[][2.0in] & & Driver:    & \fillin[][2.0in]\\[15pt]
+      Date:     & \fillin[][2.0in] & & Score:     & Satisfactory \hspace{10pt} /
+      \hspace{10pt} Not Satisfactory
+    \end{tabular}
+  \end{center}
+  \par\vskip 15pt
+  
+  Record your team's answers to the key questions (marked with
+  \raisebox{-.3\height}{\includegraphics[width=0.5in]{figures/key.png}})
+  below.
+  \begin{enumerate}[(a)]
+    \itemsep 1.75in
+    \item Model 1, Question \#5
+    \item Model 2, Question \#8 (describe your solution)
+    \item Model 3, Question \#13 (write out your code)
+  \end{enumerate}
+
+  \clearpage\pagenumbering{arabic} 
+  
+  \begin{center}
+    \Large Activity \#9: Nested Loops \\[5pt]
+    \large Activity Guide\\[20pt]
+  \end{center}
+
+  \begin{center}
+    \fbox{
+      \begin{minipage}{5.5in}
+        {\bf Learning Objectives:} Students will be able to:
+        \begin{itemize}
+          \item Content:\\[-20pt]
+            \begin{itemize}
+              \itemsep 0pt
+              \item Read and write nested {\tt for} loops.
+              \item Identify inner and outer loops.
+            \end{itemize}
+          \item Process\\[-20pt]
+            \begin{itemize}
+              \itemsep 0pt
+              \item Write code that uses nested {\tt for} loops. \\[-5pt]
+            \end{itemize}
+        \end{itemize}
+      \end{minipage}
+      }
+  \end{center}
+  \par\vskip 10pt
+  
+
+  {\bf\large Model 1: A C++ Programs} \\[-15pt]
+  \begin{center}
+    \begin{minipage}{2.5in}
+      \begin{minted}[
+        frame=lines,
+        framesep=2mm,
+        bgcolor=gray!15,
+        baselinestretch=1.2,
+        linenos,
+        firstnumber=6
+      ]{cpp}
+  string name;
+  cout << "What is your name? ";
+  cin >> name;
+  for (int i=0; i<5; i++) {
+    for (int j=0; j<3; j++) {
+      cout << name << " ";
+    }
+    cout << endl;
+  }
+      \end{minted}
+    \end{minipage}
+  \end{center}
+  \TPMargin{5pt}
+  
+  
+  {\it\large Refer to Model 1 above as your team develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+    
+  \begin{enumerate}
+    \itemsep 20pt
+    
+    \item What does this program display?  Try to determine this
+      without running it first, then check your work against
+      the output of the program in {\tt activity09a.cpp}.
+      \begin{solution}[0.75in]
+        \par
+        The program prints out a 3 x 5 grid of the person's name.
+      \end{solution}
+      
+    \item Answer the following questions regarding the      
+      \mintinline{cpp}|for| loops in this code snippet.
+      \par\vskip 20pt
+      
+      \begin{enumerate}[(a)]
+        \itemsep 15pt
+        \item How many \mintinline{cpp}|for| loops are in this code?: \hfill
+          \fillin[There are two][2.5in]
+        \item Does one loop completely finish before the next begins?  \hfill
+          \fillin[No.  One loop is inside the other][2.5in]
+        \item What do you call this arrangement of loops?  \hfill
+          \fillin[These are nested loops][2.5in]
+      \end{enumerate}
+    
+    \item How many times does each {\tt cout} statement in this model
+      execute?
+      \par\vskip 20pt
+      
+      \begin{enumerate}[(a)]
+        \itemsep 15pt
+        \item The {\tt cout} on line 7 of the model:\hfill
+          \fillin[Executes once][2.5in]
+        \item The {\tt cout} on line 11 of the model: \hfill
+          \fillin[Executes $5\times 3 = 15$ times][2.5in]
+        \item The {\tt cout} on line 13 of the model: \hfill
+          \fillin[Executes five times][2.5in]
+      \end{enumerate}
+      
+\newpage
+
+    \item A loop that appears within another loop is called a {\it
+      nested loop}.  We can refer to the two loops as the {\it outer
+      loop} and the {\it inner loop}.
+      \par\vskip 20pt
+      
+      \begin{enumerate}[(a)]
+        \itemsep 15pt
+        \item On what line number in the model does the outer loop start?\hfill
+          \fillin[Line 4][2in]
+        \item On what line number in the model does the inner loop start? \hfill
+          \fillin[Line 5][2in]
+        \item On what line number does the inner loop in the model end?\hfill
+          \fillin[Line 7][2in]
+        \item On what line number does the outer loop in the model end?\hfill
+          \fillin[Line 9][2in]
+      \end{enumerate}
+      \par\vskip -35pt\null
+                
+    \item What does each of the loops in the model do?\key\\[-2.5mm]
+      \begin{enumerate}[(a)]
+        \item What does the inner loop do?
+          \begin{solution}[0.5in]
+            The inner loop prints out a name 3 times with a space
+            after each one.
+          \end{solution}
+        \item What does the outer loop do?
+          \begin{solution}[0.5in]
+            The outer loop repeats the inner loop 5 times and prints
+            an {\tt endl} after each one.
+          \end{solution}
+      \end{enumerate}
+      \par\vskip 10pt
+
+  
+  {\bf\large Model 2: Output from Several Nested Loops} \\[-10pt]
+
+% define first output as verbatim box
+\newbox\verbboxOne
+\setbox\verbboxOne=\vbox{\hsize=1.4in
+\begin{Verbatim}
+* * * * *
+* * * * *
+* * * * *
+* * * * *
+* * * * *
+* * * * *
+* * * * *
+\end{Verbatim}
+}
+
+% define second output as verbatim box
+\newbox\verbboxTwo
+\setbox\verbboxTwo=\vbox{\hsize=1.4in
+\begin{Verbatim}
+1 1 1 1 1
+2 2 2 2 2
+3 3 3 3 3
+4 4 4 4 4
+5 5 5 5 5
+6 6 6 6 6
+7 7 7 7 7
+\end{Verbatim}
+}
+
+% define third output as verbatim box
+\newbox\verbboxThree
+\setbox\verbboxThree=\vbox{\hsize=1.4in
+\begin{Verbatim}
+1 2 3 4 5
+1 2 3 4 5
+1 2 3 4 5
+1 2 3 4 5
+1 2 3 4 5
+1 2 3 4 5
+1 2 3 4 5
+\end{Verbatim}
+}
+
+
+  \begin{center}
+    \small
+    \begin{tabular}{p{1.5in}p{0.25in}p{1.5in}p{0.25in}p{1.5in}}
+      \fbox{\begin{minipage}{1.4in}
+        \centering\box\verbboxOne
+      \end{minipage}}
+      & &
+      \fbox{\begin{minipage}{1.4in}
+        \centering\box\verbboxTwo
+      \end{minipage}}      
+      & &
+      \fbox{\begin{minipage}{1.4in}
+        \centering\box\verbboxThree
+      \end{minipage}}
+      \\
+      \centering (a) & & \centering (b) & & \centering (c) \\
+    \end{tabular}
+  \end{center}
+
+  {\it\large Refer to Model 2 above as your team develops consensus answers
+    to the questions below.}
+
+    \item There are several ways to write a C++ program that outputs
+      the contents of box (a) above.  Briefly describe how it could be
+      done using the following methods.
+      \par\vskip 15pt
+      
+      \begin{enumerate}[(a)]
+        \item Using a set of {\tt cout} statements without any loops.
+          \begin{solution}[0.75in]
+            \par
+            Create seven identical {\tt cout} statements,
+            each of which prints {\tt * * * * *} and an {\tt endl}.
+          \end{solution}
+        \item Using a single \mintinline{cpp}|for| loop (without any nesting).
+          \begin{solution}[0.75in]
+            \par
+            The \mintinline{cpp}|for| loop would execute seven times
+            and each time {\tt cout} the five {\tt *}'s and an {\tt endl}.
+          \end{solution}
+      \end{enumerate}
+      
+    \item In this exercise we will create the output in box (a) using nested loops.    
+      \par\vskip 10pt
+      
+      \begin{enumerate}[(a)]
+        \item Surround the {\tt cout} statement below by a \mintinline{cpp}|for|
+          so that five {\tt *} characters are printed on a single line.
+          \ifprintanswers
+            \begin{solution}
+              \scriptsize\vskip -35pt\null
+              \begin{center}
+                \begin{minipage}{2.5in}
+                  \begin{minted}[
+                    frame=lines,
+                    framesep=2mm,
+                    bgcolor=gray!15,
+                    baselinestretch=1.2,
+                  ]{cpp}
+for (int i=0; i<5; i++) {
+  cout << "* ";
+}
+                  \end{minted}
+                \end{minipage}
+              \end{center}\vskip -20pt\null
+            \end{solution}
+          \else
+            \par\vskip 10pt\null
+            \begin{center}
+              \mintinline{cpp}{cout << "* ";}
+            \end{center}
+            \par\vskip 10pt\null
+          \fi
+        \item Now build on the block of code above by wrapping the
+          loop you created in another \mintinline{cpp}|for| loop that
+          prints seven of these lines, with an {\tt endl} between each one.
+          \begin{solution}[1.25in]
+            \scriptsize\vskip -35pt\null
+            \begin{center}
+              \begin{minipage}{2.5in}
+                \begin{minted}[
+                  frame=lines,
+                  framesep=2mm,
+                  bgcolor=gray!15,
+                  baselinestretch=1.2,
+                ]{cpp}
+for (int j=0; j<7; j++) {                
+  for (int i=0; i<5; i++) {
+    cout << "* ";
+  }
+  cout << endl;
+}
+                \end{minted}
+              \end{minipage}
+            \end{center}\vskip -20pt\null
+          \end{solution}
+      \end{enumerate}
+      
+    \item Suppose that variables \mintinline{cpp}|int rows| and
+      \mintinline{cpp}|int cols| contain the number of rows and 
+      columns\key\\[-2.5mm] of {\tt *}'s you wish to print.  How
+      would you modify your code above to print out that number of
+      rows and columns?  Test your solution in {\tt activity09b.cpp}.
+      
+      \begin{solution}[1.25in]
+        \scriptsize\vskip -35pt\null
+        \begin{center}
+          \begin{minipage}{2.5in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{cpp}
+for (int j=0; j<rows; j++) {
+  for (int i=0; i<cols; i++) {
+    cout << "* ";
+  }
+  cout << endl;
+}
+            \end{minted}
+          \end{minipage}
+        \end{center}\vskip -20pt\null
+      \end{solution}
+
+    \item How would you modify your code in the previous question to
+      produce the output seen in box (b), assuming that
+      \mintinline{cpp}|int rows = 7| and \mintinline{cpp}|int cols = 4|?
+
+      \begin{solution}[1.25in]
+        \scriptsize\vskip -35pt\null
+        \begin{center}
+          \begin{minipage}{2.5in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{cpp}
+for (int j=0; j<rows; j++) {
+  for (int i=0; i<cols; i++) {
+    cout << j;
+  }
+  cout << endl;
+}
+            \end{minted}
+          \end{minipage}
+        \end{center}\vskip -20pt\null
+      \end{solution}
+
+    \item How would you modify your code so that the output
+      matches the output in box (c) instead of (b)?
+      \begin{solution}[1.25in]
+        \scriptsize\vskip -35pt\null
+        \begin{center}
+          \begin{minipage}{2.5in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{cpp}
+for (int j=0; j<rows; j++) {
+  for (int i=0; i<cols; i++) {
+    cout << i;
+  }
+  cout << endl;
+}
+            \end{minted}
+          \end{minipage}
+        \end{center}\vskip -20pt\null
+      \end{solution}
+
+\newpage
+
+  {\bf\large Model 3: More Nested Loop Output} \\[-5pt]
+  
+% define fourth output as verbatim box
+\newbox\verbboxFour
+\setbox\verbboxFour=\vbox{\hsize=1.4in
+\begin{Verbatim}
+1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5
+\end{Verbatim}
+}
+
+% define fifth output as verbatim box
+\newbox\verbboxFive
+\setbox\verbboxFive=\vbox{\hsize=1.4in
+\begin{Verbatim}
+1 2 3 4 5
+1 2 3 4
+1 2 3
+1 2 
+1
+\end{Verbatim}
+}
+
+% define third output as verbatim box
+\newbox\verbboxSix
+\setbox\verbboxSix=\vbox{\hsize=1.4in
+\begin{Verbatim}
+1
+1 2
+1 2 3
+1 2
+1
+\end{Verbatim}
+}
+
+
+  \begin{center}
+    \small
+    \begin{tabular}{p{1.5in}p{0.25in}p{1.5in}p{0.25in}p{1.5in}}
+      \fbox{\begin{minipage}{1.4in}
+        \centering\box\verbboxFour
+      \end{minipage}}
+      & &
+      \fbox{\begin{minipage}{1.4in}
+        \centering\box\verbboxFive
+      \end{minipage}}      
+      & &
+      \fbox{\begin{minipage}{1.4in}
+        \centering\box\verbboxSix
+      \end{minipage}}
+      \\
+      \centering (a) & & \centering (b) & & \centering (c) \\
+    \end{tabular}
+  \end{center}
+  
+  {\it\large Refer to Model 3 above as your team develops consensus answers
+    to the questions below.}
+
+    \item How are the output samples in this model different from
+      those in model 2?  Note: Write a single general statement that
+      summarizes the difference for all output boxes.
+      
+      \begin{solution}[1in]
+        \par
+        The number of columns in a row (i.e. its length) depends on
+        which row we are in.
+      \end{solution}
+      
+    \item The code below will produce one of these three outputs.
+      Determine which one and justify your answer.
+      
+      \begin{center}
+        \begin{tabular}{p{2.5in}p{2.5in}}
+          \begin{minipage}{2.5in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{cpp}
+int numRows = 5;
+for (int j=numRows; j>0; j--) {
+  for (int i=1; i<=j; i++) {
+    cout << i << " ";
+  }
+  cout << endl;
+}
+            \end{minted}
+          \end{minipage}
+          &
+          \begin{minipage}{2.5in}
+            \begin{solution}[1in]
+              \par
+              It will produce the output in box (b).  We can tell
+              because it is counting down from 5 instead of counting
+              up to 5 or counting up and then down.
+            \end{solution}
+          \end{minipage}
+        \end{tabular}
+      \end{center}
+      \par\vskip -20pt\null
+
+    \item The code from the previous problem is in
+      {\tt activity09c.cpp}.  Rewrite it so that it produces \key\\[-2.5mm] the output
+      in the other of box (a) or (b).
+      
+      \begin{solution}[1.5in]
+        \scriptsize\vskip -35pt\null
+        \begin{center}
+          \begin{minipage}{2.5in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{cpp}
+int numRows = 5;
+for (int j=1; j<=numRows; j++) {
+  for (int i=1; i<=j; i++) {
+    cout << i << " ";
+  }
+  cout << endl;
+}
+            \end{minted}
+          \end{minipage}
+        \end{center}\vskip -20pt\null
+      \end{solution}
+      
+    \item Add some initialization code that prompts the user to enter
+      the number of rows in the triangle that your program creates.
+      Test your solution to verify that it works.
+
+\newpage
+
+    \item Use nested \mintinline{cpp}|for| loops to produce the output
+      in box (c) above.
+      
+      \begin{solution}[2.5in]
+        \scriptsize\vskip -35pt\null
+        \begin{center}
+          \begin{minipage}{3.5in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{cpp}
+  int numRows = 5, length;
+  for (int i = 1; i <= numRows; i++) {
+    if ((numRows % 2 == 0 && i <= numRows / 2) ||
+        (numRows % 2 == 1 && i <= numRows / 2 + 1) ) {
+      length = i;
+    }
+    else {
+      length = numRows - i + 1;
+    }
+    for (int j = 1; j <= length; j++) {
+      cout << j << " ";
+    }
+    cout << endl;
+  }
+            \end{minted}
+          \end{minipage}
+        \end{center}\vskip -20pt\null
+      \end{solution}
+
+    \item Write a program that prompts the user for information on
+      three students.  For each student, collect the student name and
+      three quiz grades.  Then display the name and quiz average
+      (formatted to two decimal places).  Sample output is shown below.
+    
+      \begin{center}
+        \begin{tabular}{p{2.6in}p{3in}}
+          \begin{minipage}{2.6in}
+            \small
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{html}
+Enter name of student 1: Mary
+Enter score 1: 78
+Enter score 2: 90
+Enter score 3: 91
+Name: Mary
+Average: 86.33
+
+Enter name of student 2: Kevin
+Enter score 1: 90
+Enter score 2: 77
+Enter score 3: 85
+Name: Kevin
+Average: 84.00
+
+Enter name of student 3: Jose
+Enter score 1: 79
+Enter score 2: 83
+Enter score 3: 92
+Name: Jose
+Average: 84.67
+            \end{minted}
+          \end{minipage}
+          &
+          \begin{minipage}{3in}
+            \begin{solution}
+              \scriptsize
+              \begin{minted}[
+                frame=lines,
+                framesep=2mm,
+                bgcolor=gray!15,
+                baselinestretch=1.2,
+              ]{cpp}
+string name;
+double score,sum;
+cout << showpoint << fixed << setprecision(2);
+for (int i=1; i<=3; i++) {
+  cout << "Enter name of student " << i << ": ";
+  cin >> name;
+  sum = 0;
+  for (int j=1; j<=3; j++) {
+    cout << "Enter score " << j << ": ";
+    cin >> score;
+    sum += score;
+  }
+  cout << "Name: " << name << endl;
+  cout << "Average: " << (sum / 3) << endl << endl;
+  }
+}  
+              \end{minted}
+            \end{solution}
+          \end{minipage}
+        \end{tabular}
+      \end{center}
+
+  \end{enumerate}  
+    
+\end{document}
