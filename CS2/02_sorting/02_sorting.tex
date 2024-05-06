@@ -1,550 +1,65 @@
-\documentclass{exam}
-%\documentclass[answers]{exam}
-\setlength{\textheight}{9.5in}
-\setlength{\textwidth}{6.5in}
-\setlength{\topmargin}{-0.75in}
-\setlength{\oddsidemargin}{0in}
-\setlength{\evensidemargin}{0in}
+% Source: https://www.dropbox.com/sh/rl0yyth9g06psva/AADB0Cj4isIX5DAyrspqj8mFa?e=1&preview=CS305+activity+13+selection+and+insertion+sort.pdf
+% File: "selection and insertion sort.pdf"
+% Access: 04-15-2022
 
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{enumerate}
-\usepackage[table]{xcolor}
-\usepackage{hhline}
-\usepackage{graphicx}
-\usepackage{tikz}
-\usepackage{pgfplots}
-\usepackage{multicol}
-\usepackage{fancyvrb}
+% comment out for student version
+%\ifdefined\Student\relax\else\def\Teacher{}\fi
 
-% for syntax highlighting
-\usepackage{minted}
-\usemintedstyle[cpp]{xcode}
+\documentclass[12pt]{article}
 
-% for overlay of output
-\usepackage[overlay,showboxes]{textpos}
+\title{Activity \#2: Sorting}
+\author{Tammy van de Grift}
+\newcommand{\activityeditor}{Preston Carman}
+\newcommand{\activitysource}{\url{https://www.dropbox.com/sh/rl0yyth9g06psva/AADB0Cj4isIX5DAyrspqj8mFa?e=1&preview=CS305+activity+13+selection+and+insertion+sort.pdf}}
+\date{Spring 2022}
 
-\pagestyle{plain}
-
-\setlength\columnsep{50pt}
-\newcommand{\key}{\hfill
-      \raisebox{-.3\height}{\includegraphics[width=0.6in]{figures/key.png}}}
+\input{../cspogil.sty}
 
 \begin{document}
-\thispagestyle{empty}
-\setlength{\parindent}{0pt}
 
 \begin{center}
-      \Large Activity \#2: Sorting \\[5pt]
-      \large Recorder's Report\\[20pt]
-      \normalsize
-      \begin{tabular}{lrp{0.1in}lr}
-            Manager:  & \fillin[][2.25in] &  & Reader: & \fillin[][2.25in]            \\[15pt]
-            Recorder: & \fillin[][2.25in] &  & Driver: & \fillin[][2.25in]            \\[15pt]
-            Date:     & \fillin[][2.25in] &  & Score:  & Satisfactory \hspace{10pt} /
-            \hspace{10pt} Not Satisfactory
-      \end{tabular}
+  \Large Activity \#2: Sorting \\[5pt]
+  \large Recorder's Report\\[20pt]
+  \normalsize
+  \begin{tabular}{lrp{0.1in}lr}
+      Manager:  & \ans{} &  & Reader: & \ans{}            \\[15pt]
+      Recorder: & \ans{} &  & Driver: & \ans{}            \\[15pt]
+      Date:     & \ans{} &  & Score:  & Satisfactory \hspace{10pt} /
+      \hspace{10pt} Not Satisfactory
+  \end{tabular}
 \end{center}
 \par\vskip 15pt
 
 Record your team's answers to the key questions (marked with
-\raisebox{-.3\height}{\includegraphics[width=0.5in]{figures/key.png}})
+\raisebox{-.3\height}{\includegraphics[width=0.5in]{../figures/key.png}})
 below.
-\begin{enumerate}[(a)]
-      \itemsep 1.35in
-      \item Model 1, Question \#5
-      \item Model 1, Question \#7
-      \item Model 2, Question \#14
-      \item Model 2, Question \#19
+\begin{enumerate}[label=(\alph*)]
+  \itemsep 1.25in
+  \item Model 1, Question \#5
+  \item Model 2, Question \#7
+  \item Model 3, Question \#14
+  \item Model 3, Question \#19
 \end{enumerate}
 
-\clearpage\pagenumbering{arabic}
-
-\begin{center}
-      \Large Activity \#2: Sorting \\[5pt]
-      \large Activity Guide\\[20pt]
-\end{center}
-\vskip -30pt\null
-
-\begin{center}
-      \fbox{
-            \begin{minipage}{5.5in}
-                  {\bf Learning Objectives:} Students will be able to:
-                  \begin{itemize}
-                        \item Content:\\[-20pt]
-                              \begin{itemize}
-                                    \itemsep 0pt
-                                    \item Explain the structure of linked list
-                                    \item Explain difference between a single, circular, and double linked list
-                              \end{itemize}
-                        \item Process\\[-20pt]
-                              \begin{itemize}
-                                    \itemsep 0pt
-                                    \item Write code that adds, removes, and accesses a linked list\\[-5pt]
-                              \end{itemize}
-                  \end{itemize}
-            \end{minipage}
-      }
-\end{center}
-\par\vskip 10pt
-
-      {\bf\large Model 1: Comparing} \\
-
-In computing, we often need to \textbf{sort} a set of items. As computer scientists,
-we study ways to sort very large sets, with thousands or millions of values,
-since searching and other operations are often easier when the set of values is sorted.
-
-For example, the Harvard University Library has roughly 16,000,000 volumes, and the
-US Library of Congress has roughly 22,000,000 books, and over 100,000,000 total items.
-In 2010, a team at UC San Diego sorted one trillion ($10^{12}$) data records in 172 minutes.
-Simple $O(N^2)$ sorting algorithms work well for small lists, but are too slow for larger lists.
-Most software libraries (APIs) include excellent sorting algorithms,  but exploring better
-sorting algorithms also demonstrates more general concepts in algorithm design and analysis.
-
-
-\begin{minted}[
-          bgcolor=gray!15,
-          baselinestretch=1
-        ]{cpp}
-        public    int[] sort(   int[] d) { ... } 
-        public String[] sort(String[] d) { ... } 
-        public   City[] sort(  City[] d) { ... } 
-         
-        public void demo() { 
-          int   [] iu = { 6,3,8,2,9 }; 
-          int   [] is = sort(iu); 
-          String[] su = { "banana", "grape", "apple", "mango" }; 
-          String[] ss = sort(su); 
-          City  [] cu = { City.NYC, City.LAX, City.PHL, City.CHI }; 
-          City  [] cs = sort(cu); 
-        }
-      \end{minted}
-
-\begin{enumerate}
-
-      \item (1 min) Each \textbf{sort()} method above takes an array input and returns a sorted array.
-            What is \textbf{different} about the first 3 methods?
-
-            \begin{solution}[0.6in]
-                  The 1st works on ints,  the 2nd on Strings; the 3rd on Cities.
-            \end{solution}
-
-
-      \item (2 min) What sequence of values should appear in each variable below:
-
-            \begin{center}
-                  \renewcommand{\arraystretch}{2}
-                  \begin{tabular}{ |c|m{3cm}|m{11cm}| }
-                        \hline
-                        a. & is & \ifprintanswers is = { 2,3,6,8,9 } \fi                           \\
-                        \hline
-                        b. & ss & \ifprintanswers ss = { "apple", "banana", "grape", "mango" } \fi \\
-                        \hline
-                  \end{tabular}
-            \end{center}
-
-            \newpage
-
-      \item   (1 min) In the table below, specify tests for \textbf{sort()},
-
-            \begin{center}
-                  \renewcommand{\arraystretch}{2}
-                  \begin{tabular}{ |c|l|m{11cm}| }
-                        \hline
-                        \rowcolor{lightgray} & \textbf{Input: array to sort} & \textbf{Expected Result}                \\
-                        \hline
-                        a.                   & [ ] (empty list)              & empty list                              \\
-                        \hline
-                        b.                   & [ 5 ]                         & 5                                       \\
-                        \hline
-                        c.                   & [ 2, 4, 8 ]                   & \ifprintanswers { 2,4,8 } \fi           \\
-                        \hline
-                        d.                   & [ 9, 7, 3, 5 ]                & \ifprintanswers { 3,5,7,9 } \fi         \\
-                        \hline
-                        e.                   & [ 27, 42, 35 ]                & \ifprintanswers { 27,35,42 } \fi        \\
-                        \hline
-                        f.                   & [ "a" ]                       & \ifprintanswers { a } \fi               \\
-                        \hline
-                        g.                   & [ "a", "b", "c" ]             & \ifprintanswers { a, b, c } \fi         \\
-                        \hline
-                        h.                   & [ "c", "b", "a" ]             & \ifprintanswers { a, b, c } \fi         \\
-                        \hline
-                        i.                   & [ "a3", "a1", "a2" ]          & \ifprintanswers { a1, a2, a3 } \fi      \\
-                        \hline
-                        j.                   & [ "bar", "ball", "back" ]     & \ifprintanswers { back, ball, bar } \fi \\
-                        \hline
-                  \end{tabular}
-            \end{center}
-
-      \item  (2 min) It is easier to compare integers than Strings. Explain why.
-
-            \begin{solution}[0.6in]
-                  Integers have a single value, but Strings have sets of character values.
-                  Integers have one clear ordering, but Strings have upper/lower case, unusual characters, etc.
-            \end{solution}
-
-            Suppose we had a list (e.g. a database or spreadsheet) of detailed information about cities:
-
-            \begin{center}
-                  \begin{tabular}{ |c|c|c|c|c|c| }
-                        \hline
-                        \rowcolor{lightgray} \textbf{Name} & \textbf{Area (sq mi)} & \textbf{Population} & \textbf{Altitude} & \textbf{Latitude} & \textbf{Longitude} \\
-                        \hline
-                        Chicago                            & 227.6                 & 2,700,000           & ...               & ...               & ...                \\
-                        \hline
-                        Los Angeles                        & 468.7                 & 3,800,000           & ...               & ...               & ...                \\
-                        \hline
-                        New York                           & 302.6                 & 8,200,000           & ...               & ...               & ...                \\
-                        \hline
-                        ...                                & ...                   & ...                 & ...               & ...               & ...                \\
-                        \hline
-                  \end{tabular}
-            \end{center}
-
-
-      \item (2 min) Explain why it could be harder to compare Cities than Strings.
-
-
-            \begin{solution}[0.6in]
-                  Cities could be compared in many different ways - population, area, location, etc.
-            \end{solution}
-
-      \item (3 min) It can be useful to \textbf{abstract} the comparisons used in searching & sorting.
-
-            \begin{enumerate}
-                  \item In the \textbf{Sample Code} handout, what \textbf{method} is declared in interface Comparable?
-
-                        \begin{solution}[0.6in]
-                              \texttt{int compareTo(T that);}
-                        \end{solution}
-
-
-                  \item The Java API method \texttt{Math.signum()} returns 0 if its input is 0,
-                        +1 if its input is positive, and -1 if its input is negative.
-                        In the Sample Code handout, how does class City compare two cities?
-
-
-                        \begin{solution}[0.6in]
-                              It subtracts their areas, and takes the signum of the result (-1,0,+1).
-                        \end{solution}
-
-
-
-                  \item The Java API class String implements interface Comparable.
-                        Given this, what Java expression would compare two Strings: s1 and s2?
-
-                        \begin{solution}[0.6in]
-                              \texttt{s1.compareTo(s2)}
-                        \end{solution}
-
-
-            \end{enumerate}
-      \item (4 min) In class City, modify the return statement to compare Cities using:
-            \begin{center}
-                  \renewcommand{\arraystretch}{2}
-                  \begin{tabular}{ |c|m{2.3cm}|m{11cm}| }
-                        \hline
-                        a. & population                  & \ifprintanswers return (int) Math.signum(this.getPop () - that.getPop () ); \fi \\
-                        \hline
-                        b. & name (alphabetical)         & \ifprintanswers return this.getName().compareTo( that.getName() ); \fi          \\
-                        \hline
-                        c. & name (reverse alphabetical) & \ifprintanswers return that.getName().compareTo( this.getName() ); \fi          \\
-                        \hline
-                        d. & population density          & \ifprintanswers return (int) Math.signum(
-                              this.getPop () / this.getArea()
-                              - that.getPop () / that.getArea() );
-                              return (int) Math.signum(
-                              this.getDens() - that.getDens() ); \fi                                                                       \\
-                        \hline
-                  \end{tabular}
-            \end{center}
-
-      \item (1 min) Comparison can be abstracted in more than one way.
-            In the Sample Code handout, what methods are declared in interface Comparator?
-
-            \begin{solution}[0.6in]
-                  \texttt{int     compare(T o1, T o2);}
-                  \texttt{boolean equals (Object obj);}
-            \end{solution}
-
-
-      \item (2 min) For each class listed below, describe how it compares 2 objects.
-            \begin{center}
-                  \renewcommand{\arraystretch}{2}
-                  \begin{tabular}{ |c|m{2.3cm}|m{11cm}| }
-                        \hline
-                        a. & \texttt{class StringCompI} & \ifprintanswers compares 2 Strings alphabetically, ignoring uppercase/lowercase differences. \fi \\
-                        \hline
-                        b. & \texttt{class StringCompL} & \ifprintanswers compares 2 Strings using their length (not their contents) \fi                   \\
-                        \hline
-                        c. & \texttt{class CityCompA}   & \ifprintanswers compares 2 Cities using their area \fi                                           \\
-                        \hline
-                        d. & \texttt{class CityCompP}   & \ifprintanswers compares 2 Cities using their population \fi                                     \\
-                        \hline
-                  \end{tabular}
-            \end{center}
-
-
-      \item (3 min) Change the return statement in \texttt{CityCompA.compare()} to compare:
-            \begin{center}
-                  \renewcommand{\arraystretch}{2}
-                  \begin{tabular}{ |c|m{2.3cm}|m{11cm}| }
-                        \hline
-                        a. & name (alphabetical)         & \ifprintanswers return c1.getName().compareTo( c2.getName() ); \fi \\
-                        \hline
-                        b. & name (reverse alphabetical) & \ifprintanswers return c2.getName().compareTo( c1.getName() ); \fi \\
-                        \hline
-                        c. & population density          & \ifprintanswers return (int)Math.signum(
-                              c1.getPop () / c1.getArea()
-                              - c2.getPop () / c2.getArea() );
-                              return (int)Math.signum(
-                              c1.getDens() - c2.getDens() );  \fi                                                             \\
-                        \hline
-                  \end{tabular}
-            \end{center}
-
-
-            \newpage
-
-
-            {\bf\large Model 2: Merge} \\
-
-            Some sort algorithms (e.g. bubble sort and selection sort) are simple but inefficient.
-            To understand a better sort algorithm, we'll start with something easier - \textbf{merge}.
-
-      \item Recall that \textbf{$\theta()$}, \textbf{$O()$}, and \textbf{$\omega()$ notation} describes how input size
-            affects operation count and run time. If the input size \textbf{doubles},
-            what happens to the run time if an algorithm is O(1), O(N), etc?
-            Which line at right shows this?
-
-
-            \begin{center}
-                  \begin{tabular}{ |l|l|l|l| }
-                        \hline
-                        a. O(1) & b. O(N) & c. $O(N^2))$ & O(log N) \\
-                        \hline
-                                &         &              &          \\
-                                &         &              &          \\
-                        \hline
-                  \end{tabular}
-            \end{center}
-
-
-
-
-      \item  (3 min) Use the table below to specify \textbf{unit tests} for \textbf{merge(arrA,arrB)},
-            which \textbf{merges} two sorted arrays into one sorted array.
-
-            \begin{center}
-                  \begin{tabular}{ |l|l|l| }
-                        \hline
-                        \rowcolor{lightgray} \textbf{arrA} & \textbf{arrB} & \textbf{Expected Result} (return value, exception, etc) \\
-                        \hline
-                        (empty)                            & (empty)       & (empty)                                                 \\
-                        \hline
-                        "B"                                & (empty)       & \ifprintanswers "B" \fi                                 \\
-                        \hline
-                        (empty)                            & "A"           & \ifprintanswers "A" \fi                                 \\
-                        \hline
-                        "B"                                & "A"           & \ifprintanswers "A", "B" \fi                            \\
-                        \hline
-                        "B", "D"                           & "A", "C"      & \ifprintanswers "A", "B", "C", "D" \fi                  \\
-                        \hline
-                        "B", "C", "D"                      & "A", "C"      & \ifprintanswers "A", "B", "C", "C", "D" \fi             \\
-                        \hline
-                  \end{tabular}
-            \end{center}
-
-
-      \item (5 min) Given 2 sorted arrays arrA \& arrB that will be merged into one sorted array arrC.
-
-            \begin{minipage}[c]{0.25\textwidth}
-                  \begin{tabular}{ |c|c|c|c| }
-                        \hline
-                        \multicolumn{4}{|c|}{\textbf{arrA}} \\
-                        \hline
-                        $a^0$ & $a^1$ & $a^2$ & $a^3$       \\
-                        \hline
-                  \end{tabular}
-            \end{minipage}
-            \begin{minipage}[c]{0.25\textwidth}
-                  \begin{tabular}{ |c|c|c|c| }
-                        \hline
-                        \multicolumn{4}{|c|}{\textbf{arrB}} \\
-                        \hline
-                        $b^0$ & $b^1$ & $b^2$ & $b^3$       \\
-                        \hline
-                  \end{tabular}
-            \end{minipage}
-            \begin{minipage}[c]{0.5\textwidth}
-                  \begin{tabular}{ |c|c|c|c|c|c|c|c| }
-                        \hline
-                        \multicolumn{8}{|c|}{\textbf{$\Rightarrow$ arrC}}             \\
-                        \hline
-                        $c^0$ & $c^1$ & $c^2$ & $c^3$ & $c^4$ & $c^5$ & $c^6$ & $c^7$
-                        \\
-                        \hline
-                  \end{tabular}
-            \end{minipage}
-
-
-            a. What is the length of \texttt{arrC}, in terms of \texttt{arrA.length} and \texttt{arrB.length}?
-
-            \begin{solution}[0.6in]
-                  \texttt{arrC.length = arrA.length + arrB.length}
-            \end{solution}
-
-            b. There are only 2 values ($a_0$ and $b_0$) that could go into $c_0$. Explain why.
-
-            \begin{solution}[0.6in]
-                  Since A and B are sorted, a0 is the smallest value in A and b0 is the smallest value in B,
-                  and so one of these two must be the smallest value in C.
-            \end{solution}
-
-            c. Once $c_0$ is chosen, there are only 2 values that could go into $c_1$. Explain why.
-
-
-            \begin{solution}[0.6in]
-                  If a0 goes into c0, then compare a1 and b0. If b0 goes into c0, then compare a0 and b1.
-            \end{solution}
-
-            d. Similarly, once $c_0$ to $c_i$ are chosen, there are only 2 values that could go into $c_{i+1}$. Explain.
-
-            \begin{solution}[0.6in]
-                  At each index we compare the smallest unused values from A \& B.
-            \end{solution}
-
-            \newpage
-      \item (3 min) Given your answers, above, how could we \textbf{merge()} 2 arrays efficiently?
-            In complete sentences or pseudocode, describe a general approach for \textbf{merge()}.
-
-            \texttt{String[] merge(String[] arrA, String[] arrB)}
-
-            \begin{solution}[0.6in]
-                  Start at the beginning of both arrays. Step through both arrays at the same time,
-                  keeping track of current position in each. Choose the smaller of the two values,
-                  copy it to the merged list, and shift the position in that list. Continue until
-                  the end of one array, and then copy any values left in the other array to the merged list.
-
-                  // pseudocode - see instructor sample code for more details
-                  String[] merge(String[] arrA, String[] arrB) {
-                              String[] result = new String[arrA.length + arrB.length];
-                              int ia = 0, ib = 0;
-                              for (int i=0; i<result.length; i++) {
-                                          if (ib == arrB.length || arrA[ia].compareTo(arrB[ib]) < 0) {
-                                                      result[i] = arrA[ia]; ia++; }
-                                          else {
-                                                      result[i] = arrB[ib]; ib++; }
-                                    }
-                              return result;
-                        }
-            \end{solution}
-
-
-            \newpage
-      \item (3 min) The table below shows the contents of sorted arrays arrayA  and arrayB.
-            Complete the table to show how arrayC and the 3 index variables (ai,bi,ci) change over time.
-
-
-            \begin{center}
-                  \begin{tabular}{ |r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r| }
-                        \hline
-                        \rowcolor{lightgray} \multicolumn{4}{|c|}{\textbf{arrayA}} &            & \multicolumn{4}{|c|}{\textbf{arrayB}} &            & \multicolumn{8}{|c|}{\textbf{arrayC}} &            & \multicolumn{3}{|c|}{\textbf{vars}}                                                                                                                                                                                                                                                                                       \\
-                        \hline
-                        \textbf{0}                                                 & \textbf{1} & \textbf{2}                            & \textbf{3} &                                       & \textbf{0} & \textbf{1}                          & \textbf{2} & \textbf{3} &  & \textbf{0} & \textbf{1} & \textbf{2}            & \textbf{3}            & \textbf{4}             & \textbf{5}             & \textbf{6}             & \textbf{7}             &  & \textbf{ai}           & \textbf{bi}           & \textbf{ci}           \\
-                        \hline
-                        2                                                          & 6          & 12                                    & 14         &                                       & 3          & 5                                   & 15         & 17         &  &            &            &                       &                       &                        &                        &                        &                        &  & 0                     & 0                     & 0                     \\
-                        \hline
-                        2                                                          & 6          & 12                                    & 14         &                                       & 3          & 5                                   & 15         & 17         &  & 2          &            &                       &                       &                        &                        &                        &                        &  & 1                     & 0                     & 1                     \\
-                        \hline
-                        2                                                          & 6          & 12                                    & 14         &                                       & 3          & 5                                   & 15         & 17         &  & 2          & 3          &                       &                       &                        &                        &                        &                        &  & 1                     & 1                     & 2                     \\
-                        \hline
-                        2                                                          & 6          & 12                                    & 14         &                                       & 3          & 5                                   & 15         & 17         &  & 2          & 3          & \ifprintanswers 5 \fi &                       &                        &                        &                        &                        &  & \ifprintanswers 1 \fi & \ifprintanswers 2 \fi & \ifprintanswers 3 \fi \\
-                        \hline
-                        2                                                          & 6          & 12                                    & 14         &                                       & 3          & 5                                   & 15         & 17         &  & 2          & 3          & \ifprintanswers 5 \fi & \ifprintanswers 6 \fi &                        &                        &                        &                        &  & \ifprintanswers 2 \fi & \ifprintanswers 2 \fi & \ifprintanswers 4 \fi \\
-                        \hline
-                        2                                                          & 6          & 12                                    & 14         &                                       & 3          & 5                                   & 15         & 17         &  & 2          & 3          & \ifprintanswers 5 \fi & \ifprintanswers 6 \fi & \ifprintanswers 12 \fi &                        &                        &                        &  & \ifprintanswers 3 \fi & \ifprintanswers 2 \fi & \ifprintanswers 5 \fi \\
-                        \hline
-                        2                                                          & 6          & 12                                    & 14         &                                       & 3          & 5                                   & 15         & 17         &  & 2          & 3          & \ifprintanswers 5 \fi & \ifprintanswers 6 \fi & \ifprintanswers 12 \fi & \ifprintanswers 14 \fi &                        &                        &  & \ifprintanswers 4 \fi & \ifprintanswers 2 \fi & \ifprintanswers 6 \fi \\
-                        \hline
-                        2                                                          & 6          & 12                                    & 14         &                                       & 3          & 5                                   & 15         & 17         &  & 2          & 3          & \ifprintanswers 5 \fi & \ifprintanswers 6 \fi & \ifprintanswers 12 \fi & \ifprintanswers 14 \fi & \ifprintanswers 15 \fi &                        &  & \ifprintanswers 4 \fi & \ifprintanswers 3 \fi & \ifprintanswers 7 \fi \\
-                        \hline
-                        2                                                          & 6          & 12                                    & 14         &                                       & 3          & 5                                   & 15         & 17         &  & 2          & 3          & \ifprintanswers 5 \fi & \ifprintanswers 6 \fi & \ifprintanswers 12 \fi & \ifprintanswers 14 \fi & \ifprintanswers 15 \fi & \ifprintanswers 17 \fi &  & \ifprintanswers 4 \fi & \ifprintanswers 4 \fi & \ifprintanswers 8 \fi \\
-                        \hline
-                  \end{tabular}
-            \end{center}
-
-      \item (3 min) During merge(), if there are N/2 values in each sorted array,
-            and N values in the merged array (also sorted), explain the \textbf{O()} effort to find:
-
-
-            \begin{center}
-                  \begin{tabular}{ |l|m{3.5cm}|l|m{9cm}| }
-                        \hline
-                        \rowcolor{lightgray} &                                                     & \textbf{O()}             & \textbf{Explanation}                                                            \\
-                        \hline
-                        a.                   & The \textbf{first value} in the merged array.       & \ifprintanswers O(1) \fi & \ifprintanswers Compare 1st 2 values \fi                                        \\
-                        \hline
-                        b.                   & The \textbf{second value} in the merged array.      & \ifprintanswers O(1) \fi & \ifprintanswers Compare 1st value in one array and 2nd value in other array \fi \\
-                        \hline
-                        c.                   & Each \textbf{successive} value in the merged array. & \ifprintanswers O(1) \fi & \ifprintanswers Compare one value in each array \fi                             \\
-                        \hline
-                        d.                   & \textbf{All N} values in the merged array.          & \ifprintanswers O(N) \fi & \ifprintanswers Repeat O(1) comparison for N values in merged array \fi         \\
-                        \hline
-                  \end{tabular}
-            \end{center}
-
-
-      \item (2 min) In the following questions, a 2 item list is called a 2-list, a N item list
-            is called an N-list, etc. Decide if each of the following is always sorted (Y or N):
-
-
-            \begin{center}
-                  \renewcommand{\arraystretch}{1.5}
-                  \begin{tabular}{ |l|m{9cm}|m{3cm}| }
-                        \hline
-                        a. & a 16-list of random numbers                       & \ifprintanswers N=unsorted \fi \\
-                        \hline
-                        b. & the first half of a 32-list of random numbers     & \ifprintanswers N=unsorted \fi \\
-                        \hline
-                        c. & a 1-list                                          & \ifprintanswers Y=sorted \fi   \\
-                        \hline
-                        d. & a 2-list made by merging 2 (sorted) 1-lists       & \ifprintanswers Y=sorted \fi   \\
-                        \hline
-                        3. & a a 16-list made by merging 2 (sorted) 8-lists    & \ifprintanswers Y=sorted \fi   \\
-                        \hline
-                        f. & a a N-list made by merging 2 (sorted) (N/2)-lists & \ifprintanswers Y=sorted \fi   \\
-                        \hline
-                  \end{tabular}
-            \end{center}
-
-
-      \item (2 min) Decide how many new lists are made when pairs of lists are merged from:
-
-            \begin{center}
-                  \renewcommand{\arraystretch}{1.5}
-                  \begin{tabular}{ |l|m{9cm}|m{3cm}| }
-                        \hline
-                        a. & 1024 1-lists into 2-lists          & \ifprintanswers 512 2-lists \fi \\
-                        \hline
-                        b. & all of those 2-lists into 4-lists  & \ifprintanswers 256 4-lists \fi \\
-                        \hline
-                        c. & N 1-lists (for any N) into 2-lists & \ifprintanswers N/2 2-lists \fi \\
-                        \hline
-                        d. & all of those 2-lists into 4-lists  & \ifprintanswers N/4 4-lists \fi \\
-                        \hline
-                  \end{tabular}
-            \end{center}
-            \newpage
-      \item (3 min) How could we use merge to sort an unsorted list? (Hint: think recursively.)
-            In complete English sentences, describe a general approach for mergesort.
-
-
-            \begin{solution}[0.6in]
-                  Treat N-list as N 1-lists. Merge pairs of 1-lists into sorted 2-lists. Merge pairs of 2-lists
-                  into sorted 4-lists. Repeat until 2 N/2 lists are merged into 1 sorted N-list.
-            \end{solution}
-
-\end{enumerate}
+\newpage
+\maketitle
+
+In this course, you will work in teams of 3--4 students to learn new concepts.
+This activity will introduce you to the process of analyzing an algorithm complexity.
+
+%\rolenames
+
+\guide{
+  \item Explain the structure of linked list
+  \item Explain difference between a single, circular, and double linked list
+}{
+  \item Write code that adds, removes, and accesses a linked list
+}{
+No additional notes.
+}
+
+\input{comparing.tex}
+\newpage
+\input{merge.tex}           
 
 \end{document}

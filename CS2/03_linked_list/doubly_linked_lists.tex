@@ -1,0 +1,44 @@
+  {\bf\large Model 4: Doubly linked lists} \\
+
+          We can create a linked list struct like this:
+
+          \begin{center}
+              \centering {\bf C++ Code}\vskip -15pt\null
+              \small
+              \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1,
+          linenos
+        ]{cpp}
+typedef struct nodeTag Node;
+
+struct nodeTag {
+  int num;     // value stored in node
+  Node * next; // pointer to next node in list
+  Node * prev; // pointer to previous node in the list
+};
+\end{minted}
+          \end{center}
+
+          This is called a \textit{doubly linked list}, since it has a link to the next item and a link to the previous item.
+          What's nice about doubly linked lists is that they allow for forward and backward traversal. It does
+          require more overhead – each node has an extra field. Plus, for backward traversal to start at the end of
+          the list, one must know the address of the last Node in the list.
+
+    \item  Suppose we had definitions for functions to create doubly linked lists and inserted the values 2, 4, and 6 (inserted at the back each time).
+          What does the picture of a doubly linked list look like?
+
+          \includegraphics[width=\textwidth]{figures/double_linked_fillin.png}
+
+    \item  Write the function definition for \texttt{numPos}.
+          This function should return the number of items in the linked list (passed as a parameter) whose \texttt{num} value is greater than 0.
+          \begin{solution}[1in]
+          \end{solution}
+    \item  If you wrote the function for \texttt{numPos} iteratively, try to write a recursive version.
+          If you wrote it recursively, try to write it iteratively.
+          \begin{solution}[1in]
+          \end{solution}
+
+    \item  What questions does your group have about linked lists?

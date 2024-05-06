@@ -1,0 +1,210 @@
+\model{Comparing}
+
+In computing, we often need to \textbf{sort} a set of items. As computer scientists,
+we study ways to sort very large sets, with thousands or millions of values,
+since searching and other operations are often easier when the set of values is sorted.
+
+For example, the Harvard University Library has roughly 16,000,000 volumes, and the
+US Library of Congress has roughly 22,000,000 books, and over 100,000,000 total items.
+In 2010, a team at UC San Diego sorted one trillion ($10^{12}$) data records in 172 minutes.
+Simple $O(N^2)$ sorting algorithms work well for small lists, but are too slow for larger lists.
+Most software libraries (APIs) include excellent sorting algorithms,  but exploring better
+sorting algorithms also demonstrates more general concepts in algorithm design and analysis.
+
+\begin{cpplst}
+public    int[] sort(   int[] d) { ... } 
+public String[] sort(String[] d) { ... } 
+public   City[] sort(  City[] d) { ... } 
+ 
+public void demo() { 
+  int   [] iu = { 6,3,8,2,9 }; 
+  int   [] is = sort(iu); 
+  String[] su = { "banana", "grape", "apple", "mango" }; 
+  String[] ss = sort(su); 
+  City  [] cu = { City.NYC, City.LAX, City.PHL, City.CHI }; 
+  City  [] cs = sort(cu); 
+}
+\end{cpplst}
+
+
+
+      \Q (1 min) Each \textbf{sort()} method above takes an array input and returns a sorted array.
+            What is \textbf{different} about the first 3 methods?
+
+            \begin{answer}[0.6in]
+                  The 1st works on ints,  the 2nd on Strings; the 3rd on Cities.
+            \end{answer}
+
+
+      \Q (2 min) What sequence of values should appear in each variable below:
+
+            \begin{center}
+                  \renewcommand{\arraystretch}{2}
+                  \begin{tabular}{ |c|m{3cm}|m{11cm}| }
+                        \hline
+                        a. & is & \ifprintanswers is = { 2,3,6,8,9 } \fi                           \\
+                        \hline
+                        b. & ss & \ifprintanswers ss = { "apple", "banana", "grape", "mango" } \fi \\
+                        \hline
+                  \end{tabular}
+            \end{center}
+
+            \newpage
+
+      \Q   (1 min) In the table below, specify tests for \textbf{sort()},
+
+            \begin{center}
+                  \renewcommand{\arraystretch}{2}
+                  \begin{tabular}{ |c|l|m{11cm}| }
+                        \hline
+                        \rowcolor{lightgray} & \textbf{Input: array to sort} & \textbf{Expected Result}                \\
+                        \hline
+                        a.                   & [ ] (empty list)              & empty list                              \\
+                        \hline
+                        b.                   & [ 5 ]                         & 5                                       \\
+                        \hline
+                        c.                   & [ 2, 4, 8 ]                   & \ifprintanswers { 2,4,8 } \fi           \\
+                        \hline
+                        d.                   & [ 9, 7, 3, 5 ]                & \ifprintanswers { 3,5,7,9 } \fi         \\
+                        \hline
+                        e.                   & [ 27, 42, 35 ]                & \ifprintanswers { 27,35,42 } \fi        \\
+                        \hline
+                        f.                   & [ "a" ]                       & \ifprintanswers { a } \fi               \\
+                        \hline
+                        g.                   & [ "a", "b", "c" ]             & \ifprintanswers { a, b, c } \fi         \\
+                        \hline
+                        h.                   & [ "c", "b", "a" ]             & \ifprintanswers { a, b, c } \fi         \\
+                        \hline
+                        i.                   & [ "a3", "a1", "a2" ]          & \ifprintanswers { a1, a2, a3 } \fi      \\
+                        \hline
+                        j.                   & [ "bar", "ball", "back" ]     & \ifprintanswers { back, ball, bar } \fi \\
+                        \hline
+                  \end{tabular}
+            \end{center}
+
+      \Q  (2 min) It is easier to compare integers than Strings. Explain why.
+
+            \begin{solution}[0.6in]
+                  Integers have a single value, but Strings have sets of character values.
+                  Integers have one clear ordering, but Strings have upper/lower case, unusual characters, etc.
+            \end{solution}
+
+            Suppose we had a list (e.g. a database or spreadsheet) of detailed information about cities:
+
+            \begin{center}
+                  \begin{tabular}{ |c|c|c|c|c|c| }
+                        \hline
+                        \rowcolor{lightgray} \textbf{Name} & \textbf{Area (sq mi)} & \textbf{Population} & \textbf{Altitude} & \textbf{Latitude} & \textbf{Longitude} \\
+                        \hline
+                        Chicago                            & 227.6                 & 2,700,000           & ...               & ...               & ...                \\
+                        \hline
+                        Los Angeles                        & 468.7                 & 3,800,000           & ...               & ...               & ...                \\
+                        \hline
+                        New York                           & 302.6                 & 8,200,000           & ...               & ...               & ...                \\
+                        \hline
+                        ...                                & ...                   & ...                 & ...               & ...               & ...                \\
+                        \hline
+                  \end{tabular}
+            \end{center}
+
+
+      \Q (2 min) Explain why it could be harder to compare Cities than Strings.
+
+
+            \begin{solution}[0.6in]
+                  Cities could be compared in many different ways - population, area, location, etc.
+            \end{solution}
+
+      \Q (3 min) It can be useful to \textbf{abstract} the comparisons used in searching & sorting.
+
+            \begin{enumerate}
+                  \item In the \textbf{Sample Code} handout, what \textbf{method} is declared in interface Comparable?
+
+                        \begin{solution}[0.6in]
+                              \texttt{int compareTo(T that);}
+                        \end{solution}
+
+
+                  \item The Java API method \texttt{Math.signum()} returns 0 if its input is 0,
+                        +1 if its input is positive, and -1 if its input is negative.
+                        In the Sample Code handout, how does class City compare two cities?
+
+
+                        \begin{solution}[0.6in]
+                              It subtracts their areas, and takes the signum of the result (-1,0,+1).
+                        \end{solution}
+
+
+
+                  \item The Java API class String implements interface Comparable.
+                        Given this, what Java expression would compare two Strings: s1 and s2?
+
+                        \begin{solution}[0.6in]
+                              \texttt{s1.compareTo(s2)}
+                        \end{solution}
+
+
+            \end{enumerate}
+      \Q (4 min) In class City, modify the return statement to compare Cities using:
+            \begin{center}
+                  \renewcommand{\arraystretch}{2}
+                  \begin{tabular}{ |c|m{2.3cm}|m{11cm}| }
+                        \hline
+                        a. & population                  & \ifprintanswers return (int) Math.signum(this.getPop () - that.getPop () ); \fi \\
+                        \hline
+                        b. & name (alphabetical)         & \ifprintanswers return this.getName().compareTo( that.getName() ); \fi          \\
+                        \hline
+                        c. & name (reverse alphabetical) & \ifprintanswers return that.getName().compareTo( this.getName() ); \fi          \\
+                        \hline
+                        d. & population density          & \ifprintanswers return (int) Math.signum(
+                              this.getPop () / this.getArea()
+                              - that.getPop () / that.getArea() );
+                              return (int) Math.signum(
+                              this.getDens() - that.getDens() ); \fi                                                                       \\
+                        \hline
+                  \end{tabular}
+            \end{center}
+
+      \Q (1 min) Comparison can be abstracted in more than one way.
+            In the Sample Code handout, what methods are declared in interface Comparator?
+
+            \begin{solution}[0.6in]
+                  \texttt{int     compare(T o1, T o2);}
+                  \texttt{boolean equals (Object obj);}
+            \end{solution}
+
+
+      \Q (2 min) For each class listed below, describe how it compares 2 objects.
+            \begin{center}
+                  \renewcommand{\arraystretch}{2}
+                  \begin{tabular}{ |c|m{2.3cm}|m{11cm}| }
+                        \hline
+                        a. & \texttt{class StringCompI} & \ifprintanswers compares 2 Strings alphabetically, ignoring uppercase/lowercase differences. \fi \\
+                        \hline
+                        b. & \texttt{class StringCompL} & \ifprintanswers compares 2 Strings using their length (not their contents) \fi                   \\
+                        \hline
+                        c. & \texttt{class CityCompA}   & \ifprintanswers compares 2 Cities using their area \fi                                           \\
+                        \hline
+                        d. & \texttt{class CityCompP}   & \ifprintanswers compares 2 Cities using their population \fi                                     \\
+                        \hline
+                  \end{tabular}
+            \end{center}
+
+
+      \Q (3 min) Change the return statement in \texttt{CityCompA.compare()} to compare:
+            \begin{center}
+                  \renewcommand{\arraystretch}{2}
+                  \begin{tabular}{ |c|m{2.3cm}|m{11cm}| }
+                        \hline
+                        a. & name (alphabetical)         & \ifprintanswers return c1.getName().compareTo( c2.getName() ); \fi \\
+                        \hline
+                        b. & name (reverse alphabetical) & \ifprintanswers return c2.getName().compareTo( c1.getName() ); \fi \\
+                        \hline
+                        c. & population density          & \ifprintanswers return (int)Math.signum(
+                              c1.getPop () / c1.getArea()
+                              - c2.getPop () / c2.getArea() );
+                              return (int)Math.signum(
+                              c1.getDens() - c2.getDens() );  \fi                                                             \\
+                        \hline
+                  \end{tabular}
+            \end{center}
