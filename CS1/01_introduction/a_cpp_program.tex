@@ -1,0 +1,103 @@
+{\bf\large Model 1: A C++ Program} \\
+  \begin{center}
+    \begin{minipage}{3.5in}
+      \begin{minted}[
+        frame=lines,
+        framesep=2mm,
+        bgcolor=gray!15,
+        baselinestretch=1.2,
+        linenos
+      ]{cpp}
+#include <iostream>
+using namespace std;
+
+int main() {
+  cout << "Go!$\backslash$n";
+}      
+      \end{minted}
+    \end{minipage}
+  \end{center}
+  \par\vskip 10pt
+  
+  {\it\large Refer to Model 1 above as your group develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+    
+  \begin{enumerate}
+    \itemsep 20pt
+    
+    \item The file {\tt activity01a.cpp} contains this C++ program. Run it and determine what it does.
+      \begin{solution}[0.5in]
+        It prints out the text {\it Go!}
+      \end{solution}
+      
+    \item Replace line 5 with each of the following.  What is produced?  Indicate if
+      there is a problem.\par\vskip 20pt      
+      \begin{enumerate}[(a)]
+        \itemsep 10pt
+        \item {\tt cout << "Hello, my name is Jon";} \hfill
+          \fillin[It prints {\it Hello, my name is Jon}][3in]
+        \item {\tt cout << Hello, my name is Jon;} \hfill
+          \fillin[It produces an error][3in]
+        \item {\tt cout << "Hello,$\backslash$nmy name is Jon";} \hfill
+          \fillin[Same as (a), but with a line break][3in]
+      \end{enumerate}
+      
+\newpage      
+      
+    \item A {\it string literal} is a sequence of characters surrounded by double
+      quotation marks (" ").  Use this term to describe the difference between part (a)
+      and part (b) above.
+      \begin{solution}[1in]
+        Part (a) prints out the string literal "Hello, my name is Jon" while in part (b)
+        the lack of quotation marks confuses the compiler.
+      \end{solution}
+      
+    \item What caused the different output format for statements (a) and (c) in question 2?
+      \begin{solution}[1in]
+        The $\backslash$n in part (c) caused a line break instead of the space we
+        got in part (a)
+      \end{solution}
+
+    \item What do you think the following C++ statements output?\key\\[-2.5mm]
+      \par\vskip 20pt
+      \begin{enumerate}[(a)]
+        \itemsep 10pt
+        \item {\tt cout << 2+5;} \hfill
+          \fillin[It prints {\it 7}][2.5in]
+        \item {\tt cout << 2*5;} \hfill
+          \fillin[It prints {\it 10}][2.5in]
+        \item {\tt cout << "2+5";} \hfill
+          \fillin[It prints {\it 2+5}][2.5in]
+        \item {\tt cout << "Age:" << 20;} \hfill
+          \fillin[It prints {\it Age: 20}][2.5in]
+      \end{enumerate}
+              
+    \item With reference to the output for each statement in question 5,
+      \begin{enumerate}[(a)]
+        \itemsep 10pt
+        \item What is the difference in the output for statements (a) and (c)?
+          \begin{solution}[1in]
+            Statement (a) prints computes the value of 2+5 and prints it out, while
+            statement (c) prints out the literal characters {\it 2+5}.
+          \end{solution}          
+        \item What caused the difference?
+          \begin{solution}[0.5in]
+            The quotation marks around the {\it 2+5} in statement (c) made it into a
+            string literal.
+          \end{solution}
+        \item Which statement(s) contained a {\it string literal}? Explain. \hfill
+          \fillin[Statement (c), it has quotes around it][2.5in]
+        \item What does the extra {\tt <<} do in part (d) of question 4?  How does it
+          affect the spacing of the output?
+          \begin{solution}[1in]
+            \par
+            It outputs the second item right after the first, resulting in {\it Age:} and
+            {\it 20} being put together.\par
+            It does not add any extra space between the two items.
+          \end{solution}
+      \end{enumerate}
+      
+  \end{enumerate}
+
+  \newpage

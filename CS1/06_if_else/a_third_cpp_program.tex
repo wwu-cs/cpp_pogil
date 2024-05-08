@@ -1,0 +1,149 @@
+
+  {\bf\large Model 3: A Third C++ Program} \\[-10pt]
+  \begin{center}
+    \begin{minipage}{5.5in}
+      \begin{minted}[
+        frame=lines,
+        framesep=2mm,
+        bgcolor=gray!15,
+        baselinestretch=1.2,
+        linenos
+      ]{cpp}
+#include <iostream>
+using namespace std;
+
+int main() {
+  int grade;
+  cout << "Enter your grade: ";
+  cin >> grade;
+  if (grade >= 90) {
+    cout << "Very Good!" << endl;
+  } else {
+    if (grade >= 60) {
+      cout << "Satisfactory." << endl;
+    } else {
+      cout << "Poor." << endl;
+    }
+  }
+}
+      \end{minted}
+    \end{minipage}
+  \end{center}
+  \TPMargin{5pt}
+  
+  {\it\large Refer to Model 3 above as your group develops consensus answers
+    to the questions below.}
+
+      \item Circle the {\tt if/else} statement that is {\it nested} inside of 
+        another {\tt if/else} statement.
+        \begin{solution}[0.4in]
+          The {\tt if/else} statement from lines 11-14 is nested inside the one from lines 8-16.
+        \end{solution}
+
+      \item This code can be found in the file {\tt activity06c.cpp}.  Give three different grade
+        values that could be used to test different parts of the program.  Indicate what part of 
+        the program the value is testing.
+        \par\vskip 10pt
+        \begin{center}
+          \renewcommand{\arraystretch}{2.5}
+          \begin{tabular}{|c|c|p{4in}|}
+            \hline
+            \rowcolor{orange!20} Test & {\tt grade} Value & Part of Program Tested \\
+            \hline
+            1 & \ifprintanswers 95\fi & \ifprintanswers Tests lines 8-9\fi \\
+            \hline
+            2 & \ifprintanswers 82\fi & \ifprintanswers Tests lines 10-12\fi \\
+            \hline
+            3 & \ifprintanswers 55\fi & \ifprintanswers Tests lines 10, 11, 13-14\fi \\
+            \hline
+          \end{tabular}
+        \end{center}
+        
+      \item Run the program and enter try your tests.  Does everything work as expected?
+        \begin{solution}[0.5in]
+          Yes, the program does appear to work as expected.
+        \end{solution}
+
+\newpage
+
+      \item Consider the code snippet below.
+        \begin{center}
+          \begin{minipage}{3.5in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+              linenos,
+              firstnumber=8
+            ]{cpp}
+  if (grade >= 90) {
+    cout << "Very Good!" << endl;
+  } else if (grade >= 60) {
+    cout << "Satisfactory." << endl;
+  } else {
+    cout << "Poor." << endl;
+  }
+}
+            \end{minted}
+          \end{minipage}
+        \end{center}
+        \par\vskip -20pt\null
+        
+        \begin{enumerate}
+          \item Replace lines 8-18 in model 3 with this code. How does the output change?
+            \begin{solution}[0.5in]
+              The output does not change.
+            \end{solution}
+            
+          \item Which method of solving this problem contains simpler syntax and indentation -- the 
+            one in the original model, or the one above?  Explain.
+            \begin{solution}[0.5in]
+              The new one has simpler syntax and does not require nesting.
+            \end{solution}
+            
+          \item You can use as many {\tt else/if} statements as you need.  Suppose you wanted to add the comment ``Good!'' for grades
+            that are between 80 and 90.  Write the code for this change.
+            \begin{solution}[1.5in]
+              \vskip -30pt\ \null
+              \begin{center}
+                \scriptsize
+                \begin{minipage}{3.5in}
+                  \begin{minted}[
+                    frame=lines,
+                    framesep=2mm,
+                    bgcolor=gray!15,
+                    baselinestretch=1.2,
+                    linenos
+                  ]{cpp}
+  if (grade >= 90) {
+    cout << "Very Good!" << endl;
+  } else if (grade >= 80) {       // added
+    cout << "Good!" << endl;      // added
+  } else if (grade >= 60) {
+    cout << "Satisfactory." << endl;
+  } else {
+    cout << "Poor." << endl;
+  }
+                  \end{minted}
+                \end{minipage}
+              \end{center}              
+            \end{solution}
+            
+          \item Does it make a difference where you add the additional {\tt else/if} statement?
+            Compare\key\\[-2.5mm] adding it at line 10 in the code snippet above vs. at line 12.
+            \begin{solution}[1in]
+              Yes, it makes a difference.  If we add it at line 12 instead of at line 10, then the ``Good!'' option is never used because
+              any grade above 80 will also be above 60 and would fall into the earlier ``Satisfactory.''
+              part of the {\tt if/else/if} statement.
+            \end{solution}
+            
+          \item Is the use of the final {\tt else} statement mandatory when creating an {\tt if/else/if} statement?  
+            Try it out and supply an example to support your claim.
+            \begin{solution}[0.75in]
+              Not mandatory.  Dropping lines 12-14 will just print nothing for grades less than 60.
+            \end{solution}
+            
+          \item Make one final change to your program.  Adjust it so that it prints an error message 
+            if the grade entered is greater than 100 or less than 0.
+        \end{enumerate}

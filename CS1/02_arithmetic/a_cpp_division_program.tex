@@ -1,0 +1,109 @@
+{\bf\large Model 3: A C++ Division Program} \\[-10pt]
+  \begin{center}
+    \begin{minipage}{5.5in}
+      \begin{minted}[
+        frame=lines,
+        framesep=2mm,
+        bgcolor=gray!15,
+        baselinestretch=1.2,
+        linenos
+      ]{cpp}
+#include <iostream>
+using namespace std;
+
+int main() {
+  int a;
+  double b;
+  cout << "First number: ";
+  cin >> a;
+  cout << "Second number: ";
+  cin >> b;
+  cout << "Quotient: " << a << "/" << b << " = " << (a/b) << endl;
+}      
+      \end{minted}
+    \end{minipage}
+  \end{center}
+  \TPMargin{5pt}
+  \begin{textblock*}{2.1in}[0,0](4.25in,-2.5in)
+    \textblockcolor{white}
+    \begin{minipage}{1.8in}
+    {\bf Example Output:} 
+    \hrule\vskip 5pt
+      First number: 10 \\
+      Second number: 2.5 \\
+      Quotient: 10/2.5 = 4
+    \end{minipage}
+  \end{textblock*}
+  \par\vskip 10pt
+  
+  {\it\large Refer to Model 3 above as your group develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+    
+      \item This program can be found in {\tt activity02c.cpp}.  Run it several times with the
+        following inputs and write down the resulting output.\par\vskip 10pt
+        \begin{enumerate}[(a)]
+          \itemsep 10pt
+          \item First number: 10, Second number: 4\hfill
+            \fillin[Quotient: 10/4 = 2.5][3.5in]
+          \item First number: 10, Second number: 3 \hfill
+            \fillin[Quotient: 10/3 = 3.33333][3.5in]
+          \item First number: 9.5, No second number \hfill 
+            \fillin[Quotient: 9/0.5 = 18][3.5in]
+          \item First number: 10, Second number: x \hfill
+            \fillin[Quotient: 10/0 = inf][3.5in]
+        \end{enumerate}
+        
+      \item A {\it floating point} number is a number that contains a floating decimal point
+        (as opposed to integers, which have no decimals). For example, 5.5 or 0.001.  In C++
+        we often use the {\tt double} variable type to hold floating point values.  
+        
+        \begin{enumerate}
+          \item How did the division operation change (as compared to earlier models) because one of 
+            the variables was of type \mintinline{cpp}|double|?
+            \begin{solution}[1in]
+              It now does decimal division, returning the decimal number of times the divisor
+              goes into the dividend instead of just the integer number of times.
+            \end{solution}
+            
+          \item How would your results in problem 10 differ if both variables were of type \mintinline{cpp}|int|?
+            \begin{solution}[1in]
+              If both variables were of type \mintinline{cpp}|int| then we would get:
+              \begin{enumerate}[(a)]
+                \begin{multicols}{4}
+                  \item 2
+                  \item 3
+                  \item error
+                  \item error
+                \end{multicols}
+              \end{enumerate}             
+            \end{solution}
+            
+          \item How would your results in problem 10 differ if both variables were of type  \mintinline{cpp}|double|?
+            \begin{solution}[1in]
+              \begin{enumerate}[(a)]
+                \begin{multicols}{4}
+                  \item same
+                  \item same
+                  \item need 2nd \#
+                  \item same
+                \end{multicols}
+              \end{enumerate}
+            \end{solution}
+            
+        \end{enumerate}
+        
+      \item Write a conjecture as to when the division operation in C++ will return decimals and\key\\[-2.5mm]
+        when it will only return an integer.  Use the phrase {\it floating point} in your answer.
+        \begin{solution}[0.5in]
+          It will return decimals if one or both of the values involved is a floating point
+          number.  Otherwise, it returns an integer.
+        \end{solution}
+        
+      \item Create a program that asks asks for a number of cookies and a number of children
+        and then prints out how many cookies each child will get (assuming they are split
+        evenly) and how many are left over.  Be creative and professional in prompting the
+        user and displaying the results.
+        \begin{solution}
+          Answers will vary.
+        \end{solution}        

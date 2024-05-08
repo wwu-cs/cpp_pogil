@@ -1,0 +1,98 @@
+
+  {\bf\large Model 2: ASCII Character Codes} \\
+  The American Standard Code for Information Interchange is a system that assigns a numeric value to various characters.  A
+  selection of assignments from that system is shown below.
+  
+    \begin{center}
+    \footnotesize\renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{|c|c||c|c||c|c||c|c||c|c||c|c|}
+      \hline
+      \rowcolor{orange!20} Code & Symbol & Code & Symbol & Code & Symbol & Code & Symbol & Code & Symbol & Code & Symbol \\
+      \hline
+        32 & (space) & 48 & 0 & 64 & @ & 80 & P & 96  & ` & 112 & p \\
+        33 & !       & 49 & 1 & 65 & A & 81 & Q & 97  & a & 113 & q \\
+        34 & "       & 50 & 2 & 66 & B & 82 & R & 98  & b & 114 & r \\
+        35 & \#      & 51 & 3 & 67 & C & 83 & S & 99  & c & 115 & s \\
+        36 & \$      & 52 & 4 & 68 & D & 84 & T & 100 & d & 116 & t \\
+        37 & \%      & 53 & 5 & 69 & E & 85 & U & 101 & e & 117 & u \\
+        38 & \&      & 54 & 6 & 70 & F & 86 & V & 102 & f & 118 & v \\
+        39 & '       & 55 & 7 & 71 & G & 87 & W & 103 & g & 119 & w \\
+        40 & (       & 56 & 8 & 72 & H & 88 & X & 104 & h & 120 & x \\
+        41 & )       & 57 & 9 & 73 & I & 89 & Y & 105 & i & 121 & y \\
+        42 & *       & 58 & : & 74 & J & 90 & Z & 106 & j & 122 & z \\
+        43 & +       & 59 & ; & 75 & K & 91 & [ & 107 & k & 123 & \{ \\
+        44 & ,       & 60 & \textless & 76 & L & 92 & $\backslash$ & 108 & l & 124 & $\vert$ \\
+        45 & -       & 61 & = & 77 & M & 93 & ] & 109 & m & 125 & \} \\
+        46 & .       & 62 & \textgreater & 78 & N & 94 & \^{} & 110 & b & 126 & \textasciitilde \\
+        47 & /       & 63 & ? & 79 & O & 95 & \_ & 110 & o & 127 & \\
+        \hline
+    \end{tabular}
+    \end{center}
+
+  {\it\large Refer to Model 2 above as your team develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+
+\newpage
+
+    \item Determine the numeric value associated with each character below in the ASCII system.
+      \begin{enumerate}[(a)]
+        \itemsep 10pt
+        \begin{multicols}{2}
+          \item capital A   \hspace{7pt}  \fillin[65][1.5in]
+          \item lowercase f \hspace{1pt}  \fillin[102][1.5in]
+          \item capital Z   \hspace{8pt}  \fillin[90][1.5in]
+          \item number 0    \hspace{34pt} \fillin[48][1.5in]
+          \item open square bracket       \fillin[91][1.35in]
+          \item plus sign   \hspace{38pt} \fillin[43][1.5in]
+        \end{multicols}
+      \end{enumerate}
+      
+    \item Based on your work in model 1, how many distinct characters can be stored in a C++ {\tt char} variable?
+      \begin{solution}[0.5in]
+        A {\tt char} variable is 1 byte, so it can hold 256 different characters.
+      \end{solution}
+
+    \item In the file {\tt activity04b.cpp} you will find two character variables and a statement that outputs
+      the ``sum'' of the two variables.
+      \par\vskip 10pt
+      
+      \begin{enumerate}[(a)]
+        \item What is the output for each pair of variable values?
+          \begin{enumerate}[i.]
+            \begin{multicols}{2}
+              \item \mintinline{cpp}|char charOne = '(';|\\\mintinline{cpp}|char charTwo = ')';|\\[10pt]
+                \fillin[ sum = Q ][2in]\par\vskip 20pt
+              \item \mintinline{cpp}|char charOne = '!';|\\\mintinline{cpp}|char charTwo = ':';|\\[10pt]
+                \fillin[ sum = [ ][2in]\par\vskip 20pt
+              \item \mintinline{cpp}|char charOne = '1';|\\\mintinline{cpp}|char charTwo = '4';|\\[10pt]
+                \fillin[ sum = e ][2in]\par\vskip 20pt
+              \item \mintinline{cpp}|char charOne = '%';|\\\mintinline{cpp}|char charTwo = '=';|\\[10pt]
+                \fillin[ sum = b ][2in]\par\vskip 20pt
+            \end{multicols}
+          \end{enumerate}
+          \par\vskip 20pt
+          
+        \item Explain how C++ calculated these answers.  Refer to the ASCII table given in the model. \key\\[-2.5mm]
+          \begin{solution}[1in]
+            \par
+            C++ computes the answers by adding the ASCII code numbers together.  The character that is output is the character
+            that has an ASCII code that matches the sum of the two initial characters' ASCII codes.
+          \end{solution}
+      \end{enumerate}
+      
+    \item An {\it implicit type cast} happens when C++ treats a variable of one type as if it were a variable of another type.
+      This happened in the program above.
+      \begin{enumerate}
+        \item How can you tell that an implicit type cast happen in the program above?
+          \begin{solution}[0.5in]
+            \par
+            Because the ``characters'' were added together as if they were integer values.
+          \end{solution}
+        \item Do you think the type of the variables {\tt charOne} and {\tt charTwo} actually change?
+          \begin{solution}[0.5in]
+            \par
+            No, types in C++ can not be changed.  You can verify that these variables are still characters 
+            outputting their value, which will be printed as a character, not a number.
+          \end{solution}
+      \end{enumerate}

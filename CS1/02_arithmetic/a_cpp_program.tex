@@ -1,0 +1,160 @@
+  {\bf\large Model 1: A C++ Program} \\[-10pt]
+  \begin{center}
+    \begin{minipage}{3.5in}
+      \begin{minted}[
+        frame=lines,
+        framesep=2mm,
+        bgcolor=gray!15,
+        baselinestretch=1.2,
+        linenos
+      ]{cpp}
+#include <iostream>
+using namespace std;
+
+int main() {
+  cout << 16 + 3 << endl;
+  cout << 16 - 3 << endl;
+  cout << 16 * 3 << endl;
+  cout << 16 / 3 << endl;
+  cout << 16 % 3 << endl;
+}      
+      \end{minted}
+    \end{minipage}
+  \end{center}
+  
+  {\it\large Refer to Model 1 above as your team develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+    
+  \begin{enumerate}
+    \itemsep 20pt
+    
+    \item Starting with the file {\tt activity02a.cpp}, enter and run the C++ program
+      above.  What is the output of each of the following lines?\par\vskip 15pt
+      \begin{enumerate}[(a)]
+        \itemsep 10pt
+        \item[5:] {\tt cout << 16 + 3 << endl;} \hfill
+          \fillin[It prints {\it 19}][3.5in]
+        \item[6:] {\tt cout << 16 - 3 << endl;} \hfill
+          \fillin[It prints {\it 13}][3.5in]
+        \item[7:] {\tt cout << 16 * 3 << endl;} \hfill
+          \fillin[It prints {\it 48}][3.5in]
+        \item[8:] {\tt cout << 16 / 3 << endl;} \hfill
+          \fillin[It prints {\it 5}][3.5in]
+        \item[9:] {\tt cout << 16 \% 3 << endl;} \hfill
+          \fillin[It prints {\it 1}][3.5in]
+      \end{enumerate}
+      
+    \item Were any of these a surprise to your team?
+      \begin{solution}[0.25in]
+      \end{solution}
+      
+\newpage      
+      
+    \item Name the arithmetic operation represented by each symbol in C++.\key\\[-2.5mm]
+      \par\vskip 20pt
+      \begin{enumerate}[(a)]
+        \begin{multicols}{2}
+          \itemsep 15pt
+          \item {\tt +} \hfill \fillin[Addition][2.25in]
+          \item {\tt -} \hfill \fillin[Subtraction][2.25in]
+          \item {\tt *} \hfill \fillin[Multiplication][2.25in]
+          \item {\tt /} \hfill \fillin[Integer Division][2.25in]
+          \item {\tt \%} \hfill \fillin[Modulus (remainder)][2.25in]
+        \end{multicols}
+      \end{enumerate}
+
+    \item An {\it assignment statement} uses the ``='' sign to store the result of an
+      operation performed on the right-hand side into the memory location named by 
+      the variable on the left-hand side.\par\vskip 5pt
+      
+      Enter and execute the following two lies of C++ code (modify the {\tt activity02a.cpp}
+      file to do this).
+      
+      \begin{center}
+        \begin{minipage}{3.5in}
+          \begin{minted}[
+            frame=lines,
+            framesep=2mm,
+            bgcolor=gray!15,
+            baselinestretch=1.2,
+            linenos,
+            firstnumber=5
+          ]{cpp}
+  int age = 15;
+  cout << "Your age is: " << age;
+      \end{minted}
+    \end{minipage}
+  \end{center}
+
+      \begin{enumerate}[(a)]
+        \itemsep 10pt
+        \item What does the {\it assignment statement} on line 1 of this code chunk do?
+          \begin{solution}[0.5in]
+            It declares an integer variable named ``age'' and assigns it the value of 15.
+          \end{solution}
+        \item Split up the {\it variable declaration} and {\it assignment statement} into 
+          two separate lines of code.
+          \begin{solution}[0.5in]
+            The lines would be
+            \begin{enumerate}[1:]
+              \itemsep -2pt
+              \item {\tt int age;}
+              \item {\tt age = 15;}
+            \end{enumerate}            
+          \end{solution}
+        \item What happens if you replace the assignment statement only (without altering the
+          declaration) with \mintinline{cpp}|age = "fifteen";|?
+          \begin{solution}[0.5in]
+            You get a run-time error because you can't save a string into an integer variable.
+          \end{solution}
+      \end{enumerate}
+      \ifprintanswers\par\vskip -24pt\null\fi
+      
+    \item Enter and execute the following three lines of C++ code (again, use the {\tt
+      activity02a.cpp} file), but {\bf remember to add  \mintinline{cpp}|#include <string>| in
+      the header}.
+      \ifprintanswers\par\vskip -24pt\null\fi
+      \begin{center}
+        \begin{minipage}{3.5in}
+          \begin{minted}[
+            frame=lines,
+            framesep=2mm,
+            bgcolor=gray!15,
+            baselinestretch=1.2,
+            linenos,
+            firstnumber=6
+          ]{cpp}
+  string schoolName = "Walla Walla";
+  string schoolType = "University";
+  string fullName = schoolName + schoolType;
+  cout << fullName << endl;
+      \end{minted}
+    \end{minipage}
+  \end{center}
+  
+  \begin{enumerate}[(a)]
+  
+    \item What value is stored in the {\tt fullName} variable at line 3?
+      \begin{solution}[0.5in]
+        ``Walla WallaUniversity''
+      \end{solution}
+      
+\newpage
+
+    \item How does the ``+'' sign behave differently when used with strings instead of numbers?
+      \begin{solution}[0.5in]
+        It concatenates the strings instead of adding values.
+      \end{solution}           
+      
+    \item How could you fix the output so that the words are all separated?
+      \begin{solution}[1in]
+        For example, we could change line 3 to: \\
+        {\tt string fullName = schoolName + " " + schoolType;}
+      \end{solution}
+      
+    \item When two strings are ``glued'' together, they are said to be {\it concatenated}.
+      What would happen if you tried to concatenate a string with an integer?
+      \begin{solution}[1in]
+        A syntax error.
+      \end{solution}
