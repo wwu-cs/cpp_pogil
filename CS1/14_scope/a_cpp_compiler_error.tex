@@ -1,0 +1,178 @@
+{\bf\large Model 2: A C++ Compiler Errors} \\[-25pt]
+  \begin{center}
+    \begin{tabular}{p{2in}p{0.25in}p{3.4in}}
+      \begin{minipage}{2in}
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+          linenos,
+          firstnumber=3
+        ]{cpp}
+int main() {
+  int varOne = 5;
+  if(true) {
+    int varTwo = 7;
+    cout << varOne << endl;
+  }
+  cout << varTwo << endl;
+}
+        \end{minted}
+      \end{minipage}
+      & &
+      \begin{minipage}{3.4in}
+        {\bf Compiler Error:}
+        \scriptsize
+        \hrule\vskip 5pt
+        \begin{minted}[
+          frame=none,
+          framesep=2mm,
+          bgcolor=white,
+          baselinestretch=1,
+        ]{text}
+model2.cpp: In function ‘int main()’:
+
+model2.cpp:9:11: error: ‘varTwo’ was not declared in this scope
+   cout << varTwo << endl;
+           ^~~~~~
+model2.cpp:9:11: note: suggested alternative: ‘varOne’
+   cout << varTwo << endl;
+           ^~~~~~
+           varOne   
+        \end{minted}
+      \end{minipage}
+    \end{tabular}
+  \end{center}
+  {\it\large Refer to Model 2 above as your team develops consensus answers
+    to the questions below.}
+  \par\vskip -20pt\null
+
+  
+  \item In your own words, describe what the compiler error shown is all about.
+    \ifprintanswers\vskip -20pt\null\fi
+    \begin{solution}[0.5in]
+      The variable {\tt varTwo} does  not exist when the {\tt cout} command is given on line 7.
+    \end{solution}
+    \ifprintanswers\vskip -30pt\null\fi
+  
+  \item On what lines are the following variables defined in the code above?
+    \par\vskip 15pt
+    
+    \begin{enumerate}[(a)]
+      \begin{multicols}{2}
+        \item The variable {\tt varOne} \hfill \fillin[Line 4][1.25in]
+        \item The variable {\tt varTwo} \hfill \fillin[Line 6][1.25in]
+      \end{multicols}
+    \end{enumerate}
+    
+  \item The error message above is triggered by line 9, which comes
+    after the variable {\tt varTwo} has been declared.  Why do you
+    think the variable {\tt varTwo} is not available on line 9?
+    \begin{solution}[0.5in]
+      The variable {\tt varTwo} is not visible at line 9 because it
+      was declared inside the \mintinline{cpp}|if| block.  So it is
+      no longer defined after line 8 when that block ends.
+    \end{solution}
+
+\newpage
+
+  \item The {\it scope} of a variable is the area of the program in
+    which the variable is valid. Variables that have a limited scope
+    are called {\it local variables} (unlike global variables, which
+    can be accessed anywhere).  In the code in this model:
+    \begin{itemize}
+      \item The scope of the variable {\tt varOne} is from line 4 to line 10.
+      \item The scope of the variable {\tt varTwo} is from line 6 to line 8.
+    \end{itemize}
+    Based on this information, describe how to find the scope of a
+    local variable.
+    \begin{solution}[0.5in]
+      The scope of a local variable extends from the line on which it
+      is defined to the end of the block (code in curly-braces) in
+      which it was defined.
+    \end{solution}
+    \vskip -40pt\null
+    
+  \item The program below defines six different variables different
+    variables.  Answer the following \key\\[-2.5mm] questions about this code, which can be
+    found in {\tt activity14b.cpp}.
+    
+    \begin{center}
+      \begin{tabular}{p{2.9in}p{2.9in}}
+        \begin{minipage}{2.9in}
+          \small
+          \begin{minted}[
+            frame=lines,
+            framesep=2mm,
+            bgcolor=gray!15,
+            baselinestretch=1.2,
+            linenos,
+            firstnumber=4
+          ]{cpp}
+int a = 0;
+
+void myFunc(int b = 4) {
+  int c = 5;
+  cout << "Value: " << /* OUTPUT 1 */;
+}
+
+int main() {
+  int d = 5;
+  if (d > 2) {
+    int e = 3;
+    if (e < 10) {
+      int f = 7;
+      cout << "Value: " << /* OUTPUT 2 */;
+    }
+    cout << "Value: " << /* OUTPUT 3 */;
+  }
+  cout << "Value: " << /* OUTPUT 4 */;
+}
+          \end{minted}
+        \end{minipage}
+        &
+        \begin{minipage}{2.9in}
+          \begin{enumerate}[(a)]
+            \item What is the scope of each variable?\par\vskip 15pt
+              \begin{enumerate}[i.]
+                \itemsep 15pt
+                \item \mintinline{cpp}|int a| -- Lines \fillin[4][0.5in] to \fillin[22][0.5in]
+                \item \mintinline{cpp}|int b| -- Lines \fillin[6][0.5in] to \fillin[9][0.5in]
+                \item \mintinline{cpp}|int c| -- Lines \fillin[7][0.5in] to \fillin[9][0.5in]
+                \item \mintinline{cpp}|int d| -- Lines \fillin[12][0.5in] to \fillin[22][0.5in]
+                \item \mintinline{cpp}|int e| -- Lines \fillin[14][0.5in] to \fillin[20][0.5in]
+                \item \mintinline{cpp}|int f| -- Lines \fillin[16][0.5in] to \fillin[18][0.5in]
+              \end{enumerate}
+              \vskip 5pt\null
+            \item Identify all global variables.
+              \begin{solution}[0.5in]
+                Only {\tt a} is a global variable.
+              \end{solution}
+          \end{enumerate}
+        \end{minipage}
+      \end{tabular}
+    \end{center}
+    
+    \begin{enumerate}[(a)]
+      \setcounter{enumii}{2}
+      
+      \item What variables could be used in place of each \mintinline{cpp}|/* OUTPUT */|
+        comment without causing a compiler error?  List all variables that would work.
+        \par\vskip 15pt
+        \begin{enumerate}[i.]
+          \itemsep 15pt
+          \begin{multicols}{2}
+            \item \mintinline{cpp}|/* OUTPUT 1 */| \hfill \fillin[\tt a, b, c][1.5in]
+            \item \mintinline{cpp}|/* OUTPUT 2 */| \hfill \fillin[\tt a, d, e, f][1.5in]
+            \item \mintinline{cpp}|/* OUTPUT 3 */| \hfill \fillin[\tt a, d, e][1.5in]
+            \item \mintinline{cpp}|/* OUTPUT 4 */| \hfill \fillin[\tt a, d][1.5in]
+          \end{multicols}
+        \end{enumerate}
+    \end{enumerate}
+    
+    \item Why is it important to be aware of the scope of a variable?
+      \begin{solution}[0.5in]
+        Because you can only access that variable within its scope.  So a programmer needs to
+        know what that scope will be.
+      \end{solution}

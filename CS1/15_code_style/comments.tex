@@ -1,0 +1,295 @@
+{\bf\large Model 3: Comments} \\[-20pt]
+  \begin{center}
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{|p{3in}|p{3in}|}
+      \hline
+      \rowcolor{orange!20} 
+        \begin{minipage}{2.8in}\centering {\bf Code Block $X$}\end{minipage} & 
+        \begin{minipage}{2.8in}\centering {\bf Code Block $Y$}\end{minipage} \\
+      \hline
+      \begin{minipage}{3in}
+        \scriptsize
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+        ]{cpp}
+// call getNum()        
+int numCD      = getNum ("CD");
+int numMP3     = getNum ("MP3");
+// call getCost()
+double costCD  = getCost("CD");
+double costMP3 = getCost("MP3");
+// call SubCost
+double subCost = getSubCost(numCD, costCD) +
+                 getSubCost(numMP3, costMP3);
+// call getSubShip()
+double subShip = getSubShip(numCD, getShip("CD"));
+// call getTax()
+double total   = subCost + subShip + getTax(subCost);        
+        \end{minted}
+      \end{minipage}
+      &
+      \begin{minipage}{3in}
+        \scriptsize
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+        ]{cpp}
+// get the number of each item type
+int numCD      = getNum ("CD");
+int numMP3     = getNum ("MP3");
+// get the cost of each item type
+double costCD  = getCost("CD");
+double costMP3 = getCost("MP3");
+// combine subtotals from each item
+double subCost = getSubCost(numCD, costCD) +
+                 getSubCost(numMP3, costMP3);
+// add in shipping and tax to get grand total                 
+double subShip = getSubShip(numCD, getShip("CD"));
+double total   = subCost + subShip + getTax(subCost);        
+        \end{minted} 
+        \par\vskip 3pt\null
+      \end{minipage}
+      \\
+      \hline
+    \end{tabular} 
+  \end{center}  
+  \par\vskip 10pt
+                                                
+      
+  {\it\large Refer to Model 3 above as your team develops consensus answers
+    to the questions below.}
+
+\newpage         
+
+  \item Determine which code block above ($X$ or $Y$) matches the
+    description below.
+    \par\vskip 15pt
+    
+    \begin{enumerate}[(a)]
+      \itemsep 15pt
+      \item Has the most lines with comments: \hfill \fillin[$X$][1in]
+      \item Has comments that explain how and why the code works: \hfill \fillin[$Y$][1in]
+      \item Has comments that could be generated automatically by a computer program: \hfill \fillin[$X$][1in]
+    \end{enumerate}
+    
+    \item Based on your observations above, describe what you think is good style for comments.
+      \begin{solution}[1in]
+        \par
+        Comments should describe what the task being performed in the related lines of code
+        actually is.  They should not use the same names and/or jargon that is used in the code.
+      \end{solution}
+      
+    \item Use your observations to suggest good comments for the two comment lines in the code
+      below.
+      \begin{center}
+        \begin{tabular}{p{3in}p{3in}}
+          \begin{minipage}{3in}
+            \small
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2
+            ]{cpp}
+int getRange (vector<int> valList) {
+  /* COMMENT A */
+  int min = valList.at(0);
+  int max = valList.at(0);
+  /* COMMENT B */
+  for(int i=0; i<valList.size(); i++) {
+    if (valList.at(i) < min) 
+      min = valList.at(i);
+    if (valList.at(i) > max)
+      max = valList.at(i);
+  }
+  return (min - max);
+}
+            \end{minted}
+          \end{minipage}
+          &
+          \begin{minipage}{3in}
+            \begin{enumerate}[(a)]
+              \item \mintinline{cpp}|/* COMMENT A */|
+                \begin{solution}[1in]
+                  \par
+                  Default minimum and maximum are first value in the vector
+                \end{solution}
+              \item \mintinline{cpp}|/* COMMENT B */|
+                \begin{solution}[1in]
+                  \par
+                  Search through vector looking for smaller and/or larger values
+                \end{solution}
+            \end{enumerate}
+          \end{minipage}
+        \end{tabular}
+      \end{center}
+
+    \item Good programming style is important not just for naming variables and functions or
+      making comments.  It is also important in other coding practices.  For each
+      pair of practices below, decide in which case it would be easier to find and fix any
+      errors. Enter $X$, $Y$, or ? (if you think they are equally good).
+
+      {\renewcommand{\arraystretch}{2}
+      \begin{tabular}{|c|p{2.5in}|p{2.5in}|c|}
+        \hline
+        \rowcolor{orange!20} & Block $X$ & Block $Y$ & Choice \\
+        \hline
+        (a) & 10 existing lines of code (LoC)
+            & 100 existing LoC
+            & \fillin[$X$][0.5in] \\
+        \hline
+        (b) & 100 new LoC
+            & 90 working LoC plus 10 new LoC
+            & \fillin[$Y$][0.5in] \\
+        \hline
+        (c) & 1000 new LoC
+            & 900 working LoC plus 100 new LoC
+            & \fillin[$Y$][0.5in] \\
+        \hline
+        (d) & 1000 working LoC plus 10 new LoC
+            & 500 working LoC plus 100 new LoC
+            & \fillin[$X$][0.5in] \\
+        \hline
+        (e) & 1000 LoC all in one function
+            & 1000 LoC split across 20 functions
+            & \fillin[$Y$][0.5in] \\
+        \hline
+        (f) & 100 LoC with 10 \mintinline{cpp}|if-else| blocks
+            & 100 LoC with 5 \mintinline{cpp}|if-else| blocks
+            & \fillin[?][0.5in] \\
+        \hline
+      \end{tabular}}
+      
+      {\renewcommand{\arraystretch}{2.3}
+      \begin{tabular}{|c|p{2.5in}|p{2.5in}|c|}
+        \hline
+        \rowcolor{orange!20} & Block $X$ & Block $Y$ & Choice \\
+        \hline
+        (g) & 100 LoC with four independent loops
+            & 100 LoC two pairs of nested loops
+            & \fillin[$X$][0.5in] \\
+        \hline
+        (h) &
+          \begin{minipage}{2in}
+            \small
+            \begin{minted}[
+              frame=none,
+              bgcolor=white,
+            ]{cpp}
+// code with the structure
+if (...) {
+  if (...) {
+    ...
+  } else {
+    ...
+  }
+} else {
+  if (...) {
+    ...
+  } else {
+    ...
+  }
+}
+            \end{minted} 
+          \end{minipage}
+          & 
+          \begin{minipage}{2in}
+            \small
+            \begin{minted}[
+              frame=none,
+              bgcolor=white,
+            ]{cpp}
+// code with the structure
+if (...) {
+  ...
+} else if (...) {
+  ...
+} else if (...) {
+  ...
+} else if (...) {
+  ...
+}
+            \end{minted}
+            \par\vskip 35pt\null
+          \end{minipage}
+          &
+          \fillin[$X$][0.5in] \\
+        \hline
+        (h) &
+          \begin{minipage}{2in}
+            \small
+            \begin{minted}[
+              frame=none,
+              bgcolor=white,
+            ]{cpp}
+// code with the structure
+for(int i=0; i<n; i++) {
+  if (...) {
+    ...
+  } else {
+    ...
+  }
+}
+            \end{minted}
+            \par\vskip 10pt\null
+          \end{minipage}
+          & 
+          \begin{minipage}{2in}
+            \small
+            \begin{minted}[
+              frame=none,
+              bgcolor=white,
+            ]{cpp}
+// code with the structure
+if (...) {
+  for(int i; i<n; i++) {
+    ...
+  }
+} else {  
+  for(int i; i<n; i++) {
+    ...
+  }
+}
+            \end{minted}
+          \end{minipage}
+          &
+          \fillin[$X$][0.5in] \\
+        \hline
+      \end{tabular}}
+      \par\vskip -30pt\null
+
+    \item Based on your answers, summarize advice for good practices in writing and
+      debugging code.\hspace{5pt}\key\\[-2.5mm]
+      \ifprintanswers\vskip -20pt\null\fi
+      \begin{solution}[1in]
+        \begin{itemize}
+          \itemsep 0pt
+          \item You should write code in small chunks, testing after each chunk
+          \item You should break your code up into functions that accomplish a single task
+          \item You should streamline \mintinline{cpp}|if-else| statements and loops to avoid
+            nesting if possible
+          \item If you must nest, you should try to avoid repeated blocks (i.e. the same
+            \mintinline{cpp}|for| loop in two different parts of an \mintinline{cpp}|if| statement)
+        \end{itemize}
+      \end{solution}
+      \ifprintanswers\vskip -35pt\null\fi
+      
+    \item Individually, think of a time that it was difficult for you to write or debug a
+      program.  How could the advice above have helped you?
+      \begin{solution}[0.5in]
+        Answers will vary
+        \par\vskip 0.75in
+      \end{solution}
+      \ifprintanswers\vskip -35pt\null\fi
+      
+    \item Share your answers to the previous question with your group and summarize any
+      insights below.
+      \begin{solution}[0.5in]
+        Answers will vary
+        \par\vskip 0.75in
+      \end{solution}

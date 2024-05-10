@@ -1,0 +1,194 @@
+{\bf\large Model 1: A C++ Function Prototype} \\[-15pt]
+  \begin{center}
+    \begin{minipage}{4.5in}
+      \begin{minted}[
+        frame=lines,
+        framesep=2mm,
+        bgcolor=gray!15,
+        baselinestretch=1.2,
+        linenos,
+        firstnumber=4
+      ]{cpp}
+int sum(int a, int b=0, int c=0, int d=0);
+
+int main() {
+  cout << "Test One: " << sum(1,2,3,4) << endl;
+  cout << "Test Two: " << sum(1,2,3) << endl;
+  cout << "Test Three: " << sum(1,2) << endl; 
+}
+      \end{minted}
+    \end{minipage}
+  \end{center}
+  \TPMargin{5pt}
+  \begin{textblock*}{1.8in}[0,0](4.75in,-1.45in)
+    \textblockcolor{white}
+    \begin{minipage}{1.65in}
+      {\bf Output:} 
+      \hrule\vskip 5pt\tt
+\mintinline{html}|Test One: 10|\\
+\mintinline{html}|Test Two: 6|\\
+\mintinline{html}|Test Three: 3|
+    \end{minipage}
+  \end{textblock*}
+  
+  
+  {\it\large Refer to Model 1 above as your team develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+    
+  \begin{enumerate}
+    \itemsep 20pt
+
+    \item A prototype for the function {\tt sum} is defined on line 4
+      of the model above.  Assume that this function is defined
+      elsewhere so as to produce the output shown given the {\tt main}
+      program.
+      \par\ifprintanswers\vskip 10pt\else\vskip 20pt\fi
+      
+      \begin{enumerate}[(a)]
+        \itemsep 15pt
+        \item How many parameters does the function {\tt sum} have? \hfill
+          \fillin[four][1.5in]
+        \item How many arguments does the call to this function on line 7 have? \hfill
+          \fillin[four][1.5in]
+        \item How many arguments does the call to this function on line 8 have? \hfill
+          \fillin[three][1.5in]
+        \item How many arguments does the call to this function on line 9 have? \hfill
+          \fillin[two][1.5in]
+      \end{enumerate}
+      
+    \item What are the values of the parameters {\tt a}, {\tt b}, {\tt c}, and {\tt d}
+      in the body of the function {\tt sum} for each call?
+      \par\vskip 15pt
+      
+      \begin{enumerate}[(a)]
+        \itemsep 15pt
+        \item Line 7: \mintinline{cpp}|sum(1,2,3,4)| \hfill 
+            {\tt a =} \fillin[1][0.5in], \hspace{5pt} 
+            {\tt b =} \fillin[2][0.5in], \hspace{5pt}
+            {\tt c =} \fillin[3][0.5in], \hspace{5pt} and
+            {\tt d =} \fillin[4][0.5in]
+        \item Line 8: \mintinline{cpp}|sum(1,2,3)| \hfill
+            {\tt a =} \fillin[1][0.5in], \hspace{5pt} 
+            {\tt b =} \fillin[2][0.5in], \hspace{5pt}
+            {\tt c =} \fillin[3][0.5in], \hspace{5pt} and
+            {\tt d =} \fillin[0][0.5in]
+        \item Line 9: \mintinline{cpp}|sum(1,2)| \hfill 
+            {\tt a =} \fillin[1][0.5in], \hspace{5pt} 
+            {\tt b =} \fillin[2][0.5in], \hspace{5pt}
+            {\tt c =} \fillin[0][0.5in], \hspace{5pt} and
+            {\tt d =} \fillin[0][0.5in]
+      \end{enumerate}
+   
+
+\newpage      
+
+    \item A {\it default argument} is a value provided in a function
+      declaration that is automatically assigned by the compiler when
+      function calls don't provide a value for the argument.  Which
+      parameters in the {\tt sum} function have default arguments?
+      How can you tell?
+      \begin{solution}[0.5in]
+        Parameters {\tt b}, {\tt c}, and {\tt d} have default
+        arguments.  You can tell because the all say 
+        ``\mintinline{cpp}|=0|''.
+      \end{solution}
+      \ifprintanswers\vskip -35pt\null\fi
+      
+    \item Rewrite the prototype of the {\tt sum} function from line
+      one so that the function calls below return the indicated value.
+      We will use the notation \mintinline{cpp}|sum(1,2,3,4)|
+      $\rightarrow$ 10 to indicate the function call returns 10.
+      \par\vskip 15pt
+      
+      \begin{enumerate}[(a)]
+        \itemsep 15pt
+        \item \mintinline{cpp}|sum(0,0,0)| $\rightarrow$ 2 \hfill
+          \fillin[\mintinline{cpp}|int sum(int a,int b, int c, int d=2)|][4.5in]
+        \item \mintinline{cpp}|sum(3,2)| $\rightarrow$ 8 \hfill
+          \fillin[\mintinline{cpp}|int sum(int a,int b, int c=6, int d=2)|][4.5in]
+        \item \mintinline{cpp}|sum(1)| $\rightarrow$ 10 \hfill
+          \fillin[\mintinline{cpp}|int sum(int a,int b=1, int c=6, int d=2)|][4.5in]
+      \end{enumerate}
+      
+    \item The file {\tt activity13a.cpp} contains the code from the
+      model as well as the function definition.  Replace the function
+      prototype on line 4 of that file with each of the following. Place a check 
+      next to the prototypes for which the program compiles without errors.
+      \par\vskip 5pt
+      
+      \begin{enumerate}[(a)]
+        \small
+        \itemsep 5pt
+          \item \fillin[][0.25in]             \mintinline{cpp}|int sum(int a, int b=0, int c, int d=0)|
+          \item \fillin[$\checkmark$][0.25in] \mintinline{cpp}|int sum(int a, int b, int c=0, int d=0)|
+          \item \fillin[][0.25in]             \mintinline{cpp}|int sum(int a=0, int b=0, int c, int d)|
+          \item \fillin[$\checkmark$][0.25in] \mintinline{cpp}|int sum(int a=0, int b=0, int c=0, int d=0)|
+      \end{enumerate}
+      \vskip -50pt\null
+      
+    \item Based on these results, what rule does C++
+      enforces in regard to default arguments?\key
+      \begin{solution}[0.5in]
+        Once a parameter has a default argument, every parameter after that must also.
+      \end{solution}
+      \ifprintanswers\vskip -35pt\null\fi
+      \vskip -20pt\null
+      
+    \item Follow the steps below to write a function that returns the product of
+      between two and four arguments, as shown in the examples below.
+      Use the file {\tt activity13a.cpp} to test your code.
+      \begin{itemize}
+        \small
+        \begin{multicols}{3}
+          \item\mintinline{cpp}|product(2,2,2,3)| $\rightarrow$ 24
+          \item\mintinline{cpp}|product(3,3,5)| $\rightarrow$ 45
+          \item\mintinline{cpp}|product(5,5)| $\rightarrow$ 25
+        \end{multicols}
+      \end{itemize}
+      
+      \begin{enumerate}[(a)]
+        \item First, write the function definition based on the
+          function header shown below.  Enter your definition below the
+          {\tt main} program in the {\tt activity13a.cpp} file.
+          \begin{center}
+            \mintinline{cpp}|int product(int a, int b, int c, int d)|
+          \end{center}
+          \begin{solution}[1.5in]
+            \scriptsize\vskip -35pt\null
+            \begin{center}
+              \begin{minipage}{3.5in}
+                \begin{minted}[
+                  frame=lines,
+                  framesep=2mm,
+                  bgcolor=gray!15,
+                  baselinestretch=1.2,
+                  linenos
+                ]{cpp}
+int product(int a, int b, int c, int d) {
+  return a*b*c*d;
+}
+                \end{minted}
+              \end{minipage}
+            \end{center}\vskip -20pt\null
+          \end{solution}          
+        \item Next, add a function prototype above the {\tt main}
+          program.  Include appropriate default arguments.
+          \begin{solution}[0.5in]
+            \scriptsize\vskip -35pt\null
+            \begin{center}
+              \begin{minipage}{3.5in}
+                \begin{minted}[
+                  frame=lines,
+                  framesep=2mm,
+                  bgcolor=gray!15,
+                  baselinestretch=1.2,
+                ]{cpp}
+int product(int a, int b, int c=1, int d=1);
+                \end{minted}
+              \end{minipage}
+            \end{center}\vskip -20pt\null
+          \end{solution}
+        \item Finally, add the three function calls above to the {\tt main} program.
+          Do they work as expected?
+      \end{enumerate}

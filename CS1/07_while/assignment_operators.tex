@@ -1,0 +1,160 @@
+ {\bf\large Model 3: Assignment Operators} \\[-10pt]
+  \begin{center}
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{|c|c|c|}
+      \hline
+      \rowcolor{orange!20} Initial {\tt x} Value & Assignment Operator & Final {\tt x} Value \\
+      \hline
+      2 & \mintinline{cpp}|x += 1;| & 3 \\
+      \hline
+      2 & \mintinline{cpp}|x -= 1;| & 1 \\
+      \hline
+      4 & \mintinline{cpp}|x *= 2;| & 8 \\
+      \hline
+      4 & \mintinline{cpp}|x /= 2;| & 2 \\
+      \hline
+      7 & \mintinline{cpp}|x %= 4;| & 3 \\
+      \hline
+    \end{tabular}
+  \end{center}
+  
+  {\it\large Refer to Model 3 above as your team develops consensus answers
+    to the questions below.}
+
+    \item The code \mintinline{cpp}|x += 5;| is equivalent to which of the following lines of code?\par\vskip 10pt
+      \hspace{20pt}
+      \begin{oneparcheckboxes}
+        \choice \mintinline{cpp}|x = 5;|
+        \choice \mintinline{cpp}|x = y + 5;|
+        \correctchoice \mintinline{cpp}|x = x + 5;|
+        \choice \mintinline{cpp}|y = x + 5;|
+      \end{oneparcheckboxes}
+      
+    \item An {\it assignment operator} provides a concise way of creating assignment statements when the variable on the
+      left-hand side (LHS) will also appear on the right-hand side (RHS).  In your own words, describe what each of the 
+      following assignment operators does.
+      \par\vskip 20pt
+      
+      \begin{enumerate}[(a)]
+        \itemsep 15pt
+        \item \mintinline{cpp}|+=| \hspace{20pt} 
+          \fillin[Adds the amount on the RHS to the variable on the LHS][5.25in]
+        \item \mintinline{cpp}|-=| \hspace{20pt}
+          \fillin[Subtracts the amount on the RHS from the variable on the LHS][5.25in]
+        \item \mintinline{cpp}|*=| \hspace{20pt} 
+          \fillin[Multiplies the variable on the LHS by the amount on the RHS][5.25in]
+        \item \mintinline{cpp}|/=| \hspace{20pt} 
+          \fillin[Divides the variable on the LHS by the amount on the RHS][5.25in]
+        \item \mintinline{cpp}|%=| \hspace{20pt} 
+          \fillin[Adds the amount on the RHS to the variable on the LHS][5in]
+      \end{enumerate}
+      
+\newpage
+
+    \item The table below is similar to that seen in Model 3.  Fill in the missing pieces with appropriate values or
+      assignment operator statements.  Assume that {\tt x} is an integer variable.
+      
+      \begin{center}
+        \renewcommand{\arraystretch}{1.5}
+        \begin{tabular}{|c|c|c|c|}
+          \hline
+          \rowcolor{orange!20} Operator & Initial {\tt x} Value & Statement & Final {\tt x} Value \\
+          \hline
+          \mintinline{cpp}|+=| & 6 & \ifprintanswers\mintinline{cpp}|x += 1;|\fi & 8 \\
+          \hline
+          \mintinline{cpp}|+=| & 5 & \mintinline{cpp}|x -= x+1;| & \ifprintanswers 11\fi \\
+          \hline
+          \mintinline{cpp}|-=| & \ifprintanswers 9\fi  & \mintinline{cpp}|x -= 3;| & 6 \\
+          \hline
+          \mintinline{cpp}|*=| & 4 & \ifprintanswers\mintinline{cpp}|x *= 4;|\fi & 4 \\
+          \hline
+          \mintinline{cpp}|/=| & 23 & \ifprintanswers\mintinline{cpp}|x /= 10;|\fi & 2 \\
+          \hline
+        \end{tabular}
+      \end{center}
+      \par\vskip -40pt\null
+      
+    \item Is the assignment operator \mintinline{cpp}|23 += total|
+    valid?  Why or why not?\key
+      \begin{solution}[0.5in]
+        No, it is not valid.  There must be only a variable name on the left-hand side.
+      \end{solution}
+      
+    \item The following code snippet should print the numbers beginning with 100 and counting down to 1.  However, it is missing a
+      line of code.  Add the missing code using an assignment operator.  Indicate the line number at which the code should be inserted.
+      \par\vskip 10pt
+      \begin{tabular}{p{2.4in}p{3.4in}}
+        \begin{minipage}{2.4in}
+          \begin{minted}[
+            frame=lines,
+            framesep=2mm,
+            bgcolor=gray!15,
+            baselinestretch=1.2,
+            linenos
+          ]{cpp}
+  int countdown = 100;
+  while (countdown > 0) {
+    cout << countdown << endl;
+  }
+          \end{minted}
+          \par\vskip 10pt\null
+        \end{minipage}
+        &
+        \begin{minipage}{3.4in}
+          \begin{solution}[0.5in]
+            \par
+            Insert the command \mintinline{cpp}|x -= 1;| between lines 3 and 4.
+          \end{solution}            
+        \end{minipage}
+      \end{tabular}
+      \par\vskip -40pt\null
+      
+    \item Use assignment operators to write loops to do each of the following.  
+      You can test your code in the {\tt activity07c.cpp} file.
+      
+      \begin{enumerate}[(a)]
+        \item A loop that prints out all multiples of three between 0 and 100. (i.e. 0, 3, 6, 9, {\ldots} )
+          \begin{solution}[1.5in]
+            \begin{center}
+              \scriptsize
+              \begin{minipage}{3in}
+                \begin{minted}[
+                  frame=lines,
+                  framesep=2mm,
+                  bgcolor=gray!15,
+                  baselinestretch=1.2,
+                  linenos
+                ]{cpp}
+  int num = 0;
+  while (num <= 100) {
+    cout << num << endl;
+    num += 3;
+  }
+                \end{minted}
+              \end{minipage}
+            \end{center}
+          \end{solution}
+        \item A loop that prints all powers of 2 (i.e. $2^n$) from 1 up to 100.
+          \begin{solution}[1.5in]
+            \begin{center}
+              \scriptsize
+              \begin{minipage}{3in}
+                \begin{minted}[
+                  frame=lines,
+                  framesep=2mm,
+                  bgcolor=gray!15,
+                  baselinestretch=1.2,
+                  linenos
+                ]{cpp}
+  int num = 1;
+  while (num <= 100) {
+    cout << num << endl;
+    num *= 2;
+  }
+                \end{minted} 
+              \end{minipage}
+           \end{center}              
+          \end{solution}
+      \end{enumerate}
+
+  \end{enumerate}  

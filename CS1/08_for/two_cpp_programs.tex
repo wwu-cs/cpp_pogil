@@ -1,0 +1,283 @@
+{\bf\large Model 1: Two C++ Programs} \\[-15pt]
+  \begin{center}
+    \small
+    \begin{tabular}{p{2.5in}p{0.5in}p{2.5in}}
+      \begin{minipage}{2.5in}
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+          linenos,
+          firstnumber=7
+        ]{cpp}
+  string name;
+  cout << "Enter your name: ";
+  cin >> name;
+  int x = 0;
+  while (x < 10) {
+    cout << name << endl;
+    x = x + 1;
+  }
+  cout << "Nice to meet you!" << endl;
+        \end{minted}
+      \end{minipage}
+      & &
+      \begin{minipage}{2.5in}
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+          linenos,
+          firstnumber=7
+        ]{cpp}
+  string name;
+  cout << "Enter your name: ";
+  cin >> name;
+  for (int x = 0; x < 10; x += 1) {
+    cout << name << endl;
+  }
+  cout << "Nice to meet you!" << endl;
+        \end{minted}
+      \end{minipage}
+    \end{tabular}
+  \end{center}
+  \TPMargin{5pt}
+  
+  
+  {\it\large Refer to Model 1 above as your team develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+    
+  \begin{enumerate}
+    \itemsep 20pt
+    
+    \item What is the output of each program?  Note that you saw the
+      first program in the previous activity and {\tt activity08a.cpp}
+      contains the second program.
+      \begin{solution}[0.5in]
+        The output of the two programs is identical -- the entered
+        name is printed ten times.
+      \end{solution}
+      
+    \item The loop shown on the right is called a {\tt for} loop.
+      Identify the code that makes up each part of the loop and the line
+      on which it appears.
+      \par\vskip 15pt
+      
+      \begin{enumerate}[(a)]
+        \itemsep 15pt
+        \item The Initialization Statement: \hfill
+          \fillin[\mintinline{cpp}|int x = 0| on line 10][4in]
+        \item The Test Condition: \hfill
+          \fillin[\mintinline{cpp}|x < 10| on line 10][4in]
+        \item The Update Statement: \hfill
+          \fillin[\mintinline{cpp}|x += 1| on line 10][4in]
+      \end{enumerate}
+    
+
+    \item You should have noted above that both programs produce the
+      same output.  Which is more concise?
+      \begin{solution}[0.5in]
+        The {\tt for} loop is more concise.
+      \end{solution}
+      
+\newpage
+
+    \item What output will each of the following code snippets
+      produce?  You can use {\tt activity08a.cpp} to check your
+      answers.
+      \par\vskip 10pt
+      \begin{enumerate}[(a)]
+        \item \begin{tabular}{p{3in}p{2.5in}}
+          \begin{minipage}{3in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{cpp}
+  for (int i = 0; i < 5; i += 1) {
+    cout << i << " ";
+  }
+            \end{minted}
+          \end{minipage}
+          &
+          \fillin[\tt 1 2 3 4 5][2.5in]
+        \end{tabular}
+        
+        \item \begin{tabular}{p{3in}p{2.5in}}
+          \begin{minipage}{3in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{cpp}
+  for (int i = 1; i < 5; i += 1) {
+    cout << i << " ";
+  }
+            \end{minted}
+          \end{minipage}
+          &
+          \fillin[\tt 1 2 3 4][2.5in]
+        \end{tabular}
+
+        \item \begin{tabular}{p{3in}p{2.5in}}
+          \begin{minipage}{3in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{cpp}
+  for (int i = 2; i <= 6; i += 1) {
+    cout << i << " ";
+  }
+            \end{minted}
+          \end{minipage}
+          &
+          \fillin[\tt 2 3 4 5 6][2.5in]
+        \end{tabular}
+
+        \item \begin{tabular}{p{3in}p{2.5in}}
+          \begin{minipage}{3in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{cpp}
+  for (int i = 2; i <= 6; i += 2) {
+    cout << i << " ";
+  }
+            \end{minted}
+          \end{minipage}
+          &
+          \fillin[\tt 2 4 6][2.5in]
+        \end{tabular}
+      \end{enumerate}
+      \par\vskip -40pt\null
+      
+    \item Complete the missing code in the {\tt for} loops below so
+      that they print the indicated output.\key\\[-2.5mm]
+
+      \begin{enumerate}[(a)]
+        \begin{multicols}{2}
+          \item Even numbers from 100 to  200, inclusive\par
+            \begin{minipage}{2.6in}
+              \ifprintanswers
+              \begin{minted}[
+                frame=lines,
+                framesep=2mm,
+                bgcolor=gray!15,
+                baselinestretch=1.5,
+              ]{cpp}
+  for (int i=100; i<=200; i+=1) {
+    cout << i << " ";
+  }
+              \end{minted}
+              \else\large
+              \begin{minted}[
+                frame=lines,
+                framesep=2mm,
+                bgcolor=gray!15,
+                baselinestretch=1.5,
+              ]{cpp}
+  for (                     ) {
+    cout << i << " ";
+  }
+              \end{minted}
+              \fi
+            \end{minipage}
+          \item {\tt 5 4 3 2 1 0}\par
+            \begin{minipage}{2.6in}
+              \ifprintanswers
+              \begin{minted}[
+                frame=lines,
+                framesep=2mm,
+                bgcolor=gray!15,
+                baselinestretch=1.5,
+              ]{cpp}
+  for (int i=5; i>=0; i-=1) {
+    cout << i << " ";
+  }
+              \end{minted}
+              \else\large
+              \begin{minted}[
+                frame=lines,
+                framesep=2mm,
+                bgcolor=gray!15,
+                baselinestretch=1.5,
+              ]{cpp}
+  for (                     ) {
+    cout << i << " ";
+  }
+              \end{minted}
+              \fi
+            \end{minipage}          
+        \end{multicols}
+      \end{enumerate}
+      
+  \item Based on your solutions above, answer the following questions about the {\tt for} loop.
+    \begin{enumerate}[(a)]
+      \item Why do we start a for loop with something like
+        \mintinline{cpp}|int i=1| instead of \mintinline{cpp}|int i==1|?
+        \begin{solution}[0.5in]
+          We are assigning {\tt i} the initial value 1, not checking
+          to see if it equals 1.
+        \end{solution}
+      \item Do you think we always need the \mintinline{cpp}|int| in
+        front of the \mintinline{cpp}|i=1| in the {\tt for} loop
+        initialization?
+        \begin{solution}[0.5in]
+          No.  We only need it if the variable {\tt i} has not already been declared.
+        \end{solution}
+      \item Is it better to use a {\tt for} loop when you know how
+        many times the loop should execute ({\it counter-controlled}) or
+        when you don't know ({\it sentinel-controlled})?
+        \begin{solution}[0.5in]
+          The {\tt for} loop is naturally a counter-controlled loop
+          as a counter is built into it.
+        \end{solution}
+    \end{enumerate}
+
+\newpage
+
+  \item Rewrite the following {\tt while} loop as a {\tt for} loop that does the same thing.
+      \begin{center}
+        \begin{tabular}{p{2.75in}p{2.75in}}
+          \begin{minipage}{2.75in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{cpp}
+  int cnt = 20;            
+  while (cnt >= 10) {
+    cnt -= 2;
+    cout << cnt << " ";
+  }
+            \end{minted}
+          \end{minipage}
+          &
+          \begin{minipage}{2.75in}
+            \begin{solution}
+              \footnotesize
+              \begin{minted}[
+                frame=lines,
+                framesep=2mm,
+                bgcolor=gray!15,
+                baselinestretch=1.2,
+              ]{cpp}
+  for (int cnt=18; cnt >= 8; cnt -= 2) {
+    cout << cnt << " ";
+  }
+              \end{minted}
+            \end{solution}
+          \end{minipage}                  
+        \end{tabular}
+      \end{center}
+      \ifprintanswers\else\par\vskip 10pt\fi

@@ -1,0 +1,195 @@
+{\bf\large Model 1: Vector Syntax} \\[-15pt]
+  \begin{center}
+    \begin{tabular}{p{2.5in}p{3.1in}}
+      \begin{minipage}{2.5in}
+        \scriptsize
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+          linenos,
+          firstnumber=8
+        ]{cpp}
+  vector<int> quizScores = {8,6};
+  vector<string> profNames(4);
+  
+  profNames.at(0) = "Carman";
+  profNames.at(1) = "Foster";
+  profNames.at(2) = "Duncan";
+  
+  cout << quizScores.size() << endl;
+  cout << profNames.at(1) << endl;
+        \end{minted}
+      \end{minipage}
+      &
+      \begin{minipage}{3.1in}
+        \null\par\vskip 50pt
+        \begin{tabular}{p{0.8in}|c|c|c|}
+          \hhline{~|-|-|-|}
+          {\tt quizScores:} & 8 & 6 \\
+          \hhline{~|-|-|-|}
+          \multicolumn{1}{c}{} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{1} \\
+        \end{tabular}
+        \par\vskip 5pt
+        \begin{tabular}{p{0.8in}|c|c|c|c|}
+          \hhline{~|-|-|-|-|}
+          {\tt profNames:} & Carman & Foster & Duncan & \\
+          \hhline{~|-|-|-|-|}
+          \multicolumn{1}{c}{} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} \\
+        \end{tabular}
+      \end{minipage}
+    \end{tabular}
+  \end{center}
+  \TPMargin{5pt}
+  \begin{textblock*}{1.5in}[0,0](2.6in,-1.5in)
+    \textblockcolor{white}
+    \begin{minipage}{1.35in}
+      \scriptsize
+      {\bf Output:} 
+      \hrule\vskip 5pt
+      2\\
+      Foster
+    \end{minipage}
+  \end{textblock*}
+  
+  
+  {\it\large Refer to Model 1 above as your team develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+    
+  \begin{enumerate}
+    \itemsep 20pt
+    
+    \item A {\it vector} is an ordered list of related variables, all of the
+      same type.  Each value in a vector is known as an {\it element}.  The code
+      above can be found in {\tt activity10a.cpp}.  Answer the following questions 
+      about the vectors declared on line 8.
+      \par\vskip 20pt
+      
+      \begin{enumerate}[(a)]
+        \itemsep 15pt
+        \item What is the name of this vector? \hfill
+          \fillin[\tt quizScores][2.5in]
+        \item What type of variable does this vector hold? \hfill
+          \fillin[It is a vector of  \mintinline{cpp}|int|s][2.5in]
+      \end{enumerate}
+      
+    \item A second vector is declared on line 9 in the model.  Answer
+      the following questions about it.
+      \par\vskip 20pt
+      
+      \begin{enumerate}[(a)]
+        \itemsep 15pt
+        \item What is the name of this vector? \hfill
+          \fillin[\tt profNames][2.5in]
+        \item What type of variable does this vector hold? \hfill
+          \fillin[It is a vector of  \mintinline{cpp}|string|s][2.5in]
+      \end{enumerate}
+    
+    \item The {\it size} of a vector is the number of variables that
+      it holds.  What is the size of each vectors above? 
+      \begin{solution}[0.5in]
+        The vector declared on line 1 has size 2 and the vector
+        declared on line 2 has size 4.
+      \end{solution}
+      
+    \item Based on the code above, what are two different ways to
+      initialize the variables stored in a vector?
+      \begin{solution}[1in]
+        \par
+        You can set the values when the vector is declared
+        using the \mintinline{cpp}|vector<type> name = { value_list }|
+        syntax, or you can set each value using the
+        \mintinline{cpp}|vectorName.at(index) = value| command.
+      \end{solution}
+      
+      
+\newpage
+
+    \item The {\it index} of an element in a vector is its position in
+      the vector.  Indexes start at 0 in C++.  Answer the following
+      questions related to indexes.
+      \par\vskip 20pt
+      
+      \begin{enumerate}[(a)]
+        \itemsep 10pt
+        \item What is stored at index 0 in the vector {\tt quizScores}?\hfill
+          \fillin[8][1in]
+        \item At what index is the name ``Duncan'' stored in the vector {\tt profNames}?\hfill
+          \fillin[Index 2][1in]
+        \item What is the maximum allowed index for the vector {\tt profNames}?\hfill
+          \fillin[3][1in]
+        \item What is stored at index 2 in the vector {\tt quizScores}?\hfill
+          \fillin[\small Out of Bounds][1in]
+      \end{enumerate}
+                
+    \item Write a single line of C++ code to declare a new vector of
+      doubles named {\tt homeworkAvg} that contains the values 
+      82.4 at index 2, 91.6 and index 0, and 73.9 at index 1.
+      \begin{solution}[0.5in]
+        \mintinline{cpp}|vector<double> homeworkAgv = {91.6, 73.9, 82.4};|
+      \end{solution}
+      
+    \item The expression \mintinline{cpp}|myVector.at(i)| returns the value of the
+      variable at index {\tt i} in the vector {\tt myVector}.  It can
+      also be used to set the value at that index, as seen in lines 4-6
+      of the model.
+      
+      \begin{enumerate}[(a)]
+        \item Write a single C++ expression for the average of the two values in {\tt quizScores}.
+          \begin{solution}[0.75in]
+            \mintinline{cpp}|( quizScores.at(0) + quizScores.at(1) ) / 2.0|
+          \end{solution}
+        \item Write a sequence of C++ commands that changes the contents
+          of the vector {\tt profNames} to those shown below without
+          using the string literals \mintinline{cpp}|"Foster"| or
+          \mintinline{cpp}|"Carman"|.
+          \begin{center}
+            \begin{tabular}{p{0.8in}|c|c|c|c|}
+              \hhline{~|-|-|-|-|}
+              {\tt profNames:} & Aamodt & Carman & Duncan & Foster \\
+              \hhline{~|-|-|-|-|}
+              \multicolumn{1}{c}{} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} \\
+            \end{tabular}
+          \end{center}
+          \begin{solution}[1in]
+            \scriptsize\vskip -35pt\null
+            \begin{center}
+              \begin{minipage}{2.25in}
+                \begin{minted}[
+                  frame=lines,
+                  framesep=2mm,
+                  bgcolor=gray!15,
+                  baselinestretch=1.2,
+                ]{cpp}
+profNames.at(3) = profNames.at(1);
+profNames.at(1) = profNames.at(0);
+profNames.at(0) = "Aamodt";
+                \end{minted}
+              \end{minipage}
+            \end{center}\vskip -20pt\null
+          \end{solution}          
+      \end{enumerate}
+      
+    \item The expression {\tt myVector.size()} returns the size of the
+      vector {\tt myVector}.  Use this function to write a 
+      {\tt cout} command for each line of output below.
+      
+      \begin{enumerate}[(a)]
+        \item {\tt There are 4 CS professors at WWU.}
+          \begin{solution}[0.5in]
+            \par
+            \mintinline{cpp}|cout << "There are " << profNames.size() << " CS professors at WWU." << endl;|            
+          \end{solution}
+        \item {\tt Total number of quiz points: 20} \hspace{10pt} (assume 10 points per quiz)
+          \begin{solution}[0.5in]
+            \par
+            \mintinline{cpp}|cout << "Total number of quiz points: " << 10*quizScores.size() << endl;|
+          \end{solution}
+      \end{enumerate}
+      \par\vskip -40pt\null
+      
+    \item True/False:  {\tt myVector.at(myVector.size())}
+    returns the last value in the vector.\ifprintanswers\hspace{5pt}(false)\fi\key
+

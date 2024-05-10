@@ -1,0 +1,194 @@
+{\bf\large Model 1: One Dimensional Arrays} \\[-15pt]
+  \begin{center}
+    \begin{minipage}{5.75in}
+      \begin{minted}[
+        frame=lines,
+        framesep=2mm,
+        bgcolor=gray!15,
+        baselinestretch=1.2,
+        linenos,
+        firstnumber=6
+      ]{cpp}
+string homeworkNames[5] = {"Variables","If-Else","Loops","Vectors","Arrays"};
+int pointsPossible[5] = {25, 35, 15, 20, 30};
+int numStudents = 40;
+
+for (int i=0; i<5; i++) {
+  cout << homeworkNames[i] << ": " << pointsPossible[i] << endl;
+}
+cout << pointsPossible[5] << endl;
+
+      \end{minted}
+    \end{minipage}
+  \end{center}  
+  
+  {\it\large Refer to Model 1 above as your team develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+    
+  \begin{enumerate}
+    \itemsep 20pt
+
+    \item Like vectors, arrays can be used to store a list of elements
+      of the same type.  Answer the following questions about the arrays
+      in the model above.
+      \par\vskip 15pt
+      
+      \begin{enumerate}[(a)]
+        \itemsep 12pt
+        \item What are the names of the two arrays used in the model?
+          \hfill \fillin[\tt homeworkNames, pointsPossible][2.25in]
+        \item What are the types of the two arrays in the model?
+          \hfill \fillin[\mintinline{cpp}|string| and \mintinline{cpp}|int|][2.25in]
+        \item What are the sizes of the two arrays in the model?
+          \hfill \fillin[18 and 5][2.25in]
+        \item What word describes the relationship between the arrays?
+          \hfill \fillin[parallel][2.25in]
+        \item How would you access the last element of {\tt homeworkNames}?
+          \hfill\fillin[\mintinline{cpp}{homeworkNames[17]}][2.25in]
+      \end{enumerate}          
+      
+    \item Based on the model, describe how the following symbols are
+      used with arrays.
+      
+      \begin{enumerate}[(a)]
+        \item The curly braces, \mintinline{cpp}|{ }|.
+          \begin{solution}[0.5in]
+            They are used to initialize the contents of the array when
+            declaring it.
+          \end{solution}
+        \item The square brackets, \mintinline{cpp}|[ ]|.  Give two different ways they are used.
+          \begin{solution}[0.75in]
+            They are used to specify the size of the array when
+            declaring it and to access an element in the array.
+          \end{solution}
+      \end{enumerate}
+      
+\newpage      
+      
+    \item Without running it, predict what the code from this model
+      will print out.
+      \ifprintanswers\vskip -20pt\null\fi
+      \begin{solution}[0.75in]
+        \small\tt\hspace{10pt}
+        \begin{minipage}{4in}
+          Variables: 25\\
+          If-Else: 35\\
+          Loops: 15\\
+          Vectors: 20\\
+          Arrays: 30\\
+          <random integer>
+        \end{minipage}
+      \end{solution}
+      \ifprintanswers\vskip -30pt\null\fi
+      
+    \item This code can be found in {\tt activity16a.cpp}.  Run it and
+      explain what you see.
+      \begin{solution}[0.5in]
+        It prints out the first 5 elements of each array, but the
+        value of \mintinline{cpp}|pointsPossible[5]| is undefined
+        since the index 5 is past the array bounds of 0-4.
+      \end{solution}
+      \ifprintanswers\vskip -30pt\null\fi
+      
+    \item What happens if you change line 13 to \mintinline{cpp}|cout << pointsPossible|?
+      \begin{solution}[0.5in]
+        You get a memory address, such as {\tt 0x7ffd360a1840}.
+      \end{solution}
+      \ifprintanswers\vskip -45pt\null\fi
+            
+    \item Suppose that you were asked to rewrite this program to use
+      vectors instead of arrays.\key\\[-15pt]
+      \par\vskip 15pt
+      
+      \begin{enumerate}[(a)]
+        \item How would you change lines 6 and 7 to
+          declare vectors instead of arrays?
+          \begin{solution}[0.75in]
+            \scriptsize\vskip -25pt\null\hspace{60pt}
+            \begin{minipage}{4.5in}
+              \begin{minted}[
+                frame=lines,
+                framesep=2mm,
+                bgcolor=gray!15,
+                baselinestretch=1.2,
+                linenos
+              ]{cpp}
+vector<string> homeworkNames(5) = {"Variables","If-Else","Loops","Vectors","Arrays"};
+vector<int> pointsPossible(5) = {25, 35, 15, 20, 30};
+              \end{minted}
+            \end{minipage}
+            \vskip -10pt\null          
+          \end{solution}
+          
+        \item How would you change line 11 to print out the vector values?
+          \begin{solution}[0.75in]
+            \scriptsize\vskip -25pt\null\hspace{60pt}
+            \begin{minipage}{4.5in}
+              \begin{minted}[
+                frame=lines,
+                framesep=2mm,
+                bgcolor=gray!15,
+                baselinestretch=1.2,
+                linenos,
+                firstnumber=6
+              ]{cpp}
+cout << homeworkNames.at(i) << ": " << pointsPossible.at(i) << endl;
+              \end{minted}
+            \end{minipage}
+            \vskip -10pt\null          
+          \end{solution}
+          
+        \item Suppose line 13 was changed to \mintinline{cpp}|cout << pointsPossible.at(5) << endl;|.  What would happen when the
+          program runs that command?
+          \begin{solution}[0.5in]
+            The program would crash with an out-of-range error.
+          \end{solution}
+      \end{enumerate}
+      \ifprintanswers\vskip -30pt\null\fi
+      
+    \item The code below is designed to collect 100 names and then
+      print out a random one.  It is built using vectors.  Rewrite it
+      using arrays.
+      
+      \begin{tabular}{p{2.9in}p{2.9in}}
+        \begin{minipage}{2.9in}
+          \small
+          \begin{minted}[
+            frame=lines,
+            framesep=2mm,
+            bgcolor=gray!15,
+            baselinestretch=1.2
+          ]{cpp}
+vector<string> names;
+string tmpName;
+for (int i=0; i<100; i++) {
+  cout << "Name " << (i+1) << ": ";
+  cin >> tmpName;
+  names.push_back(tmpNames);
+}
+cout << names.at(rand() % 100) << endl;
+          \end{minted}
+        \end{minipage}
+        &
+        \begin{minipage}{2.9in}
+          \begin{solution}
+          \small
+          \begin{minted}[
+            frame=lines,
+            framesep=2mm,
+            bgcolor=gray!15,
+            baselinestretch=1.2,
+            linenos
+          ]{cpp}
+string names[100];
+for (int i=0; i<100; i++) {
+  cout << "Name " << (i+1) << ": ";
+  cin >> names[i];
+}
+cout << names[rand() % 101] << endl;
+          \end{minted}
+          
+          \end{solution}
+        \end{minipage}
+      \end{tabular}

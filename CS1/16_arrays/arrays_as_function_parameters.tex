@@ -1,0 +1,199 @@
+{\bf\large Model 3: Arrays as Function Parameters} \\[-20pt]
+  \begin{center}
+    \begin{tabular}{p{2.8in}p{0.1in}p{2.7in}}
+      \begin{minipage}{2.8in}
+        \scriptsize
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+          linenos,
+          firstnumber=5
+        ]{cpp}        
+const int NUM_ROWS = 3;
+const int NUM_COLS = 3;
+
+// initialize the game board to spaces
+void initBoard(char board[][NUM_COLS], int rows);
+
+// print the game board
+void printBoard(char board[][NUM_COLS], int rows);
+
+// prompt player `turn' for row/col of play
+void getMove(char turn, int &row, int &col);
+
+// check if single array isall the same char
+bool isWinningRow(char row[], int size, char &winner);
+
+// check if a board has a winning row/col/diagonal
+bool isWinningBoard(char board[][NUM_COLS], 
+                    int rows, char &winner);
+                    
+int main() {
+  char board[NUM_ROWS][NUM_COLS];
+  char winner,playAgain;
+  int row, col;
+        \end{minted}
+      \end{minipage}
+      & &
+      \begin{minipage}{2.7in}
+        \scriptsize
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+          linenos,
+          firstnumber=28
+        ]{cpp}
+  do { 
+    char turn = 'O';
+    initBoard(board,NUM_ROWS);
+    do {
+      if(turn == 'X') turn = 'O'; else turn = 'X';
+      printBoard(board,NUM_ROWS);
+      do {
+        getMove(turn,row,col);
+      } while( board[row][col] != ' ');
+      board[row][col] = turn;
+    } while(!isWinningBoard(board,NUM_ROWS,winner));
+    printBoard(board,NUM_ROWS);
+    if (winner != 'D') {
+      cout << "Congrats player " << winner << endl;
+    } else {
+      cout << "It's a draw!" << endl;
+    }
+    cout << "Play again (y/n)? ";
+    cin >> playAgain;
+  } while (playAgain == 'y');
+  return 0;
+}   
+        \end{minted}
+        \vskip 2pt\null
+      \end{minipage}
+    \end{tabular} 
+  \end{center}  
+  \par\vskip 10pt
+
+  {\it\large Refer to Model 3 above as your team develops consensus answers
+    to the questions below.}
+    \ifprintanswers\vskip -20pt\null\fi          
+
+  \item Determine if the functions prototyped in the model above have 1D, 2D, or no array parameters.
+    \par\vskip 15pt
+    
+    \begin{enumerate}[(a)]
+      \itemsep 15pt
+      \begin{multicols}{2}
+        \item \mintinline{cpp}|void initBoard(...)|\hfill\fillin[2D][0.75in]
+        \item \mintinline{cpp}|void printBoard(...)|\hfill\fillin[2D][0.75in]
+        \item \mintinline{cpp}|void getMove(...)|\hfill\fillin[none][0.75in]
+        \item \mintinline{cpp}|bool isWinningRow(...)|\hfill\fillin[1D][0.75in]
+        \item \mintinline{cpp}|bool isWinningBoard(...)|\hfill\fillin[2D][0.75in]
+      \end{multicols}
+    \end{enumerate}
+    
+    \item Based on your observations above, answer the following questions about passing arrays to functions.
+      
+      \begin{enumerate}[(a)]
+        \item How do you specify that a given parameter is a 1D array?
+          \begin{solution}[0.5in]
+            You give the type and name followed by square brackets.  E.g. \mintinline{cpp}|char theRow[]|
+          \end{solution}
+        \item How do you specify that a given parameter is a 2D array?
+          \begin{solution}[0.5in]
+            Type and name followed by two pairs of \mintinline{cpp}|[]| with size in 2nd. E.g. \mintinline{cpp}|char board[][3]|
+          \end{solution}
+        \item How do you pass an array as an argument in a function call?
+          \begin{solution}[0.5in]
+            You use the name of the array only (no \mintinline{cpp}|[]|). E.g. \mintinline{cpp}|printBoard(board,NUM_ROWS)|
+          \end{solution}
+        \item What other parameter must you always pass with an array parameter?
+          \begin{solution}[0.5in]
+            You must pass the number of rows in the array, whether it is 1D or 2D.
+          \end{solution}
+      \end{enumerate}
+
+\newpage
+
+    \item This program, together with the function definitions, is in {\tt activity16c.cpp}.
+      What does it do?
+      \begin{solution}[0.5in]
+        It implements a simple tic-tac-toe game.
+      \end{solution}
+      
+    \item How is the 2D array defined on line 25 used in this program?  In particular, suppose the
+      following output was produced by \mintinline{cpp}|printBoard()|.  What would the values of each
+      array entry be?
+      
+      \begin{center}
+        \begin{tabular}{p{1.4in}p{4.4in}}
+          \begin{minipage}{1.4in}
+            \begin{minted}[]{text}
+ O | O | X
+---+---+---
+   | X |  
+---+---+---
+   |   |              
+            \end{minted}
+          \end{minipage}
+          &
+          \begin{minipage}{4.4in}
+            \begin{solution}[1.25in]
+              The array contains the X's and O's that have been played in the slots. For this game
+              board, we would have:
+              \scriptsize
+              \begin{itemize}
+                \begin{multicols}{3}
+                  \item \mintinline{cpp}|board[0][0] = 'O'|
+                  \item \mintinline{cpp}|board[1][0] = ' '|
+                  \item \mintinline{cpp}|board[2][0] = ' '|
+                  \item \mintinline{cpp}|board[0][1] = 'O'| 
+                  \item \mintinline{cpp}|board[1][1] = 'X'|
+                  \item \mintinline{cpp}|board[2][1] = ' '|
+                  \item \mintinline{cpp}|board[0][2] = 'X'|
+                  \item \mintinline{cpp}|board[1][2] = ' '|
+                  \item \mintinline{cpp}|board[2][2] = ' '|
+                \end{multicols}
+              \end{itemize}
+            \end{solution}
+          \end{minipage}
+        \end{tabular}
+      \end{center}
+      
+    \item What happens if you change the values of the constants on lines 5 and 6 from \mintinline{cpp}|3| to
+      \mintinline{cpp}|4|?
+      \begin{solution}[0.5in]
+        We are now playing tic-tac-toe on a 4 by 4 board instead of 3 by 3.
+      \end{solution}
+      
+    \item Why do you think we always have a size parameter together with any array parameter of a function?
+      \begin{solution}[0.75in]
+        To indicate how many rows the array has (or at least how many should be used).
+      \end{solution}
+      \par\vskip -35pt\null
+      
+    \item Take another look at the function \mintinline{cpp}|void initBoard| declared in this
+      model.\key\\[-20pt]
+      \par\vskip 15pt
+      \begin{enumerate}[(a)]
+        \itemsep 15pt
+        \item What does this function do?
+          \begin{solution}[0.5in]
+            The function sets all entries in the array to be spaces.
+          \end{solution}
+        \item On what line is the \mintinline{cpp}|char board[][]| variable passed to this function
+          declared?
+          \hfill\fillin[line 25][1in]
+        \item Is the \mintinline{cpp}|char board[][]| variable modified in this function local or global?
+          \hfill\fillin[local][1in]
+        \item Based on the effect of the function, was the array passed by value or by reference?
+          \hfill\fillin[by reference][1in]
+        \item Was an {\tt \&} used in the function header to make the array pass-by-reference?
+          \hfill\fillin[no][1in]
+        \item What can you conclude about how array parameters are passed?
+          \begin{solution}[0.5in]
+            Array parameters are always passed by reference, even without an {\tt \&}.
+          \end{solution}
+      \end{enumerate}

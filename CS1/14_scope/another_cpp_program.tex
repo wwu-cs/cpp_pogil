@@ -1,0 +1,94 @@
+{\bf\large Model 3: A C++ Program} \\[-20pt]
+  \begin{center}
+    \begin{minipage}{3.5in}
+      \begin{minted}[
+        frame=lines,
+        framesep=2mm,
+        bgcolor=gray!15,
+        baselinestretch=1.2,
+        linenos,
+        firstnumber=5
+      ]{cpp}
+string str = "Global Scope";
+
+void myFunc() {
+  cout << str << endl;
+  string str = "myFunc Scope";
+  cout << str << endl;
+}
+
+int main() {
+  string str = "Main Scope";
+  if (true) {
+    cout << str << endl;
+    string str = "If Scope";
+    myFunc();
+    cout << str << endl;
+  }
+  cout << str << endl;
+}                       
+      \end{minted}
+    \end{minipage}
+  \end{center}
+  \TPMargin{5pt}
+  \begin{textblock*}{1.9in}[0,0](4.5in,-2.5in)
+    \textblockcolor{white}
+    \begin{minipage}{1.75in}
+      {\bf Output:}
+      \hrule
+        \begin{minted}[
+          frame=none,
+          framesep=2mm,
+          bgcolor=white,
+          baselinestretch=1,
+        ]{text}
+Main Scope
+Global Scope
+myFunc Scope
+If Scope
+Main Scope
+      \end{minted}
+    \end{minipage}
+  \end{textblock*}
+                                                
+      
+  {\it\large Refer to Model 3 above as your team develops consensus answers
+    to the questions below.}
+    \ifprintanswers\vskip -20pt\null\fi          
+
+    \item In the program above, the {\tt str} identifier is used for several different
+      variables.  Determine the line number of the \mintinline{cpp}|cout << str << endl;|
+      command that produces each line of output.
+      \par\vskip 15pt
+      
+      \begin{enumerate}[(a)]
+        \itemsep 15pt
+        \begin{multicols}{2}
+          \item The first {\tt Main Scope}  \hfill \fillin[Line 16][1in]
+          \item {\tt Global Scope}          \hfill \fillin[Line 8][1in]
+          \item {\tt myFunc Scope}          \hfill \fillin[Line 10][1in]
+          \item {\tt If Scope}              \hfill \fillin[Line 19][1in]
+          \item The second {\tt Main Scope} \hfill \fillin[Line 21][1in]
+        \end{multicols}
+      \end{enumerate}
+      
+    \item When a variable declared within one scope blocks access to a variable of the same
+      name declared in an outer scope (that contains the first), we say that the outer variable
+      has been {\it shadowed} or that the name of the variable has been {\it masked}.  
+      Give two instances of variable shadowing in the code above.
+      \begin{solution}[1in]
+        \begin{itemize}
+          \item The global variable on line 1 is shadowed by the variable defined on line 5
+            within the function.
+          \item The local variable on line 10 is shadowed by the variable defined on line 13
+            in the \mintinline{cpp}|if| block.
+        \end{itemize}
+      \end{solution}
+      \par\vskip -40pt\null
+      
+    \item Suppose that we changed the function header on line 7 to \mintinline{cpp}|void myFunc(string str)| 
+      and\key\\[-2.5mm] the function call on line 18 to \mintinline{cpp}|myFunc("Parameter Scope")|.
+      How would the output change?
+      \begin{solution}[0.5in]
+        The ``Global Scope'' line would now say ``Parameter Scope''.
+      \end{solution}

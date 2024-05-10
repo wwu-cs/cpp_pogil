@@ -1,0 +1,365 @@
+ {\bf\large Model 3: Useful Vector Operations} \\[-5pt]
+  
+  \begin{center}
+    \small
+    \renewcommand{\arraystretch}{1.4}    
+    \begin{tabular}{|c|c|c|}
+      \hline
+      \rowcolor{orange!20} Original {\tt myVec} & Operation & Resulting {\tt myVec}  \\
+      \hline
+        \begin{minipage}{1.5in}
+          \centering\vskip 10pt
+          \begin{tabular}{r|c|c|c|}
+            \hhline{~|-|-|-|}
+            {\tt myVec:} & 8 & 2 & 6 \\
+            \hhline{~|-|-|-|}
+          \end{tabular}
+          \vskip 5pt\null
+        \end{minipage}
+        &
+        \mintinline{cpp}|myVec.resize(4)|
+        &
+        \begin{minipage}{1.5in}
+          \centering\vskip 10pt
+          \begin{tabular}{r|c|c|c|c|c|}
+            \hhline{~|-|-|-|-|-|}
+            {\tt myVec:} & 8 & 2 & 6 & \\
+            \hhline{~|-|-|-|-|-|}
+          \end{tabular}
+          \vskip 5pt\null
+        \end{minipage}
+      \\ \hline
+        \begin{minipage}{1.5in}
+          \centering\vskip 10pt
+          \begin{tabular}{r|c|c|c|}
+            \hhline{~|-|-|-|}
+            {\tt myVec:} & 8 & 2 & 6 \\
+            \hhline{~|-|-|-|}
+          \end{tabular}
+          \vskip 5pt\null
+        \end{minipage}
+        &
+        \mintinline{cpp}{myVec.push_back(4)}
+        &
+        \begin{minipage}{1.5in}
+          \centering\vskip 10pt
+          \begin{tabular}{r|c|c|c|c|}
+            \hhline{~|-|-|-|-|}
+            {\tt myVec:} & 8 & 2 & 6 & 4 \\
+            \hhline{~|-|-|-|-|}
+          \end{tabular}
+          \vskip 5pt\null
+        \end{minipage}
+      \\ \hline
+        \begin{minipage}{1.5in}
+          \centering\vskip 10pt
+          \begin{tabular}{r|c|c|c|}
+            \hhline{~|-|-|-|}
+            {\tt myVec:} & 8 & 2 & 6 \\
+            \hhline{~|-|-|-|}
+          \end{tabular}
+          \vskip 5pt\null
+        \end{minipage}
+        &
+        \mintinline{cpp}{myVec.pop_back()}
+        &
+        \begin{minipage}{1.5in}
+          \centering\vskip 10pt
+          \begin{tabular}{r|c|c|}
+            \hhline{~|-|-|}
+            {\tt myVec:} & 8 & 2 \\
+            \hhline{~|-|-|}
+          \end{tabular}
+          \vskip 5pt\null
+        \end{minipage}
+      \\ \hline
+        \begin{minipage}{1.5in}
+          \centering\vskip 10pt
+          \begin{tabular}{r|c|c|c|}
+            \hhline{~|-|-|-|}
+            {\tt myVec:} & 8 & 2 & 6 \\
+            \hhline{~|-|-|-|}
+          \end{tabular}
+          \vskip 5pt\null
+        \end{minipage}
+        &
+        \mintinline{cpp}{myVec.insert(myVec.begin()+1,9)}
+        &
+        \begin{minipage}{1.5in}
+          \centering\vskip 10pt
+          \begin{tabular}{r|c|c|c|c|}
+            \hhline{~|-|-|-|-|}
+            {\tt myVec:} & 8 & 9 & 2 & 6\\
+            \hhline{~|-|-|-|-|}
+          \end{tabular}
+          \vskip 5pt\null
+        \end{minipage}
+      \\ \hline
+        \begin{minipage}{1.5in}
+          \centering\vskip 10pt
+          \begin{tabular}{r|c|c|c|}
+            \hhline{~|-|-|-|}
+            {\tt myVec:} & 8 & 2 & 6 \\
+            \hhline{~|-|-|-|}
+          \end{tabular}
+          \vskip 5pt\null
+        \end{minipage}
+        &
+        \mintinline{cpp}{myVec.erase(myVec.end()-2)}
+        &
+        \begin{minipage}{1.5in}
+          \centering\vskip 10pt
+          \begin{tabular}{r|c|c|}
+            \hhline{~|-|-|}
+            {\tt myVec:} & 8 & 6 \\
+            \hhline{~|-|-|}
+          \end{tabular}
+          \vskip 5pt\null
+        \end{minipage}
+      \\ \hline
+        \begin{minipage}{1.5in}
+          \centering\vskip 10pt
+          \begin{tabular}{r|c|c|c|}
+            \hhline{~|-|-|-|}
+            {\tt myVec:} & 8 & 2 & 6\\
+            \hhline{~|-|-|-|}
+          \end{tabular}
+          \vskip 5pt\null
+        \end{minipage}
+        &
+        \mintinline{cpp}{myVec.clear()}
+        &
+        \begin{minipage}{1.5in}
+          \centering\vskip 10pt
+          \begin{tabular}{r|}
+            \hhline{~|}
+            {\tt myVec:} \\
+            \hhline{~|}
+          \end{tabular}
+          \vskip 5pt\null
+        \end{minipage}
+      \\ \hline      
+    \end{tabular}
+  \end{center}
+      
+  {\it\large Refer to Model 3 above as your team develops consensus answers
+    to the questions below.}
+
+\newpage
+
+    \item In your own words, describe what each of the following
+      vector operations does.
+      \par\vskip 10pt
+      
+      \begin{enumerate}[(a)]
+        \item \mintinline{cpp}|myVec.resize(n)|\ifprintanswers\vskip -8pt\fi
+          \begin{solution}[0.5in]
+            Changes the size of the vector to {\tt n}.
+          \end{solution}
+        \item \mintinline{cpp}|myVec.push_back(value)|\ifprintanswers\vskip -8pt\fi
+          \begin{solution}[0.5in]
+            Adds a value to the end of the vector, resizing it if
+            necessary.
+          \end{solution}
+        \item \mintinline{cpp}|myVec.pop_back()|\ifprintanswers\vskip -8pt\fi
+          \begin{solution}[0.5in]
+            Removes a value from the end of the vector (and returns
+            the value).
+          \end{solution}
+        \item \mintinline{cpp}|myVec.begin()|\ifprintanswers\vskip -8pt\fi
+          \begin{solution}[0.5in]
+            Points to the beginning of the vector.
+          \end{solution}
+        \item \mintinline{cpp}|myVec.insert(location,value)|\ifprintanswers\vskip -8pt\fi
+          \begin{solution}[0.5in]
+            Inserts a value at the given location, moving everything
+            over to make room.
+          \end{solution}
+        \item \mintinline{cpp}|myVec.end()|\ifprintanswers\vskip -8pt\fi
+          \begin{solution}[0.5in]
+            Identifies the end of the vector (one slot past the end
+            actually).
+          \end{solution}
+        \item \mintinline{cpp}|myVec.erase(location)|\ifprintanswers\vskip -8pt\fi
+          \begin{solution}[0.5in]
+            Removes a value from the given location, shifting later
+            values left.
+          \end{solution}
+        \item \mintinline{cpp}|myVec.clear()|\ifprintanswers\vskip -8pt\fi
+          \begin{solution}[0.5in]
+            Removes all values from the vector and sets its size to zero.
+          \end{solution}
+      \end{enumerate}
+      
+      
+    \item Suppose the vector {\tt myVec} is defined as shown below.
+      Sketch a diagram of the contents of the vector after each set of
+      vector operations.  Start over with the original {\tt myVec} for
+      each part of this problem.  This code can be found in {\tt activity10c.cpp}.
+      \begin{center}
+        \begin{tabular}{r|c|c|c|c|c|}
+          \hhline{~|-|-|-|-|-|}
+          {\tt myVec:} & 25 & 12 & 73 & 19 & 42 \\
+          \hhline{~|-|-|-|-|-|}
+        \end{tabular}
+      \end{center}
+      
+      \begin{enumerate}[(a)]
+        \item First set of commands\par
+          \begin{center}
+            \begin{tabular}{p{2.5in}p{3.0in}}
+              \begin{minipage}{2.5in}
+                \small
+                \begin{minted}[
+                  frame=lines,
+                  framesep=2mm,
+                  bgcolor=gray!15,
+                  baselinestretch=1.2,
+                  linenos,
+                  firstnumber=10
+                ]{cpp}
+  myVec.pop_back();
+  myVec.insert(myVec.begin()+2,55);
+  myVec.erase(myVec.begin()+1);
+                \end{minted}
+              \end{minipage}
+              &
+              \begin{minipage}{2.5in}
+                \begin{solution}
+                  \begin{tabular}{r|c|c|c|c|c|}
+                    \hhline{~|-|-|-|-|-|}
+                    {\tt myVec:} & 25 & 55 & 73 & 19  \\
+                    \hhline{~|-|-|-|-|-|}
+                  \end{tabular}
+                \end{solution}
+              \end{minipage}
+            \end{tabular}
+          \end{center}
+        
+        \item Second set of commands        
+          \begin{center}
+            \begin{tabular}{p{2.5in}p{3.0in}}
+              \begin{minipage}{2.5in}
+                \small
+                \begin{minted}[
+                  frame=lines,
+                  framesep=2mm,
+                  bgcolor=gray!15,
+                  baselinestretch=1.2,
+                  linenos,
+                  firstnumber=15
+                ]{cpp}
+  myVec.resize(7);
+  myVec.at(5) = 31;
+  myVec.insert(myVec.end()-3,90);
+  myVec.push_back(27);
+                \end{minted}
+              \end{minipage}
+              &
+              \begin{minipage}{3.0in}
+                \begin{solution}
+                  {\tt myVec:}
+                  \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+                    \hhline{|-|-|-|-|-|-|-|-|-|}
+                     25 & 12 & 73 & 19 & 90 & 42 & 31 & 0 & 27  \\
+                    \hhline{|-|-|-|-|-|-|-|-|-|}
+                  \end{tabular}
+                \end{solution}
+              \end{minipage}
+            \end{tabular}
+          \end{center}
+          
+      \end{enumerate}
+      
+\newpage      
+      
+    \item Suppose the vector {\tt myVec} is defined as shown below.
+      Give a sequence of command that \key\\[-2.5mm] 
+      would produce the given vectors below.
+      \begin{center}
+        \begin{tabular}{r|c|c|c|c|c|}
+          \hhline{~|-|-|-|-|-|}
+          {\tt myVec:} & x & A & c & Y & w \\
+          \hhline{~|-|-|-|-|-|}
+        \end{tabular}
+      \end{center}
+      \par\vskip 20pt
+
+      \begin{enumerate}[(a)]
+        \item \begin{tabular}{r|c|c|c|c|c|c|}
+            \hhline{~|-|-|-|-|-|-|}
+            {\tt myVec:} & A & h & c & n & w & V\\
+            \hhline{~|-|-|-|-|-|-|}
+          \end{tabular}
+          \begin{solution}[1.75in]
+            Answers may vary, but the following would work.
+            \begin{center}
+              \begin{minipage}{3.5in}
+                \small
+                \begin{minted}[
+                  frame=lines,
+                  framesep=2mm,
+                  bgcolor=gray!15,
+                  baselinestretch=1.2,
+                ]{cpp}
+  myVec.erase(myVec.begin());
+  myVec.erase(myVec.begin()+2);
+  myVec.insert(myVec.begin()+1,'h');
+  myVec.insert(myVec.begin()+3,'n');
+  myVec.push_back('V');
+                \end{minted}
+              \end{minipage}
+            \end{center}
+          \end{solution}
+
+        \item \begin{tabular}{r|c|c|c|c|c|}
+            \hhline{~|-|-|-|-|-|}
+            {\tt myVec:} & x & A & w & Z\\
+            \hhline{~|-|-|-|-|-|}
+          \end{tabular}
+          \begin{solution}[1.75in]
+            Answers may vary, but the following would work.
+            \begin{center}
+              \begin{minipage}{3.5in}
+                \small
+                \begin{minted}[
+                  frame=lines,
+                  framesep=2mm,
+                  bgcolor=gray!15,
+                  baselinestretch=1.2,
+                ]{cpp}
+  myVec.erase(myVec.begin()+2);                
+  myVec.erase(myVec.begin()+2);
+  myVec.push_back('Z');
+                \end{minted}
+              \end{minipage}
+            \end{center}
+          \end{solution}
+
+        \item \begin{tabular}{r|c|c|c|c|c|c|c|c|}
+            \hhline{~|-|-|-|-|-|-|-|-|}
+            {\tt myVec:} & F & x & c & Y & & w & & \\
+            \hhline{~|-|-|-|-|-|-|-|-|}
+          \end{tabular}
+          \begin{solution}[1.75in]
+            Answers may vary, but the following would work.
+            \begin{center}
+              \begin{minipage}{3.5in}
+                \small
+                \begin{minted}[
+                  frame=lines,
+                  framesep=2mm,
+                  bgcolor=gray!15,
+                  baselinestretch=1.2,
+                ]{cpp}
+  myVec.insert(myVec.begin(),'F');
+  myVec.erase(myVec.begin()+2);
+  myVec.insert(myVec.end()-1,' ');
+  myVec.push_back(' ');
+  myVec.push_back(' ');
+                \end{minted}
+              \end{minipage}
+            \end{center}
+          \end{solution}
+
+      \end{enumerate}

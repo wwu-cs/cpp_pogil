@@ -1,0 +1,166 @@
+{\bf\large Model 3: Program Output and the {\tt main} Function} \\[-10pt]
+
+  \begin{center}
+    \begin{tabular}{p{3in}p{2.7in}}
+      \begin{minipage}{3in}
+        \small
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+          linenos,
+          firstnumber=7
+        ]{cpp}
+int main() {
+  int userNum,compNum;
+  char tryAgain;
+  srand(time(0));
+  do {
+    do {
+      cout << "Enter a number from 1 to 5: ";
+      cin >> userNum;
+      if (userNum < 1 || userNum > 5) {
+        cout << "Invalid Number!" << endl;
+      }
+    } while (userNum < 1 || userNum > 5);
+    compNum = rand() % 5 + 1;
+    cout << "Computer number: " 
+         << compNum << endl;
+    cout << "Your number: " 
+         << userNum << endl;
+    cout << getMessage(userNum,compNum);
+    cout << "Try again (y/n)? ";
+    cin >> tryAgain;    
+  } while (tryAgain=='y');
+}
+        \end{minted}
+      \end{minipage}
+      &
+      \fbox{\begin{minipage}{2.4in}
+        \small
+        {\bf Output:} 
+        \hrule\vskip 5pt\tt
+        Enter a number from 1 to 5: 7\\
+        Invalid Number!\\
+        Enter a number from 1 to 5: 3\\
+        Computer number: 3\\
+        Your number: 3\\
+        Congratulations! You guessed it.\\
+        Try again (y/n)? y\\
+        \\
+        Enter a number from 1 to 5: 3\\
+        Computer number: 4\\
+        Your number: 3\\
+        I'm sorry, your number is smaller.\\
+        Try again (y/n)? y\\
+        \\    
+        Enter a number from 1 to 5: 3\\
+        Computer number: 1\\
+        Your number: 3\\
+        I'm sorry, your number is larger.\\
+        Try again (y/n)? n\\
+      \end{minipage}}
+    \end{tabular}
+  \end{center}
+      
+  {\it\large Refer to Model 3 above as your team develops consensus answers
+    to the questions below.}
+
+    \item There is one user-defined function that is missing from this program.
+      \par\vskip 15pt
+      
+      \begin{enumerate}[(a)]
+        \itemsep 15pt
+        \item What is the name of the missing function? \hfill
+          \fillin[\tt getMessage][3in]
+        \item Is the function {\tt void} or value-returning? \hfill
+          \fillin[value-returning][3in]
+        \item What are the type(s) of its parameters?\hfill
+          \fillin[It has two integer parameters][3in]
+        \item Write the header for the function. \hfill
+          \fillin[\mintinline{cpp}|string getMessage(int uNum, int cNum)|][3in]
+      \end{enumerate}
+      \par\vskip -40pt\null
+      
+    \item Does the missing function contain any {\tt cout} statements?
+      Explain your reasoning.\key
+      \ifprintanswers\vskip -20pt\null\fi
+      \begin{solution}[0.5in]
+        No.  It returns the value to print out, but the {\tt cout}
+        happens in the {\tt main} function, not in the missing function.
+      \end{solution}
+      
+    \item Suppose line 24 in the model was changed to just
+      \mintinline{cpp}|getMessage(userNum,compNum);|.  How would this
+      change your answers to questions 10 and 11 above?
+      \ifprintanswers\vskip -20pt\null\fi
+      \begin{solution}[0.5in]
+        The function now produces the output and would have a {\tt
+        void} return type.
+      \end{solution}
+           
+\newpage
+
+    \item Now write the function definition assuming that the function header
+      is as shown below.
+      \begin{center}
+        \mintinline{cpp}|string getMessage(int userNum, int compNum)|
+      \end{center}
+      \begin{solution}[2.25in]
+        \scriptsize\vskip -35pt\null
+        \begin{center}
+          \begin{minipage}{3.5in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+              linenos
+            ]{cpp}
+string getMessage(int userNum,int compNum) {
+  string message;
+  if (userNum < compNum) {
+    message = "I'm sorry, your number is smaller.\n";
+  } else if (userNum > compNum) {
+    message = "I'm sorry, your number is larger.\n";
+  } else {
+    message = "Congratulations!  You picked the number.\n";
+  }
+  return message;
+}
+            \end{minted}
+          \end{minipage}
+        \end{center}\vskip -20pt\null
+      \end{solution}          
+  
+    \item Write a different version of this same function assuming that
+      line 24 in the model was changed to just \mintinline{cpp}|getMessage(userNum,compNum);| 
+      and using the following function header.
+      \begin{center}
+        \mintinline{cpp}|void getMessage(int userNum, int compNum)|
+      \end{center}
+      \begin{solution}[2.25in]
+        \scriptsize\vskip -35pt\null
+        \begin{center}
+          \begin{minipage}{3.5in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+              linenos
+            ]{cpp}
+void getMessage(int userNum,int compNum) {
+  if (userNum < compNum) {
+    cout << "I'm sorry, your number is smaller." << endl;
+  } else if (userNum > compNum) {
+    cout << "I'm sorry, your number is larger." << endl;
+  } else {
+    cout << "Congratulations!  You picked the number." << endl;
+  }
+}
+            \end{minted}
+          \end{minipage}
+        \end{center}\vskip -20pt\null
+      \end{solution}          

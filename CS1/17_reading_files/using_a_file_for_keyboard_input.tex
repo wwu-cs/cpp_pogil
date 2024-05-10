@@ -1,0 +1,115 @@
+{\bf\large Model 3: Using a File for Keyboard Input} \\[-20pt]
+  \begin{center}
+    \begin{tabular}{p{2.8in}p{0.1in}p{2.7in}}
+      \begin{minipage}{2.8in}
+        \small
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+          linenos,
+          firstnumber=5
+        ]{cpp}      
+int number;
+string name;
+cout << "Enter Number: ";
+cin >> number;
+cout << "Enter Name: ";
+cin >> name;
+for (int i = 0; i < number; i++) {
+  cout << name << endl;
+}
+        \end{minted}
+      \end{minipage}
+      & &
+      \begin{minipage}{2.7in}
+        \centering\small \tt input.txt\vskip -5pt
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+        ]{bash}
+5
+Duncan
+        \end{minted}
+        \tt terminal commands
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+        ]{bash}
+g++ activity17c.cpp -o test.o
+./test.o < input.txt
+        \end{minted}        
+      \end{minipage}
+    \end{tabular} 
+  \end{center}  
+  \par\vskip 10pt
+                                                
+      
+  {\it\large Refer to Model 3 above as your team develops consensus answers
+    to the questions below.}
+    \ifprintanswers\vskip -20pt\null\fi          
+
+\newpage
+
+    \item The file {\tt activity17c.cpp} contains the code shown on the left-hand side of the
+      model.  Run this program as you normally would and describe what it does.
+      \ifprintanswers\vskip -20pt\null\fi
+      \begin{solution}[0.75in]
+        The program prompts for a number and name and then prints out the name the given number
+        of times.
+      \end{solution}
+      \ifprintanswers\vskip -35pt\null\fi
+      
+    \item Now open a terminal in this same folder (right click on the folder name and pick {\it
+      Open in Terminal}) and type in the commands shown in the model, pressing {\tt Enter} after each line.
+      What happens?
+      \ifprintanswers\vskip -20pt\null\fi
+      \begin{solution}[0.75in]
+        It prints out the name ``Duncan'' five times.
+      \end{solution}
+      \ifprintanswers\vskip -35pt\null\fi
+
+    \item Modify the text file {\tt input.txt} so that when you run the second terminal command
+      in the model it prints out the name of one of your group members 15 times.  What did your
+      text file look like?
+      \ifprintanswers\vskip -20pt\null\fi
+      \begin{solution}[0.75in]
+        Answers will vary, but the first line should be {\tt 15}.
+      \end{solution}
+      \ifprintanswers\vskip -45pt\null\fi
+      
+    \item When you run a command {\tt program < textfile} in the terminal, the contents of the
+      text\key\\[-2.5mm] file are {\it redirected} to the {\it standard input} when the program is run.
+      That is, the computer behaves as if you had typed the contents of the text file in at the
+      keyboard while the program was running.
+      
+      \begin{enumerate}[(a)]
+        \item How does the program output differ when the input is
+          redirected from a file instead of typed in?
+          \ifprintanswers\vskip -20pt\null\fi
+          \begin{solution}[0.75in]
+            The input from the file is not shown in the output,
+            including the places where a user would press {\tt Enter}
+            and create a new line.
+          \end{solution}
+        \item Have you seen this type of output before?
+          \ifprintanswers\vskip -20pt\null\fi
+          \begin{solution}[0.75in]
+            Yes, this is the type of output that Submitty gives us
+            because it tests homework by redirecting input from a file.
+          \end{solution}
+      \end{enumerate}
+      
+    \item Pick a previous homework assignment that requires user
+      input.  Write a text file with example input, compile the
+      assignment, and run it with input redirected from your file.
+      Record the assignment you chose and the input file you created
+      below.
+      \begin{solution}[1in]
+        Answers will vary.
+      \end{solution}

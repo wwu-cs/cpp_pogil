@@ -1,0 +1,217 @@
+ {\bf\large Model 2: Output from Several Nested Loops} \\[-10pt]
+
+% define first output as verbatim box
+\newbox\verbboxOne
+\setbox\verbboxOne=\vbox{\hsize=1.4in
+\begin{Verbatim}
+* * * * *
+* * * * *
+* * * * *
+* * * * *
+* * * * *
+* * * * *
+* * * * *
+\end{Verbatim}
+}
+
+% define second output as verbatim box
+\newbox\verbboxTwo
+\setbox\verbboxTwo=\vbox{\hsize=1.4in
+\begin{Verbatim}
+1 1 1 1 1
+2 2 2 2 2
+3 3 3 3 3
+4 4 4 4 4
+5 5 5 5 5
+6 6 6 6 6
+7 7 7 7 7
+\end{Verbatim}
+}
+
+% define third output as verbatim box
+\newbox\verbboxThree
+\setbox\verbboxThree=\vbox{\hsize=1.4in
+\begin{Verbatim}
+1 2 3 4 5
+1 2 3 4 5
+1 2 3 4 5
+1 2 3 4 5
+1 2 3 4 5
+1 2 3 4 5
+1 2 3 4 5
+\end{Verbatim}
+}
+
+
+  \begin{center}
+    \small
+    \begin{tabular}{p{1.5in}p{0.25in}p{1.5in}p{0.25in}p{1.5in}}
+      \fbox{\begin{minipage}{1.4in}
+        \centering\box\verbboxOne
+      \end{minipage}}
+      & &
+      \fbox{\begin{minipage}{1.4in}
+        \centering\box\verbboxTwo
+      \end{minipage}}      
+      & &
+      \fbox{\begin{minipage}{1.4in}
+        \centering\box\verbboxThree
+      \end{minipage}}
+      \\
+      \centering (a) & & \centering (b) & & \centering (c) \\
+    \end{tabular}
+  \end{center}
+
+  {\it\large Refer to Model 2 above as your team develops consensus answers
+    to the questions below.}
+
+    \item There are several ways to write a C++ program that outputs
+      the contents of box (a) above.  Briefly describe how it could be
+      done using the following methods.
+      \par\vskip 15pt
+      
+      \begin{enumerate}[(a)]
+        \item Using a set of {\tt cout} statements without any loops.
+          \begin{solution}[0.75in]
+            \par
+            Create seven identical {\tt cout} statements,
+            each of which prints {\tt * * * * *} and an {\tt endl}.
+          \end{solution}
+        \item Using a single \mintinline{cpp}|for| loop (without any nesting).
+          \begin{solution}[0.75in]
+            \par
+            The \mintinline{cpp}|for| loop would execute seven times
+            and each time {\tt cout} the five {\tt *}'s and an {\tt endl}.
+          \end{solution}
+      \end{enumerate}
+      
+    \item In this exercise we will create the output in box (a) using nested loops.    
+      \par\vskip 10pt
+      
+      \begin{enumerate}[(a)]
+        \item Surround the {\tt cout} statement below by a \mintinline{cpp}|for|
+          so that five {\tt *} characters are printed on a single line.
+          \ifprintanswers
+            \begin{solution}
+              \scriptsize\vskip -35pt\null
+              \begin{center}
+                \begin{minipage}{2.5in}
+                  \begin{minted}[
+                    frame=lines,
+                    framesep=2mm,
+                    bgcolor=gray!15,
+                    baselinestretch=1.2,
+                  ]{cpp}
+for (int i=0; i<5; i++) {
+  cout << "* ";
+}
+                  \end{minted}
+                \end{minipage}
+              \end{center}\vskip -20pt\null
+            \end{solution}
+          \else
+            \par\vskip 10pt\null
+            \begin{center}
+              \mintinline{cpp}{cout << "* ";}
+            \end{center}
+            \par\vskip 10pt\null
+          \fi
+        \item Now build on the block of code above by wrapping the
+          loop you created in another \mintinline{cpp}|for| loop that
+          prints seven of these lines, with an {\tt endl} between each one.
+          \begin{solution}[1.25in]
+            \scriptsize\vskip -35pt\null
+            \begin{center}
+              \begin{minipage}{2.5in}
+                \begin{minted}[
+                  frame=lines,
+                  framesep=2mm,
+                  bgcolor=gray!15,
+                  baselinestretch=1.2,
+                ]{cpp}
+for (int j=0; j<7; j++) {                
+  for (int i=0; i<5; i++) {
+    cout << "* ";
+  }
+  cout << endl;
+}
+                \end{minted}
+              \end{minipage}
+            \end{center}\vskip -20pt\null
+          \end{solution}
+      \end{enumerate}
+      
+    \item Suppose that variables \mintinline{cpp}|int rows| and
+      \mintinline{cpp}|int cols| contain the number of rows and 
+      columns\key\\[-2.5mm] of {\tt *}'s you wish to print.  How
+      would you modify your code above to print out that number of
+      rows and columns?  Test your solution in {\tt activity09b.cpp}.
+      
+      \begin{solution}[1.25in]
+        \scriptsize\vskip -35pt\null
+        \begin{center}
+          \begin{minipage}{2.5in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{cpp}
+for (int j=0; j<rows; j++) {
+  for (int i=0; i<cols; i++) {
+    cout << "* ";
+  }
+  cout << endl;
+}
+            \end{minted}
+          \end{minipage}
+        \end{center}\vskip -20pt\null
+      \end{solution}
+
+    \item How would you modify your code in the previous question to
+      produce the output seen in box (b), assuming that
+      \mintinline{cpp}|int rows = 7| and \mintinline{cpp}|int cols = 4|?
+
+      \begin{solution}[1.25in]
+        \scriptsize\vskip -35pt\null
+        \begin{center}
+          \begin{minipage}{2.5in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{cpp}
+for (int j=0; j<rows; j++) {
+  for (int i=0; i<cols; i++) {
+    cout << j;
+  }
+  cout << endl;
+}
+            \end{minted}
+          \end{minipage}
+        \end{center}\vskip -20pt\null
+      \end{solution}
+
+    \item How would you modify your code so that the output
+      matches the output in box (c) instead of (b)?
+      \begin{solution}[1.25in]
+        \scriptsize\vskip -35pt\null
+        \begin{center}
+          \begin{minipage}{2.5in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{cpp}
+for (int j=0; j<rows; j++) {
+  for (int i=0; i<cols; i++) {
+    cout << i;
+  }
+  cout << endl;
+}
+            \end{minted}
+          \end{minipage}
+        \end{center}\vskip -20pt\null
+      \end{solution}

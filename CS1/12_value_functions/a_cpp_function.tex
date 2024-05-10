@@ -1,0 +1,193 @@
+{\bf\large Model 2: A C++ Function} \\[-20pt]
+  \begin{center}
+    \begin{minipage}{4.5in}
+      \begin{minted}[
+        frame=lines,
+        framesep=2mm,
+        bgcolor=gray!15,
+        baselinestretch=1.2,
+        linenos
+      ]{cpp}
+void getHypotenuse(double a, double b) {
+  double square = pow(a,2) + pow(b,2);
+  double squareRoot = sqrt(square);
+  cout << "The hypotenuse length is " << squareRoot << endl;
+}
+      \end{minted}
+    \end{minipage}
+  \end{center}
+
+
+  {\it\large Refer to Model 2 above as your team develops consensus answers
+    to the questions below.}
+
+    \item What does this function do?
+      \ifprintanswers\vskip -20pt\null\fi
+      \begin{solution}[0.35in]
+        It solves for the length of the hypotenuse of a right triangle given
+        the length of the two legs and prints it out.
+      \end{solution}
+      \ifprintanswers\vskip -35pt\null\fi
+      
+    \item Is this a {\it void function} or a {\it value-returning} function?
+      \hfill\fillin[void][2in]
+
+    \item Suppose you wanted to turn this into a value-returning function
+      that returns the hypotenuse length.
+      \par\vskip 15pt
+    
+      \begin{enumerate}[(a)]
+        \itemsep 15pt
+        \item How would you change line 1 in the model? \hfill
+          \fillin[\mintinline{cpp}|double getHypotenuse(double a, double b)|][3in]
+        \item What command would you add to the end? \hfill
+          \fillin[\mintinline{cpp}|return squareRoot;|][3in]
+        \item What line would you remove and why? \hfill
+          \fillin[Line 4 -- function doesn't produce output][3in]
+      \end{enumerate}
+      
+    \item What is the difference between using {\tt cout} in a function and using
+      {\tt return} in a function?
+      \begin{solution}[0.5in]
+        Using {\tt cout} prints values out to the screen while using {\tt return}
+        sends the value back to the caller, where it can decide what to do with it.
+      \end{solution}
+    
+\newpage
+    \null\vskip -60pt\null
+    \item Below is the framework for a program that drills students on addition
+      problems.\key\\[-2.5mm]  In particular, the program should do the following:
+      \begin{itemize}
+        \item Display five addition problems, one at a time, and let the student answer each
+        \item Print the correct answer if the user enters an incorrect answer
+        \item Print a congratulatory message if the student's answer is correct
+        \item Keep track of the number of problems the student answers correctly
+        \item Print a special message if the user gets all five problems right
+      \end{itemize}
+      Fill in the missing code to make this program function
+      as described.  The code is in {\tt activity12b.cpp}.
+      \vskip -30pt\null
+    
+      \begin{center}
+        \begin{tabular}{p{2.75in}p{0.1in}p{2.8in}}
+          \begin{minipage}{2.75in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+              linenos,
+              firstnumber=5
+            ]{cpp}
+// Print celebratory rocket
+
+/* ANSWER A */ printRocket() {
+  cout << "Blast-off!" << endl;
+  cout << "  ^"    << endl;
+  cout << " /*\\"  << endl;
+  cout << "/***\\" << endl;
+  cout << "|***|"  << endl;
+  cout << "|***|"  << endl;
+  cout << "|#|#|"  << endl;
+  /* ANSWER B */
+}
+
+// give problem and check answer
+bool giveProblem(/* ANSWER C */) {
+  int studentAns;
+  int correctAns = num1+num2;
+  cout << num1 << "+" << num2 << "=";
+  cin >> studentAns;
+  /* ANSWER D */
+}
+            \end{minted}
+          \end{minipage}
+          & &
+          \begin{minipage}{2.8in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+              linenos,
+              firstnumber=27
+            ]{cpp}          
+int main() {
+  srand(time(0));  // seed random num
+  int numCorrect = 0;
+  for(/* ANSWER E */) {
+    int num1 = rand() % 10 + 1;
+    int num2 = rand() % 10 + 1;
+    if (/* ANSWER F */) {
+      cout << "Correct!" << endl;
+      numCorrect++;
+    } else {
+      cout << "Incorrect! It is "
+           << (num1 + num2) << endl;
+    }
+  }
+  if( /* ANSWER G */ ) {
+    /* ANSWER H */
+  } else {
+    cout << "You got " << numCorrect
+         << " correct." << endl;
+  }
+}
+            \end{minted}
+          \end{minipage}
+        \end{tabular}
+      \end{center}
+      
+      \begin{enumerate}[A.]
+        \begin{multicols}{2}
+          \item Line 7: The type of {\tt printRocket}:\par
+            \begin{minipage}{2.75in}
+              \begin{solution}[0.55in]
+                {\tt void}
+              \end{solution}
+            \end{minipage}
+          \item Line 15: A {\tt return} statement:\par
+            \begin{minipage}{2.75in}
+              \begin{solution}[0.55in]
+                {\tt return} or empty
+              \end{solution}
+            \end{minipage}
+          \item Line 19: Parameters for {\tt giveProblem}:\par
+            \begin{minipage}{2.75in}
+              \begin{solution}[0.55in]
+                \mintinline{cpp}|int num1, int num2|
+              \end{solution}
+            \end{minipage}
+          \item Line 24: A {\tt return} statement:\par
+            \begin{minipage}{2.75in}
+              \begin{solution}[0.55in]
+                \small
+                \mintinline{cpp}|return studentAns==correctAns|
+              \end{solution}
+            \end{minipage}
+          \item Line 30: Setup for {\tt for} loop:\par
+            \begin{minipage}{2.75in}
+              \begin{solution}[0.55in]
+                \mintinline{cpp}|int i=0; i<5; i++|
+              \end{solution}
+            \end{minipage}
+          \item Line 33: Function call in {\tt if} condition:\par
+            \begin{minipage}{2.75in}
+              \begin{solution}[0.55in]
+                \mintinline{cpp}|giveProblem(num1,num2)|
+              \end{solution}
+            \end{minipage}
+          \item Line 41: Condition for {\tt if} statement:\par
+            \begin{minipage}{2.75in}
+              \begin{solution}[0.55in]
+                \mintinline{cpp}|numCorrect==5|
+              \end{solution}
+            \end{minipage}
+          \item Line 42: Command if all 5 correct:\par
+            \begin{minipage}{2.75in}
+              \begin{solution}[0.55in]
+                \mintinline{cpp}|printRocket();|
+              \end{solution}
+            \end{minipage}                      
+        \end{multicols}
+      \end{enumerate}

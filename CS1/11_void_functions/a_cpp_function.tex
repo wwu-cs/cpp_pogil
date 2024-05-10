@@ -1,0 +1,155 @@
+ {\bf\large Model 2: A C++ Function} \\[-20pt]
+  \begin{center}
+    \begin{minipage}{3.5in}
+      \begin{minted}[
+        frame=lines,
+        framesep=2mm,
+        bgcolor=gray!15,
+        baselinestretch=1.2,
+        linenos,
+        firstnumber=6
+      ]{cpp}
+void printArea(double radius) {
+  double area = 3.14159 * pow(radius,2);
+  cout << fixed << setprecision(2);
+  cout << "The area of a circle with radius "
+       << radius << " is " << area << endl;
+}
+      \end{minted}
+    \end{minipage}
+  \end{center}
+
+
+  {\it\large Refer to Model 2 above as your team develops consensus answers
+    to the questions below.}
+
+    \item What does this function do?
+      \ifprintanswers\vskip -20pt\null\fi
+      \begin{solution}[0.35in]
+        This function computes and prints out the area of a circle of
+        a given radius.
+      \end{solution}
+      \ifprintanswers\vskip -35pt\null\fi
+      
+    \item Copy down the function header below and underline the name
+      of the function.
+      \ifprintanswers\vskip -20pt\null\fi
+      \begin{solution}[0.35in]
+        Header: \mintinline{cpp}|void printArea(double radius)|, name: {\tt printArea}
+      \end{solution}
+      \ifprintanswers\vskip -35pt\null\fi
+
+    \item Other than using a different name, how is this function header 
+      different from the header in Model 1?
+      \ifprintanswers\vskip -20pt\null\fi
+      \begin{solution}[0.35in]
+        This function also has a variable listed inside the parentheses.
+      \end{solution}
+      \ifprintanswers\vskip -35pt\null\fi
+      
+    \item A variable defined in a function header is called a 
+      {\it parameter}.  What is the name and purpose of the parameter in this
+      function?
+      \ifprintanswers\vskip -20pt\null\fi
+      \begin{solution}[0.35in]
+        The parameter is named {\tt radius} and it holds the radius of
+        the circle.
+      \end{solution}
+
+\newpage
+
+    \item Determine the output produced by each of the following
+      calls to this function.  You may find it helpful to use 
+      the file {\tt activity11b.cpp}.
+      
+      \begin{enumerate}[(a)]
+        \begin{multicols}{2}
+          \item {\tt printArea(3); }\par
+            \begin{minipage}{2.75in}
+              \begin{solution}[1in]
+                \par
+                The area of a circle with radius 3.00 is 28.67
+              \end{solution}
+            \end{minipage}
+          \item {\tt printArea(4.5); }\par
+            \begin{minipage}{2.75in}
+              \begin{solution}[1in]
+                \par
+                The area of a circle with radius 4.50 is 63.62
+              \end{solution}
+            \end{minipage}
+        \end{multicols}
+      \end{enumerate}
+
+   \item Modify the {\tt main} function in the file {\tt activity11b.cpp}
+     to prompt the user for a radius and then call the function {\tt
+     printArea} with that radius.
+      \begin{solution}[1.25in]
+        \scriptsize\vskip -35pt\null
+        \begin{center}
+          \begin{minipage}{2.5in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{cpp}
+int main() {            
+  double radius;
+  cout << "Enter circle radius: ";
+  printArea(radius);
+}
+            \end{minted}
+          \end{minipage}
+        \end{center}\vskip -20pt\null
+      \end{solution}
+      \par\vskip -40pt\null
+
+    \item An {\it argument} is a value or variable that is passed into
+      the function.\key
+      
+      \begin{enumerate}[(a)]
+        \itemsep 15pt
+        \item What are the arguments in the two function calls in problem 8? \hfill
+          \fillin[3 and 4.5][2in]
+        \item What is the arguments in your solution to problem 9? \hfill
+          \fillin[{\tt radius}][2in]
+        \item What happens to these arguments inside the function?
+          \begin{solution}[0.5in]
+            \par
+            The arguments are placed in the function parameter (the
+            variable {\tt radius}) to be used in the body of the
+            function.
+          \end{solution}
+        \item Do variable arguments have to have the same name as 
+          the corresponding parameter?
+          \hfill
+          \fillin[No][0.5in]
+      \end{enumerate}
+      
+    \item Write a function that calculates and prints out
+      the diameter of a circle with a given radius.
+      \begin{solution}[1.25in]
+        \scriptsize\vskip -35pt\null
+        \begin{center}
+          \begin{minipage}{2.75in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{cpp}
+void printDiameter(double radius) {
+  double diameter = 2*radius;
+  cout << fixed << setprecision(2);
+  cout << "The diameter of a circle with radius "
+       << radius << " is " << area << endl;
+}       
+            \end{minted}
+          \end{minipage}
+        \end{center}\vskip -20pt\null
+      \end{solution}
+      
+    \item Add this function to the program in {\tt activity11b.cpp}
+      and add a function call for the same user-entered radius you
+      used in problem \#9.  Did your function work as expected?

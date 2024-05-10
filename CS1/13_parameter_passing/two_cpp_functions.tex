@@ -1,0 +1,208 @@
+{\bf\large Model 2: Two C++ Functions and a Main Program} \\[-20pt]
+  \begin{center}
+    \begin{tabular}{p{2in}p{0.25in}p{3.4in}}
+      \begin{minipage}{2in}
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+          linenos,
+          firstnumber=4
+        ]{cpp}
+int addOneA(int x) {
+  x = x + 1;
+  return x;
+}
+
+int addOneB(int &x) {
+  x = x + 1;
+  return x;
+}
+
+        \end{minted}
+      \end{minipage}
+      & &
+      \begin{minipage}{3.4in}
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+          linenos,
+          firstnumber=14
+        ]{cpp}
+int main() {
+  int a = 1;
+  cout << "Function: " << addOneA(a) << ", ";
+  cout << "Argument: " << a << endl;
+  
+  int b = 1;
+  cout << "Function: " << addOneB(b) << ", ";
+  cout << "Argument: " << b << endl;
+}
+        \end{minted}
+      \end{minipage}
+    \end{tabular}
+  \end{center}
+
+  {\it\large Refer to Model 2 above as your team develops consensus answers
+    to the questions below.}
+
+    \item Without running them, determine what the functions {\tt addOneA} and 
+      {\tt addOneB} do.
+      \ifprintanswers\vskip -20pt\null\fi
+      \begin{solution}[0.35in]
+        They both add one to the parameter and then return that value.
+      \end{solution}
+      \ifprintanswers\vskip -35pt\null\fi
+      
+    \item How do the function headers differ between these two functions?
+      \ifprintanswers\vskip -20pt\null\fi
+      \begin{solution}[0.35in]
+        The second function header has an {\tt \& }before the parameter name.
+      \end{solution}
+      \ifprintanswers\vskip -35pt\null\fi
+
+    \item The code for this model can be found in {\tt activity13b.cpp}.  Run it and
+      record the output.
+      \ifprintanswers\vskip -20pt\null\fi
+      \begin{solution}[0.75in]
+        The output is:\par
+        Function: 2, Argument 1\\
+        Function: 2, Argument 2
+      \end{solution}
+      \ifprintanswers\vskip -35pt\null\fi
+      
+    \item In this class we will see two ways to pass arguments to a parameter in C++.
+      \begin{itemize}
+        \itemsep 5pt
+        \item When an argument is {\it passed by value}, a copy of the argument
+          value is made in the function parameter variable and any changes
+          made to that parameter variable inside the function are thrown away 
+          when the function is done.
+        \item When an argument is {\it passed by reference}, the parameter
+          variable is a reference to the actual argument variable outside
+          the function.  Any changes made to the parameter variable inside 
+          the function are actually made to the argument variable and persist
+          when the function is done.
+      \end{itemize}
+      Based on these two definitions, which function in this model uses pass by
+      reference?
+      \begin{solution}[0.5in]
+        The function {\tt addOneB} since the value of {\tt b} in the {\tt main} program
+        is changed but the value {\tt a} in the {\tt main} program is not.
+      \end{solution}
+      \ifprintanswers\vskip -55pt\else\vskip -30pt\fi\null
+      
+    \item By looking at the function header, how can you determine if an argument will
+      be passed \key\\[-2.5mm] by value or passed by reference?
+      \begin{solution}[0.5in]
+        If the parameter name has a {\tt \&} in front of it, the argument will be
+        passed by reference.  Otherwise it will be passed by value.
+      \end{solution}
+    
+\newpage
+
+    \item Consider the following C++ function.
+      \begin{center}
+        \begin{minipage}{5in}
+          \begin{minted}[
+            frame=lines,
+            framesep=2mm,
+            bgcolor=gray!15,
+            baselinestretch=1.2
+          ]{cpp}
+// Normally sine and cosine expect angles given in radians  
+// This function returns the sine and cosine of an angle in degrees
+void getSinCos(double degrees, double &sinOut, double &cosOut) {
+  const double PI = 3.14159265358979323846;
+  double radians = degrees * PI / 180.0;
+  sinOut = sin(radians);
+  cosOut = cos(radians);
+}
+          \end{minted}
+        \end{minipage}        
+      \end{center}
+      
+      \begin{enumerate}[(a)]
+        \itemsep 15pt
+        \item Which parameter(s) take pass by value arguments? \hfill
+          \fillin[{\tt degrees}][2in]
+        \item Which parameter(s) take pass by reference arguments? \hfill
+          \fillin[{\tt sinOut} and {\tt cosOut}][2in]
+        \item What is the return type of this function? \hfill
+          \fillin[\mintinline{cpp}|void|][2in]
+        \item What does the comment mean when it says ``This function returns the sine
+          and cosine{\ldots}?''          
+          \begin{solution}[0.5in]
+            It means that the function changes the values of the argument variables
+            referred to by {\tt sinOut} and {\tt cosOut}.
+          \end{solution}
+          \ifprintanswers\vskip -25pt\null\fi          
+        \item Why couldn't we use a \mintinline{cpp}|return| statement at the end of
+          the function to return the sine and cosine?
+          \ifprintanswers\vskip -10pt\null\fi
+          \begin{solution}[0.5in]
+            Because a function can only return one value.
+          \end{solution}
+          \ifprintanswers\vskip -25pt\null\fi
+      \end{enumerate}
+      
+      
+    \item The function below is meant to swap the values of the integer argument variables
+      passed in to it.
+      \ifprintanswers\vskip -25pt\null\fi
+      \begin{center}
+        \begin{tabular}{p{3in}p{2.75in}}
+          \begin{minipage}{3in}
+            \small
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+              linenos,
+            ]{cpp}
+/* function header */ {
+  int temp = x; // save x in temporary var
+  x = y;        // replace x with y
+  y = temp;     // put original x value in y
+}
+
+int main() {
+  int a = 2;
+  int b = 3;
+  swap(a,b);
+  cout << a << ", " << b << endl;
+}
+            \end{minted}
+          \end{minipage}        
+          &
+          \begin{minipage}{2.75in}
+            \begin{enumerate}[(a)]
+              \item Write a function header for line 1 that makes the program output {\tt 2,3}.
+                \begin{solution}[0.65in]
+                  \mintinline{cpp}|void swap(int x, int y)|
+                \end{solution}
+              \item Write a function header for line 1 that makes the program output {\tt 3,2}.
+                \begin{solution}[0.65in]
+                  \mintinline{cpp}|void swap(int &x, int &y)|
+                \end{solution}
+            \end{enumerate}
+          \end{minipage}
+        \end{tabular}
+      \end{center}
+      
+      \begin{enumerate}[(a)]
+        \setcounter{enumii}{2}
+        \item Using the function header from (b), which function calls below 
+          are valid?  Check all that apply.
+          \begin{enumerate}[i.]
+            \begin{multicols}{3}
+              \item \fillin[$\checkmark$][0.25in] \mintinline{cpp}|swap(b,a)|
+              \item \fillin[][0.25in] \mintinline{cpp}|swap(a,2)|
+              \item \fillin[][0.25in] \mintinline{cpp}|swap(3,2)|
+            \end{multicols}
+          \end{enumerate}
+      \end{enumerate}

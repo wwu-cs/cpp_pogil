@@ -1,0 +1,95 @@
+{\bf\large Model 1: A C++ Program} \\[-15pt]
+  \begin{center}
+    \begin{minipage}{5.8in}
+      \begin{minted}[
+        frame=lines,
+        framesep=2mm,
+        bgcolor=gray!15,
+        baselinestretch=1.2,
+        linenos,
+        firstnumber=4
+      ]{cpp}
+int getSmaller(int num1, int num2) {
+  int smaller;
+  if (num1 < num2) {
+    smaller = num1;
+  } else {
+    smaller = num2;
+  }
+  return smaller;
+}
+
+int main() {
+  int userNum1, userNum2;
+  cout << "Enter two numbers separated by a space: ";
+  cin >> userNum1 >> userNum2;
+  int smallerNum = getSmaller(userNum1, userNum2);
+  cout << "The smaller number is " << smallerNum << endl;
+}
+      \end{minted}
+    \end{minipage}
+  \end{center}
+  \TPMargin{5pt}
+  \begin{textblock*}{3.1in}[0,0](3.65in,-3.25in)
+    \textblockcolor{white}
+    \begin{minipage}{2.95in}
+      {\bf Output:} 
+      \hrule\vskip 5pt
+      Enter two numbers separated by a space: 52 36\\
+      The smaller number is 36
+    \end{minipage}
+  \end{textblock*}
+  
+  
+  {\it\large Refer to Model 1 above as your team develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+    
+  \begin{enumerate}
+    \itemsep 20pt
+
+    \item What does the function defined on lines 4-12 do?
+      \ifprintanswers\vskip -10pt\fi
+      \begin{solution}[0.25in]
+        It returns the smaller of the two integer arguments passed to it.
+      \end{solution}
+      \ifprintanswers\vskip -35pt\null\fi
+      
+    \item So far you have created `void` functions which do not send any
+      information back to the calling code. A {\it value-returning} function
+      does send information of a particular type back to the calling code.
+      \par\ifprintanswers\vskip 10pt\else\vskip 20pt\fi
+      
+      \begin{enumerate}[(a)]
+        \itemsep 15pt
+        \item What type of information does the function {\tt getSmaller} return? \hfill
+          \fillin[An integer][1.8in]
+        \item On what line of code is the function call to {\tt getSmaller}? \hfill
+          \fillin[Line 15][1.8in]
+        \item On what line does the function {\tt getSmaller} send back a value? \hfill
+          \fillin[Line 8][1.8in]
+      \end{enumerate}
+
+\newpage      
+
+    \item In a {\it void function} the {\it function call} is on a line by itself.
+      Why is the function call in this model on the right-hand-side of an
+      assignment statement?
+      \begin{solution}[0.5in]
+        Because it returns a value that is being assigned to the variable {\tt
+        smallerNum}.
+      \end{solution}      
+      
+    \item If you wanted to alter this function to select and return the
+      smaller of two {\tt  double} values,\key\\[-2.5mm] what changes would you
+      need to make?
+      \begin{solution}[1in]
+        You need to change the \mintinline{cpp}|int| type to a
+        \mintinline{cpp}|double| in the following places.
+        \begin{itemize}
+          \begin{multicols}{2}
+            \item In the three instances on line 1
+            \item In the one instance on line 2
+          \end{multicols}
+        \end{itemize}
+      \end{solution}

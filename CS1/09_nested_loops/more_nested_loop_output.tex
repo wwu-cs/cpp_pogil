@@ -1,0 +1,238 @@
+{\bf\large Model 3: More Nested Loop Output} \\[-5pt]
+  
+% define fourth output as verbatim box
+\newbox\verbboxFour
+\setbox\verbboxFour=\vbox{\hsize=1.4in
+\begin{Verbatim}
+1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5
+\end{Verbatim}
+}
+
+% define fifth output as verbatim box
+\newbox\verbboxFive
+\setbox\verbboxFive=\vbox{\hsize=1.4in
+\begin{Verbatim}
+1 2 3 4 5
+1 2 3 4
+1 2 3
+1 2 
+1
+\end{Verbatim}
+}
+
+% define third output as verbatim box
+\newbox\verbboxSix
+\setbox\verbboxSix=\vbox{\hsize=1.4in
+\begin{Verbatim}
+1
+1 2
+1 2 3
+1 2
+1
+\end{Verbatim}
+}
+
+
+  \begin{center}
+    \small
+    \begin{tabular}{p{1.5in}p{0.25in}p{1.5in}p{0.25in}p{1.5in}}
+      \fbox{\begin{minipage}{1.4in}
+        \centering\box\verbboxFour
+      \end{minipage}}
+      & &
+      \fbox{\begin{minipage}{1.4in}
+        \centering\box\verbboxFive
+      \end{minipage}}      
+      & &
+      \fbox{\begin{minipage}{1.4in}
+        \centering\box\verbboxSix
+      \end{minipage}}
+      \\
+      \centering (a) & & \centering (b) & & \centering (c) \\
+    \end{tabular}
+  \end{center}
+  
+  {\it\large Refer to Model 3 above as your team develops consensus answers
+    to the questions below.}
+
+    \item How are the output samples in this model different from
+      those in model 2?  Note: Write a single general statement that
+      summarizes the difference for all output boxes.
+      
+      \begin{solution}[1in]
+        \par
+        The number of columns in a row (i.e. its length) depends on
+        which row we are in.
+      \end{solution}
+      
+    \item The code below will produce one of these three outputs.
+      Determine which one and justify your answer.
+      
+      \begin{center}
+        \begin{tabular}{p{2.5in}p{2.5in}}
+          \begin{minipage}{2.5in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{cpp}
+int numRows = 5;
+for (int j=numRows; j>0; j--) {
+  for (int i=1; i<=j; i++) {
+    cout << i << " ";
+  }
+  cout << endl;
+}
+            \end{minted}
+          \end{minipage}
+          &
+          \begin{minipage}{2.5in}
+            \begin{solution}[1in]
+              \par
+              It will produce the output in box (b).  We can tell
+              because it is counting down from 5 instead of counting
+              up to 5 or counting up and then down.
+            \end{solution}
+          \end{minipage}
+        \end{tabular}
+      \end{center}
+      \par\vskip -20pt\null
+
+    \item The code from the previous problem is in
+      {\tt activity09c.cpp}.  Rewrite it so that it produces \key\\[-2.5mm] the output
+      in the other of box (a) or (b).
+      
+      \begin{solution}[1.5in]
+        \scriptsize\vskip -35pt\null
+        \begin{center}
+          \begin{minipage}{2.5in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{cpp}
+int numRows = 5;
+for (int j=1; j<=numRows; j++) {
+  for (int i=1; i<=j; i++) {
+    cout << i << " ";
+  }
+  cout << endl;
+}
+            \end{minted}
+          \end{minipage}
+        \end{center}\vskip -20pt\null
+      \end{solution}
+      
+    \item Add some initialization code that prompts the user to enter
+      the number of rows in the triangle that your program creates.
+      Test your solution to verify that it works.
+
+\newpage
+
+    \item Use nested \mintinline{cpp}|for| loops to produce the output
+      in box (c) above.
+      
+      \begin{solution}[2.5in]
+        \scriptsize\vskip -35pt\null
+        \begin{center}
+          \begin{minipage}{3.5in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{cpp}
+  int numRows = 5, length;
+  for (int i = 1; i <= numRows; i++) {
+    if ((numRows % 2 == 0 && i <= numRows / 2) ||
+        (numRows % 2 == 1 && i <= numRows / 2 + 1) ) {
+      length = i;
+    }
+    else {
+      length = numRows - i + 1;
+    }
+    for (int j = 1; j <= length; j++) {
+      cout << j << " ";
+    }
+    cout << endl;
+  }
+            \end{minted}
+          \end{minipage}
+        \end{center}\vskip -20pt\null
+      \end{solution}
+
+    \item Write a program that prompts the user for information on
+      three students.  For each student, collect the student name and
+      three quiz grades.  Then display the name and quiz average
+      (formatted to two decimal places).  Sample output is shown below.
+    
+      \begin{center}
+        \begin{tabular}{p{2.6in}p{3in}}
+          \begin{minipage}{2.6in}
+            \small
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+            ]{html}
+Enter name of student 1: Mary
+Enter score 1: 78
+Enter score 2: 90
+Enter score 3: 91
+Name: Mary
+Average: 86.33
+
+Enter name of student 2: Kevin
+Enter score 1: 90
+Enter score 2: 77
+Enter score 3: 85
+Name: Kevin
+Average: 84.00
+
+Enter name of student 3: Jose
+Enter score 1: 79
+Enter score 2: 83
+Enter score 3: 92
+Name: Jose
+Average: 84.67
+            \end{minted}
+          \end{minipage}
+          &
+          \begin{minipage}{3in}
+            \begin{solution}
+              \scriptsize
+              \begin{minted}[
+                frame=lines,
+                framesep=2mm,
+                bgcolor=gray!15,
+                baselinestretch=1.2,
+              ]{cpp}
+string name;
+double score,sum;
+cout << showpoint << fixed << setprecision(2);
+for (int i=1; i<=3; i++) {
+  cout << "Enter name of student " << i << ": ";
+  cin >> name;
+  sum = 0;
+  for (int j=1; j<=3; j++) {
+    cout << "Enter score " << j << ": ";
+    cin >> score;
+    sum += score;
+  }
+  cout << "Name: " << name << endl;
+  cout << "Average: " << (sum / 3) << endl << endl;
+  }
+}  
+              \end{minted}
+            \end{solution}
+          \end{minipage}
+        \end{tabular}
+      \end{center}  
+    
