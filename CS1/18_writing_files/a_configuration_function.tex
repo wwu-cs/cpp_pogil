@@ -1,0 +1,143 @@
+ {\bf\large Model 2: A Configuration Function} \\[-20pt]
+  \begin{center}
+    \begin{minipage}{4in}
+      \scriptsize
+      \begin{minted}[
+        frame=lines,
+        framesep=2mm,
+        bgcolor=gray!15,
+        baselinestretch=1.2,
+        linenos,
+        firstnumber=38
+      ]{cpp}
+void getSetup(int &rows, int &cols, char &charOne, char &charTwo) {
+  ifstream configIn;
+  configIn.open("gameBoard.cfg");
+  if (configIn.is_open()) {
+    configIn >> rows;
+    configIn >> cols;
+    configIn >> charOne;
+    configIn >> charTwo;
+  } else {
+    input("Enter Number of Rows: ",rows);
+    input("Enter Number of Columns: ",cols);
+    input("Enter Player One Symbol: ",charOne);
+    input("Enter Player Two Symbol: ",charTwo);
+  }
+}
+      \end{minted}
+    \end{minipage}
+  \end{center}  
+  \TPMargin{5pt}
+  \begin{textblock*}{1.25in}[0,0](4.75in,-1.8in)
+    \textblockcolor{white}
+    \begin{minipage}{1.1in}
+      \mintinline{cpp}|"gameBoard.cfg"|\vskip 5pt
+      \hrule\vskip 5pt
+      \tt
+      6\\
+      5\\
+      *\\
+      \#
+    \end{minipage}
+  \end{textblock*}  
+  
+  {\it\large Refer to Model 2 above as your team develops consensus answers
+    to the questions below.}
+    \par\vskip -20pt\null
+    
+\newpage
+
+  \item Without running the program, determine what the function {\tt getSetup} does.
+    \ifprintanswers\vskip -20pt\null\fi
+    \begin{solution}[0.4in]
+      It reads {\tt rows}, {\tt columns}, {\tt charOne}, and
+      {\tt charTwo} from a configuration file, if it exists.
+      If the file does not exists, it calls the {\tt input} function
+      to get them.
+    \end{solution}
+    \ifprintanswers\vskip -35pt\null\fi
+    
+  \item Suppose that this function were called with the contents of
+    {\tt gameBoard.cfg} as shown.  To what value would each of the
+    following variables be set?
+    \par\vskip 15pt
+    
+    \begin{enumerate}[(a)]
+      \itemsep 15pt
+      \begin{multicols}{2}
+        \item {\tt rows} = \hfill\fillin[6][1.5in]
+        \item {\tt cols} = \hfill\fillin[5][1.5in]
+        \item {\tt charOne} = \hfill\fillin[*][1.5in]
+        \item {\tt charTwo} = \hfill\fillin[\#][1.5in]
+      \end{multicols}      
+    \end{enumerate}
+    
+  \item What is missing from the function with regard to the {\tt
+    configIn} stream?
+    \ifprintanswers\vskip -20pt\null\fi
+    \begin{solution}[0.4in]
+      The stream is never closed
+    \end{solution}
+    \ifprintanswers\vskip -35pt\null\fi
+  
+  \item This function is part of the program in {\tt activity18b.cpp}.
+    Run it and record what it does.
+    \ifprintanswers\vskip -20pt\null\fi
+    \begin{solution}[0.4in]
+      It prints out a checkerboard that is 6 x 5 tiles the {\tt *}
+      character and {\tt \#} characters.
+    \end{solution}
+    \ifprintanswers\vskip -35pt\null\fi
+    
+  \item Now delete the file {\tt gameBoard.cfg} and run the program
+    again.  What does it do differently?
+    \ifprintanswers\vskip -20pt\null\fi
+    \begin{solution}[0.4in]
+      It prompts the user for the information that was previously
+      stored in the file.
+    \end{solution}
+    \ifprintanswers\vskip -35pt\null\fi
+    
+  \item A {\it configuration file} is a file that saves the setup for
+    a program so that it does not have to be entered every time the
+    program runs.  Recreate the file {\tt gameBoard.cfg} and adjust its
+    contents so that an 8 by 10 board is printed using characters 
+    {\tt \$} and {\tt @}.  What should appear on each line of {\tt gameBoard.cfg}?
+    \par\vskip 15pt
+    
+    \begin{enumerate}[(a)]
+      \itemsep 15pt
+      \begin{multicols}{2}
+        \item Line 1: \hfill\fillin[8][1.5in]
+        \item Line 2: \hfill\fillin[10][1.5in]
+        \item Line 3: \hfill\fillin[\$][1.5in]
+        \item Line 4: \hfill\fillin[@][1.5in]
+      \end{multicols}
+    \end{enumerate}
+    
+  \item Instead of changing the contents of the configuration file by
+    hand, it makes sense to have the program save them.  Answer the
+    questions below to help you think through adding this feature
+    to the function.
+    \par\vskip 15pt
+    
+    \begin{enumerate}[(a)]
+      \itemsep 15pt
+      \item What type of variable will we need to declare in the function body?
+        \hfill\fillin[\tt ofstream][1.5in]
+      \item Where in the function should we write to the file?
+        \hfill\fillin[else clause][1.5in]
+      \item Should we call {\tt .open()} with or without {\tt ofstream::app}?
+        \hfill\fillin[without][1.5in]        
+    \end{enumerate}
+    \par\vskip -30pt\null
+    
+  \item Modify the function so that it saves the configuration
+    file.  Indicate what you add.\key\\[-2.5mm]
+    \ifprintanswers\vskip -20pt\null\fi
+    \begin{solution}[0.5in]
+      Add \mintinline{cpp}|ofstream fout| after line 7, and after line
+      18 open the file, print out the variables, and then close the file.
+    \end{solution}
+    \ifprintanswers\vskip -35pt\null\fi

@@ -1,0 +1,112 @@
+{\bf\large Model 1: A C++ Main Function} \\[-15pt]
+  \begin{center}
+    \begin{minipage}{4.25in}
+      \small
+      \begin{minted}[
+        frame=lines,
+        framesep=2mm,
+        bgcolor=gray!15,
+        baselinestretch=1,
+        linenos,
+        firstnumber=8
+      ]{cpp}
+int main() {
+  ofstream fout;
+  fout.open("studentInfo.txt", ofstream::app);
+
+  string firstName = input("Enter first name: ");
+  string lastName = input("Enter last name: ");
+  string studentID = input("Enter student ID: ");
+
+  fout << "Name: " << firstName << " " << lastName << endl;
+  fout << "Student ID: " << studentID << endl;
+  fout << endl;
+  fout.close();
+
+  cout << "Done! Data is saved in: studentInfo.txt" << endl;  
+}        
+      \end{minted}
+    \end{minipage}
+  \end{center}  
+  
+  {\it\large Refer to Model 1 above as your team develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+    
+  \begin{enumerate}
+    \itemsep 20pt
+ 
+    \item This code can be found in {\tt activity18a.cpp}.  Run it and
+      record what output appears on the screen.
+      \ifprintanswers\vskip -20pt\null\fi
+      \begin{solution}[1in]
+        The program says:
+        \begin{itemize}
+          \itemsep 0pt
+          \item Enter first name:
+          \item Enter last name:
+          \item Enter student ID:
+          \item Done! Data is saved in: studentInfo.txt
+        \end{itemize}
+      \end{solution}
+      \ifprintanswers\vskip -30pt\null\fi
+
+    \item Locate the file {\tt studentInfo.txt} and examine its contents.
+      \par\vskip 15pt
+      
+      \begin{enumerate}[(a)]
+        \itemsep 15pt
+        \item What is in this file?
+          \hfill \fillin[the student info we entered][3in]
+        \item Did this file exist before the program ran?
+          \hfill \fillin[no, it was created by the program][3in]
+        \item On which line of code was the file created?
+          \hfill \fillin[line 10, by the {\tt .open()} command][3in]
+        \item Which lines generated the file contents?
+          \hfill \fillin[lines 16 through 18][3in]
+        \item Why wasn't the message on line 21 in the file?
+          \hfill \fillin[because it was sent to {\tt cout} not {\tt fout}][3in]
+      \end{enumerate}
+    
+\newpage
+
+    \item Run the program again using different input.  Then open the
+      {\tt studentInfo.txt} file.  What is in the file?  Is the data
+      from the first time you ran it still there?
+      \begin{solution}[0.5in]
+        The file has original student's info as well as the
+        new one from our second execution.
+      \end{solution}
+      \ifprintanswers\vskip -40pt\else\vskip -20pt\fi\null
+
+    \item Remove the {\tt ofstream::app} argument in the {\tt .open()}
+      function call on line 10 and run the\key\\[-2.5mm] program again with different input.
+      \par\vskip 15pt
+      
+      \begin{enumerate}[(a)]
+        \item What happened to the contents of {\tt studentInfo.txt}?
+          \begin{solution}[0.5in]
+            The contents of {\tt studentInfo.txt} were replaced with the
+            new input.
+          \end{solution}
+        \item What did the {\tt ofstream::app} argument do?
+          \begin{solution}[0.5in]
+            The argument made the program {\it append} to the
+            file instead of {\it overwrite} the file.
+          \end{solution}
+      \end{enumerate}
+            
+      
+    \item You should have observed that lines 16-18 send output to the
+      the file {\tt studentInfo.txt}.  How does C++ know to send the
+      output to that file?
+      \begin{solution}[0.5in]
+        The {\tt fout} variable was opened with that file name.
+      \end{solution}
+      
+    \item Rewrite the program so the user can keep entering names
+      until they type in {\tt DONE} for the first name.
+      \begin{solution}[1.75in]
+        Wrap lines 12-18 in a {\tt do-while} loop with condition 
+        \mintinline{cpp}|firstName != "DONE"|.
+      \end{solution}

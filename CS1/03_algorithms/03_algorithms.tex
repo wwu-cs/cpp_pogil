@@ -1,100 +1,64 @@
-\documentclass{exam}
-%\documentclass[answers]{exam}
-\hbadness=99999
-\setlength{\textheight}{9.5in}
-\setlength{\textwidth}{6.5in}
-\setlength{\topmargin}{-0.75in}
-\setlength{\oddsidemargin}{0in}
-\setlength{\evensidemargin}{0in}
+% Source: https://github.com/ChrisMayfield/cspogil/tree/master/CS0
+% File: ".pdf"
+% Access: 04-15-2022
 
-\usepackage{amsmath}
-%\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{enumerate}
-\usepackage[table]{xcolor}
-\usepackage{graphicx}
-\usepackage{tikz}
-%\usepackage{pgfplots}
-\usepackage{multicol}
-\usepackage[
-  colorlinks=true,
-  pdftex,
-  pdfauthor={Jonathan Duncan},
-]{hyperref}
+% comment out for student version
+%\ifdefined\Student\relax\else\def\Teacher{}\fi
 
-% for syntax highlighting
-\usepackage{minted}
-\usemintedstyle[cpp]{xcode}
+\documentclass[12pt]{article}
 
-% for overlay of output
-\usepackage[overlay,showboxes]{textpos}
+\title{Activity \#3: Algorithmic Thinking}
+\author{Chris Mayfield}
+\newcommand{\activityeditor}{Preston Carman}
+\newcommand{\activitysource}{\url{https://github.com/ChrisMayfield/cspogil/tree/master/CS0}}
+\date{Spring 2022}
 
-\pagestyle{plain}
-
-\setlength\columnsep{50pt}
-\newcommand{\key}{\hfill
-      \raisebox{-.3\height}{\includegraphics[width=0.6in]{figures/key.png}}}
+\input{../../cspogil.sty}
 
 \begin{document}
-  \thispagestyle{empty}
-  \setlength{\parindent}{0pt}
 
-  \begin{center}
-    \Large Activity \#3: Algorithmic Thinking \\[5pt]
-    \large Recorder's Report\\[20pt]
-    \normalsize
-    \begin{tabular}{lrp{0.1in}lr}
-      Manager:  & \fillin[][2.0in] & & Presenter: & \fillin[][2.0in]\\[15pt]
-      Recorder: & \fillin[][2.0in] & & Driver:    & \fillin[][2.0in]\\[15pt]
-      Date:     & \fillin[][2.0in] & & Score:     & Satisfactory \hspace{10pt} /
+\begin{center}
+  \Large Activity \#3: Algorithmic Thinking \\[5pt]
+  \large Recorder's Report\\[20pt]
+  \normalsize
+  \begin{tabular}{lrp{0.1in}lr}
+      Manager:  & \ans{} &  & Reader: & \ans{}            \\[15pt]
+      Recorder: & \ans{} &  & Driver: & \ans{}            \\[15pt]
+      Date:     & \ans{} &  & Score:  & Satisfactory \hspace{10pt} /
       \hspace{10pt} Not Satisfactory
-    \end{tabular}
-  \end{center}
-  \par\vskip 15pt
-  
-  Record your team's answers to the key questions (marked with
-  \raisebox{-.3\height}{\includegraphics[width=0.5in]{figures/key.png}})
-  below.
-  \begin{enumerate}[(a)]
-    \item Model 1, Question \#4
-      \par\vskip 1.5in
-    \item Model 2, Question \#5
-      \par\vskip 3.5in
-    \item Model 3, Question \#16
-  \end{enumerate}
+  \end{tabular}
+\end{center}
+\par\vskip 15pt
 
-  \clearpage\pagenumbering{arabic} 
-  
-  \begin{center}
-    \Large Activity \#3: Algorithmic Thinking \\[5pt]
-    \large Activity Guide\\[20pt]
-  \end{center}
+Record your team's answers to the key questions (marked with
+\raisebox{-.3\height}{\includegraphics[width=0.5in]{../figures/key.png}})
+below.
+\begin{enumerate}[label=(\alph*)]
+  \itemsep 1.25in
+  \item Model 1, Question \#4
+  \item Model 2, Question \#5
+  \item Model 3, Question \#16
+\end{enumerate}
 
-  \begin{center}
-    \fbox{
-      \begin{minipage}{5.5in}
-        {\bf Learning Objectives:} Students will be able to:
-        \begin{itemize}
-          \item Content:\\[-20pt]
-            \begin{itemize}
-              \itemsep 0pt
-              \item Explain to other students how to duplicate a model
-              \item Understand the need for clarity when describing an algorithm.
-              \item Analyze the efficiency of oral and written algorithms.
-            \end{itemize}
-          \item Process\\[-20pt]
-            \begin{itemize}
-              \itemsep 0pt
-              \item Create oral algorithms
-              \item Create a written algorithm
-            \end{itemize}
-        \end{itemize}
-      \end{minipage}
-      }
-  \end{center}
-  \par\vskip 10pt
-     
-  \end{enumerate}  
+\newpage
+\maketitle
+
+In this course, you will work in teams of 3--4 students to learn new concepts.
+This activity will introduce you to the process of analyzing an algorithm complexity.
+
+%\rolenames
+
+\guide{
+  \item Explain to other students how to duplicate a model
+  \item Understand the need for clarity when describing an algorithm.
+  \item Analyze the efficiency of oral and written algorithms.
+
+}{
+  \item Create oral algorithms
+  \item Create a written algorithm
+}{
+No additional notes.
+}
 
 \input{google_directions}
 \newpage

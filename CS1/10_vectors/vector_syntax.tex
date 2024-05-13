@@ -1,4 +1,5 @@
-{\bf\large Model 1: Vector Syntax} \\[-15pt]
+\model{ Vector Syntax}
+
   \begin{center}
     \begin{tabular}{p{2.5in}p{3.1in}}
       \begin{minipage}{2.5in}
@@ -58,10 +59,8 @@
     to the questions below.}
     \par\vskip 10pt
     
-  \begin{enumerate}
-    \itemsep 20pt
-    
-    \item A {\it vector} is an ordered list of related variables, all of the
+
+    \Q A {\it vector} is an ordered list of related variables, all of the
       same type.  Each value in a vector is known as an {\it element}.  The code
       above can be found in {\tt activity10a.cpp}.  Answer the following questions 
       about the vectors declared on line 8.
@@ -75,7 +74,7 @@
           \fillin[It is a vector of  \mintinline{cpp}|int|s][2.5in]
       \end{enumerate}
       
-    \item A second vector is declared on line 9 in the model.  Answer
+    \Q A second vector is declared on line 9 in the model.  Answer
       the following questions about it.
       \par\vskip 20pt
       
@@ -87,14 +86,14 @@
           \fillin[It is a vector of  \mintinline{cpp}|string|s][2.5in]
       \end{enumerate}
     
-    \item The {\it size} of a vector is the number of variables that
+    \Q The {\it size} of a vector is the number of variables that
       it holds.  What is the size of each vectors above? 
       \begin{solution}[0.5in]
         The vector declared on line 1 has size 2 and the vector
         declared on line 2 has size 4.
       \end{solution}
       
-    \item Based on the code above, what are two different ways to
+    \Q Based on the code above, what are two different ways to
       initialize the variables stored in a vector?
       \begin{solution}[1in]
         \par
@@ -107,7 +106,7 @@
       
 \newpage
 
-    \item The {\it index} of an element in a vector is its position in
+    \Q The {\it index} of an element in a vector is its position in
       the vector.  Indexes start at 0 in C++.  Answer the following
       questions related to indexes.
       \par\vskip 20pt
@@ -124,14 +123,14 @@
           \fillin[\small Out of Bounds][1in]
       \end{enumerate}
                 
-    \item Write a single line of C++ code to declare a new vector of
+    \Q Write a single line of C++ code to declare a new vector of
       doubles named {\tt homeworkAvg} that contains the values 
       82.4 at index 2, 91.6 and index 0, and 73.9 at index 1.
       \begin{solution}[0.5in]
         \mintinline{cpp}|vector<double> homeworkAgv = {91.6, 73.9, 82.4};|
       \end{solution}
       
-    \item The expression \mintinline{cpp}|myVector.at(i)| returns the value of the
+    \Q The expression \mintinline{cpp}|myVector.at(i)| returns the value of the
       variable at index {\tt i} in the vector {\tt myVector}.  It can
       also be used to set the value at that index, as seen in lines 4-6
       of the model.
@@ -172,7 +171,7 @@ profNames.at(0) = "Aamodt";
           \end{solution}          
       \end{enumerate}
       
-    \item The expression {\tt myVector.size()} returns the size of the
+    \Q The expression {\tt myVector.size()} returns the size of the
       vector {\tt myVector}.  Use this function to write a 
       {\tt cout} command for each line of output below.
       
@@ -190,6 +189,5 @@ profNames.at(0) = "Aamodt";
       \end{enumerate}
       \par\vskip -40pt\null
       
-    \item True/False:  {\tt myVector.at(myVector.size())}
+    \Q True/False:  {\tt myVector.at(myVector.size())}
     returns the last value in the vector.\ifprintanswers\hspace{5pt}(false)\fi\key
-

@@ -1,0 +1,156 @@
+{\bf\large Model 3: A JavaScript Function to Estimate $\pi$} \\[-20pt]
+  \begin{center}
+    \begin{minipage}{4in}
+      \scriptsize
+      \begin{minted}[
+        frame=lines,
+        framesep=2mm,
+        bgcolor=gray!15,
+        baselinestretch=1.2,
+        linenos
+      ]{javascript}
+/* JavaScript function to estimate pi using a given number of terms */
+function estimatePi(terms) {
+  if (terms <= 0) { return 0.0; }      // check for bad inputs
+  var numerator = -1.0;
+  var pi        = 0.0;
+  for ( var i = 0; i < terms; i++ ) {  // loop from 0 to terms-1
+    numerator   *= -1;
+    denominator  = 2*i + 1;
+    pi          += numerator/denominator;
+  }
+  return 4*pi;
+}
+
+/* JavaScript function to test the estimatePi() function above */
+function testEstimatePi() {
+  var vals = [ -1, 0, 1, 2, 10, 100 ];
+  for (var i = 0; i < vals.length; i++ ) {
+    console.log( vals[i] + " " + estimatePi(vals[i]) );
+  }
+}
+
+testEstimatePi();                      // Run the test function
+      \end{minted}
+    \end{minipage}
+  \end{center}    
+      
+  {\it\large Refer to Model 3 above as your team develops consensus answers
+    to the questions below.}
+
+\newpage
+
+    \item The {\it JavaScript} language runs in all major web browsers
+    and is primarily used for client-side computation.  Despite their
+    names, JavaScript and Java are {\bf not} closely related.  Answer
+    the following questions based on the JavaScript code above.
+    \par\vskip 15pt
+    
+    \begin{enumerate}[(a)]
+      \itemsep 15pt
+      \item What character marks a comment?
+        \hfill\fillin[{\tt //} or {\tt /* */}][1.5in]
+      \item What keyword specifies the results of a function?
+        \hfill\fillin[{\tt return}][1.5in]             
+      \item What keyword declares a variable?
+        \hfill\fillin[\tt var][1.5in]      
+      \item What command prints output?
+        \hfill\fillin[\tt console.log][1.5in]       
+      \item What marks the start and end of a list of values?
+        \hfill\fillin[Square brackets][1.5in]
+      \item What marks a block of code (body of if, loop, function, etc)?
+        \hfill\fillin[Curly braces][1.5in]        
+    \end{enumerate}
+    \vskip -35pt\null
+      
+  \item How alike are JavaScript and C++?  Give at least two similarities
+    and two differences.\key\\[-2.5mm]
+    \ifprintanswers\vskip -20pt\null\fi
+    \begin{solution}[0.5in]
+      Answers will vary but may include:
+      \begin{itemize}
+        \itemsep 0pt
+        \item Similarities: both use curly braces and semicolons
+        \item Differences: no variable types, functions declared with {\tt function} keyword
+      \end{itemize}
+    \end{solution}
+    \ifprintanswers\vskip -35pt\null\fi
+    
+  \item Give one way in which JavaScript is more similar to Python
+    than it is to C++.
+    \ifprintanswers\vskip -20pt\null\fi
+    \begin{solution}[0.5in]
+      Variables do not have a static type.
+    \end{solution}
+    \ifprintanswers\vskip -35pt\null\fi
+
+  \item An online JavaScript interpreter is available at
+    \url{https://repl.it/languages/javascript}.  Copy the code in {\tt activity19.js}
+    into this interpreter and find the estimated value of
+    $\pi$ with 10 terms.
+    \ifprintanswers\vskip -20pt\null\fi
+    \begin{solution}[0.5in]
+      It is 3.0418396189294032
+    \end{solution}
+    \ifprintanswers\vskip -35pt\null\fi
+    
+  \item Now make the following changes to your program, testing those
+    changes in the interpreter.  Record how you implement each change.
+    
+    \begin{enumerate}[(a)]
+      \item Add 1000 to the list of test values.
+        \begin{solution}[1in]
+          Change line 16 to \mintinline{javascript}|var vals = [ -1, 0, 1, 2, 10, 100, 1000];|
+        \end{solution}
+      \item Set {\tt numerator = 4.0} on line 4 and
+        adjust the code so that it still returns the correct value
+        of $\pi$.
+        \begin{solution}[1in]
+          \begin{itemize}
+            \itemsep 0pt
+            \item Change line 4 to \mintinline{javascript}|var numerator = 4.0;|
+            \item Move line 7 to after line 9
+          \end{itemize}
+        \end{solution}
+        
+\newpage
+
+      \item Change the loop starting on line 6 so that it steps
+        through odd integers only (1, 3, 5, etc) and adjust the body
+        of the loop so that the function still returns the correct value.
+        \ifprintanswers\vskip -10pt\null\fi
+        \begin{solution}[1in]
+          \begin{itemize}
+            \itemsep 0pt
+            \item Change line 6 to \mintinline{javascript}| for ( var i = 1; i <= terms; i++) {|
+            \item Change line 8 to \mintinline{javascript}| denominator = i;|
+            \item Change line 11 to \mintinline{javascript}| return pi;|
+          \end{itemize}
+        \end{solution}
+        \ifprintanswers\vskip -25pt\null\fi
+    \end{enumerate}
+    
+  \item Indentation is required in Python, but not in C++ or
+    JavaScript (or most other languages).  Thus, the function
+    {\tt testEstimatePi()} could be written as:
+    
+    \begin{center}
+      \begin{minipage}{4in}
+        \scriptsize
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2
+        ]{javascript}
+function testEstimatePi() {var vals=[-1,0,1,2,10,100]; for (var
+i=0;i<vals.length;i++){console.log(vals[i]+" "+estimatePi(vals[i]));}
+        \end{minted}
+      \end{minipage}
+    \end{center}
+    Explain why it is still a good idea to indent code in these
+    languages.
+    \ifprintanswers\vskip -20pt\null\fi
+    \begin{solution}[0.5in]
+      It makes the code much more readable.
+    \end{solution}
