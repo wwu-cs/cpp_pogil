@@ -1,94 +1,64 @@
-\documentclass{exam}
-%\documentclass[answers]{exam}
-\hbadness=99999
-\setlength{\textheight}{9.5in}
-\setlength{\textwidth}{6.5in}
-\setlength{\topmargin}{-0.75in}
-\setlength{\oddsidemargin}{0in}
-\setlength{\evensidemargin}{0in}
+% Source: https://www.dropbox.com/sh/2fx6pg4ydpu9t7x/AAAdJfzvLjeym1gJwKrIWwhBa?preview=Python+Activity+15+Writing+to+Files+-+POGIL.docx
+% File: "writing to files.pdf"
+% Access: 04-15-2022
 
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{enumerate}
-\usepackage[table]{xcolor}
-\usepackage{hhline}
-\usepackage{graphicx}
-\usepackage{tikz}
-%\usepackage{pgfplots}
-\usepackage{multicol}
-\usepackage{fancyvrb}
+% comment out for student version
+%\ifdefined\Student\relax\else\def\Teacher{}\fi
 
-% for syntax highlighting
-\usepackage{minted}
-\usemintedstyle[cpp]{xcode}
+\documentclass[12pt]{article}
 
-% for overlay of output
-\usepackage[overlay,showboxes]{textpos}
+\title{Activity \#18: Writing to Files}
+\author{Lisa Olivieri}
+\newcommand{\activityeditor}{Preston Carman}
+\newcommand{\activitysource}{\url{https://www.dropbox.com/sh/2fx6pg4ydpu9t7x/AAAdJfzvLjeym1gJwKrIWwhBa?preview=Python+Activity+15+Writing+to+Files+-+POGIL.docx}}
+\date{Spring 2022}
 
-\pagestyle{plain}
-
-\setlength\columnsep{50pt}
-\newcommand{\key}{\hfill
-      \raisebox{-.3\height}{\includegraphics[width=0.6in]{figures/key.png}}}
+\input{../../cspogil.sty}
 
 \begin{document}
-  \thispagestyle{empty}
-  \setlength{\parindent}{0pt}
 
-  \begin{center}
-    \Large Activity \#18: Writing to Files \\[5pt]
-    \large Recorder's Report\\[20pt]
-    \normalsize
-    \begin{tabular}{lrp{0.1in}lr}
-      Manager:  & \fillin[][2.0in] & & Presenter: & \fillin[][2.0in]\\[15pt]
-      Recorder: & \fillin[][2.0in] & & Driver:    & \fillin[][2.0in]\\[15pt]
-      Date:     & \fillin[][2.0in] & & Score:     & Satisfactory \hspace{10pt} /
+\begin{center}
+  \Large Activity \#18: Writing to Files \\[5pt]
+  \large Recorder's Report\\[20pt]
+  \normalsize
+  \begin{tabular}{lrp{0.1in}lr}
+      Manager:  & \ans{} &  & Reader: & \ans{}            \\[15pt]
+      Recorder: & \ans{} &  & Driver: & \ans{}            \\[15pt]
+      Date:     & \ans{} &  & Score:  & Satisfactory \hspace{10pt} /
       \hspace{10pt} Not Satisfactory
-    \end{tabular}
-  \end{center}
-  \par\vskip 15pt
-  
-  Record your team's answers to the key questions (marked with
-  \raisebox{-.3\height}{\includegraphics[width=0.5in]{figures/key.png}})
-  below.
-  \begin{enumerate}[(a)]
-    \itemsep 1.75in
-    \item Model 1, Question \#4
-    \item Model 2, Question \#13
-    \item Model 3, Question \#17
-  \end{enumerate}
+  \end{tabular}
+\end{center}
+\par\vskip 15pt
 
-  \clearpage\pagenumbering{arabic} 
-  
-  \begin{center}
-    \Large Activity \#18: Writing to Files \\[5pt]
-    \large Activity Guide\\[20pt]
-  \end{center}
-  \vskip -30pt\null
+Record your team's answers to the key questions (marked with
+\raisebox{-.3\height}{\includegraphics[width=0.5in]{../figures/key.png}})
+below.
+\begin{enumerate}[label=(\alph*)]
+  \itemsep 1.25in
+  \item Model 1, Question \#4
+  \item Model 2, Question \#13
+  \item Model 3, Question \#17
+\end{enumerate}
 
-  \begin{center}
-    \fbox{
-      \begin{minipage}{5.5in}
-        {\bf Learning Objectives:} Students will be able to:
-        \begin{itemize}
-          \item Content:\\[-20pt]
-            \begin{itemize}
-              \itemsep 0pt
-              \item Explain how to open a text file for writing
-              \item Explain the difference between writing and appending to a file
-              \item Explain how files can be used to save program configuration information
-            \end{itemize}
-          \item Process\\[-20pt]
-            \begin{itemize}
-              \itemsep 0pt
-              \item Write code that opens, writes to, and closes a file 
-              \item Redirect the output of a program to a text file\\[-5pt]
-            \end{itemize}
-        \end{itemize}
-      \end{minipage}
-      }
-  \end{center}
-  \par\vskip 10pt
+\newpage
+\maketitle
+
+In this course, you will work in teams of 3--4 students to learn new concepts.
+This activity will introduce you to the process of analyzing an algorithm complexity.
+
+%\rolenames
+
+\guide{
+  \item Explain how to open a text file for writing
+  \item Explain the difference between writing and appending to a file
+  \item Explain how files can be used to save program configuration information
+
+}{
+  \item Write code that opens, writes to, and closes a file 
+  \item Redirect the output of a program to a text file\\[-5pt]
+}{
+No additional notes.
+}
 
 \input{a_cpp_main_function.tex}
 \newpage
