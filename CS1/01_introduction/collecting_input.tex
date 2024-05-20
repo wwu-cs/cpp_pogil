@@ -1,5 +1,4 @@
-       
-  {\bf\large Model 3: Collecting Input} \\
+  \model{Collecting Input} \\
   \begin{center}
     \begin{minipage}{3.5in}
       \begin{minted}[
@@ -33,44 +32,44 @@ int main() {
     \setcounter{enumi}{9}
     \item You will find this code in the file {\tt activity01c.cpp}.  Execute it and
       determine what the program does.
-      \begin{solution}[1in]
+      \begin{answer}[1in]
         It prompts the user for their name, for example ``Jon'', and then prints out {\it
         Your name is Jon}.
-      \end{solution}
+      \end{answer}
     
-    \item The word {\it name} in this code identifies a {\it variable} (a name given to a
+    \Q The word {\it name} in this code identifies a {\it variable} (a name given to a
       memory location used to store data).  What happens to the data that the user of
       this program enters?
-      \begin{solution}[0.5in]
-      \end{solution}
+      \begin{answer}[0.5in]
+      \end{answer}
       
-    \item In C++, each variable has a {\it type} which specifies what sort of data it can
+    \Q In C++, each variable has a {\it type} which specifies what sort of data it can
       store.  What is the type of the variable in the program above?  What sort of data
       can it store?
-      \begin{solution}[0.5in]
+      \begin{answer}[0.5in]
         It is a string.  That means it can store a string of arbitrary characters.
-      \end{solution}
+      \end{answer}
 
-    \item Suppose you wished to also store the users age.  Explain the errors that occur
+    \Q Suppose you wished to also store the users age.  Explain the errors that occur
       when you attempt to create the following {\it integer} (int) variables to this
       program.\par\vskip 15pt
       \begin{enumerate}[(a)]
         \itemsep 15pt
-        \item \mintinline{cpp}|int age?;| \hfill 
-          \fillin[not a valid variable name (no questionmarks allowed)][4.5in]
-        \item \mintinline{cpp}|int your age;| \hfill 
-          \fillin[not a valid variable name (no spaces allowed)][4.5in]
-        \item \mintinline{cpp}|int 2age;| \hfill 
-          \fillin[not a valid variable name (can't start with digit)][4.5in]
-        \item \mintinline{cpp}|int int;| \hfill 
-          \fillin[not a valid variable name (`int' is a keyword)][4.5in]
-        \item \mintinline{cpp}|int the.age;| \hfill
-          \fillin[not a valid variable name (no periods allowed)][4.5in]
+        \item \cpp{int age?;} \hfill 
+          \ans[4.5in]{not a valid variable name (no questionmarks allowed)}
+        \item \cpp{int your age;} \hfill 
+          \ans[4.5in]{not a valid variable name (no spaces allowed)}
+        \item \cpp{int 2age;} \hfill 
+          \ans[4.5in]{not a valid variable name (can't start with digit)}
+        \item \cpp{int int;} \hfill 
+          \ans[4.5in]{not a valid variable name (`int' is a keyword)}
+        \item \cpp{int the.age;} \hfill
+          \ans[4.5in]{not a valid variable name (no periods allowed)}
       \end{enumerate}
       
 \newpage      
       
-    \item The following are valid variable names for age.  Based on this list, and
+    \Q The following are valid variable names for age.  Based on this list, and
       the errors you \key\\[-2.5mm] found above, write two rules that valid variable names must
       follow in C++.
       \begin{center}
@@ -80,26 +79,26 @@ int main() {
         myAge \hspace{10pt}
         the\_age 
       \end{center}
-      \begin{solution}[1in]
+      \begin{answer}[1in]
         \begin{itemize}
           \item May contain only characters a-z, a-Z, 0-9, and \_
           \item Must start with a letter or \_
         \end{itemize}
-      \end{solution}
+      \end{answer}
 
-    \item Suppose you need a variable to store the cost of an item.  The following names
+    \Q Suppose you need a variable to store the cost of an item.  The following names
       are suggested.  Are they valid?  Are they good choices?
       \par\vskip 15pt
       \begin{enumerate}[(a)]
         \itemsep 15pt
-        \item {\tt price} \hfill \fillin[yes to both][4.5in]
-        \item {\tt priceoftheitem} \hfill \fillin[valid, probably to long][4.5in]
-        \item {\tt x} \hfill \fillin[valid but not meaningful][4.5in]
-        \item {\tt itemPrice} \hfill \fillin[yes to both][4.5in]
+        \item {\tt price} \hfill \ans[4.5in]{yes to both}
+        \item {\tt priceoftheitem} \hfill \ans[4.5in]{valid, probably to long}
+        \item {\tt x} \hfill \ans[4.5in]{valid but not meaningful}
+        \item {\tt itemPrice} \hfill \ans[4.5in]{yes to both}
       \end{enumerate}
       \par\vskip 15pt
       
-    \item Modify the C++ program found in {\tt activity01c.cpp} so that it prompts
+    \Q Modify the C++ program found in {\tt activity01c.cpp} so that it prompts
       the user for two integers and then prints out the sum of those two integers
       as shown in the example output below.  Use meaningful variable names and 
       comments in your code.
@@ -116,9 +115,9 @@ int main() {
       \end{textblock*}
       
       \par\vskip 1in
-      \begin{solution}
+      \begin{answer}
         Answers will vary.
-      \end{solution}
+      \end{answer}
 
   \end{enumerate}
   

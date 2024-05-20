@@ -1,9 +1,9 @@
-{\bf\large Model 3: Arrays as Function Parameters} \\[-20pt]
+\model{Arrays as Function Parameters} \\[-20pt]
   \begin{center}
     \begin{tabular}{p{2.8in}p{0.1in}p{2.7in}}
       \begin{minipage}{2.8in}
         \scriptsize
-        \begin{minted}[
+        \begin{cpplst}[
           frame=lines,
           framesep=2mm,
           bgcolor=gray!15,
@@ -34,12 +34,12 @@ int main() {
   char board[NUM_ROWS][NUM_COLS];
   char winner,playAgain;
   int row, col;
-        \end{minted}
+        \end{cpplst}
       \end{minipage}
       & &
       \begin{minipage}{2.7in}
         \scriptsize
-        \begin{minted}[
+        \begin{cpplst}[
           frame=lines,
           framesep=2mm,
           bgcolor=gray!15,
@@ -69,7 +69,7 @@ int main() {
   } while (playAgain == 'y');
   return 0;
 }   
-        \end{minted}
+        \end{cpplst}
         \vskip 2pt\null
       \end{minipage}
     \end{tabular} 
@@ -80,120 +80,120 @@ int main() {
     to the questions below.}
     \ifprintanswers\vskip -20pt\null\fi          
 
-  \item Determine if the functions prototyped in the model above have 1D, 2D, or no array parameters.
+  \Q Determine if the functions prototyped in the model above have 1D, 2D, or no array parameters.
     \par\vskip 15pt
     
     \begin{enumerate}[(a)]
       \itemsep 15pt
       \begin{multicols}{2}
-        \item \mintinline{cpp}|void initBoard(...)|\hfill\fillin[2D][0.75in]
-        \item \mintinline{cpp}|void printBoard(...)|\hfill\fillin[2D][0.75in]
-        \item \mintinline{cpp}|void getMove(...)|\hfill\fillin[none][0.75in]
-        \item \mintinline{cpp}|bool isWinningRow(...)|\hfill\fillin[1D][0.75in]
-        \item \mintinline{cpp}|bool isWinningBoard(...)|\hfill\fillin[2D][0.75in]
+        \item \cpp{void initBoard(...)}\hfill\ans[0.75in]{2D}
+        \item \cpp{void printBoard(...)}\hfill\ans[0.75in]{2D}
+        \item \cpp{void getMove(...)}\hfill\ans[0.75in]{none}
+        \item \cpp{bool isWinningRow(...)}\hfill\ans[0.75in]{1D}
+        \item \cpp{bool isWinningBoard(...)}\hfill\ans[0.75in]{2D}
       \end{multicols}
     \end{enumerate}
     
-    \item Based on your observations above, answer the following questions about passing arrays to functions.
+    \Q Based on your observations above, answer the following questions about passing arrays to functions.
       
       \begin{enumerate}[(a)]
         \item How do you specify that a given parameter is a 1D array?
-          \begin{solution}[0.5in]
-            You give the type and name followed by square brackets.  E.g. \mintinline{cpp}|char theRow[]|
-          \end{solution}
+          \begin{answer}[0.5in]
+            You give the type and name followed by square brackets.  E.g. \cpp{char theRow[]}
+          \end{answer}
         \item How do you specify that a given parameter is a 2D array?
-          \begin{solution}[0.5in]
-            Type and name followed by two pairs of \mintinline{cpp}|[]| with size in 2nd. E.g. \mintinline{cpp}|char board[][3]|
-          \end{solution}
+          \begin{answer}[0.5in]
+            Type and name followed by two pairs of \cpp{[]} with size in 2nd. E.g. \cpp{char board[][3]}
+          \end{answer}
         \item How do you pass an array as an argument in a function call?
-          \begin{solution}[0.5in]
-            You use the name of the array only (no \mintinline{cpp}|[]|). E.g. \mintinline{cpp}|printBoard(board,NUM_ROWS)|
-          \end{solution}
+          \begin{answer}[0.5in]
+            You use the name of the array only (no \cpp{[]}). E.g. \cpp{printBoard(board,NUM_ROWS)}
+          \end{answer}
         \item What other parameter must you always pass with an array parameter?
-          \begin{solution}[0.5in]
+          \begin{answer}[0.5in]
             You must pass the number of rows in the array, whether it is 1D or 2D.
-          \end{solution}
+          \end{answer}
       \end{enumerate}
 
 \newpage
 
-    \item This program, together with the function definitions, is in {\tt activity16c.cpp}.
+    \Q This program, together with the function definitions, is in {\tt activity16c.cpp}.
       What does it do?
-      \begin{solution}[0.5in]
+      \begin{answer}[0.5in]
         It implements a simple tic-tac-toe game.
-      \end{solution}
+      \end{answer}
       
-    \item How is the 2D array defined on line 25 used in this program?  In particular, suppose the
-      following output was produced by \mintinline{cpp}|printBoard()|.  What would the values of each
+    \Q How is the 2D array defined on line 25 used in this program?  In particular, suppose the
+      following output was produced by \cpp{printBoard()}.  What would the values of each
       array entry be?
       
       \begin{center}
         \begin{tabular}{p{1.4in}p{4.4in}}
           \begin{minipage}{1.4in}
-            \begin{minted}[]{text}
+            \begin{cpplst}[]{text}
  O | O | X
 ---+---+---
    | X |  
 ---+---+---
    |   |              
-            \end{minted}
+            \end{cpplst}
           \end{minipage}
           &
           \begin{minipage}{4.4in}
-            \begin{solution}[1.25in]
+            \begin{answer}[1.25in]
               The array contains the X's and O's that have been played in the slots. For this game
               board, we would have:
               \scriptsize
               \begin{itemize}
                 \begin{multicols}{3}
-                  \item \mintinline{cpp}|board[0][0] = 'O'|
-                  \item \mintinline{cpp}|board[1][0] = ' '|
-                  \item \mintinline{cpp}|board[2][0] = ' '|
-                  \item \mintinline{cpp}|board[0][1] = 'O'| 
-                  \item \mintinline{cpp}|board[1][1] = 'X'|
-                  \item \mintinline{cpp}|board[2][1] = ' '|
-                  \item \mintinline{cpp}|board[0][2] = 'X'|
-                  \item \mintinline{cpp}|board[1][2] = ' '|
-                  \item \mintinline{cpp}|board[2][2] = ' '|
+                  \item \cpp{board[0][0] = 'O'}
+                  \item \cpp{board[1][0] = ' '}
+                  \item \cpp{board[2][0] = ' '}
+                  \item \cpp{board[0][1] = 'O'} 
+                  \item \cpp{board[1][1] = 'X'}
+                  \item \cpp{board[2][1] = ' '}
+                  \item \cpp{board[0][2] = 'X'}
+                  \item \cpp{board[1][2] = ' '}
+                  \item \cpp{board[2][2] = ' '}
                 \end{multicols}
               \end{itemize}
-            \end{solution}
+            \end{answer}
           \end{minipage}
         \end{tabular}
       \end{center}
       
-    \item What happens if you change the values of the constants on lines 5 and 6 from \mintinline{cpp}|3| to
-      \mintinline{cpp}|4|?
-      \begin{solution}[0.5in]
+    \Q What happens if you change the values of the constants on lines 5 and 6 from \cpp{3} to
+      \cpp{4}?
+      \begin{answer}[0.5in]
         We are now playing tic-tac-toe on a 4 by 4 board instead of 3 by 3.
-      \end{solution}
+      \end{answer}
       
-    \item Why do you think we always have a size parameter together with any array parameter of a function?
-      \begin{solution}[0.75in]
+    \Q Why do you think we always have a size parameter together with any array parameter of a function?
+      \begin{answer}[0.75in]
         To indicate how many rows the array has (or at least how many should be used).
-      \end{solution}
+      \end{answer}
       \par\vskip -35pt\null
       
-    \item Take another look at the function \mintinline{cpp}|void initBoard| declared in this
+    \Q Take another look at the function \cpp{void initBoard} declared in this
       model.\key\\[-20pt]
       \par\vskip 15pt
       \begin{enumerate}[(a)]
         \itemsep 15pt
         \item What does this function do?
-          \begin{solution}[0.5in]
+          \begin{answer}[0.5in]
             The function sets all entries in the array to be spaces.
-          \end{solution}
-        \item On what line is the \mintinline{cpp}|char board[][]| variable passed to this function
+          \end{answer}
+        \item On what line is the \cpp{char board[][]} variable passed to this function
           declared?
-          \hfill\fillin[line 25][1in]
-        \item Is the \mintinline{cpp}|char board[][]| variable modified in this function local or global?
-          \hfill\fillin[local][1in]
+          \hfill\ans[1in]{line 25}
+        \item Is the \cpp{char board[][]} variable modified in this function local or global?
+          \hfill\ans[1in]{local}
         \item Based on the effect of the function, was the array passed by value or by reference?
-          \hfill\fillin[by reference][1in]
+          \hfill\ans[1in]{by reference}
         \item Was an {\tt \&} used in the function header to make the array pass-by-reference?
-          \hfill\fillin[no][1in]
+          \hfill\ans[1in]{no}
         \item What can you conclude about how array parameters are passed?
-          \begin{solution}[0.5in]
+          \begin{answer}[0.5in]
             Array parameters are always passed by reference, even without an {\tt \&}.
-          \end{solution}
+          \end{answer}
       \end{enumerate}
