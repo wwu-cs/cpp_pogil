@@ -2,7 +2,7 @@
   {\bf\large Model 3: A C++ Program} \\[-10pt]
   \begin{center}
     \begin{minipage}{5.5in}
-      \begin{minted}[
+      \begin{cprlst}[
         frame=lines,
         framesep=2mm,
         bgcolor=gray!15,
@@ -26,7 +26,7 @@ int main() {
   cout << "second number: " << floatOne << endl;
   cout << "after conversion: " << floatTwo << endl;
 }      
-      \end{minted}
+      \end{cprlst}
     \end{minipage}
   \end{center}
   \TPMargin{5pt}
@@ -35,49 +35,49 @@ int main() {
     to the questions below.}
     \par\vskip 10pt
     
-      \item This program can be found in {\tt activity02c.cpp}.  Run it and then answer the following questions.
+      \Q This program can be found in {\tt activity02c.cpp}.  Run it and then answer the following questions.
         \par\vskip 20pt
         \begin{enumerate}[(a)]
           \itemsep 15pt
-          \item What is the printed value of the variable {\tt integer} in part I?  \hfill \fillin[35][1.5in]
-          \item What is the printed value of the variable {\tt floatOne} in part I?  \hfill \fillin[35][1.5in]
-          \item What is the printed value of the variable {\tt floatOne} in part II? \hfill \fillin[3.9][1.5in]
-          \item What is the printed value of the variable {\tt floatTwo} in part II? \hfill \fillin[3][1.5in]
+          \item What is the printed value of the variable {\tt integer} in part I?  \hfill \ans[1.5in]{35}
+          \item What is the printed value of the variable {\tt floatOne} in part I?  \hfill \ans[1.5in]{35}
+          \item What is the printed value of the variable {\tt floatOne} in part II? \hfill \ans[1.5in]{3.9}
+          \item What is the printed value of the variable {\tt floatTwo} in part II? \hfill \ans[1.5in]{3}
         \end{enumerate}
                 
-      \item Lines 9 and 14 are both examples of {\it type casting}.  What is a type cast?
-        \begin{solution}[0.5in]
+      \Q Lines 9 and 14 are both examples of {\it type casting}.  What is a type cast?
+        \begin{answer}[0.5in]
           It is when a variable of one type is treated as if it were a variable of another type.
-        \end{solution}
+        \end{answer}
         
-      \item In the previous model we saw the term {\it implicit type casting}.  Another type of type casting is {\it explicit
+      \Q In the previous model we saw the term {\it implicit type casting}.  Another type of type casting is {\it explicit
         type casting}.  Which statement (line 9 or 14) is an example of an explicit type cast? 
-        \begin{solution}[0.5in]
+        \begin{answer}[0.5in]
           Line 14 is an explicit type cast because we specifically asked the computer to treat {\tt floatOne} as an integer.
-        \end{solution}
+        \end{answer}
         
 \newpage
 
-    \item What is the difference between an implicit type cast and an explicit type cast?
-      \begin{solution}[1in]
+    \Q What is the difference between an implicit type cast and an explicit type cast?
+      \begin{answer}[1in]
         \par
         An implicit type cast happens automatically, while an explicit type cast is asked for.
-      \end{solution}
+      \end{answer}
       
-    \item What is the C++ syntax for an explicit type cast?  Give an example other than the one in the model.
-      \begin{solution}[1in]
+    \Q What is the C++ syntax for an explicit type cast?  Give an example other than the one in the model.
+      \begin{answer}[1in]
         \par
-        The syntax is \mintinline{cpp}|static_cast<newType>(variable)|.  Examples will vary.
-      \end{solution}
+        The syntax is \cpp{static_cast<newType>(variable)}.  Examples will vary.
+      \end{answer}
       
-    \item Write a snippet of code that will output the string WWU without using the ``W'' or\key\\[-2.5mm] ``U'' characters.
+    \Q Write a snippet of code that will output the string WWU without using the ``W'' or\key\\[-2.5mm] ``U'' characters.
       Hint: use explicit type casting and the ASCII table seen in model 2.\\
       Feel free to test your code in the file {\tt activity04c.cpp}.
-      \begin{solution}[1in]
+      \begin{answer}[1in]
         \par
   \begin{center}
     \begin{minipage}{5.5in}
-      \begin{minted}[
+      \begin{cprlst}[
         frame=lines,
         framesep=2mm,
         bgcolor=gray!15,
@@ -87,7 +87,7 @@ int main() {
   cout << static_cast<char>(87);
   cout << static_cast<char>(87);
   cout << static_cast<char>(85);
-      \end{minted}
+      \end{cprlst}
     \end{minipage}
   \end{center}
-      \end{solution}
+      \end{answer}

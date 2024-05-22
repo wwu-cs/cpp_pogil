@@ -22,32 +22,32 @@
   \begin{enumerate}
     \itemsep 20pt
 
-    \item A single {\bf bit} has only two values (0 or 1), whereas two bits can store four values (00, 01, 10, and 11).
+    \Q A single {\bf bit} has only two values (0 or 1), whereas two bits can store four values (00, 01, 10, and 11).
       \par\vskip 20pt
       \begin{enumerate}[(a)]
         \item How many different values can be stored in three bits, and what are they?
-          \begin{solution}[0.75in]
+          \begin{answer}[0.75in]
             8 different values: 000, 001, 010, 011, 100, 101, 110, and 111
-          \end{solution}
+          \end{answer}
         \item What is the smallest binary number in your list in part (a) and what is its base 10 value?
-          \begin{solution}[0.75in]
+          \begin{answer}[0.75in]
             The smallest number is 000 and its base 10 value is 0.
-          \end{solution}
+          \end{answer}
         \item What is the largest binary number in your list in part (a) and what is its base 10 value?
-          \begin{solution}[0.75in]
+          \begin{answer}[0.75in]
             The smallest number is 111 and its base 10 value is 7.
-          \end{solution}
+          \end{answer}
       \end{enumerate}
       
-    \item A {\bf byte} is equivalent to 8 bits.  How many values can be stored in a single byte, and what is the largest
+    \Q A {\bf byte} is equivalent to 8 bits.  How many values can be stored in a single byte, and what is the largest
       possible value?  You may wish to use Google as a calculator to solve this problem.
-      \begin{solution}[0.75in]
+      \begin{answer}[0.75in]
         A byte can hold $2^8 = 256$ values and the largest is 255.
-      \end{solution}
+      \end{answer}
       
 \newpage
 
-    \item Complete the following table to determine how many values can be stored in a different number of bytes.  The first
+    \Q Complete the following table to determine how many values can be stored in a different number of bytes.  The first
       one is done for you.
       
       \begin{center}
@@ -69,16 +69,16 @@
         \end{tabular}        
       \end{center}
       
-    \item What is the largest value that a {\tt unsigned short int} variable (of size 2 bytes) can hold?
-      \begin{solution}[0.5in]
+    \Q What is the largest value that a {\tt unsigned short int} variable (of size 2 bytes) can hold?
+      \begin{answer}[0.5in]
         An {\tt unsigned short int} can hold $2^16 = 65,536$ values, the largest is 65,535.
-      \end{solution}
+      \end{answer}
     
-    \item What happens when you write a C++ assignment statement to set a {\tt unsigned short int}\key\\[-2.5mm] variable equal to one more than this value?
+    \Q What happens when you write a C++ assignment statement to set a {\tt unsigned short int}\key\\[-2.5mm] variable equal to one more than this value?
       Try it out using the file `activity04a.cpp`.  Why?
-      \begin{solution}[1in]
+      \begin{answer}[1in]
         \par
         The value wraps around to 0.  That is, the number 65535, represented as 1111111111111111 becomes 0000000000000000
         when we add one to it.
-      \end{solution}
+      \end{answer}
       

@@ -1,7 +1,7 @@
 {\bf\large Model 3: A C++ Division Program} \\[-10pt]
   \begin{center}
     \begin{minipage}{5.5in}
-      \begin{minted}[
+      \begin{cprlst}[
         frame=lines,
         framesep=2mm,
         bgcolor=gray!15,
@@ -20,7 +20,7 @@ int main() {
   cin >> b;
   cout << "Quotient: " << a << "/" << b << " = " << (a/b) << endl;
 }      
-      \end{minted}
+      \end{cprlst}
     \end{minipage}
   \end{center}
   \TPMargin{5pt}
@@ -40,35 +40,35 @@ int main() {
     to the questions below.}
     \par\vskip 10pt
     
-      \item This program can be found in {\tt activity02c.cpp}.  Run it several times with the
+      \Q This program can be found in {\tt activity02c.cpp}.  Run it several times with the
         following inputs and write down the resulting output.\par\vskip 10pt
         \begin{enumerate}[(a)]
           \itemsep 10pt
           \item First number: 10, Second number: 4\hfill
-            \fillin[Quotient: 10/4 = 2.5][3.5in]
+            \ans[3.5in]{Quotient: 10/4 = 2.5}
           \item First number: 10, Second number: 3 \hfill
-            \fillin[Quotient: 10/3 = 3.33333][3.5in]
+            \ans[3.5in]{Quotient: 10/3 = 3.33333}
           \item First number: 9.5, No second number \hfill 
-            \fillin[Quotient: 9/0.5 = 18][3.5in]
+            \ans[3.5in]{Quotient: 9/0.5 = 18}
           \item First number: 10, Second number: x \hfill
-            \fillin[Quotient: 10/0 = inf][3.5in]
+            \ans[3.5in]{Quotient: 10/0 = inf}
         \end{enumerate}
         
-      \item A {\it floating point} number is a number that contains a floating decimal point
+      \Q A {\it floating point} number is a number that contains a floating decimal point
         (as opposed to integers, which have no decimals). For example, 5.5 or 0.001.  In C++
         we often use the {\tt double} variable type to hold floating point values.  
         
         \begin{enumerate}
           \item How did the division operation change (as compared to earlier models) because one of 
-            the variables was of type \mintinline{cpp}|double|?
-            \begin{solution}[1in]
+            the variables was of type \cpp{double}?
+            \begin{answer}[1in]
               It now does decimal division, returning the decimal number of times the divisor
               goes into the dividend instead of just the integer number of times.
-            \end{solution}
+            \end{answer}
             
-          \item How would your results in problem 10 differ if both variables were of type \mintinline{cpp}|int|?
-            \begin{solution}[1in]
-              If both variables were of type \mintinline{cpp}|int| then we would get:
+          \item How would your results in problem 10 differ if both variables were of type \cpp{int}?
+            \begin{answer}[1in]
+              If both variables were of type \cpp{int} then we would get:
               \begin{enumerate}[(a)]
                 \begin{multicols}{4}
                   \item 2
@@ -77,10 +77,10 @@ int main() {
                   \item error
                 \end{multicols}
               \end{enumerate}             
-            \end{solution}
+            \end{answer}
             
-          \item How would your results in problem 10 differ if both variables were of type  \mintinline{cpp}|double|?
-            \begin{solution}[1in]
+          \item How would your results in problem 10 differ if both variables were of type  \cpp{double}?
+            \begin{answer}[1in]
               \begin{enumerate}[(a)]
                 \begin{multicols}{4}
                   \item same
@@ -89,21 +89,21 @@ int main() {
                   \item same
                 \end{multicols}
               \end{enumerate}
-            \end{solution}
+            \end{answer}
             
         \end{enumerate}
         
-      \item Write a conjecture as to when the division operation in C++ will return decimals and\key\\[-2.5mm]
+      \Q Write a conjecture as to when the division operation in C++ will return decimals and\key\\[-2.5mm]
         when it will only return an integer.  Use the phrase {\it floating point} in your answer.
-        \begin{solution}[0.5in]
+        \begin{answer}[0.5in]
           It will return decimals if one or both of the values involved is a floating point
           number.  Otherwise, it returns an integer.
-        \end{solution}
+        \end{answer}
         
-      \item Create a program that asks asks for a number of cookies and a number of children
+      \Q Create a program that asks asks for a number of cookies and a number of children
         and then prints out how many cookies each child will get (assuming they are split
         evenly) and how many are left over.  Be creative and professional in prompting the
         user and displaying the results.
-        \begin{solution}
+        \begin{answer}
           Answers will vary.
-        \end{solution}        
+        \end{answer}        

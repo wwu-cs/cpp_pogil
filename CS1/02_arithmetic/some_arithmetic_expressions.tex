@@ -18,13 +18,13 @@
     to the questions below.}
     \par\vskip 10pt
     
-    \item If the parentheses were removed from the C++ Expression in the second row
+    \Q If the parentheses were removed from the C++ Expression in the second row
       so that it was {\tt 3+5/2}, what would its value be?
-      \begin{solution}[0.5in]
+      \begin{answer}[0.5in]
         The new value would be $3+\frac{5}{2} = 3 + 2 = 5$
-      \end{solution}
+      \end{answer}
 
-    \item What is stored in memory after each assignment statement below is executed?  Assume
+    \Q What is stored in memory after each assignment statement below is executed?  Assume
       all variables have been declared as integers.
     
       \begin{center}
@@ -33,33 +33,33 @@
           \hline
           \rowcolor{gray!10} Assignment Statement & \multicolumn{2}{c|}{Computer Memory} \\
           \hline
-          \mintinline{cpp}|answer = 6*6+3*4/2;|   & {\tt answer} & \ifprintanswers 42\fi \\
+          \cpp{answer = 6*6+3*4/2;}   & {\tt answer} & \ifprintanswers 42\fi \\
           \hline
-          \mintinline{cpp}|answer = answer + 1;|  & {\tt answer} & \ifprintanswers 43\fi \\
+          \cpp{answer = answer + 1;}  & {\tt answer} & \ifprintanswers 43\fi \\
           \hline
-          \mintinline{cpp}|final = answer % 4|    & {\tt final} & \ifprintanswers 3\fi \\
+          \cpp{final = answer \% 4}    & {\tt final} & \ifprintanswers 3\fi \\
           \hline          
         \end{tabular}
       \end{center}
       
 \newpage
 
-    \item Convert each expression to a C++ arithmetic expression.  Do not compute
+    \Q Convert each expression to a C++ arithmetic expression.  Do not compute
       its value.
       \par\vskip 15pt      
       \begin{enumerate}[(a)]
         \itemsep 20pt
-        \item $\displaystyle 3(6-1)$             \hfill \fillin[{\tt 3*(6-1)}][4in]
-        \item $\displaystyle 12-\frac{3+2}{6-1}$ \hfill \fillin[{\tt 12-(3+2)/(6-1)}][4in]\\[-10pt]
-        \item $\displaystyle \frac{3+2^2}{5}$    \hfill \fillin[{\tt (3+2*2)/5}][4in]
-        \item Eight to the fourth power          \hfill \fillin[{\tt 8*8*8*8}][4in]
+        \item $\displaystyle 3(6-1)$             \hfill \ans[4in]{{\tt 3*(6-1)}}
+        \item $\displaystyle 12-\frac{3+2}{6-1}$ \hfill \ans[4in]{{\tt 12-(3+2)/(6-1)}}\\[-10pt]
+        \item $\displaystyle \frac{3+2^2}{5}$    \hfill \ans[4in]{{\tt (3+2*2)/5}}
+        \item Eight to the fourth power          \hfill \ans[4in]{{\tt 8*8*8*8}}
       \end{enumerate}\vskip -35pt\ \
 
-    \item What is the value of each C++ arithmetic expression below?\key\\[-2.5mm]
+    \Q What is the value of each C++ arithmetic expression below?\key\\[-2.5mm]
       \par\vskip 15pt      
       \begin{enumerate}[(a)]
         \itemsep 20pt
-        \item {\tt 4 + 3 \% 2}          \hfill \fillin[{\tt 4 + 3 \% 2 = 4 + 1 = 5}][4in]
-        \item {\tt 3 + 9 \% 2 * (-1+3)} \hfill \fillin[{\tt 3 + 1 * 2 = 3 + 2 = 5}][4in]\\[-10pt]
+        \item {\tt 4 + 3 \% 2}          \hfill \ans[4in]{{\tt 4 + 3 \% 2 = 4 + 1 = 5}}
+        \item {\tt 3 + 9 \% 2 * (-1+3)} \hfill \ans[4in]{{\tt 3 + 1 * 2 = 3 + 2 = 5}}\\[-10pt]
       \end{enumerate}
       \par\vskip 20pt
