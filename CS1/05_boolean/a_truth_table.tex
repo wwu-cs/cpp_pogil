@@ -1,12 +1,11 @@
-
-  {\bf\large Model 2: A Truth Table} \\
+\model{A Truth Table} \\
   
     \begin{center}
       \renewcommand{\arraystretch}{1.4}
       \begin{tabular}{|c|c|c|c|c|}
         \hline
         \rowcolor{orange!20} Condition \#1 & Condition \#2 & Negation (NOT) & Conjunction (AND) & Disjunction (OR) \\
-        \rowcolor{orange!20} \mintinline{cpp}|p| & \mintinline{cpp}|q| & \mintinline{cpp}|! p| & \mintinline{cpp}|p && q| & \mintinline{cpp}{p || q} \\
+        \rowcolor{orange!20} \cpp{p} & \cpp{q} & \cpp{! p} & \cpp{p && q} & \cpp{p || q} \\
         \hline
         True & True   & False & True  & True \\
         True & False  & False & False & True \\
@@ -20,57 +19,57 @@
     to the questions below.}
     \par\vskip 10pt
 
-    \item The symbols \mintinline{cpp}{&&}, \mintinline{cpp}{||}, and \mintinline{cpp}{!} are called
+    \Q The symbols \cpp{&&}, \cpp{||}, and \cpp{!} are called
       {\it logical operators} because they combine conditions that are either true or false to create
       new compound conditions. Given the variable definitions below, fill in the
       appropriate logical operator to produce the desired truth value.
       \begin{center}
         \begin{minipage}{3.5in}
-          \begin{minted}[
+          \begin{cprlst}[
             frame=lines,
             framesep=2mm,
             bgcolor=gray!15,
             baselinestretch=1.2
           ]{cpp}
   int numBooks = 40;
-          \end{minted}
+          \end{cprlst}
         \end{minipage}
       \end{center}
       \par\vskip 10pt
       \begin{enumerate}[(a)]
         \itemsep 15pt
-        \item \mintinline{cpp}{(numBooks > 5)} \fillin[\mintinline{cpp}{&&} or \mintinline{cpp}{||}][1in] \mintinline{cpp}{(numBooks < 100)}
+        \item \cpp{(numBooks > 5)} \ans[1in]{\cpp{&&} or \cpp{||}} \cpp{(numBooks < 100)}
           -- this should be {\bf true}.
-        \item \mintinline{cpp}{(numBooks < 5)} \fillin[\mintinline{cpp}{||}][1in] \mintinline{cpp}{(numBooks > 20)}
+        \item \cpp{(numBooks < 5)} \ans[1in]{\cpp{||}} \cpp{(numBooks > 20)}
           -- this should be {\bf true}.
-        \item \fillin[\mintinline{cpp}{!}][1in]\mintinline{cpp}{ (numBooks * 10 == 400)} 
+        \item \ans[1in]{\cpp{!}}\cpp{ (numBooks * 10 == 400)} 
           -- this should be {\bf false}.
       \end{enumerate}
 
-    \item A {\it Boolean Expression} is an expression that uses relational operators and/or logical operators together with
+    \Q A {\it Boolean Expression} is an expression that uses relational operators and/or logical operators together with
       variables, literal values, and the {\it Boolean} values ``true'' and ``false''. Translate the following Boolean expressions 
       into an English statement.  The first one is done for you.
       \par\vskip 15pt
       \begin{enumerate}[(a)]
         \itemsep 15pt
-        \item \mintinline{cpp}{(x == 2) && (y > 3)}
+        \item \cpp{(x == 2) && (y > 3)}
           \hfill\underline{\hspace{8pt}The variable x equals two and the variable y is bigger than three.\hspace{9pt}}
-        \item \mintinline{cpp}{(x != 4) || (y <= 7)}
-          \hfill\fillin[x is not equal to four or y is less than or equal to seven.][4.2in]
-        \item \mintinline{cpp}{(x >= 2) && (x <= 10)}
-          \hfill\fillin[x is between two and 10 inclusively][4.2in]
-        \item \mintinline{cpp}{!((x == 2) && (y == 1))}
-          \hfill\fillin[it is not the case that x is two and y is one.][4.2in]
+        \item \cpp{(x != 4) || (y <= 7)}
+          \hfill\ans[4.2in]{x is not equal to four or y is less than or equal to seven.}
+        \item \cpp{(x >= 2) && (x <= 10)}
+          \hfill\ans[4.2in]{x is between two and 10 inclusively}
+        \item \cpp{!((x == 2) && (y == 1))}
+          \hfill\ans[4.2in]{it is not the case that x is two and y is one.}
       \end{enumerate}
       \par\vskip -40pt\ \
       
-    \item Write a Boolean Expression for each English statement.\key\\[-2.5mm]
+    \Q Write a Boolean Expression for each English statement.\key\\[-2.5mm]
       \par\vskip 10pt
 
       \begin{enumerate}[(a)]
         \itemsep 15pt
-        \item The string {\tt name} is not equal to ``Jane''.                     \hfill \fillin[\mintinline{cpp}{word != "Jane"}][2in]
-        \item The value of $x$ is twice that of $y$ or $y$ is less than ten.      \hfill \fillin[\mintinline{cpp}{(x==2*y)||(y<=10)}][2in]
-        \item The value of $z$ is between 0 and 5 excluding endpoints.            \hfill \fillin[\mintinline{cpp}{(z>0)&&(z<5)}][2in]
-        \item It is not the case that $w$ is between 0 and 5 including endpoints. \hfill \fillin[\mintinline{cpp}{!((w>=0)&&(w<=5))}][2in]
+        \item The string {\tt name} is not equal to ``Jane''.                     \hfill \ans[2in]{\cpp{word != "Jane"}}
+        \item The value of $x$ is twice that of $y$ or $y$ is less than ten.      \hfill \ans[2in]{\cpp{(x==2*y)||(y<=10)}}
+        \item The value of $z$ is between 0 and 5 excluding endpoints.            \hfill \ans[2in]{\cpp{(z>0)&&(z<5)}}
+        \item It is not the case that $w$ is between 0 and 5 including endpoints. \hfill \ans[2in]{\cpp{!((w>=0)&&(w<=5))}}
       \end{enumerate}

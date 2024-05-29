@@ -1,8 +1,7 @@
-
-  {\bf\large Model 3: A C++ Program} \\[-10pt]
+\model{A C++ Program} \\
   \begin{center}
     \begin{minipage}{5.5in}
-      \begin{minted}[
+      \begin{cprlst}[
         frame=lines,
         framesep=2mm,
         bgcolor=gray!15,
@@ -22,53 +21,53 @@ int main() {
   cout << "Line 11: " << ( (a > c) || ((b / c) == 1) ) << endl;
   cout << "Line 12: " << ( (a > c) && ((b / c) == 1) ) << endl;
 }      
-      \end{minted}
+      \end{cprlst}
     \end{minipage}
   \end{center}
   \TPMargin{5pt}
   
   {\it\large Refer to Model 3 above as your group develops consensus answers
     to the questions below.}
-    \par\ifprintanswers\vskip -20pt\null\else\vskip 10pt\fi
+    % \par\ifprintanswers\vskip -20pt\null\else\vskip 10pt\fi
 
-      \item This program can be found in {\tt activity05c.cpp}.  Run it and determine the output produced by each
-        \mintinline{cpp}|cout| statement.
-        \ifprintanswers\else\par\vskip 20pt\fi
+      \Q This program can be found in {\tt activity05c.cpp}.  Run it and determine the output produced by each
+        \cpp{cout} statement.
+        % \ifprintanswers\else\par\vskip 20pt\fi
         \begin{enumerate}[(a)]
-          \ifprintanswers\itemsep 5pt\else\itemsep 15pt\fi
-          \item The \mintinline{cpp}|cout| on line 8:  \hfill
-            \fillin[Line 8:  0][4.5in]
-          \item The \mintinline{cpp}|cout| on line 9:  \hfill
-            \fillin[Line 9:  1][4.5in]
-          \item The \mintinline{cpp}|cout| on line 10:  \hfill
-            \fillin[Line 10: 2][4.5in]
-          \item The \mintinline{cpp}|cout| on line 11:  \hfill 
-            \fillin[Line 11: 1][4.5in]
-          \item The \mintinline{cpp}|cout| on line 12:  \hfill 
-            \fillin[Floating-point Error, Core Dump][4.5in]
+          % \ifprintanswers\itemsep 5pt\else\itemsep 15pt\fi
+          \item The \cpp{cout} on line 8:  \hfill
+            \ans[4.5in]{Line 8:  0}
+          \item The \cpp{cout} on line 9:  \hfill
+            \ans[4.5in]{Line 9:  1}
+          \item The \cpp{cout} on line 10:  \hfill
+            \ans[4.5in]{Line 10: 2}
+          \item The \cpp{cout} on line 11:  \hfill 
+            \ans[4.5in]{Line 11: 1}
+          \item The \cpp{cout} on line 12:  \hfill 
+            \ans[4.5in]{Floating-point Error, Core Dump}
         \end{enumerate}
                 
-      \item Based on the output observed in lines 8 and 9, how does C++ represent true and false?
-        \begin{solution}[0.4in]
+      \Q Based on the output observed in lines 8 and 9, how does C++ represent true and false?
+        \begin{answer}[0.4in]
           True is represented as 1 and false as 0.
-        \end{solution}
-        \ifprintanswers\vskip -50pt\else\vskip -30pt\fi\null
+        \end{answer}
+        % \ifprintanswers\vskip -50pt\else\vskip -30pt\fi\null
         
-      \item Based on the output from lines 8 and 10, how does C++ treat \mintinline{cpp}|=| and \mintinline{cpp}|==|
+      \Q Based on the output from lines 8 and 10, how does C++ treat \cpp{=} and \cpp{==}
         differently?\key\\[-2.5mm]
-        \begin{solution}[0.4in]
+        \begin{answer}[0.4in]
           \par
           A single = is an assignment statement (line 10 assigns the value of b to a) that
           returns the value being assigned.  The double == is a relational operator 
           and returns either true (1) or false (0).
-        \end{solution}
+        \end{answer}
         
-      \item In the code above, line 11 prints a value, while line 12 produces an error.  Why do you think
+      \Q In the code above, line 11 prints a value, while line 12 produces an error.  Why do you think
         that is?
-        \begin{solution}[0.4in]
+        \begin{answer}[0.4in]
           \par
-          On line 11, only the first part, \mintinline{cpp}|a > c|, is evaluated because the second part of the OR
+          On line 11, only the first part, \cpp{a > c}, is evaluated because the second part of the OR
           statement does not need to be checked to tell that the whole thing will be true.  So we never divide by zero.
           But on line 12, the AND is only true if both sides are true, so we must check the second part, resulting in
           division by zero.
-        \end{solution}        
+        \end{answer}        

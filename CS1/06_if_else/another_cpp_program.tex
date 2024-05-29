@@ -1,10 +1,9 @@
-
-  {\bf\large Model 2: Another C++ Program} \\
-  \ifprintanswers\vskip -40pt\null\fi
+\model{Another C++ Program} \\
+  % \ifprintanswers\vskip -40pt\null\fi
   \begin{center}
     \small
     \begin{minipage}{5.5in}
-      \begin{minted}[
+      \begin{cprlst}[
         frame=lines,
         framesep=2mm,
         bgcolor=gray!15,
@@ -26,32 +25,32 @@ int main() {
     cout << "You do not meet all the criteria for graduation." << endl;
   }
 }      
-      \end{minted}
+      \end{cprlst}
     \end{minipage}
   \end{center}
   \TPMargin{5pt}
-  \ifprintanswers\vskip -20pt\null\fi
+  % \ifprintanswers\vskip -20pt\null\fi
   
 
   {\it\large Refer to Model 2 above as your team develops consensus answers
     to the questions below.}
     \par\vskip 10pt
 
-    \item In order to graduate from WWU with a Bachelor's degree, students must have
+    \Q In order to graduate from WWU with a Bachelor's degree, students must have
       earned at least 192 credits, have a GPA of at least 2.0 in their major, and have an
       overall GPA of at least 2.0 (among other things).  Which of the following Boolean
       expressions should be used on line 8 of this model to test if a student meets these
       graduation criteria?
       \par\vskip 10pt
       \begin{checkboxes}
-        \choice \mintinline{cpp}{numCredits >= 192 || majorGPA >= 2.0 || overallGPA >= 2.0}
-        \choice \mintinline{cpp}{numCredits > 192 && majorGPA > 2.0 && overallGPA > 2.0}
-        \correctchoice \mintinline{cpp}{numCredits > 191 && majorGPA >= 2.0 && overallGPA >= 2.0}
-        \correctchoice \mintinline{cpp}{numCredits >= 192 && majorGPA >= 2.0 && overallGPA >= 2.0}
+        \choice \cpp{numCredits >= 192 || majorGPA >= 2.0 || overallGPA >= 2.0}
+        \choice \cpp{numCredits > 192 && majorGPA > 2.0 && overallGPA > 2.0}
+        \correctchoice \cpp{numCredits > 191 && majorGPA >= 2.0 && overallGPA >= 2.0}
+        \correctchoice \cpp{numCredits >= 192 && majorGPA >= 2.0 && overallGPA >= 2.0}
       \end{checkboxes}
       \par\vskip -30pt\null
 
-    \item Add the Boolean expression you chose above to the program in {\tt activity06b.cpp}. Create \key\\[-2.5mm]
+    \Q Add the Boolean expression you chose above to the program in {\tt activity06b.cpp}. Create \key\\[-2.5mm]
       test data to check all eight ($2\times 2\times 2$) different combinations for
       the sub-expressions of the Boolean expression.  Then run each of those test cases and verify that 
       the program passes the test. 
@@ -81,12 +80,12 @@ int main() {
         \end{tabular}
       \end{center}
       
-    \item A {\it edge case test} is a test of a natural edges or boundary of the program.  An example of a natural boundary
+    \Q A {\it edge case test} is a test of a natural edges or boundary of the program.  An example of a natural boundary
       in this program is where the {\tt majorGPA} is exactly 2.0, since this is a division line in determining if somebody can
       graduate.  Give at least two other edge cases that could be tested.
-      \begin{solution}[1in]
+      \begin{answer}[1in]
         \par
         We could test where {\tt overallGPA} is exactly 2.0 and where {\tt numCredits} is exactly 192.  Additional boundary
         conditions might include the limits of an integer range for {\tt numCredits}, the division line between positive and
         negative values, etc.
-      \end{solution}
+      \end{answer}
