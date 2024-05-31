@@ -1,4 +1,4 @@
-{\bf\large Model 3: More Nested Loop Output} \\[-5pt]
+\model{More Nested Loop Output} \\
   
 % define fourth output as verbatim box
 \newbox\verbboxFour
@@ -59,23 +59,23 @@
   {\it\large Refer to Model 3 above as your team develops consensus answers
     to the questions below.}
 
-    \item How are the output samples in this model different from
+    \Q How are the output samples in this model different from
       those in model 2?  Note: Write a single general statement that
       summarizes the difference for all output boxes.
       
-      \begin{solution}[1in]
+      \begin{answer}[1in]
         \par
         The number of columns in a row (i.e. its length) depends on
         which row we are in.
-      \end{solution}
+      \end{answer}
       
-    \item The code below will produce one of these three outputs.
+    \Q The code below will produce one of these three outputs.
       Determine which one and justify your answer.
       
       \begin{center}
         \begin{tabular}{p{2.5in}p{2.5in}}
           \begin{minipage}{2.5in}
-            \begin{minted}[
+            \begin{cprlst}[
               frame=lines,
               framesep=2mm,
               bgcolor=gray!15,
@@ -88,30 +88,30 @@ for (int j=numRows; j>0; j--) {
   }
   cout << endl;
 }
-            \end{minted}
+            \end{cprlst}
           \end{minipage}
           &
           \begin{minipage}{2.5in}
-            \begin{solution}[1in]
+            \begin{answer}[1in]
               \par
               It will produce the output in box (b).  We can tell
               because it is counting down from 5 instead of counting
               up to 5 or counting up and then down.
-            \end{solution}
+            \end{answer}
           \end{minipage}
         \end{tabular}
       \end{center}
       \par\vskip -20pt\null
 
-    \item The code from the previous problem is in
+    \Q The code from the previous problem is in
       {\tt activity09c.cpp}.  Rewrite it so that it produces \key\\[-2.5mm] the output
       in the other of box (a) or (b).
       
-      \begin{solution}[1.5in]
+      \begin{answer}[1.5in]
         \scriptsize\vskip -35pt\null
         \begin{center}
           \begin{minipage}{2.5in}
-            \begin{minted}[
+            \begin{cprlst}[
               frame=lines,
               framesep=2mm,
               bgcolor=gray!15,
@@ -124,25 +124,25 @@ for (int j=1; j<=numRows; j++) {
   }
   cout << endl;
 }
-            \end{minted}
+            \end{cprlst}
           \end{minipage}
         \end{center}\vskip -20pt\null
-      \end{solution}
+      \end{answer}
       
-    \item Add some initialization code that prompts the user to enter
+    \Q Add some initialization code that prompts the user to enter
       the number of rows in the triangle that your program creates.
       Test your solution to verify that it works.
 
 \newpage
 
-    \item Use nested \mintinline{cpp}|for| loops to produce the output
+    \Q Use nested \cpp{for} loops to produce the output
       in box (c) above.
       
-      \begin{solution}[2.5in]
+      \begin{answer}[2.5in]
         \scriptsize\vskip -35pt\null
         \begin{center}
           \begin{minipage}{3.5in}
-            \begin{minted}[
+            \begin{cprlst}[
               frame=lines,
               framesep=2mm,
               bgcolor=gray!15,
@@ -162,12 +162,12 @@ for (int j=1; j<=numRows; j++) {
     }
     cout << endl;
   }
-            \end{minted}
+            \end{cprlst}
           \end{minipage}
         \end{center}\vskip -20pt\null
-      \end{solution}
+      \end{answer}
 
-    \item Write a program that prompts the user for information on
+    \Q Write a program that prompts the user for information on
       three students.  For each student, collect the student name and
       three quiz grades.  Then display the name and quiz average
       (formatted to two decimal places).  Sample output is shown below.
@@ -176,7 +176,7 @@ for (int j=1; j<=numRows; j++) {
         \begin{tabular}{p{2.6in}p{3in}}
           \begin{minipage}{2.6in}
             \small
-            \begin{minted}[
+            \begin{cprlst}[
               frame=lines,
               framesep=2mm,
               bgcolor=gray!15,
@@ -202,13 +202,13 @@ Enter score 2: 83
 Enter score 3: 92
 Name: Jose
 Average: 84.67
-            \end{minted}
+            \end{cprlst}
           \end{minipage}
           &
           \begin{minipage}{3in}
-            \begin{solution}
+            \begin{answer}
               \scriptsize
-              \begin{minted}[
+              \begin{cprlst}[
                 frame=lines,
                 framesep=2mm,
                 bgcolor=gray!15,
@@ -230,8 +230,8 @@ for (int i=1; i<=3; i++) {
   cout << "Average: " << (sum / 3) << endl << endl;
   }
 }  
-              \end{minted}
-            \end{solution}
+              \end{cprlst}
+            \end{answer}
           \end{minipage}
         \end{tabular}
       \end{center}  

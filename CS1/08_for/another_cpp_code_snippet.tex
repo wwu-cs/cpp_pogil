@@ -1,9 +1,9 @@
-{\bf\large Model 2: Another C++ Code Snippet} \\[-20pt]
+\model{Another C++ Code Snippet} \\
   
   \begin{center}
     \small
     \begin{minipage}{5.5in}
-      \begin{minted}[
+      \begin{cprlst}[
         frame=lines,
         framesep=2mm,
         bgcolor=gray!15,
@@ -19,7 +19,7 @@
     total += number;
   }
   cout << "The total is: " << total << endl;
-      \end{minted}
+      \end{cprlst}
     \end{minipage}
   \end{center}
 
@@ -27,24 +27,24 @@
     to the questions below.}
     \par\vskip 5pt
 
-    \item The code for this program is in {\tt
+    \Q The code for this program is in {\tt
       activity08b.cpp}.  Run it and explain what the program does.
-      \begin{solution}[1in]
+      \begin{answer}[1in]
         \par
         The program prompts the user for five numbers and then prints
         out the sum of those five numbers.
-      \end{solution}
+      \end{answer}
       
-    \item Explain what each of the indicated lines of code from the model above does.
+    \Q Explain what each of the indicated lines of code from the model above does.
       \par\vskip 10pt
       \begin{enumerate}[(a)]
         \itemsep 15pt
-        \item Line 6:    \hfill \fillin[Initializes the variable {\tt total} to zero][5.25in]
-        \item Line 7:    \hfill \fillin[Sets up the {\tt for} loop to repeat five times.][5.25in]
-        \item Line 10:   \hfill \fillin[Adds the user-entered number to the accumulated total][5.25in]
+        \item Line 6:    \hfill \ans[5.25in]{Initializes the variable {\tt total} to zero}
+        \item Line 7:    \hfill \ans[5.25in]{Sets up the {\tt for} loop to repeat five times.}
+        \item Line 10:   \hfill \ans[5.25in]{Adds the user-entered number to the accumulated total}
       \end{enumerate}
       
-    \item An {\it accumulator} is a variable that stores the sum of a group of values.  Which variable 
+    \Q An {\it accumulator} is a variable that stores the sum of a group of values.  Which variable 
       in this model is an accumulator?  Check all that apply.
       
       \begin{checkboxes}
@@ -55,39 +55,39 @@
         \end{multicols}
       \end{checkboxes}
 
-    \item Why is the variable {\tt total} initialized to zero in line 2 of the model?
-      \begin{solution}[0.5in]
+    \Q Why is the variable {\tt total} initialized to zero in line 2 of the model?
+      \begin{answer}[0.5in]
         \par
         Because we need to start the loop with nothing accumulated so that after the loop is
         done, total will contain just the sum of the five numbers entered.
-      \end{solution}
+      \end{answer}
 
-    \item Would it be possible to use the same variable as both a counter and an accumulator? Explain.
-      \begin{solution}[0.5in]
+    \Q Would it be possible to use the same variable as both a counter and an accumulator? Explain.
+      \begin{answer}[0.5in]
         \par
         No.  A counter must count how many times the loop executes, so 
         it can not accumulate a sum of a group of values.
-      \end{solution}
+      \end{answer}
 
-    \item An accumulator can also store the product of a set of numbers.  How, if at all, would you \key\\[-2.5mm]
+    \Q An accumulator can also store the product of a set of numbers.  How, if at all, would you \key\\[-2.5mm]
       change the following lines of the model to compute $5!$ ($5! = 1\times 2\times 3\times 4\times 5$ is called ``five factorial'').
       
       \begin{enumerate}[(a)]
-        \item How would you change \mintinline{cpp}|int total = 0;| on line 6?
-          \begin{solution}[0.5in]
-            It would become \mintinline{cpp}|int total=1;| to initialize the accumulator to 1 instead of 0.
-          \end{solution}
-        \item How would you change \mintinline{cpp}|for (int i = 0; i < 5; i += 1)| on line 7?
-          \begin{solution}[0.5in]
+        \item How would you change \cpp{int total = 0;} on line 6?
+          \begin{answer}[0.5in]
+            It would become \cpp{int total=1;} to initialize the accumulator to 1 instead of 0.
+          \end{answer}
+        \item How would you change \cpp{for (int i = 0; i < 5; i += 1)} on line 7?
+          \begin{answer}[0.5in]
             This does not need to change.
-          \end{solution}
+          \end{answer}
         \item How would you change lines 8-9 in the model?
-          \begin{solution}[0.5in]
+          \begin{answer}[0.5in]
             They would be deleted since user input is no longer needed.
-          \end{solution}
-        \item How would you change \mintinline{cpp}|total += number| on line 10 of the model?
-          \begin{solution}[0.5in]
-            It would become \mintinline{cpp}|total *= i+1| to multiply the accumulator by the counter.
-          \end{solution}
+          \end{answer}
+        \item How would you change \cpp{total += number} on line 10 of the model?
+          \begin{answer}[0.5in]
+            It would become \cpp{total *= i+1} to multiply the accumulator by the counter.
+          \end{answer}
       \end{enumerate}
       \par\vskip 20pt

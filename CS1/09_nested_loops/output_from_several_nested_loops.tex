@@ -1,4 +1,4 @@
- {\bf\large Model 2: Output from Several Nested Loops} \\[-10pt]
+\model{Output from Several Nested Loops} \\
 
 % define first output as verbatim box
 \newbox\verbboxOne
@@ -65,38 +65,38 @@
   {\it\large Refer to Model 2 above as your team develops consensus answers
     to the questions below.}
 
-    \item There are several ways to write a C++ program that outputs
+    \Q There are several ways to write a C++ program that outputs
       the contents of box (a) above.  Briefly describe how it could be
       done using the following methods.
       \par\vskip 15pt
       
       \begin{enumerate}[(a)]
         \item Using a set of {\tt cout} statements without any loops.
-          \begin{solution}[0.75in]
+          \begin{answer}[0.75in]
             \par
             Create seven identical {\tt cout} statements,
             each of which prints {\tt * * * * *} and an {\tt endl}.
-          \end{solution}
-        \item Using a single \mintinline{cpp}|for| loop (without any nesting).
-          \begin{solution}[0.75in]
+          \end{answer}
+        \item Using a single \cpp{for} loop (without any nesting).
+          \begin{answer}[0.75in]
             \par
-            The \mintinline{cpp}|for| loop would execute seven times
+            The \cpp{for} loop would execute seven times
             and each time {\tt cout} the five {\tt *}'s and an {\tt endl}.
-          \end{solution}
+          \end{answer}
       \end{enumerate}
       
-    \item In this exercise we will create the output in box (a) using nested loops.    
+    \Q In this exercise we will create the output in box (a) using nested loops.    
       \par\vskip 10pt
       
       \begin{enumerate}[(a)]
-        \item Surround the {\tt cout} statement below by a \mintinline{cpp}|for|
+        \item Surround the {\tt cout} statement below by a \cpp{for}
           so that five {\tt *} characters are printed on a single line.
           \ifprintanswers
-            \begin{solution}
+            \begin{answer}
               \scriptsize\vskip -35pt\null
               \begin{center}
                 \begin{minipage}{2.5in}
-                  \begin{minted}[
+                  \begin{cprlst}[
                     frame=lines,
                     framesep=2mm,
                     bgcolor=gray!15,
@@ -105,10 +105,10 @@
 for (int i=0; i<5; i++) {
   cout << "* ";
 }
-                  \end{minted}
+                  \end{cprlst}
                 \end{minipage}
               \end{center}\vskip -20pt\null
-            \end{solution}
+            \end{answer}
           \else
             \par\vskip 10pt\null
             \begin{center}
@@ -117,13 +117,13 @@ for (int i=0; i<5; i++) {
             \par\vskip 10pt\null
           \fi
         \item Now build on the block of code above by wrapping the
-          loop you created in another \mintinline{cpp}|for| loop that
+          loop you created in another \cpp{for} loop that
           prints seven of these lines, with an {\tt endl} between each one.
-          \begin{solution}[1.25in]
+          \begin{answer}[1.25in]
             \scriptsize\vskip -35pt\null
             \begin{center}
               \begin{minipage}{2.5in}
-                \begin{minted}[
+                \begin{cprlst}[
                   frame=lines,
                   framesep=2mm,
                   bgcolor=gray!15,
@@ -135,23 +135,23 @@ for (int j=0; j<7; j++) {
   }
   cout << endl;
 }
-                \end{minted}
+                \end{cprlst}
               \end{minipage}
             \end{center}\vskip -20pt\null
-          \end{solution}
+          \end{answer}
       \end{enumerate}
       
-    \item Suppose that variables \mintinline{cpp}|int rows| and
-      \mintinline{cpp}|int cols| contain the number of rows and 
+    \Q Suppose that variables \cpp{int rows} and
+      \cpp{int cols} contain the number of rows and 
       columns\key\\[-2.5mm] of {\tt *}'s you wish to print.  How
       would you modify your code above to print out that number of
       rows and columns?  Test your solution in {\tt activity09b.cpp}.
       
-      \begin{solution}[1.25in]
+      \begin{answer}[1.25in]
         \scriptsize\vskip -35pt\null
         \begin{center}
           \begin{minipage}{2.5in}
-            \begin{minted}[
+            \begin{cprlst}[
               frame=lines,
               framesep=2mm,
               bgcolor=gray!15,
@@ -163,20 +163,20 @@ for (int j=0; j<rows; j++) {
   }
   cout << endl;
 }
-            \end{minted}
+            \end{cprlst}
           \end{minipage}
         \end{center}\vskip -20pt\null
-      \end{solution}
+      \end{answer}
 
-    \item How would you modify your code in the previous question to
+    \Q How would you modify your code in the previous question to
       produce the output seen in box (b), assuming that
-      \mintinline{cpp}|int rows = 7| and \mintinline{cpp}|int cols = 4|?
+      \cpp{int rows = 7} and \cpp{int cols = 4}?
 
-      \begin{solution}[1.25in]
+      \begin{answer}[1.25in]
         \scriptsize\vskip -35pt\null
         \begin{center}
           \begin{minipage}{2.5in}
-            \begin{minted}[
+            \begin{cprlst}[
               frame=lines,
               framesep=2mm,
               bgcolor=gray!15,
@@ -188,18 +188,18 @@ for (int j=0; j<rows; j++) {
   }
   cout << endl;
 }
-            \end{minted}
+            \end{cprlst}
           \end{minipage}
         \end{center}\vskip -20pt\null
-      \end{solution}
+      \end{answer}
 
-    \item How would you modify your code so that the output
+    \Q How would you modify your code so that the output
       matches the output in box (c) instead of (b)?
-      \begin{solution}[1.25in]
+      \begin{answer}[1.25in]
         \scriptsize\vskip -35pt\null
         \begin{center}
           \begin{minipage}{2.5in}
-            \begin{minted}[
+            \begin{cprlst}[
               frame=lines,
               framesep=2mm,
               bgcolor=gray!15,
@@ -211,7 +211,7 @@ for (int j=0; j<rows; j++) {
   }
   cout << endl;
 }
-            \end{minted}
+            \end{cprlst}
           \end{minipage}
         \end{center}\vskip -20pt\null
-      \end{solution}
+      \end{answer}

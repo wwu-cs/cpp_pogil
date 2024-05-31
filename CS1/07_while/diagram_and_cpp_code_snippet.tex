@@ -1,5 +1,4 @@
-
-  {\bf\large Model 1: A Diagram and A C++ Code Snippet} \\[-15pt]
+\model{A Diagram and A C++ Code Snippet} \\
   \begin{center}
     \small
     \begin{tabular}{p{2in}p{3in}}
@@ -24,7 +23,7 @@
       \end{minipage}
       &
       \begin{minipage}{3in}
-        \begin{minted}[
+        \begin{cprtlst}[
           frame=lines,
           framesep=2mm,
           bgcolor=gray!15,
@@ -42,7 +41,7 @@
     x = x + 1;
   }
   cout << "Nice to meet you!" << endl;
-        \end{minted}
+        \end{cprtlst}
       \end{minipage}
     \end{tabular}
   \end{center}
@@ -56,55 +55,55 @@
   \begin{enumerate}
     \itemsep 20pt
     
-    \item Which lines of code go with the following shapes on the provided diagram?
+    \Q Which lines of code go with the following shapes on the provided diagram?
       \par\vskip 20pt
       \begin{enumerate}[(a)]
         \itemsep 15pt
         \item The diamond \hfill 
-          \fillin[Line 11 contains the condition in the diamond][4in]
+          \ans[4in]{Line 11 contains the condition in the diamond}
         \item The ``Block \#1'' rectangle \hfill 
-          \fillin[Lines 12 and 13 make up the statements in block \#1][4in]
+          \ans[4in]{Lines 12 and 13 make up the statements in block \#1}
         \item The ``Block \#2'' rectangle \hfill 
-          \fillin[Line 15 contains the statement in block \#2][4in]
+          \ans[4in]{Line 15 contains the statement in block \#2}
       \end{enumerate}
       
-    \item Every loop structure requires three different actions.  Identify the line in the C++
+    \Q Every loop structure requires three different actions.  Identify the line in the C++
       code snippet above that corresponds to each of these actions.
       \par\vskip 20pt
       \begin{enumerate}[(a)]
         \itemsep 15pt
-        \item {\bf Initialize} a variable to control the number of loop iterations. \hfill\fillin[Line 10][1in]
-        \item {\bf Test} a condition to determine if we should keep looping. \hfill\fillin[Line 11][1in]
-        \item {\bf Update} the variable involved in the test condition. \hfill\fillin[Line 13][1in]
+        \item {\bf Initialize} a variable to control the number of loop iterations. \hfill\ans[1in]{Line 10}
+        \item {\bf Test} a condition to determine if we should keep looping. \hfill\ans[1in]{Line 11}
+        \item {\bf Update} the variable involved in the test condition. \hfill\ans[1in]{Line 13}
       \end{enumerate}     
 
 \newpage
 
-    \item The complete program is in {\tt activity07a.cpp}.  Run the program and
+    \Q The complete program is in {\tt activity07a.cpp}.  Run the program and
       answer the following questions.
       \begin{enumerate}[(a)]
-        \item What would the model program do differently if line 10 was: \mintinline{cpp}|int x = 1;|?
-          \begin{solution}[0.4in]
+        \item What would the model program do differently if line 10 was: \cpp{int x = 1;}?
+          \begin{answer}[0.4in]
             It would only print out 9 copies of the name.
-          \end{solution}
-        \item What would the model program do differently if line 11 was: \mintinline{cpp}|while (x <= 10) {|?
-          \begin{solution}[0.4in]          
+          \end{answer}
+        \item What would the model program do differently if line 11 was: \cpp{while (x <= 10) {}?
+          \begin{answer}[0.4in]          
             It would print out 11 copies of the name.
-          \end{solution}
-        \item What would the model program do differently if line 13 was: \mintinline{cpp}|x=x+2;|?
-          \begin{solution}[0.4in]
+          \end{answer}
+        \item What would the model program do differently if line 13 was: \cpp{x=x+2;}?
+          \begin{answer}[0.4in]
             It would only print out 5 copies of the name.
-          \end{solution}
+          \end{answer}
       \end{enumerate}
       \par\vskip -40pt\null
       
-    \item Change one or more of lines 10, 11, and 13 to make the program print the name 23 times.\key\\[-2.5mm]
+    \Q Change one or more of lines 10, 11, and 13 to make the program print the name 23 times.\key\\[-2.5mm]
       
-      \begin{solution}[1.25in]
+      \begin{answer}[1.25in]
         \par
         Answers will vary, but one solution is to change line 6 to read:
         \begin{center}
-          \mintinline{cpp}| while ( x < 23 ) {|
+          \cpp{ while ( x < 23 ) {}
         \end{center}        
-      \end{solution}
+      \end{answer}
       

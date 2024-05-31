@@ -1,17 +1,17 @@
- {\bf\large Model 3: Increment / Decrement Operators} \\[-5pt]
+\model{Increment / Decrement Operators} \\
   \begin{center}
     \renewcommand{\arraystretch}{1.4}
     \begin{tabular}{|c|c|c|c|}
       \hline
       \rowcolor{orange!20} Initial {\tt x} Value & Statement & Final {\tt y} value & Final {\tt x} Value \\
       \hline
-      2 & \mintinline{cpp}|y = x++;| & 2 & 3 \\
+      2 & \cpp{y = x++;} & 2 & 3 \\
       \hline
-      2 & \mintinline{cpp}|y = ++x;| & 3 & 3 \\
+      2 & \cpp{y = ++x;} & 3 & 3 \\
       \hline
-      2 & \mintinline{cpp}|y = x--;| & 2 & 1 \\
+      2 & \cpp{y = x--;} & 2 & 1 \\
       \hline
-      2 & \mintinline{cpp}|y = --x;| & 1 & 1 \\
+      2 & \cpp{y = --x;} & 1 & 1 \\
       \hline
     \end{tabular}
   \end{center}
@@ -20,25 +20,25 @@
   {\it\large Refer to Model 3 above as your team develops consensus answers
     to the questions below.}
 
-    \item Based on the model above, describe what each operator does.
+    \Q Based on the model above, describe what each operator does.
       \par\vskip 20pt
       
       \begin{enumerate}[(a)]
         \itemsep 15pt
-        \item \mintinline{cpp}|++| \hspace{20pt} 
-          \fillin[Adds one to the variable involved.][5.25in]
-        \item \mintinline{cpp}|--| \hspace{20pt}
-          \fillin[Subtracts one from the variable involved.][5.25in]
+        \item \cpp{++} \hspace{20pt} 
+          \ans[5.25in]{Adds one to the variable involved.}
+        \item \cpp{--} \hspace{20pt}
+          \ans[5.25in]{Subtracts one from the variable involved.}
       \end{enumerate}
 
 \newpage
 
-    \item Rewrite the following {\tt for} loop to use an {\it increment operator}.
+    \Q Rewrite the following {\tt for} loop to use an {\it increment operator}.
     
       \begin{center}
         \begin{tabular}{p{2.75in}p{2.75in}}
           \begin{minipage}{2.75in}
-            \begin{minted}[
+            \begin{cprlst}[
               frame=lines,
               framesep=2mm,
               bgcolor=gray!15,
@@ -47,13 +47,13 @@
   for (int i=5; i<=10; i+=1) {
     cout << i << " ";
   }
-            \end{minted}
+            \end{cprlst}
           \end{minipage}
           &
           \begin{minipage}{2.75in}
-            \begin{solution}
+            \begin{answer}
               \scriptsize
-              \begin{minted}[
+              \begin{cprlst}[
                 frame=lines,
                 framesep=2mm,
                 bgcolor=gray!15,
@@ -62,19 +62,19 @@
   for (int i=5; i<=10; i++) {
     cout << i << " ";
   }
-              \end{minted}
-            \end{solution}
+              \end{cprlst}
+            \end{answer}
           \end{minipage}                  
         \end{tabular}
       \end{center}
 
 
-    \item Rewrite the following {\tt while} loop to use an {\it decrement operator}.
+    \Q Rewrite the following {\tt while} loop to use an {\it decrement operator}.
     
       \begin{center}
         \begin{tabular}{p{2.75in}p{2.75in}}
           \begin{minipage}{2.75in}
-            \begin{minted}[
+            \begin{cprlst}[
               frame=lines,
               framesep=2mm,
               bgcolor=gray!15,
@@ -85,13 +85,13 @@
     cout << "text" << endl;
     counter = counter - 1;
   }
-            \end{minted}
+            \end{cprlst}
           \end{minipage}
           &
           \begin{minipage}{2.75in}
-            \begin{solution}
+            \begin{answer}
               \scriptsize
-              \begin{minted}[
+              \begin{cprlst}[
                 frame=lines,
                 framesep=2mm,
                 bgcolor=gray!15,
@@ -102,18 +102,18 @@
     cout << "text" << endl;
     counter--;
   }
-              \end{minted}
-            \end{solution}
+              \end{cprlst}
+            \end{answer}
           \end{minipage}                  
         \end{tabular}
       \end{center}
 
-    \item Why are increment and decrement operators especially useful for counters?
-      \begin{solution}[0.5in]
+    \Q Why are increment and decrement operators especially useful for counters?
+      \begin{answer}[0.5in]
         Because they are a compact way to add or subtract one to a counter.
-      \end{solution}
+      \end{answer}
     
-    \item Note that there are two versions of the {\it increment operator}: a {\it pre-increment} version \key\\[-2.5mm]
+    \Q Note that there are two versions of the {\it increment operator}: a {\it pre-increment} version \key\\[-2.5mm]
       (i.e. {\tt ++x}) and a {\it post-increment} version (i.e. {\tt x++}).  The same is true of the decrement operator.
       Use the file {\tt activity08c.cpp} to assist as you complete the missing entries in the table below.
       
@@ -123,22 +123,22 @@
           \hline
           \rowcolor{orange!20} Initial {\tt x} Value & Expression & Expression Value & Final {\tt x} Value \\
           \hline
-          5 & {\tt 3 + 2*(x++)} & \ifprintanswers 13\fi & 6 \\
+          % 5 & {\tt 3 + 2*(x++)} & \ifprintanswers 13\fi & 6 \\
           \hline
-          3 & {\tt 5 - (++x) / 2} & 3 & \ifprintanswers 4\fi  \\
+          % 3 & {\tt 5 - (++x) / 2} & 3 & \ifprintanswers 4\fi  \\
           \hline
-          \ifprintanswers 1\fi & {\tt 6 * (--x)} & 0 & 0\\
+          % \ifprintanswers 1\fi & {\tt 6 * (--x)} & 0 & 0\\
           \hline
-          -3 & \ifprintanswers {\tt 2+(x--)}\fi & -1 & -4\\
+          % -3 & \ifprintanswers {\tt 2+(x--)}\fi & -1 & -4\\
           \hline
         \end{tabular}
       \end{center}
       
-    \item Based on your work above, what is the difference between the pre- and post- versions of these operators?
-      \begin{solution}[0.5in]
+    \Q Based on your work above, what is the difference between the pre- and post- versions of these operators?
+      \begin{answer}[0.5in]
         \par
         The pre- version changes the value of the variable before it is used in the expression.  The post- version changes the
         value after it has been used in the expression.
-      \end{solution}
+      \end{answer}
 
   \end{enumerate}  
