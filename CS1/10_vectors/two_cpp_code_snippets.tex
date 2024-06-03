@@ -1,10 +1,10 @@
-\model{Two C++ Code Snippets}
+\model{Two C++ Code Snippets}\\
 
   \begin{center}
     \begin{tabular}{p{2.7in}p{0.25in}p{2.7in}}
       \begin{minipage}{2.7in}
         \small
-        \begin{minted}[
+        \begin{cprlst}[
           frame=lines,
           framesep=2mm,
           bgcolor=gray!15,
@@ -17,12 +17,12 @@
   for (int i = 0; i < x.size(); i++) {
     x.at(i) = pow(2,i);
   }
-        \end{minted}
+        \end{cprlst}
       \end{minipage}
       & &
       \begin{minipage}{2.7in}
         \small
-        \begin{minted}[
+        \begin{cprlst}[
           frame=lines,
           framesep=2mm,
           bgcolor=gray!15,
@@ -34,7 +34,7 @@
   for (int i = 0; i < y.size(); i++) {
     sum += y.at(i);
   }
-        \end{minted}
+        \end{cprlst}
       \end{minipage}      
     \end{tabular}
   \end{center}
@@ -57,20 +57,20 @@
             \itemsep 15pt
             \begin{multicols}{2}
               \item {\tt x.at(1) + x.at(2)} \hspace{0.15in}
-                \fillin[6][1in]
+                \ans[1in]{6}
               \item {\tt x.at(2) * x.at(3)} \hspace{0.15in}
-                \fillin[32][1in]
+                \ans[1in]{32}
               \item {\tt x.at(4) / x.at(1)} \hfill
-                \fillin[8][1in]
+                \ans[1in]{8}
               \item {\tt x.at(x.at(2))} \hfill
-                \fillin[16][1in]
+                \ans[1in]{16}
             \end{multicols}
           \end{enumerate}
           \par\vskip 15pt
         \item How many values are saved in the vector {\tt y} in the second code snippet?  Does it matter?
-          \begin{solution}[0.75in]
+          \begin{answer}[0.75in]
             We don't know, but it doesn't matter.  We can still sum them all.
-          \end{solution}
+          \end{answer}
       \end{enumerate}
       \par\vskip -30pt\null
       
@@ -84,7 +84,7 @@
         \begin{tabular}{p{2.5in}p{3in}}
           \begin{minipage}{2.5in}
             \scriptsize
-            \begin{minted}[
+            \begin{cprlst}[
               frame=lines,
               framesep=2mm,
               bgcolor=gray!15,
@@ -100,12 +100,12 @@ for (int i = 0; i < data.size(); i++) {
     accumulator += data.at(i+1);
   }
 }            
-            \end{minted}            
+            \end{cprlst}            
             \par\vskip 20pt
             \begin{center}
               {\tt data} =
-              \fillin[\tt \{-5,26,-13,12,-37,-15,16,4,-1,3\}][1.75in]\par\vskip 20pt
-              {\tt accumulator} = \fillin[72][0.5in]
+              \ans[1.75in]{\tt \{-5,26,-13,12,-37,-15,16,4,-1,3\}}\par\vskip 20pt
+              {\tt accumulator} = \ans[0.5in]{72}
             \end{center}
           \end{minipage}
           &
@@ -116,25 +116,25 @@ for (int i = 0; i < data.size(); i++) {
                 \hline
                 \bf i & \bf\tt data.at(i) & \bf\tt accumulator \\
                 \hline
-                0 & \ifprintanswers -5\fi & \ifprintanswers 26\fi \\
+                0 & %\ifprintanswers -5\fi & \ifprintanswers 26\fi \\
                 \hline
-                1 & \ifprintanswers 26\fi & \ifprintanswers 26\fi \\
+                1 & %\ifprintanswers 26\fi & \ifprintanswers 26\fi \\
                 \hline
-                2 & \ifprintanswers -13\fi & \ifprintanswers 38\fi \\
+                2 & %\ifprintanswers -13\fi & \ifprintanswers 38\fi \\
                 \hline
-                3 & \ifprintanswers 12\fi & \ifprintanswers 38\fi \\
+                3 & %\ifprintanswers 12\fi & \ifprintanswers 38\fi \\
                 \hline
-                4 & \ifprintanswers -37\fi & \ifprintanswers 53\fi \\
+                4 & %\ifprintanswers -37\fi & \ifprintanswers 53\fi \\
                 \hline
-                5 & \ifprintanswers -15\fi & \ifprintanswers 69\fi \\
+                5 & %\ifprintanswers -15\fi & \ifprintanswers 69\fi \\
                 \hline
-                6 & \ifprintanswers 16\fi & \ifprintanswers 69\fi \\
+                6 & %\ifprintanswers 16\fi & \ifprintanswers 69\fi \\
                 \hline
-                7 & \ifprintanswers 4\fi & \ifprintanswers 69\fi \\
+                7 & %\ifprintanswers 4\fi & \ifprintanswers 69\fi \\
                 \hline
-                8 & \ifprintanswers -1\fi & \ifprintanswers 72\fi \\
+                8 & %\ifprintanswers -1\fi & \ifprintanswers 72\fi \\
                 \hline
-                9 & \ifprintanswers 3\fi & \ifprintanswers 72\fi \\
+                9 & %\ifprintanswers 3\fi & \ifprintanswers 72\fi \\
                 \hline
               \end{tabular}
             \end{center}
@@ -144,19 +144,19 @@ for (int i = 0; i < data.size(); i++) {
 
 \newpage
 
-    \Q Suppose the vector \mintinline{cpp}|vector<double> a| and
-      \mintinline{cpp}|vector<double> b| have been declared and filled
+    \Q Suppose the vector \cpp{vector<double> a} and
+      \cpp{vector<double> b} have been declared and filled
       with elements.  Write code to find the pairwise maximum value in
       these vectors and place it in a vector named {\tt myMax} which
-      you declare.  So, for example, \mintinline{cpp}|myMax.at(0)| should
-      contain the larger of \mintinline{cpp}|a.at(0)| and
-      \mintinline{cpp}|b.at(0)| and so on.
+      you declare.  So, for example, \cpp{myMax.at(0)} should
+      contain the larger of \cpp{a.at(0)} and
+      \cpp{b.at(0)} and so on.
       
-      \begin{solution}[1.5in]
+      \begin{answer}[1.5in]
         \scriptsize\vskip -35pt\null
         \begin{center}
           \begin{minipage}{2.5in}
-            \begin{minted}[
+            \begin{cprlst}[
               frame=lines,
               framesep=2mm,
               bgcolor=gray!15,
@@ -170,25 +170,25 @@ for (int i = 0; i < data.size(); i++) {
       myMax.at(i) = b.at(i);
     }
   }
-            \end{minted}
+            \end{cprlst}
           \end{minipage}
         \end{center}\vskip -20pt\null
-      \end{solution}
+      \end{answer}
 
     \Q In a certain class 40\% of your final grade comes from your
       homework average and 60\% comes from your exam average.  Suppose 
-      that vectors \mintinline{cpp}|vector<int> homeworkScores|
-      and \mintinline{cpp}|vector<int> examScores| have been defined
+      that vectors \cpp{vector<int> homeworkScores}
+      and \cpp{vector<int> examScores} have been defined
       and contain your individual homework and exam scores.  Write 
       C++ code to compute your class grade and store it in
-      \mintinline{cpp}|double finalGrade|.  Don't forget to typecast
+      \cpp{double finalGrade}.  Don't forget to typecast
       if needed!
 
-      \begin{solution}[1.5in]
+      \begin{answer}[1.5in]
         \scriptsize\vskip -35pt\null
         \begin{center}
           \begin{minipage}{4.5in}
-            \begin{minted}[
+            \begin{cprlst}[
               frame=lines,
               framesep=2mm,
               bgcolor=gray!15,
@@ -205,7 +205,7 @@ for (int i = 0; i < data.size(); i++) {
   double homeworkGrade = static_cast<double>(homeworkSum) / homeworkScores.size();
   double examGrade = static_cast<double>(examSum) / examScores.size();
   double finalGrade = 0.40 * homeworkGrade + 0.60 * examGrade;
-            \end{minted}
+            \end{cprlst}
           \end{minipage}
         \end{center}\vskip -20pt\null
-      \end{solution}
+      \end{answer}

@@ -1,9 +1,9 @@
-{\bf\large Model 3: A Program with Functions and Branches} \\[-20pt]
+\\model{A Program with Functions and Branches} \\
 
   \begin{center}
     \begin{minipage}{3.5in}
       \scriptsize
-      \begin{minted}[
+      \begin{cprtlst}[
         frame=lines,
         framesep=2mm,
         bgcolor=gray!15,
@@ -40,17 +40,17 @@ int main() {
     cout << "Invalid Operation" << endl;
   }  
 }
-      \end{minted}
+      \end{cprtlst}
     \end{minipage}  
   \end{center}
       
   {\it\large Refer to Model 3 above as your team develops consensus answers
     to the questions below.}
 
-    \item What is the first line of code that is executed in this
-      program?\hfill \fillin[Line 15][2in]
+    \Q What is the first line of code that is executed in this
+      program?\hfill \ans[2in]{Line 15}
       
-    \item Use the file {\tt activity11c.cpp} to execute this program
+    \Q Use the file {\tt activity11c.cpp} to execute this program
       with the following inputs and record the results.
       
       \begin{center}
@@ -59,40 +59,40 @@ int main() {
           \hline
           \rowcolor{orange!20} Data Set & First Number & Second Number & Operation & Result \\
           \hline
-          1 & 2 & 6 & $+$ & \ifprintanswers $2+6=8$\fi \\
+          1 & 2 & 6 & $+$ & %\ifprintanswers $2+6=8$\fi \\
           \hline
-          2 & 3 & 8 & $-$ & \ifprintanswers $3-8=-5$\fi \\
+          2 & 3 & 8 & $-$ & %\ifprintanswers $3-8=-5$\fi \\
           \hline
-          3 & 34 & 23 & $+$ & \ifprintanswers $34 + 23 = 57$\fi \\
+          3 & 34 & 23 & $+$ & %\ifprintanswers $34 + 23 = 57$\fi \\
           \hline
-          4 & 4 & 5 & $/$ & \ifprintanswers Invalid Operation\fi \\
+          4 & 4 & 5 & $/$ & %\ifprintanswers Invalid Operation\fi \\
           \hline
         \end{tabular}
       \end{center}
       
-    \item What problems do you see when you entered data set 3?
-      \begin{solution}[0.5in]
+    \Q What problems do you see when you entered data set 3?
+      \begin{answer}[0.5in]
         The numbers are not in the range from 1-10, but no error was
         reported.
-      \end{solution}
+      \end{answer}
       
 \newpage
 
-    \item Write a function named {\tt checkRange} that takes two integer 
+    \Q Write a function named {\tt checkRange} that takes two integer 
       values as parameters, check to make sure they are both between 1 and 10,
       and  prints out a warning if they are not.  For example, calling
-      \mintinline{cpp}|checkRange(34,23)| might result in the
+      \cpp{checkRange(34,23)} might result in the
       following output.
       \begin{center}
         \tt
         WARNING! At least one of the numbers you entered was out of
         range!
       \end{center}
-      \begin{solution}[1.5in]
+      \begin{answer}[1.5in]
         \scriptsize\vskip -35pt\null
         \begin{center}
           \begin{minipage}{4.5in}
-            \begin{minted}[
+            \begin{cprtlst}[
               frame=lines,
               framesep=2mm,
               bgcolor=gray!15,
@@ -104,13 +104,13 @@ void checkRange(int num1, int num2) {
          << endl;
   }
 }       
-            \end{minted}
+            \end{cprtlst}
           \end{minipage}
         \end{center}\vskip -20pt\null
-      \end{solution}
+      \end{answer}
       \par\vskip -40pt\null
       
-    \item Modify the two functions in the original model to
+    \Q Modify the two functions in the original model to
       produce the following sample output.\key\\[-2.5mm]  Do not change the
       {\tt main} program.  Only change the functions on lines 5-7 
       and 9-11 of the original model.
@@ -128,11 +128,11 @@ void checkRange(int num1, int num2) {
           \end{minipage}
         }
       \end{center}
-      \begin{solution}[2in]
+      \begin{answer}[2in]
         \scriptsize\vskip -35pt\null
         \begin{center}
           \begin{minipage}{4.5in}
-            \begin{minted}[
+            \begin{cprtlst}[
               frame=lines,
               framesep=2mm,
               bgcolor=gray!15,
@@ -148,19 +148,19 @@ void printDifference(int num1, int num2) {
   cout << num1 << " - " << num2 << " = " << (num1-num2) << endl;
   checkRange(num1,num2);
 }
-            \end{minted}
+            \end{cprtlst}
           \end{minipage}
         \end{center}\vskip -20pt\null
-      \end{solution}
+      \end{answer}
     
-    \item Write a function to draw a frog.  Then call this function
+    \Q Write a function to draw a frog.  Then call this function
       from the\\ {\tt main} program in a loop to create the output shown.
       \TPMargin{0pt}
       \par  % avoid warning of textblock not in vertical mode
       \begin{textblock*}{1.6in}[0,0](4.9in,-40pt)
         \small
         \textblockcolor{white}
-        \begin{minted}[xleftmargin=-10pt]{cpp}
+        \begin{cprtlst}[xleftmargin=-10pt]{cpp}
 Frog 1...
           @..@
          (----)
@@ -181,12 +181,12 @@ Frog 4...
          (----)
         ( >__< )
         ^^ ~~ ^^
-        \end{minted}
+        \end{cprtlst}
       \end{textblock*}
       \begin{minipage}{4in}
-      \begin{solution}[2in]
+      \begin{answer}[2in]
         \scriptsize
-        \begin{minted}[
+        \begin{cprtlst}[
           frame=lines,
           framesep=2mm,
           bgcolor=gray!15,
@@ -204,7 +204,7 @@ int main() {
     frog();
   }
 }
-            \end{minted}
-        \end{solution}
+            \end{cprtlst}
+        \end{answer}
       \end{minipage}
      

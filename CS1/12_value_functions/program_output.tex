@@ -1,10 +1,10 @@
-{\bf\large Model 3: Program Output and the {\tt main} Function} \\[-10pt]
+\\model{Program Output and the {\tt main} Function} \\
 
   \begin{center}
     \begin{tabular}{p{3in}p{2.7in}}
       \begin{minipage}{3in}
         \small
-        \begin{minted}[
+        \begin{cprlst}[
           frame=lines,
           framesep=2mm,
           bgcolor=gray!15,
@@ -34,7 +34,7 @@ int main() {
     cin >> tryAgain;    
   } while (tryAgain=='y');
 }
-        \end{minted}
+        \end{cprlst}
       \end{minipage}
       &
       \fbox{\begin{minipage}{2.4in}
@@ -67,51 +67,51 @@ int main() {
   {\it\large Refer to Model 3 above as your team develops consensus answers
     to the questions below.}
 
-    \item There is one user-defined function that is missing from this program.
+    \Q There is one user-defined function that is missing from this program.
       \par\vskip 15pt
       
       \begin{enumerate}[(a)]
         \itemsep 15pt
         \item What is the name of the missing function? \hfill
-          \fillin[\tt getMessage][3in]
+          \ans[3in]{\tt getMessage]
         \item Is the function {\tt void} or value-returning? \hfill
-          \fillin[value-returning][3in]
+          \ans[3in]{value-returning]
         \item What are the type(s) of its parameters?\hfill
-          \fillin[It has two integer parameters][3in]
+          \ans[3in]{It has two integer parameters]
         \item Write the header for the function. \hfill
-          \fillin[\mintinline{cpp}|string getMessage(int uNum, int cNum)|][3in]
+          \ans[3in]{\cpp{string getMessage(int uNum, int cNum)}}
       \end{enumerate}
       \par\vskip -40pt\null
       
-    \item Does the missing function contain any {\tt cout} statements?
+    \Q Does the missing function contain any {\tt cout} statements?
       Explain your reasoning.\key
-      \ifprintanswers\vskip -20pt\null\fi
-      \begin{solution}[0.5in]
+      % \ifprintanswers\vskip -20pt\null\fi
+      \begin{answer}[0.5in]
         No.  It returns the value to print out, but the {\tt cout}
         happens in the {\tt main} function, not in the missing function.
-      \end{solution}
+      \end{answer}
       
-    \item Suppose line 24 in the model was changed to just
-      \mintinline{cpp}|getMessage(userNum,compNum);|.  How would this
+    \Q Suppose line 24 in the model was changed to just
+      \cpp{getMessage(userNum,compNum);}.  How would this
       change your answers to questions 10 and 11 above?
-      \ifprintanswers\vskip -20pt\null\fi
-      \begin{solution}[0.5in]
+      % \ifprintanswers\vskip -20pt\null\fi
+      \begin{answer}[0.5in]
         The function now produces the output and would have a {\tt
         void} return type.
-      \end{solution}
+      \end{answer}
            
 \newpage
 
-    \item Now write the function definition assuming that the function header
+    \Q Now write the function definition assuming that the function header
       is as shown below.
       \begin{center}
-        \mintinline{cpp}|string getMessage(int userNum, int compNum)|
+        \cpp{string getMessage(int userNum, int compNum)}
       \end{center}
-      \begin{solution}[2.25in]
+      \begin{answer}[2.25in]
         \scriptsize\vskip -35pt\null
         \begin{center}
           \begin{minipage}{3.5in}
-            \begin{minted}[
+            \begin{cprlst}[
               frame=lines,
               framesep=2mm,
               bgcolor=gray!15,
@@ -129,22 +129,22 @@ string getMessage(int userNum,int compNum) {
   }
   return message;
 }
-            \end{minted}
+            \end{cprlst}
           \end{minipage}
         \end{center}\vskip -20pt\null
-      \end{solution}          
+      \end{answer}          
   
-    \item Write a different version of this same function assuming that
-      line 24 in the model was changed to just \mintinline{cpp}|getMessage(userNum,compNum);| 
+    \Q Write a different version of this same function assuming that
+      line 24 in the model was changed to just \cpp{getMessage(userNum,compNum);} 
       and using the following function header.
       \begin{center}
-        \mintinline{cpp}|void getMessage(int userNum, int compNum)|
+        \cpp{void getMessage(int userNum, int compNum)}
       \end{center}
-      \begin{solution}[2.25in]
+      \begin{answer}[2.25in]
         \scriptsize\vskip -35pt\null
         \begin{center}
           \begin{minipage}{3.5in}
-            \begin{minted}[
+            \begin{cprlst}[
               frame=lines,
               framesep=2mm,
               bgcolor=gray!15,
@@ -160,7 +160,7 @@ void getMessage(int userNum,int compNum) {
     cout << "Congratulations!  You picked the number." << endl;
   }
 }
-            \end{minted}
+            \end{cprlst}
           \end{minipage}
         \end{center}\vskip -20pt\null
-      \end{solution}          
+      \end{answer}          

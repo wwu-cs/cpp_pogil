@@ -1,10 +1,10 @@
-\model{ Vector Syntax}
+\model{ Vector Syntax}\\
 
   \begin{center}
     \begin{tabular}{p{2.5in}p{3.1in}}
       \begin{minipage}{2.5in}
         \scriptsize
-        \begin{minted}[
+        \begin{cprlst}[
           frame=lines,
           framesep=2mm,
           bgcolor=gray!15,
@@ -21,7 +21,7 @@
   
   cout << quizScores.size() << endl;
   cout << profNames.at(1) << endl;
-        \end{minted}
+        \end{cprlst}
       \end{minipage}
       &
       \begin{minipage}{3.1in}
@@ -69,9 +69,9 @@
       \begin{enumerate}[(a)]
         \itemsep 15pt
         \item What is the name of this vector? \hfill
-          \fillin[\tt quizScores][2.5in]
+          \ans[2.5in]{\tt quizScores}
         \item What type of variable does this vector hold? \hfill
-          \fillin[It is a vector of  \mintinline{cpp}|int|s][2.5in]
+          \ans[2.5in]{It is a vector of  \cpp{int}s}
       \end{enumerate}
       
     \Q A second vector is declared on line 9 in the model.  Answer
@@ -81,27 +81,27 @@
       \begin{enumerate}[(a)]
         \itemsep 15pt
         \item What is the name of this vector? \hfill
-          \fillin[\tt profNames][2.5in]
+          \ans[2.5in][\tt profNames]
         \item What type of variable does this vector hold? \hfill
-          \fillin[It is a vector of  \mintinline{cpp}|string|s][2.5in]
+          \ans[2.5in]{It is a vector of  \cpp{string}s}
       \end{enumerate}
     
     \Q The {\it size} of a vector is the number of variables that
       it holds.  What is the size of each vectors above? 
-      \begin{solution}[0.5in]
+      \begin{answer}[0.5in]
         The vector declared on line 1 has size 2 and the vector
         declared on line 2 has size 4.
-      \end{solution}
+      \end{answer}
       
     \Q Based on the code above, what are two different ways to
       initialize the variables stored in a vector?
-      \begin{solution}[1in]
+      \begin{answer}[1in]
         \par
         You can set the values when the vector is declared
-        using the \mintinline{cpp}|vector<type> name = { value_list }|
+        using the \cpp{vector<type> name = { value_list }}
         syntax, or you can set each value using the
-        \mintinline{cpp}|vectorName.at(index) = value| command.
-      \end{solution}
+        \cpp{vectorName.at(index) = value} command.
+      \end{answer}
       
       
 \newpage
@@ -114,36 +114,36 @@
       \begin{enumerate}[(a)]
         \itemsep 10pt
         \item What is stored at index 0 in the vector {\tt quizScores}?\hfill
-          \fillin[8][1in]
+          \ans[1in]{8}
         \item At what index is the name ``Duncan'' stored in the vector {\tt profNames}?\hfill
-          \fillin[Index 2][1in]
+          \ans[1in]{Index 2}
         \item What is the maximum allowed index for the vector {\tt profNames}?\hfill
-          \fillin[3][1in]
+          \ans[1in]{3}
         \item What is stored at index 2 in the vector {\tt quizScores}?\hfill
-          \fillin[\small Out of Bounds][1in]
+          \ans[1in]{\small Out of Bounds}
       \end{enumerate}
                 
     \Q Write a single line of C++ code to declare a new vector of
       doubles named {\tt homeworkAvg} that contains the values 
       82.4 at index 2, 91.6 and index 0, and 73.9 at index 1.
-      \begin{solution}[0.5in]
-        \mintinline{cpp}|vector<double> homeworkAgv = {91.6, 73.9, 82.4};|
-      \end{solution}
+      \begin{answer}[0.5in]
+        \cpp{vector<double> homeworkAgv = {91.6, 73.9, 82.4};}
+      \end{answer}
       
-    \Q The expression \mintinline{cpp}|myVector.at(i)| returns the value of the
+    \Q The expression \cpp{myVector.at(i)} returns the value of the
       variable at index {\tt i} in the vector {\tt myVector}.  It can
       also be used to set the value at that index, as seen in lines 4-6
       of the model.
       
       \begin{enumerate}[(a)]
         \item Write a single C++ expression for the average of the two values in {\tt quizScores}.
-          \begin{solution}[0.75in]
-            \mintinline{cpp}|( quizScores.at(0) + quizScores.at(1) ) / 2.0|
-          \end{solution}
+          \begin{answer}[0.75in]
+            \cpp{( quizScores.at(0) + quizScores.at(1) ) / 2.0}
+          \end{answer}
         \item Write a sequence of C++ commands that changes the contents
           of the vector {\tt profNames} to those shown below without
-          using the string literals \mintinline{cpp}|"Foster"| or
-          \mintinline{cpp}|"Carman"|.
+          using the string literals \cpp{"Foster"} or
+          \cpp{"Carman"}.
           \begin{center}
             \begin{tabular}{p{0.8in}|c|c|c|c|}
               \hhline{~|-|-|-|-|}
@@ -152,11 +152,11 @@
               \multicolumn{1}{c}{} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} \\
             \end{tabular}
           \end{center}
-          \begin{solution}[1in]
+          \begin{answer}[1in]
             \scriptsize\vskip -35pt\null
             \begin{center}
               \begin{minipage}{2.25in}
-                \begin{minted}[
+                \begin{cprlst}[
                   frame=lines,
                   framesep=2mm,
                   bgcolor=gray!15,
@@ -165,10 +165,10 @@
 profNames.at(3) = profNames.at(1);
 profNames.at(1) = profNames.at(0);
 profNames.at(0) = "Aamodt";
-                \end{minted}
+                \end{cprlst}
               \end{minipage}
             \end{center}\vskip -20pt\null
-          \end{solution}          
+          \end{answer}          
       \end{enumerate}
       
     \Q The expression {\tt myVector.size()} returns the size of the
@@ -177,17 +177,17 @@ profNames.at(0) = "Aamodt";
       
       \begin{enumerate}[(a)]
         \item {\tt There are 4 CS professors at WWU.}
-          \begin{solution}[0.5in]
+          \begin{answer}[0.5in]
             \par
-            \mintinline{cpp}|cout << "There are " << profNames.size() << " CS professors at WWU." << endl;|            
-          \end{solution}
+            \cpp{cout << "There are " << profNames.size() << " CS professors at WWU." << endl;}            
+          \end{answer}
         \item {\tt Total number of quiz points: 20} \hspace{10pt} (assume 10 points per quiz)
-          \begin{solution}[0.5in]
+          \begin{answer}[0.5in]
             \par
-            \mintinline{cpp}|cout << "Total number of quiz points: " << 10*quizScores.size() << endl;|
-          \end{solution}
+            \cpp{cout << "Total number of quiz points: " << 10*quizScores.size() << endl;}
+          \end{answer}
       \end{enumerate}
       \par\vskip -40pt\null
       
     \Q True/False:  {\tt myVector.at(myVector.size())}
-    returns the last value in the vector.\ifprintanswers\hspace{5pt}(false)\fi\key
+    returns the last value in the vector.%\ifprintanswers\hspace{5pt}(false)\fi\key
