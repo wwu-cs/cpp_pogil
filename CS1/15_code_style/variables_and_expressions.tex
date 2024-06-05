@@ -1,4 +1,4 @@
-{\bf\large Model 1: Variables and Expressions} \\[-5pt]
+\model{Variables and Expressions} \\
   \begin{center}
     \renewcommand{\arraystretch}{1.3}
     \begin{tabular}{|p{3in}|p{3in}|}
@@ -9,7 +9,7 @@
       \hline
       \begin{minipage}{3in}
         \small
-        \begin{minted}[
+        \begin{cprlst}[
           frame=lines,
           framesep=2mm,
           bgcolor=gray!15,
@@ -20,13 +20,13 @@ double c1 = 9.99, c2 = 4.99;
 double d1 = 0.06, d2 = 0.99;
 double s1 = i1*c1+i2*c2;
 double t1 = s1+s1*d1+i1*d2;
-        \end{minted}
+        \end{cprlst}
         \vskip 70pt\null
       \end{minipage}
       &
       \begin{minipage}{3in}
         \small
-        \begin{minted}[
+        \begin{cprlst}[
           frame=lines,
           framesep=2mm,
           bgcolor=gray!15,
@@ -43,7 +43,7 @@ double subCost = (numCD * costCD) +
 double subShip = numCD * shipCD;
 double subTax  = subCost * rateTax;
 double total   = subCost + subTax + subShip;
-        \end{minted} 
+        \end{cprlst} 
       \end{minipage}
       \\
       \hline
@@ -58,19 +58,19 @@ double total   = subCost + subTax + subShip;
   \begin{enumerate}
     \itemsep 20pt
 
-    \item Determine which code block above ($X$ or $Y$) matches the
+    \Q Determine which code block above ($X$ or $Y$) matches the
       description below.
       \par\vskip 15pt
       
       \begin{enumerate}[(a)]
         \itemsep 15pt
-        \item Is shorter and would take less time to type: \hfill \fillin[$X$][1in] \hspace{1in}\null
-        \item Uses more variables: \hfill \fillin[$Y$][1in] \hspace{1in}\null
-        \item Would be easier to edit or debug: \hfill \fillin[$Y$][1in] \hspace{1in}\null
+        \item Is shorter and would take less time to type: \hfill \ans[1in]{$X$} \hspace{1in}\null
+        \item Uses more variables: \hfill \ans[1in]{$Y$} \hspace{1in}\null
+        \item Would be easier to edit or debug: \hfill \ans[1in]{$Y$} \hspace{1in}\null
       \end{enumerate}
-      \ifprintanswers\vskip -20pt\null\fi
+      % \ifprintanswers\vskip -20pt\null\fi
       
-    \item When we study foreign languages we learn about:
+    \Q When we study foreign languages we learn about:
       \begin{itemize}
         \item {\it Syntax} -- The rules used to spell words and construct
           grammatically correct sentences
@@ -81,16 +81,16 @@ double total   = subCost + subTax + subShip;
       All three of these are also present in a programming language.
       Are the differences between code block $X$ and $Y$ above
       differences in syntax, semantics, or style?  Explain.
-      \begin{solution}[0.5in]
+      \begin{answer}[0.5in]
         \par
         They are differences in style since both are syntactically
         correct (both will compile) and semantically equivalent (the
         both compute the same value).
-      \end{solution}
+      \end{answer}
       
 \newpage      
       
-    \item Each pair of code blocks below is syntactically and
+    \Q Each pair of code blocks below is syntactically and
       semantically equivalent.  Decide which one is better based only
       on the style.  Enter $X$, $Y$, or ? (if you think they are
       equally good).
@@ -101,55 +101,55 @@ double total   = subCost + subTax + subShip;
         \rowcolor{orange!20} & Block $X$ & Block $Y$ & Choice \\
         \hline
         (a) & 
-          \mintinline{cpp}|int i1 = 3, i2 = 7;| 
+          \cpp{int i1 = 3, i2 = 7;} 
           & 
-          \mintinline{cpp}|int numClosed = 3, numOpen = 7;| 
+          \cpp{int numClosed = 3, numOpen = 7;} 
           & 
-          \fillin[$Y$][0.4in] \\
+          \ans[0.4in]{$Y$} \\
         \hline
         (b) &
-          \mintinline{cpp}|int numCat = 2, numDog = 5;| 
+          \cpp{int numCat = 2, numDog = 5;} 
           & 
-          \mintinline{cpp}|int numCat = 2, dogNum = 5;| 
+          \cpp{int numCat = 2, dogNum = 5;} 
           & 
-          \fillin[$X$][0.4in] \\
+          \ans[0.4in]{$X$} \\
         \hline
         (c) &
-          \mintinline{cpp}|int numson = 3, isdone = true;|
+          \cpp{int numson = 3, isdone = true;}
           & 
-          \mintinline{cpp}|int numSon = 3, isDone = true;| 
+          \cpp{int numSon = 3, isDone = true;} 
           & 
-          \fillin[$Y$][0.4in] \\
+          \ans[0.4in]{$Y$} \\
         \hline
         (d) &
           \begin{minipage}{2.5in}
             \par\vskip 10pt
-            \mintinline{cpp}|int costCoffee = 2, costTea = 1;|\\
-            \mintinline{cpp}|int soldCoffee = 4, soldTea = 6;|\\
+            \cpp{int costCoffee = 2, costTea = 1;}\\
+            \cpp{int soldCoffee = 4, soldTea = 6;}\\
           \end{minipage}
           & 
           \begin{minipage}{2.5in}
             \par\vskip 10pt
-            \mintinline{cpp}|int costCoffee = 2, costTea = 1;|\\
-            \mintinline{cpp}|int soldTea = 6, soldCoffee = 4;|\\
+            \cpp{int costCoffee = 2, costTea = 1;}\\
+            \cpp{int soldTea = 6, soldCoffee = 4;}\\
           \end{minipage}
           & 
-          \fillin[$X$][0.4in] \\
+          \ans[0.4in]{$X$} \\
         \hline
       \end{tabular}}
       
-    \item Based on your answers above, describe what you think is a 
+    \Q Based on your answers above, describe what you think is a 
       good style for naming variables.
-      \begin{solution}[1in]
+      \begin{answer}[1in]
         \par
         Variable names should be chosen to match the purpose of a
         variable.  If they are composed of multiple words, those words
         should be separated in some way (capitals, underscores, etc).
         Their names should be consistent (same order to compound
         words, etc).
-      \end{solution}
+      \end{answer}
       
-    \item Each pair of code blocks below is syntactically and
+    \Q Each pair of code blocks below is syntactically and
       semantically equivalent.  Decide which one is better based only on
       the style.  Enter $X$, $Y$, or ? (if you think they are equally good).
       
@@ -159,40 +159,40 @@ double total   = subCost + subTax + subShip;
         \rowcolor{orange!20} & Block $X$ & Block $Y$ & Choice \\
         \hline
         (a) & 
-          \mintinline{cpp}|s1=i1*c1+i2*c2;|
+          \cpp{s1=i1*c1+i2*c2;}
           & 
-          \mintinline{cpp}|s1 = i1*c1 + i2*c2;|
+          \cpp{s1 = i1*c1 + i2*c2;}
           & 
-          \fillin[$Y$][0.5in] \\
+          \ans[0.5in]{$Y$} \\
         \hline
         (b) &
-          \mintinline{cpp}|s1=(i1*c1)+(i2*c2);|
+          \cpp{s1=(i1*c1)+(i2*c2);}
           & 
-          \mintinline{cpp}|s1=i1*c1+i2*c2;|
+          \cpp{s1=i1*c1+i2*c2;}
           & 
-          \fillin[$X$][0.5in] \\
+          \ans[0.5in]{$X$} \\
         \hline
         (c) &
-          \mintinline{cpp}|s1 = c1*i1 + i2*c2;|
+          \cpp{s1 = c1*i1 + i2*c2;}
           & 
-          \mintinline{cpp}|s1 = i1*c1 + i2*c2;|
+          \cpp{s1 = i1*c1 + i2*c2;}
           & 
-          \fillin[$Y$][0.5in] \\
+          \ans[0.5in]{$Y$} \\
         \hline
         (d) &
           \begin{minipage}{2in}
-            \begin{minted}[
+            \begin{cprlst}[
               frame=none,
               bgcolor=white,
             ]{cpp}
 float total = nCD*sCD +
   (nCD*cCD + nMP3*cMP3) *
   (1+rateTax);
-            \end{minted} 
+            \end{cprlst} 
           \end{minipage}
           & 
           \begin{minipage}{2in}
-            \begin{minted}[
+            \begin{cprlst}[
               frame=none,
               bgcolor=white,
             ]{cpp}
@@ -200,30 +200,30 @@ float cost  = nCD*cCD + nMP3*cMP3;
 float ship  = nCD*sCD;
 float tax   = cost * rateTax;
 float total = cost + tax + ship;
-            \end{minted} 
+            \end{cprlst} 
           \end{minipage}
           & 
-          \fillin[$Y$][0.5in] \\
+          \ans[0.5in]{$Y$} \\
         \hline
       \end{tabular}}
       
-    \item Based on your answers above, describe what you think is a
+    \Q Based on your answers above, describe what you think is a
       good style for writing expressions.
-      \begin{solution}[1in]
+      \begin{answer}[1in]
         \par
         Expressions should make use of white space to separate out
         different parts.  Using parentheses to group things, even if
         not required, is also a good idea.  It is better to split long
         expressions up into individual sub-computations that have
         meaning in the context of the problem being solved.
-      \end{solution}
+      \end{answer}
 
 \newpage
       
-    \item Code that can be read and understood without separate
+    \Q Code that can be read and understood without separate
       documentation is called {\it self-documenting code}.  What are
       some way to make expressions self-documenting?
-      \begin{solution}[1in]
+      \begin{answer}[1in]
         \begin{itemize}
           \item Use variable names that have meaning in the context of
             the problem being solved.
@@ -231,14 +231,14 @@ float total = cost + tax + ship;
           \item Group pieces of the computation together so that the
             order of precedence is clearly seen.
         \end{itemize}
-      \end{solution}
-      \par\ifprintanswers\vskip -40pt\else\vskip -20pt\fi\null
+      \end{answer}
+      % \par\ifprintanswers\vskip -40pt\else\vskip -20pt\fi\null
 
-    \item Rewrite the code below to be self-documenting.  Use
+    \Q Rewrite the code below to be self-documenting.  Use
       your style recommendations above.\key\\[-2.5mm]
       \begin{center}
         \begin{minipage}{5.25in}
-          \begin{minted}[
+          \begin{cprlst}[
             frame=lines,
             framesep=2mm,
             bgcolor=gray!15,
@@ -247,14 +247,14 @@ float total = cost + tax + ship;
 // calculate trip cost from 2-way flights, nights in hotels, and meals
 double fc=500, ch=150, mc=30, nn=5;         // costs and number nights
 double c = 2*fc+ch*nn+3*mc*nn;                // compute total cost
-          \end{minted}
+          \end{cprlst}
         \end{minipage}
       \end{center}
-      \begin{solution}[2in]
+      \begin{answer}[2in]
         \scriptsize\vskip -35pt\null
         \begin{center}
           \begin{minipage}{4.25in}
-            \begin{minted}[
+            \begin{cprlst}[
               frame=lines,
               framesep=2mm,
               bgcolor=gray!15,
@@ -270,8 +270,8 @@ double travelCost  = 2 * flightPrice;
 double lodgingCost = numNights * hotelPrice;
 double mealCost    = 3 * numNights * mealPrice;
 double totalCost   = travelCost + lodgingcost + mealCost;
-            \end{minted}
+            \end{cprlst}
           \end{minipage}
           \vskip -10pt\null
         \end{center}
-      \end{solution}
+      \end{answer}

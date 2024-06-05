@@ -1,8 +1,8 @@
-{\bf\large Model 2: A C++ Compiler Errors} \\[-25pt]
+\model{A C++ Compiler Errors} \\
   \begin{center}
     \begin{tabular}{p{2in}p{0.25in}p{3.4in}}
       \begin{minipage}{2in}
-        \begin{minted}[
+        \begin{cprlst}[
           frame=lines,
           framesep=2mm,
           bgcolor=gray!15,
@@ -18,14 +18,14 @@ int main() {
   }
   cout << varTwo << endl;
 }
-        \end{minted}
+        \end{cprlst}
       \end{minipage}
       & &
       \begin{minipage}{3.4in}
         {\bf Compiler Error:}
         \scriptsize
         \hrule\vskip 5pt
-        \begin{minted}[
+        \begin{cprlst}[
           frame=none,
           framesep=2mm,
           bgcolor=white,
@@ -40,7 +40,7 @@ model2.cpp:9:11: note: suggested alternative: ‘varOne’
    cout << varTwo << endl;
            ^~~~~~
            varOne   
-        \end{minted}
+        \end{cprlst}
       \end{minipage}
     \end{tabular}
   \end{center}
@@ -49,35 +49,35 @@ model2.cpp:9:11: note: suggested alternative: ‘varOne’
   \par\vskip -20pt\null
 
   
-  \item In your own words, describe what the compiler error shown is all about.
-    \ifprintanswers\vskip -20pt\null\fi
-    \begin{solution}[0.5in]
+  \Q In your own words, describe what the compiler error shown is all about.
+    % \ifprintanswers\vskip -20pt\null\fi
+    \begin{answer}[0.5in]
       The variable {\tt varTwo} does  not exist when the {\tt cout} command is given on line 7.
-    \end{solution}
-    \ifprintanswers\vskip -30pt\null\fi
+    \end{answer}
+    % \ifprintanswers\vskip -30pt\null\fi
   
-  \item On what lines are the following variables defined in the code above?
+  \Q On what lines are the following variables defined in the code above?
     \par\vskip 15pt
     
     \begin{enumerate}[(a)]
       \begin{multicols}{2}
-        \item The variable {\tt varOne} \hfill \fillin[Line 4][1.25in]
-        \item The variable {\tt varTwo} \hfill \fillin[Line 6][1.25in]
+        \item The variable {\tt varOne} \hfill \ans[1.25in]{Line 4}
+        \item The variable {\tt varTwo} \hfill \ans[1.25in]{Line 6}
       \end{multicols}
     \end{enumerate}
     
-  \item The error message above is triggered by line 9, which comes
+  \Q The error message above is triggered by line 9, which comes
     after the variable {\tt varTwo} has been declared.  Why do you
     think the variable {\tt varTwo} is not available on line 9?
-    \begin{solution}[0.5in]
+    \begin{answer}[0.5in]
       The variable {\tt varTwo} is not visible at line 9 because it
-      was declared inside the \mintinline{cpp}|if| block.  So it is
+      was declared inside the \cpp{if} block.  So it is
       no longer defined after line 8 when that block ends.
-    \end{solution}
+    \end{answer}
 
 \newpage
 
-  \item The {\it scope} of a variable is the area of the program in
+  \Q The {\it scope} of a variable is the area of the program in
     which the variable is valid. Variables that have a limited scope
     are called {\it local variables} (unlike global variables, which
     can be accessed anywhere).  In the code in this model:
@@ -87,14 +87,14 @@ model2.cpp:9:11: note: suggested alternative: ‘varOne’
     \end{itemize}
     Based on this information, describe how to find the scope of a
     local variable.
-    \begin{solution}[0.5in]
+    \begin{answer}[0.5in]
       The scope of a local variable extends from the line on which it
       is defined to the end of the block (code in curly-braces) in
       which it was defined.
-    \end{solution}
+    \end{answer}
     \vskip -40pt\null
     
-  \item The program below defines six different variables different
+  \Q The program below defines six different variables different
     variables.  Answer the following \key\\[-2.5mm] questions about this code, which can be
     found in {\tt activity14b.cpp}.
     
@@ -102,7 +102,7 @@ model2.cpp:9:11: note: suggested alternative: ‘varOne’
       \begin{tabular}{p{2.9in}p{2.9in}}
         \begin{minipage}{2.9in}
           \small
-          \begin{minted}[
+          \begin{cprlst}[
             frame=lines,
             framesep=2mm,
             bgcolor=gray!15,
@@ -129,7 +129,7 @@ int main() {
   }
   cout << "Value: " << /* OUTPUT 4 */;
 }
-          \end{minted}
+          \end{cprlst}
         \end{minipage}
         &
         \begin{minipage}{2.9in}
@@ -137,18 +137,18 @@ int main() {
             \item What is the scope of each variable?\par\vskip 15pt
               \begin{enumerate}[i.]
                 \itemsep 15pt
-                \item \mintinline{cpp}|int a| -- Lines \fillin[4][0.5in] to \fillin[22][0.5in]
-                \item \mintinline{cpp}|int b| -- Lines \fillin[6][0.5in] to \fillin[9][0.5in]
-                \item \mintinline{cpp}|int c| -- Lines \fillin[7][0.5in] to \fillin[9][0.5in]
-                \item \mintinline{cpp}|int d| -- Lines \fillin[12][0.5in] to \fillin[22][0.5in]
-                \item \mintinline{cpp}|int e| -- Lines \fillin[14][0.5in] to \fillin[20][0.5in]
-                \item \mintinline{cpp}|int f| -- Lines \fillin[16][0.5in] to \fillin[18][0.5in]
+                \item \cpp{int a} -- Lines \ans[0.5in]{4} to \ans[0.5in]{22}
+                \item \cpp{int b} -- Lines \ans[0.5in]{6} to \ans[0.5in]{9}
+                \item \cpp{int c} -- Lines \ans[0.5in]{7} to \ans[0.5in]{9}
+                \item \cpp{int d} -- Lines \ans[0.5in]{12} to \ans[0.5in]{22}
+                \item \cpp{int e} -- Lines \ans[0.5in]{14} to \ans[0.5in]{0}
+                \item \cpp{int f} -- Lines \ans[0.5in]{16} to \ans[0.5in]{18}
               \end{enumerate}
               \vskip 5pt\null
             \item Identify all global variables.
-              \begin{solution}[0.5in]
+              \begin{answer}[0.5in]
                 Only {\tt a} is a global variable.
-              \end{solution}
+              \end{answer}
           \end{enumerate}
         \end{minipage}
       \end{tabular}
@@ -157,22 +157,22 @@ int main() {
     \begin{enumerate}[(a)]
       \setcounter{enumii}{2}
       
-      \item What variables could be used in place of each \mintinline{cpp}|/* OUTPUT */|
+      \item What variables could be used in place of each \cpp{/* OUTPUT */}
         comment without causing a compiler error?  List all variables that would work.
         \par\vskip 15pt
         \begin{enumerate}[i.]
           \itemsep 15pt
           \begin{multicols}{2}
-            \item \mintinline{cpp}|/* OUTPUT 1 */| \hfill \fillin[\tt a, b, c][1.5in]
-            \item \mintinline{cpp}|/* OUTPUT 2 */| \hfill \fillin[\tt a, d, e, f][1.5in]
-            \item \mintinline{cpp}|/* OUTPUT 3 */| \hfill \fillin[\tt a, d, e][1.5in]
-            \item \mintinline{cpp}|/* OUTPUT 4 */| \hfill \fillin[\tt a, d][1.5in]
+            \item \cpp{/* OUTPUT 1 */} \hfill \ans[1.5in]{\tt a, b, c}
+            \item \cpp{/* OUTPUT 2 */} \hfill \ans[1.5in]{\tt a, d, e, f}
+            \item \cpp{/* OUTPUT 3 */} \hfill \ans[1.5in]{\tt a, d, e}
+            \item \cpp{/* OUTPUT 4 */} \hfill \ans[1.5in]{\tt a, d}
           \end{multicols}
         \end{enumerate}
     \end{enumerate}
     
-    \item Why is it important to be aware of the scope of a variable?
-      \begin{solution}[0.5in]
+    \Q Why is it important to be aware of the scope of a variable?
+      \begin{answer}[0.5in]
         Because you can only access that variable within its scope.  So a programmer needs to
         know what that scope will be.
-      \end{solution}
+      \end{answer}

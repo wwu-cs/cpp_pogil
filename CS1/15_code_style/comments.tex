@@ -1,4 +1,4 @@
-{\bf\large Model 3: Comments} \\[-20pt]
+\model{Comments} \\
   \begin{center}
     \renewcommand{\arraystretch}{1.3}
     \begin{tabular}{|p{3in}|p{3in}|}
@@ -9,7 +9,7 @@
       \hline
       \begin{minipage}{3in}
         \scriptsize
-        \begin{minted}[
+        \begin{cprlst}[
           frame=lines,
           framesep=2mm,
           bgcolor=gray!15,
@@ -28,12 +28,12 @@ double subCost = getSubCost(numCD, costCD) +
 double subShip = getSubShip(numCD, getShip("CD"));
 // call getTax()
 double total   = subCost + subShip + getTax(subCost);        
-        \end{minted}
+        \end{cprlst}
       \end{minipage}
       &
       \begin{minipage}{3in}
         \scriptsize
-        \begin{minted}[
+        \begin{cprlst}[
           frame=lines,
           framesep=2mm,
           bgcolor=gray!15,
@@ -51,7 +51,7 @@ double subCost = getSubCost(numCD, costCD) +
 // add in shipping and tax to get grand total                 
 double subShip = getSubShip(numCD, getShip("CD"));
 double total   = subCost + subShip + getTax(subCost);        
-        \end{minted} 
+        \end{cprlst} 
         \par\vskip 3pt\null
       \end{minipage}
       \\
@@ -66,31 +66,31 @@ double total   = subCost + subShip + getTax(subCost);
 
 \newpage         
 
-  \item Determine which code block above ($X$ or $Y$) matches the
+  \Q Determine which code block above ($X$ or $Y$) matches the
     description below.
     \par\vskip 15pt
     
     \begin{enumerate}[(a)]
       \itemsep 15pt
-      \item Has the most lines with comments: \hfill \fillin[$X$][1in]
-      \item Has comments that explain how and why the code works: \hfill \fillin[$Y$][1in]
-      \item Has comments that could be generated automatically by a computer program: \hfill \fillin[$X$][1in]
+      \item Has the most lines with comments: \hfill \ans[1in]{$X$}
+      \item Has comments that explain how and why the code works: \hfill \ans[1in]{$Y$}
+      \item Has comments that could be generated automatically by a computer program: \hfill \ans[1in]{$X$}
     \end{enumerate}
     
-    \item Based on your observations above, describe what you think is good style for comments.
-      \begin{solution}[1in]
+    \Q Based on your observations above, describe what you think is good style for comments.
+      \begin{answer}[1in]
         \par
         Comments should describe what the task being performed in the related lines of code
         actually is.  They should not use the same names and/or jargon that is used in the code.
-      \end{solution}
+      \end{answer}
       
-    \item Use your observations to suggest good comments for the two comment lines in the code
+    \Q Use your observations to suggest good comments for the two comment lines in the code
       below.
       \begin{center}
         \begin{tabular}{p{3in}p{3in}}
           \begin{minipage}{3in}
             \small
-            \begin{minted}[
+            \begin{cprlst}[
               frame=lines,
               framesep=2mm,
               bgcolor=gray!15,
@@ -109,27 +109,27 @@ int getRange (vector<int> valList) {
   }
   return (min - max);
 }
-            \end{minted}
+            \end{cprlst}
           \end{minipage}
           &
           \begin{minipage}{3in}
             \begin{enumerate}[(a)]
-              \item \mintinline{cpp}|/* COMMENT A */|
-                \begin{solution}[1in]
+              \item \cpp{/* COMMENT A */}
+                \begin{answer}[1in]
                   \par
                   Default minimum and maximum are first value in the vector
-                \end{solution}
-              \item \mintinline{cpp}|/* COMMENT B */|
-                \begin{solution}[1in]
+                \end{answer}
+              \item \cpp{/* COMMENT B */}
+                \begin{answer}[1in]
                   \par
                   Search through vector looking for smaller and/or larger values
-                \end{solution}
+                \end{answer}
             \end{enumerate}
           \end{minipage}
         \end{tabular}
       \end{center}
 
-    \item Good programming style is important not just for naming variables and functions or
+    \Q Good programming style is important not just for naming variables and functions or
       making comments.  It is also important in other coding practices.  For each
       pair of practices below, decide in which case it would be easier to find and fix any
       errors. Enter $X$, $Y$, or ? (if you think they are equally good).
@@ -141,27 +141,27 @@ int getRange (vector<int> valList) {
         \hline
         (a) & 10 existing lines of code (LoC)
             & 100 existing LoC
-            & \fillin[$X$][0.5in] \\
+            & \ans[0.5in]{$X$} \\
         \hline
         (b) & 100 new LoC
             & 90 working LoC plus 10 new LoC
-            & \fillin[$Y$][0.5in] \\
+            & \ans[0.5in]{$Y$} \\
         \hline
         (c) & 1000 new LoC
             & 900 working LoC plus 100 new LoC
-            & \fillin[$Y$][0.5in] \\
+            & \ans[0.5in]{$Y$} \\
         \hline
         (d) & 1000 working LoC plus 10 new LoC
             & 500 working LoC plus 100 new LoC
-            & \fillin[$X$][0.5in] \\
+            & \ans[0.5in]{$X$} \\
         \hline
         (e) & 1000 LoC all in one function
             & 1000 LoC split across 20 functions
-            & \fillin[$Y$][0.5in] \\
+            & \ans[0.5in]{$Y$} \\
         \hline
-        (f) & 100 LoC with 10 \mintinline{cpp}|if-else| blocks
-            & 100 LoC with 5 \mintinline{cpp}|if-else| blocks
-            & \fillin[?][0.5in] \\
+        (f) & 100 LoC with 10 \cpp{if-else} blocks
+            & 100 LoC with 5 \cpp{if-else} blocks
+            & \ans[0.5in]{?} \\
         \hline
       \end{tabular}}
       
@@ -172,12 +172,12 @@ int getRange (vector<int> valList) {
         \hline
         (g) & 100 LoC with four independent loops
             & 100 LoC two pairs of nested loops
-            & \fillin[$X$][0.5in] \\
+            & \ans[0.5in]{$X$} \\
         \hline
         (h) &
           \begin{minipage}{2in}
             \small
-            \begin{minted}[
+            \begin{cprlst}[
               frame=none,
               bgcolor=white,
             ]{cpp}
@@ -195,12 +195,12 @@ if (...) {
     ...
   }
 }
-            \end{minted} 
+            \end{cprlst} 
           \end{minipage}
           & 
           \begin{minipage}{2in}
             \small
-            \begin{minted}[
+            \begin{cprlst}[
               frame=none,
               bgcolor=white,
             ]{cpp}
@@ -214,16 +214,16 @@ if (...) {
 } else if (...) {
   ...
 }
-            \end{minted}
+            \end{cprlst}
             \par\vskip 35pt\null
           \end{minipage}
           &
-          \fillin[$X$][0.5in] \\
+          \ans[0.5in]{$X$} \\
         \hline
         (h) &
           \begin{minipage}{2in}
             \small
-            \begin{minted}[
+            \begin{cprlst}[
               frame=none,
               bgcolor=white,
             ]{cpp}
@@ -235,13 +235,13 @@ for(int i=0; i<n; i++) {
     ...
   }
 }
-            \end{minted}
+            \end{cprlst}
             \par\vskip 10pt\null
           \end{minipage}
           & 
           \begin{minipage}{2in}
             \small
-            \begin{minted}[
+            \begin{cprlst}[
               frame=none,
               bgcolor=white,
             ]{cpp}
@@ -255,41 +255,41 @@ if (...) {
     ...
   }
 }
-            \end{minted}
+            \end{cprlst}
           \end{minipage}
           &
-          \fillin[$X$][0.5in] \\
+          \ans[0.5in]{$X$} \\
         \hline
       \end{tabular}}
       \par\vskip -30pt\null
 
-    \item Based on your answers, summarize advice for good practices in writing and
+    \Q Based on your answers, summarize advice for good practices in writing and
       debugging code.\hspace{5pt}\key\\[-2.5mm]
-      \ifprintanswers\vskip -20pt\null\fi
-      \begin{solution}[1in]
+      % \ifprintanswers\vskip -20pt\null\fi
+      \begin{answer}[1in]
         \begin{itemize}
           \itemsep 0pt
           \item You should write code in small chunks, testing after each chunk
           \item You should break your code up into functions that accomplish a single task
-          \item You should streamline \mintinline{cpp}|if-else| statements and loops to avoid
+          \item You should streamline \cpp{if-else} statements and loops to avoid
             nesting if possible
           \item If you must nest, you should try to avoid repeated blocks (i.e. the same
-            \mintinline{cpp}|for| loop in two different parts of an \mintinline{cpp}|if| statement)
+            \cpp{for} loop in two different parts of an \cpp{if} statement)
         \end{itemize}
-      \end{solution}
-      \ifprintanswers\vskip -35pt\null\fi
+      \end{answer}
+      % \ifprintanswers\vskip -35pt\null\fi
       
-    \item Individually, think of a time that it was difficult for you to write or debug a
+    \Q Individually, think of a time that it was difficult for you to write or debug a
       program.  How could the advice above have helped you?
-      \begin{solution}[0.5in]
+      \begin{answer}[0.5in]
         Answers will vary
         \par\vskip 0.75in
-      \end{solution}
-      \ifprintanswers\vskip -35pt\null\fi
+      \end{answer}
+      % \ifprintanswers\vskip -35pt\null\fi
       
-    \item Share your answers to the previous question with your group and summarize any
+    \Q Share your answers to the previous question with your group and summarize any
       insights below.
-      \begin{solution}[0.5in]
+      \begin{answer}[0.5in]
         Answers will vary
         \par\vskip 0.75in
-      \end{solution}
+      \end{answer}

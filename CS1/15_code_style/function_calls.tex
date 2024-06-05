@@ -1,4 +1,4 @@
- {\bf\large Model 2: Function Calls} \\[-20pt]
+\model{Function Calls} \\
   \begin{center}
     \renewcommand{\arraystretch}{1.3}
     \begin{tabular}{|p{3in}|p{3in}|}
@@ -9,7 +9,7 @@
       \hline
       \begin{minipage}{3in}
         \scriptsize
-        \begin{minted}[
+        \begin{cprlst}[
           frame=lines,
           framesep=2mm,
           bgcolor=gray!15,
@@ -19,13 +19,13 @@ int i1 = f1("c"); int i2 = f2("m");
 int c1 = f3("c"); int c2 = f4("m");
 int s1 = g1(i1,c1)+g1(i2*c2); 
 int t1 = s1 + h1(s1) + h2(i1,f5("c"));
-        \end{minted}
+        \end{cprlst}
         \vskip 30pt\null
       \end{minipage}
       &
       \begin{minipage}{3in}
         \scriptsize
-        \begin{minted}[
+        \begin{cprlst}[
           frame=lines,
           framesep=2mm,
           bgcolor=gray!15,
@@ -39,7 +39,7 @@ double subCost = getSubCost(numCD, costCD) +
                  getSubCost(numMP3, costMP3);
 double subShip = getSubShip(numCD, getShip("CD"));
 double total   = subCost + subShip + getTax(subCost);
-        \end{minted} 
+        \end{cprlst} 
       \end{minipage}
       \\
       \hline
@@ -51,20 +51,20 @@ double total   = subCost + subShip + getTax(subCost);
     to the questions below.}
     \par\vskip -20pt\null
 
-  \item Determine which code block above ($X$ or $Y$) matches the
+  \Q Determine which code block above ($X$ or $Y$) matches the
     description below.
     \par\vskip 15pt
     
     \begin{enumerate}[(a)]
       \itemsep 15pt
-      \item Is shorter and would take less time to type: \hfill \fillin[$X$][1in] \hspace{1in}\null
-      \item Declares more variables: \hfill \fillin[$Y$][1in] \hspace{1in}\null
-      \item Would be easier to update or debug if a problem is found: \hfill \fillin[$Y$][1in] \hspace{1in}\null
+      \item Is shorter and would take less time to type: \hfill \ans[1in]{$X$} \hspace{1in}\null
+      \item Declares more variables: \hfill \ans[1in]{$Y$} \hspace{1in}\null
+      \item Would be easier to update or debug if a problem is found: \hfill \ans[1in]{$Y$} \hspace{1in}\null
     \end{enumerate}
 
 \newpage
 
-    \item Each pair of code blocks below is syntactically and
+    \Q Each pair of code blocks below is syntactically and
       semantically equivalent.  Decide which one is better based only
       on the style.  Enter $X$, $Y$, or ? (if you think they are
       equally good).
@@ -75,54 +75,54 @@ double total   = subCost + subShip + getTax(subCost);
         \rowcolor{orange!20} & Block $X$ & Block $Y$ & Choice \\
         \hline
         (a) & 
-          \mintinline{cpp}|tree(pic,x,y);|
+          \cpp{tree(pic,x,y);}
           & 
-          \mintinline{cpp}|drawTree(pic,x,y);|
+          \cpp{drawTree(pic,x,y);}
           & 
-          \fillin[$Y$][0.5in] \\
+          \ans[0.5in]{$Y$} \\
         \hline
         (b) &
-          \mintinline{cpp}|checkSize(a);|
+          \cpp{checkSize(a);}
           & 
-          \mintinline{cpp}|hasValidSize(a);|
+          \cpp{hasValidSize(a);}
           & 
-          \fillin[$Y$][0.5in] \\
+          \ans[0.5in]{$Y$} \\
         \hline
         (c) &
           \begin{minipage}{2in}
             \par\vskip 10pt
-            \mintinline{cpp}|getCostToShip(item,num);|\\
-            \mintinline{cpp}|getCostOfTax (item,num);|\\
+            \cpp{getCostToShip(item,num);}\\
+            \cpp{getCostOfTax (item,num);}\\
           \end{minipage}
           & 
           \begin{minipage}{2in}
             \par\vskip 10pt
-            \mintinline{cpp}|getShipCost (num,item);|\\
-            \mintinline{cpp}|getCostOfTax(item,num);|\\
+            \cpp{getShipCost (num,item);}\\
+            \cpp{getCostOfTax(item,num);}\\
           \end{minipage}
           & 
-          \fillin[$X$][0.5in] \\
+          \ans[0.5in]{$X$} \\
         \hline
       \end{tabular}}
       
-  \item Determine which type of C++ programming concept, a {\bf variable} or a {\bf function},
+  \Q Determine which type of C++ programming concept, a {\bf variable} or a {\bf function},
     best matches each description below.
     \par\vskip 15pt
     
     \begin{enumerate}[(a)]
       \itemsep 15pt
-      \item Is used to represent information \hfill \fillin[variable][2in]
-      \item Is used to represent an action or a set of steps \hfill \fillin[function][2in]
-      \item Should be named with a verb or a verb phrase \hfill \fillin[function][2in]
-      \item Should be named with a noun or a noun phrase \hfill \fillin[variable][2in]
+      \item Is used to represent information \hfill \ans[2in][variable]
+      \item Is used to represent an action or a set of steps \hfill \ans[2in]{function}
+      \item Should be named with a verb or a verb phrase \hfill \ans[2in]{function}
+      \item Should be named with a noun or a noun phrase \hfill \ans[2in]{variable}
     \end{enumerate}
     \vskip -30pt\null
     
-  \item Based on the above, what do you think is good style for naming
+  \Q Based on the above, what do you think is good style for naming
     and calling functions?\key\\[-2.5mm]
-    \begin{solution}[1in]
+    \begin{answer}[1in]
       \par
       Functions should be named using verbs.  Their parameter lists should be consistent (i.e. two
       functions with the same parameters should use the same order).  Their names should be
       descriptive of what they actually do.
-    \end{solution}
+    \end{answer}
