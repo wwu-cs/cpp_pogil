@@ -1,9 +1,9 @@
-{\bf\large Model 3: Redirecting Output to a File} \\[-20pt]
+\model{Redirecting Output to a File} \\
   \begin{center}
     \begin{tabular}{p{2.8in}p{0.1in}p{2.7in}}
       \begin{minipage}{2.8in}
         \small
-        \begin{minted}[
+        \begin{cprls}[
           frame=lines,
           framesep=2mm,
           bgcolor=gray!15,
@@ -15,12 +15,12 @@ for (int i = 1; i <= 5; i++) {
   cout << "Number: " << i << endl;
 }
 cerr << "Done!" << endl;
-        \end{minted}
+        \end{cprls}
       \end{minipage}
       & &
       \begin{minipage}{2.7in}
         \centering\tt terminal commands\vskip -5pt
-        \begin{minted}[
+        \begin{cprls}[
           frame=lines,
           framesep=2mm,
           bgcolor=gray!15,
@@ -28,7 +28,7 @@ cerr << "Done!" << endl;
         ]{bash}
 g++ activity18c.cpp -o test.o
 ./test.o > output.txt 2> error.txt
-        \end{minted}        
+        \end{cprls}        
       \end{minipage}
     \end{tabular} 
   \end{center}  
@@ -37,34 +37,34 @@ g++ activity18c.cpp -o test.o
       
   {\it\large Refer to Model 3 above as your team develops consensus answers
     to the questions below.}
-    \ifprintanswers\vskip -20pt\null\fi          
+    % \ifprintanswers\vskip -20pt\null\fi          
 
-    \item The file {\tt activity17c.cpp} contains the code shown on the left-hand side of the
+    \Q The file {\tt activity17c.cpp} contains the code shown on the left-hand side of the
       model.  Run this program as you normally would and describe its
       output.
-      \ifprintanswers\vskip -20pt\null\fi
-      \begin{solution}[0.75in]
+      % \ifprintanswers\vskip -20pt\null\fi
+      \begin{answer}[0.75in]
         The program outputs ``Number: 1'' through ``Number: 5'' and
         then outputs ``Done!''.
-      \end{solution}
-      \ifprintanswers\vskip -35pt\null\fi
+      \end{answer}
+      % \ifprintanswers\vskip -35pt\null\fi
       
-    \item Now open a terminal in this same folder (right click on the folder name and pick {\it
+    \Q Now open a terminal in this same folder (right click on the folder name and pick {\it
       Open in Terminal}) and type in the commands shown in the model, pressing {\tt Enter} after each line.
       \par\vskip 15pt
       
       \begin{enumerate}[(a)]
         \itemsep 15pt
-        \item What is output to the screen? \hfill\fillin[nothing][2.5in]
+        \item What is output to the screen? \hfill\ans[2.5in]{nothing}
         \item What new files now appear in the folder?
-          \hfill\fillin[{\tt output.txt} and {\tt error.txt}][2.5in]
+          \hfill\ans[2.5in]{{\tt output.txt} and {\tt error.txt}}
         \item Which file contains the output from {\tt cout}?
-          \hfill\fillin[{\tt output.txt}][2.5in]
+          \hfill\ans[2.5in]{{\tt output.txt}}
         \item Which file contains the output from {\tt cerr}?
-          \hfill\fillin[{\tt error.txt}][2.5in]
+          \hfill\ans[2.5in]{{\tt error.txt}}
       \end{enumerate}
 
-    \item Recall that the command {\tt ./program.o < input.txt} {\it
+    \Q Recall that the command {\tt ./program.o < input.txt} {\it
       redirects} the contents of the {\tt input.txt} file to the
       program as if it were entered from the keyboard.  The command
       above redirects the program output to various files.
@@ -74,22 +74,22 @@ g++ activity18c.cpp -o test.o
         \itemsep 15pt
         \item What part of the second terminal command redirects the
           output set to {\tt cout} to a file?
-          \begin{solution}[0.5in]
+          \begin{answer}[0.5in]
             The part {\tt > output.txt}
-          \end{solution}
+          \end{answer}
         \item What par tof the command redirects the output sent to
           {\tt cerr} to a file?
-          \begin{solution}[0.5in]
+          \begin{answer}[0.5in]
             The part {\tt 2> error.txt}
-          \end{solution}
+          \end{answer}
       \end{enumerate}
       \par\vskip -25pt\null
             
-    \item Pick a previous homework assignment that produces output.
+    \Q Pick a previous homework assignment that produces output.
       Open a terminal in that folder, \key\\[-2.5mm] compile the program, and save
       the output to a file.  Recall that we have not used {\tt cerr} 
       previously, so you only need to direct the output from {\tt cout}.
       What command did you use?
-      \begin{solution}[0.5in]
+      \begin{answer}[0.5in]
         {\tt ./program.o > output.txt}
-      \end{solution}
+      \end{answer}
