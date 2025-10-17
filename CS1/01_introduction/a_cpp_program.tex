@@ -1,20 +1,14 @@
 \model{A C++ Program}
   \begin{center}
     \begin{minipage}{3.5in}
-      \begin{cprlst}[
-        frame=lines,
-        framesep=2mm,
-        bgcolor=gray!15,
-        baselinestretch=1.2,
-        linenos
-      ]{cpp}
+      \begin{cpplst}
 #include <iostream>
 using namespace std;
 
 int main() {
-  cout << "Go!$\backslash$n";
+  cout << "Go!\n";
 }      
-      \end{cprlst}
+      \end{cpplst}
     \end{minipage}
   \end{center}
   \par\vskip 10pt
@@ -22,18 +16,16 @@ int main() {
   {\it\large Refer to Model 1 above as your group develops consensus answers
     to the questions below.}
     \par\vskip 10pt
+
+    \quest{10 min}
     
-  \begin{enumerate}
-    \itemsep 20pt
-    
-    \item The file {\tt activity01a.cpp} contains this C++ program. Run it and determine what it does.
-      \begin{answer}[0.5in]
+    \Q The file {\tt activity01a.cpp} contains this C++ program. Run it and determine what it does.
+      \begin{answer}[1in]
         It prints out the text {\it Go!}
       \end{answer}
       
-    \Q Replace line 5 with each of the following.  What is produced?  Indicate if
-      there is a problem.\par\vskip 20pt      
-      \begin{enumerate}[(a)]
+    \Q Replace line 5 with each of the following.  What is produced? Indicate if there is a problem.\par\vskip 20pt
+      \begin{enumerate}[label=(\alph*)]
         \itemsep 10pt
         \item {\tt cout << "Hello, my name is Jon";} \hfill
           \ans[3in]{It prints {\it Hello, my name is Jon}}
@@ -42,8 +34,6 @@ int main() {
         \item {\tt cout << "Hello,$\backslash$nmy name is Jon";} \hfill
           \ans[3in]{Same as (a), but with a line break}
       \end{enumerate}
-      
-\newpage      
       
     \Q A {\it string literal} is a sequence of characters surrounded by double
       quotation marks (" ").  Use this term to describe the difference between part (a)
@@ -61,7 +51,7 @@ int main() {
 
     \Q What do you think the following C++ statements output?\key\\[-2.5mm]
       \par\vskip 20pt
-      \begin{enumerate}[(a)]
+      \begin{enumerate}[label=(\alph*)]
         \itemsep 10pt
         \item {\tt cout << 2+5;} \hfill
           \ans[2.5in]{It prints {\it 7}}
@@ -74,7 +64,7 @@ int main() {
       \end{enumerate}
               
     \Q With reference to the output for each statement in question 5,
-      \begin{enumerate}[(a)]
+      \begin{enumerate}[label=(\alph*)]
         \itemsep 10pt
         \item What is the difference in the output for statements (a) and (c)?
           \begin{answer}[1in]
@@ -97,7 +87,5 @@ int main() {
             It does not add any extra space between the two items.
           \end{answer}
       \end{enumerate}
-      
-  \end{enumerate}
 
   \newpage

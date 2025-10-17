@@ -1,13 +1,7 @@
   \model{Collecting Input}
   \begin{center}
     \begin{minipage}{3.5in}
-      \begin{cprlst}[
-        frame=lines,
-        framesep=2mm,
-        bgcolor=gray!15,
-        baselinestretch=1.2,
-        linenos
-      ]{cpp}
+      \begin{cpplst}
 #include <iostream>
 #include <string>
 using namespace std;
@@ -18,7 +12,7 @@ int main() {
   cin >> name;
   cout << "Your name is " << name;
 }      
-      \end{cprlst}
+      \end{cpplst}
     \end{minipage}
   \end{center}
   \par\vskip 10pt
@@ -27,10 +21,9 @@ int main() {
     to the questions below.}
     \par\vskip 10pt
 
-  \begin{enumerate}
-    \itemsep 10pt
-    \setcounter{enumi}{9}
-    \item You will find this code in the file {\tt activity01c.cpp}.  Execute it and
+    \quest{30 min}
+
+    \Q You will find this code in the file {\tt activity01c.cpp}.  Execute it and
       determine what the program does.
       \begin{answer}[1in]
         It prompts the user for their name, for example ``Jon'', and then prints out {\it
@@ -52,8 +45,9 @@ int main() {
 
     \Q Suppose you wished to also store the users age.  Explain the errors that occur
       when you attempt to create the following {\it integer} (int) variables to this
-      program.\par\vskip 15pt
-      \begin{enumerate}[(a)]
+      program.
+      \par\vskip 15pt
+      \begin{enumerate}[label=(\alph*)]
         \itemsep 15pt
         \item \cpp{int age?;} \hfill 
           \ans[4.5in]{not a valid variable name (no questionmarks allowed)}
@@ -67,10 +61,8 @@ int main() {
           \ans[4.5in]{not a valid variable name (no periods allowed)}
       \end{enumerate}
       
-\newpage      
-      
     \Q The following are valid variable names for age.  Based on this list, and
-      the errors you \key\\[-2.5mm] found above, write two rules that valid variable names must
+      the errors \key\\[-2.5mm] you found above, write two rules that valid variable names must
       follow in C++.
       \begin{center}
         \tt
@@ -79,7 +71,7 @@ int main() {
         myAge \hspace{10pt}
         the\_age 
       \end{center}
-      \begin{answer}[1in]
+      \begin{answer}[0.7in]
         \begin{itemize}
           \item May contain only characters a-z, a-Z, 0-9, and \_
           \item Must start with a letter or \_
@@ -89,22 +81,20 @@ int main() {
     \Q Suppose you need a variable to store the cost of an item.  The following names
       are suggested.  Are they valid?  Are they good choices?
       \par\vskip 15pt
-      \begin{enumerate}[(a)]
+      \begin{enumerate}[label=(\alph*)]
         \itemsep 15pt
         \item {\tt price} \hfill \ans[4.5in]{yes to both}
         \item {\tt priceoftheitem} \hfill \ans[4.5in]{valid, probably to long}
         \item {\tt x} \hfill \ans[4.5in]{valid but not meaningful}
         \item {\tt itemPrice} \hfill \ans[4.5in]{yes to both}
       \end{enumerate}
-      \par\vskip 15pt
       
     \Q Modify the C++ program found in {\tt activity01c.cpp} so that it prompts
       the user for two integers and then prints out the sum of those two integers
       as shown in the example output below.  Use meaningful variable names and 
       comments in your code.
-      
-      \begin{textblock*}{3.5in}[-0.5,0](0in,0.25in)
-        \textblockcolor{white}
+      \par\vskip 10pt
+      \begin{center}
         \begin{minipage}{3.3in}
           {\bf Output:} 
           \hrule\vskip 5pt
@@ -112,12 +102,10 @@ int main() {
           Enter second number: 12\\
           7 + 12 = 19
         \end{minipage}
-      \end{textblock*}
+      \end{center}
       
-      \par\vskip 1in
+      \par\vskip 10pt
       \begin{answer}
         Answers will vary.
       \end{answer}
-
-  \end{enumerate}
   
