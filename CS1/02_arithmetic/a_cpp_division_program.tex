@@ -1,13 +1,6 @@
-\model{C++ Division Program} \\
-  \begin{center}
-    \begin{minipage}{5.5in}
-      \begin{cprlst}[
-        frame=lines,
-        framesep=2mm,
-        bgcolor=gray!15,
-        baselinestretch=1.2,
-        linenos
-      ]{cpp}
+\model{C++ Division Program}
+  \begin{minipage}[t]{0.5\textwidth}
+    \begin{cpplst}
 #include <iostream>
 using namespace std;
 
@@ -20,25 +13,23 @@ int main() {
   cin >> b;
   cout << "Quotient: " << a << "/" << b << " = " << (a/b) << endl;
 }      
-      \end{cprlst}
+      \end{cpplst}
     \end{minipage}
-  \end{center}
-  \TPMargin{5pt}
-  \begin{textblock*}{2.1in}[0,0](4.25in,-2.5in)
-    \textblockcolor{white}
-    \begin{minipage}{1.8in}
-    {\bf Example Output:} 
-    \hrule\vskip 5pt
-      First number: 10 \\
-      Second number: 2.5 \\
-      Quotient: 10/2.5 = 4
+    \hfill
+    \begin{minipage}[t]{0.4\textwidth}
+      {\bf Example Output:} 
+      \hrule\vskip 5pt
+        First number: 10 \\
+        Second number: 2.5 \\
+        Quotient: 10/2.5 = 4
     \end{minipage}
-  \end{textblock*}
-  \par\vskip 10pt
+  \par\vskip -5pt
   
   {\it\large Refer to Model 3 above as your group develops consensus answers
     to the questions below.}
     \par\vskip 10pt
+
+    \quest{20 min}
     
       \Q This program can be found in {\tt activity02c.cpp}.  Run it several times with the
         following inputs and write down the resulting output.\par\vskip 10pt
@@ -93,7 +84,7 @@ int main() {
             
         \end{enumerate}
         
-      \Q Write a conjecture as to when the division operation in C++ will return decimals and\key\\[-2.5mm]
+      \Q Write a conjecture as to when the division operation in C++ will return decimals\key\\[-2.5mm] and
         when it will only return an integer.  Use the phrase {\it floating point} in your answer.
         \begin{answer}[0.5in]
           It will return decimals if one or both of the values involved is a floating point
