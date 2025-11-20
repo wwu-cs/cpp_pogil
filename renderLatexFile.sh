@@ -11,8 +11,8 @@ else
   fi
 fi
 
-echo "Generating $1.pdf"
-echo "\n\n============ Generating $1.pdf =============\n\n" >> generator.log
+# echo "Generating $1.pdf"
+# echo "\n\n============ Generating $1.pdf =============\n\n" >> generator.log
 
 fbase=$(basename -- "$1");
 fname="${fbase%.*}"
