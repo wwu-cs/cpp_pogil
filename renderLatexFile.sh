@@ -18,8 +18,7 @@ fbase=$(basename -- "$1");
 fname="${fbase%.*}"
 
 # generate the pdf file
-pdflatex --shell-escape -synctex=1 -interaction=nonstopmode $1.tex >> generator.log
-pdflatex --shell-escape -synctex=1 -interaction=nonstopmode $1.tex >> generator.log
+pdflatex --shell-escape -synctex=1 -interaction=nonstopmode "$1".tex >> generator.log
 
 # clean up
 rm -f "${fname}".aux "${fname}".fdb_latexmk "${fname}".fls "${fname}".log "${fname}".nav "${fname}".out "${fname}".snm "${fname}".synctex.gz "${fname}".toc

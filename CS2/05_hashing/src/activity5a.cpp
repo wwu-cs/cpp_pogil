@@ -19,7 +19,7 @@ unsigned int hash(std::string key) {
  * usage: h string (table size)
  */
 int main(int argc, char *argv[]) {
-  unsigned int modNum = 100;  // default hash table size
+  unsigned int modNum = 100; // default hash table size
   if (argc == 2) {
     // hash with default table size
   } else if (argc == 3) {
