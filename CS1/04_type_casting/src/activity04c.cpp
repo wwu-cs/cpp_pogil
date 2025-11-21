@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
   // declare variables
-  double floatOne,floatTwo;
+  double floatOne, floatTwo;
   int integer = 35;
   // part I
   floatOne = integer;

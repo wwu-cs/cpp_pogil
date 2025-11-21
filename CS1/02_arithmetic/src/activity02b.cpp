@@ -10,4 +10,4 @@ int main() {
   cout << "Second number: ";
   cin >> b;
   cout << "Quotient: " << a << "/" << b << " = " << (a / b) << endl;
-}  
+}
