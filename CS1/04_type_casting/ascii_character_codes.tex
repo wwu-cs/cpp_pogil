@@ -2,7 +2,7 @@
   The American Standard Code for Information Interchange is a system that assigns a numeric value to various characters.  A
   selection of assignments from that system is shown below.
   
-    \begin{center}
+  \begin{center}
     \footnotesize\renewcommand{\arraystretch}{1.2}
     \begin{tabular}{|c|c||c|c||c|c||c|c||c|c||c|c|}
       \hline
@@ -26,73 +26,76 @@
         47 & /       & 63 & ? & 79 & O & 95 & \_ & 110 & o & 127 & \\
         \hline
     \end{tabular}
-    \end{center}
+  \end{center}
 
   {\it\large Refer to Model 2 above as your team develops consensus answers
     to the questions below.}
-    \par\vskip 10pt
+  \par\vskip 10pt
 
-    \quest{15 min}
+  \quest{15 min}
 
-    \Q Determine the numeric value associated with each character below in the ASCII system.
-      \begin{enumerate}[(a)]
-        \itemsep 10pt
-        \begin{multicols}{2}
-          \item capital A   \hspace{7pt}  \ans[1.5in]{65}
-          \item lowercase f \hspace{1pt}  \ans[1.5in]{102}
-          \item capital Z   \hspace{8pt}  \ans[1.5in]{90}
-          \item number 0    \hspace{34pt} \ans[1.5in]{48}
-          \item open square bracket       \ans[1.35in]{91}
-          \item plus sign   \hspace{38pt} \ans[1.5in]{43}
-        \end{multicols}
-      \end{enumerate}
-      
-    \Q Based on your work in model 1, how many distinct characters can be stored in a C++ {\tt char} variable?
-      \begin{answer}[0.5in]
-        A {\tt char} variable is 1 byte, so it can hold 256 different characters.
-      \end{answer}
+  \Q Determine the numeric value associated with each character below in the ASCII system.
+    \begin{enumerate}
+      \itemsep 10pt
+      \begin{multicols}{2}
+        \item capital A   \hspace{7pt}  \ans[1.5in]{65}
+        \item lowercase f \hspace{1pt}  \ans[1.5in]{102}
+        \item capital Z   \hspace{8pt}  \ans[1.5in]{90}
+        \item number 0    \hspace{34pt} \ans[1.5in]{48}
+        \item open square bracket       \ans[1.35in]{91}
+        \item plus sign   \hspace{38pt} \ans[1.5in]{43}
+      \end{multicols}
+    \end{enumerate}
     
-      \newpage
+  \Q Based on your work in model 1, how many distinct characters can be stored in a C++ {\tt char} variable?
+    \begin{answer}[0.5in]
+      A {\tt char} variable is 1 byte, so it can hold 256 different characters.
+    \end{answer}
+  
+    \newpage
+  \Q In the file {\tt activity04b.cpp} you will find two character variables and a statement that outputs
+    the ``sum'' of the two variables.
+    \par\vskip 10pt
+    
+    \begin{enumerate}
+      \item What is the output for each pair of variable values?
+        \begin{enumerate}
+          \begin{multicols}{2}
+            \item \cpp{char charOne = '(';}\\\cpp{char charTwo = ')';}\\[10pt]
+              \ans{ sum = Q }\par\vskip 20pt
+              
+            \item \cpp{char charOne = '!';}\\\cpp{char charTwo = ':';}\\[10pt]
+              \ans[2in]{ sum = [ }\par\vskip 20pt
 
-    \Q In the file {\tt activity04b.cpp} you will find two character variables and a statement that outputs
-      the ``sum'' of the two variables.
-      \par\vskip 10pt
-      
-      \begin{enumerate}[(a)]
-        \item What is the output for each pair of variable values?
-          \begin{enumerate}[i.]
-            \begin{multicols}{2}
-              \item \cpp{char charOne = '(';}\\\cpp{char charTwo = ')';}\\[10pt]
-                \ans{ sum = Q }\par\vskip 20pt
-              \item \cpp{char charOne = '!';}\\\cpp{char charTwo = ':';}\\[10pt]
-                \ans[2in]{ sum = [ }\par\vskip 20pt
-              \item \cpp{char charOne = '1';}\\\cpp{char charTwo = '4';}\\[10pt]
-                \ans[2in]{ sum = e }\par\vskip 20pt
-              \item \cpp{char charOne = '\%';}\\\cpp{char charTwo = '=';}\\[10pt]
-                \ans[2in]{ sum = b }\par\vskip 20pt
-            \end{multicols}
-          \end{enumerate}
-          
-        \item Explain how C++ calculated these answers.  Refer to the ASCII table given in the \key\\[-2.5mm] model. 
-          \begin{answer}[1in]
-            \par
-            C++ computes the answers by adding the ASCII code numbers together.  The character that is output is the character
-            that has an ASCII code that matches the sum of the two initial characters' ASCII codes.
-          \end{answer}
-      \end{enumerate}
-      
-    \Q An {\it implicit type cast} happens when C++ treats a variable of one type as if it were a variable of another type.
-      This happened in the program above.
-      \begin{enumerate}
-        \item How can you tell that an implicit type cast happen in the program above?
-          \begin{answer}[0.5in]
-            \par
-            Because the ``characters'' were added together as if they were integer values.
-          \end{answer}
-        \item Do you think the type of the variables {\tt charOne} and {\tt charTwo} actually change?
-          \begin{answer}[0.5in]
-            \par
-            No, types in C++ can not be changed.  You can verify that these variables are still characters 
-            outputting their value, which will be printed as a character, not a number.
-          \end{answer}
-      \end{enumerate}
+            \item \cpp{char charOne = '1';}\\\cpp{char charTwo = '4';}\\[10pt]
+              \ans[2in]{ sum = e }\par\vskip 20pt
+
+            \item \cpp{char charOne = '\%';}\\\cpp{char charTwo = '=';}\\[10pt]
+              \ans[2in]{ sum = b }\par\vskip 20pt
+          \end{multicols}
+        \end{enumerate}
+        
+      \item Explain how C++ calculated these answers.  Refer to the ASCII table given in the \key\\[-2.5mm] model. 
+        \begin{answer}[1in]
+          \par
+          C++ computes the answers by adding the ASCII code numbers together.  The character that is output is the character
+          that has an ASCII code that matches the sum of the two initial characters' ASCII codes.
+        \end{answer}
+    \end{enumerate}
+    
+  \Q An {\it implicit type cast} happens when C++ treats a variable of one type as if it were a variable of another type.
+    This happened in the program above.
+    \begin{enumerate}
+      \item How can you tell that an implicit type cast happen in the program above?
+        \begin{answer}[0.5in]
+          \par
+          Because the ``characters'' were added together as if they were integer values.
+        \end{answer}
+        
+      \item Do you think the type of the variables {\tt charOne} and {\tt charTwo} actually change?
+        \begin{answer}[0.5in]
+          \par
+          No, types in C++ can not be changed.  You can verify that these variables are still characters 
+          outputting their value, which will be printed as a character, not a number.
+        \end{answer}
+    \end{enumerate}
