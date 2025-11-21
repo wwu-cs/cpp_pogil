@@ -15,4 +15,4 @@ int main() {
   floatTwo = static_cast<int>(floatOne);
   cout << "second number: " << floatOne << endl;
   cout << "after conversion: " << floatTwo << endl;
-} 
+}
