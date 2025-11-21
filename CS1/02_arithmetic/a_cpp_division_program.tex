@@ -13,88 +13,91 @@ int main() {
   cin >> b;
   cout << "Quotient: " << a << "/" << b << " = " << (a/b) << endl;
 }      
-      \end{cpplst}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[t]{0.4\textwidth}
-      {\bf Example Output:} 
-      \hrule\vskip 5pt
-        First number: 10 \\
-        Second number: 2.5 \\
-        Quotient: 10/2.5 = 4
-    \end{minipage}
-  \par\vskip -5pt
+    \end{cpplst}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{1.7in}
+    {\bf Example Output:} 
+    \hrule\vskip 5pt
+      First number: 10 \\
+      Second number: 2.5 \\
+      Quotient: 10/2.5 = 4
+  \end{minipage}
+  \par\vskip 10pt
   
   {\it\large Refer to Model 3 above as your group develops consensus answers
     to the questions below.}
-    \par\vskip 10pt
 
-    \quest{20 min}
+  \quest{20 min}
     
-      \Q This program can be found in {\tt activity02c.cpp}.  Run it several times with the
-        following inputs and write down the resulting output.\par\vskip 10pt
-        \begin{enumerate}[(a)]
-          \itemsep 10pt
-          \item First number: 10, Second number: 4\hfill
-            \ans[3.5in]{Quotient: 10/4 = 2.5}
-          \item First number: 10, Second number: 3 \hfill
-            \ans[3.5in]{Quotient: 10/3 = 3.33333}
-          \item First number: 9.5, No second number \hfill 
-            \ans[3.5in]{Quotient: 9/0.5 = 18}
-          \item First number: 10, Second number: x \hfill
-            \ans[3.5in]{Quotient: 10/0 = inf}
-        \end{enumerate}
-        
-      \Q A {\it floating point} number is a number that contains a floating decimal point
-        (as opposed to integers, which have no decimals). For example, 5.5 or 0.001.  In C++
-        we often use the {\tt double} variable type to hold floating point values.  
-        
-        \begin{enumerate}
-          \item How did the division operation change (as compared to earlier models) because one of 
-            the variables was of type \cpp{double}?
-            \begin{answer}[1in]
-              It now does decimal division, returning the decimal number of times the divisor
-              goes into the dividend instead of just the integer number of times.
-            \end{answer}
-            
-          \item How would your results in problem 10 differ if both variables were of type \cpp{int}?
-            \begin{answer}[1in]
-              If both variables were of type \cpp{int} then we would get:
-              \begin{enumerate}[(a)]
-                \begin{multicols}{4}
-                  \item 2
-                  \item 3
-                  \item error
-                  \item error
-                \end{multicols}
-              \end{enumerate}             
-            \end{answer}
-            
-          \item How would your results in problem 10 differ if both variables were of type  \cpp{double}?
-            \begin{answer}[1in]
-              \begin{enumerate}[(a)]
-                \begin{multicols}{4}
-                  \item same
-                  \item same
-                  \item need 2nd \#
-                  \item same
-                \end{multicols}
-              \end{enumerate}
-            \end{answer}
-            
-        \end{enumerate}
-        
-      \Q Write a conjecture as to when the division operation in C++ will return decimals\key\\[-2.5mm] and
-        when it will only return an integer.  Use the phrase {\it floating point} in your answer.
-        \begin{answer}[0.5in]
-          It will return decimals if one or both of the values involved is a floating point
-          number.  Otherwise, it returns an integer.
+  \Q This program can be found in {\tt activity02b.cpp}.  Run it several times with the
+    following inputs and write down the resulting output.\par\vskip 10pt
+    \begin{enumerate}[(a)]
+      \itemsep 10pt
+      \item First number: 10, Second number: 4\hfill
+        \ans[3.5in]{Quotient: 10/4 = 2.5}
+
+      \item First number: 10, Second number: 3 \hfill
+        \ans[3.5in]{Quotient: 10/3 = 3.33333}
+
+      \item First number: 9.5, No second number \hfill 
+        \ans[3.5in]{Quotient: 9/0.5 = 18}
+
+      \item First number: 10, Second number: x \hfill
+        \ans[3.5in]{Quotient: 10/0 = inf}
+    \end{enumerate}
+    
+  \Q A {\it floating point} number is a number that contains a floating decimal point
+    (as opposed to integers, which have no decimals). For example, 5.5 or 0.001.  In C++
+    we often use the {\tt double} variable type to hold floating point values.  
+    
+    \begin{enumerate}
+      \item How did the division operation change (as compared to earlier models) because one of 
+        the variables was of type \cpp{double}?
+        \begin{answer}[1in]
+          It now does decimal division, returning the decimal number of times the divisor
+          goes into the dividend instead of just the integer number of times.
         \end{answer}
         
-      \Q Create a program that asks asks for a number of cookies and a number of children
-        and then prints out how many cookies each child will get (assuming they are split
-        evenly) and how many are left over.  Be creative and professional in prompting the
-        user and displaying the results.
-        \begin{answer}
-          Answers will vary.
-        \end{answer}        
+      \item How would your results in problem 10 differ if both variables were of type \cpp{int}?
+        \begin{answer}[1in]
+          If both variables were of type \cpp{int} then we would get:
+          \begin{enumerate}[(a)]
+            \begin{multicols}{4}
+              \item 2
+              \item 3
+              \item error
+              \item error
+            \end{multicols}
+          \end{enumerate}             
+        \end{answer}
+        
+      \item How would your results in problem 10 differ if both variables were of type \cpp{double}?
+        \begin{answer}[1in]
+          \begin{enumerate}[(a)]
+            \begin{multicols}{4}
+              \item same
+              \item same
+              \item need 2nd \#
+              \item same
+            \end{multicols}
+          \end{enumerate}
+        \end{answer}
+    \end{enumerate}
+  
+  \vskip -30pt
+    
+  \Q Write a conjecture as to when the division operation in C++ will return decimals\key\\[-2.5mm] and
+    when it will only return an integer.  Use the phrase {\it floating point} in your answer.
+    \begin{answer}[0.5in]
+      It will return decimals if one or both of the values involved is a floating point
+      number.  Otherwise, it returns an integer.
+    \end{answer}
+    
+  \Q Create a program that asks asks for a number of cookies and a number of children
+    and then prints out how many cookies each child will get (assuming they are split
+    evenly) and how many are left over.  Be creative and professional in prompting the
+    user and displaying the results.
+    \begin{answer}
+      Answers will vary.
+    \end{answer}        
