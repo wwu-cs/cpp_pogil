@@ -12,7 +12,7 @@ else
 fi
 
 echo "Generating $1.pdf"
-printf "\n\n============ Generating $1.pdf =============\n\n" >> generator.log
+printf "============ Generating %s.pdf =============" "$1" >> generator.log
 
 fbase=$(basename -- "$1");
 fname="${fbase%.*}"
