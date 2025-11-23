@@ -11,13 +11,14 @@ else
   fi
 fi
 
-# echo "Generating $1.pdf"
-# echo "\n\n============ Generating $1.pdf =============\n\n" >> generator.log
+echo "Generating $1.pdf"
+printf "\n\n============ Generating $1.pdf =============\n\n" >> generator.log
 
 fbase=$(basename -- "$1");
 fname="${fbase%.*}"
 
 # generate the pdf file
+pdflatex --shell-escape -synctex=1 -interaction=nonstopmode "$1".tex >> generator.log
 pdflatex --shell-escape -synctex=1 -interaction=nonstopmode "$1".tex >> generator.log
 
 # clean up
