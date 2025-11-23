@@ -1,6 +1,4 @@
 \model{Programming Structures} \\
-  % \ifprintanswers\vskip -30pt\null\fi
-  
   \begin{center}
     \renewcommand{\arraystretch}{1.8}
     \begin{tabular}{|c|c|c|}
@@ -66,43 +64,42 @@
   
   {\it\large Refer to Model 1 above as your team develops consensus answers
     to the questions below.}
-    \par\vskip 10pt
     
-  \begin{enumerate}
-    \itemsep 20pt
-    
+    \quest{20 min}
+        
     \Q Based only on the pictures in the model above, what do the shapes represent?
-      \begin{enumerate}[(a)]
+      \begin{enumerate}
         \item Rectangle
           \begin{answer}[0.4in]
             The rectangle represents a command or group of commands in a program.
           \end{answer}
+
         \item Diamond
           \begin{answer}[0.4in]
             The diamond represents a true/false decision that must be made.
           \end{answer}
       \end{enumerate}
-      % \ifprintanswers\vskip -30pt\null\fi
+
+    \vskip -20pt
       
     \Q Which structure best describes the types of programs you've written thus far?
       \begin{answer}[0.4in]
         The sequential structure -- our code just executes the statements in order  
       \end{answer}
-      % \ifprintanswers\vskip -30pt\null\fi
       
     \Q Which structure(s) allows the programmer to create programs that decide what code to execute?
       \begin{answer}[0.4in]
         Either the branching or the looping structure.
       \end{answer}
 
-\newpage
+  \newpage
 
     \Q A {\it relational operator} is used to test for a particular relationship between two
       values.  It returns either {\bf true}, if the relationship holds, or {\bf false}, if it 
       does not.  What relationship does each operator below test for?  If unsure, use the
       file {\tt activity05a.cpp} to try them out.
       
-      \begin{enumerate}[(a)]
+      \begin{enumerate}
         \itemsep 10pt
         \begin{multicols}{2}
           \item $<$  \hspace{10pt} \ans[2in]{less than}
@@ -113,26 +110,22 @@
           \item $==$ \hspace{3pt}  \ans[2in]{equal to}
         \end{multicols}
       \end{enumerate}
-      % \ifprintanswers\vskip -30pt\null\fi
+
+    \vskip -30pt
       
     \Q Use the variable values below to determine the value of the
       following expressions.\key\\[-5mm]
       
       \begin{center}
         \begin{minipage}{3.5in}
-          \begin{cprlst}[
-            frame=lines,
-            framesep=2mm,
-            bgcolor=gray!15,
-            baselinestretch=1.2
-          ]{cpp}
+          \begin{cpplst}
   int x = 4, y = 5, z = 4;
-          \end{cprlst}
+          \end{cpplst}
         \end{minipage}
       \end{center}
       \par\vskip 10pt
       
-      \begin{enumerate}[(a)]
+      \begin{enumerate}
         \itemsep 15pt
         \begin{multicols}{2}
           \item \cpp{x > y}
@@ -155,6 +148,8 @@
             \hfill \ans[0.8in]{true}
         \end{multicols}
       \end{enumerate}
+
+    \vskip -20pt
  
     \Q What are the two possible answers for each expression in that last question?
       \begin{answer}[0.5in]
@@ -166,20 +161,15 @@
       
       \begin{center}
         \begin{minipage}{3.5in}
-          \begin{cprlst}[
-            frame=lines,
-            framesep=2mm,
-            bgcolor=gray!15,
-            baselinestretch=1.2
-          ]{cpp}
-  string word1 = "hello";
-  string word2 = "good-bye";
-          \end{cprlst}
+          \begin{cpplst}
+string word1 = "hello";
+string word2 = "good-bye";
+          \end{cpplst}
         \end{minipage}
       \end{center}
       \par\vskip 10pt
       
-      \begin{enumerate}[(a)]
+      \begin{enumerate}
         \itemsep 15pt
         \begin{multicols}{2}
           \item \cpp{word1 == word2}
@@ -192,7 +182,6 @@
             \hspace{14pt} \ans[1in]{true}
         \end{multicols}
       \end{enumerate}
-
 
     \Q How do relational operators work on strings?
       \begin{answer}[1in]
