@@ -1,13 +1,7 @@
-\model{A C++ Program} \\
+\model{A C++ Program}
   \begin{center}
     \begin{minipage}{3.5in}
-      \begin{cprlst}[
-        frame=lines,
-        framesep=2mm,
-        bgcolor=gray!15,
-        baselinestretch=1.2,
-        linenos
-      ]{cpp}
+      \begin{cpplst}
 #include <iostream>
 using namespace std;
 
@@ -18,143 +12,139 @@ int main() {
   cout << 16 / 3 << endl;
   cout << 16 % 3 << endl;
 }      
-      \end{cprlst}
+      \end{cpplst}
     \end{minipage}
   \end{center}
   
   {\it\large Refer to Model 1 above as your team develops consensus answers
     to the questions below.}
     \par\vskip 10pt
-    
-  \begin{enumerate}
-    \itemsep 20pt
-    
-    \Q Starting with the file {\tt activity02a.cpp}, enter and run the C++ program
-      above.  What is the output of each of the following lines?\par\vskip 15pt
-      \begin{enumerate}[(a)]
-        \itemsep 10pt
-        \item[5:] {\tt cout << 16 + 3 << endl;} \hfill
-          \ans[3.5in]{It prints {\it 19}}
-        \item[6:] {\tt cout << 16 - 3 << endl;} \hfill
-          \ans[3.5in]{It prints {\it 13}}
-        \item[7:] {\tt cout << 16 * 3 << endl;} \hfill
-          \ans[3.5in]{It prints {\it 48}}
-        \item[8:] {\tt cout << 16 / 3 << endl;} \hfill
-          \ans[3.5in]{It prints {\it 5}}
-        \item[9:] {\tt cout << 16 \% 3 << endl;} \hfill
-          \ans[3.5in]{It prints {\it 1}}
-      \end{enumerate}
-      
-    \Q Were any of these a surprise to your team?
-      \begin{answer}[0.25in]
-      \end{answer}
-      
-\newpage      
-      
-    \Q Name the arithmetic operation represented by each symbol in C++.\key\\[-2.5mm]
-      \par\vskip 20pt
-      \begin{enumerate}[(a)]
-        \begin{multicols}{2}
-          \itemsep 15pt
-          \item {\tt +} \hfill \ans[2.25in]{Addition}
-          \item {\tt -} \hfill \ans[2.25in]{Subtraction}
-          \item {\tt *} \hfill \ans[2.25in]{Multiplication}
-          \item {\tt /} \hfill \ans[2.25in]{Integer Division}
-          \item {\tt \%} \hfill \ans[2.25in]{Modulus (remainder)}
-        \end{multicols}
-      \end{enumerate}
 
-    \Q An {\it assignment statement} uses the ``='' sign to store the result of an
-      operation performed on the right-hand side into the memory location named by 
-      the variable on the left-hand side.\par\vskip 5pt
+  \quest{20 min}
+    
+  \Q Starting with the file {\tt activity02a.cpp}, enter and run the C++ program
+    above.  What is the output of each of the following lines?
+    \begin{enumerate}[(a)]
+      \itemsep 10pt
+      \item {\tt cout << 16 + 3 << endl;} \hfill
+        \ans[3.5in]{It prints {\it 19}}
+
+      \item {\tt cout << 16 - 3 << endl;} \hfill
+        \ans[3.5in]{It prints {\it 13}}
+
+      \item {\tt cout << 16 * 3 << endl;} \hfill
+        \ans[3.5in]{It prints {\it 48}}
+
+      \item {\tt cout << 16 / 3 << endl;} \hfill
+        \ans[3.5in]{It prints {\it 5}}
+
+      \item {\tt cout << 16 \% 3 << endl;} \hfill
+        \ans[3.5in]{It prints {\it 1}}
+    \end{enumerate}
       
-      Enter and execute the following two lies of C++ code (modify the {\tt activity02a.cpp}
-      file to do this).
+  \Q Were any of these a surprise to your team?
+    \begin{answer}[0.25in]
+      Answers will vary
+    \end{answer}
       
-      \begin{center}
-        \begin{minipage}{3.5in}
-          \begin{cprlst}[
-            frame=lines,
-            framesep=2mm,
-            bgcolor=gray!15,
-            baselinestretch=1.2,
-            linenos,
-            firstnumber=5
-          ]{cpp}
+  \Q Name the arithmetic operation represented by each symbol in C++.\key\\[-2.5mm]
+    \par\vskip 10pt
+    \begin{enumerate}[(a)]
+      \begin{multicols}{2}
+        \itemsep 10pt
+        \item {\tt +}
+          \ans[1.5in]{Addition}
+
+        \item {\tt -}
+          \ans[1.5in]{Subtraction}
+
+        \item {\tt *}
+          \ans[1.5in]{Multiplication}
+
+        \item {\tt /}
+          \ans[1.5in]{Integer Division}
+
+        \item {\tt \%}
+          \ans[1.5in]{Modulus (remainder)}
+      \end{multicols}
+    \end{enumerate}
+
+  \Q An {\it assignment statement} uses the ``='' sign to store the result of an
+    operation performed on the right-hand side into the memory location named by 
+    the variable on the left-hand side.
+    Enter and execute the following two lies of C++ code (modify the {\tt activity02a.cpp}
+    file to do this).
+      
+    \begin{center}
+      \begin{minipage}{3.5in}
+        \begin{cpplst}
   int age = 15;
   cout << "Your age is: " << age;
-      \end{cprlst}
-    \end{minipage}
-  \end{center}
+        \end{cpplst}
+      \end{minipage}
+    \end{center}
 
-      \begin{enumerate}[(a)]
-        \itemsep 10pt
-        \item What does the {\it assignment statement} on line 1 of this code chunk do?
-          \begin{answer}[0.5in]
-            It declares an integer variable named ``age'' and assigns it the value of 15.
-          \end{answer}
-        \item Split up the {\it variable declaration} and {\it assignment statement} into 
-          two separate lines of code.
-          \begin{answer}[0.5in]
-            The lines would be
-            \begin{enumerate}[1:]
-              \itemsep -2pt
-              \item {\tt int age;}
-              \item {\tt age = 15;}
-            \end{enumerate}            
-          \end{answer}
-        \item What happens if you replace the assignment statement only (without altering the
-          declaration) with \cpp{age = "fifteen";}?
-          \begin{answer}[0.5in]
-            You get a run-time error because you can't save a string into an integer variable.
-          \end{answer}
-      \end{enumerate}
-      \ifprintanswers\par\vskip -24pt\null\fi
-      
-    \Q Enter and execute the following three lines of C++ code (again, use the {\tt
+    \begin{enumerate}[(a)]
+      \itemsep 10pt
+      \item What does the {\it assignment statement} on line 1 of this code chunk do?
+        \begin{answer}[0.5in]
+          It declares an integer variable named ``age'' and assigns it the value of 15.
+        \end{answer}
+
+      \item Split up the {\it variable declaration} and {\it assignment statement} into 
+        two separate lines of code.
+        \begin{answer}[0.5in]
+          The lines would be
+          \begin{enumerate}[1:]
+            \itemsep -2pt
+            \item {\tt int age;}
+            \item {\tt age = 15;}
+          \end{enumerate}            
+        \end{answer}
+
+      \item What happens if you replace the assignment statement only (without altering the
+        declaration) with \cpp{age = "fifteen";}?
+        \begin{answer}[0.5in]
+          You get a run-time error because you can't save a string into an integer variable.
+        \end{answer}
+    \end{enumerate}
+    \vskip-20pt
+    
+  \Q Enter and execute the following three lines of C++ code (again, use the {\tt
       activity02a.cpp} file), but {\bf remember to add  \cpp{#include <string>} in
       the header}.
-      \ifprintanswers\par\vskip -24pt\null\fi
+      \par\vskip 10pt
       \begin{center}
         \begin{minipage}{3.5in}
-          \begin{cprlst}[
-            frame=lines,
-            framesep=2mm,
-            bgcolor=gray!15,
-            baselinestretch=1.2,
-            linenos,
-            firstnumber=6
-          ]{cpp}
+          \begin{cpplst}
   string schoolName = "Walla Walla";
   string schoolType = "University";
   string fullName = schoolName + schoolType;
   cout << fullName << endl;
-      \end{cprlst}
-    \end{minipage}
-  \end{center}
+          \end{cpplst}
+        \end{minipage}
+      \end{center}
   
-  \begin{enumerate}[(a)]
-  
-    \Q What value is stored in the {\tt fullName} variable at line 3?
-      \begin{answer}[0.5in]
-        ``Walla WallaUniversity''
-      \end{answer}
-      
-\newpage
+    \begin{enumerate}[(a)]
+      \item What value is stored in the {\tt fullName} variable at line 3?
+        \begin{answer}[0.5in]
+          ``Walla WallaUniversity''
+        \end{answer}
 
-    \Q How does the ``+'' sign behave differently when used with strings instead of numbers?
-      \begin{answer}[0.5in]
-        It concatenates the strings instead of adding values.
-      \end{answer}           
+      \item How does the ``+'' sign behave differently when used with strings instead of numbers?
+        \begin{answer}[0.5in]
+          It concatenates the strings instead of adding values.
+        \end{answer}           
       
-    \Q How could you fix the output so that the words are all separated?
-      \begin{answer}[1in]
-        For example, we could change line 3 to: \\
-        {\tt string fullName = schoolName + " " + schoolType;}
-      \end{answer}
+      \item How could you fix the output so that the words are all separated?
+        \begin{answer}[1in]
+          For example, we could change line 3 to: \\
+          {\tt string fullName = schoolName + " " + schoolType;}
+        \end{answer}
       
-    \Q When two strings are ``glued'' together, they are said to be {\it concatenated}.
-      What would happen if you tried to concatenate a string with an integer?
-      \begin{answer}[1in]
-        A syntax error.
-      \end{answer}
+      \item When two strings are ``glued'' together, they are said to be {\it concatenated}.
+        What would happen if you tried to concatenate a string with an integer?
+        \begin{answer}[1in]
+          A syntax error.
+        \end{answer}
+    \end{enumerate}

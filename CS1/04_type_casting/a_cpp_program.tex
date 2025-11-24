@@ -1,38 +1,33 @@
 \model{A C++ Program} \\
   \begin{center}
     \begin{minipage}{5.5in}
-      \begin{cprlst}[
-        frame=lines,
-        framesep=2mm,
-        bgcolor=gray!15,
-        baselinestretch=1.2,
-        linenos
-      ]{cpp}
+      \begin{cpplst}
 #include <iostream>
 using namespace std;
 
 int main() {
-  // ----------------------------------------- declare variables
+  // declare variables
   double floatOne,floatTwo;
   int integer = 35;
-  // ----------------------------------------- part I
+  // part I
   floatOne = integer;
   cout << "original number: " << integer << endl;
   cout << "after conversion: " << floatOne << endl << endl;
-  // ----------------------------------------- part II
+  // part II
   floatOne = 3.9;
   floatTwo = static_cast<int>(floatOne);
   cout << "second number: " << floatOne << endl;
   cout << "after conversion: " << floatTwo << endl;
 }      
-      \end{cprlst}
+      \end{cpplst}
     \end{minipage}
   \end{center}
-  \TPMargin{5pt}
   
   {\it\large Refer to Model 3 above as your group develops consensus answers
     to the questions below.}
     \par\vskip 10pt
+
+    \quest{20 min}
     
       \Q This program can be found in {\tt activity02c.cpp}.  Run it and then answer the following questions.
         \par\vskip 20pt
@@ -54,8 +49,6 @@ int main() {
         \begin{answer}[0.5in]
           Line 14 is an explicit type cast because we specifically asked the computer to treat {\tt floatOne} as an integer.
         \end{answer}
-        
-\newpage
 
     \Q What is the difference between an implicit type cast and an explicit type cast?
       \begin{answer}[1in]
@@ -69,24 +62,18 @@ int main() {
         The syntax is \cpp{static_cast<newType>(variable)}.  Examples will vary.
       \end{answer}
       
-    \Q Write a snippet of code that will output the string WWU without using the ``W'' or\key\\[-2.5mm] ``U'' characters.
+    \Q Write a snippet of code that will output the string WWU without using the ``W'' \key\\[-2.5mm] or ``U'' characters.
       Hint: use explicit type casting and the ASCII table seen in model 2.\\
       Feel free to test your code in the file {\tt activity04c.cpp}.
       \begin{answer}[1in]
         \par
   \begin{center}
     \begin{minipage}{5.5in}
-      \begin{cprlst}[
-        frame=lines,
-        framesep=2mm,
-        bgcolor=gray!15,
-        baselinestretch=1.2,
-        linenos
-      ]{cpp}
+      \begin{cpplst}
   cout << static_cast<char>(87);
   cout << static_cast<char>(87);
   cout << static_cast<char>(85);
-      \end{cprlst}
+      \end{cpplst}
     \end{minipage}
   \end{center}
       \end{answer}

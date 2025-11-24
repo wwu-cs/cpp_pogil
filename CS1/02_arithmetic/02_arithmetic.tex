@@ -14,6 +14,7 @@
 \date{Spring 2022}
 
 \input{../../cspogil.sty}
+\usepackage{textpos}
 
 \begin{document}
 
@@ -30,8 +31,7 @@
 \end{center}
 \par\vskip 15pt
 
-Record your team's answers to the key questions (marked with
-\raisebox{-.3\height}{\includegraphics[width=0.5in]{../figures/key.png}})
+Record your team's answers to the key questions (marked with \mbox{\key})
 below.
 \begin{enumerate}[label=(\alph*)]
   \itemsep 1.25in
@@ -49,25 +49,22 @@ This activity will introduce you to the process of analyzing an algorithm comple
 %\rolenames
 
 \guide{
-  \item Explain how to print content to the screen using C++
-  \item Explain how to create a comment in C++ code
-  \item Determine the difference between a {\it string literal} and a {\it integer}
-  \item Explain how to input data into a variable in C++
-  \item Explain the meaning and purpose of a variable
+  \item Explain each C++ arithmetic operator
+  \item Explain the meaning and purpose of an assignment statement
+  \item Differentiate between integer division and floating point division
+  \item Explain the use of "+" with strings and numbers
 }{
   \item Create input and output statements in C++
-  \item Create C++ code that displays the results to calculated addition facts
-  \item Create C++ code that prompts the user for data and stores it in a variable
-  \item Select valid and meaningful variable names
+  \item Create C++ code that performs mathematical and string operations
+  \item Create C++ code that uses assignment statements
   \item Discuss problems and programs with all group members\\[-5pt]
 }{
 No additional notes.
 }
-
-
   \input{a_cpp_program.tex}
+  \newpage
   \input{some_arithmetic_expressions.tex}
   \newpage
-  \input{a_cpp_division_program}
+  \input{a_cpp_division_program.tex}
 
 \end{document}

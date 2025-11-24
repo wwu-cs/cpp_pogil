@@ -17,7 +17,8 @@
 
   {\it\large Refer to Model 2 above as your team develops consensus answers
     to the questions below.}
-    \par\vskip 10pt
+
+    \quest{15 min}
 
     \Q The symbols \cpp{&&}, \cpp{||}, and \cpp{!} are called
       {\it logical operators} because they combine conditions that are either true or false to create
@@ -25,32 +26,29 @@
       appropriate logical operator to produce the desired truth value.
       \begin{center}
         \begin{minipage}{3.5in}
-          \begin{cprlst}[
-            frame=lines,
-            framesep=2mm,
-            bgcolor=gray!15,
-            baselinestretch=1.2
-          ]{cpp}
+          \begin{cpplst}
   int numBooks = 40;
-          \end{cprlst}
+          \end{cpplst}
         \end{minipage}
       \end{center}
-      \par\vskip 10pt
-      \begin{enumerate}[(a)]
-        \itemsep 15pt
+
+      \begin{enumerate}
+        \itemsep 10pt
         \item \cpp{(numBooks > 5)} \ans[1in]{\cpp{&&} or \cpp{||}} \cpp{(numBooks < 100)}
           -- this should be {\bf true}.
         \item \cpp{(numBooks < 5)} \ans[1in]{\cpp{||}} \cpp{(numBooks > 20)}
           -- this should be {\bf true}.
-        \item \ans[1in]{\cpp{!}}\cpp{ (numBooks * 10 == 400)} 
+        \item \ans[1in]{\cpp{!}} \cpp{ (numBooks * 10 == 400)} 
           -- this should be {\bf false}.
       \end{enumerate}
+
+      \vskip -10pt
 
     \Q A {\it Boolean Expression} is an expression that uses relational operators and/or logical operators together with
       variables, literal values, and the {\it Boolean} values ``true'' and ``false''. Translate the following Boolean expressions 
       into an English statement.  The first one is done for you.
-      \par\vskip 15pt
-      \begin{enumerate}[(a)]
+      \par\vskip 10pt
+      \begin{enumerate}
         \itemsep 15pt
         \item \cpp{(x == 2) && (y > 3)}
           \hfill\underline{\hspace{8pt}The variable x equals two and the variable y is bigger than three.\hspace{9pt}}
@@ -62,12 +60,14 @@
           \hfill\ans[4.2in]{it is not the case that x is two and y is one.}
       \end{enumerate}
       \par\vskip -40pt\ \
+
+      \newpage
       
     \Q Write a Boolean Expression for each English statement.\key\\[-2.5mm]
       \par\vskip 10pt
 
-      \begin{enumerate}[(a)]
-        \itemsep 15pt
+      \begin{enumerate}
+        \itemsep 10pt
         \item The string {\tt name} is not equal to ``Jane''.                     \hfill \ans[2in]{\cpp{word != "Jane"}}
         \item The value of $x$ is twice that of $y$ or $y$ is less than ten.      \hfill \ans[2in]{\cpp{(x==2*y)||(y<=10)}}
         \item The value of $z$ is between 0 and 5 excluding endpoints.            \hfill \ans[2in]{\cpp{(z>0)&&(z<5)}}

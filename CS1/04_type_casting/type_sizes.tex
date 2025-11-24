@@ -16,68 +16,65 @@
   
   {\it\large Refer to Model 1 above as your team develops consensus answers
     to the questions below.}
-    \par\vskip 10pt
-    
-  \begin{enumerate}
-    \itemsep 20pt
+  \par\vskip 10pt
 
-    \Q A single {\bf bit} has only two values (0 or 1), whereas two bits can store four values (00, 01, 10, and 11).
-      \par\vskip 20pt
-      \begin{enumerate}[(a)]
-        \item How many different values can be stored in three bits, and what are they?
-          \begin{answer}[0.75in]
-            8 different values: 000, 001, 010, 011, 100, 101, 110, and 111
-          \end{answer}
-        \item What is the smallest binary number in your list in part (a) and what is its base 10 value?
-          \begin{answer}[0.75in]
-            The smallest number is 000 and its base 10 value is 0.
-          \end{answer}
-        \item What is the largest binary number in your list in part (a) and what is its base 10 value?
-          \begin{answer}[0.75in]
-            The smallest number is 111 and its base 10 value is 7.
-          \end{answer}
-      \end{enumerate}
-      
-    \Q A {\bf byte} is equivalent to 8 bits.  How many values can be stored in a single byte, and what is the largest
-      possible value?  You may wish to use Google as a calculator to solve this problem.
-      \begin{answer}[0.75in]
-        A byte can hold $2^8 = 256$ values and the largest is 255.
-      \end{answer}
-      
-\newpage
+  \quest{15 min}
+  \Q A single {\bf bit} has only two values (0 or 1), whereas two bits can store four values (00, 01, 10, and 11).
+    \par\vskip 20pt
+    \begin{enumerate}
+      \item How many different values can be stored in three bits, and what are they?
+        \begin{answer}[0.75in]
+          8 different values: 000, 001, 010, 011, 100, 101, 110, and 111
+        \end{answer}
 
-    \Q Complete the following table to determine how many values can be stored in a different number of bytes.  The first
-      one is done for you.
-      
-      \begin{center}
-        \renewcommand{\arraystretch}{2}
-        \begin{tabular}{|c|c|c|c|}
-          \hline
-          \rowcolor{orange!20} \# bytes & \# bits & number of values & largest unsigned number possible \\
-          \hline
-          1 byte & 8 & $2^8 = 256$ & 255 \\
-          \hline
-          2 bytes & \ifprintanswers 16\fi & \ifprintanswers $2^{16}=65,536$\fi & \ifprintanswers 65,535 \fi\\
-          \hline
-          4 bytes & \ifprintanswers 32\fi & \ifprintanswers $2^{32}=4,294,967,296$\fi & \ifprintanswers 4,294,967,295\fi\\
-          \hline
-          8 bytes & \ifprintanswers 64\fi & \ifprintanswers $2^{64}$\fi & \ifprintanswers $2^{64}-1$\fi\\
-          \hline
-          $x$ bytes & \ifprintanswers $8x$\fi & \ifprintanswers $2^{8x}$\fi & \ifprintanswers $2^{8x}-1$\fi\\
-          \hline
-        \end{tabular}        
-      \end{center}
-      
-    \Q What is the largest value that a {\tt unsigned short int} variable (of size 2 bytes) can hold?
-      \begin{answer}[0.5in]
-        An {\tt unsigned short int} can hold $2^16 = 65,536$ values, the largest is 65,535.
-      \end{answer}
+      \item What is the smallest binary number in your list in part (a) and what is its base 10 value?
+        \begin{answer}[0.75in]
+          The smallest number is 000 and its base 10 value is 0.
+        \end{answer}
+
+      \item What is the largest binary number in your list in part (a) and what is its base 10 value?
+        \begin{answer}[0.75in]
+          The smallest number is 111 and its base 10 value is 7.
+        \end{answer}
+    \end{enumerate}
     
-    \Q What happens when you write a C++ assignment statement to set a {\tt unsigned short int}\key\\[-2.5mm] variable equal to one more than this value?
-      Try it out using the file `activity04a.cpp`.  Why?
-      \begin{answer}[1in]
-        \par
-        The value wraps around to 0.  That is, the number 65535, represented as 1111111111111111 becomes 0000000000000000
-        when we add one to it.
-      \end{answer}
-      
+  \Q A {\bf byte} is equivalent to 8 bits.  How many values can be stored in a single byte, and what is the largest
+    possible value?  You may wish to use Google as a calculator to solve this problem.
+    \begin{answer}[0.75in]
+      A byte can hold $2^8 = 256$ values and the largest is 255.
+    \end{answer}
+
+  \Q Complete the following table to determine how many values can be stored in a different number of bytes.  The first
+    one is done for you.
+    \begin{center}
+      \renewcommand{\arraystretch}{2}
+      \begin{tabular}{|c|c|c|c|}
+        \hline
+        \rowcolor{orange!20} \# bytes & \# bits & number of values & largest unsigned number possible \\
+        \hline
+        1 byte & 8 & $2^8 = 256$ & 255 \\
+        \hline
+        2 bytes & \ans[0.5in]{16} & \ans[1.3in]{$2^{16}=65,536$} & \ans[1.3in]{65,535}\\
+        \hline
+        4 bytes & \ans[0.5in]{32} & \ans[1.3in]{$2^{32}=4,294,967,296$} & \ans[1.3in]{4,294,967,295}\\
+        \hline
+        8 bytes & \ans[0.5in]{64} & \ans[1.3in]{$2^{64}$} & \ans[1.3in]{$2^{64}-1$}\\
+        \hline
+        $x$ bytes & \ans[0.5in]{$8x$} & \ans[1.3in]{$2^{8x}$} & \ans[1.3in]{$2^{8x}-1$}\\
+        \hline
+      \end{tabular}        
+    \end{center}
+    
+  \Q What is the largest value that a {\tt unsigned short int} variable (of size 2 bytes) can hold?
+    \begin{answer}[0.5in]
+      An {\tt unsigned short int} can hold $2^16 = 65,536$ values, the largest is 65,535.
+    \end{answer}
+  
+  \Q What happens when you write a C++ assignment statement to set a {\tt unsigned short \key\\[-2.5mm] int} variable equal to one more than this value?
+    Try it out using the file {\tt activity04a.cpp}.  Why?
+    \begin{answer}[1in]
+      \par
+      The value wraps around to 0.  That is, the number 65535, represented as 1111111111111111 becomes 0000000000000000
+      when we add one to it.
+    \end{answer}
+    
