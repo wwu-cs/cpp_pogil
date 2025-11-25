@@ -1,61 +1,60 @@
 \model{Output from Several Nested Loops} \\
 
-% define first output as verbatim box
-\newbox\verbboxOne
-\setbox\verbboxOne=\vbox{\hsize=1.4in
-\begin{Verbatim}
-* * * * *
-* * * * *
-* * * * *
-* * * * *
-* * * * *
-* * * * *
-* * * * *
-\end{Verbatim}
-}
+  % define first output as verbatim box
+  \newbox\verbboxOne
+  \setbox\verbboxOne=\vbox{\hsize=1.4in
+  \begin{verbatim}
+  * * * * *
+  * * * * *
+  * * * * *
+  * * * * *
+  * * * * *
+  * * * * *
+  * * * * *
+  \end{verbatim}
+  }
 
-% define second output as verbatim box
-\newbox\verbboxTwo
-\setbox\verbboxTwo=\vbox{\hsize=1.4in
-\begin{Verbatim}
-1 1 1 1 1
-2 2 2 2 2
-3 3 3 3 3
-4 4 4 4 4
-5 5 5 5 5
-6 6 6 6 6
-7 7 7 7 7
-\end{Verbatim}
-}
+  % define second output as verbatim box
+  \newbox\verbboxTwo
+  \setbox\verbboxTwo=\vbox{\hsize=1.4in
+  \begin{verbatim}
+  1 1 1 1 1
+  2 2 2 2 2
+  3 3 3 3 3
+  4 4 4 4 4
+  5 5 5 5 5
+  6 6 6 6 6
+  7 7 7 7 7
+  \end{verbatim}
+  }
 
-% define third output as verbatim box
-\newbox\verbboxThree
-\setbox\verbboxThree=\vbox{\hsize=1.4in
-\begin{Verbatim}
-1 2 3 4 5
-1 2 3 4 5
-1 2 3 4 5
-1 2 3 4 5
-1 2 3 4 5
-1 2 3 4 5
-1 2 3 4 5
-\end{Verbatim}
-}
-
+  % define third output as verbatim box
+  \newbox\verbboxThree
+  \setbox\verbboxThree=\vbox{\hsize=1.4in
+  \begin{verbatim}
+  1 2 3 4 5
+  1 2 3 4 5
+  1 2 3 4 5
+  1 2 3 4 5
+  1 2 3 4 5
+  1 2 3 4 5
+  1 2 3 4 5
+  \end{verbatim}
+  }
 
   \begin{center}
     \small
     \begin{tabular}{p{1.5in}p{0.25in}p{1.5in}p{0.25in}p{1.5in}}
-      \fbox{\begin{minipage}{1.4in}
-        \centering\box\verbboxOne
+      \fbox{\begin{minipage}{1.1in}
+        \centering\usebox\verbboxOne
       \end{minipage}}
       & &
-      \fbox{\begin{minipage}{1.4in}
-        \centering\box\verbboxTwo
+      \fbox{\begin{minipage}{1.1in}
+        \centering\usebox\verbboxTwo
       \end{minipage}}      
       & &
-      \fbox{\begin{minipage}{1.4in}
-        \centering\box\verbboxThree
+      \fbox{\begin{minipage}{1.1in}
+        \centering\usebox\verbboxThree
       \end{minipage}}
       \\
       \centering (a) & & \centering (b) & & \centering (c) \\
@@ -65,153 +64,131 @@
   {\it\large Refer to Model 2 above as your team develops consensus answers
     to the questions below.}
 
-    \Q There are several ways to write a C++ program that outputs
-      the contents of box (a) above.  Briefly describe how it could be
-      done using the following methods.
-      \par\vskip 15pt
-      
-      \begin{enumerate}[(a)]
-        \item Using a set of {\tt cout} statements without any loops.
-          \begin{answer}[0.75in]
-            \par
-            Create seven identical {\tt cout} statements,
-            each of which prints {\tt * * * * *} and an {\tt endl}.
-          \end{answer}
-        \item Using a single \cpp{for} loop (without any nesting).
-          \begin{answer}[0.75in]
-            \par
-            The \cpp{for} loop would execute seven times
-            and each time {\tt cout} the five {\tt *}'s and an {\tt endl}.
-          \end{answer}
-      \end{enumerate}
-      
-    \Q In this exercise we will create the output in box (a) using nested loops.    
-      \par\vskip 10pt
-      
-      \begin{enumerate}[(a)]
-        \item Surround the {\tt cout} statement below by a \cpp{for}
-          so that five {\tt *} characters are printed on a single line.
-          \ifprintanswers
-            \begin{answer}
-              \scriptsize\vskip -35pt\null
-              \begin{center}
-                \begin{minipage}{2.5in}
-                  \begin{cprlst}[
-                    frame=lines,
-                    framesep=2mm,
-                    bgcolor=gray!15,
-                    baselinestretch=1.2,
-                  ]{cpp}
+  \quest{20 min}
+
+  \Q There are several ways to write a C++ program that outputs
+    the contents of box (a) above.  Briefly describe how it could be
+    done using the following methods.
+    
+    \begin{enumerate}
+      \itemsep 15pt
+      \item Using a set of {\tt cout} statements without any loops.
+        \begin{answer}[0.75in]
+          \par
+          Create seven identical {\tt cout} statements,
+          each of which prints {\tt * * * * *} and an {\tt endl}.
+        \end{answer}
+
+      \item Using a single \cpp{for} loop (without any nesting).
+        \begin{answer}[0.75in]
+          \par
+          The \cpp{for} loop would execute seven times
+          and each time {\tt cout} the five {\tt *}'s and an {\tt endl}.
+        \end{answer}
+    \end{enumerate}
+    
+  \Q In this exercise we will create the output in box (a) using nested loops.    
+    \itemsep 10pt
+    \begin{enumerate}
+      \item Surround the {\tt cout} statement below by a \cpp{for}
+        so that five {\tt *} characters are printed on a single line.
+        \vskip 5pt
+        \begin{minipage}{2.5in}
+          \begin{center}
+            \cpp{cout << "* ";}
+          \end{center}
+        \end{minipage}
+        \begin{minipage}{3in}
+          \begin{answer}[0.5in]
+            \begin{center}
+              \scriptsize
+              \begin{cpplst}
 for (int i=0; i<5; i++) {
   cout << "* ";
 }
-                  \end{cprlst}
-                \end{minipage}
-              \end{center}\vskip -20pt\null
-            \end{answer}
-          \else
-            \par\vskip 10pt\null
-            \begin{center}
-              \mintinline{cpp}{cout << "* ";}
-            \end{center}
-            \par\vskip 10pt\null
-          \fi
-        \item Now build on the block of code above by wrapping the
-          loop you created in another \cpp{for} loop that
-          prints seven of these lines, with an {\tt endl} between each one.
-          \begin{answer}[1.25in]
-            \scriptsize\vskip -35pt\null
-            \begin{center}
-              \begin{minipage}{2.5in}
-                \begin{cprlst}[
-                  frame=lines,
-                  framesep=2mm,
-                  bgcolor=gray!15,
-                  baselinestretch=1.2,
-                ]{cpp}
+              \end{cpplst}
+          \end{center}
+        \end{answer}
+        \end{minipage}
+
+      \item Now build on the block of code above by wrapping the
+        loop you created in another \cpp{for} loop that
+        prints seven of these lines, with an {\tt endl} between each one.
+        \begin{answer}[1.25in]
+          \begin{center}
+            \scriptsize
+            \begin{minipage}{2.5in}
+              \begin{cpplst}
 for (int j=0; j<7; j++) {                
   for (int i=0; i<5; i++) {
     cout << "* ";
   }
   cout << endl;
 }
-                \end{cprlst}
-              \end{minipage}
-            \end{center}\vskip -20pt\null
-          \end{answer}
-      \end{enumerate}
+              \end{cpplst}
+            \end{minipage}
+          \end{center}
+        \end{answer}
+    \end{enumerate}
+
+  \vskip -30pt
       
-    \Q Suppose that variables \cpp{int rows} and
-      \cpp{int cols} contain the number of rows and 
-      columns\key\\[-2.5mm] of {\tt *}'s you wish to print.  How
-      would you modify your code above to print out that number of
-      rows and columns?  Test your solution in {\tt activity09b.cpp}.
-      
-      \begin{answer}[1.25in]
-        \scriptsize\vskip -35pt\null
-        \begin{center}
-          \begin{minipage}{2.5in}
-            \begin{cprlst}[
-              frame=lines,
-              framesep=2mm,
-              bgcolor=gray!15,
-              baselinestretch=1.2,
-            ]{cpp}
+  \Q Suppose that variables \cpp{int rows} and
+    \cpp{int cols} contain the number of rows and \key\\[-2.5mm]
+    columns of {\tt *}'s you wish to print.  How
+    would you modify your code above to print out that number of
+    rows and columns?  Test your solution in {\tt activity09b.cpp}.
+    
+    \begin{answer}[1.25in]
+      \begin{center}
+        \scriptsize
+        \begin{minipage}{2.5in}
+          \begin{cpplst}
 for (int j=0; j<rows; j++) {
   for (int i=0; i<cols; i++) {
     cout << "* ";
   }
   cout << endl;
 }
-            \end{cprlst}
-          \end{minipage}
-        \end{center}\vskip -20pt\null
-      \end{answer}
+          \end{cpplst}
+        \end{minipage}
+      \end{center}
+    \end{answer}
 
-    \Q How would you modify your code in the previous question to
-      produce the output seen in box (b), assuming that
-      \cpp{int rows = 7} and \cpp{int cols = 4}?
+  \Q How would you modify your code in the previous question to
+    produce the output seen in box (b), assuming that
+    \cpp{int rows = 7} and \cpp{int cols = 4}?
 
-      \begin{answer}[1.25in]
-        \scriptsize\vskip -35pt\null
-        \begin{center}
-          \begin{minipage}{2.5in}
-            \begin{cprlst}[
-              frame=lines,
-              framesep=2mm,
-              bgcolor=gray!15,
-              baselinestretch=1.2,
-            ]{cpp}
+    \begin{answer}[1.25in]
+      \begin{center}
+        \scriptsize
+        \begin{minipage}{2.5in}
+          \begin{cpplst}
 for (int j=0; j<rows; j++) {
   for (int i=0; i<cols; i++) {
     cout << j;
   }
   cout << endl;
 }
-            \end{cprlst}
-          \end{minipage}
-        \end{center}\vskip -20pt\null
-      \end{answer}
+          \end{cpplst}
+        \end{minipage}
+      \end{center}
+    \end{answer}
 
-    \Q How would you modify your code so that the output
-      matches the output in box (c) instead of (b)?
-      \begin{answer}[1.25in]
-        \scriptsize\vskip -35pt\null
-        \begin{center}
-          \begin{minipage}{2.5in}
-            \begin{cprlst}[
-              frame=lines,
-              framesep=2mm,
-              bgcolor=gray!15,
-              baselinestretch=1.2,
-            ]{cpp}
+  \Q How would you modify your code so that the output
+    matches the output in box (c) instead of (b)?
+    \begin{answer}[1.25in]
+      \begin{center}
+        \scriptsize
+        \begin{minipage}{2.5in}
+          \begin{cpplst}
 for (int j=0; j<rows; j++) {
   for (int i=0; i<cols; i++) {
     cout << i;
   }
   cout << endl;
 }
-            \end{cprlst}
-          \end{minipage}
-        \end{center}\vskip -20pt\null
-      \end{answer}
+          \end{cpplst}
+        \end{minipage}
+      \end{center}
+    \end{answer}

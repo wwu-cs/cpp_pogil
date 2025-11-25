@@ -1,14 +1,12 @@
 \model{A C++ Programs} \\
   \begin{center}
     \begin{minipage}{2.5in}
-      \begin{cprlst}[
-        frame=lines,
-        framesep=2mm,
-        bgcolor=gray!15,
-        baselinestretch=1.2,
-        linenos,
-        firstnumber=6
-      ]{cpp}
+      \begin{cpplst}
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
   string name;
   cout << "What is your name? ";
   cin >> name;
@@ -18,86 +16,85 @@
     }
     cout << endl;
   }
-      \end{cprlst}
+}
+      \end{cpplst}
     \end{minipage}
   \end{center}
-  \TPMargin{5pt}
-  
-  
+
   {\it\large Refer to Model 1 above as your team develops consensus answers
     to the questions below.}
-    \par\vskip 10pt
-    
-  \begin{enumerate}
-    \itemsep 20pt
-    
-    \Q What does this program display?  Try to determine this
-      without running it first, then check your work against
-      the output of the program in {\tt activity09a.cpp}.
-      \begin{answer}[0.75in]
-        \par
-        The program prints out a 3 x 5 grid of the person's name.
-      \end{answer}
-      
-    \Q Answer the following questions regarding the      
-      \cpp{for} loops in this code snippet.
-      \par\vskip 20pt
-      
-      \begin{enumerate}[(a)]
-        \itemsep 15pt
-        \item How many \cpp{for} loops are in this code?: \hfill
-          \ans[2.5in]{There are two}
-        \item Does one loop completely finish before the next begins?  \hfill
-          \ans[2.5in]{No.  One loop is inside the other}
-        \item What do you call this arrangement of loops?  \hfill
-          \ans[2.5in]{These are nested loops}
-      \end{enumerate}
-    
-    \Q How many times does each {\tt cout} statement in this model
-      execute?
-      \par\vskip 20pt
-      
-      \begin{enumerate}[(a)]
-        \itemsep 15pt
-        \item The {\tt cout} on line 7 of the model:\hfill
-          \ans[2.5in]{Executes once}
-        \item The {\tt cout} on line 11 of the model: \hfill
-          \ans[2.5in]{Executes $5\times 3 = 15$ times}
-        \item The {\tt cout} on line 13 of the model: \hfill
-          \ans[2.5in]{Executes five times}
-      \end{enumerate}
-      
-\newpage
 
-    \Q A loop that appears within another loop is called a {\it
-      nested loop}.  We can refer to the two loops as the {\it outer
-      loop} and the {\it inner loop}.
-      \par\vskip 20pt
-      
-      \begin{enumerate}[(a)]
-        \itemsep 15pt
-        \item On what line number in the model does the outer loop start?\hfill
-          \ans[2in]{Line 4}
-        \item On what line number in the model does the inner loop start? \hfill
-          \ans[2in]{Line 5}
-        \item On what line number does the inner loop in the model end?\hfill
-          \ans[2in]{Line 7}
-        \item On what line number does the outer loop in the model end?\hfill
-          \ans[2in]{Line 9}
-      \end{enumerate}
-      \par\vskip -35pt\null
-                
-    \Q What does each of the loops in the model do?\key\\[-2.5mm]
-      \begin{enumerate}[(a)]
-        \item What does the inner loop do?
-          \begin{answer}[0.5in]
-            The inner loop prints out a name 3 times with a space
-            after each one.
-          \end{answer}
-        \item What does the outer loop do?
-          \begin{answer}[0.5in]
-            The outer loop repeats the inner loop 5 times and prints
-            an {\tt endl} after each one.
-          \end{answer}
-      \end{enumerate}
-      \par\vskip 10pt
+  \quest{15 min}
+    
+  \Q What does this program display?  Try to determine this
+    without running it first, then check your work against
+    the output of the program in {\tt activity09a.cpp}.
+    \begin{answer}[0.75in]
+      \par
+      The program prints out a 3 x 5 grid of the person's name.
+    \end{answer}
+    
+  \Q Answer the following questions regarding the      
+    \cpp{for} loops in this code snippet.
+    
+    \begin{enumerate}
+      \itemsep 10pt
+      \item How many \cpp{for} loops are in this code?: \hfill
+        \ans[2.5in]{There are two}
+
+      \item Does one loop completely finish before the next begins?  \hfill
+        \ans[2.5in]{No.  One loop is inside the other}
+
+      \item What do you call this arrangement of loops?  \hfill
+        \ans[2.5in]{These are nested loops}
+    \end{enumerate}
+  
+  \Q How many times does each {\tt cout} statement in this model
+    execute?
+    \begin{enumerate}
+      \itemsep 10pt
+      \item The {\tt cout} on line 7 of the model:\hfill
+        \ans[2.5in]{Executes once}
+
+      \item The {\tt cout} on line 11 of the model: \hfill
+        \ans[2.5in]{Executes $5\times 3 = 15$ times}
+
+      \item The {\tt cout} on line 13 of the model: \hfill
+        \ans[2.5in]{Executes five times}
+    \end{enumerate}
+
+  \Q A loop that appears within another loop is called a {\it
+    nested loop}.  We can refer to the two loops as the {\it outer
+    loop} and the {\it inner loop}.
+    
+    \begin{enumerate}
+      \itemsep 10pt
+      \item On what line number in the model does the outer loop start?\hfill
+        \ans[2in]{Line 9}
+
+      \item On what line number in the model does the inner loop start? \hfill
+        \ans[2in]{Line 10}
+
+      \item On what line number does the inner loop in the model end?\hfill
+        \ans[2in]{Line 12}
+
+      \item On what line number does the outer loop in the model end?\hfill
+        \ans[2in]{Line 14}
+    \end{enumerate}
+
+  \vskip -30pt
+              
+  \Q What does each of the loops in the model do?\key\\[-2.5mm]
+    \begin{enumerate}
+      \item What does the inner loop do?
+        \begin{answer}[0.5in]
+          The inner loop prints out a name 3 times with a space
+          after each one.
+        \end{answer}
+
+      \item What does the outer loop do?
+        \begin{answer}[0.5in]
+          The outer loop repeats the inner loop 5 times and prints
+          an {\tt endl} after each one.
+        \end{answer}
+    \end{enumerate}
