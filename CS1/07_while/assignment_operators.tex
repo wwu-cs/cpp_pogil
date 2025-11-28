@@ -52,7 +52,11 @@
         \ans[5.25in]{Divides the variable on the LHS by the amount on the RHS}
         
       \item \cpp{\%=} \hspace{20pt} 
+<<<<<<< HEAD
         \ans[5in]{Computes the remainder of the amount on the RHS to the variable on the LHS}
+=======
+        \ans[5in]{Adds the amount on the RHS to the variable on the LHS}
+>>>>>>> dd9eccd (Chapter 7)
     \end{enumerate}
 
     \newpage
@@ -68,7 +72,11 @@
         \hline
         \cpp{+=} & 6 & \ans[0.5in]{\cpp{x += 2;}} & 8 \\
         \hline
+<<<<<<< HEAD
         \cpp{+=} & 5 & \cpp{x += 1;} & \ans[0.5in]{11} \\
+=======
+        \cpp{+=} & 5 & \cpp{x += x+1;} & \ans[0.5in]{11} \\
+>>>>>>> dd9eccd (Chapter 7)
         \hline
         \cpp{-=} & \ans[0.5in]{9}  & \cpp{x -= 3;} & 6 \\
         \hline
@@ -76,6 +84,7 @@
         \hline
         \cpp{/=} & 23 & \ans[0.5in]{\cpp{x /= 10;}} & 2 \\
         \hline
+<<<<<<< HEAD
       \end{tabular}
     \end{center}
     
@@ -105,6 +114,37 @@ while (countdown > 0) {
         \end{answer}            
       \end{minipage}
     \end{tabular}
+=======
+      \end{tabular}
+    \end{center}
+    
+  \Q Is the assignment operator \cpp{23 += total}
+  valid?  Why or why not?\key
+    \begin{answer}[0.5in]
+      No, it is not valid.  There must be only a variable name on the left-hand side.
+    \end{answer}
+    
+  \Q The following code snippet should print the numbers beginning with 100 and counting down to 1.  However, it is missing a
+    line of code.  Add the missing code using an assignment operator.  Indicate the line number at which the code should be inserted.
+    \par\vskip 10pt
+    \begin{tabular}{p{3in}p{3.5in}}
+      \begin{minipage}{3in}
+        \begin{cpplst}
+  int countdown = 100;
+  while (countdown > 0) {
+    cout << countdown << endl;
+  }
+          \end{cpplst}
+        \end{minipage}
+        &
+        \begin{minipage}{3.5in}
+          \begin{answer}[0.5in]
+            \par
+            Insert the command \cpp{x -= 1;} between lines 3 and 4.
+          \end{answer}            
+        \end{minipage}
+      \end{tabular}
+>>>>>>> dd9eccd (Chapter 7)
       
     \Q Use assignment operators to write loops to do each of the following.  
       You can test your code in the {\tt activity07c.cpp} file.
@@ -115,11 +155,19 @@ while (countdown > 0) {
             \begin{center}
               \begin{minipage}{3in}
                 \begin{cpplst}
+<<<<<<< HEAD
 int num = 0;
 while (num <= 100) {
   cout << num << endl;
   num += 3;
 }
+=======
+  int num = 0;
+  while (num <= 100) {
+    cout << num << endl;
+    num += 3;
+  }
+>>>>>>> dd9eccd (Chapter 7)
                 \end{cpplst}
               \end{minipage}
             \end{center}
@@ -130,11 +178,19 @@ while (num <= 100) {
             \begin{center}
               \begin{minipage}{3in}
                 \begin{cpplst}
+<<<<<<< HEAD
 int num = 1;
 while (num <= 100) {
   cout << num << endl;
   num *= 2;
 }
+=======
+  int num = 1;
+  while (num <= 100) {
+    cout << num << endl;
+    num *= 2;
+  }
+>>>>>>> dd9eccd (Chapter 7)
                 \end{cpplst} 
               \end{minipage}
            \end{center}              
