@@ -8,12 +8,12 @@ using namespace std;
 
 /* ANSWER A */ printRocket() {
   cout << "Blast-off!" << endl;
-  cout << "  ^"    << endl;
-  cout << " /*\\"  << endl;
+  cout << "  ^" << endl;
+  cout << " /*\\" << endl;
   cout << "/***\\" << endl;
-  cout << "|***|"  << endl;
-  cout << "|***|"  << endl;
-  cout << "|#|#|"  << endl;
+  cout << "|***|" << endl;
+  cout << "|***|" << endl;
+  cout << "|#|#|" << endl;
   /* ANSWER B */
 }
 
@@ -29,21 +29,19 @@ bool giveProblem(/* ANSWER C */) {
 int main() {
   srand(time(0));  // seed random num
   int numCorrect = 0;
-  for(/* ANSWER E */) {
+  for (/* ANSWER E */) {
     int num1 = rand() % 10 + 1;
     int num2 = rand() % 10 + 1;
     if (/* ANSWER F */) {
       cout << "Correct!" << endl;
       numCorrect++;
     } else {
-      cout << "Incorrect! It is "
-           << (num1 + num2) << endl;
+      cout << "Incorrect! It is " << (num1 + num2) << endl;
     }
   }
-  if( /* ANSWER G */ ) {
+  if (/* ANSWER G */) {
     /* ANSWER H */
   } else {
-    cout << "You got " << numCorrect
-         << " correct." << endl;
+    cout << "You got " << numCorrect << " correct." << endl;
   }
 }

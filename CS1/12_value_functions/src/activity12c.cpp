@@ -18,12 +18,10 @@ int main() {
       }
     } while (userNum < 1 || userNum > 5);
     compNum = rand() % 5 + 1;
-    cout << "Computer number: " 
-         << compNum << endl;
-    cout << "Your number: " 
-         << userNum << endl;
+    cout << "Computer number: " << compNum << endl;
+    cout << "Your number: "  << userNum << endl;
     cout << getMessage(userNum,compNum);
     cout << "Try again (y/n)? ";
     cin >> tryAgain;    
-  } while (tryAgain=='y');
+  } while (tryAgain == 'y');
 }
