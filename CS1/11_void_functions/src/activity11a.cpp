@@ -9,5 +9,5 @@ void printMessage() {
 
 int main() {
   cout << "Hello Programmer!" << endl;
-  printMessage();     // function call
+  printMessage(); // function call
 }

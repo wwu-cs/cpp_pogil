@@ -4,11 +4,11 @@ using namespace std;
 
 // first function
 void printSum(int num1, int num2) {
-  cout << num1 << " + " << num2 << " = " << (num1+num2) << endl;
+  cout << num1 << " + " << num2 << " = " << (num1 + num2) << endl;
 }
 // second function
 void printDifference(int num1, int num2) {
-  cout << num1 << " - " << num2 << " = " << (num1-num2) << endl;
+  cout << num1 << " - " << num2 << " = " << (num1 - num2) << endl;
 }
 // main program
 int main() {
@@ -24,10 +24,10 @@ int main() {
   cin >> operation;
   // decide which function to call
   if (operation == '+') {
-    printSum(firstNumber,secondNumber);
+    printSum(firstNumber, secondNumber);
   } else if (operation == '-') {
-    printDifference(firstNumber,secondNumber);
+    printDifference(firstNumber, secondNumber);
   } else {
     cout << "Invalid Operation" << endl;
-  }  
+  }
 }
