@@ -52,7 +52,7 @@
         \ans[5.25in]{Divides the variable on the LHS by the amount on the RHS}
         
       \item \cpp{\%=} \hspace{20pt} 
-        \ans[5in]{Adds the amount on the RHS to the variable on the LHS}
+        \ans[5in]{Computes the remainder of the amount on the RHS to the variable on the LHS}
     \end{enumerate}
 
     \newpage
@@ -68,7 +68,7 @@
         \hline
         \cpp{+=} & 6 & \ans[0.5in]{\cpp{x += 2;}} & 8 \\
         \hline
-        \cpp{+=} & 5 & \cpp{x += x+1;} & \ans[0.5in]{11} \\
+        \cpp{+=} & 5 & \cpp{x += 1;} & \ans[0.5in]{11} \\
         \hline
         \cpp{-=} & \ans[0.5in]{9}  & \cpp{x -= 3;} & 6 \\
         \hline
@@ -91,20 +91,20 @@
     \begin{tabular}{p{3in}p{3.5in}}
       \begin{minipage}{3in}
         \begin{cpplst}
-  int countdown = 100;
-  while (countdown > 0) {
-    cout << countdown << endl;
-  }
-          \end{cpplst}
-        \end{minipage}
-        &
-        \begin{minipage}{3.5in}
-          \begin{answer}[0.5in]
-            \par
-            Insert the command \cpp{x -= 1;} between lines 3 and 4.
-          \end{answer}            
-        \end{minipage}
-      \end{tabular}
+int countdown = 100;
+while (countdown > 0) {
+  cout << countdown << endl;
+}
+        \end{cpplst}
+      \end{minipage}
+      &
+      \begin{minipage}{3.5in}
+        \begin{answer}[0.5in]
+          \par
+          Insert the command \cpp{x -= 1;} between lines 3 and 4.
+        \end{answer}            
+      \end{minipage}
+    \end{tabular}
       
     \Q Use assignment operators to write loops to do each of the following.  
       You can test your code in the {\tt activity07c.cpp} file.
@@ -115,25 +115,26 @@
             \begin{center}
               \begin{minipage}{3in}
                 \begin{cpplst}
-  int num = 0;
-  while (num <= 100) {
-    cout << num << endl;
-    num += 3;
-  }
+int num = 0;
+while (num <= 100) {
+  cout << num << endl;
+  num += 3;
+}
                 \end{cpplst}
               \end{minipage}
             \end{center}
           \end{answer}
+
         \item A loop that prints all powers of 2 (i.e. $2^n$) from 1 up to 100.
           \begin{answer}[1.5in]
             \begin{center}
               \begin{minipage}{3in}
                 \begin{cpplst}
-  int num = 1;
-  while (num <= 100) {
-    cout << num << endl;
-    num *= 2;
-  }
+int num = 1;
+while (num <= 100) {
+  cout << num << endl;
+  num *= 2;
+}
                 \end{cpplst} 
               \end{minipage}
            \end{center}              

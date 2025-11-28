@@ -69,13 +69,12 @@ int main() {
   } else {
     cout << "Poor." << endl;
   }
-}
         \end{cpplst}
       \end{minipage}
     \end{center}
         
     \begin{enumerate}
-      \item Replace lines 8-18 in model 3 with this code. How does the output change?
+      \item Replace lines 8-16 in model 3 with this code. How does the output change?
         \begin{answer}[0.5in]
           The output does not change.
         \end{answer}
@@ -91,15 +90,15 @@ int main() {
         \begin{answer}[2in]
           \begin{minipage}{3.5in}
             \begin{cpplst}
-  if (grade >= 90) {
-    cout << "Very Good!" << endl;
-  } else if (grade >= 80) {       // added
-    cout << "Good!" << endl;      // added
-  } else if (grade >= 60) {
-    cout << "Satisfactory." << endl;
-  } else {
-    cout << "Poor." << endl;
-  }
+if (grade >= 90) {
+  cout << "Very Good!" << endl;
+} else if (grade >= 80) {       // added
+  cout << "Good!" << endl;      // added
+} else if (grade >= 60) {
+  cout << "Satisfactory." << endl;
+} else {
+  cout << "Poor." << endl;
+}
             \end{cpplst}
           \end{minipage}           
         \end{answer}
@@ -107,9 +106,9 @@ int main() {
       \newpage
             
       \item Does it make a difference where you add the additional {\tt else/if} statement? \key\\[-2.5mm]
-        Compare adding it at line 10 in the code snippet above vs. at line 12.
+        Compare adding it at line 3 in the code snippet above vs. at line 5.
         \begin{answer}[1in]
-          Yes, it makes a difference.  If we add it at line 12 instead of at line 10, then the ``Good!'' option is never used because
+          Yes, it makes a difference.  If we add it at line 5 instead of at line 3, then the ``Good!'' option is never used because
           any grade above 80 will also be above 60 and would fall into the earlier ``Satisfactory.''
           part of the {\tt if/else/if} statement.
         \end{answer}
@@ -117,24 +116,23 @@ int main() {
       \item Is the use of the final {\tt else} statement mandatory when creating an {\tt if/else/if} statement?  
         Try it out and supply an example to support your claim.
         \begin{answer}[0.75in]
-          Not mandatory.  Dropping lines 12-14 will just print nothing for grades less than 60.
+          Not mandatory.  Dropping the else statement will just print nothing for grades less than 60.
         \end{answer}
         
       \item Make one final change to your program.  Adjust it so that it prints an error message 
         if the grade entered is greater than 100 or less than 0.
         \begin{answer}[2.5in]
           \begin{cpplst}
-  if (grade >= 90) {
-    cout << "Very Good!" << endl;
-  } else if (grade >= 80) {
-    cout << "Good!" << endl;
-  } else if (grade >= 60) {
-    cout << "Satisfactory." << endl;
-  } else if (grade < 0 || grade > 100) {
-    cout << "Error: Invalid grade." << endl;
-  } else {
-    cout << "Poor." << endl;
-  }
+if (grade >= 90) {
+  cout << "Very Good!" << endl;
+} else if (grade >= 80) {
+  cout << "Good!" << endl;
+} else if (grade >= 60) {
+  cout << "Satisfactory." << endl;
+} else if (grade < 0 || grade > 100) {
+  cout << "Error: Invalid grade." << endl;
+} else {
+  cout << "Poor." << endl;
+}
           \end{cpplst}
         \end{answer}
-      \end{enumerate}

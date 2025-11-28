@@ -35,9 +35,9 @@ int main() {
       \itemsep 10pt
       \item Lines 7-8: \hfill \ans[5.15in]{Prompts the user for a number and saves it in {\tt number}}
       \item Line 9:    \hfill \ans[5.15in]{Initializes the counter {\tt x} to 1}
-      \item Line 10:    \hfill \ans[5.15in]{Repeats lines 5-10 as long as the counter {\tt x} is not bigger than {\tt number}}
+      \item Line 10:    \hfill \ans[5.15in]{Repeats lines 11-15 as long as the counter {\tt x} is not bigger than {\tt number}}
       \item Lines 11-15: \hfill \ans[5.15in]{Prints the counter, with a new line when it is divisible by 10}
-      \item Line 16:   \hfill \ans[5.15in]{Increments the counter by one before going back to line 4}
+      \item Line 16:   \hfill \ans[5.15in]{Increments the counter by one before going back to line 10}
     \end{enumerate}
 
   \Q The complete program can be found in {\tt activity07b.cpp}.  Run it and answer the following questions.
@@ -67,19 +67,19 @@ int main() {
     \vskip 5pt
     \begin{minipage}{3.5in}
       \begin{cpplst}
-  int number = 12;
-  while (number <= 10) {
-    cout << number << endl;
-    number = number + 1;
-  }
-        \end{cpplst}
-      \end{minipage}
-      \begin{minipage}{3.4in}
-        \begin{answer}[1.5in]
-          The counter should be initialized to 1 instead of 12 on
-          line 1 of the code snippet.
-        \end{answer}
-      \end{minipage}
+int number = 12;
+while (number <= 10) {
+  cout << number << endl;
+  number = number + 1;
+}
+      \end{cpplst}
+    \end{minipage}
+    \begin{minipage}{3.4in}
+      \begin{answer}[1.5in]
+        The counter should be initialized to 1 instead of 12 on
+        line 1 of the code snippet.
+      \end{answer}
+    \end{minipage}
 
   \vskip 10pt
     
@@ -87,11 +87,11 @@ int main() {
     \vskip 5pt
     \begin{minipage}{3.5in}
       \begin{cpplst}
-  int number = 0;
-  while (number <= 10) {
-    cout << number << endl;
-    number = number - 1;
-  }
+int number = 0;
+while (number <= 10) {
+  cout << number << endl;
+  number = number - 1;
+}
       \end{cpplst}
     \end{minipage}
     \begin{minipage}{3.4in}

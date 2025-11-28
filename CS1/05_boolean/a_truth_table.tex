@@ -1,75 +1,73 @@
 \model{A Truth Table} \\
-  
-    \begin{center}
-      \renewcommand{\arraystretch}{1.4}
-      \begin{tabular}{|c|c|c|c|c|}
-        \hline
-        \rowcolor{orange!20} Condition \#1 & Condition \#2 & Negation (NOT) & Conjunction (AND) & Disjunction (OR) \\
-        \rowcolor{orange!20} \cpp{p} & \cpp{q} & \cpp{! p} & \cpp{p && q} & \cpp{p || q} \\
-        \hline
-        True & True   & False & True  & True \\
-        True & False  & False & False & True \\
-        False & True  & True  & False & True \\
-        False & False & True  & False & False \\
-        \hline
-      \end{tabular}
-    \end{center}
+  \begin{center}
+    \renewcommand{\arraystretch}{1.4}
+    \begin{tabular}{|c|c|c|c|c|}
+      \hline
+      \rowcolor{orange!20} Condition \#1 & Condition \#2 & Negation (NOT) & Conjunction (AND) & Disjunction (OR) \\
+      \rowcolor{orange!20} \cpp{p} & \cpp{q} & \cpp{! p} & \cpp{p && q} & \cpp{p || q} \\
+      \hline
+      True & True   & False & True  & True \\
+      True & False  & False & False & True \\
+      False & True  & True  & False & True \\
+      False & False & True  & False & False \\
+      \hline
+    \end{tabular}
+  \end{center}
 
   {\it\large Refer to Model 2 above as your team develops consensus answers
     to the questions below.}
 
-    \quest{15 min}
+  \quest{15 min}
 
-    \Q The symbols \cpp{&&}, \cpp{||}, and \cpp{!} are called
-      {\it logical operators} because they combine conditions that are either true or false to create
-      new compound conditions. Given the variable definitions below, fill in the
-      appropriate logical operator to produce the desired truth value.
-      \begin{center}
-        \begin{minipage}{3.5in}
-          \begin{cpplst}
-  int numBooks = 40;
-          \end{cpplst}
-        \end{minipage}
-      \end{center}
+  \Q The symbols \cpp{&&}, \cpp{||}, and \cpp{!} are called
+    {\it logical operators} because they combine conditions that are either true or false to create
+    new compound conditions. Given the variable definitions below, fill in the
+    appropriate logical operator to produce the desired truth value.
+    \begin{center}
+      \begin{minipage}{3.5in}
+        \begin{cpplst}
+int numBooks = 40;
+        \end{cpplst}
+      \end{minipage}
+    \end{center}
 
-      \begin{enumerate}
-        \itemsep 10pt
-        \item \cpp{(numBooks > 5)} \ans[1in]{\cpp{&&} or \cpp{||}} \cpp{(numBooks < 100)}
-          -- this should be {\bf true}.
-        \item \cpp{(numBooks < 5)} \ans[1in]{\cpp{||}} \cpp{(numBooks > 20)}
-          -- this should be {\bf true}.
-        \item \ans[1in]{\cpp{!}} \cpp{ (numBooks * 10 == 400)} 
-          -- this should be {\bf false}.
-      \end{enumerate}
+    \begin{enumerate}
+      \itemsep 10pt
+      \item \cpp{(numBooks > 5)} \ans[1in]{\cpp{&&} or \cpp{||}} \cpp{(numBooks < 100)}
+        -- this should be {\bf true}.
+      \item \cpp{(numBooks < 5)} \ans[1in]{\cpp{||}} \cpp{(numBooks > 20)}
+        -- this should be {\bf true}.
+      \item \ans[1in]{\cpp{!}} \cpp{ (numBooks * 10 == 400)} 
+        -- this should be {\bf false}.
+    \end{enumerate}
 
-      \vskip -10pt
+    \vskip -10pt
 
-    \Q A {\it Boolean Expression} is an expression that uses relational operators and/or logical operators together with
-      variables, literal values, and the {\it Boolean} values ``true'' and ``false''. Translate the following Boolean expressions 
-      into an English statement.  The first one is done for you.
-      \par\vskip 10pt
-      \begin{enumerate}
-        \itemsep 15pt
-        \item \cpp{(x == 2) && (y > 3)}
-          \hfill\underline{\hspace{8pt}The variable x equals two and the variable y is bigger than three.\hspace{9pt}}
-        \item \cpp{(x != 4) || (y <= 7)}
-          \hfill\ans[4.2in]{x is not equal to four or y is less than or equal to seven.}
-        \item \cpp{(x >= 2) && (x <= 10)}
-          \hfill\ans[4.2in]{x is between two and 10 inclusively}
-        \item \cpp{!((x == 2) && (y == 1))}
-          \hfill\ans[4.2in]{it is not the case that x is two and y is one.}
-      \end{enumerate}
-      \par\vskip -40pt\ \
+  \Q A {\it Boolean Expression} is an expression that uses relational operators and/or logical operators together with
+    variables, literal values, and the {\it Boolean} values ``true'' and ``false''. Translate the following Boolean expressions 
+    into an English statement.  The first one is done for you.
+    \par\vskip 10pt
+    \begin{enumerate}
+      \itemsep 15pt
+      \item \cpp{(x == 2) && (y > 3)}
+        \hfill\underline{\hspace{8pt}The variable x equals two and the variable y is bigger than three.\hspace{9pt}}
+      \item \cpp{(x != 4) || (y <= 7)}
+        \hfill\ans[4.2in]{x is not equal to four or y is less than or equal to seven.}
+      \item \cpp{(x >= 2) && (x <= 10)}
+        \hfill\ans[4.2in]{x is between two and 10 inclusively}
+      \item \cpp{!((x == 2) && (y == 1))}
+        \hfill\ans[4.2in]{it is not the case that x is two and y is one.}
+    \end{enumerate}
+    \par\vskip -40pt\ \
 
-      \newpage
-      
-    \Q Write a Boolean Expression for each English statement.\key\\[-2.5mm]
-      \par\vskip 10pt
-
-      \begin{enumerate}
-        \itemsep 10pt
-        \item The string {\tt name} is not equal to ``Jane''.                     \hfill \ans[2in]{\cpp{word != "Jane"}}
-        \item The value of $x$ is twice that of $y$ or $y$ is less than ten.      \hfill \ans[2in]{\cpp{(x==2*y)||(y<=10)}}
-        \item The value of $z$ is between 0 and 5 excluding endpoints.            \hfill \ans[2in]{\cpp{(z>0)&&(z<5)}}
-        \item It is not the case that $w$ is between 0 and 5 including endpoints. \hfill \ans[2in]{\cpp{!((w>=0)&&(w<=5))}}
-      \end{enumerate}
+    \newpage
+    
+  \Q Write a Boolean Expression for each English statement.\key\\[-2.5mm]
+    \par\vskip 10pt
+    \begin{enumerate}
+      \itemsep 10pt
+      \item The string {\tt name} is not equal to ``Jane''.                     \hfill \ans[2in]{\cpp{name != "Jane"}}
+      \item The value of $x$ is twice that of $y$ or $y$ is less than ten.      \hfill \ans[2in]{\cpp{(x==2*y)||(y<=10)}}
+      \item The value of $z$ is between 0 and 5 excluding endpoints.            \hfill \ans[2in]{\cpp{(z>0)&&(z<5)}}
+      \item It is not the case that $w$ is between 0 and 5 including endpoints. \hfill \ans[2in]{\cpp{!((w>=0)&&(w<=5))}}
+    \end{enumerate}
