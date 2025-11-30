@@ -1,14 +1,7 @@
-\model{A C++ Program} \\
+\model{A C++ Program}
   \begin{center}
-    \begin{minipage}{3.5in}
-      \begin{cprlst}[
-        frame=lines,
-        framesep=2mm,
-        bgcolor=gray!15,
-        baselinestretch=1.2,
-        linenos,
-        firstnumber=5
-      ]{cpp}
+    \begin{minipage}{4in}
+      \begin{cpplst}
 string str = "Global Scope";
 
 void myFunc() {
@@ -27,68 +20,54 @@ int main() {
   }
   cout << str << endl;
 }                       
-      \end{cprlst}
+      \end{cpplst}
     \end{minipage}
-  \end{center}
-  \TPMargin{5pt}
-  \begin{textblock*}{1.9in}[0,0](4.5in,-2.5in)
-    \textblockcolor{white}
-    \begin{minipage}{1.75in}
+    \begin{minipage}{2in}
       {\bf Output:}
       \hrule
-        \begin{cprlst}[
-          frame=none,
-          framesep=2mm,
-          bgcolor=white,
-          baselinestretch=1,
-        ]{text}
+      \begin{cpplst}
 Main Scope
 Global Scope
 myFunc Scope
 If Scope
 Main Scope
-      \end{cprlst}
+      \end{cpplst}
     \end{minipage}
-  \end{textblock*}
+  \end{center}
                                                 
-      
   {\it\large Refer to Model 3 above as your team develops consensus answers
-    to the questions below.}
-    % \ifprintanswers\vskip -20pt\null\fi          
+    to the questions below.}        
 
-    \Q In the program above, the {\tt str} identifier is used for several different
-      variables.  Determine the line number of the \cpp{cout << str << endl;}
-      command that produces each line of output.
-      \par\vskip 15pt
-      
-      \begin{enumerate}[(a)]
-        \itemsep 15pt
-        \begin{multicols}{2}
-          \item The first {\tt Main Scope}  \hfill \ans[1in]{Line 16}
-          \item {\tt Global Scope}          \hfill \ans[1in]{Line 8}
-          \item {\tt myFunc Scope}          \hfill \ans[1in]{Line 10}
-          \item {\tt If Scope}              \hfill \ans[1in]{Line 19}
-          \item The second {\tt Main Scope} \hfill \ans[1in]{Line 21}
-        \end{multicols}
-      \end{enumerate}
-      
-    \Q When a variable declared within one scope blocks access to a variable of the same
-      name declared in an outer scope (that contains the first), we say that the outer variable
-      has been {\it shadowed} or that the name of the variable has been {\it masked}.  
-      Give two instances of variable shadowing in the code above.
-      \begin{answer}[1in]
-        \begin{itemize}
-          \item The global variable on line 1 is shadowed by the variable defined on line 5
-            within the function.
-          \item The local variable on line 10 is shadowed by the variable defined on line 13
-            in the \cpp{if} block.
-        \end{itemize}
-      \end{answer}
-      \par\vskip -40pt\null
-      
-    \Q Suppose that we changed the function header on line 7 to \cpp{void myFunc(string str)} 
-      and\key\\[-2.5mm] the function call on line 18 to \cpp{myFunc("Parameter Scope")}.
-      How would the output change?
-      \begin{answer}[0.5in]
-        The ``Global Scope'' line would now say ``Parameter Scope''.
-      \end{answer}
+  \Q In the program above, the {\tt str} identifier is used for several different
+    variables.  Determine the line number of the \cpp{cout << str << endl;}
+    command that produces each line of output. The code can be found in {\tt activity14c.cpp}. 
+    \begin{enumerate}
+      \itemsep 10pt
+      \begin{multicols}{2}
+        \item The first {\tt Main Scope}  \hspace{0.25in} \ans[1in]{Line 12}
+        \item {\tt Global Scope}          \hspace{0.25in} \ans[1in]{Line 4}
+        \item {\tt myFunc Scope}          \hspace{0.25in} \ans[1in]{Line 6}
+        \item {\tt If Scope}              \hfill \ans[1in]{Line 15}
+        \item The second {\tt Main Scope} \hfill \ans[1in]{Line 17}
+      \end{multicols}
+    \end{enumerate}
+    
+  \Q When a variable declared within one scope blocks access to a variable of the same
+    name declared in an outer scope (that contains the first), we say that the outer variable
+    has been {\it shadowed} or that the name of the variable has been {\it masked}.  
+    Give two instances of variable shadowing in the code above.
+    \begin{answer}[1in]
+      \begin{itemize}
+        \item The global variable on line 1 is shadowed by the variable defined on line 5
+          within the function.
+        \item The local variable on line 10 is shadowed by the variable defined on line 13
+          in the \cpp{if} block.
+      \end{itemize}
+    \end{answer}
+
+  \Q Say we changed the function header on line 3 to \cpp{void myFunc(string str)} 
+    and\key\\[-2.5mm] the function call on line 14 to \cpp{myFunc("Parameter Scope")}.
+    How would the output change? 
+    \begin{answer}[0.5in]
+      The ``Global Scope'' line would now say ``Parameter Scope''.
+    \end{answer}

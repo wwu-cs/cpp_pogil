@@ -1,15 +1,11 @@
-\model{A C++ Compiler Errors} \\
+\model{A C++ Compiler Error}
   \begin{center}
-    \begin{tabular}{p{2in}p{0.25in}p{3.4in}}
-      \begin{minipage}{2in}
-        \begin{cprlst}[
-          frame=lines,
-          framesep=2mm,
-          bgcolor=gray!15,
-          baselinestretch=1.2,
-          linenos,
-          firstnumber=3
-        ]{cpp}
+    \begin{tabular}{p{2.5in}p{0.0005in}p{3.4in}}
+      \begin{minipage}{2.5in}
+        \begin{cpplst}
+#include <iostream>
+using namespace std;
+
 int main() {
   int varOne = 5;
   if(true) {
@@ -18,72 +14,55 @@ int main() {
   }
   cout << varTwo << endl;
 }
-        \end{cprlst}
+        \end{cpplst}
       \end{minipage}
       & &
       \begin{minipage}{3.4in}
         {\bf Compiler Error:}
         \scriptsize
         \hrule\vskip 5pt
-        \begin{cprlst}[
-          frame=none,
-          framesep=2mm,
-          bgcolor=white,
-          baselinestretch=1,
-        ]{text}
+        \begin{cpplst}
 model2.cpp: In function ‘int main()’:
-
-model2.cpp:9:11: error: ‘varTwo’ was not declared in this scope
-   cout << varTwo << endl;
-           ^~~~~~
-model2.cpp:9:11: note: suggested alternative: ‘varOne’
-   cout << varTwo << endl;
-           ^~~~~~
-           varOne   
-        \end{cprlst}
+model2.cpp:10:11: error: ‘varTwo’ was not declared in this scope
+   10 |   cout << varTwo << endl;
+      |           ^~~~~~
+        \end{cpplst}
       \end{minipage}
     \end{tabular}
   \end{center}
+
   {\it\large Refer to Model 2 above as your team develops consensus answers
     to the questions below.}
-  \par\vskip -20pt\null
-
   
   \Q In your own words, describe what the compiler error shown is all about.
-    % \ifprintanswers\vskip -20pt\null\fi
     \begin{answer}[0.5in]
       The variable {\tt varTwo} does  not exist when the {\tt cout} command is given on line 7.
     \end{answer}
-    % \ifprintanswers\vskip -30pt\null\fi
   
-  \Q On what lines are the following variables defined in the code above?
-    \par\vskip 15pt
-    
-    \begin{enumerate}[(a)]
+  \Q On what lines are the following variables defined in the code above?    
+    \begin{enumerate}
       \begin{multicols}{2}
-        \item The variable {\tt varOne} \hfill \ans[1.25in]{Line 4}
-        \item The variable {\tt varTwo} \hfill \ans[1.25in]{Line 6}
+        \item The variable {\tt varOne} \hspace{0.025in} \ans[1.25in]{Line 5}
+        \item The variable {\tt varTwo} \hfill \ans[1.25in]{Line 7}
       \end{multicols}
     \end{enumerate}
     
-  \Q The error message above is triggered by line 9, which comes
+  \Q The error message above is triggered by line 10, which comes
     after the variable {\tt varTwo} has been declared.  Why do you
-    think the variable {\tt varTwo} is not available on line 9?
+    think the variable {\tt varTwo} is not available on line 10?
     \begin{answer}[0.5in]
-      The variable {\tt varTwo} is not visible at line 9 because it
+      The variable {\tt varTwo} is not visible at line 10 because it
       was declared inside the \cpp{if} block.  So it is
-      no longer defined after line 8 when that block ends.
+      no longer defined after line 9 when that block ends.
     \end{answer}
-
-\newpage
 
   \Q The {\it scope} of a variable is the area of the program in
     which the variable is valid. Variables that have a limited scope
     are called {\it local variables} (unlike global variables, which
     can be accessed anywhere).  In the code in this model:
     \begin{itemize}
-      \item The scope of the variable {\tt varOne} is from line 4 to line 10.
-      \item The scope of the variable {\tt varTwo} is from line 6 to line 8.
+      \item The scope of the variable {\tt varOne} is from line 5 to line 11.
+      \item The scope of the variable {\tt varTwo} is from line 7 to line 9.
     \end{itemize}
     Based on this information, describe how to find the scope of a
     local variable.
@@ -92,24 +71,15 @@ model2.cpp:9:11: note: suggested alternative: ‘varOne’
       is defined to the end of the block (code in curly-braces) in
       which it was defined.
     \end{answer}
-    \vskip -40pt\null
-    
+
   \Q The program below defines six different variables different
-    variables.  Answer the following \key\\[-2.5mm] questions about this code, which can be
+    variables. Answer the\key\\[-2.5mm] following questions about this code, which can be
     found in {\tt activity14b.cpp}.
-    
     \begin{center}
-      \begin{tabular}{p{2.9in}p{2.9in}}
-        \begin{minipage}{2.9in}
+      \begin{tabular}{p{3.5in}p{2.9in}}
+        \begin{minipage}{3.5in}
           \small
-          \begin{cprlst}[
-            frame=lines,
-            framesep=2mm,
-            bgcolor=gray!15,
-            baselinestretch=1.2,
-            linenos,
-            firstnumber=4
-          ]{cpp}
+          \begin{cpplst}
 int a = 0;
 
 void myFunc(int b = 4) {
@@ -129,22 +99,22 @@ int main() {
   }
   cout << "Value: " << /* OUTPUT 4 */;
 }
-          \end{cprlst}
+          \end{cpplst}
         \end{minipage}
         &
         \begin{minipage}{2.9in}
-          \begin{enumerate}[(a)]
-            \item What is the scope of each variable?\par\vskip 15pt
-              \begin{enumerate}[i.]
-                \itemsep 15pt
-                \item \cpp{int a} -- Lines \ans[0.5in]{4} to \ans[0.5in]{22}
-                \item \cpp{int b} -- Lines \ans[0.5in]{6} to \ans[0.5in]{9}
-                \item \cpp{int c} -- Lines \ans[0.5in]{7} to \ans[0.5in]{9}
-                \item \cpp{int d} -- Lines \ans[0.5in]{12} to \ans[0.5in]{22}
-                \item \cpp{int e} -- Lines \ans[0.5in]{14} to \ans[0.5in]{0}
-                \item \cpp{int f} -- Lines \ans[0.5in]{16} to \ans[0.5in]{18}
+          \begin{enumerate}
+            \item What is the scope of each variable?
+              \begin{enumerate}[label=\roman*.]
+                \itemsep 10pt
+                \item \cpp{int a} -- Lines \ans[0.5in]{1} to \ans[0.5in]{20}
+                \item \cpp{int b} -- Lines \ans[0.5in]{3} to \ans[0.5in]{6}
+                \item \cpp{int c} -- Lines \ans[0.5in]{4} to \ans[0.5in]{6}
+                \item \cpp{int d} -- Lines \ans[0.5in]{9} to \ans[0.5in]{19}
+                \item \cpp{int e} -- Lines \ans[0.5in]{11} to \ans[0.5in]{17}
+                \item \cpp{int f} -- Lines \ans[0.5in]{13} to \ans[0.5in]{15}
               \end{enumerate}
-              \vskip 5pt\null
+
             \item Identify all global variables.
               \begin{answer}[0.5in]
                 Only {\tt a} is a global variable.
@@ -153,26 +123,25 @@ int main() {
         \end{minipage}
       \end{tabular}
     \end{center}
-    
-    \begin{enumerate}[(a)]
-      \setcounter{enumii}{2}
-      
+
+    \begin{enumerate}[label=c)]
       \item What variables could be used in place of each \cpp{/* OUTPUT */}
-        comment without causing a compiler error?  List all variables that would work.
-        \par\vskip 15pt
-        \begin{enumerate}[i.]
-          \itemsep 15pt
-          \begin{multicols}{2}
-            \item \cpp{/* OUTPUT 1 */} \hfill \ans[1.5in]{\tt a, b, c}
-            \item \cpp{/* OUTPUT 2 */} \hfill \ans[1.5in]{\tt a, d, e, f}
-            \item \cpp{/* OUTPUT 3 */} \hfill \ans[1.5in]{\tt a, d, e}
-            \item \cpp{/* OUTPUT 4 */} \hfill \ans[1.5in]{\tt a, d}
-          \end{multicols}
-        \end{enumerate}
+      comment without causing a compiler error?  List all variables that would work.
+      \begin{enumerate}[label=\roman*.]
+        \itemsep 10pt
+        \begin{multicols}{2}
+          \item \cpp{/* OUTPUT 1 */} \hspace{0.0025in} \ans[1.5in]{\tt a, b, c}
+          \item \cpp{/* OUTPUT 2 */} \hspace{0.0025in} \ans[1.5in]{\tt a, d, e, f}
+          \item \cpp{/* OUTPUT 3 */} \hfill \ans[1.5in]{\tt a, d, e}
+          \item \cpp{/* OUTPUT 4 */} \hfill \ans[1.5in]{\tt a, d}
+        \end{multicols}
+      \end{enumerate}
     \end{enumerate}
+
+  \vskip -30pt
     
-    \Q Why is it important to be aware of the scope of a variable?
-      \begin{answer}[0.5in]
-        Because you can only access that variable within its scope.  So a programmer needs to
-        know what that scope will be.
-      \end{answer}
+  \Q Why is it important to be aware of the scope of a variable?
+    \begin{answer}[0.5in]
+      Because you can only access that variable within its scope.  So a programmer needs to
+      know what that scope will be.
+    \end{answer}
