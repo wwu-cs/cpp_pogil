@@ -1,6 +1,6 @@
-#include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <iostream>
 
 using namespace std;
 
@@ -27,7 +27,7 @@ bool giveProblem(/* ANSWER C */) {
 }
 
 int main() {
-  srand(time(0));  // seed random num
+  srand(time(0)); // seed random num
   int numCorrect = 0;
   for (/* ANSWER E */) {
     int num1 = rand() % 10 + 1;

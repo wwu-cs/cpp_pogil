@@ -59,48 +59,49 @@ int main() {
   {\it\large Refer to Model 3 above as your team develops consensus answers
     to the questions below.}
 
-    \Q There is one user-defined function that is missing from this program.    
-      \begin{enumerate}
-        \itemsep 10pt
-        \item What is the name of the missing function? \hfill
-          \ans[3in]{\tt getMessage}
+  \quest{20 min}
 
-        \item Is the function {\tt void} or value-returning? \hfill
-          \ans[3in]{value-returning}
+  \Q There is one user-defined function that is missing from this program.    
+    \begin{enumerate}
+      \itemsep 10pt
+      \item What is the name of the missing function? \hfill
+        \ans[3in]{\tt getMessage}
 
-        \item What are the type(s) of its parameters?\hfill
-          \ans[3in]{It has two integer parameters}
+      \item Is the function {\tt void} or value-returning? \hfill
+        \ans[3in]{value-returning}
 
-        \item Write the header for the function. \hfill
-          \ans[3in]{\cpp{string getMessage(int uNum, int cNum)}}
-      \end{enumerate}
-      \par\vskip -40pt\null
-      
-    \Q Does the missing function contain any {\tt cout} statements?
-      Explain your reasoning.\key
-      \begin{answer}[0.5in]
-        No.  It returns the value to print out, but the {\tt cout}
-        happens in the {\tt main} function, not in the missing function.
-      \end{answer}
-      
-    \Q Suppose line 18 in the model was changed to just
-      \cpp{getMessage(userNum,compNum);}.  How would this
-      change your answers to questions 10 and 11 above?
-      \begin{answer}[0.5in]
-        The function now produces the output and would have a {\tt
-        void} return type.
-      \end{answer}
+      \item What are the type(s) of its parameters?\hfill
+        \ans[3in]{It has two integer parameters}
 
-    \Q Now write the function definition assuming that the function header
-      is as shown below.
+      \item Write the header for the function. \hfill
+        \ans[3in]{\cpp{string getMessage(int uNum, int cNum)}}
+    \end{enumerate}
+    
+  \Q Does the missing function contain any {\tt cout} statements?
+    Explain your reasoning.\key
+    \begin{answer}[0.5in]
+      No.  It returns the value to print out, but the {\tt cout}
+      happens in the {\tt main} function, not in the missing function.
+    \end{answer}
+    
+  \Q Suppose line 18 in the model was changed to just
+    \cpp{getMessage(userNum,compNum);}.  How would this
+    change your answers to questions 10 and 11 above?
+    \begin{answer}[0.5in]
+      The function now produces the output and would have a {\tt
+      void} return type.
+    \end{answer}
+
+  \Q Now write the function definition assuming that the function header
+    is as shown below. Test your code in the file {\tt activity12c.cpp}.
+    \begin{center}
+      \cpp{string getMessage(int userNum, int compNum)}
+    \end{center}
+    \begin{answer}[2.25in]
+      \footnotesize
       \begin{center}
-        \cpp{string getMessage(int userNum, int compNum)}
-      \end{center}
-      \begin{answer}[2.25in]
-        \footnotesize
-        \begin{center}
-          \begin{minipage}{6in}
-            \begin{cpplst}
+        \begin{minipage}{6in}
+          \begin{cpplst}
 string getMessage(int userNum,int compNum) {
   string message;
   if (userNum < compNum) {
@@ -112,22 +113,22 @@ string getMessage(int userNum,int compNum) {
   }
   return message;
 }
-            \end{cpplst}
-          \end{minipage}
-        \end{center}
-      \end{answer}          
-  
-    \Q Write a different version of this same function assuming that
-      line 18 in the model was changed to just \cpp{getMessage(userNum,compNum);} 
-      and using the following function header.
-      \begin{center}
-        \cpp{void getMessage(int userNum, int compNum)}
+          \end{cpplst}
+        \end{minipage}
       \end{center}
-      \begin{answer}[2.25in]
-        % \scriptsize
-        \begin{center}
-          \begin{minipage}{6in}
-            \begin{cpplst}
+    \end{answer}          
+  
+  \Q Write a different version of this same function assuming that
+    line 18 in the model was changed to just \cpp{getMessage(userNum,compNum);} 
+    and using the following function header.
+    \begin{center}
+      \cpp{void getMessage(int userNum, int compNum)}
+    \end{center}
+    \begin{answer}[2.25in]
+      % \scriptsize
+      \begin{center}
+        \begin{minipage}{6in}
+          \begin{cpplst}
 void getMessage(int userNum,int compNum) {
   if (userNum < compNum) {
     cout << "I'm sorry, your number is smaller." << endl;
@@ -137,7 +138,7 @@ void getMessage(int userNum,int compNum) {
     cout << "Congratulations!  You picked the number." << endl;
   }
 }
-            \end{cpplst}
-          \end{minipage}
-        \end{center}
-      \end{answer}          
+          \end{cpplst}
+        \end{minipage}
+      \end{center}
+    \end{answer}          

@@ -1,7 +1,6 @@
-\model{A C++ Function Prototype} \\[-15pt]
-  \begin{center}
-    \begin{minipage}{4.5in}
-      \begin{cpplst}
+\model{A C++ Function Prototype}
+  \begin{minipage}{4.5in}
+    \begin{cpplst}
 int sum(int a, int b=0, int c=0, int d=0);
 
 int main() {
@@ -9,147 +8,136 @@ int main() {
   cout << "Test Two: " << sum(1,2,3) << endl;
   cout << "Test Three: " << sum(1,2) << endl; 
 }
-      \end{cpplst}
-    \end{minipage}
-  \end{center}
-  \TPMargin{5pt}
-  \begin{textblock*}{1.8in}[0,0](4.75in,-1.45in)
-    \textblockcolor{white}
-    \begin{minipage}{1.65in}
-      {\bf Output:} 
-      \hrule\vskip 5pt\tt
-\cpp{html}{Test One: 10}\\
-\cpp{html}{Test Two: 6}\\
-\cpp{html}{Test Three: 3}
-    \end{minipage}
-  \end{textblock*}
-  
+    \end{cpplst}
+  \end{minipage}
+  \begin{minipage}[b]{1.65in}
+    {\bf Output:} 
+    \hrule\vskip 5pt\tt
+Test One: 10}\\
+Test Two: 6\\
+Test Three: 3
+  \end{minipage}
   
   {\it\large Refer to Model 1 above as your team develops consensus answers
     to the questions below.}
-    \par\vskip 10pt
+
+  \quest{15 min}
     
+  \Q A prototype for the function {\tt sum} is defined on line 1
+    of the model above.  Assume that this function is defined
+    elsewhere so as to produce the output shown given the {\tt main}
+    program.
+    \begin{enumerate}
+      \itemsep 10pt
+      \item How many parameters does the function {\tt sum} have? \hfill
+        \ans[1.5in]{four}
 
-    \Q A prototype for the function {\tt sum} is defined on line 4
-      of the model above.  Assume that this function is defined
-      elsewhere so as to produce the output shown given the {\tt main}
-      program.
-      % \par\ifprintanswers\vskip 10pt\else\vskip 20pt\fi
-      
-      \begin{enumerate}[(a)]
-        \itemsep 15pt
-        \item How many parameters does the function {\tt sum} have? \hfill
-          \ans[1.5in]{four}
-        \item How many arguments does the call to this function on line 7 have? \hfill
-          \ans[1.5in]{four}
-        \item How many arguments does the call to this function on line 8 have? \hfill
-          \ans[1.5in]{three}
-        \item How many arguments does the call to this function on line 9 have? \hfill
-          \ans[1.5in]{two}
-      \end{enumerate}
-      
-    \Q What are the values of the parameters {\tt a}, {\tt b}, {\tt c}, and {\tt d}
-      in the body of the function {\tt sum} for each call?
-      \par\vskip 15pt
-      
-      \begin{enumerate}[(a)]
-        \itemsep 15pt
-        \item Line 7: \cpp{sum(1,2,3,4)} \hfill 
-            {\tt a =} \ans[0.5in]{1}, \hspace{5pt} 
-            {\tt b =} \ans[0.5in]{2}, \hspace{5pt}
-            {\tt c =} \ans[0.5in]{3}, \hspace{5pt} and
-            {\tt d =} \ans[0.5in]{4}
-        \item Line 8: \cpp{sum(1,2,3)} \hfill
-            {\tt a =} \ans[0.5in]{1}, \hspace{5pt} 
-            {\tt b =} \ans[0.5in]{2}, \hspace{5pt}
-            {\tt c =} \ans[0.5in]{3}, \hspace{5pt} and
-            {\tt d =} \ans[0.5in]{0}
-        \item Line 9: \cpp{sum(1,2)} \hfill 
-            {\tt a =} \ans[0.5in]{1}, \hspace{5pt} 
-            {\tt b =} \ans[0.5in]{2}, \hspace{5pt}
-            {\tt c =} \ans[0.5in]{0}, \hspace{5pt} and
-            {\tt d =} \ans[0.5in]{0}
-      \end{enumerate}
-   
+      \item How many arguments does the call to this function on line 4 have? \hfill
+        \ans[1.5in]{four}
 
-\newpage      
+      \item How many arguments does the call to this function on line 5 have? \hfill
+        \ans[1.5in]{three}
 
-    \Q A {\it default argument} is a value provided in a function
-      declaration that is automatically assigned by the compiler when
-      function calls don't provide a value for the argument.  Which
-      parameters in the {\tt sum} function have default arguments?
-      How can you tell?
-      \begin{answer}[0.5in]
-        Parameters {\tt b}, {\tt c}, and {\tt d} have default
-        arguments.  You can tell because the all say 
-        ``\cpp{=0}''.
-      \end{answer}
-      % \ifprintanswers\vskip -35pt\null\fi
-      
-    \Q Rewrite the prototype of the {\tt sum} function from line
-      one so that the function calls below return the indicated value.
-      We will use the notation \cpp{sum(1,2,3,4)}
-      $\rightarrow$ 10 to indicate the function call returns 10.
-      \par\vskip 15pt
-      
-      \begin{enumerate}[(a)]
-        \itemsep 15pt
-        \item \cpp{sum(0,0,0)} $\rightarrow$ 2 \hfill
-          \ans[4.5in]{\cpp{int sum(int a,int b, int c, int d=2)}
-        \item \cpp{sum(3,2)} $\rightarrow$ 8 \hfill
-          \ans[4.5in]{\cpp{int sum(int a,int b, int c=6, int d=2)}
-        \item \cpp{sum(1)} $\rightarrow$ 10 \hfill
-          \ans[4.5in]{\cpp{int sum(int a,int b=1, int c=6, int d=2)}
-      \end{enumerate}
-      
-    \Q The file {\tt activity13a.cpp} contains the code from the
-      model as well as the function definition.  Replace the function
-      prototype on line 4 of that file with each of the following. Place a check 
-      next to the prototypes for which the program compiles without errors.
-      \par\vskip 5pt
-      
-      \begin{enumerate}[(a)]
-        \small
-        \itemsep 5pt
-          \item \ans[0.25in]{\cpp{int sum(int a, int b=0, int c, int d=0)}}
-          \item \ans[$\checkmark$][0.25in]{\cpp{int sum(int a, int b, int c=0, int d=0)}}
-          \item \ans[0.25in]{\cpp{int sum(int a=0, int b=0, int c, int d)}}
-          \item \ans[$\checkmark$][0.25in]{\cpp{int sum(int a=0, int b=0, int c=0, int d=0)}}
-      \end{enumerate}
-      \vskip -50pt\null
-      
-    \Q Based on these results, what rule does C++
-      enforces in regard to default arguments?\key
-      \begin{answer}[0.5in]
-        Once a parameter has a default argument, every parameter after that must also.
-      \end{answer}
-      % \ifprintanswers\vskip -35pt\null\fi
-      \vskip -20pt\null
-      
-    \Q Follow the steps below to write a function that returns the product of
-      between two and four arguments, as shown in the examples below.
-      Use the file {\tt activity13a.cpp} to test your code.
-      \begin{itemize}
-        \small
-        \begin{multicols}{3}
-          \item\cpp{product(2,2,2,3)} $\rightarrow$ 24
-          \item\cpp{product(3,3,5)} $\rightarrow$ 45
-          \item\cpp{product(5,5)} $\rightarrow$ 25
-        \end{multicols}
-      \end{itemize}
-      
-      \begin{enumerate}[(a)]
-        \item First, write the function definition based on the
-          function header shown below.  Enter your definition below the
-          {\tt main} program in the {\tt activity13a.cpp} file.
+      \item How many arguments does the call to this function on line 6 have? \hfill
+        \ans[1.5in]{two}
+    \end{enumerate}
+    
+  \Q What are the values of the parameters {\tt a}, {\tt b}, {\tt c}, and {\tt d}
+    in the body of the function {\tt sum} for each call?
+    \begin{enumerate}
+      \itemsep 10pt
+      \item Line 4: \cpp{sum(1,2,3,4)} \hfill 
+          {\tt a =} \ans[0.5in]{1} \hspace{5pt} 
+          {\tt b =} \ans[0.5in]{2} \hspace{5pt}
+          {\tt c =} \ans[0.5in]{3} \hspace{5pt} and
+          {\tt d =} \ans[0.5in]{4}
+      \item Line 5: \cpp{sum(1,2,3)} \hfill
+          {\tt a =} \ans[0.5in]{1} \hspace{5pt} 
+          {\tt b =} \ans[0.5in]{2} \hspace{5pt}
+          {\tt c =} \ans[0.5in]{3} \hspace{5pt} and
+          {\tt d =} \ans[0.5in]{0}
+      \item Line 6: \cpp{sum(1,2)} \hfill 
+          {\tt a =} \ans[0.5in]{1} \hspace{5pt} 
+          {\tt b =} \ans[0.5in]{2} \hspace{5pt}
+          {\tt c =} \ans[0.5in]{0} \hspace{5pt} and
+          {\tt d =} \ans[0.5in]{0}
+    \end{enumerate}
+  
+  \Q A {\it default argument} is a value provided in a function
+    declaration that is automatically assigned by the compiler when
+    function calls don't provide a value for the argument.  Which
+    parameters in the {\tt sum} function have default arguments?
+    How can you tell?
+    \begin{answer}[0.5in]
+      Parameters {\tt b}, {\tt c}, and {\tt d} have default
+      arguments.  You can tell because the all say 
+      ``\cpp{=0}''.
+    \end{answer}
+
+  \newpage
+    
+  \Q Rewrite the prototype of the {\tt sum} function from line
+    one so that the function calls below return the indicated value.
+    We will use the notation \cpp{sum(1,2,3,4)}
+    $\rightarrow$ 10 to indicate the function call returns 10.
+    \begin{enumerate}
+      \itemsep 10pt
+      \item \cpp{sum(0,0,0)} $\rightarrow$ 2 \hfill
+        \ans[4.5in]{\cpp{int sum(int a, int b, int c, int d=2)}}
+
+      \item \cpp{sum(3,2)} $\rightarrow$ 8 \hfill
+        \ans[4.5in]{\cpp{int sum(int a, int b, int c=2, int d=1)}}
+
+      \item \cpp{sum(1)} $\rightarrow$ 10 \hfill
+        \ans[4.5in]{\cpp{int sum(int a, int b=1, int c=6, int d=2)}}
+    \end{enumerate}
+    
+  \Q The file {\tt activity13b.cpp} contains the code from the
+    model as well as the function definition.  Replace the function
+    prototype on line 1 of that file with each of the following. Place a check 
+    next to the prototypes for which the program compiles without errors.
+    
+    \begin{enumerate}
+      \small
+      \itemsep 5pt
+        \item \ans[0.25in]{} {\cpp{int sum(int a, int b=0, int c, int d=0)}}
+        \item \ans[0.25in]{\checkmark} {\cpp{int sum(int a, int b, int c=0, int d=0)}}
+        \item \ans[0.25in]{} {\cpp{int sum(int a=0, int b=0, int c, int d)}}
+        \item \ans[0.25in]{\checkmark} {\cpp{int sum(int a=0, int b=0, int c=0, int d=0)}}
+    \end{enumerate}
+
+  \vskip -30pt
+    
+  \Q Based on these results, what rule does C++
+    enforces in regard to default arguments?\key
+    \begin{answer}[0.5in]
+      Once a parameter has a default argument, every parameter after that must also.
+    \end{answer}
+    
+  \Q Follow the steps below to write a function that returns the product of
+    between two and four arguments, as shown in the examples below.
+    Use the file {\tt activity13a.cpp} to test your code.
+    \begin{itemize}
+      \small
+      \begin{multicols}{3}
+        \item\cpp{product(2,2,2,3)} $\rightarrow$ 24
+        \item\cpp{product(3,3,5)} $\rightarrow$ 45
+        \item\cpp{product(5,5)} $\rightarrow$ 25
+      \end{multicols}
+    \end{itemize}
+    
+    \begin{enumerate}
+      \item First, write the function definition based on the
+        function header shown below.  Enter your definition below the
+        {\tt main} program in the {\tt activity13a.cpp} file.
+        \begin{center}
+          \cpp{int product(int a, int b, int c, int d)}
+        \end{center}
+        \begin{answer}[1.5in]
+          \scriptsize\vskip -35pt\null
           \begin{center}
-            \cpp{int product(int a, int b, int c, int d)}
-          \end{center}
-          \begin{answer}[1.5in]
-            \scriptsize\vskip -35pt\null
-            \begin{center}
-              \begin{minipage}{3.5in}
-                \begin{cpplst}
+            \begin{minipage}{3.5in}
+              \begin{cpplst}
 int product(int a, int b, int c, int d) {
   return a*b*c*d;
 }
@@ -171,4 +159,7 @@ int product(int a, int b, int c=1, int d=1);
           \end{answer}
         \item Finally, add the three function calls above to the {\tt main} program.
           Do they work as expected?
+          \begin{answer}[0.5in]
+            Yes.
+          \end{answer}
       \end{enumerate}
