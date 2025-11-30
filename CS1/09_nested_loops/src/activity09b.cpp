@@ -1,8 +1,8 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
 int main() {
-  cout << "Go!\n";
-  return 0;
+  // Test your solution here
 }

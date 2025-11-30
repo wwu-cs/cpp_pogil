@@ -1,4 +1,4 @@
-\model{A Diagram and A C++ Code Snippet} \\
+\model{A Diagram and A C++ Program} \\
   \begin{center}
     \small
     \begin{tabular}{p{2in}p{3in}}
@@ -23,14 +23,12 @@
       \end{minipage}
       &
       \begin{minipage}{3in}
-        \begin{cprtlst}[
-          frame=lines,
-          framesep=2mm,
-          bgcolor=gray!15,
-          baselinestretch=1.2,
-          linenos,
-	  firstnumber=6
-        ]{cpp}
+        \begin{cpplst}
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
   // print a person's name 10 times        
   string name;
   cout << "Enter your name: ";
@@ -41,69 +39,66 @@
     x = x + 1;
   }
   cout << "Nice to meet you!" << endl;
-        \end{cprtlst}
+}
+        \end{cpplst}
       \end{minipage}
     \end{tabular}
   \end{center}
-  \TPMargin{5pt}
-  
   
   {\it\large Refer to Model 1 above as your team develops consensus answers
     to the questions below.}
-    \par\vskip 10pt
     
-  \begin{enumerate}
-    \itemsep 20pt
+  \quest{10 min}
+  
+  \Q Which lines of code go with the following shapes on the provided diagram?
+    \begin{enumerate}
+      \itemsep 10pt
+      \item The diamond \hfill 
+        \ans[4in]{Line 11 contains the condition in the diamond}
+
+      \item The ``Block \#1'' rectangle \hfill 
+        \ans[4in]{Lines 12 and 13 make up the statements if conditional is true \#1}
+
+      \item The ``Block \#2'' rectangle \hfill 
+        \ans[4in]{Line 15 contains the statement if conditional is false \#2}
+    \end{enumerate}
     
-    \Q Which lines of code go with the following shapes on the provided diagram?
-      \par\vskip 20pt
-      \begin{enumerate}[(a)]
-        \itemsep 15pt
-        \item The diamond \hfill 
-          \ans[4in]{Line 11 contains the condition in the diamond}
-        \item The ``Block \#1'' rectangle \hfill 
-          \ans[4in]{Lines 12 and 13 make up the statements in block \#1}
-        \item The ``Block \#2'' rectangle \hfill 
-          \ans[4in]{Line 15 contains the statement in block \#2}
-      \end{enumerate}
-      
-    \Q Every loop structure requires three different actions.  Identify the line in the C++
-      code snippet above that corresponds to each of these actions.
-      \par\vskip 20pt
-      \begin{enumerate}[(a)]
-        \itemsep 15pt
-        \item {\bf Initialize} a variable to control the number of loop iterations. \hfill\ans[1in]{Line 10}
-        \item {\bf Test} a condition to determine if we should keep looping. \hfill\ans[1in]{Line 11}
-        \item {\bf Update} the variable involved in the test condition. \hfill\ans[1in]{Line 13}
-      \end{enumerate}     
+  \Q Every loop structure requires three different actions.  Identify the line in the C++
+    program above that corresponds to each of these actions.
+    \begin{enumerate}
+      \itemsep 10pt
+      \item {\bf Initialize} a variable to control the number of loop iterations. \hfill\ans[1in]{Line 10}
+      \item {\bf Test} a condition to determine if we should keep looping. \hfill\ans[1in]{Line 11}
+      \item {\bf Update} the variable involved in the test condition. \hfill\ans[1in]{Line 13}
+    \end{enumerate}
 
-\newpage
+  \newpage
 
-    \Q The complete program is in {\tt activity07a.cpp}.  Run the program and
-      answer the following questions.
-      \begin{enumerate}[(a)]
-        \item What would the model program do differently if line 10 was: \cpp{int x = 1;}?
-          \begin{answer}[0.4in]
-            It would only print out 9 copies of the name.
-          \end{answer}
-        \item What would the model program do differently if line 11 was: \cpp{while (x <= 10) {}?
-          \begin{answer}[0.4in]          
-            It would print out 11 copies of the name.
-          \end{answer}
-        \item What would the model program do differently if line 13 was: \cpp{x=x+2;}?
-          \begin{answer}[0.4in]
-            It would only print out 5 copies of the name.
-          \end{answer}
-      \end{enumerate}
-      \par\vskip -40pt\null
-      
-    \Q Change one or more of lines 10, 11, and 13 to make the program print the name 23 times.\key\\[-2.5mm]
-      
-      \begin{answer}[1.25in]
-        \par
-        Answers will vary, but one solution is to change line 6 to read:
-        \begin{center}
-          \cpp{ while ( x < 23 ) {}
-        \end{center}        
-      \end{answer}
-      
+  \Q The complete program is in {\tt activity07a.cpp}.  Run the program and
+    answer the following questions.
+    \begin{enumerate}
+      \item What would the model program do differently if line 10 was: \cpp{int x = 1;}?
+        \begin{answer}[0.4in]
+          It would only print out 9 copies of the name.
+        \end{answer}
+
+      \item What would the model program do differently if line 11 was: \cpp{while (x <= 10)}?
+        \begin{answer}[0.4in]          
+          It would print out 11 copies of the name.
+        \end{answer}
+
+      \item What would the model program do differently if line 13 was: \cpp{x = x + 2;}?
+        \begin{answer}[0.4in]
+          It would only print out 5 copies of the name.
+        \end{answer}
+    \end{enumerate}
+    \vskip -40pt
+    
+  \Q Change one or more of lines 11, 12, and 13 to make the program print the name 23 \key\\[-2.5mm] times.
+    \begin{answer}[1.25in]
+      \par
+      Answers will vary, but one solution is to change line 10 to read:
+      \begin{center}
+        \cpp{ while ( x < 23 ) {}}
+      \end{center}        
+    \end{answer}

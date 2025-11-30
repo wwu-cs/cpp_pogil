@@ -1,15 +1,8 @@
 \model{Another C++ Program} \\
-  % \ifprintanswers\vskip -40pt\null\fi
   \begin{center}
     \small
     \begin{minipage}{5.5in}
-      \begin{cprlst}[
-        frame=lines,
-        framesep=2mm,
-        bgcolor=gray!15,
-        baselinestretch=1.2,
-        linenos
-      ]{cpp}
+      \begin{cpplst}
 #include <iostream>
 using namespace std;
 
@@ -25,67 +18,66 @@ int main() {
     cout << "You do not meet all the criteria for graduation." << endl;
   }
 }      
-      \end{cprlst}
+      \end{cpplst}
     \end{minipage}
   \end{center}
-  \TPMargin{5pt}
-  % \ifprintanswers\vskip -20pt\null\fi
-  
 
   {\it\large Refer to Model 2 above as your team develops consensus answers
     to the questions below.}
+    
+  \quest{15 min}
+
+  \Q In order to graduate from WWU with a Bachelor's degree, students must have
+    earned at least 192 credits, have a GPA of at least 2.0 in their major, and have an
+    overall GPA of at least 2.0 (among other things).  Which of the following Boolean
+    expressions should be used on line 8 of this model to test if a student meets these
+    graduation criteria?
     \par\vskip 10pt
+    \begin{enumerate}[label=]
+      \item \ans[0.2in]{} \cpp{ numCredits >= 192 || majorGPA >= 2.0 || overallGPA >= 2.0}
+      \item \ans[0.2in]{} \cpp{ numCredits > 192 && majorGPA > 2.0 && overallGPA > 2.0}
+      \item \ans[0.2in]{\checkmark} \cpp{ numCredits > 191 && majorGPA >= 2.0 && overallGPA >= 2.0}
+      \item \ans[0.2in]{\checkmark} \cpp{ numCredits >= 192 && majorGPA >= 2.0 && overallGPA >= 2.0}
+    \end{enumerate}
 
-    \Q In order to graduate from WWU with a Bachelor's degree, students must have
-      earned at least 192 credits, have a GPA of at least 2.0 in their major, and have an
-      overall GPA of at least 2.0 (among other things).  Which of the following Boolean
-      expressions should be used on line 8 of this model to test if a student meets these
-      graduation criteria?
-      \par\vskip 10pt
-      \begin{checkboxes}
-        \choice \cpp{numCredits >= 192 || majorGPA >= 2.0 || overallGPA >= 2.0}
-        \choice \cpp{numCredits > 192 && majorGPA > 2.0 && overallGPA > 2.0}
-        \correctchoice \cpp{numCredits > 191 && majorGPA >= 2.0 && overallGPA >= 2.0}
-        \correctchoice \cpp{numCredits >= 192 && majorGPA >= 2.0 && overallGPA >= 2.0}
-      \end{checkboxes}
-      \par\vskip -30pt\null
+  \newpage
 
-    \Q Add the Boolean expression you chose above to the program in {\tt activity06b.cpp}. Create \key\\[-2.5mm]
-      test data to check all eight ($2\times 2\times 2$) different combinations for
-      the sub-expressions of the Boolean expression.  Then run each of those test cases and verify that 
-      the program passes the test. 
-      \par\vskip 15pt
-      \begin{center}
-        \renewcommand{\arraystretch}{1.8}
-        \begin{tabular}{|c|c|c|c|c|c|}
-          \hline
-            \rowcolor{orange!20} Test Case & {\tt numCredits} & {\tt majorGPA} & {\tt overallGPA} & Expected (graduate/don't) & Passed \\
-          \hline
-            1 & \ifprintanswers 196\fi & \ifprintanswers 3.6\fi & \ifprintanswers 3.2\fi & \ifprintanswers graduate\fi & \\
-          \hline
-            2 & \ifprintanswers 196\fi & \ifprintanswers 3.6\fi & \ifprintanswers 1.8\fi & \ifprintanswers don't\fi & \\
-          \hline
-            3 & \ifprintanswers 196\fi & \ifprintanswers 1.9\fi & \ifprintanswers 3.2\fi & \ifprintanswers don't\fi & \\
-          \hline
-            4 & \ifprintanswers 196\fi & \ifprintanswers 1.7\fi & \ifprintanswers 1.9\fi & \ifprintanswers don't\fi & \\
-          \hline
-            5 & \ifprintanswers 188\fi & \ifprintanswers 3.6\fi & \ifprintanswers 3.2\fi & \ifprintanswers don't\fi & \\
-          \hline
-            6 & \ifprintanswers 184\fi & \ifprintanswers 3.2\fi & \ifprintanswers 1.8\fi & \ifprintanswers don't\fi & \\
-          \hline
-            7 & \ifprintanswers 190\fi & \ifprintanswers 1.9\fi & \ifprintanswers 3.2\fi & \ifprintanswers don't\fi & \\
-          \hline
-            8 & \ifprintanswers  53\fi & \ifprintanswers 1.6\fi & \ifprintanswers 1.9\fi & \ifprintanswers don't\fi & \\
-          \hline
-        \end{tabular}
-      \end{center}
-      
-    \Q A {\it edge case test} is a test of a natural edges or boundary of the program.  An example of a natural boundary
-      in this program is where the {\tt majorGPA} is exactly 2.0, since this is a division line in determining if somebody can
-      graduate.  Give at least two other edge cases that could be tested.
-      \begin{answer}[1in]
-        \par
-        We could test where {\tt overallGPA} is exactly 2.0 and where {\tt numCredits} is exactly 192.  Additional boundary
-        conditions might include the limits of an integer range for {\tt numCredits}, the division line between positive and
-        negative values, etc.
-      \end{answer}
+  \Q Add the Boolean expression you chose above to the program in {\tt activity06b.cpp}. \key\\[-2.5mm] Create
+    test data to check all eight ($2\times 2\times 2$) different combinations for
+    the sub-expressions of the Boolean expression.  Then run each of those test cases and verify that 
+    the program passes the test. 
+    \par\vskip 15pt
+    \begin{center}
+      \renewcommand{\arraystretch}{1.8}
+      \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \rowcolor{orange!20} Test Case & {\tt numCredits} & {\tt majorGPA} & {\tt overallGPA} & Expected (graduate/don't) & Passed \\
+        \hline
+          1 & \ans[0.5in]{196} & \ans[0.5in]{3.6} & \ans[0.5in]{3.2} & \ans[1in]{graduate} & \\
+        \hline
+          2 & \ans[0.5in]{196} & \ans[0.5in]{3.6} & \ans[0.5in]{1.8} & \ans[1in]{don't} & \\
+        \hline
+          3 & \ans[0.5in]{196} & \ans[0.5in]{1.9} & \ans[0.5in]{3.2} & \ans[1in]{don't} & \\
+        \hline
+          4 & \ans[0.5in]{196} & \ans[0.5in]{1.7} & \ans[0.5in]{1.9} & \ans[1in] {don't} & \\
+        \hline
+          5 & \ans[0.5in]{188} & \ans[0.5in]{3.6} & \ans[0.5in]{3.2} & \ans[1in] {don't} & \\
+        \hline
+          6 & \ans[0.5in]{184} & \ans[0.5in]{3.2} & \ans[0.5in]{1.8} & \ans[1in] {don't} & \\
+        \hline
+          7 & \ans[0.5in]{90} & \ans[0.5in]{1.9} & \ans[0.5in]{3.2} & \ans[1in] {don't} & \\
+        \hline
+          8 & \ans[0.5in]{53} & \ans[0.5in]{1.6} & \ans[0.5in]{1.9} & \ans[1in] {don't} & \\
+        \hline
+      \end{tabular}
+    \end{center}
+    
+  \Q A {\it edge case test} is a test of a natural edges or boundary of the program.  An example of a natural boundary
+    in this program is where the {\tt majorGPA} is exactly 2.0, since this is a division line in determining if somebody can
+    graduate.  Give at least two other edge cases that could be tested.
+    \begin{answer}[1in]
+      \par
+      We could test where {\tt overallGPA} is exactly 2.0 and where {\tt numCredits} is exactly 192.  Additional boundary
+      conditions might include the limits of an integer range for {\tt numCredits}, the division line between positive and
+      negative values, etc.
+    \end{answer}

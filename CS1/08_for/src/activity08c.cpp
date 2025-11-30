@@ -3,6 +3,5 @@
 using namespace std;
 
 int main() {
-  cout << "Go!\n";
-  return 0;
+  // Use this file to answer question 18
 }

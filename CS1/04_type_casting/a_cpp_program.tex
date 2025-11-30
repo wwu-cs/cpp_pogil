@@ -7,7 +7,7 @@ using namespace std;
 
 int main() {
   // declare variables
-  double floatOne,floatTwo;
+  double floatOne, floatTwo;
   int integer = 35;
   // part I
   floatOne = integer;
@@ -25,55 +25,55 @@ int main() {
   
   {\it\large Refer to Model 3 above as your group develops consensus answers
     to the questions below.}
-    \par\vskip 10pt
 
-    \quest{20 min}
+  \par\vskip 10pt
+
+  \quest{20 min}
+  
+  \Q This program can be found in {\tt activity04c.cpp}.  Run it and then answer the following questions.
+    \begin{enumerate}
+      \itemsep 15pt
+      \item What is the printed value of the variable {\tt integer} in part I?  \hfill \ans[1.5in]{35}
+      \item What is the printed value of the variable {\tt floatOne} in part I?  \hfill \ans[1.5in]{35}
+      \item What is the printed value of the variable {\tt floatOne} in part II? \hfill \ans[1.5in]{3.9}
+      \item What is the printed value of the variable {\tt floatTwo} in part II? \hfill \ans[1.5in]{3}
+    \end{enumerate}
+            
+  \Q Lines 9 and 14 are both examples of {\it type casting}.  What is a type cast?
+    \begin{answer}[0.5in]
+      It is when a variable of one type is treated as if it were a variable of another type.
+    \end{answer}
     
-      \Q This program can be found in {\tt activity02c.cpp}.  Run it and then answer the following questions.
-        \par\vskip 20pt
-        \begin{enumerate}[(a)]
-          \itemsep 15pt
-          \item What is the printed value of the variable {\tt integer} in part I?  \hfill \ans[1.5in]{35}
-          \item What is the printed value of the variable {\tt floatOne} in part I?  \hfill \ans[1.5in]{35}
-          \item What is the printed value of the variable {\tt floatOne} in part II? \hfill \ans[1.5in]{3.9}
-          \item What is the printed value of the variable {\tt floatTwo} in part II? \hfill \ans[1.5in]{3}
-        \end{enumerate}
-                
-      \Q Lines 9 and 14 are both examples of {\it type casting}.  What is a type cast?
-        \begin{answer}[0.5in]
-          It is when a variable of one type is treated as if it were a variable of another type.
-        \end{answer}
-        
-      \Q In the previous model we saw the term {\it implicit type casting}.  Another type of type casting is {\it explicit
-        type casting}.  Which statement (line 9 or 14) is an example of an explicit type cast? 
-        \begin{answer}[0.5in]
-          Line 14 is an explicit type cast because we specifically asked the computer to treat {\tt floatOne} as an integer.
-        \end{answer}
+  \Q In the previous model we saw the term {\it implicit type casting}.  Another type of type casting is {\it explicit
+    type casting}.  Which statement (line 9 or 14) is an example of an explicit type cast? 
+    \begin{answer}[0.5in]
+      Line 14 is an explicit type cast because we specifically asked the computer to treat {\tt floatOne} as an integer.
+    \end{answer}
 
-    \Q What is the difference between an implicit type cast and an explicit type cast?
-      \begin{answer}[1in]
-        \par
-        An implicit type cast happens automatically, while an explicit type cast is asked for.
-      \end{answer}
-      
-    \Q What is the C++ syntax for an explicit type cast?  Give an example other than the one in the model.
-      \begin{answer}[1in]
-        \par
-        The syntax is \cpp{static_cast<newType>(variable)}.  Examples will vary.
-      \end{answer}
-      
-    \Q Write a snippet of code that will output the string WWU without using the ``W'' \key\\[-2.5mm] or ``U'' characters.
-      Hint: use explicit type casting and the ASCII table seen in model 2.\\
-      Feel free to test your code in the file {\tt activity04c.cpp}.
-      \begin{answer}[1in]
-        \par
-  \begin{center}
-    \begin{minipage}{5.5in}
-      \begin{cpplst}
-  cout << static_cast<char>(87);
-  cout << static_cast<char>(87);
-  cout << static_cast<char>(85);
-      \end{cpplst}
-    \end{minipage}
-  \end{center}
-      \end{answer}
+  \Q What is the difference between an implicit type cast and an explicit type cast?
+    \begin{answer}[1in]
+      \par
+      An implicit type cast happens automatically, while an explicit type cast is asked for.
+    \end{answer}
+    
+  \Q What is the C++ syntax for an explicit type cast?  Give an example other than the one in the model.
+    \begin{answer}[1in]
+      \par
+      The syntax is \cpp{static_cast<newType>(variable)}.  Examples will vary.
+    \end{answer}
+    
+  \Q Write a snippet of code that will output the string WWU without using the ``W'' \key\\[-2.5mm] or ``U'' characters.
+    Hint: use explicit type casting and the ASCII table seen in model 2.\\
+    Feel free to test your code in the file {\tt activity04c.cpp}.
+    \begin{answer}[1in]
+      \par
+      \begin{center}
+        \begin{minipage}{5.5in}
+          \begin{cpplst}
+cout << static_cast<char>(87);
+cout << static_cast<char>(87);
+cout << static_cast<char>(85);
+          \end{cpplst}
+        \end{minipage}
+      \end{center}
+    \end{answer}

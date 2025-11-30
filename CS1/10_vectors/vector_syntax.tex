@@ -1,193 +1,179 @@
 \model{ Vector Syntax}\\
-
   \begin{center}
-    \begin{tabular}{p{2.5in}p{3.1in}}
-      \begin{minipage}{2.5in}
-        \scriptsize
-        \begin{cprlst}[
-          frame=lines,
-          framesep=2mm,
-          bgcolor=gray!15,
-          baselinestretch=1.2,
-          linenos,
-          firstnumber=8
-        ]{cpp}
-  vector<int> quizScores = {8,6};
-  vector<string> profNames(4);
-  
-  profNames.at(0) = "Carman";
-  profNames.at(1) = "Foster";
-  profNames.at(2) = "Duncan";
-  
-  cout << quizScores.size() << endl;
-  cout << profNames.at(1) << endl;
-        \end{cprlst}
-      \end{minipage}
-      &
-      \begin{minipage}{3.1in}
-        \null\par\vskip 50pt
-        \begin{tabular}{p{0.8in}|c|c|c|}
-          \hhline{~|-|-|-|}
-          {\tt quizScores:} & 8 & 6 \\
-          \hhline{~|-|-|-|}
-          \multicolumn{1}{c}{} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{1} \\
-        \end{tabular}
-        \par\vskip 5pt
-        \begin{tabular}{p{0.8in}|c|c|c|c|}
-          \hhline{~|-|-|-|-|}
-          {\tt profNames:} & Carman & Foster & Duncan & \\
-          \hhline{~|-|-|-|-|}
-          \multicolumn{1}{c}{} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} \\
-        \end{tabular}
-      \end{minipage}
-    \end{tabular}
-  \end{center}
-  \TPMargin{5pt}
-  \begin{textblock*}{1.5in}[0,0](2.6in,-1.5in)
-    \textblockcolor{white}
-    \begin{minipage}{1.35in}
+    \begin{minipage}{2.5in}
       \scriptsize
+      \begin{cpplst}
+vector<int> quizScores = {8,6};
+vector<string> profNames(4);
+
+profNames.at(0) = "Carman";
+profNames.at(1) = "Foster";
+profNames.at(2) = "Duncan";
+
+cout << quizScores.size() << endl;
+cout << profNames.at(1) << endl;
+      \end{cpplst}
+    \end{minipage}
+    &
+    \begin{minipage}{2.5in}
+      \begin{tabular}{|c|c|c|}
+        \hline
+        {\tt quizScores:}  & 8 & 6 \\
+        \hline
+        index & 0 & 1 \\
+        \hline
+      \end{tabular}
+      \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        {\tt profNames:} & Carman & Foster & Duncan & \\
+        \hline
+        index & 0 & 1 & 2 & 3 \\
+        \hline
+      \end{tabular}
+      \vskip 10pt
       {\bf Output:} 
       \hrule\vskip 5pt
       2\\
       Foster
     \end{minipage}
-  \end{textblock*}
-  
+  \end{center}
   
   {\it\large Refer to Model 1 above as your team develops consensus answers
     to the questions below.}
-    \par\vskip 10pt
-    
 
-    \Q A {\it vector} is an ordered list of related variables, all of the
-      same type.  Each value in a vector is known as an {\it element}.  The code
-      above can be found in {\tt activity10a.cpp}.  Answer the following questions 
-      about the vectors declared on line 8.
-      \par\vskip 20pt
-      
-      \begin{enumerate}[(a)]
-        \itemsep 15pt
-        \item What is the name of this vector? \hfill
-          \ans[2.5in]{\tt quizScores}
-        \item What type of variable does this vector hold? \hfill
-          \ans[2.5in]{It is a vector of  \cpp{int}s}
-      \end{enumerate}
-      
-    \Q A second vector is declared on line 9 in the model.  Answer
-      the following questions about it.
-      \par\vskip 20pt
-      
-      \begin{enumerate}[(a)]
-        \itemsep 15pt
-        \item What is the name of this vector? \hfill
-          \ans[2.5in][\tt profNames]
-        \item What type of variable does this vector hold? \hfill
-          \ans[2.5in]{It is a vector of  \cpp{string}s}
-      \end{enumerate}
-    
-    \Q The {\it size} of a vector is the number of variables that
-      it holds.  What is the size of each vectors above? 
-      \begin{answer}[0.5in]
-        The vector declared on line 1 has size 2 and the vector
-        declared on line 2 has size 4.
-      \end{answer}
-      
-    \Q Based on the code above, what are two different ways to
-      initialize the variables stored in a vector?
-      \begin{answer}[1in]
-        \par
-        You can set the values when the vector is declared
-        using the \cpp{vector<type> name = { value_list }}
-        syntax, or you can set each value using the
-        \cpp{vectorName.at(index) = value} command.
-      \end{answer}
-      
-      
-\newpage
+  \quest{15 min}
+  
+  \Q A {\it vector} is an ordered list of related variables, all of the
+    same type.  Each value in a vector is known as an {\it element}.  The code
+    above can be found in {\tt activity10a.cpp}.  Answer the following questions 
+    about the vectors declared on line 1.
+    \begin{enumerate}
+      \itemsep 10pt
+      \item What is the name of this vector? \hfill
+        \ans[2.5in]{\tt quizScores}
 
-    \Q The {\it index} of an element in a vector is its position in
-      the vector.  Indexes start at 0 in C++.  Answer the following
-      questions related to indexes.
-      \par\vskip 20pt
-      
-      \begin{enumerate}[(a)]
-        \itemsep 10pt
-        \item What is stored at index 0 in the vector {\tt quizScores}?\hfill
-          \ans[1in]{8}
-        \item At what index is the name ``Duncan'' stored in the vector {\tt profNames}?\hfill
-          \ans[1in]{Index 2}
-        \item What is the maximum allowed index for the vector {\tt profNames}?\hfill
-          \ans[1in]{3}
-        \item What is stored at index 2 in the vector {\tt quizScores}?\hfill
-          \ans[1in]{\small Out of Bounds}
-      \end{enumerate}
-                
-    \Q Write a single line of C++ code to declare a new vector of
-      doubles named {\tt homeworkAvg} that contains the values 
-      82.4 at index 2, 91.6 and index 0, and 73.9 at index 1.
-      \begin{answer}[0.5in]
-        \cpp{vector<double> homeworkAgv = {91.6, 73.9, 82.4};}
-      \end{answer}
-      
-    \Q The expression \cpp{myVector.at(i)} returns the value of the
-      variable at index {\tt i} in the vector {\tt myVector}.  It can
-      also be used to set the value at that index, as seen in lines 4-6
-      of the model.
-      
-      \begin{enumerate}[(a)]
-        \item Write a single C++ expression for the average of the two values in {\tt quizScores}.
-          \begin{answer}[0.75in]
-            \cpp{( quizScores.at(0) + quizScores.at(1) ) / 2.0}
-          \end{answer}
-        \item Write a sequence of C++ commands that changes the contents
-          of the vector {\tt profNames} to those shown below without
-          using the string literals \cpp{"Foster"} or
-          \cpp{"Carman"}.
+      \item What type of variable does this vector hold? \hfill
+        \ans[2.5in]{It is a vector of  \cpp{int}s}
+    \end{enumerate}
+    
+  \Q A second vector is declared on line 2 in the model.  Answer
+    the following questions about it.
+    \begin{enumerate}
+      \itemsep 10pt
+      \item What is the name of this vector? \hfill
+        \ans[2.5in]{\tt profNames}
+
+      \item What type of variable does this vector hold? \hfill
+        \ans[2.5in]{It is a vector of  \cpp{string}s}
+    \end{enumerate}
+  
+  \Q The {\it size} of a vector is the number of variables that
+    it holds.  What is the size of each vectors above? 
+    \begin{answer}[0.5in]
+      The vector declared on line 1 has size 2 and the vector
+      declared on line 2 has size 4.
+    \end{answer}
+    
+  \Q Based on the code above, what are two different ways to
+    initialize the variables stored in a vector?
+    \begin{answer}[0.5in]
+      % \par
+      You can set the values when the vector is declared
+      using the vector<type> name = value_list
+      syntax, or you can set each value using the
+      vectorName.at(index) = value command.
+    \end{answer}
+
+    \newpage
+
+  \Q The {\it index} of an element in a vector is its position in
+    the vector.  Indexes start at 0 in C++.  Answer the following
+    questions related to indexes.
+    \begin{enumerate}
+      \itemsep 10pt
+      \item What is stored at index 0 in the vector {\tt quizScores}?\hfill
+        \ans[1in]{8}
+
+      \item At what index is the name ``Duncan'' stored in the vector {\tt profNames}?\hfill
+        \ans[1in]{Index 2}
+
+      \item What is the maximum allowed index for the vector {\tt profNames}?\hfill
+        \ans[1in]{3}
+
+      \item What is stored at index 2 in the vector {\tt quizScores}?\hfill
+        \ans[1in]{\small Out of Bounds}
+    \end{enumerate}
+              
+  \Q Write a single line of C++ code to declare a new vector of
+    doubles named {\tt homeworkAvg} that contains the values 
+    82.4 at index 2, 91.6 and index 0, and 73.9 at index 1.
+    \begin{answer}[0.5in]
+      \cpp{vector<double> homeworkAgv = {91.6, 73.9, 82.4};}
+    \end{answer}
+    
+  \Q The expression \cpp{myVector.at(i)} returns the value of the
+    variable at index {\tt i} in the vector {\tt myVector}.  It can
+    also be used to set the value at that index, as seen in lines 9-11
+    of the model.
+    
+    \begin{enumerate}
+      \item Write a single C++ expression for the average of the two values in {\tt quizScores}.
+        \begin{answer}[0.75in]
+          \cpp{( quizScores.at(0) + quizScores.at(1) ) / 2.0}
+        \end{answer}
+
+      \item Write a sequence of C++ commands that changes the contents
+        of the vector {\tt profNames} to those shown below without
+        using the string literals \cpp{"Foster"} or
+        \cpp{"Carman"}.
+        \begin{center}
+          \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            {\tt profNames:} & Aamodt & Carman & Duncan & Foster \\
+            \hline
+            Index & 0 & 1 & 2 & 3 \\
+            \hline
+          \end{tabular}
+        \end{center}
+        \begin{answer}[1in]
+          \scriptsize
           \begin{center}
-            \begin{tabular}{p{0.8in}|c|c|c|c|}
-              \hhline{~|-|-|-|-|}
-              {\tt profNames:} & Aamodt & Carman & Duncan & Foster \\
-              \hhline{~|-|-|-|-|}
-              \multicolumn{1}{c}{} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} \\
-            \end{tabular}
-          \end{center}
-          \begin{answer}[1in]
-            \scriptsize\vskip -35pt\null
-            \begin{center}
-              \begin{minipage}{2.25in}
-                \begin{cprlst}[
-                  frame=lines,
-                  framesep=2mm,
-                  bgcolor=gray!15,
-                  baselinestretch=1.2,
-                ]{cpp}
+            \begin{minipage}{2.25in}
+              \begin{cpplst}
 profNames.at(3) = profNames.at(1);
 profNames.at(1) = profNames.at(0);
 profNames.at(0) = "Aamodt";
-                \end{cprlst}
+                \end{cpplst}
               \end{minipage}
-            \end{center}\vskip -20pt\null
+            \end{center}
           \end{answer}          
       \end{enumerate}
+
+  \newpage
       
-    \Q The expression {\tt myVector.size()} returns the size of the
-      vector {\tt myVector}.  Use this function to write a 
-      {\tt cout} command for each line of output below.
-      
-      \begin{enumerate}[(a)]
-        \item {\tt There are 4 CS professors at WWU.}
-          \begin{answer}[0.5in]
-            \par
-            \cpp{cout << "There are " << profNames.size() << " CS professors at WWU." << endl;}            
-          \end{answer}
-        \item {\tt Total number of quiz points: 20} \hspace{10pt} (assume 10 points per quiz)
-          \begin{answer}[0.5in]
-            \par
-            \cpp{cout << "Total number of quiz points: " << 10*quizScores.size() << endl;}
-          \end{answer}
-      \end{enumerate}
-      \par\vskip -40pt\null
-      
-    \Q True/False:  {\tt myVector.at(myVector.size())}
-    returns the last value in the vector.%\ifprintanswers\hspace{5pt}(false)\fi\key
+  \Q The expression {\tt myVector.size()} returns the size of the
+    vector {\tt myVector}.  Use this function to write a 
+    {\tt cout} command for each line of output below.
+    
+    \begin{enumerate}
+      \item {\tt There are 4 CS professors at WWU.}
+        \begin{answer}[0.5in]
+          \par
+          \cpp{cout << "There are " << profNames.size() << " CS professors at WWU." << endl;}            
+        \end{answer}
+      \item {\tt Total number of quiz points: 20} \hspace{10pt} (assume 10 points per quiz)
+        \begin{answer}[0.5in]
+          \par
+          \cpp{cout << "Total number of quiz points: " << 10*quizScores.size() << endl;}
+        \end{answer}
+    \end{enumerate}
+
+  \vskip -30pt
+    
+  \Q True/False:  {\tt myVector.at(myVector.size())}
+  returns the last value in the vector.
+  \vskip 5pt
+  \begin{center}
+    \ans[0.3in]{} True
+    \ans[0.3in]{\checkmark} False
+  \end{center}

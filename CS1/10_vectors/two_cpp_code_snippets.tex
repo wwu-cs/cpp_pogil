@@ -1,97 +1,73 @@
 \model{Two C++ Code Snippets}\\
-
   \begin{center}
-    \begin{tabular}{p{2.7in}p{0.25in}p{2.7in}}
-      \begin{minipage}{2.7in}
-        \small
-        \begin{cprlst}[
-          frame=lines,
-          framesep=2mm,
-          bgcolor=gray!15,
-          baselinestretch=1.2,
-          linenos,
-          firstnumber=8
-        ]{cpp}
-  // put first 100 powers of two in x
-  vector<double> x(100);
-  for (int i = 0; i < x.size(); i++) {
-    x.at(i) = pow(2,i);
-  }
-        \end{cprlst}
-      \end{minipage}
-      & &
-      \begin{minipage}{2.7in}
-        \small
-        \begin{cprlst}[
-          frame=lines,
-          framesep=2mm,
-          bgcolor=gray!15,
-          baselinestretch=1.2,
-          linenos,firstnumber=17
-        ]{cpp}
-  // sum the elements of y
-  int sum = 0;
-  for (int i = 0; i < y.size(); i++) {
-    sum += y.at(i);
-  }
-        \end{cprlst}
-      \end{minipage}      
-    \end{tabular}
+    \begin{minipage}{3.2in}
+      \small
+      \begin{cpplst}
+// put first 100 powers of two in x
+vector<double> x(100);
+for (int i = 0; i < x.size(); i++) {
+  x.at(i) = pow(2,i);
+}
+      \end{cpplst}
+    \end{minipage}
+    & &
+    \begin{minipage}{3.5in}
+      \small
+      \begin{cpplst}
+// sum the elements of y
+int sum = 0;
+for (int i = 0; i < y.size(); i++) {
+  sum += y.at(i);
+}
+      \end{cpplst}
+    \end{minipage}      
   \end{center}
-  \TPMargin{5pt}
-
 
   {\it\large Refer to Model 2 above as your team develops consensus answers
     to the questions below.}
 
-    \Q One of the biggest advantages of a vector is the ability to process them 
-      using loops.  That is, to perform the same task for multiple elements.  The file
-      {\tt activity10b.cpp} contains the loops from the model above.
-      \par\vskip 15pt
-      
-      \begin{enumerate}[(a)]
-        \item Find the value of each expression involving {\tt x} declared and initialized
-          in the first code snippet.
-          \par\vskip 20pt
-          \begin{enumerate}[i.]
-            \itemsep 15pt
-            \begin{multicols}{2}
-              \item {\tt x.at(1) + x.at(2)} \hspace{0.15in}
-                \ans[1in]{6}
-              \item {\tt x.at(2) * x.at(3)} \hspace{0.15in}
-                \ans[1in]{32}
-              \item {\tt x.at(4) / x.at(1)} \hfill
-                \ans[1in]{8}
-              \item {\tt x.at(x.at(2))} \hfill
-                \ans[1in]{16}
-            \end{multicols}
-          \end{enumerate}
-          \par\vskip 15pt
-        \item How many values are saved in the vector {\tt y} in the second code snippet?  Does it matter?
-          \begin{answer}[0.75in]
-            We don't know, but it doesn't matter.  We can still sum them all.
-          \end{answer}
-      \end{enumerate}
-      \par\vskip -30pt\null
-      
-    \Q A {\it code trace} is a method for hand simulating the
-      execution of your code in order to\key\\[-2.5mm] manually verify that it
-      works before you compile it.  Fill in the table to trace the code below and determine the value of the {\tt data} vector
-      and {\tt accumulator} variable after the code has finished.
-      \par\vskip 20pt
-      
-      \begin{center}
-        \begin{tabular}{p{2.5in}p{3in}}
-          \begin{minipage}{2.5in}
-            \scriptsize
-            \begin{cprlst}[
-              frame=lines,
-              framesep=2mm,
-              bgcolor=gray!15,
-              baselinestretch=1.2,
-              linenos
-            ]{cpp}
-vector<int> data = {5,26,13,12,37,15,16,4,1,3};
+  \quest{15 min}
+
+  \Q One of the biggest advantages of a vector is the ability to process them 
+    using loops.  That is, to perform the same task for multiple elements.  The file
+    {\tt activity10b.cpp} contains the loops from the model above.
+    \begin{enumerate}
+      \item Find the value of each expression involving {\tt x} declared and initialized
+        in the first code snippet.
+        \begin{enumerate}
+          \itemsep 10pt
+          \begin{multicols}{2}
+            \item {\tt x.at(1) + x.at(2)} \hspace{0.15in}
+              \ans[1in]{6}
+
+            \item {\tt x.at(2) * x.at(3)} \hspace{0.15in}
+              \ans[1in]{32}
+
+            \item {\tt x.at(4) / x.at(1)} \hfill
+              \ans[1in]{8}
+
+            \item {\tt x.at(x.at(2))} \hfill
+              \ans[1in]{16}
+          \end{multicols}
+        \end{enumerate}
+
+      \item How many values are saved in the vector {\tt y} in the second code snippet?  Does it matter?
+        \begin{answer}[0.75in]
+          We don't know, but it doesn't matter.  We can still sum them all.
+        \end{answer}
+    \end{enumerate}
+
+  \newpage
+    
+  \Q A {\it code trace} is a method for hand simulating the
+    execution of your code in order to\key\\[-2.5mm] manually verify that it
+    works before you compile it.  Fill in the table to trace the code below and determine the value of the {\tt data} vector
+    and {\tt accumulator} variable after the code has finished.
+    \begin{center}
+      \begin{tabular}{p{3.7in}p{3in}}
+        \begin{minipage}{3.7in}
+          \begin{cpplst}
+vecor<int> data = {5,26,13,12,37,15,16,4,1,3};
 int accumulator = 0;
 for (int i = 0; i < data.size(); i++) {
   if (data.at(i) % 2 == 1 && 
@@ -100,49 +76,44 @@ for (int i = 0; i < data.size(); i++) {
     accumulator += data.at(i+1);
   }
 }            
-            \end{cprlst}            
-            \par\vskip 20pt
-            \begin{center}
-              {\tt data} =
-              \ans[1.75in]{\tt \{-5,26,-13,12,-37,-15,16,4,-1,3\}}\par\vskip 20pt
-              {\tt accumulator} = \ans[0.5in]{72}
-            \end{center}
-          \end{minipage}
-          &
-          \begin{minipage}{3in}
-            \begin{center}
-              \renewcommand{\arraystretch}{1.6}\small
-              \begin{tabular}{|c|c|c|}
-                \hline
-                \bf i & \bf\tt data.at(i) & \bf\tt accumulator \\
-                \hline
-                0 & %\ifprintanswers -5\fi & \ifprintanswers 26\fi \\
-                \hline
-                1 & %\ifprintanswers 26\fi & \ifprintanswers 26\fi \\
-                \hline
-                2 & %\ifprintanswers -13\fi & \ifprintanswers 38\fi \\
-                \hline
-                3 & %\ifprintanswers 12\fi & \ifprintanswers 38\fi \\
-                \hline
-                4 & %\ifprintanswers -37\fi & \ifprintanswers 53\fi \\
-                \hline
-                5 & %\ifprintanswers -15\fi & \ifprintanswers 69\fi \\
-                \hline
-                6 & %\ifprintanswers 16\fi & \ifprintanswers 69\fi \\
-                \hline
-                7 & %\ifprintanswers 4\fi & \ifprintanswers 69\fi \\
-                \hline
-                8 & %\ifprintanswers -1\fi & \ifprintanswers 72\fi \\
-                \hline
-                9 & %\ifprintanswers 3\fi & \ifprintanswers 72\fi \\
-                \hline
-              \end{tabular}
-            \end{center}
-          \end{minipage}
-        \end{tabular}
-      \end{center}
-
-\newpage
+          \end{cpplst}            
+          {\tt data} =
+          \ans[3in]{\tt \{-5,26,-13,12,-37,-15,16,4,-1,3\}}\vskip 5pt\\
+          {\tt accumulator} = \ans[0.5in]{72}
+        \end{minipage}
+        &
+        \begin{minipage}{3in}
+          \begin{center}
+            \renewcommand{\arraystretch}{1.6}\small
+            \begin{tabular}{|c|c|c|}
+              \hline
+              \bf i & \bf\tt data.at(i) & \bf\tt accumulator \\
+              \hline
+              0 & \ans[0.5in]{-5} & \ans[0.5in]{26} \\
+              \hline
+              1 & \ans[0.5in]{26} & \ans[0.5in]{26} \\
+              \hline
+              2 & \ans[0.5in]{-13} & \ans[0.5in]{38} \\
+              \hline
+              3 & \ans[0.5in]{12} & \ans[0.5in]{38} \\
+              \hline
+              4 & \ans[0.5in]{-37} & \ans[0.5in]{53} \\
+              \hline
+              5 & \ans[0.5in]{-15} & \ans[0.5in]{69} \\
+              \hline
+              6 & \ans[0.5in]{16} & \ans[0.5in]{69} \\
+              \hline
+              7 & \ans[0.5in]{4} & \ans[0.5in]{69} \\
+              \hline
+              8 & \ans[0.5in]{-1} & \ans[0.5in]{72} \\
+              \hline
+              9 & \ans[0.5in]{3} & \ans[0.5in]{72} \\
+              \hline
+            \end{tabular}
+          \end{center}
+        \end{minipage}
+      \end{tabular}
+    \end{center}
 
     \Q Suppose the vector \cpp{vector<double> a} and
       \cpp{vector<double> b} have been declared and filled
@@ -152,16 +123,11 @@ for (int i = 0; i < data.size(); i++) {
       contain the larger of \cpp{a.at(0)} and
       \cpp{b.at(0)} and so on.
       
-      \begin{answer}[1.5in]
-        \scriptsize\vskip -35pt\null
+      \begin{answer}[1in]
+        \tiny
         \begin{center}
           \begin{minipage}{2.5in}
-            \begin{cprlst}[
-              frame=lines,
-              framesep=2mm,
-              bgcolor=gray!15,
-              baselinestretch=1.2
-            ]{cpp}
+            \begin{cpplst}
   vector<double> myMax(x.size());
   for (int i=0; i<a.size(); i++) {
     if (a.at(i) > b.at(i)) {
@@ -170,42 +136,37 @@ for (int i = 0; i < data.size(); i++) {
       myMax.at(i) = b.at(i);
     }
   }
-            \end{cprlst}
+            \end{cpplst}
           \end{minipage}
-        \end{center}\vskip -20pt\null
+        \end{center}
       \end{answer}
 
     \Q In a certain class 40\% of your final grade comes from your
       homework average and 60\% comes from your exam average.  Suppose 
       that vectors \cpp{vector<int> homeworkScores}
-      and \cpp{vector<int> examScores} have been defined
+      and \\ \cpp{vector<int> examScores} have been defined
       and contain your individual homework and exam scores.  Write 
       C++ code to compute your class grade and store it in
       \cpp{double finalGrade}.  Don't forget to typecast
       if needed!
 
-      \begin{answer}[1.5in]
-        \scriptsize\vskip -35pt\null
+      \begin{answer}[1.2in]
+        \tiny
         \begin{center}
           \begin{minipage}{4.5in}
-            \begin{cprlst}[
-              frame=lines,
-              framesep=2mm,
-              bgcolor=gray!15,
-              baselinestretch=1.2,
-            ]{cpp}
-  int homeworkSum = 0;
-  for (int i=0; i<homeworkScores.size(); i++) {
-    homeworkSum += homeworkScores.at(i);
-  }
-  int examSum = 0;
-  for (int i=0; i<examScores.size(); i++) {
-    examSum += examScores.at(i);
-  }
-  double homeworkGrade = static_cast<double>(homeworkSum) / homeworkScores.size();
-  double examGrade = static_cast<double>(examSum) / examScores.size();
-  double finalGrade = 0.40 * homeworkGrade + 0.60 * examGrade;
-            \end{cprlst}
+            \begin{cpplst}
+int homeworkSum = 0;
+for (int i=0; i<homeworkScores.size(); i++) {
+  homeworkSum += homeworkScores.at(i);
+}
+int examSum = 0;
+for (int i=0; i<examScores.size(); i++) {
+  examSum += examScores.at(i);
+}
+double homeworkGrade = static_cast<double>(homeworkSum) / homeworkScores.size();
+double examGrade = static_cast<double>(examSum) / examScores.size();
+double finalGrade = 0.40 * homeworkGrade + 0.60 * examGrade;
+            \end{cpplst}
           \end{minipage}
-        \end{center}\vskip -20pt\null
+        \end{center}
       \end{answer}

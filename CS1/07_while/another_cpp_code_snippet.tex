@@ -1,16 +1,14 @@
-  \model{Another C++ Code Snippet} \\
-  % \ifprintanswers\vskip -30pt\null\fi
+\model{Another C++ Program} \\
   \begin{center}
     \small
     \begin{minipage}{5.5in}
-      \begin{cprtlst}[
-        frame=lines,
-        framesep=2mm,
-        bgcolor=gray!15,
-        baselinestretch=1.2,
-        linenos,
-        firstnumber=7
-      ]{cpp}
+      \begin{cpplst}
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+  int number;
   cout << "Enter a positive integer: ";
   cin >> number;
   int x = 1;
@@ -22,175 +20,154 @@
     }
     x = x + 1;
   }
-      \end{cprtlst}
+}
+      \end{cpplst}
     \end{minipage}
   \end{center}
-  \TPMargin{5pt}
-  % \ifprintanswers\vskip -20pt\null\fi
-  
 
   {\it\large Refer to Model 2 above as your team develops consensus answers
     to the questions below.}
-    \par\vskip 5pt
+    
+  \quest{25 min}
+  \Q Explain what each line or range of lines in this program does.
+    \par\vskip 10pt
+    \begin{enumerate}
+      \itemsep 10pt
+      \item Lines 7-8: \hfill \ans[5.15in]{Prompts the user for a number and saves it in {\tt number}}
+      \item Line 9:    \hfill \ans[5.15in]{Initializes the counter {\tt x} to 1}
+      \item Line 10:    \hfill \ans[5.15in]{Repeats lines 11-15 as long as the counter {\tt x} is not bigger than {\tt number}}
+      \item Lines 11-15: \hfill \ans[5.15in]{Prints the counter, with a new line when it is divisible by 10}
+      \item Line 16:   \hfill \ans[5.15in]{Increments the counter by one before going back to line 10}
+    \end{enumerate}
 
-    \Q Explain what each line or range of lines in this code snippet does.
-      \par\vskip 10pt
-      \begin{enumerate}[(a)]
-        \itemsep 15pt
-        \item Lines 7-8: \hfill \ans[5.15in]{Prompts the user for a number and saves it in {\tt number}}
-        \item Line 9:    \hfill \ans[5.15in]{Initializes the counter {\tt x} to 1]
-        \item Line 10:    \hfill \ans[5.15in]{Repeats lines 5-10 as long as the counter {\tt x} is not bigger than {\tt number}}
-        \item Lines 11-15: \hfill \ans[5.15in]{Prints the counter, with a new line when it is divisible by 10}
-        \item Line 16:   \hfill \ans[5.15in]{Increments the counter by one before going back to line 4}
-      \end{enumerate}
-      
-\newpage
+  \Q The complete program can be found in {\tt activity07b.cpp}.  Run it and answer the following questions.
+    \begin{enumerate}
+      \item What is the output when you enter the number 5?  How many times did the loop execute?
+        \begin{answer}[0.5in]
+          The loop executed five times.  The output is: 1  2  3  4  5
+        \end{answer}
 
-    \Q The complete program can be found in {\tt activity07b.cpp}.  Run it and answer the following questions.
-      \begin{enumerate}[(a)]
-        \item What is the output when you enter the number 5?  How many times did the loop execute?
-          \begin{answer}[0.5in]
-            The loop executed five times.  The output is:\par
-            % \mintinline{html}| 1  2  3  4  5|
-          \end{answer}
-        \item What is the output when you enter the number 25? How many times did the loop execute?
-          \begin{answer}[0.5in]
-            The loop executed 25 times.  The output is:\par
-            % \mintinline{html}| 1  2  3  4  5  6  7  8  9 10|\\
-            % \mintinline{html}|11 12 13 14 15 16 17 18 19 20|\\
-            % \mintinline{html}|21 22 23 24 25|
-          \end{answer}
-        \item Unlike the loop in model 1, this loop prints the counter.  How might this make testing easier?
-          \begin{answer}[0.5in]
-            Debugging is easier as you can see the counter values each time through the loop.
-          \end{answer}
-      \end{enumerate}
+      \item What is the output when you enter the number 25? How many times did the loop execute?
+        \begin{answer}[0.5in]
+          The loop executed 25 times.  The output is:\par
+           1  2  3  4  5  6  7  8  9 10\\
+          11 12 13 14 15 16 17 18 19 20\\
+          21 22 23 24 25
+        \end{answer}
 
-    \Q The following code snippet should print the numbers from 1 to 10, but it doesn't print anything.  Correct the
-      problem.  Replace the contents of {\tt activity07b.cpp} to help in your debugging.
-      % \ifprintanswers\vskip -15pt\null\else\par\vskip 10pt\fi
-      \begin{tabular}{p{2.4in}p{3.4in}}
-        \begin{minipage}{2.4in}
-          \begin{cprtlst}[
-            frame=lines,
-            framesep=2mm,
-            bgcolor=gray!15,
-            baselinestretch=1.2
-          ]{cpp}
-  int number = 12;
-  while (number <= 10) {
-    cout << number << endl;
-    number = number + 1;
-  }
-          \end{cprtlst}
-        \end{minipage}
-        &
-        \begin{minipage}{3.4in}
-          \begin{answer}[1.5in]
-            \par
-            The counter should be initialized to 1 instead of 12 on
-            line 1 of the code snippet.
-          \end{answer}
-        \end{minipage}
-      \end{tabular}
-      % \ifprintanswers\vskip -25pt\null\fi
-      
-    \Q Enter and execute the code below, then answer the questions that follow.
-      % \ifprintanswers\vskip -15pt\null\else\par\vskip 10pt\fi
-      \begin{tabular}{p{2.4in}p{3.4in}}
-        \begin{minipage}{2.4in}
-          \begin{cprtlst}[
-            frame=lines,
-            framesep=2mm,
-            bgcolor=gray!15,
-            baselinestretch=1.2
-          ]{cpp}
-  int number = 0;
-  while (number <= 10) {
-    cout << number << endl;
-    number = number - 1;
-  }
-          \end{cprtlst}
-          \par\vskip 10pt\null
-        \end{minipage}
-        &
-        \begin{minipage}{3.4in}
-          \begin{enumerate}[(a)]
-            \item Describe the output.
-              % \ifprintanswers\vskip -25pt\null\fi
-              \begin{answer}[0.5in]
-                Prints decreasing numbers.
-              \end{answer}
-              % \ifprint answers\vskip -25pt\null\fi
-            \item Does the program end?  Why or why not?
-              % \ifprintanswers\vskip -25pt\null\fi
-              \begin{answer}[0.5in]
-                Yes.  The \cpp{int} can only get so small.
-              \end{answer}            
-              % \ifprintanswers\vskip -25pt\null\fi
-          \end{enumerate}
-        \end{minipage}
-      \end{tabular}
-      % \ifprintanswers\vskip -30pt\null\fi
-      
-    \Q The following step-by-step instructions will assist you in creating a program that prompts the user for a number
-      between 1 and 10 (inclusively).  As long as the number is out of range, it re-prompts the user for a valid number.
-      
-      \begin{enumerate}[(a)]
-        \item Write code to prompt the user for a number between 1 and 10 and store it in a variable.
-          \begin{answer}[0.5in]
-            \cpp{int} number; cout "Enter a number between 1 and 10: "; cin >> number;|
-          \end{answer}
-          
-        \item Write a {\bf Boolean expression} that is true exactly when the variable is {\bf not} between 1 and 10.
-          \begin{answer}[0.5in]
-            \cpp{(number < 1) || (number > 10)}
-          \end{answer}
-          
-\newpage
-
-        \item Use the Boolean expression you just created to write a {\bf while loop} that executes when the user input is out
-          of range.  Leave the body of the while loop empty for now.
-          \begin{answer}[1in]
-            \cpp{while ((number < 1) || (number > 10)) { }}
-          \end{answer}
-          
-        \item Write code to prompt the user to re-enter a valid number and store it in the same variable.
-          \begin{answer}[1in]
-            \cpp{cout << "Invalid! Enter a number between 1 and 10: "; cin >> number;}
-          \end{answer}
-          
-        \item Finally, write code that prints out a message telling the user they entered a valid number.
-          \begin{answer}[0.5in]
-            \cpp{cout << "Congrats! You (finally) entered a valid number." << endl;}
-          \end{answer}
-        
-        \item Now put all of the pieces together and replace the code in {\tt activity07b.cpp}.  Does your code work properly?
-          If not, correct it and test again.        
-      
-      \end{enumerate}
-      
-    \Q A {\it counter-controlled loop} is one for which the number of times
-      the loop will execute is known ahead of time. Which of the loops in this
-      model (questions 5, 7, 8, and 9) are counter-controlled?
-      \begin{answer}[0.4in]
-        The loops in 5, 7, and 8 are counter-controlled.  The loop in 9 is not.
+      \item Unlike the loop in model 1, this loop prints the counter.  How might this make testing easier?
+        \begin{answer}[0.5in]
+          Debugging is easier as you can see the counter values each time through the loop.
+        \end{answer}
+    \end{enumerate}
+    \vskip -20pt
+    
+  \Q The following code snippet should print the numbers from 1 to 10, but it doesn't print anything.  Correct the
+    problem. Replace the contents of {\tt activity07b.cpp} to help in your debugging.
+    \vskip 5pt
+    \begin{minipage}{3.5in}
+      \begin{cpplst}
+int number = 12;
+while (number <= 10) {
+  cout << number << endl;
+  number = number + 1;
+}
+      \end{cpplst}
+    \end{minipage}
+    \begin{minipage}{3.4in}
+      \begin{answer}[1.5in]
+        The counter should be initialized to 1 instead of 12 on
+        line 1 of the code snippet.
       \end{answer}
+    \end{minipage}
+
+  \vskip 10pt
+    
+  \Q Enter and execute the code below, then answer the questions that follow.
+    \vskip 5pt
+    \begin{minipage}{3.5in}
+      \begin{cpplst}
+int number = 0;
+while (number <= 10) {
+  cout << number << endl;
+  number = number - 1;
+}
+      \end{cpplst}
+    \end{minipage}
+    \begin{minipage}{3.4in}
+      \begin{enumerate}
+        \item Describe the output.
+          \begin{answer}[0.5in]
+            Prints decreasing numbers.
+          \end{answer}
+
+        \item Does the program end?  Why or why not?
+          \begin{answer}[0.5in]
+            Yes. The \cpp{int} can only get so small.
+          \end{answer}
+      \end{enumerate}
+    \end{minipage}
+
+  \newpage
       
-    \Q Enter and execute the following code in the file {\tt activity07b.cpp}.  Remember to 
-      \cpp{#include <string>} at the top of your file.
-      \par\vskip -20pt\null
-      \begin{center}
-        \small
-        \begin{minipage}{5in}
-          \begin{cprtlst}[
-            frame=lines,
-            framesep=2mm,
-            bgcolor=gray!15,
-            baselinestretch=1.2,
-            linenos,
-            firstnumber=7
-          ]{cpp}
+  \Q The following step-by-step instructions will assist you in creating a program that prompts the user for a number
+    between 1 and 10 (inclusively).  As long as the number is out of range, it re-prompts the user for a valid number.
+    \begin{enumerate}
+      \item Write code to prompt the user for a number between 1 and 10 and store it in a variable.
+        \begin{answer}[0.5in]
+          \cpp{int} number; cout << "Enter a number between 1 and 10: "; cin >> number;
+        \end{answer}
+        
+      \item Write a {\bf Boolean expression} that is true exactly when the variable is {\bf not} between 1 and 10.
+        \begin{answer}[0.5in]
+          \cpp{(number < 1) || (number > 10)}
+        \end{answer}
+
+      \item Use the Boolean expression you just created to write a {\bf while loop} that executes when the user input is out
+        of range.  Leave the body of the while loop empty for now.
+        \begin{answer}[1in]
+          \cpp{while ((number < 1) || (number > 10)) { }}
+        \end{answer}
+        
+      \item Write code to prompt the user to re-enter a valid number and store it in the same variable.
+        \begin{answer}[1in]
+          \cpp{cout << "Invalid! Enter a number between 1 and 10: "; cin >> number;}
+        \end{answer}
+        
+      \item Finally, write code that prints out a message telling the user they entered a valid number.
+        \begin{answer}[0.5in]
+          \cpp{cout << "Congrats! You finally entered a valid number." << endl;}
+        \end{answer}
+      
+      \item Now put all of the pieces together and replace the code in {\tt activity07b.cpp}.  Does your code work properly?
+        If not, correct it and test again.  
+        \begin{answer}[0.5in]
+          Yes, the code works properly.
+        \end{answer}
+      \end{enumerate}
+    \end{enumerate}
+
+    \vskip -35pt
+
+  \Q A {\it counter-controlled loop} is one for which the number of times
+    the loop will execute is known ahead of time. Which of the loops in this
+    model (questions 5, 7, 8, and 9) are counter-controlled?
+    \begin{answer}[0.4in]
+      The loops in 5, 7, and 8 are counter-controlled.  The loop in 9 is not.
+    \end{answer}
+
+  \newpage
+    
+  \Q Enter and execute the following code in the file {\tt activity07b.cpp}. Remember to\\
+    \cpp{#include <string>} at the top of your file.
+    \begin{center}
+      \small
+      \begin{minipage}{5in}
+        \begin{cpplst}
+#include <iostream>
+using namespace std;
+
+int main() {
   string word;
   char doAgain = 'y';
   while (doAgain == 'y') {
@@ -200,38 +177,42 @@
     cout << "Type 'y' to enter another word, anything else to quit. ";
     cin >> doAgain;
   }
-  cout << "Done!" << endl;  
-          \end{cprtlst}
-          \par\vskip 10pt\null
+  cout << "Done!" << endl;
+}
+          \end{cpplst}
         \end{minipage}
       \end{center}
-      \par\vskip -30pt\null
       
-      \begin{enumerate}[(a)]
+      \begin{enumerate}
         \item What does this program do?
           \begin{answer}[0.5in]
             It prints out the first letter of any word entered until the user enters `y'.
           \end{answer}
+
         \item What is the variable name used to store the user's input?
           \begin{answer}[0.5in]
             The word entered is stored in {\tt word} and the request to do again in {\tt doAgain}.
           \end{answer}
-\newpage          
+
         \item What does \cpp{word.at(0)} represent?
           \begin{answer}[0.5in]
             The first character of the word entered.
           \end{answer}
+
         \item What happens if you change 0 to 1 in \cpp{word.at(0)}?
           \begin{answer}[0.5in]
             You would get the second character of the word entered.
           \end{answer}
+
         \item When will the program end?
           \begin{answer}[0.5in]
             When the user types anything other than `y' when prompted to continue.
           \end{answer}
-          \par\vskip -30pt\null          
+
+        \newpage
+          
         \item A {\it sentinel-controlled loop} is one in which the loop body repeats
-          until the user enters a\key\\[-2.5mm] particular value or values.  Why is 
+          until the user enters \key\\[-2.5mm] a particular value or values.  Why is 
           this an example of a {\it sentinel-controlled loop}?
           \begin{answer}[0.5in]
             Because it will keep going until the user decides not to.
