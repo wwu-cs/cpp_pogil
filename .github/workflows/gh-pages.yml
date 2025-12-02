@@ -39,7 +39,7 @@ jobs:
         with:
           path: ./pdfs/
 
-  # Build website
+  # Deploy PDFs
   deploy:
     needs: build_pdfs
     environment:
