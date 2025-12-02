@@ -24,7 +24,7 @@ process_folder() {
         
         if [ -f "$tex_file" ]; then
             echo "Processing $tex_file..."
-            cd "$dir"
+            cd "$dir" || exit
             ../../renderLatexFile.sh "./$folder_name"
             
             # Move the PDF to the output directory
@@ -33,7 +33,7 @@ process_folder() {
                 echo "Moved PDF to pdfs/${base_dir}/${folder_name}.pdf"
             fi
             
-            cd - > /dev/null
+            cd - > /dev/null || exit
         else
             echo "Skipping $folder_name - no matching .tex file found"
         fi
