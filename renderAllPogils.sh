@@ -16,7 +16,7 @@ process_folder() {
         # Get the folder name
         folder_name=$(basename "$dir")
         
-        # Skip hidden directories and README files
+        # Skip hidden directories
         [[ "$folder_name" == .* ]] && continue
         
         # Look for a .tex file matching the folder name
@@ -24,8 +24,8 @@ process_folder() {
         
         if [ -f "$tex_file" ]; then
             echo "Processing $tex_file..."
-            cd "$dir" || exit
-            ../../renderLatexFile.sh "./$folder_name"
+            cd "$dir" || { echo "Failed to enter $dir"; continue; }
+            ../../renderLatexFile.sh "./$folder_name" || { echo "Failed to render $folder_name in $dir"; continue; }
             
             # Move the PDF to the output directory
             if [ -f "${folder_name}.pdf" ]; then
