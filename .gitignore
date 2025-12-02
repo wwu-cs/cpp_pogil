@@ -278,3 +278,4 @@ TSWLatexianTemp*
 .DS_Store
 generator.log
 .secrets
+pdfs/*
