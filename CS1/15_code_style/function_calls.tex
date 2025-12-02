@@ -1,7 +1,7 @@
 \model{Function Calls} \\
   \begin{center}
     \renewcommand{\arraystretch}{1.3}
-    \begin{tabular}{|p{3in}|p{3in}|}
+    \begin{tabular}{|p{3in}|p{3.5in}|}
       \hline
       \rowcolor{orange!20} 
         \begin{minipage}{2.8in}\centering {\bf Code Block $X$}\end{minipage} & 
@@ -9,28 +9,18 @@
       \hline
       \begin{minipage}{3in}
         \scriptsize
-        \begin{cprlst}[
-          frame=lines,
-          framesep=2mm,
-          bgcolor=gray!15,
-          baselinestretch=1.2,
-        ]{cpp}
+        \begin{cpplst}
 int i1 = f1("c"); int i2 = f2("m"); 
 int c1 = f3("c"); int c2 = f4("m");
 int s1 = g1(i1,c1)+g1(i2*c2); 
 int t1 = s1 + h1(s1) + h2(i1,f5("c"));
-        \end{cprlst}
+        \end{cpplst}
         \vskip 30pt\null
       \end{minipage}
       &
-      \begin{minipage}{3in}
+      \begin{minipage}{3.5in}
         \scriptsize
-        \begin{cprlst}[
-          frame=lines,
-          framesep=2mm,
-          bgcolor=gray!15,
-          baselinestretch=1.2,
-        ]{cpp}
+        \begin{cpplst}
 int numCD      = getNum ("CD");
 int numMP3     = getNum ("MP3");
 double costCD  = getCost("CD");
@@ -39,36 +29,32 @@ double subCost = getSubCost(numCD, costCD) +
                  getSubCost(numMP3, costMP3);
 double subShip = getSubShip(numCD, getShip("CD"));
 double total   = subCost + subShip + getTax(subCost);
-        \end{cprlst} 
+        \end{cpplst} 
       \end{minipage}
       \\
       \hline
     \end{tabular} 
   \end{center}  
-  \par\vskip 10pt
   
   {\it\large Refer to Model 2 above as your team develops consensus answers
     to the questions below.}
-    \par\vskip -20pt\null
+
+  \quest{15 min}
 
   \Q Determine which code block above ($X$ or $Y$) matches the
     description below.
-    \par\vskip 15pt
-    
-    \begin{enumerate}[(a)]
-      \itemsep 15pt
-      \item Is shorter and would take less time to type: \hfill \ans[1in]{$X$} \hspace{1in}\null
-      \item Declares more variables: \hfill \ans[1in]{$Y$} \hspace{1in}\null
-      \item Would be easier to update or debug if a problem is found: \hfill \ans[1in]{$Y$} \hspace{1in}\null
+    \begin{enumerate}
+      \itemsep 10pt
+      \item Is shorter and would take less time to type: \hfill \ans[1in]{$X$}
+      \item Declares more variables: \hfill \ans[1in]{$Y$}
+      \item Would be easier to update or debug if a problem is found: \hfill \ans[1in]{$Y$}
     \end{enumerate}
 
-\newpage
-
-    \Q Each pair of code blocks below is syntactically and
-      semantically equivalent.  Decide which one is better based only
-      on the style.  Enter $X$, $Y$, or ? (if you think they are
-      equally good).
-
+  \Q Each pair of code blocks below is syntactically and
+    semantically equivalent.  Decide which one is better based only
+    on the style.  Enter $X$, $Y$, or ? (if you think they are
+    equally good).
+    \begin{center}
       {\renewcommand{\arraystretch}{2.3}
       \begin{tabular}{|c|p{2.5in}|p{2.5in}|c|}
         \hline
@@ -104,22 +90,22 @@ double total   = subCost + subShip + getTax(subCost);
           \ans[0.5in]{$X$} \\
         \hline
       \end{tabular}}
-      
+    \end{center}
+    
   \Q Determine which type of C++ programming concept, a {\bf variable} or a {\bf function},
     best matches each description below.
-    \par\vskip 15pt
-    
-    \begin{enumerate}[(a)]
-      \itemsep 15pt
-      \item Is used to represent information \hfill \ans[2in][variable]
+    \begin{enumerate}
+      \itemsep 10pt
+      \item Is used to represent information \hfill \ans[2in]{variable}
       \item Is used to represent an action or a set of steps \hfill \ans[2in]{function}
       \item Should be named with a verb or a verb phrase \hfill \ans[2in]{function}
       \item Should be named with a noun or a noun phrase \hfill \ans[2in]{variable}
     \end{enumerate}
-    \vskip -30pt\null
+
+  \vskip -10pt
     
   \Q Based on the above, what do you think is good style for naming
-    and calling functions?\key\\[-2.5mm]
+    and calling\key\\[-2.5mm] functions?
     \begin{answer}[1in]
       \par
       Functions should be named using verbs.  Their parameter lists should be consistent (i.e. two

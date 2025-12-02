@@ -1,20 +1,15 @@
-\model{Comments} \\
+\model{Comments}
   \begin{center}
     \renewcommand{\arraystretch}{1.3}
-    \begin{tabular}{|p{3in}|p{3in}|}
+    \begin{tabular}{|p{3.3in}|p{3.3in}|}
       \hline
       \rowcolor{orange!20} 
         \begin{minipage}{2.8in}\centering {\bf Code Block $X$}\end{minipage} & 
         \begin{minipage}{2.8in}\centering {\bf Code Block $Y$}\end{minipage} \\
       \hline
-      \begin{minipage}{3in}
+      \begin{minipage}{3.3in}
         \scriptsize
-        \begin{cprlst}[
-          frame=lines,
-          framesep=2mm,
-          bgcolor=gray!15,
-          baselinestretch=1.2,
-        ]{cpp}
+        \begin{cpplst}
 // call getNum()        
 int numCD      = getNum ("CD");
 int numMP3     = getNum ("MP3");
@@ -28,17 +23,12 @@ double subCost = getSubCost(numCD, costCD) +
 double subShip = getSubShip(numCD, getShip("CD"));
 // call getTax()
 double total   = subCost + subShip + getTax(subCost);        
-        \end{cprlst}
+        \end{cpplst}
       \end{minipage}
       &
-      \begin{minipage}{3in}
+      \begin{minipage}{3.3in}
         \scriptsize
-        \begin{cprlst}[
-          frame=lines,
-          framesep=2mm,
-          bgcolor=gray!15,
-          baselinestretch=1.2,
-        ]{cpp}
+        \begin{cpplst}
 // get the number of each item type
 int numCD      = getNum ("CD");
 int numMP3     = getNum ("MP3");
@@ -51,51 +41,44 @@ double subCost = getSubCost(numCD, costCD) +
 // add in shipping and tax to get grand total                 
 double subShip = getSubShip(numCD, getShip("CD"));
 double total   = subCost + subShip + getTax(subCost);        
-        \end{cprlst} 
+        \end{cpplst} 
         \par\vskip 3pt\null
       \end{minipage}
       \\
       \hline
     \end{tabular} 
   \end{center}  
-  \par\vskip 10pt
-                                                
-      
+    
   {\it\large Refer to Model 3 above as your team develops consensus answers
     to the questions below.}
 
-\newpage         
+  \quest{20 min}
 
   \Q Determine which code block above ($X$ or $Y$) matches the
     description below.
-    \par\vskip 15pt
-    
-    \begin{enumerate}[(a)]
-      \itemsep 15pt
+    \begin{enumerate}
+      \itemsep 10pt
       \item Has the most lines with comments: \hfill \ans[1in]{$X$}
       \item Has comments that explain how and why the code works: \hfill \ans[1in]{$Y$}
       \item Has comments that could be generated automatically by a computer program: \hfill \ans[1in]{$X$}
     \end{enumerate}
     
-    \Q Based on your observations above, describe what you think is good style for comments.
-      \begin{answer}[1in]
-        \par
-        Comments should describe what the task being performed in the related lines of code
-        actually is.  They should not use the same names and/or jargon that is used in the code.
-      \end{answer}
-      
-    \Q Use your observations to suggest good comments for the two comment lines in the code
-      below.
-      \begin{center}
-        \begin{tabular}{p{3in}p{3in}}
-          \begin{minipage}{3in}
-            \small
-            \begin{cprlst}[
-              frame=lines,
-              framesep=2mm,
-              bgcolor=gray!15,
-              baselinestretch=1.2
-            ]{cpp}
+  \Q Based on your observations above, describe what you think is good style for comments.
+    \begin{answer}[1in]
+      \par
+      Comments should describe what the task being performed in the related lines of code
+      actually is.  They should not use the same names and/or jargon that is used in the code.
+    \end{answer}
+
+  \newpage
+    
+  \Q Use your observations to suggest good comments for the two comment lines in the code
+    below.
+    \begin{center}
+      \begin{tabular}{p{3in}p{3in}}
+        \begin{minipage}{3in}
+          \small
+          \begin{cpplst}
 int getRange (vector<int> valList) {
   /* COMMENT A */
   int min = valList.at(0);
@@ -109,78 +92,76 @@ int getRange (vector<int> valList) {
   }
   return (min - max);
 }
-            \end{cprlst}
-          \end{minipage}
-          &
-          \begin{minipage}{3in}
-            \begin{enumerate}[(a)]
-              \item \cpp{/* COMMENT A */}
-                \begin{answer}[1in]
-                  \par
-                  Default minimum and maximum are first value in the vector
-                \end{answer}
-              \item \cpp{/* COMMENT B */}
-                \begin{answer}[1in]
-                  \par
-                  Search through vector looking for smaller and/or larger values
-                \end{answer}
-            \end{enumerate}
-          \end{minipage}
-        \end{tabular}
-      \end{center}
+          \end{cpplst}
+        \end{minipage}
+        &
+        \begin{minipage}{3in}
+          \begin{enumerate}
+            \item \cpp{/* COMMENT A */}
+              \begin{answer}[1in]
+                \par
+                Default minimum and maximum are first value in the vector
+              \end{answer}
 
-    \Q Good programming style is important not just for naming variables and functions or
-      making comments.  It is also important in other coding practices.  For each
-      pair of practices below, decide in which case it would be easier to find and fix any
-      errors. Enter $X$, $Y$, or ? (if you think they are equally good).
+            \item \cpp{/* COMMENT B */}
+              \begin{answer}[1in]
+                \par
+                Search through vector looking for smaller and/or larger values
+              \end{answer}
+          \end{enumerate}
+        \end{minipage}
+      \end{tabular}
+    \end{center}
 
-      {\renewcommand{\arraystretch}{2}
-      \begin{tabular}{|c|p{2.5in}|p{2.5in}|c|}
-        \hline
-        \rowcolor{orange!20} & Block $X$ & Block $Y$ & Choice \\
-        \hline
-        (a) & 10 existing lines of code (LoC)
-            & 100 existing LoC
-            & \ans[0.5in]{$X$} \\
-        \hline
-        (b) & 100 new LoC
-            & 90 working LoC plus 10 new LoC
-            & \ans[0.5in]{$Y$} \\
-        \hline
-        (c) & 1000 new LoC
-            & 900 working LoC plus 100 new LoC
-            & \ans[0.5in]{$Y$} \\
-        \hline
-        (d) & 1000 working LoC plus 10 new LoC
-            & 500 working LoC plus 100 new LoC
-            & \ans[0.5in]{$X$} \\
-        \hline
-        (e) & 1000 LoC all in one function
-            & 1000 LoC split across 20 functions
-            & \ans[0.5in]{$Y$} \\
-        \hline
-        (f) & 100 LoC with 10 \cpp{if-else} blocks
-            & 100 LoC with 5 \cpp{if-else} blocks
-            & \ans[0.5in]{?} \\
-        \hline
-      \end{tabular}}
-      
-      {\renewcommand{\arraystretch}{2.3}
-      \begin{tabular}{|c|p{2.5in}|p{2.5in}|c|}
-        \hline
-        \rowcolor{orange!20} & Block $X$ & Block $Y$ & Choice \\
-        \hline
-        (g) & 100 LoC with four independent loops
-            & 100 LoC two pairs of nested loops
-            & \ans[0.5in]{$X$} \\
-        \hline
-        (h) &
-          \begin{minipage}{2in}
-            \small
-            \begin{cprlst}[
-              frame=none,
-              bgcolor=white,
-            ]{cpp}
+  \Q Good programming style is important not just for naming variables and functions or
+    making comments.  It is also important in other coding practices.  For each
+    pair of practices below, decide in which case it would be easier to find and fix any
+    errors. Enter $X$, $Y$, or ? (if you think they are equally good).
+    \vskip 5pt
+    {\renewcommand{\arraystretch}{2}
+    \begin{tabular}{|c|p{2.5in}|p{2.5in}|c|}
+      \hline
+      \rowcolor{orange!20} & Block $X$ & Block $Y$ & Choice \\
+      \hline
+      (a) & 10 existing lines of code (LoC)
+          & 100 existing LoC
+          & \ans[0.5in]{$X$} \\
+      \hline
+      (b) & 100 new LoC
+          & 90 working LoC plus 10 new LoC
+          & \ans[0.5in]{$Y$} \\
+      \hline
+      (c) & 1000 new LoC
+          & 900 working LoC plus 100 new LoC
+          & \ans[0.5in]{$Y$} \\
+      \hline
+      (d) & 1000 working LoC plus 10 new LoC
+          & 500 working LoC plus 100 new LoC
+          & \ans[0.5in]{$X$} \\
+      \hline
+      (e) & 1000 LoC all in one function
+          & 1000 LoC split across 20 functions
+          & \ans[0.5in]{$Y$} \\
+      \hline
+      (f) & 100 LoC with 10 \cpp{if-else} blocks
+          & 100 LoC with 5 \cpp{if-else} blocks
+          & \ans[0.5in]{?} \\
+      \hline
+    \end{tabular}}
+    
+    {\renewcommand{\arraystretch}{2.3}
+    \begin{tabular}{|c|p{2.5in}|p{2.5in}|c|}
+      \hline
+      \rowcolor{orange!20} & Block $X$ & Block $Y$ & Choice \\
+      \hline
+      (g) & 100 LoC with four independent loops
+          & 100 LoC two pairs of nested loops
+          & \ans[0.5in]{$X$} \\
+      \hline
+      (h) &
+        \begin{minipage}{2in}
+          \small
+          \begin{cpplst}
 // code with the structure
 if (...) {
   if (...) {
@@ -195,15 +176,12 @@ if (...) {
     ...
   }
 }
-            \end{cprlst} 
-          \end{minipage}
-          & 
-          \begin{minipage}{2in}
-            \small
-            \begin{cprlst}[
-              frame=none,
-              bgcolor=white,
-            ]{cpp}
+          \end{cpplst} 
+        \end{minipage}
+        & 
+        \begin{minipage}{2in}
+          \small
+          \begin{cpplst}
 // code with the structure
 if (...) {
   ...
@@ -214,19 +192,16 @@ if (...) {
 } else if (...) {
   ...
 }
-            \end{cprlst}
-            \par\vskip 35pt\null
-          \end{minipage}
-          &
-          \ans[0.5in]{$X$} \\
+          \end{cpplst}
+          \par\vskip 35pt\null
+        \end{minipage}
+        &
+        \ans[0.5in]{$X$} \\
         \hline
         (h) &
-          \begin{minipage}{2in}
-            \small
-            \begin{cprlst}[
-              frame=none,
-              bgcolor=white,
-            ]{cpp}
+        \begin{minipage}{2in}
+          \small
+          \begin{cpplst}
 // code with the structure
 for(int i=0; i<n; i++) {
   if (...) {
@@ -235,16 +210,13 @@ for(int i=0; i<n; i++) {
     ...
   }
 }
-            \end{cprlst}
-            \par\vskip 10pt\null
-          \end{minipage}
-          & 
-          \begin{minipage}{2in}
-            \small
-            \begin{cprlst}[
-              frame=none,
-              bgcolor=white,
-            ]{cpp}
+          \end{cpplst}
+          \par\vskip 10pt\null
+        \end{minipage}
+        & 
+        \begin{minipage}{2in}
+          \small
+          \begin{cpplst}
 // code with the structure
 if (...) {
   for(int i; i<n; i++) {
@@ -255,41 +227,40 @@ if (...) {
     ...
   }
 }
-            \end{cprlst}
-          \end{minipage}
-          &
-          \ans[0.5in]{$X$} \\
+          \end{cpplst}
+        \end{minipage}
+        &
+        \ans[0.5in]{$X$} \\
         \hline
       \end{tabular}}
-      \par\vskip -30pt\null
 
-    \Q Based on your answers, summarize advice for good practices in writing and
-      debugging code.\hspace{5pt}\key\\[-2.5mm]
-      % \ifprintanswers\vskip -20pt\null\fi
-      \begin{answer}[1in]
-        \begin{itemize}
-          \itemsep 0pt
-          \item You should write code in small chunks, testing after each chunk
-          \item You should break your code up into functions that accomplish a single task
-          \item You should streamline \cpp{if-else} statements and loops to avoid
-            nesting if possible
-          \item If you must nest, you should try to avoid repeated blocks (i.e. the same
-            \cpp{for} loop in two different parts of an \cpp{if} statement)
-        \end{itemize}
-      \end{answer}
-      % \ifprintanswers\vskip -35pt\null\fi
-      
-    \Q Individually, think of a time that it was difficult for you to write or debug a
-      program.  How could the advice above have helped you?
-      \begin{answer}[0.5in]
-        Answers will vary
-        \par\vskip 0.75in
-      \end{answer}
-      % \ifprintanswers\vskip -35pt\null\fi
-      
-    \Q Share your answers to the previous question with your group and summarize any
-      insights below.
-      \begin{answer}[0.5in]
-        Answers will vary
-        \par\vskip 0.75in
-      \end{answer}
+  \vskip -10pt
+
+  \Q Based on your answers, summarize advice for good practices in writing and\key\\[-2.5mm]
+    debugging code.
+    \begin{answer}[1in]
+      \footnotesize
+      \begin{itemize}
+        \itemsep 0pt
+        \item You should write code in small chunks, testing after each chunk
+        \item You should break your code up into functions that accomplish a single task
+        \item You should streamline \cpp{if-else} statements and loops to avoid
+          nesting if possible
+        \item If you must nest, you should try to avoid repeated blocks (i.e. the same
+          \cpp{for} loop in two different parts of an \cpp{if} statement)
+      \end{itemize}
+    \end{answer}
+
+  \vskip -5pt
+    
+  \Q Individually, think of a time that it was difficult for you to write or debug a
+    program.  How could the advice above have helped you?
+    \begin{answer}[0.5in]
+      Answers will vary
+    \end{answer}
+    
+  \Q Share your answers to the previous question with your group and summarize any
+    insights below.
+    \begin{answer}[0.5in]
+      Answers will vary
+    \end{answer}
