@@ -1,9 +1,9 @@
 \model{A C++ Program}
-\begin{tabular}{c c}
-  \begin{center}
-    \begin{minipage}{3in}
-      \scriptsize
-      \begin{cpplst}
+  \begin{tabular}{c c}
+    \begin{center}
+      \begin{minipage}{3in}
+        \scriptsize
+        \begin{cpplst}
 #include <iostream>
 using namespace std;
 
@@ -24,16 +24,16 @@ int main() {
   int smallerNum = getSmaller(userNum1, userNum2);
   cout << "The smaller number is " << smallerNum << endl;
 }
-      \end{cpplst}
+        \end{cpplst}
+      \end{minipage}
+    \end{center}
+    &
+    \begin{minipage}[b]{3.5in}
+      {\bf Output:} 
+      \hrule\vskip 5pt
+      Enter two numbers separated by a space: 52 36\\
+      The smaller number is 36
     \end{minipage}
-  \end{center}
-  &
-  \begin{minipage}[b]{3.5in}
-    {\bf Output:} 
-    \hrule\vskip 5pt
-    Enter two numbers separated by a space: 52 36\\
-    The smaller number is 36
-  \end{minipage}
   \end{tabular}
   
   {\it\large Refer to Model 1 above as your team develops consensus answers
@@ -49,7 +49,6 @@ int main() {
   \Q So far you have created `void` functions which do not send any
     information back to the calling code. A {\it value-returning} function
     does send information of a particular type back to the calling code.
-    
     \begin{enumerate}
       \itemsep 5pt
       \item What type of information does the function {\tt getSmaller} return? \hfill
@@ -78,7 +77,7 @@ int main() {
     smaller of two {\tt  double}\key\\[-2.5mm] values, what changes would you
     need to make?
     \begin{answer}[0.4in]
-      \footnotesize
+      \fs
       You need to change the \cpp{int} type to a
       \cpp{double} in the following places.
       \begin{itemize}

@@ -62,6 +62,8 @@ double total   = subCost + subShip + getTax(subCost);
       \item Has comments that explain how and why the code works: \hfill \ans[1in]{$Y$}
       \item Has comments that could be generated automatically by a computer program: \hfill \ans[1in]{$X$}
     \end{enumerate}
+
+  \vskip -20pt
     
   \Q Based on your observations above, describe what you think is good style for comments.
     \begin{answer}[1in]
@@ -118,50 +120,51 @@ int getRange (vector<int> valList) {
     pair of practices below, decide in which case it would be easier to find and fix any
     errors. Enter $X$, $Y$, or ? (if you think they are equally good).
     \vskip 5pt
-    {\renewcommand{\arraystretch}{2}
-    \begin{tabular}{|c|p{2.5in}|p{2.5in}|c|}
-      \hline
-      \rowcolor{orange!20} & Block $X$ & Block $Y$ & Choice \\
-      \hline
-      (a) & 10 existing lines of code (LoC)
-          & 100 existing LoC
-          & \ans[0.5in]{$X$} \\
-      \hline
-      (b) & 100 new LoC
-          & 90 working LoC plus 10 new LoC
-          & \ans[0.5in]{$Y$} \\
-      \hline
-      (c) & 1000 new LoC
-          & 900 working LoC plus 100 new LoC
-          & \ans[0.5in]{$Y$} \\
-      \hline
-      (d) & 1000 working LoC plus 10 new LoC
-          & 500 working LoC plus 100 new LoC
-          & \ans[0.5in]{$X$} \\
-      \hline
-      (e) & 1000 LoC all in one function
-          & 1000 LoC split across 20 functions
-          & \ans[0.5in]{$Y$} \\
-      \hline
-      (f) & 100 LoC with 10 \cpp{if-else} blocks
-          & 100 LoC with 5 \cpp{if-else} blocks
-          & \ans[0.5in]{?} \\
-      \hline
-    \end{tabular}}
+    \begin{center}
+      {\renewcommand{\arraystretch}{2}
+      \begin{tabular}{|c|p{2.5in}|p{2.5in}|c|}
+        \hline
+        \rowcolor{orange!20} & Block $X$ & Block $Y$ & Choice \\
+        \hline
+        (a) & 10 existing lines of code (LoC)
+            & 100 existing LoC
+            & \ans[0.5in]{$X$} \\
+        \hline
+        (b) & 100 new LoC
+            & 90 working LoC plus 10 new LoC
+            & \ans[0.5in]{$Y$} \\
+        \hline
+        (c) & 1000 new LoC
+            & 900 working LoC plus 100 new LoC
+            & \ans[0.5in]{$Y$} \\
+        \hline
+        (d) & 1000 working LoC plus 10 new LoC
+            & 500 working LoC plus 100 new LoC
+            & \ans[0.5in]{$X$} \\
+        \hline
+        (e) & 1000 LoC all in one function
+            & 1000 LoC split across 20 functions
+            & \ans[0.5in]{$Y$} \\
+        \hline
+        (f) & 100 LoC with 10 \cpp{if-else} blocks
+            & 100 LoC with 5 \cpp{if-else} blocks
+            & \ans[0.5in]{?} \\
+        \hline
+      \end{tabular}}
     
-    {\renewcommand{\arraystretch}{2.3}
-    \begin{tabular}{|c|p{2.5in}|p{2.5in}|c|}
-      \hline
-      \rowcolor{orange!20} & Block $X$ & Block $Y$ & Choice \\
-      \hline
-      (g) & 100 LoC with four independent loops
-          & 100 LoC two pairs of nested loops
-          & \ans[0.5in]{$X$} \\
-      \hline
-      (h) &
-        \begin{minipage}{2in}
-          \small
-          \begin{cpplst}
+      {\renewcommand{\arraystretch}{2.3}
+      \begin{tabular}{|c|p{2.5in}|p{2.5in}|c|}
+        \hline
+        \rowcolor{orange!20} & Block $X$ & Block $Y$ & Choice \\
+        \hline
+        (g) & 100 LoC with four independent loops
+            & 100 LoC two pairs of nested loops
+            & \ans[0.5in]{$X$} \\
+        \hline
+        (h) &
+          \begin{minipage}{2in}
+            \small
+            \begin{cpplst}
 // code with the structure
 if (...) {
   if (...) {
@@ -176,12 +179,12 @@ if (...) {
     ...
   }
 }
-          \end{cpplst} 
-        \end{minipage}
-        & 
-        \begin{minipage}{2in}
-          \small
-          \begin{cpplst}
+            \end{cpplst} 
+          \end{minipage}
+          & 
+          \begin{minipage}{2in}
+            \small
+            \begin{cpplst}
 // code with the structure
 if (...) {
   ...
@@ -192,16 +195,16 @@ if (...) {
 } else if (...) {
   ...
 }
-          \end{cpplst}
-          \par\vskip 35pt\null
-        \end{minipage}
-        &
-        \ans[0.5in]{$X$} \\
-        \hline
-        (h) &
-        \begin{minipage}{2in}
-          \small
-          \begin{cpplst}
+            \end{cpplst}
+            \par\vskip 35pt\null
+          \end{minipage}
+          &
+          \ans[0.5in]{$X$} \\
+          \hline
+          (h) &
+          \begin{minipage}{2in}
+            \small
+            \begin{cpplst}
 // code with the structure
 for(int i=0; i<n; i++) {
   if (...) {
@@ -210,13 +213,13 @@ for(int i=0; i<n; i++) {
     ...
   }
 }
-          \end{cpplst}
-          \par\vskip 10pt\null
-        \end{minipage}
-        & 
-        \begin{minipage}{2in}
-          \small
-          \begin{cpplst}
+            \end{cpplst}
+            \par\vskip 10pt\null
+          \end{minipage}
+          & 
+          \begin{minipage}{2in}
+            \small
+            \begin{cpplst}
 // code with the structure
 if (...) {
   for(int i; i<n; i++) {
@@ -227,19 +230,20 @@ if (...) {
     ...
   }
 }
-          \end{cpplst}
-        \end{minipage}
-        &
-        \ans[0.5in]{$X$} \\
-        \hline
-      \end{tabular}}
+            \end{cpplst}
+          \end{minipage}
+          &
+          \ans[0.5in]{$X$} \\
+          \hline
+        \end{tabular}}
+      \end{center}
 
   \vskip -10pt
 
   \Q Based on your answers, summarize advice for good practices in writing and\key\\[-2.5mm]
     debugging code.
     \begin{answer}[1in]
-      \footnotesize
+      \fs
       \begin{itemize}
         \itemsep 0pt
         \item You should write code in small chunks, testing after each chunk

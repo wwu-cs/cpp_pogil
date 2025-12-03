@@ -116,7 +116,7 @@ Test Three: 3
     
   \Q Follow the steps below to write a function that returns the product of
     between two and four arguments, as shown in the examples below.
-    Use the file {\tt activity13a.cpp} to test your code.
+    Use the file {\tt activity13b.cpp} to test your code.
     \begin{itemize}
       \small
       \begin{multicols}{3}
@@ -134,32 +134,34 @@ Test Three: 3
           \cpp{int product(int a, int b, int c, int d)}
         \end{center}
         \begin{answer}[1.5in]
-          \scriptsize\vskip -35pt\null
+          \scriptsize
           \begin{center}
             \begin{minipage}{3.5in}
               \begin{cpplst}
 int product(int a, int b, int c, int d) {
   return a*b*c*d;
 }
-                \end{cpplst}
-              \end{minipage}
-            \end{center}\vskip -20pt\null
-          \end{answer}          
-        \item Next, add a function prototype above the {\tt main}
-          program.  Include appropriate default arguments.
-          \begin{answer}[0.5in]
-            \scriptsize\vskip -35pt\null
-            \begin{center}
-              \begin{minipage}{3.5in}
-                \begin{cpplst}
+              \end{cpplst}
+            \end{minipage}
+          \end{center}\vskip -20pt\null
+        \end{answer}
+
+      \item Next, add a function prototype above the {\tt main}
+        program.  Include appropriate default arguments.
+        \begin{answer}[0.5in]
+          \scriptsize
+          \begin{center}
+            \begin{minipage}{3.5in}
+              \begin{cpplst}
 int product(int a, int b, int c=1, int d=1);
-                \end{cpplst}
-              \end{minipage}
-            \end{center}\vskip -20pt\null
-          \end{answer}
-        \item Finally, add the three function calls above to the {\tt main} program.
-          Do they work as expected?
-          \begin{answer}[0.5in]
-            Yes.
-          \end{answer}
-      \end{enumerate}
+              \end{cpplst}
+            \end{minipage}
+          \end{center}\vskip -20pt\null
+        \end{answer}
+
+      \item Finally, add the three function calls above to the {\tt main} program.
+        Do they work as expected?
+        \begin{answer}[0.5in]
+          Yes.
+        \end{answer}
+    \end{enumerate}

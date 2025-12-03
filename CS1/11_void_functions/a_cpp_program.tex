@@ -3,6 +3,7 @@
     \begin{minipage}{4in}
       \begin{cpplst}
 #include <iostream>
+
 using namespace std;
 
 void printMessage() {
@@ -17,7 +18,7 @@ int main() {
       \end{cpplst}
     \end{minipage}
     &
-    \begin{minipage}[t]{2.5in}
+    \begin{minipage}[t][1in][b]{2.5in}
       {\bf Output:} 
       \hrule\vskip 5pt
       Hello Programmer!\\
@@ -37,10 +38,10 @@ int main() {
     \begin{enumerate}
       \itemsep 10pt
       \item Which lines of code belong to the function {\tt printMessage}? \hfill
-        \ans[2in]{Lines 4-7}
+        \ans[2in]{Lines 5-8}
 
       \item What other function is defined in this code? \hfill
-        \ans[2in]{{\tt main} on lines 9-12}
+        \ans[2in]{{\tt main} on lines 10-13}
 
       \item What does the function {\tt printMessage} do?
         \begin{answer}[0.4in]
@@ -52,17 +53,17 @@ int main() {
   \vskip -30pt
     
   \Q A {\it function definition} is the segment of code that
-    tells the program what to do with the function is executed.  It
+    tells the program what to do when the function is executed.  It
     contains a {\it function header} (the first line of the
     definition) and a {\it function body} (the commands that make up
     the function).
     \begin{enumerate}
       \itemsep 10pt
       \item On what line is the function header for {\tt printMessage}? \hfill
-        \ans[2in]{Line 4}
+        \ans[2in]{Line 5}
 
       \item On what lines is the function body for {\tt printMessage}?\hfill
-        \ans[2in]{Lines 5-6}
+        \ans[2in]{Lines 6-7}
     \end{enumerate}
 
   \Q A {\it function call} is a command that executes the
@@ -71,9 +72,9 @@ int main() {
     \begin{enumerate}
       \itemsep 10pt
       \item On what line is the function {\tt printMessage} called? \hfill
-        \ans[2in]{Line 11}
+        \ans[2.5in]{Line 12}
 
-      \item What happens if you swap lines 10 and 11 in the model above?
+      \item What happens if you swap lines 11 and 12 in the model above?
         \begin{answer}[1in]
           The output would be:
           \begin{center}
@@ -90,6 +91,6 @@ int main() {
         Where would you add the code?
         \begin{answer}[1in]
           You could add another function call {\tt printMessage();}
-          after line 11.
+          after line 12.
         \end{answer}
     \end{enumerate}
