@@ -1,28 +1,23 @@
-\\model{A Program with Functions and Branches} \\
-
+\model{A Program with Functions and Branches}
   \begin{center}
     \begin{minipage}{3.5in}
       \scriptsize
-      \begin{cprtlst}[
-        frame=lines,
-        framesep=2mm,
-        bgcolor=gray!15,
-        baselinestretch=1.2,
-        linenos,
-        firstnumber=4
-      ]{cpp}
+      \begin{cpplst}
+#include <iostream>
+using namespace std;
+
 // first function      
 void printSum(int num1, int num2) {
-  cout << num1 << " + " << num2 << " = " << (num1+num2) << endl;
+  cout << num1 << " + " << num2 << " = " << (num1 + num2) << endl;
 }
 // second function
 void printDifference(int num1, int num2) {
-  cout << num1 << " - " << num2 << " = " << (num1-num2) << endl;
+  cout << num1 << " - " << num2 << " = " << (num1 - num2) << endl;
 }
 // main program
 int main() {
   // define variables
-  int firstNumber,secondNumber;
+  int firstNumber, secondNumber;
   char operation;
   // collect user input
   cout << "Enter a number between 1 and 10: ";
@@ -33,111 +28,100 @@ int main() {
   cin >> operation;
   // decide which function to call
   if (operation == '+') {
-    printSum(firstNumber,secondNumber);
+    printSum(firstNumber, secondNumber);
   } else if (operation == '-') {
-    printDifference(firstNumber,secondNumber);
+    printDifference(firstNumber, secondNumber);
   } else {
     cout << "Invalid Operation" << endl;
   }  
 }
-      \end{cprtlst}
+      \end{cpplst}
     \end{minipage}  
   \end{center}
       
   {\it\large Refer to Model 3 above as your team develops consensus answers
     to the questions below.}
 
-    \Q What is the first line of code that is executed in this
-      program?\hfill \ans[2in]{Line 15}
-      
-    \Q Use the file {\tt activity11c.cpp} to execute this program
-      with the following inputs and record the results.
-      
-      \begin{center}
-        \renewcommand{\arraystretch}{1.75}
-        \begin{tabular}{|c|c|c|c|p{2in}|}
-          \hline
-          \rowcolor{orange!20} Data Set & First Number & Second Number & Operation & Result \\
-          \hline
-          1 & 2 & 6 & $+$ & %\ifprintanswers $2+6=8$\fi \\
-          \hline
-          2 & 3 & 8 & $-$ & %\ifprintanswers $3-8=-5$\fi \\
-          \hline
-          3 & 34 & 23 & $+$ & %\ifprintanswers $34 + 23 = 57$\fi \\
-          \hline
-          4 & 4 & 5 & $/$ & %\ifprintanswers Invalid Operation\fi \\
-          \hline
-        \end{tabular}
-      \end{center}
-      
-    \Q What problems do you see when you entered data set 3?
-      \begin{answer}[0.5in]
-        The numbers are not in the range from 1-10, but no error was
-        reported.
-      \end{answer}
-      
-\newpage
+  \quest{25 min}
 
-    \Q Write a function named {\tt checkRange} that takes two integer 
-      values as parameters, check to make sure they are both between 1 and 10,
-      and  prints out a warning if they are not.  For example, calling
-      \cpp{checkRange(34,23)} might result in the
-      following output.
+  \Q What is the first line of code that is executed in this
+    program?\hfill \ans[2in]{Line 18}
+    
+  \Q Use the file {\tt activity11c.cpp} to execute this program
+    with the following inputs and record the results.
+    \begin{center}
+      \renewcommand{\arraystretch}{1.75}
+      \begin{tabular}{|c|c|c|c|p{2in}|}
+        \hline
+        \rowcolor{orange!20} Data Set & First Number & Second Number & Operation & Result \\
+        \hline
+        1 & 2 & 6 & $+$ & \ans[2in]{$2+6=8$} \\
+        \hline
+        2 & 3 & 8 & $-$ & \ans[2in]{$3-8=-5$} \\
+        \hline
+        3 & 34 & 23 & $+$ & \ans[2in]{$34 + 23 = 57$} \\
+        \hline
+        4 & 4 & 5 & $/$ & \ans[2in]{Invalid Operation} \\
+        \hline
+      \end{tabular}
+    \end{center}
+    
+  \Q What problems do you see when you entered data set 3?
+    \begin{answer}[0.5in]
+      The numbers are not in the range from 1-10, but no error was
+      reported.
+    \end{answer}
+
+  \Q Write a function named {\tt checkRange} that takes two integer 
+    values as parameters, check to make sure they are both between 1 and 10,
+    and  prints out a warning if they are not.  For example, calling
+    \cpp{checkRange(34,23)} might result in the
+    following output.
+    \begin{center}
+      \tt
+      WARNING! At least one of the numbers you entered was out of
+      range!
+    \end{center}
+    \begin{answer}[1.5in]
       \begin{center}
-        \tt
-        WARNING! At least one of the numbers you entered was out of
-        range!
-      \end{center}
-      \begin{answer}[1.5in]
-        \scriptsize\vskip -35pt\null
-        \begin{center}
-          \begin{minipage}{4.5in}
-            \begin{cprtlst}[
-              frame=lines,
-              framesep=2mm,
-              bgcolor=gray!15,
-              baselinestretch=1.2,
-            ]{cpp}
+        \fs
+        \begin{minipage}{6in}
+          \begin{cpplst}
 void checkRange(int num1, int num2) {
   if ( (num1 < 0 || num1 > 10) || (num2 < 0 || num2 > 10) ) {
     cout << "WARNING! At least one of the numbers you entered was out of range!" 
          << endl;
   }
 }       
-            \end{cprtlst}
-          \end{minipage}
-        \end{center}\vskip -20pt\null
-      \end{answer}
-      \par\vskip -40pt\null
-      
-    \Q Modify the two functions in the original model to
-      produce the following sample output.\key\\[-2.5mm]  Do not change the
-      {\tt main} program.  Only change the functions on lines 5-7 
-      and 9-11 of the original model.
-    
-      \begin{center}
-        \fbox{
-          \begin{minipage}{5in}
-            {\bf Sample Output:} 
-            \hrule\vskip 5pt\tt
-            Enter a number between 1 and 10: 56\\
-            Enter another number between 1 and 10: 4\\
-            Enter a '+' to add or a '-' to subtract: +\\
-            56 + 4 = 60\\
-            WARNING! At least one of the numbers you entered was out of range!
-          \end{minipage}
-        }
+          \end{cpplst}
+        \end{minipage}
       \end{center}
-      \begin{answer}[2in]
-        \scriptsize\vskip -35pt\null
-        \begin{center}
-          \begin{minipage}{4.5in}
-            \begin{cprtlst}[
-              frame=lines,
-              framesep=2mm,
-              bgcolor=gray!15,
-              baselinestretch=1.2,
-            ]{cpp}
+    \end{answer}
+
+  \vskip -10pt
+      
+  \Q Modify the two functions in the original model to
+    produce the following sample \key\\[-2.5mm] output. Do not change the
+    {\tt main} program.  Only change the functions on lines 5-7 
+    and 9-11 of the original model.
+    \begin{center}
+      \fbox{
+        \begin{minipage}{5in}
+          {\bf Sample Output:} 
+          \hrule\vskip 5pt\tt
+          Enter a number between 1 and 10: 56\\
+          Enter another number between 1 and 10: 4\\
+          Enter a '+' to add or a '-' to subtract: +\\
+          56 + 4 = 60\\
+          WARNING! At least one of the numbers you entered was out of range!
+        \end{minipage}
+      }
+    \end{center}
+    \begin{answer}[2in]
+      \fs
+      \begin{center}
+        \begin{minipage}{4.5in}
+          \begin{cpplst}
 // first function      
 void printSum(int num1, int num2) {
   cout << num1 << " + " << num2 << " = " << (num1+num2) << endl;
@@ -148,19 +132,18 @@ void printDifference(int num1, int num2) {
   cout << num1 << " - " << num2 << " = " << (num1-num2) << endl;
   checkRange(num1,num2);
 }
-            \end{cprtlst}
-          \end{minipage}
-        \end{center}\vskip -20pt\null
-      \end{answer}
+          \end{cpplst}
+        \end{minipage}
+      \end{center}
+    \end{answer}
+
+  \newpage
     
-    \Q Write a function to draw a frog.  Then call this function
-      from the\\ {\tt main} program in a loop to create the output shown.
-      \TPMargin{0pt}
-      \par  % avoid warning of textblock not in vertical mode
-      \begin{textblock*}{1.6in}[0,0](4.9in,-40pt)
-        \small
-        \textblockcolor{white}
-        \begin{cprtlst}[xleftmargin=-10pt]{cpp}
+  \Q Write a function to draw a frog.  Then call this function
+    from the {\tt main} program in a loop to create the output shown.
+    \begin{center}
+      \begin{minipage}{3in}
+        \begin{cpplst}
 Frog 1...
           @..@
          (----)
@@ -181,17 +164,12 @@ Frog 4...
          (----)
         ( >__< )
         ^^ ~~ ^^
-        \end{cprtlst}
-      \end{textblock*}
-      \begin{minipage}{4in}
-      \begin{answer}[2in]
-        \scriptsize
-        \begin{cprtlst}[
-          frame=lines,
-          framesep=2mm,
-          bgcolor=gray!15,
-          baselinestretch=1.2,
-        ]{cpp}
+        \end{cpplst}
+      \end{minipage}
+      \begin{minipage}{3in}
+        \begin{answer}[4in]
+          \scriptsize
+          \begin{cpplst}
 void function frog() {
   cout << "          @..@"   << endl;
   cout << "         (----)"  << endl;
@@ -204,7 +182,8 @@ int main() {
     frog();
   }
 }
-            \end{cprtlst}
+          \end{cpplst}
         \end{answer}
       \end{minipage}
+    \end{center}
      

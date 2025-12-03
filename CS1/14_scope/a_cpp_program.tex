@@ -1,21 +1,14 @@
-\model{A C++ Program} \\
+\model{A C++ Program}
   \begin{center}
-    \begin{tabular}{p{3.0in}p{0.05in}p{3.1in}}
-      \begin{minipage}{3in}
-        \small
-        \begin{cprlst}[
-          frame=lines,
-          framesep=2mm,
-          bgcolor=gray!15,
-          baselinestretch=1.2,
-          linenos,
-          firstnumber=5
-        ]{cpp}
+    \begin{tabular}{c c}
+      \begin{minipage}{3.3in}
+        \scriptsize
+        \begin{cpplst}
 double balance = 0;
 
 char getChoice() {
   char userChoice;
-  cout << "Balance: $" << balance << endl;
+  cout << "Balance: \$" << balance << endl;
   cout << "(d)eposit, (w)ithdraw, (e)xit: ";
   cin >> userChoice;
   return userChoice;
@@ -34,20 +27,12 @@ bool withdraw(double amount) {
   return success;
 }
 
-        \end{cprlst}
+        \end{cpplst}
       \end{minipage}
-      & &
-      \begin{minipage}{3.1in}
-        \small
-        \begin{cprlst}[
-          frame=lines,
-          framesep=2mm,
-          bgcolor=gray!15,
-          baselinestretch=1.2,
-          linenos,
-          firstnumber=28
-        ]{cpp}
-
+      &
+      \begin{minipage}{6in}
+        \scriptsize
+        \begin{cpplst}
 int main() {
   char choice;
   double value;
@@ -57,11 +42,11 @@ int main() {
   do {
     choice = getChoice();
     if(choice == 'd') {
-      cout << "Enter amount to deposit $";
+      cout << "Enter amount to deposit \$";
       cin >> value;
       deposit(value);
     } else if(choice == 'w') {
-      cout << "Enter amount to withdraw $";
+      cout << "Enter amount to withdraw \$";
       cin >> value;
       if(! withdraw(value)) {
         cout << "Insufficient Funds!" << endl;
@@ -70,137 +55,120 @@ int main() {
   } while( choice != 'e' );
   cout << "Goodbye!" << endl;
 }
-        \end{cprlst} 
-% $        
+        \end{cpplst}
       \end{minipage}
     \end{tabular} 
   \end{center}  
   
   {\it\large Refer to Model 1 above as your team develops consensus answers
     to the questions below.}
-    \par\vskip 10pt
+
+  \quest{15 min}
+
+  \Q Indicate the line number on which each of the following
+    variables is declared.
+    \begin{enumerate}
+      \itemsep 10pt
+      \begin{multicols}{2}
+        \item The variable {\tt amount}: \hspace{0.3in} \ans[1in]{Lines 11L, 15L}
+        \item The variable {\tt balance}: \hspace{0.2in} \ans[1in]{Line 1L}
+        \item The variable {\tt userChoice}: \hspace{0.01in} \ans[1in]{Line 4L}
+        \item The variable {\tt success}: \hfill \ans[1in]{Line 16L}
+        \item The variable {\tt choice}: \hspace{0.3in} \ans[1in]{Line 2R}
+        \item The variable {\tt value}: \hfill \ans[1in]{Line 3R}
+      \end{multicols}
+    \end{enumerate}  
+
+  \vskip -20pt
     
-  \begin{enumerate}
-    \itemsep 20pt
+  \Q Categorize each of the variable declarations as one of the
+    following:
+    \begin{itemize}
+      \item[B:] Declared inside of a function body (including {\tt main})
+      \item[P:] Declared in a function header as a parameter
+      \item[G:] Declared somewhere else
+    \end{itemize}
+    
+    \begin{enumerate}
+      \itemsep 10pt
+      \begin{multicols}{3}
+        \item \ans[0.5in]{P} {\tt amount}
+        \item \ans[0.5in]{G} {\tt balance}
+        \item \ans[0.5in]{B} {\tt choice}
+        \item \ans[0.5in]{B} {\tt success}
+        \item \ans[0.5in]{B} {\tt userChoice}
+        \item \ans[0.5in]{B} {\tt value}
+      \end{multicols}
+    \end{enumerate}
 
-    \Q Indicate the line number on which each of the following
-      variables is declared.
-      \par\vskip 15pt
-      
-      \begin{enumerate}[(a)]
-        \itemsep 15pt
-        \begin{multicols}{2}
-          \item The variable {\tt amount}: \hfill \ans[1in]{Lines 15, 19}
-          \item The variable {\tt balance}: \hfill \ans[1in]{Line 5}
-          \item The variable {\tt choice}: \hfill \ans[1in]{Line 29}
-          \item The variable {\tt success}: \hfill \ans[1in]{Line 20}
-          \item The variable {\tt userChoice}: \hfill \ans[1in]{Line 8}
-          \item The variable {\tt value}: \hfill \ans[1in]{Line 30]
-        \end{multicols}
-      \end{enumerate}
-      
-\newpage      
-      
-    \Q Categorize each of the variable declarations as one of the
-      following:
-      \begin{itemize}
-        \item[B:] Declared inside of a function body (including {\tt main})
-        \item[P:] Declared in a function header as a parameter
-        \item[G:] Declared somewhere else
-      \end{itemize}
-      \par\vskip 15pt
-      
-      \begin{enumerate}[(a)]
-        \itemsep 15pt
-        \begin{multicols}{3}
-          \item \ans[0.5in]{P} {\tt amount}
-          \item \ans[0.5in]{G} {\tt balance}
-          \item \ans[0.5in]{B} {\tt choice}
-          \item \ans[0.5in]{B} {\tt success}
-          \item \ans[0.5in]{B} {\tt userChoice}
-          \item \ans[0.5in]{B} {\tt value}
-        \end{multicols}
-      \end{enumerate}
+  \Q One quick-and-dirty way to debug a program is to insert {\tt
+    cout} commands to check on the value of a variable.  Suppose we
+    inserted the given {\tt cout} commands above the indicated line
+    numbers (L - Left, R - Right). Place a check mark next to those commands which would
+    compile. You can test using the file {\tt activity14a.cpp}.
+    
+    \begin{enumerate}
+      \itemsep 10pt
+      \begin{multicols}{2}
+        \item \ans[0.25in]{} \cpp{cout << amount;} above line 11R
+        \item \ans[0.25in]{\checkmark} \cpp{cout << amount;} above line 12L
+        \item \ans[0.25in]{\checkmark} \cpp{cout << balance;} above line 5L
+        \item \ans[0.25in]{\checkmark} \cpp{cout << balance;} above line 4R
+        \item \ans[0.25in]{\checkmark} \cpp{cout << choice;} above line 9R
+        \item \ans[0.25in]{} \cpp{cout << choice;} above line 4L
+        \item \ans[0.25in]{} \cpp{cout << success;} above line 16L
+        \item \ans[0.25in]{\checkmark} \cpp{cout << success;} above line 20L
+        \item \ans[0.25in]{} \cpp{cout << userChoice;} above line 8R
+        \item \ans[0.25in]{\checkmark} \cpp{cout << userChoice;} above line 6L
+      \end{multicols}
+    \end{enumerate}
 
-    \Q One quick-and-dirty way to debug a program is to insert {\tt
-      cout} commands to check on the value of a variable.  Suppose we
-      inserted the given {\tt cout} commands above the indicated line
-      numbers.  Place a check mark next to those commands which would
-      compile.  You can test using the file {\tt activity14a.cpp}.
-      \par\vskip 15pt
-      
-      \begin{enumerate}[(a)]
-        \itemsep 15pt
-        \begin{multicols}{2}
-          \item \ans[0.25in]{} \cpp{cout << amount;| above line 31
-          \item \ans[0.25in]{$\checkmark$} \cpp{cout << amount;} above line 25
-          \item \ans[0.25in]{$\checkmark$} \cpp{cout << balance;} above line 31
-          \item \ans[0.25in]{$\checkmark$} \cpp{cout << balance;} above line 25
-          \item \ans[0.25in]{$\checkmark$} \cpp{cout << choice;} above line 31
-          \item \ans[0.25in]{} \cpp{cout << choice;} above line 12
-          \item \ans[0.25in]{} \cpp{cout << success;} above line 31
-          \item \ans[0.25in]{$\checkmark$} \cpp{cout << success;} above line 12
-          \item \ans[0.25in]{} \cpp{cout << userChoice;} above line 31
-          \item \ans[0.25in]{$\checkmark$} \cpp{cout << userChoice;} above line 12
-        \end{multicols}
-      \end{enumerate}
-      
-    \Q Pick one of the {\tt cout} statements above which did not compile
-      correctly.  What error did the compiler report?  What does that error mean?
-      % \ifprintanswers\vskip -20pt\null\fi
-      \begin{answer}[0.5in]
-        The error is that the variable is ``not declared in this scope.''  That
-        means that at this point in the code, the variable is not accessible.
-      \end{answer}
-      % \ifprintanswers\vskip -30pt\null\fi
-      
-    \Q You should have found that exactly one of the variables could be used in a
-      {\tt cout} statement on all the given line numbers.  Which one, and why?
-      % \ifprintanswers\vskip -20pt\null\fi
-      \begin{answer}[0.5in]
-        The variable {\tt balance} can be referenced anywhere past line 5, inside a
-        function or outside a function.  This is because it was declared outside of
-        any function.
-      \end{answer}
-      % \ifprintanswers\vskip -30pt\null\fi
+  \vskip -20pt
+    
+  \Q Pick one of the {\tt cout} statements above which did not compile
+    correctly.  What error did the compiler report?  What does that error mean?
+    \begin{answer}[0.5in]
+      The error is that the variable is ``not declared in this scope.''  That
+      means that at this point in the code, the variable is not accessible.
+    \end{answer}
+    
+  \Q You should have found that exactly one of the variables could be used in a
+    {\tt cout} statement on all the given line numbers.  Which one, and why?
+    \begin{answer}[0.5in]
+      The variable {\tt balance} can be referenced anywhere past line 1, inside a
+      function or outside a function.  This is because it was declared outside of
+      any function.
+    \end{answer}
 
-    \Q A {\it global variable} is declared outside of
-      any function, including the {\tt main} program and can be
-      accessed anywhere in the program. Why do you think the
-      programmer made {\tt balance} a global variable?
-      % \ifprintanswers\vskip -20pt\null\fi
-      \begin{answer}[0.5in]
-        Because all parts of the code (functions, main, etc) need to alter this
-        variable's value.
-      \end{answer}
-      % \ifprintanswers\vskip -40pt\null\else\vskip -30pt\fi
-      
-    \Q How could you modify the code to accomplish the same tasks if you were not
-      allowed to\key\\[-2.5mm] use a global variable?
-      \begin{answer}[0.5in]
-        We could define {\tt balance} in the {\tt main} program and then pass it by
-        reference to the functions that update the balance.
-      \end{answer}      
+  \Q A {\it global variable} is declared outside of
+    any function, including the {\tt main} program and can be
+    accessed anywhere in the program. Why do you think the
+    programmer made {\tt balance} a global variable?
+    \begin{answer}[0.5in]
+      Because all parts of the code (functions, main, etc) need to alter this
+      variable's value.
+    \end{answer}
 
-\newpage
+  \vskip -10pt
+    
+  \Q How could you modify the code to accomplish the same tasks if you were not
+    allo-\key\\[-2.5mm]wed to use a global variable?
+    \begin{answer}[0.5in]
+      We could define {\tt balance} in the {\tt main} program and then pass it by
+      reference to the functions that update the balance.
+    \end{answer}
 
-    \Q The functions below are part of a grade book program.
-      Define a global Boolean variable named {\tt debug} and rewrite
-      the functions so that when \cpp{debug==true| the
-      function prints out the function name when it first starts
-      executing and prints out its return values before it returns.
-      \vskip -30pt\null
-      
-      \begin{center}
-        \begin{tabular}{p{3in}p{2.8in}}
-          \begin{minipage}[t]{3in}
-            \small
-            \begin{cprlst}[
-              frame=lines,
-              framesep=2mm,
-              bgcolor=gray!15,
-              baselinestretch=1.2,
-            ]{cpp}
+  \newpage
+
+  \Q The functions below are part of a grade book program.
+    Define a global Boolean variable named {\tt debug} and rewrite
+    the functions so that when \cpp{debug==true} the
+    function prints out the function name when it first starts
+    executing and prints out its return values before it returns.
+    \begin{center}
+      \begin{minipage}{3.6in}
+        \footnotesize
+        \begin{cpplst}
 double minGrade(vector<double> myGrades) {
   double tmpMin = myGrades.at(0);
   for (int i = 1; i < myGrades.size(); i++) {
@@ -218,24 +186,15 @@ double avgGrade(vector<double> myGrades) {
   }
   return sum / myGrades.size();
 }
-
-
-            \end{cprlst}            
-          \end{minipage}
-          &          
-          \begin{answer}[2in]
-            \par\vskip -40pt\null\scriptsize
-            \begin{center}
-              \begin{minipage}{2.5in}
-                \begin{cprlst}[
-                  frame=lines,                  
-                  framesep=2mm,
-                  bgcolor=gray!15,
-                  baselinestretch=1.2,
-                ]{cpp}
+        \end{cpplst}
+      \end{minipage}
+      \begin{minipage}{3.2in}
+        \begin{answer}[3.5in]
+          \scriptsize
+          \begin{cpplst}
 bool debug = true;
 double minGrade(vector<double> myGrades) {
-  if(debug) cout << "minGrade" << endl;  
+  if (debug) cout << "minGrade" << endl;  
   double tmpMin = myGrades.at(0);
   for (int i = 1; i < myGrades.size(); i++) {
     if (myGrades.at(i) < tmpMin) {
@@ -255,11 +214,7 @@ double avgGrade(vector<double> myGrades) {
   if(debug) cout << sum / myGrades.size();
   return sum / myGrades.size();
 }
-                \end{cprlst}
-                \par\vskip -20pt\null
-              \end{minipage}
-            \end{center}
-          \end{answer}
-        \end{tabular}
-      \end{center}
-      % \ifprintanswers\par\vskip -20pt\null\fi
+          \end{cpplst}
+        \end{answer}
+      \end{minipage}
+    \end{center}

@@ -163,26 +163,6 @@
 %\rfoot{}
 %\makeatother
 
-% titles
-\makeatletter
-\renewcommand{\maketitle}{\begin{center}\LARGE\@title\end{center}}
-\makeatother
-
-% role names
-\newcommand{\rolenames}{
-\begin{center}
-\begin{tabularx}{\linewidth}{@{}L{54pt}XL{54pt}X@{}}
-  Manager: & \ans{} &
- Recorder: & \ans{} \\
-\end{tabularx}
-\par\medskip
-\begin{tabularx}{\linewidth}{@{}L{54pt}XL{54pt}X@{}}
-Driver: & \ans{} &
-Reader: & \ans{} \\
-\end{tabularx}
-\end{center}
-}
-
 % boxes [optional height]
 \newcommand{\emptybox}[1][10em]{
 \vspace{1em}
@@ -284,6 +264,30 @@ Reader: & \ans{} \\
 }
 
 %------------------------------------------------------------------------------%
+%key questions
+\newcommand{\keyquestions}[1]{
+Record your team's answers to the key questions (marked with \mbox{\key}) below.
+\begin{enumerate}[itemsep=1.25in]
+#1
+\end{enumerate}
+}
+
+% titles
+\makeatletter
+\renewcommand{\maketitle}{\begin{center}\LARGE\@title\end{center}}
+\makeatother
+
+% role names
+\newcommand{\rolenames}{
+\Large Recorder's Report\\[20pt]
+\normalsize
+\begin{tabular}{lrp{0.1in}lr}
+    Manager:  & \ans{} &  & Reader: & \ans{}            \\[15pt]
+    Recorder: & \ans{} &  & Driver: & \ans{}            \\[15pt]
+    Date:     & \ans{} &  & Score:  & Satisfactory \hspace{10pt} /
+    \hspace{10pt} Not Satisfactory
+\end{tabular}
+}
 
 % instructor's guide template
 \newcommand{\guide}[3]{

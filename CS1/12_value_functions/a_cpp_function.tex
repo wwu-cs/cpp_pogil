@@ -1,19 +1,13 @@
-\\model{A C++ Function} \\
+\model{A C++ Function}
   \begin{center}
     \begin{minipage}{4.5in}
-      \begin{cprlst}[
-        frame=lines,
-        framesep=2mm,
-        bgcolor=gray!15,
-        baselinestretch=1.2,
-        linenos
-      ]{cpp}
+      \begin{cpplst}
 void getHypotenuse(double a, double b) {
   double square = pow(a,2) + pow(b,2);
   double squareRoot = sqrt(square);
   cout << "The hypotenuse length is " << squareRoot << endl;
 }
-      \end{cprlst}
+      \end{cpplst}
     \end{minipage}
   \end{center}
 
@@ -21,64 +15,57 @@ void getHypotenuse(double a, double b) {
   {\it\large Refer to Model 2 above as your team develops consensus answers
     to the questions below.}
 
-    \Q What does this function do?
-      % \ifprintanswers\vskip -20pt\null\fi
-      \begin{answer}[0.35in]
-        It solves for the length of the hypotenuse of a right triangle given
-        the length of the two legs and prints it out.
-      \end{answer}
-      % \ifprintanswers\vskip -35pt\null\fi
-      
-    \Q Is this a {\it void function} or a {\it value-returning} function?
-      \hfill\ans[2in]{void}
+  \quest{20 min}
 
-    \Q Suppose you wanted to turn this into a value-returning function
-      that returns the hypotenuse length.
-      \par\vskip 15pt
+  \Q What does this function do?
+    \begin{answer}[0.35in]
+      It solves for the length of the hypotenuse of a right triangle given
+      the length of the two legs and prints it out.
+    \end{answer}
     
-      \begin{enumerate}[(a)]
-        \itemsep 15pt
-        \item How would you change line 1 in the model? \hfill
-          \ans[3in]{\cpp{double getHypotenuse(double a, double b)}}
-        \item What command would you add to the end? \hfill
-          \ans[3in]{\cpp{return squareRoot;}}
-        \item What line would you remove and why? \hfill
-          \ans[3in]{Line 4 -- function doesn't produce output}
-      \end{enumerate}
-      
-    \Q What is the difference between using {\tt cout} in a function and using
-      {\tt return} in a function?
-      \begin{answer}[0.5in]
-        Using {\tt cout} prints values out to the screen while using {\tt return}
-        sends the value back to the caller, where it can decide what to do with it.
-      \end{answer}
+  \Q Is this a {\it void function} or a {\it value-returning} function?
+    \hfill\ans[2in]{void}
+
+  \Q Suppose you wanted to turn this into a value-returning function
+    that returns the hypotenuse length.
+    \begin{enumerate}
+      \itemsep 5pt
+      \item How would you change line 1 in the model? \hfill
+        \ans[3in]{\scriptsize\cpp{double getHypotenuse(double a, double b)}}
+
+      \item What command would you add to the end? \hfill
+        \ans[3in]{\cpp{return squareRoot;}}
+
+      \item What line would you remove and why? \hfill
+        \ans[3in]{Line 4 -- function doesn't produce output}
+    \end{enumerate}
+  
+  \vskip -10pt
     
-\newpage
-    \null\vskip -60pt\null
-    \Q Below is the framework for a program that drills students on addition
-      problems.\key\\[-2.5mm]  In particular, the program should do the following:
-      \begin{itemize}
-        \item Display five addition problems, one at a time, and let the student answer each
-        \item Print the correct answer if the user enters an incorrect answer
-        \item Print a congratulatory message if the student's answer is correct
-        \item Keep track of the number of problems the student answers correctly
-        \item Print a special message if the user gets all five problems right
-      \end{itemize}
-      Fill in the missing code to make this program function
-      as described.  The code is in {\tt activity12b.cpp}.
-      \vskip -30pt\null
-    
-      \begin{center}
-        \begin{tabular}{p{2.75in}p{0.1in}p{2.8in}}
-          \begin{minipage}{2.75in}
-            \begin{cprlst}[
-              frame=lines,
-              framesep=2mm,
-              bgcolor=gray!15,
-              baselinestretch=1.2,
-              linenos,
-              firstnumber=5
-            ]{cpp}
+  \Q What is the difference between using {\tt cout} in a function and using
+    {\tt return} in a function?
+    \begin{answer}[0.5in]
+      Using {\tt cout} prints values out to the screen while using {\tt return}
+      sends the value back to the caller, where it can decide what to do with it.
+    \end{answer}
+
+  \vskip -10pt
+  
+  \Q Below is the framework for a program that drills students on addition
+    problems.\key\\[-2.5mm]  In particular, the program should do the following:
+    \begin{itemize}
+      \item Display five addition problems, one at a time, and let the student answer each
+      \item Print the correct answer if the user enters an incorrect answer
+      \item Print a congratulatory message if the student's answer is correct
+      \item Keep track of the number of problems the student answers correctly
+      \item Print a special message if the user gets all five problems right
+    \end{itemize}
+    Fill in the missing code to make this program function
+    as described.  The code is in {\tt activity12b.cpp}.
+    \begin{center}
+      \begin{tabular}{p{3.2in}p{0.1in}p{3.2in}}
+        \begin{minipage}{3.2in}
+          \begin{cpplst}
 // Print celebratory rocket
 
 /* ANSWER A */ printRocket() {
@@ -100,18 +87,11 @@ bool giveProblem(/* ANSWER C */) {
   cin >> studentAns;
   /* ANSWER D */
 }
-            \end{cprlst}
+            \end{cpplst}
           \end{minipage}
           & &
-          \begin{minipage}{2.8in}
-            \begin{cprlst}[
-              frame=lines,
-              framesep=2mm,
-              bgcolor=gray!15,
-              baselinestretch=1.2,
-              linenos,
-              firstnumber=27
-            ]{cpp}          
+          \begin{minipage}{3.2in}
+            \begin{cpplst}        
 int main() {
   srand(time(0));  // seed random num
   int numCorrect = 0;
@@ -133,57 +113,64 @@ int main() {
          << " correct." << endl;
   }
 }
-            \end{cprlst}
+            \end{cpplst}
           \end{minipage}
         \end{tabular}
       \end{center}
       
-      \begin{enumerate}[A.]
+      \begin{enumerate}
         \begin{multicols}{2}
-          \item Line 7: The type of {\tt printRocket}:\par
+          \item Line 3: The type of {\tt printRocket}:\par
             \begin{minipage}{2.75in}
               \begin{answer}[0.55in]
                 {\tt void}
               \end{answer}
             \end{minipage}
-          \item Line 15: A {\tt return} statement:\par
+
+          \item Line 11: A {\tt return} statement:\par
             \begin{minipage}{2.75in}
               \begin{answer}[0.55in]
                 {\tt return} or empty
               \end{answer}
             \end{minipage}
-          \item Line 19: Parameters for {\tt giveProblem}:\par
+
+          \item Line 15: Parameters for {\tt giveProblem}:\par
             \begin{minipage}{2.75in}
               \begin{answer}[0.55in]
                 \cpp{int num1, int num2}
               \end{answer}
             \end{minipage}
-          \item Line 24: A {\tt return} statement:\par
+
+          \item Line 20: A {\tt return} statement:\par
             \begin{minipage}{2.75in}
               \begin{answer}[0.55in]
                 \small
                 \cpp{return studentAns==correctAns}
               \end{answer}
             \end{minipage}
-          \item Line 30: Setup for {\tt for} loop:\par
+
+          \item Line 4: Setup for {\tt for} loop:\par
             \begin{minipage}{2.75in}
               \begin{answer}[0.55in]
                 \cpp{int i=0; i<5; i++}
               \end{answer}
             \end{minipage}
-          \item Line 33: Function call in {\tt if} condition:\par
+
+          \item Line 7: Function call in {\tt if} condition:\par
             \begin{minipage}{2.75in}
               \begin{answer}[0.55in]
                 \cpp{giveProblem(num1,num2)}
               \end{answer}
             \end{minipage}
-          \item Line 41: Condition for {\tt if} statement:\par
+
+          \item Line 15: Condition for {\tt if} statement:\par
             \begin{minipage}{2.75in}
               \begin{answer}[0.55in]
                 \cpp{numCorrect==5}
               \end{answer}
             \end{minipage}
-          \item Line 42: Command if all 5 correct:\par
+
+          \item Line 16: Command if all 5 correct:\par
             \begin{minipage}{2.75in}
               \begin{answer}[0.55in]
                 \cpp{printRocket();}

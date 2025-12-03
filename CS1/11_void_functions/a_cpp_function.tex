@@ -1,155 +1,135 @@
- \\model{A C++ Function} \\
+\model{A C++ Function}
   \begin{center}
-    \begin{minipage}{3.5in}
-      \begin{cprtlst}[
-        frame=lines,
-        framesep=2mm,
-        bgcolor=gray!15,
-        baselinestretch=1.2,
-        linenos,
-        firstnumber=6
-      ]{cpp}
+    \begin{minipage}{4in}
+      \begin{cpplst}
 void printArea(double radius) {
   double area = 3.14159 * pow(radius,2);
   cout << fixed << setprecision(2);
   cout << "The area of a circle with radius "
        << radius << " is " << area << endl;
 }
-      \end{cprtlst}
+      \end{cpplst}
     \end{minipage}
   \end{center}
-
 
   {\it\large Refer to Model 2 above as your team develops consensus answers
     to the questions below.}
 
-    \Q What does this function do?
-      % \ifprintanswers\vskip -20pt\null\fi
-      \begin{answer}[0.35in]
-        This function computes and prints out the area of a circle of
-        a given radius.
-      \end{answer}
-      % \ifprintanswers\vskip -35pt\null\fi
-      
-    \Q Copy down the function header below and underline the name
-      of the function.
-      % \ifprintanswers\vskip -20pt\null\fi
-      \begin{answer}[0.35in]
-        Header: \cpp{void printArea(double radius)}, name: {\tt printArea}
-      \end{answer}
-      % \ifprintanswers\vskip -35pt\null\fi
+  \quest{15 min}
 
-    \Q Other than using a different name, how is this function header 
-      different from the header in Model 1?
-      % \ifprintanswers\vskip -20pt\null\fi
-      \begin{answer}[0.35in]
-        This function also has a variable listed inside the parentheses.
-      \end{answer}
-      % \ifprintanswers\vskip -35pt\null\fi
-      
-    \Q A variable defined in a function header is called a 
-      {\it parameter}.  What is the name and purpose of the parameter in this
-      function?
-      % \ifprintanswers\vskip -20pt\null\fi
-      \begin{answer}[0.35in]
-        The parameter is named {\tt radius} and it holds the radius of
-        the circle.
-      \end{answer}
+  \Q What does this function do?
+    \begin{answer}[0.35in]
+      This function computes and prints out the area of a circle of
+      a given radius.
+    \end{answer}
+    
+  \Q Copy down the function header below and underline the name
+    of the function.
+    \begin{answer}[0.35in]
+      Header: \cpp{void printArea(double radius)}, name: {\tt printArea}
+    \end{answer}
 
-\newpage
+  \Q Other than using a different name, how is this function header 
+    different from the header in Model 1?
+    \begin{answer}[0.35in]
+      This function also has a variable listed inside the parentheses.
+    \end{answer}
+    
+  \Q A variable defined in a function header is called a 
+    {\it parameter}.  What is the name and purpose of the parameter in this
+    function?
+    \begin{answer}[0.35in]
+      The parameter is named {\tt radius} and it holds the radius of
+      the circle.
+    \end{answer}
 
-    \Q Determine the output produced by each of the following
-      calls to this function.  You may find it helpful to use 
-      the file {\tt activity11b.cpp}.
-      
-      \begin{enumerate}[(a)]
-        \begin{multicols}{2}
-          \item {\tt printArea(3); }\par
-            \begin{minipage}{2.75in}
-              \begin{answer}[1in]
-                \par
-                The area of a circle with radius 3.00 is 28.67
-              \end{answer}
-            \end{minipage}
-          \item {\tt printArea(4.5); }\par
-            \begin{minipage}{2.75in}
-              \begin{answer}[1in]
-                \par
-                The area of a circle with radius 4.50 is 63.62
-              \end{answer}
-            \end{minipage}
-        \end{multicols}
-      \end{enumerate}
+  \Q Determine the output produced by each of the following
+    calls to this function.  You may find it helpful to use 
+    the file {\tt activity11b.cpp}.
+    \begin{enumerate}
+      \begin{multicols}{2}
+        \item {\tt printArea(3); }\par
+          \begin{minipage}{2.75in}
+            \begin{answer}[1in]
+              \par
+              The area of a circle with radius 3.00 is 28.67
+            \end{answer}
+          \end{minipage}
 
-   \Q Modify the {\tt main} function in the file {\tt activity11b.cpp}
-     to prompt the user for a radius and then call the function {\tt
-     printArea} with that radius.
-      \begin{answer}[1.25in]
-        \scriptsize\vskip -35pt\null
-        \begin{center}
-          \begin{minipage}{2.5in}
-            \begin{cprtlst}[
-              frame=lines,
-              framesep=2mm,
-              bgcolor=gray!15,
-              baselinestretch=1.2,
-            ]{cpp}
+        \item {\tt printArea(4.5); }\par
+          \begin{minipage}{2.75in}
+            \begin{answer}[1in]
+              \par
+              The area of a circle with radius 4.50 is 63.62
+            \end{answer}
+          \end{minipage}
+      \end{multicols}
+    \end{enumerate}
+
+  \Q Modify the {\tt main} function in the file {\tt activity11b.cpp}
+    to prompt the user for a radius and then call the function {\tt
+    printArea} with that radius.
+    \begin{answer}[1.25in]
+      \begin{center}
+        \begin{minipage}{2.5in}
+          \begin{cpplst}
 int main() {            
   double radius;
   cout << "Enter circle radius: ";
   printArea(radius);
 }
-            \end{cprtlst}
-          \end{minipage}
-        \end{center}\vskip -20pt\null
-      \end{answer}
-      \par\vskip -40pt\null
+          \end{cpplst}
+        \end{minipage}
+      \end{center}
+    \end{answer}
 
-    \Q An {\it argument} is a value or variable that is passed into
-      the function.\key
-      
-      \begin{enumerate}[(a)]
-        \itemsep 15pt
-        \item What are the arguments in the two function calls in problem 8? \hfill
-          \ans[2in]{3 and 4.5}
-        \item What is the arguments in your solution to problem 9? \hfill
-          \ans[2in]{\tt radius}
-        \item What happens to these arguments inside the function?
-          \begin{answer}[0.5in]
-            \par
-            The arguments are placed in the function parameter (the
-            variable {\tt radius}) to be used in the body of the
-            function.
-          \end{answer}
-        \item Do variable arguments have to have the same name as 
-          the corresponding parameter?
-          \hfill
-          \ans[0.5in]{No}
-      \end{enumerate}
-      
-    \Q Write a function that calculates and prints out
-      the diameter of a circle with a given radius.
-      \begin{answer}[1.25in]
-        \scriptsize\vskip -35pt\null
-        \begin{center}
-          \begin{minipage}{2.75in}
-            \begin{cprtlst}[
-              frame=lines,
-              framesep=2mm,
-              bgcolor=gray!15,
-              baselinestretch=1.2,
-            ]{cpp}
+  \vskip -10pt
+
+  \Q An {\it argument} is a value or variable that is passed into
+    the function.\key\\[-2.5mm]
+    \begin{enumerate}
+      \itemsep 10pt
+      \item What are the arguments in the two function calls in problem 8? \hfill
+        \ans[2in]{3 and 4.5}
+
+      \item What is the argument in your solution to problem 9? \hfill
+        \ans[2in]{\tt radius}
+
+      \item What happens to these arguments inside the function?
+        \begin{answer}[0.5in]
+          \par
+          The arguments are placed in the function parameter (the
+          variable {\tt radius}) to be used in the body of the
+          function.
+        \end{answer}
+        
+      \item Do variable arguments have to have the same name as 
+        the corresponding parameter?
+        \hfill
+        \ans[0.5in]{No}
+    \end{enumerate}
+    
+  \Q Write a function that calculates and prints out
+    the diameter of a circle with a given radius.
+    \begin{answer}[1.25in]
+      \fs
+      \begin{center}
+        \begin{minipage}{2.75in}
+          \begin{cpplst}
 void printDiameter(double radius) {
   double diameter = 2*radius;
   cout << fixed << setprecision(2);
   cout << "The diameter of a circle with radius "
        << radius << " is " << area << endl;
 }       
-            \end{cprtlst}
-          \end{minipage}
-        \end{center}\vskip -20pt\null
-      \end{answer}
+          \end{cpplst}
+        \end{minipage}
+      \end{center}\vskip -20pt\null
+    \end{answer}
       
-    \Q Add this function to the program in {\tt activity11b.cpp}
-      and add a function call for the same user-entered radius you
-      used in problem \#9.  Did your function work as expected?
+  \Q Add this function to the program in {\tt activity11b.cpp}
+    and add a function call for the same user-entered radius you
+    used in problem \#9.  Did your function work as expected?
+    \begin{answer}[0.5in]
+      Yes, the function worked as expected.
+    \end{answer}

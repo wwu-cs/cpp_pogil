@@ -1,7 +1,7 @@
-\model{Variables and Expressions} \\
+\model{Variables and Expressions}
   \begin{center}
     \renewcommand{\arraystretch}{1.3}
-    \begin{tabular}{|p{3in}|p{3in}|}
+    \begin{tabular}{|p{3in}|p{3.2in}|}
       \hline
       \rowcolor{orange!20} 
         \begin{minipage}{2.8in}\centering {\bf Code Block $X$}\end{minipage} & 
@@ -9,29 +9,19 @@
       \hline
       \begin{minipage}{3in}
         \small
-        \begin{cprlst}[
-          frame=lines,
-          framesep=2mm,
-          bgcolor=gray!15,
-          baselinestretch=1.2,
-        ]{cpp}
+        \begin{cpplst}
 int i1 = 10, i2 = 5;
 double c1 = 9.99, c2 = 4.99; 
 double d1 = 0.06, d2 = 0.99;
 double s1 = i1*c1+i2*c2;
 double t1 = s1+s1*d1+i1*d2;
-        \end{cprlst}
+        \end{cpplst}
         \vskip 70pt\null
       \end{minipage}
       &
-      \begin{minipage}{3in}
+      \begin{minipage}{3.2in}
         \small
-        \begin{cprlst}[
-          frame=lines,
-          framesep=2mm,
-          bgcolor=gray!15,
-          baselinestretch=1.2,
-        ]{cpp}
+        \begin{cpplst}
 int numCD      = 10;
 int numMP3     = 5;
 double costCD  = 9.99;
@@ -42,225 +32,200 @@ double subCost = (numCD * costCD) +
                  (numMP3 * costMP3);
 double subShip = numCD * shipCD;
 double subTax  = subCost * rateTax;
-double total   = subCost + subTax + subShip;
-        \end{cprlst} 
+double total   = subCost + subTax
+                  + subShip;
+        \end{cpplst} 
       \end{minipage}
       \\
       \hline
     \end{tabular} 
   \end{center}  
-  \par\vskip 10pt
   
   {\it\large Refer to Model 1 above as your team develops consensus answers
     to the questions below.}
-    \par\vskip 10pt
+
+  \quest{15 min}
+
+  \Q Determine which code block above ($X$ or $Y$) matches the
+    description below.
+    \begin{enumerate}
+      \itemsep 10pt
+      \item Is shorter and would take less time to type: \hfill \ans[1in]{$X$}
+      \item Uses more variables: \hfill \ans[1in]{$Y$}
+      \item Would be easier to edit or debug: \hfill \ans[1in]{$Y$}
+    \end{enumerate}
     
-  \begin{enumerate}
-    \itemsep 20pt
+  \Q When we study foreign languages we learn about:
+    \begin{itemize}
+      \item {\it Syntax} -- The rules used to spell words and construct
+        grammatically correct sentences
+      \item {\it Semantics} -- The meanings of words and how to interpret sentences
+      \item {\it Style} -- The distinctive voice of an author
+        expressed within the rules of syntax and semantics          
+    \end{itemize}
+    All three of these are also present in a programming language.
+    Are the differences between code block $X$ and $Y$ above
+    differences in syntax, semantics, or style?  Explain.
+    \begin{answer}[0.5in]
+      They are differences in style since both are syntactically
+      correct (both will compile) and semantically equivalent (the
+      both compute the same value).
+    \end{answer}
 
-    \Q Determine which code block above ($X$ or $Y$) matches the
-      description below.
-      \par\vskip 15pt
-      
-      \begin{enumerate}[(a)]
-        \itemsep 15pt
-        \item Is shorter and would take less time to type: \hfill \ans[1in]{$X$} \hspace{1in}\null
-        \item Uses more variables: \hfill \ans[1in]{$Y$} \hspace{1in}\null
-        \item Would be easier to edit or debug: \hfill \ans[1in]{$Y$} \hspace{1in}\null
-      \end{enumerate}
-      % \ifprintanswers\vskip -20pt\null\fi
-      
-    \Q When we study foreign languages we learn about:
-      \begin{itemize}
-        \item {\it Syntax} -- The rules used to spell words and construct
-          grammatically correct sentences
-        \item {\it Semantics} -- The meanings of words and how to interpret sentences
-        \item {\it Style} -- The distinctive voice of an author
-          expressed within the rules of syntax and semantics          
-      \end{itemize}
-      All three of these are also present in a programming language.
-      Are the differences between code block $X$ and $Y$ above
-      differences in syntax, semantics, or style?  Explain.
-      \begin{answer}[0.5in]
-        \par
-        They are differences in style since both are syntactically
-        correct (both will compile) and semantically equivalent (the
-        both compute the same value).
-      \end{answer}
-      
-\newpage      
-      
-    \Q Each pair of code blocks below is syntactically and
-      semantically equivalent.  Decide which one is better based only
-      on the style.  Enter $X$, $Y$, or ? (if you think they are
-      equally good).
+  \newpage
 
-      {\renewcommand{\arraystretch}{2.3}
-      \begin{tabular}{|c|p{2.55in}|p{2.55in}|c|}
-        \hline
-        \rowcolor{orange!20} & Block $X$ & Block $Y$ & Choice \\
-        \hline
-        (a) & 
-          \cpp{int i1 = 3, i2 = 7;} 
-          & 
-          \cpp{int numClosed = 3, numOpen = 7;} 
-          & 
-          \ans[0.4in]{$Y$} \\
-        \hline
-        (b) &
-          \cpp{int numCat = 2, numDog = 5;} 
-          & 
-          \cpp{int numCat = 2, dogNum = 5;} 
-          & 
-          \ans[0.4in]{$X$} \\
-        \hline
-        (c) &
-          \cpp{int numson = 3, isdone = true;}
-          & 
-          \cpp{int numSon = 3, isDone = true;} 
-          & 
-          \ans[0.4in]{$Y$} \\
-        \hline
-        (d) &
-          \begin{minipage}{2.5in}
-            \par\vskip 10pt
-            \cpp{int costCoffee = 2, costTea = 1;}\\
-            \cpp{int soldCoffee = 4, soldTea = 6;}\\
-          \end{minipage}
-          & 
-          \begin{minipage}{2.5in}
-            \par\vskip 10pt
-            \cpp{int costCoffee = 2, costTea = 1;}\\
-            \cpp{int soldTea = 6, soldCoffee = 4;}\\
-          \end{minipage}
-          & 
-          \ans[0.4in]{$X$} \\
-        \hline
-      \end{tabular}}
-      
-    \Q Based on your answers above, describe what you think is a 
-      good style for naming variables.
-      \begin{answer}[1in]
-        \par
-        Variable names should be chosen to match the purpose of a
-        variable.  If they are composed of multiple words, those words
-        should be separated in some way (capitals, underscores, etc).
-        Their names should be consistent (same order to compound
-        words, etc).
-      \end{answer}
-      
-    \Q Each pair of code blocks below is syntactically and
-      semantically equivalent.  Decide which one is better based only on
-      the style.  Enter $X$, $Y$, or ? (if you think they are equally good).
-      
-      {\renewcommand{\arraystretch}{2.3}
-      \begin{tabular}{|c|p{2.5in}|p{2.5in}|c|}
-        \hline
-        \rowcolor{orange!20} & Block $X$ & Block $Y$ & Choice \\
-        \hline
-        (a) & 
-          \cpp{s1=i1*c1+i2*c2;}
-          & 
-          \cpp{s1 = i1*c1 + i2*c2;}
-          & 
-          \ans[0.5in]{$Y$} \\
-        \hline
-        (b) &
-          \cpp{s1=(i1*c1)+(i2*c2);}
-          & 
-          \cpp{s1=i1*c1+i2*c2;}
-          & 
-          \ans[0.5in]{$X$} \\
-        \hline
-        (c) &
-          \cpp{s1 = c1*i1 + i2*c2;}
-          & 
-          \cpp{s1 = i1*c1 + i2*c2;}
-          & 
-          \ans[0.5in]{$Y$} \\
-        \hline
-        (d) &
-          \begin{minipage}{2in}
-            \begin{cprlst}[
-              frame=none,
-              bgcolor=white,
-            ]{cpp}
+  \Q Each pair of code blocks below is syntactically and
+    semantically equivalent.  Decide which one is better based only
+    on the style.  Enter $X$, $Y$, or ? (if you think they are
+    equally good).
+    \vskip 5pt
+    {\renewcommand{\arraystretch}{2.3}
+    \begin{tabular}{|c|p{2.8in}|p{2.8in}|c|}
+      \hline
+      \rowcolor{orange!20} & Block $X$ & Block $Y$ & Choice \\
+      \hline
+      (a) & 
+        \cpp{int i1 = 3, i2 = 7;} 
+        & 
+        \cpp{int numClosed = 3, numOpen = 7;} 
+        & 
+        \ans[0.4in]{$Y$} \\
+      \hline
+      (b) &
+        \cpp{int numCat = 2, numDog = 5;} 
+        & 
+        \cpp{int numCat = 2, dogNum = 5;} 
+        & 
+        \ans[0.4in]{$X$} \\
+      \hline
+      (c) &
+        \cpp{int numson = 3, isdone = true;}
+        & 
+        \cpp{int numSon = 3, isDone = true;} 
+        & 
+        \ans[0.4in]{$Y$} \\
+      \hline
+      (d) &
+        \begin{minipage}{2.5in}
+          \par\vskip 10pt
+          \cpp{int costCoffee = 2, costTea = 1;}\\
+          \cpp{int soldCoffee = 4, soldTea = 6;}\\
+        \end{minipage}
+        & 
+        \begin{minipage}{2.5in}
+          \par\vskip 10pt
+          \cpp{int costCoffee = 2, costTea = 1;}\\
+          \cpp{int soldTea = 6, soldCoffee = 4;}\\
+        \end{minipage}
+        & 
+        \ans[0.4in]{$X$} \\
+      \hline
+    \end{tabular}}
+    
+  \Q Based on your answers above, describe what you think is a 
+    good style for naming variables.
+    \begin{answer}[1in]
+      \par
+      Variable names should be chosen to match the purpose of a
+      variable.  If they are composed of multiple words, those words
+      should be separated in some way (capitals, underscores, etc).
+      Their names should be consistent (same order to compound
+      words, etc).
+    \end{answer}
+    
+  \Q Each pair of code blocks below is syntactically and
+    semantically equivalent.  Decide which one is better based only on
+    the style.  Enter $X$, $Y$, or ? (if you think they are equally good).
+    
+    {\renewcommand{\arraystretch}{2.3}
+    \begin{tabular}{|c|p{2.5in}|p{2.5in}|c|}
+      \hline
+      \rowcolor{orange!20} & Block $X$ & Block $Y$ & Choice \\
+      \hline
+      (a) & 
+        \cpp{s1=i1*c1+i2*c2;}
+        & 
+        \cpp{s1 = i1*c1 + i2*c2;}
+        & 
+        \ans[0.5in]{$Y$} \\
+      \hline
+      (b) &
+        \cpp{s1=(i1*c1)+(i2*c2);}
+        & 
+        \cpp{s1=i1*c1+i2*c2;}
+        & 
+        \ans[0.5in]{$X$} \\
+      \hline
+      (c) &
+        \cpp{s1 = c1*i1 + i2*c2;}
+        & 
+        \cpp{s1 = i1*c1 + i2*c2;}
+        & 
+        \ans[0.5in]{$Y$} \\
+      \hline
+      (d) &
+        \begin{minipage}{2in}
+          \scriptsize
+          \begin{cpplst}
 float total = nCD*sCD +
   (nCD*cCD + nMP3*cMP3) *
   (1+rateTax);
-            \end{cprlst} 
-          \end{minipage}
-          & 
-          \begin{minipage}{2in}
-            \begin{cprlst}[
-              frame=none,
-              bgcolor=white,
-            ]{cpp}
+          \end{cpplst} 
+        \end{minipage}
+        & 
+        \begin{minipage}{2in}
+          \scriptsize
+          \begin{cpplst}
 float cost  = nCD*cCD + nMP3*cMP3;
 float ship  = nCD*sCD;
 float tax   = cost * rateTax;
 float total = cost + tax + ship;
-            \end{cprlst} 
-          \end{minipage}
-          & 
-          \ans[0.5in]{$Y$} \\
-        \hline
-      \end{tabular}}
+          \end{cpplst} 
+        \end{minipage}
+        & 
+        \ans[0.5in]{$Y$} \\
+      \hline
+    \end{tabular}}
       
-    \Q Based on your answers above, describe what you think is a
-      good style for writing expressions.
-      \begin{answer}[1in]
-        \par
-        Expressions should make use of white space to separate out
-        different parts.  Using parentheses to group things, even if
-        not required, is also a good idea.  It is better to split long
-        expressions up into individual sub-computations that have
-        meaning in the context of the problem being solved.
-      \end{answer}
-
-\newpage
-      
-    \Q Code that can be read and understood without separate
-      documentation is called {\it self-documenting code}.  What are
-      some way to make expressions self-documenting?
-      \begin{answer}[1in]
-        \begin{itemize}
-          \item Use variable names that have meaning in the context of
-            the problem being solved.
-          \item Split long computations up into meaningful steps.
-          \item Group pieces of the computation together so that the
-            order of precedence is clearly seen.
-        \end{itemize}
-      \end{answer}
-      % \par\ifprintanswers\vskip -40pt\else\vskip -20pt\fi\null
-
-    \Q Rewrite the code below to be self-documenting.  Use
-      your style recommendations above.\key\\[-2.5mm]
-      \begin{center}
-        \begin{minipage}{5.25in}
-          \begin{cprlst}[
-            frame=lines,
-            framesep=2mm,
-            bgcolor=gray!15,
-            baselinestretch=1.2
-          ]{cpp}
+  \Q Based on your answers above, describe what you think is a
+    good style for writing expressions.
+    \begin{answer}[1in]
+      \par
+      Expressions should make use of white space to separate out
+      different parts.  Using parentheses to group things, even if
+      not required, is also a good idea.  It is better to split long
+      expressions up into individual sub-computations that have
+      meaning in the context of the problem being solved.
+    \end{answer}
+    
+  \Q Code that can be read and understood without separate
+    documentation is called {\it self-documenting code}.  What are
+    some way to make expressions self-documenting?
+    \begin{answer}[1in]
+      \begin{itemize}
+        \item Use variable names that have meaning in the context of
+          the problem being solved.
+        \item Split long computations up into meaningful steps.
+        \item Group pieces of the computation together so that the
+          order of precedence is clearly seen.
+      \end{itemize}
+    \end{answer}
+  
+  \Q Rewrite the code below to be self-documenting.  Use
+    your style recommendations\key\\[-2.5mm] above.
+    \begin{center}
+      \begin{minipage}{6in}
+        \begin{cpplst}
 // calculate trip cost from 2-way flights, nights in hotels, and meals
 double fc=500, ch=150, mc=30, nn=5;         // costs and number nights
 double c = 2*fc+ch*nn+3*mc*nn;                // compute total cost
-          \end{cprlst}
-        \end{minipage}
-      \end{center}
-      \begin{answer}[2in]
-        \scriptsize\vskip -35pt\null
-        \begin{center}
-          \begin{minipage}{4.25in}
-            \begin{cprlst}[
-              frame=lines,
-              framesep=2mm,
-              bgcolor=gray!15,
-              baselinestretch=1.2,
-              linenos
-            ]{cpp}
+        \end{cpplst}
+      \end{minipage}
+    \end{center}
+    \begin{answer}[2in]
+      \begin{center}
+        \begin{minipage}{6in}
+          \begin{cpplst}
 // calculate trip cost from 2-way flights, nights in hotels, and meals
 double flightPrice = 500;
 double hotelPrice  = 150;
@@ -270,8 +235,7 @@ double travelCost  = 2 * flightPrice;
 double lodgingCost = numNights * hotelPrice;
 double mealCost    = 3 * numNights * mealPrice;
 double totalCost   = travelCost + lodgingcost + mealCost;
-            \end{cprlst}
-          \end{minipage}
-          \vskip -10pt\null
-        \end{center}
-      \end{answer}
+          \end{cpplst}
+        \end{minipage}
+      \end{center}
+    \end{answer}

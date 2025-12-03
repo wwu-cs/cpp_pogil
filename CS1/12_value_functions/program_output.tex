@@ -1,17 +1,9 @@
-\\model{Program Output and the {\tt main} Function} \\
-
+\model{Program Output and the {\tt main} Function}
   \begin{center}
-    \begin{tabular}{p{3in}p{2.7in}}
-      \begin{minipage}{3in}
+    \begin{tabular}{p{4in}p{2.7in}}
+      \begin{minipage}{4in}
         \small
-        \begin{cprlst}[
-          frame=lines,
-          framesep=2mm,
-          bgcolor=gray!15,
-          baselinestretch=1.2,
-          linenos,
-          firstnumber=7
-        ]{cpp}
+        \begin{cpplst}
 int main() {
   int userNum,compNum;
   char tryAgain;
@@ -34,7 +26,7 @@ int main() {
     cin >> tryAgain;    
   } while (tryAgain=='y');
 }
-        \end{cprlst}
+        \end{cpplst}
       \end{minipage}
       &
       \fbox{\begin{minipage}{2.4in}
@@ -67,57 +59,49 @@ int main() {
   {\it\large Refer to Model 3 above as your team develops consensus answers
     to the questions below.}
 
-    \Q There is one user-defined function that is missing from this program.
-      \par\vskip 15pt
-      
-      \begin{enumerate}[(a)]
-        \itemsep 15pt
-        \item What is the name of the missing function? \hfill
-          \ans[3in]{\tt getMessage]
-        \item Is the function {\tt void} or value-returning? \hfill
-          \ans[3in]{value-returning]
-        \item What are the type(s) of its parameters?\hfill
-          \ans[3in]{It has two integer parameters]
-        \item Write the header for the function. \hfill
-          \ans[3in]{\cpp{string getMessage(int uNum, int cNum)}}
-      \end{enumerate}
-      \par\vskip -40pt\null
-      
-    \Q Does the missing function contain any {\tt cout} statements?
-      Explain your reasoning.\key
-      % \ifprintanswers\vskip -20pt\null\fi
-      \begin{answer}[0.5in]
-        No.  It returns the value to print out, but the {\tt cout}
-        happens in the {\tt main} function, not in the missing function.
-      \end{answer}
-      
-    \Q Suppose line 24 in the model was changed to just
-      \cpp{getMessage(userNum,compNum);}.  How would this
-      change your answers to questions 10 and 11 above?
-      % \ifprintanswers\vskip -20pt\null\fi
-      \begin{answer}[0.5in]
-        The function now produces the output and would have a {\tt
-        void} return type.
-      \end{answer}
-           
-\newpage
+  \quest{20 min}
 
-    \Q Now write the function definition assuming that the function header
-      is as shown below.
+  \Q There is one user-defined function that is missing from this program.    
+    \begin{enumerate}
+      \itemsep 10pt
+      \item What is the name of the missing function? \hfill
+        \ans[3in]{\tt getMessage}
+
+      \item Is the function {\tt void} or value-returning? \hfill
+        \ans[3in]{value-returning}
+
+      \item What are the type(s) of its parameters?\hfill
+        \ans[3in]{It has two integer parameters}
+
+      \item Write the header for the function. \hfill
+        \ans[3in]{\cpp{string getMessage(int uNum, int cNum)}}
+    \end{enumerate}
+    
+  \Q Does the missing function contain any {\tt cout} statements?
+    Explain your reasoning.\key
+    \begin{answer}[0.5in]
+      No.  It returns the value to print out, but the {\tt cout}
+      happens in the {\tt main} function, not in the missing function.
+    \end{answer}
+    
+  \Q Suppose line 18 in the model was changed to just
+    \cpp{getMessage(userNum,compNum);}.  How would this
+    change your answers to questions 10 and 11 above?
+    \begin{answer}[0.5in]
+      The function now produces the output and would have a {\tt
+      void} return type.
+    \end{answer}
+
+  \Q Now write the function definition assuming that the function header
+    is as shown below. Test your code in the file {\tt activity12c.cpp}.
+    \begin{center}
+      \cpp{string getMessage(int userNum, int compNum)}
+    \end{center}
+    \begin{answer}[2.25in]
+      \footnotesize
       \begin{center}
-        \cpp{string getMessage(int userNum, int compNum)}
-      \end{center}
-      \begin{answer}[2.25in]
-        \scriptsize\vskip -35pt\null
-        \begin{center}
-          \begin{minipage}{3.5in}
-            \begin{cprlst}[
-              frame=lines,
-              framesep=2mm,
-              bgcolor=gray!15,
-              baselinestretch=1.2,
-              linenos
-            ]{cpp}
+        \begin{minipage}{6in}
+          \begin{cpplst}
 string getMessage(int userNum,int compNum) {
   string message;
   if (userNum < compNum) {
@@ -129,28 +113,21 @@ string getMessage(int userNum,int compNum) {
   }
   return message;
 }
-            \end{cprlst}
-          \end{minipage}
-        \end{center}\vskip -20pt\null
-      \end{answer}          
-  
-    \Q Write a different version of this same function assuming that
-      line 24 in the model was changed to just \cpp{getMessage(userNum,compNum);} 
-      and using the following function header.
-      \begin{center}
-        \cpp{void getMessage(int userNum, int compNum)}
+          \end{cpplst}
+        \end{minipage}
       \end{center}
-      \begin{answer}[2.25in]
-        \scriptsize\vskip -35pt\null
-        \begin{center}
-          \begin{minipage}{3.5in}
-            \begin{cprlst}[
-              frame=lines,
-              framesep=2mm,
-              bgcolor=gray!15,
-              baselinestretch=1.2,
-              linenos
-            ]{cpp}
+    \end{answer}          
+  
+  \Q Write a different version of this same function assuming that
+    line 18 in the model was changed to just \cpp{getMessage(userNum,compNum);} 
+    and using the following function header.
+    \begin{center}
+      \cpp{void getMessage(int userNum, int compNum)}
+    \end{center}
+    \begin{answer}[2.25in]
+      \begin{center}
+        \begin{minipage}{6in}
+          \begin{cpplst}
 void getMessage(int userNum,int compNum) {
   if (userNum < compNum) {
     cout << "I'm sorry, your number is smaller." << endl;
@@ -160,7 +137,7 @@ void getMessage(int userNum,int compNum) {
     cout << "Congratulations!  You picked the number." << endl;
   }
 }
-            \end{cprlst}
-          \end{minipage}
-        \end{center}\vskip -20pt\null
-      \end{answer}          
+          \end{cpplst}
+        \end{minipage}
+      \end{center}
+    \end{answer}          

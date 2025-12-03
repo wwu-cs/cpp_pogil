@@ -1,14 +1,11 @@
-\\model{A C++ Program} \\
-  \begin{center}
+\model{A C++ Program}
+  \begin{tabular}{c c}
     \begin{minipage}{4in}
-      \begin{cprtlst}[
-        frame=lines,
-        framesep=2mm,
-        bgcolor=gray!15,
-        baselinestretch=1.2,
-        linenos,
-        firstnumber=4
-      ]{cpp}
+      \begin{cpplst}
+#include <iostream>
+
+using namespace std;
+
 void printMessage() {
   cout << "Welcome to C++." << endl;
   cout << "Learn the power of functions!" << endl;
@@ -18,90 +15,82 @@ int main() {
   cout << "Hello Programmer!" << endl;  
   printMessage();     // function call
 }
-      \end{cprtlst}
+      \end{cpplst}
     \end{minipage}
-  \end{center}
-  \TPMargin{5pt}
-  \begin{textblock*}{1.9in}[0,0](4.5in,-1.25in)
-    \textblockcolor{white}
-    \begin{minipage}{1.75in}
+    &
+    \begin{minipage}[t][1in][b]{2.5in}
       {\bf Output:} 
       \hrule\vskip 5pt
       Hello Programmer!\\
       Welcome to C++.\\
       Learn the power of functions!
     \end{minipage}
-  \end{textblock*}
-  
-  
+  \end{tabular}
+
   {\it\large Refer to Model 1 above as your team develops consensus answers
     to the questions below.}
-    \par\vskip 10pt
     
-  \begin{enumerate}
-    \itemsep 20pt
+  \quest{10 min}
+        
+  \Q A {\it function} is a segment of code that encapsulates a
+    single task. That is, it combines multiple lines of code into a
+    single command.    
+    \begin{enumerate}
+      \itemsep 10pt
+      \item Which lines of code belong to the function {\tt printMessage}? \hfill
+        \ans[2in]{Lines 5-8}
+
+      \item What other function is defined in this code? \hfill
+        \ans[2in]{{\tt main} on lines 10-13}
+
+      \item What does the function {\tt printMessage} do?
+        \begin{answer}[0.4in]
+          It prints out the two lines ``Welcome to C++'' and ``Learn
+          the power of functions!''
+        \end{answer}
+    \end{enumerate}
+
+  \vskip -30pt
     
-    \Q A {\it function} is a segment of code that encapsulates a
-      single task. That is, it combines multiple lines of code into a
-      single command.
-      \par\vskip 20pt
+  \Q A {\it function definition} is the segment of code that
+    tells the program what to do when the function is executed.  It
+    contains a {\it function header} (the first line of the
+    definition) and a {\it function body} (the commands that make up
+    the function).
+    \begin{enumerate}
+      \itemsep 10pt
+      \item On what line is the function header for {\tt printMessage}? \hfill
+        \ans[2in]{Line 5}
+
+      \item On what lines is the function body for {\tt printMessage}?\hfill
+        \ans[2in]{Lines 6-7}
+    \end{enumerate}
+
+  \Q A {\it function call} is a command that executes the
+    function.  Use the code found in {\tt activity11a.cpp} to assist
+    you in answering this question.
+    \begin{enumerate}
+      \itemsep 10pt
+      \item On what line is the function {\tt printMessage} called? \hfill
+        \ans[2.5in]{Line 12}
+
+      \item What happens if you swap lines 11 and 12 in the model above?
+        \begin{answer}[1in]
+          The output would be:
+          \begin{center}
+            \begin{minipage}{3in}
+              Welcome to C++\\
+              Learn the power of functions!\\
+              Hello Programmer!
+            \end{minipage}
+          \end{center}
+        \end{answer}
       
-      \begin{enumerate}[(a)]
-        \itemsep 15pt
-        \item Which lines of code belong to the function {\tt printMessage}? \hfill
-          \ans[2in]{Lines 4-7]
-        \item What other function is defined in this code? \hfill
-          \ans[2in]{{\tt main} on lines 9-12}
-        \item What does the function {\tt printMessage} do?
-          \begin{answer}[0.4in]
-            It prints out the two lines ``Welcome to C++'' and ``Learn
-            the power of functions!''
-          \end{answer}
-      \end{enumerate}
-      
-    \Q A {\it function definition} is the segment of code that
-      tells the program what to do with the function is executed.  It
-      contains a {\it function header} (the first line of the
-      definition) and a {\it function body} (the commands that make up
-      the function).
-      \par\vskip 15pt
-      
-      \begin{enumerate}[(a)]
-        \itemsep 15pt
-        \item On what line is the function header for {\tt printMessage}? \hfill
-          \ans[2in]{Line 4}
-        \item On what lines is the function body for {\tt printMessage}?\hfill
-          \ans[2in]{Lines 5-6}
-      \end{enumerate}
-      \vfill
-      
-\newpage      
-    
-    \Q A {\it function call} is a command that executes the
-      function.  Use the code found in {\tt activity11a.cpp} to assist
-      you in answering this question.
-      \par\vskip 15pt
-      \begin{enumerate}[(a)]
-        \itemsep 15pt
-        \item On what line is the function {\tt printMessage} called? \hfill
-          \ans[2in]{Line 11}
-        \item What happens if you swap lines 10 and 11 in the model above?
-          \begin{answer}[0.75in]
-            The output would be:\par
-            \begin{center}
-              \begin{minipage}{3in}
-                Welcome to C++\\
-                Learn the power of functions!\\
-                Hello Programmer!
-              \end{minipage}
-            \end{center}
-          \end{answer}
-          \par\vskip -30pt\null
-        \item What line of code could you add to make the program
-          print the last two lines\key\\[-2.5mm] from the model output twice?  
-          Where would you add the code?
-          \begin{answer}[1in]
-            You could add another function call {\tt printMessage();}
-            after line 11.
-          \end{answer}
-      \end{enumerate}
+      \item What line of code could you add to make the program
+        print the last two lines\key\\[-2.5mm] from the model output twice?  
+        Where would you add the code?
+        \begin{answer}[1in]
+          You could add another function call {\tt printMessage();}
+          after line 12.
+        \end{answer}
+    \end{enumerate}
