@@ -1,26 +1,17 @@
-\model{Two Dimensional Arrays} \\[-20pt]
+\model{Two Dimensional Arrays}
   \begin{center}
     \begin{minipage}{4in}
-      \begin{cpplst}[
-        frame=lines,
-        framesep=2mm,
-        bgcolor=gray!15,
-        baselinestretch=1.2
-      ]{cpp}
+      \begin{cpplst}
 int table[3][2] = { {1,2}, {3,4}, {5,6} };
 
-for (int i=0; i<3; i++) {
-  for (int j=0; j<2; j++) {
+for (int i = 0; i < 3; i++) {
+  for (int j = 0; j < 2; j++) {
     cout << table[i][j] << " ";
   }
   cout << endl;
 }
       \end{cpplst}
     \end{minipage}
-  \end{center}  
-  \TPMargin{5pt}
-  \begin{textblock*}{1.15in}[0,0](4.5in,-1.5in)
-    \textblockcolor{white}
     \begin{minipage}{1in}
       {\bf Output:} 
       \hrule\vskip 5pt
@@ -29,13 +20,13 @@ for (int i=0; i<3; i++) {
       3 4 \\
       5 6
     \end{minipage}
-  \end{textblock*}  
-  \par\vskip 10pt
+  \end{center}
   
   {\it\large Refer to Model 2 above as your team develops consensus answers
     to the questions below.}
-    \par\vskip -20pt\null
 
+  \quest{20 min}
+  
   \Q A {\it two dimensional array} (2D array) uses two indices to identify entries.
     What is the difference in C++ syntax between declaring a 2D array and a one-dimensional
     (1D) array?
@@ -47,10 +38,8 @@ for (int i=0; i<3; i++) {
   \Q By convention, the first index is used for the row number
     and the second index is used for the column number.  Find the value of each entry
     in the 2D array given in the model.
-    \par\vskip 15pt
-    
-    \begin{enumerate}[(a)]
-      \itemsep 15pt
+    \begin{enumerate}
+      \itemsep 10pt
       \item What is the value of \cpp{table[2][1]} in the code above? \hfill\ans[1.5in]{6}
       \item What is the value of \cpp{table[1][0]} in the code above? \hfill\ans[1.5in]{3}
       \item What is the value of \cpp{table[0][1]} in the code above? \hfill\ans[1.5in]{2}
@@ -58,157 +47,108 @@ for (int i=0; i<3; i++) {
     
   \Q Suppose a new 2D array was declared as \cpp{char tableTwo[3][3]}.  Use square
     brackets to fill in the indices for each of the elements.  The first one is done for you.
-    
     \begin{center}
       \renewcommand{\arraystretch}{2.5}
       \begin{tabular}{|p{1.75in}|p{1.75in}|p{1.75in}|}
         \hline
           \tt \cpp{tableTwo[0][0]} = 'A' &
-          \tt \ans[1.25in]{\cpp{tableTwo[0][1]}} = 'B' &
-          \tt \ans[1.25in]{\cpp{tableTwo[0][2]}} = 'C' \\
+          \tt \ans[1.2in]{\cpp{tableTwo[0][1]}} = 'B' &
+          \tt \ans[1.2in]{\cpp{tableTwo[0][2]}} = 'C' \\
         \hline
-          \tt \ans[1.25in]{\cpp{tableTwo[1][0]}} = 'D' &
-          \tt \ans[1.25in]{\cpp{tableTwo[1][1]}} = 'E' &
-          \tt \ans[1.25in]{\cpp{tableTwo[1][2]}} = 'F' \\
+          \tt \ans[1.2in]{\cpp{tableTwo[1][0]}} = 'D' &
+          \tt \ans[1.2in]{\cpp{tableTwo[1][1]}} = 'E' &
+          \tt \ans[1.2in]{\cpp{tableTwo[1][2]}} = 'F' \\
         \hline
-          \tt \ans[1.25in]{\cpp{tableTwo[2][0]}} = 'G' &
-          \tt \ans[1.25in]{\cpp{tableTwo[2][1]}} = 'H' &
-          \tt \ans[1.25in]{\cpp{tableTwo[2][2]}} = 'I' \\
+          \tt \ans[1.2in]{\cpp{tableTwo[2][0]}} = 'G' &
+          \tt \ans[1.2in]{\cpp{tableTwo[2][1]}} = 'H' &
+          \tt \ans[1.2in]{\cpp{tableTwo[2][2]}} = 'I' \\
         \hline
       \end{tabular}
     \end{center}
+
+  \newpage
     
   \Q Consider how you would write code to print the first row of {\tt tableTwo} above.  
     That is, to print {\tt A B C}.
-    
-    \begin{enumerate}[(a)]
+    \begin{enumerate}
       \item First give two lines of similar code that will print out the first two elements, {\tt A B}.
         \begin{answer}[1in]
-          \scriptsize\vskip -25pt\null\hspace{1in}
           \begin{minipage}{2.5in}
-            \begin{cpplst}[
-              frame=lines,
-              framesep=2mm,
-              bgcolor=gray!15,
-              baselinestretch=1.2,
-              linenos
-            ]{cpp}
+            \begin{cpplst}
 cout << tableTwo[0][0] << " ";
 cout << tableTwo[0][1] << " ";
             \end{cpplst}
-          \end{minipage}
-          \vskip -10pt\null          
+          \end{minipage}       
         \end{answer}
       
-\newpage
-
       \item Suppose the first row had 200 elements.  Give a few lines of code to print the entire first row.
         \begin{answer}[1in]
-          \scriptsize\vskip -25pt\null\hspace{1in}
           \begin{minipage}{2.5in}
-            \begin{cpplst}[
-              frame=lines,
-              framesep=2mm,
-              bgcolor=gray!15,
-              baselinestretch=1.2,
-              linenos
-            ]{cpp}
+            \begin{cpplst}
 for (int i = 0; i < 200; i++) {
   cout << tableTwo[0][i] << " ";
 }  
             \end{cpplst}
           \end{minipage}
-          \vskip -10pt\null
         \end{answer}
           
       \item Suppose there were \cpp{int col} elements per row. Give code to print out the
         \cpp{int k}th row.
         \begin{answer}[1in]
-          \scriptsize\vskip -25pt\null\hspace{1in}
           \begin{minipage}{2.5in}
-            \begin{cpplst}[
-              frame=lines,
-              framesep=2mm,
-              bgcolor=gray!15,
-              baselinestretch=1.2,
-              linenos
-            ]{cpp}
+            \begin{cpplst}
 for (int i = 0; i < col; i++) {
   cout << tableTwo[k][i] << " ";
 }  
             \end{cpplst}
           \end{minipage}
-          \vskip -10pt\null
         \end{answer}
     \end{enumerate}
+
+  \vskip -20pt
     
   \Q Now consider how you would adjust your code above to print out columns instead of rows.
-    
-    \begin{enumerate}[(a)]
+    \begin{enumerate}
       \item First give two lines of code that will print out the first two elements of the first column, {\tt A D}.
         \begin{answer}[1in]
-          \scriptsize\vskip -25pt\null\hspace{1in}
           \begin{minipage}{2.5in}
-            \begin{cpplst}[
-              frame=lines,
-              framesep=2mm,
-              bgcolor=gray!15,
-              baselinestretch=1.2,
-              linenos
-            ]{cpp}
+            \begin{cpplst}
 cout << tableTwo[0][0] << " ";
-cout << tableTwo[0][1] << " ";
+cout << tableTwo[1][0] << " ";
             \end{cpplst}
-          \end{minipage}
-          \vskip -10pt\null          
+          \end{minipage}        
         \end{answer}
         
       \item Suppose the first column had 200 elements.  Give code to print the entire first column.
         \begin{answer}[1in]
-          \scriptsize\vskip -25pt\null\hspace{1in}
           \begin{minipage}{2.5in}
-            \begin{cpplst}[
-              frame=lines,
-              framesep=2mm,
-              bgcolor=gray!15,
-              baselinestretch=1.2,
-              linenos
-            ]{cpp}
+            \begin{cpplst}
 for (int i = 0; i < 200; i++) {
   cout << tableTwo[i][0] << " ";
 }  
             \end{cpplst}
           \end{minipage}
-          \vskip -10pt\null
         \end{answer}
-        \par\vskip -25pt\null
           
       \item If there were \cpp{int row} elements per column, write code to print out the
-        \cpp{int k}th column.\hspace{5pt}\key\\[-2.5mm]
+        \cpp{int k}th\key\\[-2.5mm] column.
         \begin{answer}[1in]
-          \scriptsize\vskip -25pt\null\hspace{1in}
           \begin{minipage}{2.5in}
-            \begin{cpplst}[
-              frame=lines,
-              framesep=2mm,
-              bgcolor=gray!15,
-              baselinestretch=1.2,
-              linenos
-            ]{cpp}
+            \begin{cpplst}
 for (int i = 0; i < row; i++) {
   cout << tableTwo[i][k] << " ";
 }  
             \end{cpplst}
           \end{minipage}
-          \vskip -10pt\null
         \end{answer}
     \end{enumerate}
+
+  \vskip -20pt
 
   \Q The file {\tt activity16b.cpp} contains code that initializes a 2D array with 10 rows and 10
     columns, whose entries are integers from 1 to 100.  Use a nested for loop to print out
     the following entries in the array.  You may wish to use \cpp{setw(4)} from the {\tt
     iomanip} library.
-    
     \begin{center}
       \begin{tabular}{p{2.9in}p{2.9in}}
         \begin{minipage}{2.9in}
@@ -226,25 +166,19 @@ for (int i = 0; i < row; i++) {
           \end{cpplst}
         \end{minipage}
         &
-        \begin{minipage}{2.9in}
-          \begin{answer}
-            \scriptsize\vskip -25pt\null
+        \begin{minipage}[b]{2.9in}
+          \begin{answer}[1in]
+            \scriptsize
             \begin{minipage}{2.75in}
-              \begin{cpplst}[
-                frame=lines,
-                framesep=2mm,
-                bgcolor=gray!15,
-                baselinestretch=1.2,
-              ]{cpp}
+              \begin{cpplst}
 for (int row = 0; row < 10; row++) {
   for (int col = 0; col <= row; col++) {
     cout << setw(4) << myTable[row][col];
   }
   cout << endl;
 }  
-            \end{cpplst}
-          \end{minipage}
-          \vskip -10pt\null
+              \end{cpplst}
+            \end{minipage}
           \end{answer}
         \end{minipage}
       \end{tabular}
