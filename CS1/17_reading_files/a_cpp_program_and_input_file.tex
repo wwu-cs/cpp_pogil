@@ -1,19 +1,14 @@
-\model{A C++ Program and Input File} \\
+\model{A C++ Program and Input File}
   \begin{center}
-    \begin{tabular}{p{3in}p{0.25in}p{1.5in}}
-      \begin{minipage}{3in}
-        \centering {\bf C++ Code}\vskip -15pt\null
+    \begin{tabular}{p{3.5in}p{0.25in}p{1.5in}}
+      \begin{minipage}{3.5in}
+        \centering {\bf C++ Code}
         \small
-        \begin{minted}[
-          frame=lines,
-          framesep=2mm,
-          bgcolor=gray!15,
-          baselinestretch=1,
-          linenos
-        ]{cpp}
+        \begin{cpplst}
 #include <iostream>
 #include <fstream>
 #include <string>
+
 using namespace std;
 
 int main() {
@@ -35,18 +30,13 @@ int main() {
   }
   fin.close();  
 }
-        \end{minted}
+        \end{cpplst}
       \end{minipage}
       & &
       \begin{minipage}{1.5in}
-        \centering {\bf sports.txt File}\vskip -15pt\null
+        \centering {\bf sports.txt File}
         \small
-        \begin{minted}[
-          frame=lines,
-          framesep=2mm,
-          bgcolor=gray!15,
-          linenos
-        ]{bash}
+        \begin{verbatim}
 basketball
 baseball
 football
@@ -67,127 +57,104 @@ swimming
 sailing
 rowing
 skateboarding
-        \end{minted}
+        \end{verbatim}
       \end{minipage}
     \end{tabular}
   \end{center}  
   
   {\it\large Refer to Model 1 above as your team develops consensus answers
     to the questions below.}
-    \par\vskip 10pt
-    
-  \begin{enumerate}
-    \itemsep 20pt
+
+  \quest{15 min}
  
-    \Q This code can be found in {\tt activity17a.cpp}.  Run it and then
-      describe what the program does.
-      % \ifprintanswers\vskip -20pt\null\fi
-      \begin{answer}[0.75in]
-        The program reads in one line from the {\tt sports.txt} file at a time, changes the first
-        letter of the sport to be upper case, and then prints out the sport name with a label of
-        ``Sport n:'' where $n$ is the line number on which the sport was found.
-      \end{answer}
-      % \ifprintanswers\vskip -30pt\null\fi
+  \Q This code can be found in {\tt activity17a.cpp}.  Run it and then
+    describe what the program does.
+    \begin{answer}[0.75in]
+      The program reads in one line from the {\tt sports.txt} file at a time, changes the first
+      letter of the sport to be upper case, and then prints out the sport name with a label of
+      ``Sport n:'' where $n$ is the line number on which the sport was found.
+    \end{answer}
 
-    \Q On line 11 of the C++ code, what does the string \cpp{"sports.txt"} represent?
-      % \ifprintanswers\vskip -20pt\null\fi
-      \begin{answer}[0.5in]
-        This is the name of the file to be read.
-      \end{answer}
+  \Q On line 12 of the C++ code, what does the string \cpp{"sports.txt"} represent?
+    \begin{answer}[0.5in]
+      This is the name of the file to be read.
+    \end{answer}
 
-\newpage
+  \Q Without discussing its relative merits as a sport, remove line 11 from the text file 
+    \cpp{"sports.txt"}, save your change, and rerun the program. What happened?
+    \begin{answer}[0.5in]
+      The ``sport'' of {\it fortnight} is no longer printed out.
+    \end{answer}
 
-    \Q Without discussing its relative merits as a sport, remove line 11 from the text file 
-      \cpp{"sports.txt"|, save your change, and rerun the program. What happened?
-      \ifprintanswers\vskip -20pt\null\fi
-      \begin{answer}[0.5in]
-        The ``sport'' of {\it fortnight} is no longer printed out.
-      \end{answer}
-      \ifprintanswers\vskip -35pt\null\fi
+  \Q C++ can get input from a text file in much the same way it does from the
+    keyboard. To do this it uses {\it file input streams}. Answer the questions below
+    about the use of file input streams in this model.
+    \begin{enumerate}
+      \itemsep 10pt
+      \item What is the name of the library that includes these streams?
+        \hfill \ans[1.5in]{\tt fstream}
 
-    \Q C++ can get input from a text file in much the same way it does from the
-      keyboard.  To do this it uses {\it file input streams}.  Answer the questions below
-      about the use of file input streams in this model.
-      \par\vskip 15pt
-      
-      \begin{enumerate}[(a)]
-        \itemsep 12pt
-        \item What is the name of the library that includes these streams?
-          \hfill \ans[1.5in]{\tt fstream}
-        \item What is the type of variable we use for a file input stream?
-          \hfill \ans[1.5in]{\tt ifstream}
-        \item The file input stream {\tt fin} is used on line 11.  What does this line do?
-          % \ifprintanswers\vskip -20pt\null\fi
-          \begin{answer}[0.4in]
-            It opens the file that we will be reading from (gives the name, etc).
-          \end{answer}
-        \item The file input stream {\tt fin} is used again on line 12.  What does this line do?
-          % \ifprintanswers\vskip -20pt\null\fi
-          \begin{answer}[0.4in]
-            It opens the file that we will be reading from (gives the name, etc).
-          \end{answer}
-        \item On what line does the program actually read input from the file?
-          \hfill \ans[1.5in]{line 17}
-        \item On what line is the file closed (indicating we are done reading)?
-          \hfill \ans[1.5in]{line 13}
-      \end{enumerate}          
-      
-    \Q How is the sport named on line 14 of the text file printed by this program?
-      % \ifprintanswers\vskip -20pt\null\fi
-      \begin{answer}[0.5in]
-        On two lines instead of one (i.e. ``Ice'' and ``Hockey'' instead of ``Ice
-        hockey'').
-      \end{answer}
-      % \ifprintanswers\vskip -35pt\null\fi
+      \item What is the type of variable we use for a file input stream?
+        \hfill \ans[1.5in]{\tt ifstream}
+
+      \item The file input stream {\tt fin} is used on line 12.  What does this line do?
+        \begin{answer}[0.4in]
+          It opens the file that we will be reading from (gives the name, etc).
+        \end{answer}
+
+      \item The file input stream {\tt fin} is used again on line 13.  What does this line do?
+        \begin{answer}[0.4in]
+          It checks whether the file is open or not.
+        \end{answer}
+
+      \item On what line does the program actually read input from the file?
+        \hfill \ans[1.5in]{line 18}
+
+      \item On what line is the file closed (indicating we are done reading)?
+        \hfill \ans[1.5in]{line 24}
+    \end{enumerate}          
     
-    \Q Below is a slight modification of this program (only lines 17-22 are shown).  Make this
-      modification in the file {\tt activity17a.cpp} and record how the output changed.
-      \par\vskip -30pt\null
+  \Q How is the sport named on line 14 of the text file printed by this program?
+    \begin{answer}[0.5in]
+      On two lines instead of one (i.e. ``Ice'' and ``Hockey'' instead of ``Ice
+      hockey'').
+    \end{answer}
+  
+  \Q Below is a slight modification of this program (only lines 17-22 are shown).  Make this
+    modification in the file {\tt activity17a.cpp} and record how the output changed.
+    \begin{center}
+      \begin{tabular}{p{3.2in}p{3.1in}}
+        \begin{minipage}{3.2in}
+          \small
+          \begin{cpplst}
+while (getline(fin,sport)) {
+  sport.at(0) = toupper(sport.at(0));
+  cout << "Sport " << count 
+       << ": " << sport << endl;
+  count++;
+}
+          \end{cpplst}
+        \end{minipage}
+        &
+        \begin{minipage}{3.1in}
+          \begin{answer}[1in]
+            \par
+            The sport is printed as ``Ice hockey'' (on one line).
+          \end{answer}
+        \end{minipage}
+      \end{tabular}
+    \end{center}
       
-      \begin{center}
-        \begin{tabular}{p{2.7in}p{3.1in}}
-          \begin{minipage}{2.7in}
-            \small
-            \begin{minted}[
-              frame=lines,
-              framesep=2mm,
-              bgcolor=gray!15,
-              baselinestretch=1,
-              linenos,
-              firstnumber=17
-            ]{cpp}
-  while (getline(fin,sport)) {
-    sport.at(0) = toupper(sport.at(0));
-    cout << "Sport " << count 
-         << ": " << sport << endl;
-    count++;
-  }
-            \end{minted}
-          \end{minipage}
-          &
-          \begin{minipage}{3.1in}
-            \begin{answer}[1in]
-              \par
-              The sport is printed as ``Ice hockey'' (on one line).
-            \end{answer}
-          \end{minipage}
-        \end{tabular}
-      \end{center}
-      % \ifprintanswers\vskip -35pt\null\fi
-      
-    \Q What is the difference between the command \cpp{fin >> sport} and the
-      command \cpp{getline(fin,sport)}?
-      % \ifprintanswers\vskip -20pt\null\fi
-      \begin{answer}[0.5in]
-        The first reads up to the first white space (space or newline), the second reads the
-        entire line (up to a newline).
-      \end{answer}
-      % \ifprintanswers\vskip -60pt\else\vskip -40pt\fi\null
-      
-    \Q Rewrite the program so that it opens a user-entered filename and prints out the
-      sports\key\\[-2.5mm] found inside. Test it with the file \cpp{"alternatives.txt"}.
-      % \ifprintanswers\vskip -20pt\null\fi
-      \begin{answer}[0.5in]
-        Add a variable \cpp{string filename} and change line 11 to
-        \cpp{fin.open(filename)}.
-      \end{answer}
+  \Q What is the difference between the command \cpp{fin >> sport} and the
+    command\\ \cpp{getline(fin, sport)}?
+    \begin{answer}[0.5in]
+      The first reads up to the first white space (space or newline), the second reads the
+      entire line (up to a newline).
+    \end{answer}
+    
+  \Q Rewrite the program so that it opens a user-entered filename and prints out the\key\\[-2.5mm]
+    sports found inside. Test it with the file \cpp{"alternatives.txt"}.
+    \begin{answer}[0.5in]
+      Add a variable \cpp{string filename} and change line 11 to
+      \cpp{fin.open(filename)}.
+    \end{answer}
