@@ -1,15 +1,8 @@
-\model{A Configuration Function} \\
+\model{A Configuration Function}
   \begin{center}
     \begin{minipage}{4in}
       \scriptsize
-      \begin{cprls}[
-        frame=lines,
-        framesep=2mm,
-        bgcolor=gray!15,
-        baselinestretch=1.2,
-        linenos,
-        firstnumber=38
-      ]{cpp}
+      \begin{cpplst}
 void getSetup(int &rows, int &cols, char &charOne, char &charTwo) {
   ifstream configIn;
   configIn.open("gameBoard.cfg");
@@ -19,55 +12,49 @@ void getSetup(int &rows, int &cols, char &charOne, char &charTwo) {
     configIn >> charOne;
     configIn >> charTwo;
   } else {
-    input("Enter Number of Rows: ",rows);
-    input("Enter Number of Columns: ",cols);
-    input("Enter Player One Symbol: ",charOne);
-    input("Enter Player Two Symbol: ",charTwo);
+    cout << "Enter Number of Rows: ";
+    cin >> rows;
+    cout << "Enter Number of Columns: ";
+    cin >> cols;
+    cout << "Enter Player One Symbol: ";
+    cin >> charOne;
+    cout << "Enter Player Two Symbol: ";
+    cin >> charTwo;
   }
 }
-      \end{cprls}
+      \end{cpplst}
     \end{minipage}
-  \end{center}  
-  \TPMargin{5pt}
-  \begin{textblock*}{1.25in}[0,0](4.75in,-1.8in)
-    \textblockcolor{white}
     \begin{minipage}{1.1in}
       \cpp{"gameBoard.cfg"}\vskip 5pt
       \hrule\vskip 5pt
       \tt
       6\\
       5\\
-      *\\
+      \*\\
       \#
     \end{minipage}
-  \end{textblock*}  
+  \end{center}
   
-  {\it\large Refer to Model 2 above as your team develops consensus answers
+  {\it\large Refer to Model \M above as your team develops consensus answers
     to the questions below.}
-    \par\vskip -20pt\null
-    
-\newpage
+
+  \quest{10 min}
 
   \Q Without running the program, determine what the function {\tt getSetup} does.
-    % \ifprintanswers\vskip -20pt\null\fi
     \begin{answer}[0.4in]
       It reads {\tt rows}, {\tt columns}, {\tt charOne}, and
       {\tt charTwo} from a configuration file, if it exists.
-      If the file does not exists, it calls the {\tt input} function
-      to get them.
+      If the file does not exists, it gets the values from the user.
     \end{answer}
-    % \ifprintanswers\vskip -35pt\null\fi
     
   \Q Suppose that this function were called with the contents of
     {\tt gameBoard.cfg} as shown.  To what value would each of the
-    following variables be set?
-    \par\vskip 15pt
-    
-    \begin{enumerate}[(a)]
-      \itemsep 15pt
+    following variables be set?  
+    \begin{enumerate}
+      \itemsep 10pt
       \begin{multicols}{2}
-        \item {\tt rows} = \hfill\ans[1.5in]{6}
-        \item {\tt cols} = \hfill\ans[1.5in]{5}
+        \item {\tt rows} = \hspace{0.5in}\ans[1.5in]{6}
+        \item {\tt cols} = \hspace{0.5in}\ans[1.5in]{5}
         \item {\tt charOne} = \hfill\ans[1.5in]{*}
         \item {\tt charTwo} = \hfill\ans[1.5in]{\#}
       \end{multicols}      
@@ -75,69 +62,62 @@ void getSetup(int &rows, int &cols, char &charOne, char &charTwo) {
     
   \Q What is missing from the function with regard to the {\tt
     configIn} stream?
-    % \ifprintanswers\vskip -20pt\null\fi
     \begin{answer}[0.4in]
       The stream is never closed
     \end{answer}
-    % \ifprintanswers\vskip -35pt\null\fi
   
   \Q This function is part of the program in {\tt activity18b.cpp}.
     Run it and record what it does.
-    % \ifprintanswers\vskip -20pt\null\fi
     \begin{answer}[0.4in]
       It prints out a checkerboard that is 6 x 5 tiles the {\tt *}
       character and {\tt \#} characters.
     \end{answer}
-    % \ifprintanswers\vskip -35pt\null\fi
     
   \Q Now delete the file {\tt gameBoard.cfg} and run the program
     again.  What does it do differently?
-    % \ifprintanswers\vskip -20pt\null\fi
     \begin{answer}[0.4in]
       It prompts the user for the information that was previously
       stored in the file.
     \end{answer}
-    % \ifprintanswers\vskip -35pt\null\fi
     
   \Q A {\it configuration file} is a file that saves the setup for
     a program so that it does not have to be entered every time the
     program runs.  Recreate the file {\tt gameBoard.cfg} and adjust its
     contents so that an 8 by 10 board is printed using characters 
-    {\tt \$} and {\tt @}.  What should appear on each line of {\tt gameBoard.cfg}?
-    \par\vskip 15pt
-    
-    \begin{enumerate}[(a)]
-      \itemsep 15pt
+    {\tt \$} and {\tt @}.  What should appear on each line of {\tt gameBoard.cfg}?    
+    \begin{enumerate}
+      \itemsep 10pt
       \begin{multicols}{2}
-        \item Line 1: \hfill\ans[1.5in]{8}
-        \item Line 2: \hfill\ans[1.5in]{10}
+        \item Line 1: \hspace{0.75in}\ans[1.5in]{8}
+        \item Line 2: \hspace{0.75in}\ans[1.5in]{10}
         \item Line 3: \hfill\ans[1.5in]{\$}
         \item Line 4: \hfill\ans[1.5in]{@}
       \end{multicols}
     \end{enumerate}
 
+  \vskip -10pt
+
   \Q Instead of changing the contents of the configuration file by
     hand, it makes sense to have the program save them.  Answer the
     questions below to help you think through adding this feature
     to the function.
-    \par\vskip 15pt
-    
-    \begin{enumerate}[(a)]
-      \itemsep 15pt
+    \begin{enumerate}
+      \itemsep 10pt
       \item What type of variable will we need to declare in the function body?
         \hfill\ans[1.5in]{\tt ofstream}
+
       \item Where in the function should we write to the file?
         \hfill\ans[1.5in]{else clause}
+
       \item Should we call {\tt .open()} with or without {\tt ofstream::app}?
         \hfill\ans[1.5in]{without}     
     \end{enumerate}
-    \par\vskip -30pt\null
+
+  \vskip -20pt
     
   \Q Modify the function so that it saves the configuration
     file.  Indicate what you add.\key\\[-2.5mm]
-    % \ifprintanswers\vskip -20pt\null\fi
     \begin{answer}[0.5in]
-      Add \cpp{ofstream fout} after line 7, and after line
-      18 open the file, print out the variables, and then close the file.
+      Add \cpp{ofstream fout} after line 2, and after line
+      17 open the file, print out the variables, and then close the file.
     \end{answer}
-    % \ifprintanswers\vskip -35pt\null\fi

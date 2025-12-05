@@ -183,6 +183,8 @@
 % models
 \usepackage{currfile}
 \newcommand{\model}[1]{\section{#1}\label{\currfilename}\nopagebreak}
+\newcounter{modelnumber}
+\newcommand{\M}{\refstepcounter{modelnumber}\arabic{modelnumber} }}
 \renewcommand{\thesection}{Model~\arabic{section}}
 \DeclareTextFontCommand{\emph}{\bfseries\em}
 
