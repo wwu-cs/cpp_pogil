@@ -1,71 +1,73 @@
-\model{A JavaScript Function to Estimate $\pi$} \\
+\model{A JavaScript Function to Estimate $\pi$}
   \begin{center}
     \begin{minipage}{4in}
       \scriptsize
-      \begin{cprlst}[
-        frame=lines,
-        framesep=2mm,
-        bgcolor=gray!15,
-        baselinestretch=1.2,
-        linenos
-      ]{javascript}
-/* JavaScript function to estimate pi using a given number of terms */
-function estimatePi(terms) {
-  if (terms <= 0) { return 0.0; }      // check for bad inputs
-  var numerator = -1.0;
-  var pi        = 0.0;
-  for ( var i = 0; i < terms; i++ ) {  // loop from 0 to terms-1
-    numerator   *= -1;
-    denominator  = 2*i + 1;
-    pi          += numerator/denominator;
+      \begin{javalst}
+/* Function to estimate pi using the Leibniz formula */
+function estimatePi (terms) {
+  if (terms <= 0) {
+    return 0.0
   }
-  return 4*pi;
+
+  let numerator = -1.0
+  let pi = 0.0
+
+  for (let i = 0; i < terms; i++) { // loop from 0 to terms-1
+    numerator *= -1
+    const denominator = 2 * i + 1
+    pi += numerator / denominator
+  }
+
+  return 4 * pi
 }
 
-/* JavaScript function to test the estimatePi() function above */
-function testEstimatePi() {
-  var vals = [ -1, 0, 1, 2, 10, 100 ];
-  for (var i = 0; i < vals.length; i++ ) {
-    console.log( vals[i] + " " + estimatePi(vals[i]) );
+/* Function to test the estimatePi() function */
+function testEstimatePi () {
+  const vals = [-1, 0, 1, 2, 10, 100]
+  for (let i = 0; i < vals.length; i++) {
+    console.log(vals[i] + ' ' + estimatePi(vals[i]))
   }
 }
 
-testEstimatePi();                      // Run the test function
-      \end{cprlst}
+testEstimatePi()
+      \end{javalst}
     \end{minipage}
   \end{center}    
       
-  {\it\large Refer to Model 3 above as your team develops consensus answers
+  {\it\large Refer to Model \M above as your team develops consensus answers
     to the questions below.}
 
-\newpage
+  \quest{10 min}
 
-    \Q The {\it JavaScript} language runs in all major web browsers
-    and is primarily used for client-side computation.  Despite their
-    names, JavaScript and Java are {\bf not} closely related.  Answer
-    the following questions based on the JavaScript code above.
-    \par\vskip 15pt
+  \Q The {\it JavaScript} language runs in all major web browsers
+  and is primarily used for client-side computation.  Despite their
+  names, JavaScript and Java are {\bf not} closely related.  Answer
+  the following questions based on the JavaScript code above.
+  \begin{enumerate}
+    \itemsep 10pt
+    \item What character marks a comment?
+      \hfill\ans[1.5in]{{\tt //} or {\tt /* */}}
+
+    \item What keyword specifies the results of a function?
+      \hfill\ans[1.5in]{{\tt return}}     
+
+    \item What keyword declares a variable?
+      \hfill\ans[1.5in]{\tt let]}
+
+    \item What command prints output?
+      \hfill\ans[1.5in]{\tt console.log}
+
+    \item What marks the start and end of a list of values?
+      \hfill\ans[1.5in]{Square brackets}
+
+    \item What marks a block of code (body of if, loop, function, etc)?
+      \hfill\ans[1.5in]{Curly braces}        
+  \end{enumerate}
+
+  \newpage
     
-    \begin{enumerate}[(a)]
-      \itemsep 15pt
-      \item What character marks a comment?
-        \hfill\ans[1.5in]{{\tt //} or {\tt /* */}}
-      \item What keyword specifies the results of a function?
-        \hfill\ans[1.5in]{{\tt return}}             
-      \item What keyword declares a variable?
-        \hfill\ans[1.5in]{\tt var]}     
-      \item What command prints output?
-        \hfill\ans[1.5in]{\tt console.log}       
-      \item What marks the start and end of a list of values?
-        \hfill\ans[1.5in]{Square brackets}
-      \item What marks a block of code (body of if, loop, function, etc)?
-        \hfill\ans[1.5in]{Curly braces}        
-    \end{enumerate}
-    \vskip -35pt\null
-      
   \Q How alike are JavaScript and C++?  Give at least two similarities
-    and two differences.\key\\[-2.5mm]
-    % \ifprintanswers\vskip -20pt\null\fi
+    and two\key\\[-2.5mm] differences.
     \begin{answer}[0.5in]
       Answers will vary but may include:
       \begin{itemize}
@@ -74,83 +76,67 @@ testEstimatePi();                      // Run the test function
         \item Differences: no variable types, functions declared with {\tt function} keyword
       \end{itemize}
     \end{answer}
-    % \ifprintanswers\vskip -35pt\null\fi
     
   \Q Give one way in which JavaScript is more similar to Python
     than it is to C++.
-    % \ifprintanswers\vskip -20pt\null\fi
     \begin{answer}[0.5in]
       Variables do not have a static type.
     \end{answer}
-    % \ifprintanswers\vskip -35pt\null\fi
 
   \Q An online JavaScript interpreter is available at
     \url{https://repl.it/languages/javascript}.  Copy the code in {\tt activity19.js}
     into this interpreter and find the estimated value of
     $\pi$ with 10 terms.
-    % \ifprintanswers\vskip -20pt\null\fi
     \begin{answer}[0.5in]
       It is 3.0418396189294032
     \end{answer}
-    % \ifprintanswers\vskip -35pt\null\fi
     
   \Q Now make the following changes to your program, testing those
     changes in the interpreter.  Record how you implement each change.
-    
-    \begin{enumerate}[(a)]
+    \begin{enumerate}
       \item Add 1000 to the list of test values.
         \begin{answer}[1in]
-          % Change line 16 to \javascript{var vals = [ -1, 0, 1, 2, 10, 100, 1000];}
+          Change line 21 to \javascript{const vals = [ -1, 0, 1, 2, 10, 100, 1000];}
         \end{answer}
-      \item Set {\tt numerator = 4.0} on line 4 and
+
+      \item Set {\tt numerator = -4.0} on line 7 and
         adjust the code so that it still returns the correct value
         of $\pi$.
         \begin{answer}[1in]
           \begin{itemize}
             \itemsep 0pt
-            % \item Change line 4 to \javascript{var numerator = 4.0;}
-            \item Move line 7 to after line 9
+            \item Change line 7 to \javascript{let numerator = -4.0;}
+            \item Change line 16 to \javascript{return pi)}
           \end{itemize}
         \end{answer}
-        
-\newpage
 
-      \item Change the loop starting on line 6 so that it steps
+      \item Change the loop starting on line 10 so that it steps
         through odd integers only (1, 3, 5, etc) and adjust the body
         of the loop so that the function still returns the correct value.
-        % \ifprintanswers\vskip -10pt\null\fi
         \begin{answer}[1in]
           \begin{itemize}
             \itemsep 0pt
-            % \item Change line 6 to \javascript{for ( var i = 1; i <= terms; i++) {}
-            % \item Change line 8 to \javascript{ denominator = i;}
-            % \item Change line 11 to \javascript{ return pi;}
+            \item Change line 10 to \javascript{for (let i = 1; i <= 2 * terms - 1; i += 2) {}
+            \item Change line 12 to \javascript{denominator = i;}
+            \item Change line 16 to \javascript{return pi;}
           \end{itemize}
         \end{answer}
-        % \ifprintanswers\vskip -25pt\null\fi
     \end{enumerate}
     
   \Q Indentation is required in Python, but not in C++ or
     JavaScript (or most other languages).  Thus, the function
     {\tt testEstimatePi()} could be written as:
-    
     \begin{center}
       \begin{minipage}{4in}
         \scriptsize
-        \begin{cprlst}[
-          frame=lines,
-          framesep=2mm,
-          bgcolor=gray!15,
-          baselinestretch=1.2
-        ]{javascript}
+        \begin{javalst}
 function testEstimatePi() {var vals=[-1,0,1,2,10,100]; for (var
 i=0;i<vals.length;i++){console.log(vals[i]+" "+estimatePi(vals[i]));}
-        \end{cprlst}
+        \end{javalst}
       \end{minipage}
     \end{center}
     Explain why it is still a good idea to indent code in these
     languages.
-    % \ifprintanswers\vskip -20pt\null\fi
     \begin{answer}[0.5in]
       It makes the code much more readable.
     \end{answer}

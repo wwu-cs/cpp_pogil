@@ -3,7 +3,7 @@
 % Access: 04-15-2022
 
 % comment out for student version
-%\ifdefined\Student\relax\else\def\Teacher{}\fi
+% \ifdefined\Student\relax\else\def\Teacher{}\fi
 
 \documentclass[12pt]{article}
 
@@ -18,35 +18,21 @@
 \begin{document}
 
 \begin{center}
-  \Large Activity \#17: Reading from Files \\[5pt]
-  \large Recorder's Report\\[20pt]
-  \normalsize
-  \begin{tabular}{lrp{0.1in}lr}
-      Manager:  & \ans{} &  & Reader: & \ans{}            \\[15pt]
-      Recorder: & \ans{} &  & Driver: & \ans{}            \\[15pt]
-      Date:     & \ans{} &  & Score:  & Satisfactory \hspace{10pt} /
-      \hspace{10pt} Not Satisfactory
-  \end{tabular}
+  \maketitle
+  \rolenames
 \end{center}
-\par\vskip 15pt
 
-Record your team's answers to the key questions (marked with
-\raisebox{-.3\height}{\includegraphics[width=0.5in]{../figures/key.png}})
-below.
-\begin{enumerate}[label=(\alph*)]
-  \itemsep 1.25in
+\keyquestions{
   \item Model 1, Question \#8
   \item Model 2, Question \#14
   \item Model 3, Question \#19
-\end{enumerate}
+}
 
 \newpage
 \maketitle
 
 In this course, you will work in teams of 3--4 students to learn new concepts.
-This activity will introduce you to the process of analyzing an algorithm complexity.
-
-%\rolenames
+This activity will introduce you file input in C++.
 
 \guide{
   \item Explain how to open a text file for reading
@@ -55,15 +41,16 @@ This activity will introduce you to the process of analyzing an algorithm comple
 
 }{
   \item Write code that opens, reads from, and closes a file
-  \item Write code that correctly handles input stream errors \\[-5pt]
+  \item Write code that correctly handles input stream errors
+  \item Write code that redirects a file from the command line to use as input
 }{
 No additional notes.
 }
 
-  \input{an_infinite_loop.tex}
-  \newpage
-  \input{a_cpp_program_and_input_file.tex}
-  \newpage
-  \input{using_a_file_for_keyboard_input.tex}
+\input{a_cpp_program_and_input_file.tex}
+\newpage
+\input{an_infinite_loop.tex}
+\newpage
+\input{using_a_file_for_keyboard_input.tex}
   
 \end{document}

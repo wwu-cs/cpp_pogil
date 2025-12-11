@@ -3,7 +3,7 @@
 % Access: 04-15-2022
 
 % comment out for student version
-%\ifdefined\Student\relax\else\def\Teacher{}\fi
+% \ifdefined\Student\relax\else\def\Teacher{}\fi
 
 \documentclass[12pt]{article}
 
@@ -18,35 +18,21 @@
 \begin{document}
 
 \begin{center}
-  \Large Activity \#16: Arrays \\[5pt]
-  \large Recorder's Report\\[20pt]
-  \normalsize
-  \begin{tabular}{lrp{0.1in}lr}
-      Manager:  & \ans{} &  & Reader: & \ans{}            \\[15pt]
-      Recorder: & \ans{} &  & Driver: & \ans{}            \\[15pt]
-      Date:     & \ans{} &  & Score:  & Satisfactory \hspace{10pt} /
-      \hspace{10pt} Not Satisfactory
-  \end{tabular}
+  \maketitle \\[5pt]
+  \rolenames
 \end{center}
-\par\vskip 15pt
 
-Record your team's answers to the key questions (marked with
-\raisebox{-.3\height}{\includegraphics[width=0.5in]{../figures/key.png}})
-below.
-\begin{enumerate}[label=(\alph*)]
-  \itemsep 1.25in
+\keyquestions{
   \item Model 1, Question \#6
   \item Model 2, Question \#12.c
   \item Model 3, Question \#20
-\end{enumerate}
+}
 
 \newpage
 \maketitle
 
 In this course, you will work in teams of 3--4 students to learn new concepts.
-This activity will introduce you to the process of analyzing an algorithm complexity.
-
-%\rolenames
+This activity will introduce you to arrays in C++.
 
 \guide{
   \item Explain the difference between vector and array syntax in C++
@@ -60,10 +46,10 @@ This activity will introduce you to the process of analyzing an algorithm comple
 No additional notes.
 }
 
-  \input{one_dimensional_arrays.tex}                                            
-  \newpage
-  \input{two_dimensional_arrays.tex}
-  \newpage
-  \input{arrays_as_function_parameters.tex}
+\input{one_dimensional_arrays.tex}                                            
+\newpage
+\input{two_dimensional_arrays.tex}
+\newpage
+\input{arrays_as_function_parameters.tex}
     
 \end{document}

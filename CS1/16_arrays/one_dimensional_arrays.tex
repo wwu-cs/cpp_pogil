@@ -1,14 +1,7 @@
-\model{One Dimensional Arrays} \\[-15pt]
+\model{One Dimensional Arrays}
   \begin{center}
-    \begin{minipage}{5.75in}
-      \begin{cpplst}[
-        frame=lines,
-        framesep=2mm,
-        bgcolor=gray!15,
-        baselinestretch=1.2,
-        linenos,
-        firstnumber=6
-      ]{cpp}
+    \begin{minipage}{6.5in}
+      \begin{cpplst}
 string homeworkNames[5] = {"Variables","If-Else","Loops","Vectors","Arrays"};
 int pointsPossible[5] = {25, 35, 15, 20, 30};
 int numStudents = 40;
@@ -17,178 +10,149 @@ for (int i=0; i<5; i++) {
   cout << homeworkNames[i] << ": " << pointsPossible[i] << endl;
 }
 cout << pointsPossible[5] << endl;
-
       \end{cpplst}
     \end{minipage}
   \end{center}  
   
-  {\it\large Refer to Model 1 above as your team develops consensus answers
+  {\it\large Refer to Model \M above as your team develops consensus answers
     to the questions below.}
-    \par\vskip 10pt
-    
-  \begin{enumerate}
-    \itemsep 20pt
 
-    \Q Like vectors, arrays can be used to store a list of elements
-      of the same type.  Answer the following questions about the arrays
-      in the model above.
-      \par\vskip 15pt
-      
-      \begin{enumerate}[(a)]
-        \itemsep 12pt
-        \item What are the names of the two arrays used in the model?
-          \hfill \ans[2.25in]{\tt homeworkNames, pointsPossible}
-        \item What are the types of the two arrays in the model?
-          \hfill \ans[2.25in]{\cpp{string} and \cpp{int}}
-        \item What are the sizes of the two arrays in the model?
-          \hfill \ans[2.25in]{18 and 5}
-        \item What word describes the relationship between the arrays?
-          \hfill \ans[2.25in]{parallel}
-        \item How would you access the last element of {\tt homeworkNames}?
-          \hfill \ans[2.25in]{\cpp{homeworkNames[17]}}
-      \end{enumerate}          
-      
-    \Q Based on the model, describe how the following symbols are
-      used with arrays.
-      
-      \begin{enumerate}[(a)]
-        \item The curly braces, \cpp{\{ \}.}
-          \begin{answer}[0.5in]
-            They are used to initialize the contents of the array when
-            declaring it.
-          \end{answer}
-        \item The square brackets, \cpp{\[ \].}  Give two different ways they are used.
-          \begin{answer}[0.75in]
-            They are used to specify the size of the array when
-            declaring it and to access an element in the array.
-          \end{answer}
-      \end{enumerate}
-      
-\newpage      
-      
-    \Q Without running it, predict what the code from this model
-      will print out.
-      % \ifprintanswers\vskip -20pt\null\fi
-      \begin{answer}[0.75in]
-        \small\tt\hspace{10pt}
-        \begin{minipage}{4in}
-          Variables: 25\\
-          If-Else: 35\\
-          Loops: 15\\
-          Vectors: 20\\
-          Arrays: 30\\
-          <random integer>
-        \end{minipage}
-      \end{answer}
-      % \ifprintanswers\vskip -30pt\null\fi
-      
-    \Q This code can be found in {\tt activity16a.cpp}.  Run it and
-      explain what you see.
-      \begin{answer}[0.5in]
-        It prints out the first 5 elements of each array, but the
-        value of \cpp{pointsPossible[5]} is undefined
-        since the index 5 is past the array bounds of 0-4.
-      \end{answer}
-      % \ifprintanswers\vskip -30pt\null\fi
-      
-    \Q What happens if you change line 13 to \cpp{cout << pointsPossible}?
-      \begin{answer}[0.5in]
-        You get a memory address, such as {\tt 0x7ffd360a1840}.
-      \end{answer}
-      % \ifprintanswers\vskip -45pt\null\fi
-            
-    \Q Suppose that you were asked to rewrite this program to use
-      vectors instead of arrays.\key\\[-15pt]
-      \par\vskip 15pt
-      
-      \begin{enumerate}[(a)]
-        \item How would you change lines 6 and 7 to
-          declare vectors instead of arrays?
-          \begin{answer}[0.75in]
-            \scriptsize\vskip -25pt\null\hspace{60pt}
-            \begin{minipage}{4.5in}
-              \begin{cpplst}[
-                frame=lines,
-                framesep=2mm,
-                bgcolor=gray!15,
-                baselinestretch=1.2,
-                linenos
-              ]{cpp}
+  \quest{15 min}
+
+  \Q Like vectors, arrays can be used to store a list of elements
+    of the same type.  Answer the following questions about the arrays
+    in the model above.
+    \begin{enumerate}
+      \itemsep 10pt
+      \item What are the names of the two arrays used in the model?
+        \hfill \ans[2.25in]{\tt homeworkNames, pointsPossible}
+
+      \item What are the types of the two arrays in the model?
+        \hfill \ans[2.25in]{\cpp{string} and \cpp{int}}
+
+      \item What are the sizes of the two arrays in the model?
+        \hfill \ans[2.25in]{18 and 5}
+
+      \item What word describes the relationship between the arrays?
+        \hfill \ans[2.25in]{parallel}
+
+      \item How would you access the last element of {\tt homeworkNames}?
+        \hfill \ans[2.25in]{\cpp{homeworkNames[4]}}
+    \end{enumerate}       
+    
+  \vskip -20pt
+    
+  \Q Based on the model, describe how the following symbols are
+    used with arrays.
+    \begin{enumerate}
+      \item The curly braces, \cpp{\{ \}.}
+        \begin{answer}[0.5in]
+          They are used to initialize the contents of the array when
+          declaring it.
+        \end{answer}
+
+      \item The square brackets, \cpp{\[ \].}  Give two different ways they are used.
+        \begin{answer}[0.75in]
+          They are used to specify the size of the array when
+          declaring it and to access an element in the array.
+        \end{answer}
+    \end{enumerate}
+
+  \Q Without running it, predict what the code from this model
+    will print out.
+    \begin{answer}[0.75in]
+      \small\tt\hspace{10pt}
+      \scriptsize
+      \begin{minipage}{4in}
+        Variables: 25\\
+        If-Else: 35\\
+        Loops: 15\\
+        Vectors: 20\\
+        Arrays: 30\\
+        <random integer>
+      \end{minipage}
+    \end{answer}
+    
+  \Q This code can be found in {\tt activity16a.cpp}.  Run it and
+    explain what you see.
+    \begin{answer}[0.5in]
+      It prints out the first 5 elements of each array, but the
+      value of \cpp{pointsPossible[5]} is undefined
+      since the index 5 is past the array bounds of 0-4.
+    \end{answer}
+    
+  \Q What happens if you change line 8 to \cpp{cout << pointsPossible}?
+    \begin{answer}[0.5in]
+      You get a memory address, such as {\tt 0x7ffd360a1840}.
+    \end{answer}
+
+  \vskip -10pt
+          
+  \Q Suppose that you were asked to rewrite this program to use
+    vectors instead of arrays.\key\\[-15pt]
+    \begin{enumerate}
+      \item How would you change lines 1 and 2 to
+        declare vectors instead of arrays?
+        \begin{answer}[0.75in]
+          \fs
+          \begin{minipage}{4.5in}
+            \begin{cpplst}
 vector<string> homeworkNames(5) = {"Variables","If-Else","Loops","Vectors","Arrays"};
 vector<int> pointsPossible(5) = {25, 35, 15, 20, 30};
-              \end{cpplst}
-            \end{minipage}
-            \vskip -10pt\null          
-          \end{answer}
+            \end{cpplst}
+          \end{minipage}        
+        \end{answer}
           
-        \item How would you change line 11 to print out the vector values?
-          \begin{answer}[0.75in]
-            \scriptsize\vskip -25pt\null\hspace{60pt}
-            \begin{minipage}{4.5in}
-              \begin{cpplst}[
-                frame=lines,
-                framesep=2mm,
-                bgcolor=gray!15,
-                baselinestretch=1.2,
-                linenos,
-                firstnumber=6
-              ]{cpp}
+      \item How would you change line 6 to print out the vector values?
+        \begin{answer}[0.75in]
+          \begin{minipage}{4.5in}
+            \begin{cpplst}
 cout << homeworkNames.at(i) << ": " << pointsPossible.at(i) << endl;
-              \end{cpplst}
-            \end{minipage}
-            \vskip -10pt\null          
-          \end{answer}
+            \end{cpplst}
+          \end{minipage}     
+        \end{answer}
           
-        \item Suppose line 13 was changed to \cpp{cout << pointsPossible.at(5) << endl;}.  What would happen when the
-          program runs that command?
-          \begin{answer}[0.5in]
-            The program would crash with an out-of-range error.
-          \end{answer}
-      \end{enumerate}
-      % \ifprintanswers\vskip -30pt\null\fi
+      \item Suppose line 8 was changed to \cpp{cout << pointsPossible.at(5) << endl;}.  What would happen when the
+        program runs that command?
+        \begin{answer}[0.5in]
+          The program would crash with an out-of-range error.
+        \end{answer}
+    \end{enumerate}
+
+  \newpage
       
-    \Q The code below is designed to collect 100 names and then
-      print out a random one.  It is built using vectors.  Rewrite it
-      using arrays.
-      
-      \begin{tabular}{p{2.9in}p{2.9in}}
-        \begin{minipage}{2.9in}
-          \small
-          \begin{cpplst}[
-            frame=lines,
-            framesep=2mm,
-            bgcolor=gray!15,
-            baselinestretch=1.2
-          ]{cpp}
+  \Q The code below is designed to collect 100 names and then
+    print out a random one.  It is built using vectors.  Rewrite it
+    using arrays.
+    
+    \begin{tabular}{p{3.5in}p{2.9in}}
+      \begin{minipage}{3.5in}
+        \small
+        \begin{cpplst}
 vector<string> names;
 string tmpName;
-for (int i=0; i<100; i++) {
-  cout << "Name " << (i+1) << ": ";
+for (int i = 0; i < 100; i++) {
+  cout << "Name " << (i + 1) << ": ";
   cin >> tmpName;
   names.push_back(tmpNames);
 }
 cout << names.at(rand() % 100) << endl;
-          \end{cpplst}
-        \end{minipage}
-        &
-        \begin{minipage}{2.9in}
-          \begin{answer}
-          \small
-          \begin{cpplst}[
-            frame=lines,
-            framesep=2mm,
-            bgcolor=gray!15,
-            baselinestretch=1.2,
-            linenos
-          ]{cpp}
+        \end{cpplst}
+      \end{minipage}
+      &
+      \begin{minipage}{2.9in}
+        \fs
+        \begin{answer}[2in]
+        \scriptsize
+        \begin{cpplst}
 string names[100];
-for (int i=0; i<100; i++) {
-  cout << "Name " << (i+1) << ": ";
+for (int i = 0; i < 100; i++) {
+  cout << "Name " << (i + 1) << ": ";
   cin >> names[i];
 }
 cout << names[rand() % 101] << endl;
-          \end{cpplst}
+        \end{cpplst}
           
-          \end{answer}
-        \end{minipage}
-      \end{tabular}
+        \end{answer}
+      \end{minipage}
+    \end{tabular}

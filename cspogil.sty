@@ -113,7 +113,7 @@
 \newcommand{\java}[1]{\lstinline[style=morejava]{#1}}%[
 \newcommand{\jans}[1]{\lstinline[style=morejava,style=lstanswers]{#1}}%[
 \lstnewenvironment{javaans}{\lstset{style=morejava,style=lstanswers}\vspace{-1ex}}{}
-\lstnewenvironment{javalst}{\lstset{style=morejava,backgroundcolor=}}{}
+\lstnewenvironment{javalst}{\lstset{style=morejava,backgroundcolor=,numbers=left,xleftmargin=20pt,numbersep=10pt}}{}
 \lstnewenvironment{javanum}{\lstset{style=morejava,backgroundcolor=,numbers=left}}{}
 \lstnewenvironment{javabox}{\lstset{style=morejava,frame=single,numbers=left}\quote}{\endquote}
 \newcommand{\jafile}[1]{\lstinputlisting[style=morejava,backgroundcolor=,numbers=left]{src/#1}}
@@ -122,7 +122,7 @@
 \newcommand{\pyth}[1]{\lstinline[style=morepython]{#1}}%[
 \newcommand{\pans}[1]{\lstinline[style=morepython,style=lstanswers]{#1}}%[
 \lstnewenvironment{pythans}{\lstset{style=morepython,style=lstanswers}\vspace{-1ex}}{}
-\lstnewenvironment{pythlst}{\lstset{style=morepython,backgroundcolor=}}{}
+\lstnewenvironment{pythlst}{\lstset{style=morepython,backgroundcolor=,numbers=left,xleftmargin=20pt,numbersep=10pt}}{}
 \lstnewenvironment{pythnum}{\lstset{style=morepython,backgroundcolor=,numbers=left}}{}
 \lstnewenvironment{pythbox}{\lstset{style=morepython,frame=single,numbers=left}\quote}{\endquote}
 \newcommand{\pyfile}[1]{\lstinputlisting[style=morepython,backgroundcolor=,numbers=left]{src/#1}}
@@ -183,6 +183,8 @@
 % models
 \usepackage{currfile}
 \newcommand{\model}[1]{\section{#1}\label{\currfilename}\nopagebreak}
+\newcounter{modelnumber}
+\newcommand{\M}{\refstepcounter{modelnumber}\arabic{modelnumber} }}
 \renewcommand{\thesection}{Model~\arabic{section}}
 \DeclareTextFontCommand{\emph}{\bfseries\em}
 

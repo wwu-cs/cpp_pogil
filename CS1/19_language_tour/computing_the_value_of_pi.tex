@@ -1,115 +1,97 @@
-\model{Computing the Value of $\pi$} \\
+\model{Computing the Value of $\pi$}
   \[
     \frac{\pi}{4} 
        \, = \, \frac{1}{1} \, -\, \frac{1}{3} \, +\, \frac{1}{5} \, -\, \frac{1}{7} \, +\, \cdots
   \]\vskip 5pt
   
-  {\it\large Refer to Model 1 above as your team develops consensus answers
+  {\it\large Refer to Model \M above as your team develops consensus answers
     to the questions below.}
-    \par\vskip 10pt
-    
-  \begin{enumerate}
-    \itemsep 20pt
+
+  \quest{10 min}
  
-    \Q How does the {\bf denominator} (bottom) change from term to
-      term in this series of fractions?
-      % \ifprintanswers\vskip -20pt\null\fi
-      \begin{answer}[0.4in]
-        It goes up by two, hitting all the odd numbers.
-      \end{answer}
-      % \ifprintanswers\vskip -30pt\null\fi
+  \Q How does the {\bf denominator} (bottom) change from term to
+    term in this series of fractions?
+    \begin{answer}[0.4in]
+      It goes up by two, hitting all the odd numbers.
+    \end{answer}
 
-    \Q How does the {\bf sign} (plus or minus) change from term to term?
-      % \ifprintanswers\vskip -20pt\null\fi
-      \begin{answer}[0.4in]
-        It alternates between positive and negative.
-      \end{answer}
-      % \ifprintanswers\vskip -30pt\null\fi
-      
-    \Q Fill in the missing values (white cells) in the table below to estimate
-      $\pi$ with 2, 3, 4, and 5 terms.
-      \vskip -20pt\null
-      \begin{center}
-        \renewcommand{\arraystretch}{2}
-        \begin{tabular}{|l*{7}{|p{0.5in}}|}
-          \hline
-          \rowcolor{orange!20} & 
-            \vskip -12pt\centering$\displaystyle +\frac{1}{1}$ & 
-            \vskip -12pt\centering$\displaystyle -\frac{1}{3}$ &
-            \vskip -12pt\centering$\displaystyle +\frac{1}{5}$ &
-            \vskip -12pt\centering$\displaystyle -\frac{1}{7}$ &
-            \vskip -12pt\centering$\displaystyle +\frac{1}{9}$ &
-            Approx. of $\frac{\pi}{4}$ & 
-            Approx. of $\pi$ \\
-          \hline
-            a. 1 term & 
-            \centering $+1.0$ & 
-            \cellcolor{gray!40} &
-            \cellcolor{gray!40} &
-            \cellcolor{gray!40} &
-            \cellcolor{gray!40} &
-            \centering 1.0 &
-            \hfill 4.0\hfill\null \\
-          \hline
-            b. 2 terms &
-            \centering $+1.0$ &
-            \centering $-0.333$ &
-            \cellcolor{gray!40} &
-            \cellcolor{gray!40} &
-            \cellcolor{gray!40} &
-            % \ifprintanswers\centering 0.667\fi &
-            % \ifprintanswers\hfill 2.668\hfill\null\fi \\
-          \hline
-            c. 3 terms &
-            \centering $+1.0$ &
-            \centering $-0.333$ &
-            % \ifprintanswers\centering $+0.2$\fi &
-            \cellcolor{gray!40} &
-            \cellcolor{gray!40} &
-            % \ifprintanswers\centering 0.867\fi &
-            % \ifprintanswers\hfill 3.468\hfill\null\fi \\
-          \hline
-            d. 4 terms & 
-            \centering $+1.0$ &
-            \centering $-0.333$ &
-            % \ifprintanswers\centering $+0.2$\fi &
-            % \ifprintanswers\centering $-0.143$\fi &
-            \cellcolor{gray!40} &
-            % \ifprintanswers\centering 0.724\fi &
-            % \ifprintanswers\hfill 2.896\hfill\null\fi \\
-          \hline
-            e. 5 terms &
-            \centering $+1.0$ &
-            \centering $-0.333$ &
-            % \ifprintanswers\centering $+0.2$\fi &
-            % \ifprintanswers\centering $-0.143$\fi &
-            % \ifprintanswers\centering $+0.111$\fi &
-            % \ifprintanswers\centering 0.835\fi &
-            % \ifprintanswers\hfill 3.34\hfill\null\fi \\
-          \hline
-        \end{tabular}
-      \end{center}
-      \vskip -35pt\null
-
-    \Q The infinite series above can be rewritten in several ways.
-      Fill in the empty numerators in\key\\[-2.5mm] the series below to provide an
-      equivalent series.
-      
-      {\Large
-        \[
-          \pi = 
-          \ifprintanswers
-            \enskip \frac{4}{1} \enskip +
-            \enskip \frac{-4}{3} \enskip +
-            \enskip \frac{4}{5} \enskip +
-            \enskip \frac{-4}{7} \enskip +
-            \enskip \frac{4}{9} \enskip + \enskip \cdots
-          \else
-            \enskip \frac{\enskip\null\enskip}{1} \enskip + 
-            \enskip \frac{\enskip\null\enskip}{3} \enskip + 
-            \enskip \frac{\enskip\null\enskip}{5} \enskip + 
-            \enskip \frac{\enskip\null\enskip}{7} \enskip + 
-            \enskip \frac{\enskip\null\enskip}{9} \enskip + \enskip \cdots
-          \fi
-        \]
-      }
+  \Q How does the {\bf sign} (plus or minus) change from term to term?
+    \begin{answer}[0.4in]
+      It alternates between positive and negative.
+    \end{answer}
+    
+  \Q Fill in the missing values (white cells) in the table below to estimate
+    $\pi$ with 2, 3, 4, and 5 terms.
+    \begin{center}
+      \renewcommand{\arraystretch}{2}
+      \begin{tabular}{|l*{7}{|p{0.5in}}|}
+        \hline
+        \rowcolor{orange!20} & 
+          \vskip -12pt\centering$\displaystyle +\frac{1}{1}$ & 
+          \vskip -12pt\centering$\displaystyle -\frac{1}{3}$ &
+          \vskip -12pt\centering$\displaystyle +\frac{1}{5}$ &
+          \vskip -12pt\centering$\displaystyle -\frac{1}{7}$ &
+          \vskip -12pt\centering$\displaystyle +\frac{1}{9}$ &
+          Approx. of $\frac{\pi}{4}$ & 
+          Approx. of $\pi$ \\
+        \hline
+          a. 1 term & 
+          \centering $+1.0$ & 
+          \cellcolor{gray!40} &
+          \cellcolor{gray!40} &
+          \cellcolor{gray!40} &
+          \cellcolor{gray!40} &
+          \centering 1.0 &
+          \hfill 4.0\hfill\null \\
+        \hline
+          b. 2 terms &
+          \centering $+1.0$ &
+          \centering $-0.333$ &
+          \cellcolor{gray!40} &
+          \cellcolor{gray!40} &
+          \cellcolor{gray!40} &
+          \ans[0.5in]{0.667} &
+          \ans[0.5in]{2.668} \\
+        \hline
+          c. 3 terms &
+          \centering $+1.0$ &
+          \centering $-0.333$ &
+          \ans[0.5in]{$+0.2$} &
+          \cellcolor{gray!40} &
+          \cellcolor{gray!40} &
+          \ans[0.5in]{0.867} &
+          \ans[0.5in]{3.468} \\
+        \hline
+          d. 4 terms & 
+          \centering $+1.0$ &
+          \centering $-0.333$ &
+          \ans[0.5in]{$+0.2$} &
+          \ans[0.5in]{$-0.143$} &
+          \cellcolor{gray!40} &
+          \ans[0.5in]{0.724} &
+          \ans[0.5in]{2.896} \\
+        \hline
+          e. 5 terms &
+          \centering $+1.0$ &
+          \centering $-0.333$ &
+          \ans[0.5in]{$+0.2$} &
+          \ans[0.5in]{$-0.143$} &
+          \ans[0.5in]{$+0.111$} &
+          \ans[0.5in]{0.835} &
+          \ans[0.5in]{3.34} \\
+        \hline
+      \end{tabular}
+    \end{center}
+  \Q The infinite series above can be rewritten in several ways.
+    Fill in the empty nume-\key\\[-2.5mm]rators in the series below to provide an
+    equivalent series.
+    {\small
+      \[
+        \pi = 
+          \enskip \frac{\ans[0.2in]{4}}{1} \enskip +
+          \enskip \frac{\ans[0.2in]{-4}}{3} \enskip +
+          \enskip \frac{\ans[0.2in]{4}}{5} \enskip +
+          \enskip \frac{\ans[0.2in]{-4}}{7} \enskip +
+          \enskip \frac{\ans[0.2in]{4}}{9} \enskip + \enskip \cdots
+      \]
+    }

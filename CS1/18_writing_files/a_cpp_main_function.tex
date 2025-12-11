@@ -1,112 +1,117 @@
-\model{A C++ Main Function} \\
+\model{A C++ Main Function}
   \begin{center}
     \begin{minipage}{4.25in}
       \small
-      \begin{cprls}[
-        frame=lines,
-        framesep=2mm,
-        bgcolor=gray!15,
-        baselinestretch=1,
-        linenos,
-        firstnumber=8
-      ]{cpp}
+      \begin{cpplst}
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
 int main() {
   ofstream fout;
   fout.open("studentInfo.txt", ofstream::app);
 
-  string firstName = input("Enter first name: ");
-  string lastName = input("Enter last name: ");
-  string studentID = input("Enter student ID: ");
+  string firstName, lastName, studentID;
+
+  cout << "Enter first name: ";
+  cin >> firstName;
+
+  cout << "Enter last name: ";
+  cin >> lastName;
+
+  cout << "Enter student ID: ";
+  cin >> studentID;
 
   fout << "Name: " << firstName << " " << lastName << endl;
   fout << "Student ID: " << studentID << endl;
   fout << endl;
+
   fout.close();
 
-  cout << "Done! Data is saved in: studentInfo.txt" << endl;  
-}        
-      \end{cprls}
+  cout << "Done! Data is saved in: studentInfo.txt" << endl;
+}
+      \end{cpplst}
     \end{minipage}
   \end{center}  
   
-  {\it\large Refer to Model 1 above as your team develops consensus answers
+  {\it\large Refer to Model \M above as your team develops consensus answers
     to the questions below.}
-    \par\vskip 10pt
+
+  \quest{15 min}
+
+  \Q This code can be found in {\tt activity18a.cpp}.  Run it and
+    record what output appears on the screen.
+    \begin{answer}[1in]
+      \scriptsize
+      The program says:
+      \begin{itemize}
+        \itemsep 1pt
+        \item Enter first name:
+        \item Enter last name:
+        \item Enter student ID:
+        \item Done! Data is saved in: studentInfo.txt
+      \end{itemize}
+    \end{answer}
+
+  \Q Locate the file {\tt studentInfo.txt} and examine its contents.
+    \begin{enumerate}
+      \itemsep 10pt
+      \item What is in this file?
+        \hfill \ans[3in]{the student info we entered}
+
+      \item Did this file exist before the program ran?
+        \hfill \ans[3in]{no, it was created by the program}
+
+      \item On which line of code was the file created?
+        \hfill \ans[3in]{line 9, by the {\tt .open()} command}
+
+      \item Which lines generated the file contents?
+        \hfill \ans[3in]{lines 22 through 24}
+
+      \item Why wasn't the message on line 28 in the file?
+        \hfill \ans[3in]{because it was sent to {\tt cout} not {\tt fout}}
+    \end{enumerate}
+
+  \Q Run the program again using different input.  Then open the
+    {\tt studentInfo.txt} file.  What is in the file?  Is the data
+    from the first time you ran it still there?
+    \begin{answer}[0.5in]
+      The file has original student's info as well as the
+      new one from our second execution.
+    \end{answer}
+
+  \vskip -10pt
+
+  \Q Remove the {\tt ofstream::app} argument in the {\tt .open()}
+    function call on line 10 and\key\\[-2.5mm] run the program again with different input.
+    \begin{enumerate}
+      \item What happened to the contents of {\tt studentInfo.txt}?
+        \begin{answer}[0.5in]
+          The contents of {\tt studentInfo.txt} were replaced with the
+          new input.
+        \end{answer}
+
+      \item What did the {\tt ofstream::app} argument do?
+        \begin{answer}[0.5in]
+          The argument made the program {\it append} to the
+          file instead of {\it overwrite} the file.
+        \end{answer}
+    \end{enumerate}
+
+  \vskip -30pt
+
+  \Q You should have observed that lines 22-24 send output to the
+    the file {\tt studentInfo.txt}.  How does C++ know to send the
+    output to that file?
+    \begin{answer}[0.5in]
+      The {\tt fout} variable was opened with that file name.
+    \end{answer}
     
-  \begin{enumerate}
-    \itemsep 20pt
- 
-    \Q This code can be found in {\tt activity18a.cpp}.  Run it and
-      record what output appears on the screen.
-      % \ifprintanswers\vskip -20pt\null\fi
-      \begin{answer}[1in]
-        The program says:
-        \begin{itemize}
-          \itemsep 0pt
-          \item Enter first name:
-          \item Enter last name:
-          \item Enter student ID:
-          \item Done! Data is saved in: studentInfo.txt
-        \end{itemize}
-      \end{answer}
-      % \ifprintanswers\vskip -30pt\null\fi
-
-    \Q Locate the file {\tt studentInfo.txt} and examine its contents.
-      \par\vskip 15pt
-      
-      \begin{enumerate}[(a)]
-        \itemsep 15pt
-        \item What is in this file?
-          \hfill \ans[3in]{the student info we entered}
-        \item Did this file exist before the program ran?
-          \hfill \ans[3in]{no, it was created by the program}
-        \item On which line of code was the file created?
-          \hfill \ans[3in]{line 10, by the {\tt .open()} command}
-        \item Which lines generated the file contents?
-          \hfill \ans[3in]{lines 16 through 18}
-        \item Why wasn't the message on line 21 in the file?
-          \hfill \ans[3in]{because it was sent to {\tt cout} not {\tt fout}}
-      \end{enumerate}
-    
-\newpage
-
-    \Q Run the program again using different input.  Then open the
-      {\tt studentInfo.txt} file.  What is in the file?  Is the data
-      from the first time you ran it still there?
-      \begin{answer}[0.5in]
-        The file has original student's info as well as the
-        new one from our second execution.
-      \end{answer}
-      % \ifprintanswers\vskip -40pt\else\vskip -20pt\fi\null
-
-    \Q Remove the {\tt ofstream::app} argument in the {\tt .open()}
-      function call on line 10 and run the\key\\[-2.5mm] program again with different input.
-      \par\vskip 15pt
-      
-      \begin{enumerate}[(a)]
-        \item What happened to the contents of {\tt studentInfo.txt}?
-          \begin{answer}[0.5in]
-            The contents of {\tt studentInfo.txt} were replaced with the
-            new input.
-          \end{answer}
-        \item What did the {\tt ofstream::app} argument do?
-          \begin{answer}[0.5in]
-            The argument made the program {\it append} to the
-            file instead of {\it overwrite} the file.
-          \end{answer}
-      \end{enumerate}
-            
-      
-    \Q You should have observed that lines 16-18 send output to the
-      the file {\tt studentInfo.txt}.  How does C++ know to send the
-      output to that file?
-      \begin{answer}[0.5in]
-        The {\tt fout} variable was opened with that file name.
-      \end{answer}
-      
-    \Q Rewrite the program so the user can keep entering names
-      until they type in {\tt DONE} for the first name.
-      \begin{answer}[1.75in]
-        Wrap lines 12-18 in a {\tt do-while} loop with condition 
-        \cpp|firstName != "DONE"}.
-      \end{answer}
+  \Q Rewrite the program so the user can keep entering names
+    until they type in {\tt DONE} for the first name.
+    \begin{answer}[1.75in]
+      Wrap lines 13-24 in a {\tt do-while} loop with condition 
+      \cpp{firstName != "DONE"}.
+    \end{answer}
