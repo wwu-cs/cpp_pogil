@@ -1,0 +1,527 @@
+\documentclass{exam}
+%\documentclass[answers]{exam}
+\hbadness=99999
+\usepackage[total={6.5in,9in}]{geometry}
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+%\usepackage{pgfplots}
+\usepackage{multicol}
+
+% for syntax highlighting
+\usepackage{minted}
+\usemintedstyle[cpp]{xcode}
+
+% for overlay of output
+\usepackage[overlay,showboxes]{textpos}
+
+\pagestyle{plain}
+
+\setlength\columnsep{50pt}
+\newcommand{\key}{\hfill
+      \raisebox{-.3\height}{\includegraphics[width=0.6in]{figures/key.png}}}
+
+\begin{document}
+  \thispagestyle{empty}
+  \setlength{\parindent}{0pt}
+
+  \begin{center}
+    \Large Activity \#3: Inheritance \\[5pt]
+    \large Recorder's Report\\[20pt]
+    \normalsize
+    \begin{tabular}{lrp{0.1in}lr}
+      Manager:  & \fillin[][2.0in] & & Presenter: & \fillin[][2.0in]\\[15pt]
+      Recorder: & \fillin[][2.0in] & & Driver:    & \fillin[][2.0in]\\[15pt]
+      Date:     & \fillin[][2.0in] & & Score:     & Satisfactory \hspace{10pt} /
+      \hspace{10pt} Not Satisfactory
+    \end{tabular}
+  \end{center}
+  \par\vskip 15pt
+  
+  Record your group's answers to the key questions (marked with
+  \raisebox{-.3\height}{\includegraphics[width=0.5in]{figures/key.png}})
+  below.
+  \begin{enumerate}[(a)]
+    \itemsep 1.75in
+    \item Model 1, Question \#4
+    \item Model 2, Question \#7.d
+    \item Model 2, Question \#10.a
+  \end{enumerate}
+
+  \clearpage\pagenumbering{arabic} 
+  
+  \begin{center}
+    \Large Activity \#3: Inheritance \\[5pt]
+    \large Activity Guide\\[20pt]
+  \end{center}
+
+  \begin{center}
+    \fbox{
+      \begin{minipage}{5.5in}
+        {\bf Learning Objectives:} Students will be able to:
+        \begin{itemize}
+          \item Content:\\[-20pt]
+            \begin{itemize}           
+              \itemsep 0pt
+              \item Explain the difference between ``Is-a'' and
+                ``Has-a'' relationships
+              \item Explain how derived classes and base classes and
+                their members are related
+            \end{itemize}
+          \item Process\\[-20pt]
+            \begin{itemize}
+              \itemsep 0pt
+              \item Write a member function which overrides the base class's function\\[-5pt]
+            \end{itemize}
+        \end{itemize}
+      \end{minipage}
+      }
+  \end{center}
+  \par\vskip 10pt
+  
+  
+  {\bf\large Model 1: Several Classes from an University Information System}\\[-10pt]
+  \begin{center}
+    \footnotesize
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{p{1.8in}p{1.8in}p{1.8in}}
+      \begin{minipage}{1.7in}
+        \begin{tabular}{|l|}
+          \hline
+          \rowcolor{orange!20} Address \\
+          \hline
+          \rowcolor{white}
+          \begin{minipage}{\textwidth}
+            \vskip 2pt\null\tt
+            -number:string\\
+            -street:string\\
+            -city:string\\
+            -state:string\\
+            -zip:int\\
+          \end{minipage} \\
+          \hline
+          \begin{minipage}{\textwidth}
+            \vskip 2pt\null\tt
+            +getNumber():string\\
+            +setNumber(num:string):void\\
+          \end{minipage} \\[-6pt]
+          \hfill $\vdots$\\
+          \hline
+        \end{tabular}
+      \end{minipage}
+      & 
+      \begin{minipage}{1.7in}
+        \begin{tabular}{|l|}
+          \hline
+          \rowcolor{orange!20}Person \\
+          \hline
+          \rowcolor{white}
+          \begin{minipage}{\textwidth}
+            \vskip 2pt\null\tt
+            -name:string\\
+            -addr:Address\\
+            -phone:string\\
+          \end{minipage} \\
+          \hline
+          \begin{minipage}{\textwidth}
+            \vskip 2pt\null\tt
+            +setName(name:string):void\\
+            +getName():string\\
+            +setAddress(a:Address):void\\
+            +getAddress():Address\\
+          \end{minipage} \\[-6pt]
+          \hfill $\vdots$\\
+          \hline
+        \end{tabular}
+      \end{minipage}
+      &
+      \begin{minipage}{1.7in}
+        \begin{tabular}{|l|}
+          \hline
+          \rowcolor{orange!20}Student (extends Person) \\
+          \hline
+          \rowcolor{white}
+          \begin{minipage}{\textwidth}
+            \vskip 2pt\null\tt
+            -classStanding:string\\
+            -studentID:string\\
+            -GPA:float\\
+          \end{minipage} \\
+          \hline
+          \begin{minipage}{\textwidth}
+            \vskip 2pt\null\tt
+            +setClass(class:string):void\\
+            +getClass():string\\
+            +setStudentID(id:string):void\\
+            +getStudentID():string\\
+          \end{minipage} \\[-6pt]
+          \hfill $\vdots$\\
+          \hline
+        \end{tabular}
+      \end{minipage}
+    \end{tabular}
+  \end{center}
+  \par\vskip 5pt
+  
+  {\it\large Refer to Model 1 above as your group develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+    
+  \begin{enumerate}
+    \itemsep 20pt
+    
+    \item Large programs often contain many different classes.  These classes will
+      frequently be related to each other through ``has-a''
+      relationship, where one class has a data member that is itself
+      an object of another class.  Another less-common relationship is
+      an ``is a'' relationship, where one class is a more general
+      class, while the second is a more specialized version of the
+      original class.
+      \par\vskip 10pt
+      
+      \begin{enumerate}[(a)]
+        \item Which class is used as a data member type inside another class?
+          \begin{solution}[0.5in]
+            The {\tt Address} class is used as a variable type inside
+            the {\tt Person} class.
+          \end{solution}
+        \item Is this an example of a ``has-a'' or an ``is-a''
+          relationship?  Explain.
+          \begin{solution}[0.75in]
+            It is a ``has-a'' relationship because the Person class
+            has a variable that is an Address object.
+          \end{solution}
+        \item Which two classes have an ``is-a'' relationship?  Explain.
+          \begin{solution}[0.75in]
+            The {\tt Person} and {\tt Student} classes have an
+            ``is-a'' relationship because every Student is a Person.
+          \end{solution}
+        \item Of the classes indicated above, which is the more
+          general and which is the more specialized?
+          \begin{solution}[0.5in]
+            The {\tt Person} class is more general and the {\tt
+            Student} class is more specialized.
+          \end{solution}
+        \item Would the member functions shown for the more general class be
+          appropriate in the specialized class as well?  Explain.
+          \begin{solution}[0.75in]
+            Yes -- every student still has a name, address, and phone
+            number that can be manipulated.            
+          \end{solution}
+        \item Give an example not shown in the model of a member function that
+          might appear in the specialized class but not in the more
+          general class.
+          \begin{solution}[0.75in]
+            Answers vary, but examples might include things like
+            {\tt getAdvisor()} or {\tt isOnHonorRoll()}. 
+          \end{solution}
+      \end{enumerate}
+      
+    \item Explain why the relationship between {\tt Person} and {\tt
+      Address} is not an ``is-a'' relationship.
+      \begin{solution}[0.75in]
+        A Person is not an address, but a person has an address.
+      \end{solution}
+
+    \item As a group, come up with another example of a ``has-a''
+      relationship.  Fill in the information below about your example.
+      \par\vskip 15pt
+      
+      \begin{enumerate}[(a)]
+        \itemsep 15pt
+        \item What class is used as a variable inside the other?
+          \hfill \fillin[Color, Name, Circle][3in]
+        \item What class is the variable inside of?
+          \hfill \fillin[Pen, Animal, Drawing][3in]
+        \item Fill in the blanks below to describe the relationship
+          between your two classes.\par\vskip 10pt
+          \begin{center}
+            \it Every \fillin[Pen][2in] has a(n) \fillin[Color][2in].
+          \end{center}
+      \end{enumerate}
+      
+    \item As a group, come up with another example of an ``is-a''
+      relationship.  Fill in the\key\\[-2.5mm] information below about your example.      
+      \par\vskip 15pt
+      
+      \begin{enumerate}[(a)]
+        \itemsep 15pt
+        \item What class is the more general class?
+          \hfill \fillin[Cat, Pen][3in]
+        \item What class is the specialized class?
+          \hfill \fillin[Animal, Writing Implement][3in]
+        \item Fill in the blanks below to describe the relationship
+          between your two classes.\par\vskip 10pt
+          \begin{center}
+            \it Every \fillin[Cat][2in] is a(n) \fillin[Animal][2in].
+          \end{center}
+      \end{enumerate}
+      
+\newpage
+
+  {\bf\large Model 2: Another ``Is-A'' Relationship}\\[-30pt]
+  \begin{center}
+    \small
+    \begin{tabular}{p{2.8in}p{0.1in}p{2.8in}}
+      \begin{minipage}{2.8in}
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+          linenos,
+          firstnumber=5
+        ]{cpp}
+// class for a deposit account
+//   at a bank
+class Account {
+  public:
+    Account(double balance);
+    void deposit(double amount);
+    virtual void withdraw(double amount);
+    double getBalance() const {
+      return balance;
+    };
+  private:
+    double balance = 0;
+};
+        \end{minted}      
+      \end{minipage}
+      & &
+      \begin{minipage}{2.8in}
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+          linenos,
+          firstnumber=19
+        ]{cpp}       
+// class for a savings account        
+class Savings : public Account {
+  public:
+    Savings(double balance, double rate);
+    void setRate(double rate);
+    void newMonth();
+    int getWithdrawals() const {
+      return numWithdrawals;
+    };   
+  private:
+    double rate;
+    int numWithdrawals;
+};
+        \end{minted}      
+      \end{minipage}
+    \end{tabular}
+  \end{center}
+  
+  {\it\large Refer to Model 2 above as your group develops consensus answers
+    to the questions below.}
+  \par\vskip 10pt
+    
+  \item In C++ the more general class in an ``is-a'' relationship
+    is called the {\it base} class and the specific class is called
+    the {\it derived} class.  Answer the following questions about
+    the model above.
+    \par\vskip 15pt
+    
+    \begin{enumerate}
+      \itemsep 15pt
+      \item What is the name of the base class? 
+        \hfill \fillin[\tt Account][3in]
+      \item What is the name of the derived class?
+        \hfill \fillin[\tt Account][3in]
+      \item In C++ class definitions, how is the ``is-a'' relationship indicated?
+        \begin{solution}[0.5in]
+          By a colon, the keyword public (for now), and the name
+          of the base class. The example from the model is:
+          \begin{center}
+            \mintinline{cpp}|class Savings : public Account|
+          \end{center}
+        \end{solution}
+    \end{enumerate}
+    
+  \item An important property of derived classes is that they 
+    {\it inherit} the properties of the base class.  Suppose 
+    that a new savings account was declared using the code:
+    \mintinline{cpp}|Savings myAccount(50,0.01)|.
+    \par\vskip 10pt
+    
+    \begin{enumerate}
+      \item What data members does the object {\tt myAccount} have?
+        \begin{solution}[0.5in]
+          The members are: {\tt rate}, {\tt numWithdrawals}, and
+          {\tt balance}.
+        \end{solution}
+      \item In which class is each of these data members declared?
+        \begin{solution}[0.5in]
+          {\tt rate} and {\tt numWithdrawals} are declared in the
+          {\tt Savings} class and {\tt balance} is declared in the
+          {\tt Account} class.
+        \end{solution}
+      \item What member functions does the object {\tt myAccount} have?
+        \begin{solution}[0.5in]
+          The members functions are: {\tt deposit()}, {\tt
+          withdraw()}, {\tt getBalance()}, {\tt setRate()}, {\tt
+          newMonth()}, and {\tt getWithdrawals()}.
+        \end{solution}
+      \item Which of these are inherited from the base class?
+        \begin{solution}[0.5in]
+          The members functions {\tt deposit()}, {\tt
+          withdraw()}, and {\tt getBalance()} are inherited from
+          the {\tt Account} class.
+        \end{solution}
+      \end{enumerate}
+      
+    \item The file {\tt activity03.cpp} contains a preliminary
+      implementation of these two classes along with a sample {\tt main}
+      function.  Use it to answer the following questions.
+      \par\vskip 10pt
+      
+      \begin{enumerate}
+        \itemsep 10pt
+        \item Without attempting to compile the code, describe what
+          the member function {\tt Savings::newMonth()} on line 94 is
+          supposed to do.
+          \begin{solution}[0.75in]
+            It is supposed to set the number of withdrawals to 0 and
+            deposit the account balance times the interest rate into
+            the account (i.e. pay monthly interest).
+          \end{solution}
+        \item Now compile the code and describe what happens.
+          \begin{solution}[0.5in]
+            We get an error that says:
+            \begin{center}
+              \tt
+              `double Account::balance' is private within this context
+            \end{center}
+          \end{solution}
+        \item Replace {\tt this->balance} on line 96 with {\tt this->getBalance()}
+          Does this fix the problem? \fillin[Yes][0.5in]
+          \vskip -25pt\null
+        \item Based on what you've observed in this question, does the
+          derived class {\tt Savings} have\key\\[-2.5mm] direct access to all
+          of the members that it inherits from the base {\tt Account} class?
+          Explain.
+          \begin{solution}[0.5in]
+            No, it only has access to the public members that it inherits.
+          \end{solution}
+      \end{enumerate}
+        
+    \item The function {\tt testAccount()} defined in {\tt activity03.cpp}
+      tests our implementation of these classes by depositing \$50 and
+      then attempting to make ten \$10 withdrawals.  
+      \begin{enumerate}
+        \itemsep 15pt
+        \item What are the results of running on this function on the
+          checking account with an initial balance of \$100, as
+          defined in the {\tt main} program?
+          \begin{solution}[0.75in]
+            It successfully deposits \$50, then makes the ten
+            withdrawals, leaving a final balance of \$50.
+          \end{solution}
+        \item What are the results of running this function twice in
+          successive months on the savings account with an initial 
+          balance of \$80, an interest rate of 1\%?
+          \begin{solution}[0.75in]
+            It successfully deposits \$50, then makes the ten
+            withdrawals, leaving a final balance of \$30 after the first
+            month.  Then \$0.53 interest is added, another \$50 is
+            deposited, and eight \$10 withdrawals are successfully
+            made.  The last two \$10 withdrawals fail because of
+            insufficient funds, leaving us with \$0.30 as a final
+            balance.
+          \end{solution}
+        \item What type is the {\tt testAccount} function's single parameter?
+          \hfill \fillin[\tt Account\&][2in]
+        \item What type is the argument passed to this function on line 55?
+          \hfill \fillin[\tt Account][2in]
+        \item What type is the argument passed to this function on line 58?
+          \hfill \fillin[\tt Savings][2in]
+        \item Why is this worth noting?
+          \begin{solution}[0.5in]
+            We used the same function for objects of the base and
+            derived class types.
+          \end{solution}          
+      \end{enumerate}
+        
+    \item In the United States, you are not allowed to make more than
+      six withdrawals from a savings account in one month. Based on
+      this new information, are any of the member functions that
+      {\tt Savings} inherits from {\tt Account} not quite appropriate?
+      Explain what is missing from these functions.
+      
+      \begin{solution}[0.75in]
+        Yes.  The {\tt withdraw} function should impose this limit and
+        refuse to withdraw money if there have already been 6 withdraws
+        from the account.
+      \end{solution}
+      
+    \item We can {\it override} a member function from the base class
+      by defining a member function the same name, 
+      parameters, and return type in the derived class.
+      
+      \begin{enumerate}
+        \item How is this different from {\it overloading} a function? \key
+          \begin{solution}[0.75in]
+            Overloading a function means that we define functions with
+            the same name, but different signatures.  When we override
+            a function, we use the same signature (and return type).
+          \end{solution}
+        \item Define a \mintinline{cpp}|bool Savings::withdraw(double balance)|
+          function that overrides the {\tt withdraw()} function from
+          the {\tt Account} class and does not allow more than 6 withdrawals.
+          Hint: You can use {\tt Account::withdraw()} to call the base class
+          {\tt withdraw()} from within your new definition.
+          \begin{solution}[1.5in]
+            \begin{minipage}{3in}
+              \begin{minted}[
+                frame=lines,
+                framesep=2mm,
+                bgcolor=gray!15,
+                baselinestretch=1.2,
+                linenos,
+              ]{cpp}
+bool Savings::withdraw(double amount) {
+  if(this->numWithdrawals < 6 && Account::withdraw(amount)) {
+    this->numWithdrawals++;
+    return true;
+  }
+  return false;
+}
+                      
+              \end{minted}
+            \end{minipage}
+          \end{solution}
+        \item What did you have to add to the declaration of the {\tt
+          Savings} class?
+          \begin{solution}[0.5in]
+            A declaration of the \mintinline{cpp}{bool withdraw(double)} function.
+          \end{solution}
+        \item Now run the program again.  How did the results of the
+          savings account test change?
+          \begin{solution}[1in]
+            Now we can only withdraw the first six \$10 amounts in the
+            first month leaving us with a balance of \$70.00 at the end
+            of that month.  The same thing happens in the second month,
+            leaving us with a final balance of \$60.70.
+          \end{solution}
+        \item What happens if you remove the keyword {\tt virtual}
+          from line 11?
+          \begin{solution}[0.5in]
+            The program goes back to functioning as before.  This is
+            because the function {\tt testAccount} calls the base
+            version of {\tt withdraw} since its parameter is of type
+            {\tt Account}.  We'll learn more about this notion of {\it
+            Polymorphism} in later class periods.
+          \end{solution}
+      \end{enumerate}
+
+  \end{enumerate}
+  
+  
+    
+\end{document}

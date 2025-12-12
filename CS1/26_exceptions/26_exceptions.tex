@@ -1,0 +1,441 @@
+\documentclass{exam}
+%\documentclass[answers]{exam}
+\hbadness=99999
+\usepackage[total={6.5in,9in}]{geometry}
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+%\usepackage{pgfplots}
+\usepackage{multicol}
+
+% for syntax highlighting
+\usepackage{minted}
+\usemintedstyle[cpp]{xcode}
+
+% for overlay of output
+\usepackage[overlay,showboxes]{textpos}
+
+\pagestyle{plain}
+
+\setlength\columnsep{50pt}
+\newcommand{\key}{\hfill
+      \raisebox{-.3\height}{\includegraphics[width=0.6in]{figures/key.png}}}
+
+\begin{document}
+  \thispagestyle{empty}
+  \setlength{\parindent}{0pt}
+
+  \begin{center}
+    \Large Activity \#7: Exception Handling \\[5pt]
+    \large Recorder's Report\\[20pt]
+    \normalsize
+    \begin{tabular}{lrp{0.1in}lr}
+      Manager:  & \fillin[][2.0in] & & Presenter: & \fillin[][2.0in]\\[15pt]
+      Recorder: & \fillin[][2.0in] & & Driver:    & \fillin[][2.0in]\\[15pt]
+      Date:     & \fillin[][2.0in] & & Score:     & Satisfactory \hspace{10pt} /
+      \hspace{10pt} Not Satisfactory
+    \end{tabular}
+  \end{center}
+  \par\vskip 15pt
+  
+  Record your group's answers to the key questions (marked with
+  \raisebox{-.3\height}{\includegraphics[width=0.5in]{figures/key.png}})
+  below.
+  \begin{enumerate}[(a)]
+    \itemsep 1.75in
+    \item Model 1, Question \#4
+    \item Model 2, Question \#8
+    \item Model 3, Question \#10
+  \end{enumerate}
+
+  \clearpage\pagenumbering{arabic} 
+  
+  \begin{center}
+    \Large Activity \#7: Exception Handling \\[5pt]
+    \large Activity Guide\\[20pt]
+  \end{center}
+
+  \begin{center}
+    \fbox{
+      \begin{minipage}{5.5in}
+        {\bf Learning Objectives:} Students will be able to:
+        \begin{itemize}
+          \item Content:\\[-20pt]
+            \begin{itemize}
+              \itemsep 0pt
+              \item Explain various methods for detecting and
+                handling exceptions
+              \item Explain the advantages of exception handling over
+                printing error messages
+            \end{itemize}
+          \item Process \\[-20pt]
+            \begin{itemize}
+              \itemsep 0pt
+              \item Write C++ code to throw and catch exceptions \\[-5pt]
+            \end{itemize}
+        \end{itemize}
+      \end{minipage}
+      }
+  \end{center}
+  \par\vskip 10pt
+  
+  
+  {\bf\large Model 1: Temperature Conversion}\\[-10pt]
+  \begin{center}
+    \small
+    \begin{minipage}{5.5in}
+      \begin{minted}[
+        frame=lines,
+        framesep=2mm,
+        bgcolor=gray!15,
+        baselinestretch=1.2,
+        linenos,
+        firstnumber=6
+      ]{cpp}
+class TempConvert {
+  public:
+    double convertTemp(double temp, string inScale, string outScale) {
+      inScale = normalizeScale(inScale);
+      outScale = normalizeScale(outScale);
+      if (inScale == outScale) { return temp;
+      } else if (inScale == "C") { return cToF(temp);
+      } else { return fToC(temp);
+      }
+    }                                              
+  private:
+    double cToF(double c) { return 32 + c * 9 / 5; }
+    double fToC(double f) { return (f - 32) * 5 / 9; }
+    string normalizeScale(string s) {
+      for_each(s.begin(),s.end(), [](char & c) { c = ::tolower(c); });
+      if (s == "c" || s.substr(0, 4) == "cels") { return "C"; }
+      if (s == "f" || s.substr(0, 4) == "fahr") { return "F"; }
+      if (s == "k" || s.substr(0, 4) == "kelv") { return "K"; }
+      return "?";
+    }
+};    
+      \end{minted}      
+    \end{minipage}
+  \end{center}
+  \par\vskip 5pt
+  
+  {\it\large Refer to Model 1 above as your group develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+    
+  \begin{enumerate}
+    \itemsep 20pt
+    
+    \item The temperature conversion class above has one public method
+      and three private methods.  Determine the {\bf return value} for each 
+      method call given below.
+      \par\vskip 15pt
+      \begin{enumerate}
+        \itemsep 15pt
+        \item \mintinline{cpp}|normalizeScale("f")|\hfill\fillin[][2.5in]
+        \item \mintinline{cpp}|normalizeScale("Cel")|\hfill\fillin[][2.5in]
+        \item \mintinline{cpp}|convertTemp(-273.15,"C","Fahrenheit")|\hfill\fillin[][2.5in]
+        \item \mintinline{cpp}|convertTemp(100,"F","CeLsIuS")|\hfill\fillin[][2.5in]
+      \end{enumerate}
+
+    \item The file {\tt activity07a.cpp} contains this class along with a program that
+      utilizes it.  This program could run into trouble if the user supplies
+      invalid input.  For example, a user could enter an invalid or
+      unknown scale, or provide invalid temperatures (e.g. below
+      the absolute zero of -273.15 Celsius).  Describe the problem
+      that would be encountered with each set of user input below.
+      Note that the semicolons are used to separate lines of input 
+      and are not part of the input themselves.
+      \par\vskip 10pt
+      
+      \begin{enumerate}
+        \item {\tt 12} ; {\tt inches} ; {\tt fahr}
+          \begin{solution}[0.5in]
+          \end{solution}
+        \item {\tt 16000000} ; {\tt C} ; {\tt K}
+          \begin{solution}[0.5in]
+          \end{solution}
+        \item {\tt -300} ; {\tt cels} ; {\tt fahr}
+          \begin{solution}[0.5in]
+          \end{solution}
+      \end{enumerate}
+    
+    \item A program could respond to errors such as the ones
+      above in several ways.  One way commonly used in simple programs
+      is to {\it print an error message}.
+      \par\vskip 10pt
+      \begin{enumerate}
+        \item In what method(s) should error messages about
+          invalid or unknown temperature scales be printed?
+          \begin{solution}[0.75in]
+          \end{solution}
+        \item In what method(s) should error messages
+          about invalid temperatures be printed?
+          \begin{solution}[0.75in]
+          \end{solution}
+        \item In what method(s) should error messages
+          about unimplemented conversions (e.g. kelvin to
+          fahrenheit) be printed?
+          \begin{solution}[0.75in]
+          \end{solution}
+        \item Modify two of the methods identified
+          above in the file {\tt activity07a.cpp} to print appropriate error
+          messages for the user input from problem 2.
+          \begin{solution}[1.5in]
+          \end{solution}
+      \end{enumerate}
+      
+    \item Many programs can not handle errors by simply printing out
+      error messages.  For example:\key\\[-5.5mm]
+      \begin{itemize}
+        \item Embedded systems, such as home appliances or automobiles, which do not
+          have a traditional display and need to run unattended for days or even years.
+        \item Computationally intense software for business or scientific applications
+          that may run for hours or days on a cloud server without human monitoring.
+      \end{itemize}
+      Explain why printing messages may not be a good idea in software such as those
+      mentioned above.
+      \begin{solution}[0.75in]
+      \end{solution}
+
+
+  {\bf\large Model 2: Identifying Errors in Temperature Conversion}\\[-10pt]
+  \begin{center}
+    \small
+    \begin{minipage}{5.5in}
+      \begin{minted}[
+        frame=lines,
+        framesep=2mm,
+        bgcolor=gray!15,
+        baselinestretch=1.2,
+        linenos,
+        firstnumber=6
+      ]{cpp}
+class TempConvert {
+public:
+  double convertTemp(double temp, string inScale, string outScale) {
+    inScale = normalizeScale(inScale);
+    outScale = normalizeScale(outScale);
+    if (inScale == outScale) { return temp;
+    } else if (inScale == "C" && outScale == "F") { return cToF(temp);
+    } else if (inScale == "F" && outScale == "C") { return fToC(temp);
+    } else if (inScale == "K" && outScale == "C") { return kToC(temp);
+    } else if (inScale == "K" && outScale == "F") { return cToF(kToC(temp));
+    } else throw invalid_argument("Conversion Not Implemented");
+  }
+private:
+  double cToF(double c) {
+     if(c < 273.15) throw domain_error("Invalid Temp");
+     return 32 + c * 9 / 5; 
+  }
+  double fToC(double f) {
+     if(f < -459.67) throw domain_error("Invalid Temp");
+     return (f - 32) * 5 / 9; 
+  }   
+  double kToC(double k) {
+     if(k < 0) throw domain_error("Invalid Temp");
+     return k + 273.15;
+  }                             
+  string normalizeScale(string s) {
+    for_each(s.begin(),s.end(), [](char & c) { c = ::tolower(c); });
+    if (s == "c" || s.substr(0, 4) == "cels") { return "C"; }
+    if (s == "f" || s.substr(0, 4) == "fahr") { return "F"; }
+    if (s == "k" || s.substr(0, 4) == "kelv") { return "K"; }          
+    throw domain_error("Invalid Scale");
+  }
+};
+      
+      \end{minted}
+    \end{minipage}
+  \end{center}
+  
+  {\it\large Refer to Model 2 above as your group develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+    
+    \item In this model, our class has been modified to
+      support additional temperature conversions.  Describe what changes have been
+      made to support conversions between Kelvin and the other
+      temperature scales.
+      \begin{solution}[1.25in]
+      \end{solution}
+      
+    \item Robust error handling (also called {\it exception handling}) typically 
+      separates the task of {\it identifying} exceptions from the task of 
+      {\it handling} exceptions.  In the model above, we have added
+      code to identify exceptions.
+      \par\vskip 10pt
+      
+      \begin{enumerate}
+        \item Which of the methods in this model include exception
+          identification?
+          \begin{solution}[0.75in]
+          \end{solution}
+        \item How many different types of exceptions are identified in
+          the entire class?
+          \begin{solution}[0.75in]
+          \end{solution}
+        \item In C++, what command is used to identify an exception?
+          \begin{solution}[0.75in]
+          \end{solution}
+      \end{enumerate}
+      
+        
+      \item While we have identified exceptions in this model, we have not 
+        explicitly handled them, so C++ uses its default exception
+        handling technique.  Run the code found in {\tt activity07b.cpp} and
+        determine how the exceptions generated by each set of user
+        input is handled.
+      \par\vskip 10pt
+      
+      \begin{enumerate}
+        \item {\tt 12} ; {\tt inches} ; {\tt fahr}
+          \begin{solution}[0.5in]
+          \end{solution}
+        \item {\tt 16000000} ; {\tt C} ; {\tt K}
+          \begin{solution}[0.5in]
+          \end{solution}
+        \item {\tt -300} ; {\tt cels} ; {\tt fahr}
+          \begin{solution}[0.5in]
+          \end{solution}
+      \end{enumerate}
+        
+      \item Describe how you might wish to alter the default exception
+        handling technique in the\key\\[-2.5mm] following contexts.  If you think
+        the default is fine as it is, state that.
+        \par\vskip 10pt        
+        \begin{enumerate}
+          \item If the class is being used to convert temperatures interactively, 
+            as in this example.
+            \begin{solution}[0.75in]
+            \end{solution}
+          \item If the class is being used to convert a large array of
+            temperatures without human interaction.
+            \begin{solution}[0.75in]
+            \end{solution}
+        \end{enumerate}
+
+  {\bf\large Model 3: Handling Errors in Temperature Conversion}\\[-30pt]
+  \begin{center}
+    \small
+    \begin{tabular}{p{2.95in}p{0.1in}p{2.95in}}
+      \begin{minipage}{2.95in}
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+          linenos,
+          firstnumber=44
+        ]{cpp}
+TempConvert tc;
+
+double t[6] = {20,-30,170,25,-12,14 };
+string u[6] = {"C","C","K","F","K","C"};
+double newT[6];
+
+for(int i=0; i<6; i++) {
+  try {           
+    newT[i] = tc.convertTemp(t[i],u[i],"F");
+  } catch (logic_error &excpt) {
+    newT[i] = NAN;
+  }
+}
+        \end{minted}
+        \centering Use Case \#1
+      \end{minipage}
+      & &
+      \begin{minipage}{2.85in}
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+          linenos,
+          firstnumber=22
+        ]{cpp}
+TempConvert tc;
+double t,newT;
+string u;
+while(true) {
+  try {
+    cout << "Temp to Convert: ";
+    cin >> t;
+    cout << "Units: ";
+    cin >> u;
+    newT = tc.convertTemp(t,u,"F");
+  }
+  catch (logic_error &excpt) {
+    cout << excpt.what() << endl;
+    continue;
+  }
+  break;
+}
+        \end{minted}
+      \end{minipage}
+      \centering Use Case \#2
+    \end{tabular}
+  \end{center}
+  \par\vskip -5pt
+  
+  {\it\large Refer to Model 3 above as your group develops consensus answers
+    to the questions below.}
+    \par\vskip -20pt\null
+    
+    \item The model above shows two different use cases for our
+      temperature conversion class.  Answer the following general
+      questions about these use cases.
+      \par\vskip 10pt      
+      \begin{enumerate}        
+        \item What new keywords are used to handle the exceptions that
+          were {\it thrown} in the class?
+          \begin{solution}[0.5in]
+          \end{solution}
+        \item When is the code in in the \mintinline{cpp}|try| block run?
+          \begin{solution}[0.75in]
+          \end{solution}
+        \item When is the code in the \mintinline{cpp}|catch| block run?
+          \begin{solution}[0.75in]
+          \end{solution}
+      \end{enumerate}
+        
+    \item The code for use case \#1 can be found in the file {\tt
+      activity07c.cpp}. Run it and answer\key\\[-2.5mm] the following questions.
+      \par\vskip 10pt
+      \begin{enumerate}
+        \item What exception is thrown by the temperature conversion
+          class and why is it thrown?
+          \begin{solution}[0.75in]
+          \end{solution}
+        \item How is this exception handled by the program?
+          \begin{solution}[0.75in]
+          \end{solution}
+        \item Why might this be a better way to handle the exception
+          than the C++ default technique?
+          \begin{solution}[0.75in]
+          \end{solution}
+      \end{enumerate}
+        
+    \item Modify the file {\tt activity7b.cpp} so that the main
+      program looks like the one in use case \#2 of our model.  Then
+      run it and answer the following questions.
+      \par\vskip 10pt
+      \begin{enumerate}
+        \item Give appropriate user input to generate two different
+          types of exceptions.
+          \begin{solution}[0.5in]
+          \end{solution}
+        \item How are these exceptions handled in this use case?
+          \begin{solution}[0.75in]
+          \end{solution}
+        \item Why might this be a better way to handle the exceptions
+          than the C++ default technique?
+          \begin{solution}[0.75in]
+          \end{solution}
+      \end{enumerate}        
+
+  \end{enumerate}
+       
+\end{document}

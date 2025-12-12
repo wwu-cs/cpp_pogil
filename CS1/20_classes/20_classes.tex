@@ -1,0 +1,615 @@
+\documentclass{exam}
+%\documentclass[answers]{exam}
+\hbadness=99999
+\usepackage[total={6.5in,9in}]{geometry}
+
+\usepackage{enumerate}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+%\usepackage{pgfplots}
+\usepackage{multicol}
+
+% for syntax highlighting
+\usepackage{minted}
+\usemintedstyle[cpp]{xcode}
+
+% for overlay of output
+\usepackage[overlay,showboxes]{textpos}
+
+\pagestyle{plain}
+
+\setlength\columnsep{50pt}
+\newcommand{\key}{\hfill
+      \raisebox{-.3\height}{\includegraphics[width=0.6in]{figures/key.png}}}
+
+\begin{document}
+  \thispagestyle{empty}
+  \setlength{\parindent}{0pt}
+
+  \begin{center}
+    \Large Activity \#1: Introduction to Classes \\[5pt]
+    \large Recorder's Report\\[20pt]
+    \normalsize
+    \begin{tabular}{lrp{0.1in}lr}
+      Manager:  & \fillin[][2.0in] & & Presenter: & \fillin[][2.0in]\\[15pt]
+      Recorder: & \fillin[][2.0in] & & Driver:    & \fillin[][2.0in]\\[15pt]
+      Date:     & \fillin[][2.0in] & & Score:     & Satisfactory \hspace{10pt} /
+      \hspace{10pt} Not Satisfactory
+    \end{tabular}
+  \end{center}
+  \par\vskip 15pt
+  
+  Record your group's answers to the key questions (marked with
+  \raisebox{-.3\height}{\includegraphics[width=0.5in]{figures/key.png}})
+  below.
+  \begin{enumerate}[(a)]
+    \itemsep 1.75in
+    \item Model 1, Question \#2
+    \item Model 2, Question \#6
+    \item Model 3, Question \#12 (a)
+  \end{enumerate}
+
+  \clearpage\pagenumbering{arabic} 
+  
+  \begin{center}
+    \Large Activity \#1: Introduction to Classes \\[5pt]
+    \large Activity Guide\\[20pt]
+  \end{center}
+
+  \begin{center}
+    \fbox{
+      \begin{minipage}{5.5in}
+        {\bf Learning Objectives:} Students will be able to:
+        \begin{itemize}
+          \item Content:\\[-20pt]
+            \begin{itemize}
+              \itemsep 0pt
+              \item Explain the benefits of abstraction in programming
+              \item Explain the syntax for defining classes  in C++
+              \item Explain the benefits of encapsulation in programming
+              \item Explain the use of mutator and accessor methods
+            \end{itemize}
+          \item Process\\[-20pt]
+            \begin{itemize}
+              \itemsep 0pt
+              \item Construct a simple class with data fields and methods\\[-5pt]
+            \end{itemize}
+        \end{itemize}
+      \end{minipage}
+      }
+  \end{center}
+  \par\vskip 10pt
+  
+  
+  {\bf\large Model 1: C++ Code Snippets}\\[-10pt]
+  \begin{center}
+    \small
+    \begin{tabular}{p{2.8in}p{0.1in}p{2.8in}}
+      \begin{minipage}{2.8in}
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+          linenos,
+          firstnumber=12
+        ]{cpp}
+/* Data for multiple rectangles */        
+const int MAX_RECTANGLES = 100;
+int rectX[MAX_RECTANGLES];
+int rectY[MAX_RECTANGLES];
+int rectWidth[MAX_RECTANGLES];
+int rectHeight[MAX_RECTANGLES];
+        \end{minted}      
+      \end{minipage}
+      & &
+      \begin{minipage}{2.8in}
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+          linenos,
+          firstnumber=4
+        ]{cpp}        
+/* Functions to use with rectangles */        
+int getArea(int length, int width);
+int getPerimeter(int length, int width);
+void move(int &x, int &y, int dx, int dy);
+void draw(int x, int y, int wd, int ht);
+        \end{minted}      
+      \end{minipage}
+    \end{tabular}
+  \end{center}
+  \par\vskip 5pt
+  
+  {\it\large Refer to Model 1 above as your group develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+    
+  \begin{enumerate}
+    \itemsep 20pt
+    
+    \item The C++ code snippets above come from a program designed to
+      define and manipulate rectangles.  Answer the following questions
+      related to this code.
+      \begin{enumerate}[(a)]
+        \itemsep 10pt
+        \item Give C++ code to define a rectangle at the point
+          $(1,1)$ with a width of 3 and a height of 2 stored at index
+          0 in the arrays above.
+          \begin{solution}[1.5in]
+            \begin{minipage}{3in}
+              \begin{minted}[
+                frame=lines,
+                framesep=2mm,
+                bgcolor=gray!15,
+                baselinestretch=1.2,
+              ]{cpp}      
+rectX[0] = 1;
+rectY[0] = 1;
+rectWidth[0] = 3;
+rectHeight[0] = 2;
+              \end{minted}
+            \end{minipage}
+          \end{solution}
+        \item Write an appropriate function call for each task
+          described below. \par\vskip 20pt
+          \begin{enumerate}[i.]
+            \itemsep 15pt
+            \item Move your rectangle up 2 and over 1. \hfill
+              \fillin[{\mintinline{cpp}|move(rectX[0],rectY[0],1,2)|}][3in]
+            \item Compute the area of your rectangle. \hfill
+              \fillin[{\mintinline{cpp}|getArea(rectWidth[0],rectHeight[0])|}][3in]
+            \item Draw your rectangle \hfill
+              \fillin[{\mintinline{cpp}|draw(rectX[0],rectY[0],rectWidth[0],rectHeight[0])|}][3in]
+          \end{enumerate}
+        \item What would you have to change in order to make the
+          function calls above reference another rectangle stored at
+          index 1?
+          \begin{solution}[0.5in]
+            You would have to change all the array indexes to 1 in the
+            arguments.
+          \end{solution}
+      \end{enumerate}
+      \par\vskip -30pt\null
+
+    \item A complete version of the program can be found in the file 
+      {\tt activity01a.cpp}. Add to\key\\[-2.5mm] this code to complete the following
+      tasks.
+      
+      \begin{itemize}
+        \item Create a second rectangle at point $(2,5)$ with width 10
+          and height 8.
+        \item Move your second rectangle so that its point is at $(0,0)$.
+        \item Determine which of the two rectangles has a larger
+          perimeter (using C++ code).
+        \item Draw your second rectangle.
+      \end{itemize}
+      
+      Describe the most frustrating part of completing the tasks above.
+      
+      \begin{solution}[0.5in]
+        Answers will vary, but likely keeping track of all the
+        different arrays and their indexes will add frustration to
+        this process.
+      \end{solution}
+      
+    \item In programming, the term {\it abstraction} is used to
+      describe representing complex things simply.  For example, we
+      all know how to turn on a light switch even if we don't
+      understand how it actually works. Decide if each of the
+      following statements regarding this model is true or false.
+      \par\vskip 20pt
+      \begin{enumerate}[(a)]
+        \itemsep 8pt
+        \item \fillin[F][0.5in] We can define new rectangles without
+          knowing the details of how rectangles are stored.
+        \item \fillin[F][0.5in] We can compute the area or
+          perimeter of a rectangle without understanding the details.
+        \item \fillin[F][0.5in] We can draw or move a rectangle
+          without understanding the details.
+        \item \fillin[F][0.5in] If we needed to expand our program to 
+          define and manipulate circles, we could do so without 
+          renaming functions or confusing circle and rectangle code.
+      \end{enumerate}              
+      \par\vskip 10pt
+
+
+  {\bf\large Model 2: A Different Approach}\\[-30pt]
+  \begin{center}
+    \small
+    \begin{tabular}{p{2.8in}p{0.1in}p{2.7in}}
+      \begin{minipage}{2.8in}
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+          linenos,
+          firstnumber=4
+        ]{cpp}
+class Rectangle {
+  public:
+    int x;         // (x,y) coords 
+    int y;
+    int width;     // width (dx)
+    int height;    // height (dy)
+    int getArea();
+    int getPerimeter();
+    void move(int dx, int dy);
+    void draw();
+};
+        \end{minted}
+      \end{minipage}
+      & &
+      \begin{minipage}{2.7in}
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+          linenos,
+          firstnumber=18
+        ]{cpp}    
+/* Data for multiple rectangles */
+const int MAX_RECTANGLES = 100;
+Rectangle myRects[MAX_RECTANGLES];
+
+/* create rectangle at point (1,1) */
+myRects[0].x = 1;
+myRects[0].y = 1;
+myRects[0].width = 2;
+myRects[0].height = 3;
+
+/* move this rectangle up 2 and over 1 */
+myRects[0].move(1,2);
+        \end{minted}
+      \end{minipage}
+    \end{tabular}
+  \end{center}
+  
+  {\it\large Refer to Model 2 above as your group develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+    
+      \item The code for this model can be found in {\tt
+        activity01b.cpp}.  Use it to help you complete the 
+        following table, filling in the equivalent code 
+        in each model.
+        \vskip -30pt\ \
+        \begin{center}
+          \renewcommand{\arraystretch}{2}
+          \begin{tabular}{|p{2.9in}|p{2.9in}|}
+            \hline
+            \rowcolor{orange!20}\multicolumn{1}{|c|}{\bf Model 1} & \multicolumn{1}{|c|}{\bf Model 2}\\
+            \hline
+            \begin{minipage}{2.9in}
+              \ifprintanswers
+                \small
+                \begin{minted}[
+                  frame=lines,
+                  framesep=2mm,
+                  bgcolor=gray!15,
+                  baselinestretch=1,
+                ]{cpp}
+rectX[0] = 1;
+rectY[0] = 1;
+rectWidth[0] = 2;
+rectHeight[0] = 3;
+                \end{minted}
+              \fi
+            \end{minipage}
+            &
+            \begin{minipage}{2.9in}
+              \small
+              \begin{minted}[
+                frame=lines,
+                framesep=2mm,
+                bgcolor=gray!15,
+                baselinestretch=1,
+              ]{cpp}
+// define a new rectangle              
+myRects[0].x = 1;
+myRects[0].y = 1;
+myRects[0].width = 2;
+myRects[0].height = 3;
+              \end{minted}
+            \end{minipage}
+            \\
+            \hline
+            \begin{minipage}{2.9in}
+              \small
+              \begin{minted}[
+                frame=lines,
+                framesep=2mm,
+                bgcolor=gray!15,
+                baselinestretch=1,
+              ]{cpp}
+// draw the 3rd rectangle
+draw(rectX[2],rectY[2],
+     rectWidth[2],rectHeight[2]);
+              \end{minted}
+            \end{minipage}
+            &
+            \begin{minipage}{2.9in}
+              \ifprintanswers
+                \small
+                \begin{minted}[
+                  frame=lines,
+                  framesep=2mm,
+                  bgcolor=gray!15,
+                  baselinestretch=1,
+                ]{cpp}
+myRects[2].draw();                
+                \end{minted}
+              \fi
+            \end{minipage}
+            \\
+            \hline
+            \begin{minipage}{3in}
+              \ifprintanswers
+              \small
+              \begin{minted}[
+                frame=lines,
+                framesep=2mm,
+                bgcolor=gray!15,
+                baselinestretch=1,
+              ]{cpp}
+if (getArea(rectWidth[0],rectHeight[0]) >
+    getArea(rectWidth[1],rectHeight[1]) {
+  cout << "First rectangle has more area";
+}
+              \end{minted}
+              \fi
+            \end{minipage}
+            &
+            \begin{minipage}{2.9in}
+              \small
+              \begin{minted}[
+                frame=lines,
+                framesep=2mm,
+                bgcolor=gray!15,
+                baselinestretch=1,
+              ]{cpp}
+// compare rectangle areas
+if (
+  myRect[0].getArea() > myRect[1].getArea()
+) {
+  cout << "First rectangle has more area";
+}
+              \end{minted}            
+            \end{minipage}
+            \\
+            \hline
+            \begin{minipage}{2.9in}
+              \small
+              \begin{minted}[
+                frame=lines,
+                framesep=2mm,
+                bgcolor=gray!15,
+                baselinestretch=1,
+              ]{cpp}
+/* error moving x from rectangle 0
+  and y form rectangle 1           */
+move( rectX[0], rectY[1], 3, 5);
+              \end{minted}            
+            \end{minipage}
+            &
+            \begin{minipage}{3in}
+              \ifprintanswers
+              Not possible in this model
+              \fi
+            \end{minipage}
+            \\
+            \hline
+          \end{tabular}
+        \end{center}
+        \par\vskip 10pt
+      
+        
+      \item Now decide if each of the following statements is true or
+        false for model 2.
+        \par\vskip 10pt
+        \begin{enumerate}[(a)]
+          \itemsep 8pt
+          \item \fillin[F][0.5in] We can define new rectangles without
+            knowing the details of how rectangles are stored.
+          \item \fillin[T][0.5in] We can compute the area or
+            perimeter of a rectangle without understanding the details.
+          \item \fillin[T][0.5in] We can draw or move a rectangle
+            without understanding the details.
+          \item \fillin[T][0.5in] If we needed to expand our program to 
+            define and manipulate circles, we could do so without
+            renaming functions or confusing circle and rectangle code.
+        \end{enumerate}
+        \par\vskip -30pt\null
+        
+      \item Describe at least opne advantage of the approach in
+        model 2 over that seen in model 1.\key
+        \begin{solution}[0.5in]
+           Answers will vary.
+        \end{solution}
+        
+      \item Suppose we wish to ensure that other programmers never set
+        rectangle widths and heights to be negative. Can this be done in
+        either model?  Explain.
+        \begin{solution}[0.5in]
+          No, any part of the program can access the width and height
+          directly.
+        \end{solution}
+ 
+\newpage 
+
+  {\bf\large Model 3: Revising Our Approach} \\[-20pt]
+  \begin{center}
+    \small
+    \begin{minipage}{4in}
+      \begin{minted}[
+        frame=lines,
+        framesep=2mm,
+        bgcolor=gray!15,
+        baselinestretch=1.2,
+        linenos,
+        firstnumber=4
+      ]{cpp}
+class Rectangle {
+  public:
+    bool init(int xVal, int yVal, int wVal, int hVal);
+    int getArea();
+    int getPerimeter();
+    void move(int dx, int dy);
+    void draw();
+  private:
+    int x;       // (x,y) coords of bottom left corner
+    int y;
+    int width;   // width (dx) and height (dy)
+    int height;
+};
+      \end{minted}
+    \end{minipage}
+  \end{center}
+  
+  {\it\large Refer to Model 3 above as your group develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+
+    \item Formulate a hypothesis about what each of the lines from the model mentioned below is for.
+      \par\vskip 20pt
+      
+      \begin{enumerate}[(a)]
+        \itemsep 15pt
+        \item Line 5:  \hfill \fillin[Says anything on lines 3-7 can be used anywhere][5.25in]
+        \item Line 11: \hfill \fillin[Says anything on lines 9-12 can only be used by member functions][5.25in]
+        \item Line 6:  \hfill \fillin[Allows us to initialize the private variables][5.25in]
+      \end{enumerate}
+      
+    \item The full conde for this model can be found in {\tt activity01c.cpp}.  Make the
+      following changes to this code (resetting after each change) and describe what 
+      happens.
+      
+      \begin{enumerate}[(a)]
+        \item On line 24, add the code \mintinline{cpp}|myRects[0].x = 5;| and compile.
+          \begin{solution}[0.75in]
+            A compile error is generated because the variable Rectangle::x is private (so it
+            can not be changed directly).
+          \end{solution}
+        \item Change line 26 to use the function call \mintinline{cpp}|myRects[0].init(1,1,-5,3)|.
+          \begin{solution}[0.75in]
+            The program compiles, but says that an invalid rectangle was given.
+          \end{solution}
+      \end{enumerate}
+      
+    \item We've previously seen that global variables should be avoided.  Similarly, when
+      defininig classes, we should protect the variables in the class by making them private.
+      This practice is called {\it encapsulation}.  Give at least one reason why
+      encapsulation is a desirable feature in a program.
+      \begin{solution}[0.5in]
+        It allows us to check the integrety of our data.
+      \end{solution}
+
+    \item Functions that belong to a class are called {\it member functions}. How 
+      are member functions defined?
+      \begin{solution}[0.5in]
+        Member functions are defined using \mintinline{cpp}|className::functionName(...)|.
+      \end{solution}
+
+    \item We've previously asked about expanding our program to define and manipulate
+      circles.  Assuming that a circle is defined by a center $(x,y)$ point and a non-negative 
+      radius, complete the following.
+      \begin{enumerate}[(a)]
+        \item Give a definition of a class for circles.  Try to use abstraction and
+          encapsulation as\key\\[-2.5mm] much as possible.
+          \begin{solution}[1.75in]
+            \begin{center}
+              \small
+              \begin{minipage}{4in}
+                \begin{minted}[
+                  frame=lines,
+                  framesep=2mm,
+                  bgcolor=gray!15,
+                  baselinestretch=1,
+                ]{cpp}
+class Circle {
+  public:
+    bool init(int xVal, int yVal, int rVal);
+    int getArea();
+    int getCircumference();
+    void move(int dx, int dy);
+    void draw();
+  private:
+    int x;       // (x,y) coords of bottom left corner
+    int y;
+    int radius; 
+};
+                \end{minted}
+              \end{minipage}
+            \end{center}
+          \end{solution}
+        \item Add code to the {\tt main} program to define a circle at the point $(-2,1)$
+          with radius 3.
+          \begin{solution}[1.25in]
+            \begin{center}
+              \small
+              \begin{minipage}{4in}
+                \begin{minted}[
+                  frame=lines,
+                  framesep=2mm,
+                  bgcolor=gray!15,
+                  baselinestretch=1,
+                ]{cpp}
+Circle myCirc;
+myCirc.init(-2,1,3);
+                \end{minted}
+              \end{minipage}
+            \end{center}
+          \end{solution}
+        \item Add member functions to compute the area ($\pi r^2$) and circumference
+          ($2\pi r$) of a circle.
+          \begin{solution}[1.25in]
+            \begin{center}
+              \small
+              \begin{minipage}{4in}
+                \begin{minted}[
+                  frame=lines,
+                  framesep=2mm,
+                  bgcolor=gray!15,
+                  baselinestretch=1,
+                ]{cpp}
+Circle::getArea() { return 3.14159*radius*radius; }
+Circle::getCircumference() { return 2*3.14159*radius; }
+                \end{minted}
+              \end{minipage}
+            \end{center}
+          \end{solution}
+        \item Write code to compare the areas of the circle you defined and the rectangle
+          defined in the program and indicate which is bigger.
+          \begin{solution}[1.25in]
+            \begin{center}
+              \small
+              \begin{minipage}{4in}
+                \begin{minted}[
+                  frame=lines,
+                  framesep=2mm,
+                  bgcolor=gray!15,
+                  baselinestretch=1,
+                ]{cpp}
+if( myCirc.getArea() > myRects[0].getArea() ) {
+  cout << "The circle is bigger" << endl;
+} else if( myCirc.getArea() < myRects[0].getArea() ) {
+  cout << "The rectangle is bigger" << endl;
+} else {
+  cout << "They are equal" << endl;
+}
+                \end{minted}
+              \end{minipage}
+            \end{center}
+          \end{solution}
+      \end{enumerate}
+
+  \end{enumerate}
+  
+  
+    
+\end{document}

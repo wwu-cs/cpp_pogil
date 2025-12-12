@@ -1,0 +1,534 @@
+\documentclass{exam}
+%\documentclass[answers]{exam}
+\hbadness=99999
+\usepackage[total={6.5in,9in}]{geometry}
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+%\usepackage{pgfplots}
+\usepackage{multicol}
+
+% for syntax highlighting
+\usepackage{minted}
+\usemintedstyle[cpp]{xcode}
+
+% for overlay of output
+\usepackage[overlay,showboxes]{textpos}
+
+\pagestyle{plain}
+
+\setlength\columnsep{50pt}
+\newcommand{\key}{\hfill
+      \raisebox{-.3\height}{\includegraphics[width=0.6in]{figures/key.png}}}
+
+\begin{document}
+  \thispagestyle{empty}
+  \setlength{\parindent}{0pt}
+
+  \begin{center}
+    \Large Activity \#2: Constructors and Overloading \\[5pt]
+    \large Recorder's Report\\[20pt]
+    \normalsize
+    \begin{tabular}{lrp{0.1in}lr}
+      Manager:  & \fillin[][2.0in] & & Presenter: & \fillin[][2.0in]\\[15pt]
+      Recorder: & \fillin[][2.0in] & & Driver:    & \fillin[][2.0in]\\[15pt]
+      Date:     & \fillin[][2.0in] & & Score:     & Satisfactory \hspace{10pt} /
+      \hspace{10pt} Not Satisfactory
+    \end{tabular}
+  \end{center}
+  \par\vskip 15pt
+  
+  Record your group's answers to the key questions (marked with
+  \raisebox{-.3\height}{\includegraphics[width=0.5in]{figures/key.png}})
+  below.
+  \begin{enumerate}[(a)]
+    \itemsep 1.75in
+    \item Model 1, Question \#4
+    \item Model 2, Question \#12
+    \item Model 3, Question \#15
+  \end{enumerate}
+
+  \clearpage\pagenumbering{arabic} 
+  
+  \begin{center}
+    \Large Activity \#2: Constructors and Overloading \\[5pt]
+    \large Activity Guide\\[20pt]
+  \end{center}
+
+  \begin{center}
+    \fbox{
+      \begin{minipage}{5.5in}
+        {\bf Learning Objectives:} Students will be able to:
+        \begin{itemize}
+          \item Content:\\[-20pt]
+            \begin{itemize}
+              \itemsep 0pt
+              \item Explain how constructors are defined and called 
+              \item Explain how the implicit parameter {\tt this}
+                functions in C++
+              \item Explain what it means to overload an operator in
+                the context of a class
+            \end{itemize}
+          \item Process\\[-20pt]
+            \begin{itemize}
+              \itemsep 0pt
+              \item Write constructors for a given class
+              \item Write operator methods for a given class\\[-5pt]
+            \end{itemize}
+        \end{itemize}
+      \end{minipage}
+      }
+  \end{center}
+  \par\vskip 10pt
+  
+  
+  {\bf\large Model 1: A C++ Class for a $2\times 2$ Matrix}\\[-10pt]
+  \begin{center}
+    \small
+    \begin{tabular}{p{2.8in}p{0.1in}p{2.8in}}
+      \begin{minipage}{2.8in}
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+          linenos,
+          firstnumber=5
+        ]{cpp}
+class Matrix {
+  public:
+    Matrix();
+    void setValues(int,int,int,int);
+    void print();
+    int getTrace();
+    int getDeterminant();
+  private:
+    int a,b,c,d; // Entries in | a b |
+                 // matrix     | c d |
+};
+        \end{minted}      
+      \end{minipage}
+      & &
+      \begin{minipage}{2.8in}
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+          linenos,
+          firstnumber=17
+        ]{cpp}        
+Matrix::Matrix() {
+  a = 1;  b = 0;
+  c = 0;  d = 1;
+}
+
+int main() {
+  Matrix A,B;
+  A.setValues(2,2,2,2);
+  A.print();
+  B.print();
+}
+        \end{minted}      
+      \end{minipage}
+    \end{tabular}
+  \end{center}
+  \par\vskip 5pt
+  
+  {\it\large Refer to Model 1 above as your group develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+    
+  \begin{enumerate}
+    \itemsep 20pt
+    
+    \item The C++ code snippets above define a class for a $2 \times 2$
+      matrix of integers and given an example main program.  Recall
+      that a $2\times 2$ matrix is a grid of two rows and two columns.
+      Write the matrix that corresponds to the given values for {\tt
+      a}, {\tt b}, {\tt c}, and {\tt d} below.  The first one is done
+      for you.
+      \begin{enumerate}[(a)]
+        \itemsep 10pt
+        \begin{multicols}{2}
+          \item \mintinline{cpp}|a=1, b=2, c=3, d=4|\par
+            \ifprintanswers\else\vskip 0.15in\fi\null
+            \begin{minipage}{2.75in}
+              \[ \begin{vmatrix} 1 & 2 \\ 3 & 4 \end{vmatrix} \]
+            \end{minipage}
+            \ifprintanswers\else\vskip 0.15in\fi\null
+          \item \mintinline{cpp}|a=1, b=1, c=1, d=1|\par
+            \begin{minipage}{2.75in}
+              \begin{solution}[0.75in]
+                \[ \begin{vmatrix} 1 & 1 \\ 1 & 1 \end{vmatrix} \]
+              \end{solution}
+            \end{minipage}                        
+          \item \mintinline{cpp}|a=0, b=1, c=1, d=0|\par
+            \begin{minipage}{2.75in}
+              \begin{solution}[0.75in]
+                \[ \begin{vmatrix} 0 & 1 \\ 1 & 0 \end{vmatrix} \]
+              \end{solution}
+            \end{minipage}                        
+          \item \mintinline{cpp}|a=1, b=0, c=0, d=1|\par
+            \begin{minipage}{2.75in}
+              \begin{solution}[0.75in]
+                \[ \begin{vmatrix} 1 & 0 \\ 0 & 1 \end{vmatrix} \]
+              \end{solution}
+            \end{minipage}                        
+        \end{multicols}
+      \end{enumerate}
+
+\newpage
+
+    \item Without running any code, predict the output produced by the
+      following statements in the {\tt main} program of this model.
+      
+      \begin{enumerate}[(a)]
+        \itemsep 10pt
+        \begin{multicols}{2}
+          \item \mintinline{cpp}|A.print();| on line 25\par
+            \begin{minipage}{2.75in}
+              \begin{solution}[0.75in]
+                \[ \begin{vmatrix} 2 & 2 \\ 2 & 2 \end{vmatrix} \]
+              \end{solution}
+            \end{minipage}                        
+          \item \mintinline{cpp}|B.print();| on line 26\par
+            \begin{minipage}{2.75in}
+              \begin{solution}[0.75in]
+                \[ \begin{vmatrix} 1 & 0 \\ 0 & 1 \end{vmatrix} \]
+              \end{solution}
+            \end{minipage}  
+        \end{multicols}
+      \end{enumerate}
+      
+    \item The complete code for this model can be found in 
+      {\tt activity02a.cpp}.  Run the code.  Were your predictions
+      accurate?
+      \begin{solution}[0.5in]
+        Answers will vary.
+      \end{solution}
+      
+    \item The method \mintinline{cpp}|B.setValues()| was never called
+      in this code.  Explain how the values of the \key\\[-2.5mm] entries
+      for matrix {\tt B} were initialized.
+      \begin{solution}[1in]
+        They were initialied by the method
+        \mintinline{cpp}|Matrix::Matrix()| dfeind on lines 17-20.
+      \end{solution}
+      
+      
+    \item A {\it constructor} for a class is a method that is called
+      automatically when a new object variable of the class is created.
+      Perform the following tasks to help determine how a constructor 
+      is defined in C++.
+      \par\vskip 20pt
+      \begin{enumerate}[(a)]
+        \itemsep 10pt
+        \item Change the name of the method {\tt Matrix()} to {\tt
+          matrix()} (with a lower case `m') on lines 7 and 17 of the
+          model.  What happens when you compile the program?
+          \begin{solution}[0.75in]
+            The program fails to compile and gives an error message
+            that {\tt matrix} has no type.
+          \end{solution}
+        \item Add the appropriate function type on lines 7 and 17 so
+          that the program compiles.  Run it several times and observe
+          how the output different from the original model.
+          \begin{solution}[0.75in]
+            After adding a {\tt void} to the function {\tt matrix} the
+            program compiles, but the contents of matrix {\tt B} are
+            not random integers.
+          \end{solution}
+        \item Based on your observations above, how does C++ determine
+          if an object method is a constructor?
+          \begin{solution}[0.75in]
+            If the name matches the class name exactly.
+          \end{solution}
+      \end{enumerate}              
+      \par\vskip 10pt
+
+
+  {\bf\large Model 2: More Constructor Options}\\[-10pt]
+  \begin{center}
+    \small
+    \begin{minipage}{4.5in}
+      \begin{minted}[
+        frame=lines,
+        framesep=2mm,
+        bgcolor=gray!15,
+        baselinestretch=1.2,
+        linenos,
+        firstnumber=22
+      ]{cpp}
+int main() {
+  Matrix Z(0);       // create a matrix of all zeros
+  cout << "Z = ";
+  Z.print();
+  
+  Matrix I;          // create identity matrix [ [1,0], [0,1] ]
+  cout << "I = ";
+  I.print();
+  
+  Matrix A(1,2,3,4); // create matrix [ [1,2], [3,4] ]
+  cout << "A = ";
+  A.print();  
+}  
+      \end{minted}
+    \end{minipage}
+  \end{center}
+  
+  {\it\large Refer to Model 2 above as your group develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+    
+      \item Based on the model (with comments) above, what output would 
+        you expect this program to produce?
+        \begin{solution}[0.75in]
+          \[ 
+            Z = \begin{vmatrix} 0 & 0 \\ 0 & 0 \end{vmatrix}
+            \qquad
+            I = \begin{vmatrix} 1 & 0 \\ 0 & 1 \end{vmatrix}
+            \qquad
+            A = \begin{vmatrix} 1 & 2 \\ 3 & 4 \end{vmatrix}
+          \]
+        \end{solution}
+        
+      \item The file {\tt activity02b.cpp} contains the same class
+        definition and methods as in model 1, but with the {\tt main}
+        program above.  Try compiling the program and explain the
+        errors you see.
+        \begin{solution}[0.75in]
+          The errors indicate that there are no matching functions for:
+          \begin{itemize}
+            \item \mintinline{cpp}|Matrix::Matrix(int)|
+            \item \mintinline{cpp}|Matrix::Matrix(int,int,int,int)|
+          \end{itemize}
+        \end{solution}
+        
+      \item Thinking back to what you learned about functions in CPTR 141
+        (or some other prerequisite class), answer the following
+        questions.
+        \begin{enumerate}[(a)]
+          \item What does it mean to {\it overload} a function name?
+            \begin{solution}[0.5in]
+              It means to give several different functions the same
+              name, but distinguish them by the number and/or type of
+              parameters they have.              
+            \end{solution}
+          \item What is the {\it signature} of a function?
+            \begin{solution}[0.5in]
+              It is the name and list of parameter types of the function.
+            \end{solution}
+          \item Based on the error messages you saw above, what are the 
+            signatures for the missing constructors in this model?
+            \begin{solution}[0.5in]
+              They are:
+              \begin{itemize}
+                \begin{multicols}{2}
+                  \item \mintinline{cpp}|Matrix::Matrix(int)|
+                  \item \mintinline{cpp}|Matrix::Matrix(int,int,int,int)|
+                \end{multicols}
+              \end{itemize}
+            \end{solution}
+        \end{enumerate}
+        
+        
+      \item Suppose we wish to {\it overload} the constructor for this
+        class to allow for initializing all matrix entries to a single
+        value (as seen on line 23 of this model). We can accomplish
+        this by adding the following prototype to the public portion of the
+        {\tt Matrix} class.
+        \begin{center}
+          \mintinline{cpp}|Matrix(int);|
+        \end{center}
+        Add this prototype to the class in {\tt activity02b.cpp} and
+        then define it simliarly to how the original constructor was
+        defined on lines 17-20 of the first model.  Hint: comment out
+        appropriate lines in the {\tt main} program so that you can test your code.
+        \begin{solution}[1.25in]
+          \begin{minipage}{3in}
+            \begin{minted}[
+              frame=lines,
+              framesep=2mm,
+              bgcolor=gray!15,
+              baselinestretch=1.2,
+              linenos,
+              firstnumber=4
+            ]{cpp}
+Matrix::Matrix(int x) {
+  a = x;
+  b = x;
+  c = x;
+  d = x;
+}
+            \end{minted}
+          \end{minipage}
+        \end{solution}
+        
+      \item Give a method prototype for the constructor needed to
+        initialize matrix $A$ in this model.  Where should you put
+        this prototype?
+        \begin{solution}[0.5in]
+          An example prototype is \mintinline{cpp}|{Matrix(int, int,
+          int, int);| and it should be added to the public portion of
+          the class declaration.
+        \end{solution}
+
+      \item Fill in the definition of this constructor below.
+        \begin{center}
+          \begin{minipage}{4.5in}
+            \mintinline{cpp}|Matrix::Matrix(int a, int b, int c, int d) { |\par
+            \begin{solution}[1in]
+              \mintinline{cpp}|a = a;  // this won't work, should be this->a = a|\\
+              \mintinline{cpp}|b = b;  // this won't work, should be this->b = b|\\
+              \mintinline{cpp}|c = c;  // this won't work, should be this->c = c|\\
+              \mintinline{cpp}|d = d;  // this won't work, should be this->d = d|\\
+            \end{solution}
+            \mintinline{cpp}|}|
+          \end{minipage}
+        \end{center}
+        \par\vskip -30pt\null
+        
+      \item Add this constructor to the code in {\tt activity02b.cpp}
+        and then compile and run the \key\\[-2.5mm] code (uncommenting lines if
+        {\tt main} if needed). Does it work as expected?
+        \begin{solution}[0.5in]
+          Probably not.  See the comments above and the question below.
+        \end{solution}
+        
+      \item In the example above, the parameter names ({\tt a}, 
+        {\tt b}, {\tt c}, and {\tt d}) {\it shadow} the data members
+        of the same name.  You can still access the class data members
+        using the {\it implicit parameter} {\tt this} to indicate that
+        you want the data members of the class.  For example, one line
+        of your definition above might be:
+        \begin{center}
+          \mintinline{cpp}|this->a = a;|
+        \end{center}
+        Adjust your definition to use {\tt this} so that the
+        constructor works as expected.
+    
+ 
+\newpage 
+
+  {\bf\large Model 3: Adding Matrices} \\[-10pt]
+  \begin{center}
+    \small
+    \begin{tabular}{p{2.8in}p{0.1in}p{2.8in}}
+      \begin{minipage}{2.8in}
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+          linenos,
+          firstnumber=5
+        ]{cpp}
+class Matrix {
+  public:
+    Matrix();
+    Matrix(int);
+    Matrix(int,int,int,int);
+    void setValues(int,int,int,int);
+    void print();
+    int getTrace();
+    int getDeterminant();
+    Matrix operator+(Matrix);
+  private:
+    int a,b,c,d; // Entries in | a b |
+                 // matrix     | c d |
+};
+        \end{minted}      
+      \end{minipage}
+      & &
+      \begin{minipage}{2.8in}
+        \begin{minted}[
+          frame=lines,
+          framesep=2mm,
+          bgcolor=gray!15,
+          baselinestretch=1.2,
+          linenos,
+          firstnumber=39
+        ]{cpp}        
+Matrix Matrix::operator+(Matrix rhs) {
+  Matrix Sum;
+  Sum.a = a + rhs.a;
+  Sum.b = b + rhs.b;
+  Sum.c = c + rhs.c;
+  Sum.d = d + rhs.d;  
+  return Sum;
+}
+
+int main() {
+  Matrix A(2),B(1,2,3,4);
+  Matrix C = A + B;
+  C.print();
+}
+        \end{minted}      
+      \end{minipage}
+    \end{tabular}
+  \end{center}
+  \par\vskip 5pt
+  
+  {\it\large Refer to Model 3 above as your group develops consensus answers
+    to the questions below.}
+    \par\vskip 10pt
+
+    \item Recall that matrices are added together by adding their corresponding
+      entries.  So, for example:
+      \[
+        \begin{vmatrix} 2 & 5 \\ 1 & 3 \end{vmatrix}
+        +
+        \begin{vmatrix} 1 & 3 \\ 0 & 1 \end{vmatrix}
+        =
+        \begin{vmatrix} 3 & 8 \\ 1 & 4 \end{vmatrix}
+      \]
+      \vskip 5pt
+      Use this same notation to express the matrix sum computed by
+      the {\tt main} program in this model.
+      \begin{solution}[0.5in]
+      \end{solution}
+      \vskip -30pt\null
+      
+    \item Since we defined the {\tt Matrix} class ourself, we have to tell C++ how
+      to add two matrices\key\\[-2.8mm] together with the {\tt +} operator.  This
+      is called {\it operator overloading}.  Find the lines in the model above 
+      where each of the following is accomplished.
+      \par\vskip 15pt
+      
+      \begin{enumerate}[(a)]
+        \itemsep 15pt
+        \item Adding a prototype function for the addition operation:
+          \hfill\fillin[Line 14][2in]
+        \item Defining how two {\tt Matrix} objects are added together:
+          \hfill\fillin[Lines 39-46][2in]
+        \item Adding together the two top-right entries in the matrices:
+          \hfill\fillin[Line 42][2in]
+        \item Adding together the two bottom-left entries in the matrices:
+          \hfill\fillin[Line 43][2in]
+      \end{enumerate}
+      
+    \item A mathematical definition of matrix multiplication is given below.
+      Using {\tt activity02c.cpp}, overload the {\tt *} operator to allow you
+      to multiply two {\tt Matrix} objects together using the command 
+      \mintinline{cpp}{C = A * B;}.
+      \vskip 0pt
+      \[
+        \begin{vmatrix} a_1 & b_1 \\ c_1 & d_1 \end{vmatrix}
+        *
+        \begin{vmatrix} a_2 & b_2 \\ c_2 & d_2 \end{vmatrix}
+        =
+        \begin{vmatrix} 
+          a_1*a_2 + b_1 * c_2 & a_1*b_2 + b_1*d_2 \\
+          c_1*a_2 + d_1*c_2 & c_1*b_2+d_1*d_2 
+        \end{vmatrix}
+      \]
+
+  \end{enumerate}
+  
+  
+    
+\end{document}
