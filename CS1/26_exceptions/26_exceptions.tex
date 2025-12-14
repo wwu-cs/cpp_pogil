@@ -339,7 +339,7 @@ double newT[6];
 for(int i=0; i<6; i++) {
   try {           
     newT[i] = tc.convertTemp(t[i],u[i],"F");
-  } catch (logic_error &excpt) {
+  } catch (logic_error &except) {
     newT[i] = NAN;
   }
 }
@@ -367,8 +367,8 @@ while(true) {
     cin >> u;
     newT = tc.convertTemp(t,u,"F");
   }
-  catch (logic_error &excpt) {
-    cout << excpt.what() << endl;
+  catch (logic_error &except) {
+    cout << except.what() << endl;
     continue;
   }
   break;

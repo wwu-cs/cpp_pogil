@@ -1,0 +1,138 @@
+\model{Revising Our Approach}
+  \begin{center}
+    \small
+    \begin{minipage}{4in}
+      \begin{cpplst}
+class Rectangle {
+  public:
+    bool init(int xVal, int yVal, int wVal, int hVal);
+    int getArea();
+    int getPerimeter();
+    void move(int dx, int dy);
+    void draw();
+  private:
+    int x;       // (x,y) coords of bottom left corner
+    int y;
+    int width;   // width (dx) and height (dy)
+    int height;
+};
+      \end{cpplst}
+    \end{minipage}
+  \end{center}
+  
+  {\it\large Refer to Model \M above as your group develops consensus answers
+    to the questions below.}
+
+  \Q Formulate a hypothesis about what each of the lines from the model mentioned below is for.    
+    \begin{enumerate}
+      \itemsep 10pt
+      \item Line 2:  \hfill \ans[5.25in]{Says anything on lines 3-7 can be used anywhere}
+      \item Line 8: \hfill \ans[5.25in]{Says anything on lines 9-12 can only be used by member functions}
+      \item Line 3:  \hfill \ans[5.25in]{Allows us to initialize the private variables}
+    \end{enumerate}
+    
+  \Q The full code for this model can be found in {\tt activity01c.cpp}.  Make the
+    following changes to this code (resetting after each change) and describe what 
+    happens.
+    \begin{enumerate}
+      \item On line 24, add the code \cpp{myRects[0].x = 5;} and compile.
+        \begin{answer}[0.75in]
+          A compile error is generated because the variable Rectangle::x is private (so it
+          can not be changed directly).
+        \end{answer}
+
+      \item Change line 26 to use the function call \cpp{myRects[0].init(1,1,-5,3)}
+        \begin{answer}[0.75in]
+          The program compiles, but says that an invalid rectangle was given.
+        \end{answer}
+    \end{enumerate}
+    
+  \Q We've previously seen that global variables should be avoided.  Similarly, when
+    defininig classes, we should protect the variables in the class by making them private.
+    This practice is called {\it encapsulation}.  Give at least one reason why
+    encapsulation is a desirable feature in a program.
+    \begin{answer}[0.5in]
+      It allows us to check the integrity of our data.
+    \end{answer}
+
+  \Q Functions that belong to a class are called {\it member functions}. How 
+    are member functions defined?
+    \begin{answer}[0.5in]
+      Member functions are defined using \cpp{className::functionName(...)}
+    \end{answer}
+
+  \Q We've previously asked about expanding our program to define and manipulate
+    circles.  Assuming that a circle is defined by a center $(x,y)$ point and a non-negative 
+    radius, complete the following.
+    \begin{enumerate}
+      \item Give a definition of a class for circles.  Try to use abstraction and
+        encapsulation as\key\\[-2.5mm] much as possible.
+        \begin{answer}[1.75in]
+          \begin{center}
+            \small
+            \begin{minipage}{4in}
+              \begin{cpplst}
+class Circle {
+  public:
+    bool init(int xVal, int yVal, int rVal);
+    int getArea();
+    int getCircumference();
+    void move(int dx, int dy);
+    void draw();
+  private:
+    int x;       // (x,y) coords of bottom left corner
+    int y;
+    int radius; 
+};
+              \end{cpplst}
+            \end{minipage}
+          \end{center}
+        \end{answer}
+
+  \Q Add code to the {\tt main} program to define a circle at the point $(-2,1)$
+    with radius 3.
+    \begin{answer}[1.25in]
+      \begin{center}
+        \small
+        \begin{minipage}{4in}
+          \begin{cpplst}
+Circle myCirc;
+myCirc.init(-2,1,3);
+          \end{cpplst}
+        \end{minipage}
+      \end{center}
+    \end{answer}
+
+      \item Add member functions to compute the area ($\pi r^2$) and circumference
+        ($2\pi r$) of a circle.
+        \begin{answer}[1.25in]
+          \begin{center}
+            \small
+            \begin{minipage}{4in}
+              \begin{cpplst}
+Circle::getArea() { return 3.14159*radius*radius; }
+Circle::getCircumference() { return 2*3.14159*radius; }
+              \end{cpplst}
+            \end{minipage}
+          \end{center}
+        \end{answer}
+
+      \item Write code to compare the areas of the circle you defined and the rectangle
+        defined in the program and indicate which is bigger.
+        \begin{answer}[1.25in]
+          \begin{center}
+            \small
+            \begin{minipage}{4in}
+              \begin{cpplst}
+if( myCirc.getArea() > myRects[0].getArea() ) {
+  cout << "The circle is bigger" << endl;
+} else if( myCirc.getArea() < myRects[0].getArea() ) {
+  cout << "The rectangle is bigger" << endl;
+} else {
+  cout << "They are equal" << endl;
+}
+              \end{cpplst}
+            \end{minipage}
+          \end{center}
+        \end{answer}
+      \end{enumerate}

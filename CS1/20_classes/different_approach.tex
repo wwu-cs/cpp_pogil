@@ -1,0 +1,175 @@
+\model{A Different Approach}
+  \begin{center}
+    \small
+    \begin{tabular}{p{2.8in}p{0.1in}p{3.2in}}
+      \begin{minipage}{2.8in}
+        \fs
+        \begin{cpplst}
+class Rectangle {
+  public:
+    int x;         // (x,y) coords 
+    int y;
+    int width;     // width (dx)
+    int height;    // height (dy)
+    int getArea();
+    int getPerimeter();
+    void move(int dx, int dy);
+    void draw();
+};
+        \end{cpplst}
+      \end{minipage}
+      & &
+      \begin{minipage}{3.2in}
+        \fs
+        \begin{cpplst}  
+/* Data for multiple rectangles */
+const int MAX_RECTANGLES = 100;
+Rectangle myRects[MAX_RECTANGLES];
+
+/* create rectangle at point (1,1) */
+myRects[0].x = 1;
+myRects[0].y = 1;
+myRects[0].width = 2;
+myRects[0].height = 3;
+
+/* move this rectangle up 2 and over 1 */
+myRects[0].move(1,2);
+        \end{cpplst}
+      \end{minipage}
+    \end{tabular}
+  \end{center}
+  
+  {\it\large Refer to Model \M above as your group develops consensus answers
+    to the questions below.}
+
+  \quest{10 min}
+    
+  \Q The code for this model can be found in {\tt
+    activity01b.cpp}.  Use it to help you complete the 
+    following table, filling in the equivalent code 
+    in each model.
+    \begin{center}
+      \renewcommand{\arraystretch}{2}
+      \begin{tabular}{|p{2.9in}|p{2.9in}|}
+        \hline
+        \rowcolor{orange!20}\multicolumn{1}{|c|}{\bf Model 1} & \multicolumn{1}{|c|}{\bf Model 2}\\
+        \hline
+        \begin{minipage}{2.9in}
+          \begin{answer}[1.2in]
+            \small
+            \begin{cpplst}
+rectX[0] = 1;
+rectY[0] = 1;
+rectWidth[0] = 2;
+rectHeight[0] = 3;
+            \end{cpplst}
+          \end{answer}
+        \end{minipage}
+        &
+        \begin{minipage}{2.9in}
+          \small
+          \begin{cpplst}
+// define a new rectangle              
+myRects[0].x = 1;
+myRects[0].y = 1;
+myRects[0].width = 2;
+myRects[0].height = 3;
+          \end{cpplst}
+        \end{minipage}
+        \\
+        \hline
+        \begin{minipage}{2.9in}
+          \small
+          \begin{cpplst}
+// draw the 3rd rectangle
+draw(rectX[2],rectY[2],
+     rectWidth[2],rectHeight[2]);
+          \end{cpplst}
+        \end{minipage}
+        &
+        \begin{minipage}{2.9in}
+          \begin{answer}[1in]
+            \small
+            \begin{cpplst}
+myRects[2].draw();                
+            \end{cpplst}
+          \end{answer}
+        \end{minipage}
+        \\
+        \hline
+        \begin{minipage}{3in}
+          \begin{answer}[1.2in]
+            \small
+            \begin{cpplst}
+if (getArea(rectWidth[0],rectHeight[0]) >
+    getArea(rectWidth[1],rectHeight[1]) {
+  cout << "First rectangle has more area";
+}
+            \end{cpplst}
+          \end{answer}
+        \end{minipage}
+        &
+        \begin{minipage}{2.9in}
+          \scriptsize
+          \begin{cpplst}
+// compare rectangle areas
+if (
+  myRect[0].getArea() > myRect[1].getArea()
+) {
+  cout << "First rectangle has more area";
+}
+          \end{cpplst}            
+        \end{minipage}
+        \\
+        \hline
+        \begin{minipage}{2.9in}
+          \fs
+          \begin{cpplst}
+/* error moving x from rectangle 0
+  and y form rectangle 1           */
+move( rectX[0], rectY[1], 3, 5);
+          \end{cpplst}            
+        \end{minipage}
+        &
+        \begin{minipage}{3in}
+          \begin{answer}[0.5in]
+          Not possible in this model
+          \end{answer}
+        \end{minipage}
+        \\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \Q Now decide if each of the following statements is true or
+    false for model 2.
+    \begin{enumerate}
+      \itemsep 10pt
+      \item \ans[0.5in]{False} We can define new rectangles without
+        knowing the details of how rectangles are stored.
+
+      \item \ans[0.5in]{True} We can compute the area or
+        perimeter of a rectangle without understanding the details.
+
+      \item \ans[0.5in]{True} We can draw or move a rectangle
+        without understanding the details.
+
+      \item \ans[0.5in]{True} If we needed to expand our program to 
+        define and manipulate circles, we could do so without
+        renaming functions or confusing circle and rectangle code.
+    \end{enumerate}
+    \par\vskip -30pt\null
+    
+  \Q Describe at least open advantage of the approach in
+    model 2 over that seen in\key\\[-2.5mm] model 1.
+    \begin{answer}[0.5in]
+       Answers will vary.
+    \end{answer}
+    
+  \Q Suppose we wish to ensure that other programmers never set
+    rectangle widths and heights to be negative. Can this be done in
+    either model?  Explain.
+    \begin{answer}[0.5in]
+      No, any part of the program can access the width and height
+      directly.
+    \end{answer}
