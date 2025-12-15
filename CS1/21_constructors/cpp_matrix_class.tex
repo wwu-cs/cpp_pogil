@@ -1,0 +1,162 @@
+\model{A C++ Class for a $2\times 2$ Matrix}
+  \begin{center}
+    \small
+    \begin{tabular}{p{2.8in}p{0.1in}p{2.8in}}
+      \begin{minipage}{2.8in}
+        \begin{cpplst}
+class Matrix {
+  public:
+    Matrix();
+    void setValues(int,int,int,int);
+    void print();
+    int getTrace();
+    int getDeterminant();
+  private:
+    int a,b,c,d; // Entries in | a b |
+                 // matrix     | c d |
+};
+        \end{cpplst}      
+      \end{minipage}
+      & &
+      \begin{minipage}{2.8in}
+        \begin{cpplst}      
+Matrix::Matrix() {
+  a = 1;  b = 0;
+  c = 0;  d = 1;
+}
+
+int main() {
+  Matrix A,B;
+  A.setValues(2,2,2,2);
+  A.print();
+  B.print();
+}
+        \end{cpplst}      
+      \end{minipage}
+    \end{tabular}
+  \end{center}
+  
+  {\it\large Refer to Model \M above as your group develops consensus answers
+    to the questions below.}
+
+  \quest{15 min}
+    
+  \Q The C++ code snippets above define a class for a $2 \times 2$
+    matrix of integers and given an example main program.  Recall
+    that a $2\times 2$ matrix is a grid of two rows and two columns.
+    Write the matrix that corresponds to the given values for {\tt
+    a}, {\tt b}, {\tt c}, and {\tt d} below.  The first one is done
+    for you.
+    \begin{enumerate}
+      \itemsep 10pt
+      \begin{multicols}{2}
+        \item \cpp{a=1, b=2, c=3, d=4}\par
+        \begin{minipage}{2.75in}
+          \begin{answer}[0.75in]
+            \begin{center}
+              \begin{vmatrix}
+                1 & 2 \\
+                3 & 4
+              \end{vmatrix}
+            \end{center}
+          \end{answer}
+        \end{minipage}
+
+        \item \cpp{a=1, b=1, c=1, d=1}\par
+          \begin{minipage}{2.75in}
+            \begin{answer}[0.75in]
+              \begin{center}
+                \begin{vmatrix} 1 & 1 \\ 1 & 1 \end{vmatrix}
+              \end{center}
+            \end{answer}
+          \end{minipage}   
+
+        \item \cpp{a=0, b=1, c=1, d=0}\par
+          \begin{minipage}{2.75in}
+            \begin{answer}[0.75in]
+              \begin{center}
+                \begin{vmatrix} 0 & 1 \\ 1 & 0 \end{vmatrix}
+              \end{center}
+            \end{answer}
+          \end{minipage}  
+
+        \item \cpp{a=1, b=0, c=0, d=1}\par
+          \begin{minipage}{2.75in}
+            \begin{answer}[0.75in]
+              \begin{center}
+                \begin{vmatrix} 1 & 0 \\ 0 & 1 \end{vmatrix}
+              \end{center}
+            \end{answer}
+          \end{minipage}                        
+      \end{multicols}
+    \end{enumerate}
+
+  \Q Without running any code, predict the output produced by the
+    following statements in the {\tt main} program of this model.
+    \begin{enumerate}
+      \itemsep 10pt
+      \begin{multicols}{2}
+        \item \cpp{A.print();} on line 29\par
+          \begin{minipage}{2.75in}
+            \begin{answer}[0.5in]
+              \begin{center}
+                \begin{vmatrix} 2 & 2 \\ 2 & 2 \end{vmatrix}
+              \end{center}
+            \end{answer}
+          \end{minipage}  
+
+        \item \cpp{B.print();} on line 30\par
+          \begin{minipage}{2.75in}
+            \begin{answer}[0.5in]
+              \begin{center}
+                \begin{vmatrix} 1 & 0 \\ 0 & 1 \end{vmatrix}
+              \end{center}
+            \end{answer}
+          \end{minipage}  
+      \end{multicols}
+    \end{enumerate}
+    
+  \Q The complete code for this model can be found in 
+    {\tt activity21a.cpp}.  Run the code.  Were your predictions
+    accurate?
+    \begin{answer}[0.5in]
+      Answers will vary.
+    \end{answer}
+    
+  \Q The method \cpp{B.setValues()} was never called
+    in this code.  Explain how the values\key\\[-2.5mm] of the entries
+    for matrix {\tt B} were initialized.
+    \begin{answer}[1in]
+      They were initialized by the method
+      \cpp{Matrix::Matrix()} defined on lines 19-24.
+    \end{answer}
+
+  \Q A {\it constructor} for a class is a method that is called
+    automatically when a new object variable of the class is created.
+    Perform the following tasks to help determine how a constructor 
+    is defined in C++.
+    \begin{enumerate}
+      \itemsep 10pt
+      \item Change the name of the method {\tt Matrix()} to {\tt
+        matrix()} (with a lower case `m') on lines 8 and 19 of the
+        model.  What happens when you compile the program?
+        \begin{answer}[0.5in]
+          The program fails to compile and gives an error message
+          that {\tt matrix} has no type.
+        \end{answer}
+
+      \item Add the appropriate function type on lines 8 and 19 so
+        that the program compiles.  Run it several times and observe
+        how the output different from the original model.
+        \begin{answer}[0.5in]
+          After adding a {\tt void} to the function {\tt matrix} the
+          program compiles, but the contents of matrix {\tt B} are
+          not random integers.
+        \end{answer}
+
+      \item Based on your observations above, how does C++ determine
+        if an object method is a constructor?
+        \begin{answer}[0.5in]
+          If the name matches the class name exactly.
+        \end{answer}
+    \end{enumerate}

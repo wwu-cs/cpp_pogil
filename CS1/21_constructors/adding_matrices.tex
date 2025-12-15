@@ -1,0 +1,101 @@
+\model{Adding Matrices}
+  \begin{center}
+    \small
+    \begin{tabular}{p{2.8in}p{0.1in}p{2.8in}}
+      \begin{minipage}{2.8in}
+        \begin{cpplst}
+class Matrix {
+  public:
+    Matrix();
+    Matrix(int);
+    Matrix(int,int,int,int);
+    void setValues(int,int,int,int);
+    void print();
+    int getTrace();
+    int getDeterminant();
+    Matrix operator+(Matrix);
+  private:
+    int a,b,c,d; // Entries in | a b |
+                 // matrix     | c d |
+};
+        \end{cpplst}      
+      \end{minipage}
+      & &
+      \begin{minipage}{2.8in}
+        \begin{cpplst}       
+Matrix Matrix::operator+(Matrix rhs) {
+  Matrix Sum;
+  Sum.a = a + rhs.a;
+  Sum.b = b + rhs.b;
+  Sum.c = c + rhs.c;
+  Sum.d = d + rhs.d;  
+  return Sum;
+}
+
+int main() {
+  Matrix A(2),B(1,2,3,4);
+  Matrix C = A + B;
+  C.print();
+}
+        \end{cpplst}      
+      \end{minipage}
+    \end{tabular}
+  \end{center}
+  
+  {\it\large Refer to Model \M above as your group develops consensus answers
+    to the questions below.}
+
+  \quest{20 min}
+
+  \Q Recall that matrices are added together by adding their corresponding
+    entries.  So, for example:
+    \[
+      \begin{vmatrix} 2 & 5 \\ 1 & 3 \end{vmatrix}
+      +
+      \begin{vmatrix} 1 & 3 \\ 0 & 1 \end{vmatrix}
+      =
+      \begin{vmatrix} 3 & 8 \\ 1 & 4 \end{vmatrix}
+    \]
+    \vskip 5pt
+    Use this same notation to express the matrix sum computed by
+    the {\tt main} program in this model.
+    \begin{answer}[0.5in]
+    \end{answer}
+    \vskip -30pt\null
+    
+  \Q Since we defined the {\tt Matrix} class ourself, we have to tell C++ how
+    to add two\key\\[-2.8mm] matrices together with the {\tt +} operator.  This
+    is called {\it operator overloading}.  Find the lines in the model above 
+    where each of the following is accomplished.
+    \begin{enumerate}
+      \itemsep 10pt
+      \item Adding a prototype function for the addition operation:
+        \hfill\ans[2in]{Line 15}
+
+      \item Defining how two {\tt Matrix} objects are added together:
+        \hfill\ans[2in]{Lines 43-50}
+
+      \item Adding together the two top-right entries in the matrices:
+        \hfill\ans[2in]{Line 46}
+
+      \item Adding together the two bottom-left entries in the matrices:
+        \hfill\ans[2in]{Line 47}
+    \end{enumerate}
+
+  \newpage
+    
+  \Q A mathematical definition of matrix multiplication is given below.
+    Using {\tt activity21c.cpp}, overload the {\tt *} operator to allow you
+    to multiply two {\tt Matrix} objects together using the command 
+    \cpp{C = A * B;}.
+    \vskip 0pt
+    \[
+      \begin{vmatrix} a_1 & b_1 \\ c_1 & d_1 \end{vmatrix}
+      *
+      \begin{vmatrix} a_2 & b_2 \\ c_2 & d_2 \end{vmatrix}
+      =
+      \begin{vmatrix} 
+        a_1*a_2 + b_1 * c_2 & a_1*b_2 + b_1*d_2 \\
+        c_1*a_2 + d_1*c_2 & c_1*b_2+d_1*d_2 
+      \end{vmatrix}
+    \]
