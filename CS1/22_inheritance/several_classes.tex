@@ -1,0 +1,179 @@
+\model{Several Classes from an University Information System}
+  \begin{center}
+    \scriptsize
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{p{1.8in}p{1.8in}p{1.8in}}
+      \begin{minipage}{1.7in}
+        \begin{tabular}{|l|}
+          \hline
+          \rowcolor{orange!20} Address \\
+          \hline
+          \rowcolor{white}
+          \begin{minipage}{\textwidth}
+            \vskip 2pt\null\tt
+            -number:string\\
+            -street:string\\
+            -city:string\\
+            -state:string\\
+            -zip:int\\
+          \end{minipage} \\
+          \hline
+          \begin{minipage}{\textwidth}
+            \vskip 2pt\null\tt
+            +getNumber():string\\
+            +setNumber(num:string):void\\
+          \end{minipage} \\[-6pt]
+          \hfill $\vdots$\\
+          \hline
+        \end{tabular}
+      \end{minipage}
+      & 
+      \begin{minipage}{1.7in}
+        \begin{tabular}{|l|}
+          \hline
+          \rowcolor{orange!20}Person \\
+          \hline
+          \rowcolor{white}
+          \begin{minipage}{\textwidth}
+            \vskip 2pt\null\tt
+            -name:string\\
+            -addr:Address\\
+            -phone:string\\
+          \end{minipage} \\
+          \hline
+          \begin{minipage}{\textwidth}
+            \vskip 2pt\null\tt
+            +setName(name:string):void\\
+            +getName():string\\
+            +setAddress(a:Address):void\\
+            +getAddress():Address\\
+          \end{minipage} \\[-6pt]
+          \hfill $\vdots$\\
+          \hline
+        \end{tabular}
+      \end{minipage}
+      &
+      \begin{minipage}{1.7in}
+        \begin{tabular}{|l|}
+          \hline
+          \rowcolor{orange!20}Student (extends Person) \\
+          \hline
+          \rowcolor{white}
+          \begin{minipage}{\textwidth}
+            \vskip 2pt\null\tt
+            -classStanding:string\\
+            -studentID:string\\
+            -GPA:float\\
+          \end{minipage} \\
+          \hline
+          \begin{minipage}{\textwidth}
+            \vskip 2pt\null\tt
+            +setClass(class:string):void\\
+            +getClass():string\\
+            +setStudentID(id:string):void\\
+            +getStudentID():string\\
+          \end{minipage} \\[-6pt]
+          \hfill $\vdots$\\
+          \hline
+        \end{tabular}
+      \end{minipage}
+    \end{tabular}
+  \end{center}
+  
+  {\it\large Refer to Model 1 above as your team develops consensus answers
+    to the questions below.}
+
+  \quest{10 min}
+    
+  \Q Large programs often contain many different classes.  These classes will
+    frequently be related to each other through ``has-a''
+    relationship, where one class has a data member that is itself
+    an object of another class.  Another less-common relationship is
+    an ``is a'' relationship, where one class is a more general
+    class, while the second is a more specialized version of the
+    original class.
+    \par\vskip 10pt
+    
+    \begin{enumerate}
+      \item Which class is used as a data member type inside another class?
+        \begin{answer}[0.5in]
+          The {\tt Address} class is used as a variable type inside
+          the {\tt Person} class.
+        \end{answer}
+
+      \item Is this an example of a ``has-a'' or an ``is-a''
+        relationship?  Explain.
+        \begin{answer}[0.75in]
+          It is a ``has-a'' relationship because the Person class
+          has a variable that is an Address object.
+        \end{answer}
+
+      \item Which two classes have an ``is-a'' relationship?  Explain.
+        \begin{answer}[0.75in]
+          The {\tt Person} and {\tt Student} classes have an
+          ``is-a'' relationship because every Student is a Person.
+        \end{answer}
+
+      \item Of the classes indicated above, which is the more
+        general and which is the more specialized?
+        \begin{answer}[0.5in]
+          The {\tt Person} class is more general and the {\tt
+          Student} class is more specialized.
+        \end{answer}
+
+      \item Would the member functions shown for the more general class be
+        appropriate in the specialized class as well?  Explain.
+        \begin{answer}[0.75in]
+          Yes -- every student still has a name, address, and phone
+          number that can be manipulated.            
+        \end{answer}
+
+      \item Give an example not shown in the model of a member function that
+        might appear in the specialized class but not in the more
+        general class.
+        \begin{answer}[0.75in]
+          Answers vary, but examples might include things like
+          {\tt getAdvisor()} or {\tt isOnHonorRoll()}. 
+        \end{answer}
+    \end{enumerate}
+
+  \vskip -20pt
+    
+  \Q Explain why the relationship between {\tt Person} and {\tt
+    Address} is not an ``is-a'' relationship.
+    \begin{answer}[0.75in]
+      A Person is not an address, but a person has an address.
+    \end{answer}
+
+  \Q As a group, come up with another example of a ``has-a''
+    relationship.  Fill in the information below about your example.
+    \begin{enumerate}
+      \itemsep 10pt
+      \item What class is used as a variable inside the other?
+        \hfill \ans[3in]{Color, Name, Circle}
+      \item What class is the variable inside of?
+        \hfill \ans[3in]{Pen, Animal, Drawing}
+      \item Fill in the blanks below to describe the relationship
+        between your two classes.\par\vskip 10pt
+        \begin{center}
+          \it Every \ans[2in]{Pen} has a(n) \ans[2in]{Color}
+        \end{center}
+    \end{enumerate}
+  
+  \vskip -30pt
+  \Q As a group, come up with another example of an ``is-a''
+    relationship.  Fill in the\key\\[-2.5mm] information below about your example.      
+    \par\vskip 10pt
+    
+    \begin{enumerate}
+      \itemsep 10pt
+      \item What class is the more general class?
+        \hfill \ans[3in]{Cat, Pen}
+      \item What class is the specialized class?
+        \hfill \ans[3in]{Animal, Writing Implement}
+      \item Fill in the blanks below to describe the relationship
+        between your two classes.\par\vskip 10pt
+        \begin{center}
+          \it Every \ans[2in]{Cat} is a(n) \ans[2in]{Animal}
+        \end{center}
+    \end{enumerate}
