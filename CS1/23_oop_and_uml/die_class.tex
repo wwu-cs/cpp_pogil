@@ -1,0 +1,142 @@
+\model{The Die Class}
+  \begin{center}
+    \footnotesize
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{p{1.5in}p{2.5in}p{0.8in}}
+      \begin{minipage}{1.5in}
+        \begin{tabular}{|l|}
+          \hline
+          \rowcolor{orange!20}\multicolumn{1}{|c|}{\bf Die}\\
+          \hline
+          \rowcolor{white} \tt -face: int\\
+          \hline
+          \tt +Die()\\
+          \tt +getFace(): int\\
+          \tt +roll(): int\\
+          \hline
+        \end{tabular}
+      \end{minipage}
+      & 
+      \begin{minipage}{2.5in}
+        \begin{cpplst}
+class Die {
+  public:
+    Die() { this->face = 1; }
+    int getFace() const {
+      return this->face;
+    }
+    int roll() {
+      this->face = rand() % 6 + 1;
+      return this->face;
+    }
+  private:
+    int face;
+};
+        \end{cpplst}   
+      \end{minipage}
+      &
+      \begin{minipage}{0.8in}
+        \centering
+        \includegraphics[width=1in]{../../figures/dice.png}
+      \end{minipage}
+    \end{tabular}
+  \end{center}
+
+  {\it\large Refer to Model 1 above as your team develops consensus answers
+    to the questions below.}
+
+  \quest{20 min}
+
+  \Q In the {\it Unified Modeling Language} (UML), a class diagram
+    (on the left in our model) provides a way of graphically 
+    illustrating a class's design, independent of programming language.
+    \begin{enumerate}
+      \item What are the attributes of {\tt Die} and what are its
+        methods?
+        \begin{answer}[1in]
+          The only attribute is {\tt face} and the methods are {\tt
+          Die}, {\tt roll}, and {\tt getFace}.
+        \end{answer}
+
+      \item How are attributes and methods distinguished in the
+        class diagram?
+        \begin{answer}[1in]
+          The attributes are in the first block of the diagram below
+          the title.  The methods are in the second block after the
+          attributes.
+        \end{answer}
+    \end{enumerate}
+
+  \vskip -20pt
+
+  \Q Notice that several special symbols are used in the class
+    diagram.  Compare the diagram with the given C++ implementation
+    of the class to help you answer the following questions.
+    \begin{enumerate}
+      \item In the class diagram, what do the ``{\tt -}'' and
+        ``{\tt +}'' symbols represent?
+        \begin{answer}[0.75in]
+          The plus means that the attribute or method is public.
+          The minus means it is private. 
+        \end{answer}
+
+      \item What does the ``{\tt :}'' represent?
+        \begin{answer}[0.75in]
+          The colon refers to the data type.
+        \end{answer}
+    \end{enumerate}
+
+  \vskip -20pt
+
+  \Q The file {\tt activity23a.cpp} contains the class from this
+    model along with an example {\tt main} program that utilizes it.    
+    \begin{enumerate}
+      \item What would you change to make this a 5-sided die?        
+        \begin{answer}[0.75in]
+          You would change the code on line 12 to read
+          \begin{center}
+            \cpp{this->face = rand() \% 5 + 1;}
+          \end{center}
+        \end{answer}
+
+      \item How would you change the class diagram to reflect this
+        change in the code?
+        \begin{answer}[0.75in]
+          You would not change it at all.
+        \end{answer}
+    \end{enumerate}
+    \vskip -40pt\null
+
+  \Q Suppose you wanted to generalize this class so that it could
+    represent a die with any\key\\[-2.5mm] number of sides, set by the constructor.  
+    \begin{enumerate}
+      \item What new attribute(s) and/or method(s) would you need to add?
+        \begin{answer}[0.75in]
+          We would need to add an attribute for {\tt numFaces}.
+        \end{answer}
+
+      \item What methods would you need to alter?
+        \begin{answer}[0.75in]
+          We would need to alter the constructor to set the number
+          of faces, and we would need to change the {\tt roll} method
+          to use the number of faces in computing a random value.
+        \end{answer}
+
+      \item What would the class diagram look like after these changes?
+        \begin{answer}[0.75in]
+          \begin{center}
+            \begin{tabular}{|l|}
+              \hline
+              \rowcolor{orange!20}\multicolumn{1}{|c|}{\bf Die}\\
+              \hline
+              \rowcolor{white} \tt -face: int\\
+              \tt -numFaces: int\\
+              \hline
+              \tt +Die(numFaces: int)\\
+              \tt +getFace(): int\\
+              \tt +roll(): int\\
+              \hline
+            \end{tabular}
+          \end{center}
+        \end{answer}
+    \end{enumerate}

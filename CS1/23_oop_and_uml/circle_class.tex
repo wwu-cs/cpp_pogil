@@ -1,0 +1,98 @@
+\model{A Circle Class}
+  \begin{center}
+    \begin{tabular}{c c c}
+      \begin{minipage}{2.5in}
+        \begin{tabular}{|l|}
+          \hline
+          \rowcolor{orange!20}\multicolumn{1}{|c|}{\bf Point}\\
+          \hline
+          \rowcolor{white} \tt -xPos: double\\
+          \rowcolor{white} \tt -yPos: double\\
+          \hline
+          \tt +Point(): Point\\
+          \tt +getX(): double\\
+          \tt +getY(): double\\
+          \tt +setX(x: double): void\\
+          \tt +setY(y: double): void\\
+          \hline
+        \end{tabular}
+      \end{minipage}
+      &
+      <-------------------
+      &
+      \begin{minipage}{2in}
+        \begin{tabular}{|l|}
+          \hline
+          \rowcolor{orange!20}\multicolumn{1}{|c|}{\bf Circle}\\
+          \hline
+          \rowcolor{white} \tt -radius: double\\
+          \hline
+          \tt +Circle(radius: double)\\
+          \tt +getRadius(): double\\
+          \tt +setRadius(radius: double)\\
+          \tt +area(): double\\
+          \tt +circumference(): double\\
+          \hline
+        \end{tabular}
+      \end{minipage}
+    \end{tabular}
+  \end{center}  
+  
+  {\it\large Refer to Model 2 above as your team develops consensus answers
+    to the questions below.}
+
+  \quest{15 min}
+    
+  \Q What are the attributes and methods of {\tt Circle}, and what
+    is their visibility?
+    \begin{answer}[0.5in]
+      The attributes and methods are:
+        Attribute {\tt radius} is private
+        Methods {\tt Circle}, {\tt area}, {\tt circumference},
+          {\tt getRadius}, and {\tt setRadius} are all public.
+    \end{answer}
+    
+  \Q Based on this model and the previous one, what parts of a
+    class are typically private, and what parts are typically public?
+    \begin{answer}[0.5in]
+      The attributes are typically private and the methods are
+      typically public.
+    \end{answer}
+          
+  \Q What does the arrow pointing from the {\tt Circle} class
+    diagram to the {\tt Point} class diagram represent?
+    \begin{answer}[0.75in]
+      It represents the ``is-a'' relationship whereby {\tt Circle} inherits
+      the properties of {\tt Point}.
+    \end{answer}
+    
+  \Q The file {\tt activity04b.cpp} contains an implementation of
+    the {\tt Point} class.  Write  an\key\\[-2.5mm] implementation of the {\tt
+    Circle} class that matches this diagram.
+    \begin{answer}[0.8in]
+      \scriptsize
+      \begin{minipage}{3in}
+        \begin{cpplst}
+class Circle : public Point {
+  public:
+    Circle(double radius) {
+      this->radius = radius;
+    }
+    double getRadius() const {
+      return this->radius;
+    }
+    void setRadius(double radius) {
+      this->radius = radius;
+    }
+    double area() const {
+      return 3.14159 * radius * radius;
+    }
+    }double circumference() const {
+      return 2 * 3.14159 * radius;
+    }
+  private:
+    double radius;
+};
+        \end{cpplst}
+      \end{minipage}
+    \end{answer}
