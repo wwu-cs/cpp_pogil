@@ -1,0 +1,128 @@
+\model{Handling Errors in Temperature Conversion}
+  \begin{center}
+    \scriptsize
+    \begin{tabular}{p{2.95in}p{0.1in}p{2.95in}}
+      \begin{minipage}{2.95in}
+        \begin{cpplst}
+TempConvert tc;
+
+double t[6] = {20,-30,170,25,-12,14 };
+string u[6] = {"C","C","K","F","K","C"};
+double newT[6];
+
+for(int i=0; i<6; i++) {
+  try {           
+    newT[i] = tc.convertTemp(t[i],u[i],"F");
+  } catch (logic_error &except) {
+    newT[i] = NAN;
+  }
+}
+        \end{cpplst}
+        \centering Use Case \#1
+      \end{minipage}
+      & &
+      \begin{minipage}{2.85in}
+        \begin{cpplst}
+TempConvert tc;
+double t, newT;
+string u;
+while(true) {
+  try {
+    cout << "Temp to Convert: ";
+    cin >> t;
+    cout << "Units: ";
+    cin >> u;
+    newT = tc.convertTemp(t,u,"F");
+  }
+  catch (logic_error &except) {
+    cout << except.what() << endl;
+    continue;
+  }
+  break;
+}
+        \end{cpplst}
+      \end{minipage}
+      \centering Use Case \#2
+    \end{tabular}
+  \end{center}
+  
+  {\it\large Refer to Model 3 above as your group develops consensus answers
+    to the questions below.}
+
+  \quest{15 min}
+    
+  \Q The model above shows two different use cases for our
+    temperature conversion class.  Answer the following general
+    questions about these use cases.
+    \begin{enumerate}        
+      \item What new keywords are used to handle the exceptions that
+        were {\it thrown} in the class?
+        \begin{answer}[0.5in]
+          The new keywords used are {\tt try} and {\tt catch}.
+        \end{answer}
+
+      \item When is the code in the \cpp{try} block run?
+        \begin{answer}[0.75in]
+          When the program execution enters the {\tt try} block, the code within
+          the block is executed normally until either it completes or an
+          exception is thrown.
+        \end{answer}
+
+      \item When is the code in the \cpp{catch} block run?
+        \begin{answer}[0.75in]
+          The code in the {\tt catch} block is executed only if an exception
+          is thrown within the corresponding {\tt try} block.
+        \end{answer}
+    \end{enumerate}
+
+  \newpage
+      
+  \Q The code for use case \#1 can be found in the file {\tt
+    activity26c.cpp}. Run it and\key\\[-2.5mm] answer the following questions.
+    \begin{enumerate}
+      \item What exception is thrown by the temperature conversion
+        class and why is it thrown?
+        \begin{answer}[0.75in]
+          The execption thrown is a {\tt logic\_error} when an invalid temperature
+          is provided for conversion, such as a negative value for Kelvin.
+        \end{answer}
+
+      \item How is this exception handled by the program?
+        \begin{answer}[0.75in]
+          The exception is caught in the {\tt catch} block, and the corresponding
+          converted temperature is set to {\tt NAN} (not a number) to indicate
+          that the conversion could not be performed.
+        \end{answer}
+
+      \item Why might this be a better way to handle the exception
+        than the C++ default technique?
+        \begin{answer}[0.75in]
+          This method allows the program to continue running and process
+          other temperature conversions even if one conversion fails,
+          rather than terminating the program abruptly.
+        \end{answer}
+    \end{enumerate}
+
+  \vskip -20pt
+      
+  \Q Modify the file {\tt activity26b.cpp} so that the main
+    program looks like the one in use case \#2 of our model.  Then
+    run it and answer the following questions.
+    \begin{enumerate}
+      \item Give appropriate user input to generate two different
+        types of exceptions.
+        \begin{answer}[0.5in]
+          Answers will vary
+        \end{answer}
+
+      \item How are these exceptions handled in this use case?
+        \begin{answer}[0.75in]
+          Answers will vary
+        \end{answer}
+
+      \item Why might this be a better way to handle the exceptions
+        than the C++ default technique?
+        \begin{answer}[0.75in]
+          Answers will vary
+        \end{answer}
+    \end{enumerate}
