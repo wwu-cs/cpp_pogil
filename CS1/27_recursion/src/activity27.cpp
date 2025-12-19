@@ -17,5 +17,5 @@ int factorial(int n) {
 int main() {
   cout << "Testing 5!" << endl;
   int ans = factorial(5);
-  cout << "5! = " << ans << endl;   
+  cout << "5! = " << ans << endl;
 }

@@ -23,7 +23,7 @@ public:
     } else
       throw invalid_argument("Conversion Not Implemented");
   }
-  
+
 private:
   double cToF(double c) {
     if (c < -273.15)
