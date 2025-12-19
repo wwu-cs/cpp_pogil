@@ -1,0 +1,114 @@
+\model{C++ Code Snippets}
+  \begin{center}
+    \small
+    \begin{tabular}{p{2.8in}p{0.1in}p{3.5in}}
+      \begin{minipage}{2.8in}
+        \begin{cpplst}
+/* Data for multiple rectangles */        
+const int MAX_RECTANGLES = 100;
+int rectX[MAX_RECTANGLES];
+int rectY[MAX_RECTANGLES];
+int rectWidth[MAX_RECTANGLES];
+int rectHeight[MAX_RECTANGLES];
+        \end{cpplst}      
+      \end{minipage}
+      & &
+      \begin{minipage}{3.5in}
+        \begin{cpplst}       
+/* Functions to use with rectangles */        
+int getArea(int length, int width);
+int getPerimeter(int length, int width);
+void move(int &x, int &y, int dx, int dy);
+void draw(int x, int y, int wd, int ht);
+        \end{cpplst}      
+      \end{minipage}
+    \end{tabular}
+  \end{center}
+  
+  {\it\large Refer to Model 1 above as your group develops consensus answers
+    to the questions below.}    
+
+  \quest{10 min}
+
+  \Q The C++ code snippets above come from a program designed to
+  define and manipulate rectangles.  Answer the following questions
+  related to this code.
+
+  \begin{enumerate}
+    \itemsep 10pt
+    \item Give C++ code to define a rectangle at the point
+      $(1,1)$ with a width of 3 and a height of 2 stored at index
+      0 in the arrays above.
+      \begin{answer}[1.5in]
+        \begin{minipage}{3in}
+          \begin{cpplst}    
+rectX[0] = 1;
+rectY[0] = 1;
+rectWidth[0] = 3;
+rectHeight[0] = 2;
+              \end{cpplst}
+            \end{minipage}
+          \end{answer}
+
+    \item Write an appropriate function call for each task
+      described below.
+      \begin{enumerate}
+        \itemsep 10pt
+        \item Move your rectangle up 2 and over 1. \hfill
+          \ans[3in]{\cpp{move(rectX[0], rectY[0], 1, 2)}}
+
+        \item Compute the area of your rectangle. \hfill
+          \ans[3in]{\cpp{getArea(rectWidth[0], rectHeight[0])}}
+
+        \item Draw your rectangle \hfill
+          \ans[3in]{\cpp{draw(rectX[0], rectY[0], rectWidth[0], rectHeight[0])}}
+      \end{enumerate}
+
+    \item What would you have to change in order to make the
+      function calls above reference another rectangle stored at
+      index 1?
+      \begin{answer}[0.5in]
+        You would have to change all the array indexes to 1 in the
+        arguments.
+      \end{answer}
+    \end{enumerate}
+
+  \newpage
+
+  \Q A complete version of the program can be found in the file 
+    {\tt activity20a.cpp}. Add\key\\[-2.5mm] to this code to complete the following
+    tasks.
+    \begin{itemize}
+      \item Create a second rectangle at point $(2,5)$ with width 10
+        and height 8.
+      \item Move your second rectangle so that its point is at $(0,0)$.
+      \item Determine which of the two rectangles has a larger
+        perimeter (using C++ code).
+      \item Draw your second rectangle.
+    \end{itemize}
+    
+    Describe the most frustrating part of completing the tasks above.
+    
+    \begin{answer}[0.5in]
+      Answers will vary, but likely keeping track of all the
+      different arrays and their indexes will add frustration to
+      this process.
+    \end{answer}
+    
+  \Q In programming, the term {\it abstraction} is used to
+    describe representing complex things simply.  For example, we
+    all know how to turn on a light switch even if we don't
+    understand how it actually works. Decide if each of the
+    following statements regarding this model is true or false.
+    \begin{enumerate}
+      \itemsep 10pt
+      \item \ans[0.5in]{False} We can define new rectangles without
+        knowing the details of how rectangles are stored.
+      \item \ans[0.5in]{False} We can compute the area or
+        perimeter of a rectangle without understanding the details.
+      \item \ans[0.5in]{False} We can draw or move a rectangle
+        without understanding the details.
+      \item \ans[0.5in]{False} If we needed to expand our program to 
+        define and manipulate circles, we could do so without 
+        renaming functions or confusing circle and rectangle code.
+    \end{enumerate}

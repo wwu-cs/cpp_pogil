@@ -1,0 +1,254 @@
+\model{Another ``Is-A'' Relationship}
+  \begin{center}
+    \small
+    \begin{tabular}{p{2.8in}p{0.1in}p{3.2in}}
+      \begin{minipage}{2.8in}
+        \begin{cpplst}
+// class for a deposit account
+//   at a bank
+class Account {
+  public:
+    Account(double balance);
+    void deposit(double amount);
+    virtual void withdraw(double amount);
+    double getBalance() const {
+      return balance;
+    };
+  private:
+    double balance = 0;
+};
+        \end{cpplst}      
+      \end{minipage}
+      & &
+      \begin{minipage}{3.2in}
+        \begin{cpplst}       
+// class for a savings account        
+class Savings : public Account {
+  public:
+    Savings(double balance, double rate);
+    void setRate(double rate);
+    void newMonth();
+    int getWithdrawals() const {
+      return numWithdrawals;
+    };   
+  private:
+    double rate;
+    int numWithdrawals;
+};
+        \end{cpplst}      
+      \end{minipage}
+    \end{tabular}
+  \end{center}
+  
+  {\it\large Refer to Model 2 above as your group develops consensus answers
+    to the questions below.}
+
+  \quest{25 min}
+    
+  \Q In C++ the more general class in an ``is-a'' relationship
+    is called the {\it base} class and the specific class is called
+    the {\it derived} class.  Answer the following questions about
+    the model above.
+    \begin{enumerate}
+      \itemsep 10pt
+      \item What is the name of the base class? 
+        \hfill \ans[3in]{\tt Account}
+
+      \item What is the name of the derived class?
+        \hfill \ans[3in]{\tt Savings}
+
+      \item In C++ class definitions, how is the ``is-a'' relationship indicated?
+        \begin{answer}[0.5in]
+          By a colon, the keyword public (for now), and the name
+          \cpp{class Savings : public Account}
+        \end{answer}
+    \end{enumerate}
+
+  \vskip -20pt
+    
+  \Q An important property of derived classes is that they 
+    {\it inherit} the properties of the base class.  Suppose 
+    that a new savings account was declared using the code:
+    \cpp{Savings myAccount(50,0.01)}.    
+    \begin{enumerate}
+      \item What data members does the object {\tt myAccount} have?
+        \begin{answer}[0.5in]
+          The members are: {\tt rate}, {\tt numWithdrawals}, and
+          {\tt balance}.
+        \end{answer}
+
+      \item In which class is each of these data members declared?
+        \begin{answer}[0.5in]
+          {\tt rate} and {\tt numWithdrawals} are declared in the
+          {\tt Savings} class and {\tt balance} is declared in the
+          {\tt Account} class.
+        \end{answer}
+
+      \item What member functions does the object {\tt myAccount} have?
+        \begin{answer}[0.5in]
+          The members functions are: {\tt deposit()}, {\tt
+          withdraw()}, {\tt getBalance()}, {\tt setRate()}, {\tt
+          newMonth()}, and {\tt getWithdrawals()}.
+        \end{answer}
+
+      \item Which of these are inherited from the base class?
+        \begin{answer}[0.5in]
+          The members functions {\tt deposit()}, {\tt
+          withdraw()}, and {\tt getBalance()} are inherited from
+          the {\tt Account} class.
+        \end{answer}
+      \end{enumerate}
+
+    \vskip -20pt
+      
+  \Q The file {\tt activity22.cpp} contains a preliminary
+    implementation of these two classes along with a sample {\tt main}
+    function.  Use it to answer the following questions.
+    \begin{enumerate}
+      \itemsep 10pt
+      \item Without attempting to compile the code, describe what
+        the member function {\tt Savings::newMonth()} on line 94 is
+        supposed to do.
+        \begin{answer}[0.75in]
+          It is supposed to set the number of withdrawals to 0 and
+          deposit the account balance times the interest rate into
+          the account (i.e. pay monthly interest).
+        \end{answer}
+
+      \item Now compile the code and describe what happens.
+        \begin{answer}[0.5in]
+          We get an error that says:
+          \begin{center}
+            \tt
+            `double Account::balance' is private within this context
+          \end{center}
+        \end{answer}
+
+      \item Replace {\tt this->balance} on line 85 with {\tt this->getBalance()}
+        Does this fix the problem? \ans[0.5in]{Yes}
+        \vskip -25pt\null
+        
+      \item Based on what you've observed in this question, does the
+        derived class {\tt Savings}\key\\[-2.5mm] have direct access to all
+        of the members that it inherits from the base {\tt Account} class?
+        Explain.
+        \begin{answer}[0.5in]
+          No, it only has access to the public members that it inherits.
+        \end{answer}
+    \end{enumerate}
+      
+  \newpage
+
+  \Q The function {\tt testAccount()} defined in {\tt activity22.cpp}
+    tests our implementation of these classes by depositing \$50 and
+    then attempting to make ten \$10 withdrawals.  
+    \begin{enumerate}
+      \itemsep 10pt
+      \item What are the results of running on this function on the
+        checking account with an initial balance of \$100, as
+        defined in the {\tt main} program?
+        \begin{answer}[0.75in]
+          It successfully deposits \$50, then makes the ten
+          withdrawals, leaving a final balance of \$50.
+        \end{answer}
+
+      \item What are the results of running this function twice in
+        successive months on the savings account with an initial 
+        balance of \$80, an interest rate of 1\%?
+        \begin{answer}[0.75in]
+          It successfully deposits \$50, then makes the ten
+          withdrawals, leaving a final balance of \$30 after the first
+          month.  Then \$0.53 interest is added, another \$50 is
+          deposited, and eight \$10 withdrawals are successfully
+          made.  The last two \$10 withdrawals fail because of
+          insufficient funds, leaving us with \$0.30 as a final
+          balance.
+        \end{answer}
+
+      \item What type is the {\tt testAccount} function's single parameter?
+        \hfill \ans[2in]{\tt Account\&}
+
+      \item What type is the argument passed to this function on line 52?
+        \hfill \ans[2in]{\tt Account}
+
+      \item What type is the argument passed to this function on line 55?
+        \hfill \ans[2in]{\tt Savings}
+
+      \item Why is this worth noting?
+        \begin{answer}[0.5in]
+          We used the same function for objects of the base and
+          derived class types.
+        \end{answer}          
+    \end{enumerate}
+
+  \vskip -20pt
+      
+  \Q In the United States, you are not allowed to make more than
+    six withdrawals from a savings account in one month. Based on
+    this new information, are any of the member functions that
+    {\tt Savings} inherits from {\tt Account} not quite appropriate?
+    Explain what is missing from these functions.
+    \begin{answer}[0.75in]
+      Yes.  The {\tt withdraw} function should impose this limit and
+      refuse to withdraw money if there have already been 6 withdraws
+      from the account.
+    \end{answer}
+
+  \newpage
+    
+  \Q We can {\it override} a member function from the base class
+    by defining a member function the same name, 
+    parameters, and return type in the derived class.
+    \begin{enumerate}
+      \item How is this different from {\it overloading} a function? \key
+        \begin{answer}[0.75in]
+          Overloading a function means that we define functions with
+          the same name, but different signatures.  When we override
+          a function, we use the same signature (and return type).
+        \end{answer}
+
+      \item Define a \cpp{bool Savings::withdraw(double balance)}
+        function that overrides the {\tt withdraw()} function from
+        the {\tt Account} class and does not allow more than 6 withdrawals.
+        Hint: You can use {\tt Account::withdraw()} to call the base class
+        {\tt withdraw()} from within your new definition.
+        \begin{answer}[1.5in]
+          \begin{minipage}{3in}
+            \begin{cpplst}
+bool Savings::withdraw(double amount) {
+  if(this->numWithdrawals < 6 && Account::withdraw(amount)) {
+    this->numWithdrawals++;
+    return true;
+  }
+  return false;
+}
+                      
+            \end{cpplst}
+          \end{minipage}
+        \end{answer}
+
+      \item What did you have to add to the declaration of the {\tt
+        Savings} class?
+        \begin{answer}[0.5in]
+          A declaration of the \mintinline{cpp}{bool withdraw(double)} function.
+        \end{answer}
+
+      \item Now run the program again.  How did the results of the
+        savings account test change?
+        \begin{answer}[1in]
+          Now we can only withdraw the first six \$10 amounts in the
+          first month leaving us with a balance of \$70.00 at the end
+          of that month.  The same thing happens in the second month,
+          leaving us with a final balance of \$60.70.
+        \end{answer}
+
+      \item What happens if you remove the keyword {\tt virtual}
+        from line 12?
+        \begin{answer}[0.5in]
+          The program goes back to functioning as before.  This is
+          because the function {\tt testAccount} calls the base
+          version of {\tt withdraw} since its parameter is of type
+          {\tt Account}.  We'll learn more about this notion of {\it
+          Polymorphism} in later class periods.
+        \end{answer}
+      \end{enumerate}

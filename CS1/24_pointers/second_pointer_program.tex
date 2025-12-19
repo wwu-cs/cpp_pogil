@@ -1,0 +1,167 @@
+\model{A Second Program with Pointers}
+  \begin{center}
+    \small
+    \begin{minipage}{4.5in}
+      \begin{cpplst}
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int numOne = 1892;
+  int numTwo = 1973;
+  int numThree = 2008;
+  int *numArray[3] = {&numOne, &numTwo, &numThree};
+  int *p;
+
+  p = &numOne;
+  cout << "Number: " << *p << endl;
+  p = &numTwo;
+  cout << "Number: " << *p << endl;
+  p = &numThree;
+  cout << "Number: " << *p << endl;
+}
+      \end{cpplst}
+    \end{minipage}
+  \end{center}
+  
+  {\it\large Refer to Model 2 above as your group develops consensus answers
+    to the questions below.}
+
+  \quest{20 min}
+    
+  \Q Without running any code, predict what the output of this
+    program will be.
+    \begin{answer}[0.75in]
+      Number: 1892
+      Number: 1973
+      Number: 2008
+    \end{answer}
+    
+  \Q The code for this model can be found in the file
+    {\tt activity24b.cpp}.  Run this code and see if your
+    predictions are correct.
+    \begin{answer}[0.25in]
+      Yes, the output matched the predictions.
+    \end{answer}
+
+  \newpage
+    
+  \Q When dealing with pointers in C++, the symbol {\tt *} is
+    called the {\it dereference operator}.  When it is placed in
+    front of a pointer variable, it retrieves the data to which
+    the pointer variable points.      
+    \begin{enumerate}
+      \item On which lines in the model above is the dereference
+        operator used?
+        \begin{answer}[1in]
+          Lines 13, 15, and 17
+        \end{answer}
+        \vskip -20pt\null
+
+      \item How would the output of this program change if the
+        dereference operator were \key\\[-2.5mm] removed from those lines?
+        \begin{answer}[1in]
+          The output would be memory addresses instead of the
+          integer values.
+        \end{answer}
+
+      \item How does C++ tell the difference between a {\tt *}
+        that is a dereference operator and a {\tt *} that indicates
+        multiplication (i.e. \mintinline{cpp}|int x = 2 * y;|)?
+        \begin{answer}[1in]
+          By context.  If it is in front of a variable name, it is
+          a dereference operator.  If it is between two values,
+          it is a multiplication operator.
+        \end{answer}
+    \end{enumerate}
+
+  \vskip -20pt
+
+  \Q The symbol {\tt \&} is called a {\it reference operator}.    
+    \begin{enumerate}        
+      \item On which lines in the model above is the reference
+        operator used?
+        \begin{answer}[1in]
+        Lines 12, 14, and 16.
+        \end{answer}
+       
+      \item In your own words, describe what the reference
+        operator does.
+        \begin{answer}[1in]
+          It returns the memory address (i.e. a reference) of the
+          variable to which it is prepended.
+        \end{answer}
+
+      \item Is this usage of symbol {\tt \&} related to its usage
+        to indicate ``pass-by-reference'' parameters in a function?
+        Explain.
+        \begin{answer}[1in]
+          Yes.  In both cases, it is used to refer to the memory
+          address of a variable rather than its data value.
+        \end{answer}
+
+      \item How would things changed if the reference operators 
+        were removed from lines 12, 14, and 16 of the model?
+        \begin{answer}[1in]
+          The code would not compile because the pointer variable
+          {\tt p} would be assigned integer values rather than
+          memory addresses.
+        \end{answer}
+      \end{enumerate}
+
+    \vskip -20pt
+      
+  \Q Consider the array {\tt numArray} defined in this model.
+    \par\vskip 10pt
+    \begin{enumerate}
+      \item What is the type of this array?
+        \begin{answer}[0.75in]
+          It is an array of integer pointers (i.e. {\tt int*}).
+        \end{answer}
+
+      \item Describe the elements that are stored in this array.
+        \begin{answer}[1in]
+          Each element is a pointer to an integer variable
+          ({\tt numOne}, {\tt numTwo}, and {\tt numThree}).
+        \end{answer}
+
+      \item Sketch a pointer diagram, similar to that seen in model 1,
+        that depicts the values\key\\[-2.5mm] and pointer relationships of all
+        five variables defined in model 2.
+        \begin{answer}[1.6in]
+          Answers will vary
+        \end{answer}
+    \end{enumerate}
+    
+  \Q Suppose a new variable was defined as follows:
+    \cpp{int** p2 = &numArray[1]}.
+    \begin{enumerate}
+      \item Describe both the type and purpose of the variable {\tt p2}.
+        \begin{answer}[1in]
+          It is a pointer to a pointer to an integer.  It
+          points to the second element of the {\tt numArray}
+          array, which is itself a pointer to the integer variable
+          {\tt numTwo}.
+        \end{answer}
+
+      \item What would be the output of each of the following commands?
+        \begin{enumerate}
+          \itemsep 10pt
+          \item \cpp{cout << p2 << endl;}
+            \hfill\ans[2.5in]{a memory address}
+
+          \item \cpp{cout << *p2 << endl;}
+            \hfill\ans[2.5in]{a memory address}
+
+          \item \cpp{cout << **p2 << endl;}
+            \hfill\ans[2.5in]{1973}
+        \end{enumerate}
+        
+      \item Sketch a pointer diagram depicting the relationship 
+        between the variable {\tt p2} and the rest of the
+        variables in this model.
+        \begin{answer}[1.25in]
+          Answers will vary
+        \end{answer}
+    \end{enumerate}

@@ -1,0 +1,95 @@
+\model{The Factorial Function}
+  \begin{center}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{c|cccccc}
+      $n$ & 0 & 1 & 2 & 3 & 4 & 5 \\
+      \hline
+      $n!$ & 1 & 1 & 2 & 6 & 24 & 120 \\
+    \end{tabular}
+  \end{center}
+  
+  {\it\large Refer to Model 1 above as your team develops consensus answers
+    to the questions below.}
+
+  \quest{15 min}
+
+  \Q In mathematics, the {\it factorial} function for a natural
+    number $n$ is denoted by $n!$.  It is the product of all positive
+    integers less than or equal to $n$.  For example:
+    \[
+      5! = 5\times 4 \times 3 \times 2 \times 1 = 120
+    \]
+    Consider how to calculate $4!$.
+    \begin{enumerate}
+      \item Write out all of the numbers that need to be multiplied
+        to get $4!$.
+        \begin{answer}[0.5in]
+          \[ 4! = 4\times 3\times 2\times 1 \]
+        \end{answer}
+
+      \item Rewrite the expression using $3!$ instead of $3\times
+        2\times 1$.
+        \begin{answer}[0.5in]
+          \[ 4! = 4\times 3! \]            
+        \end{answer}
+    \end{enumerate}
+    \par\vskip -40pt\null
+    
+  \Q Express the factorials as a product of a single
+    natural number with a simpler factorial\key\\[-2mm].
+    \begin{enumerate}
+      \itemsep 10pt
+      \begin{multicols}{2}
+        \item $3! =$ \hspace{0.3in} \ans[2in]{$3 \times 2!$}
+        \item $2! =$ \hspace{0.3in} \ans[2in]{$2 \times 1!$}
+        \item $100! = $\hfill \ans[2in]{$100 \times 99!$}
+        \item $n! = $\hfill \ans[2in]{$n\times (n-1)!$}
+      \end{multicols}
+    \end{enumerate}
+    
+  \item Now consider the very first natural number, 0.
+    \begin{enumerate}
+      \item Based on the model, what is the value of
+        $0!$? \ans[1.5in]{1}\par\vskip 10pt
+
+      \item Does it make sense to define $0!$ in terms of a simpler
+        factorial?  Explain.        
+        \begin{answer}[0.5in]
+          No, we can't say that $0 \times -1! = 1$ because factorial
+          is only defined for non-negative numbers.
+        \end{answer}
+
+      \newpage
+
+      \item When we define the value of a function by
+        referencing that same function for a simpler value, we will
+        eventually reach a point where there are no simpler values
+        and we have to just give a concrete value to the function.
+        This is called a {\it base case}.  What is the base case for
+        the factorial function?
+        \begin{answer}[0.5in]
+          The base case is $0! = 1$.
+        \end{answer}
+    \end{enumerate}
+
+  \vskip -20pt
+    
+  \Q Suppose you already have a working implementation of the
+    function declared below.
+    \begin{center}
+      \cpp{int factorial(int n);}
+    \end{center}
+    \begin{enumerate}
+      \itemsep 10pt
+      \item How could you compute $100!$ without calling
+        \cpp{factorial(100)}?  Give a C++ command to do this.
+        \begin{answer}[0.5in]
+          \cpp{int result = 100 * factorial(99);}
+        \end{answer}
+
+      \item How could you compute $n!$ without calling
+        \cpp{factorial(n)}?  Give a C++ command to do this.
+        \begin{answer}[0.5in]
+          \cpp{int result = n * factorial(n-1);}
+        \end{answer}
+    \end{enumerate}

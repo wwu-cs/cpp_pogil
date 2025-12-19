@@ -1,0 +1,50 @@
+\model{A Credit Card}
+  \begin{center}
+    \includegraphics[height=1in]{../../figures/credit-card.png}   
+  \end{center}
+  
+  {\it\large Refer to Model 3 above as your team develops consensus answers
+    to the questions below.}    
+  
+  \quest{15 min}
+  
+  \Q List two or more attributes that would be necessary for a
+    class to model a {\tt CreditCard}.  Indicate what data types would
+    be most appropriate.
+    
+    \begin{answer}[0.5in]
+      Most likely we would want:
+        {\it number: long}
+        {\it expire: Date}
+        {\it name: String}
+        {\it CCV: int}
+    \end{answer}
+    
+  \Q When constructing or updating a {\tt CreditCard} objects, what
+    values would you need to check?  What are the valid ranges of each
+    attribute?
+    \begin{answer}[0.5in]
+        The number should have 16 digits.
+        Dates need to have valid months and years.
+        Names should be at most 22 letters long and not contain
+          non-alphabet characters.
+        CCV codes should be 3 or 4 digits long.
+    \end{answer}
+    \vskip -20pt\null
+    
+  \Q Draw a UML class diagram for your implementation of the 
+    {\tt CreditCard} class.\key\\[-2.5mm]
+    \begin{answer}[0.9in]
+      Answers will vary
+    \end{answer}
+    
+  \Q Many banks offer {\tt CashBack} credit cards which accumulate
+    a certain number of points for every dollar spent.  Other banks
+    offer {\tt TravelRewards} cards which accumulate miles on a
+    particular airline for every dollar spent.  Construct a UML diagram 
+    with appropriate attributes and methods showing classes for these
+    two types of cards and their relationship to the original {\tt
+    CreditCard} class you defined above.
+    \begin{answer}[0.9in]
+      Answers will vary
+    \end{answer}

@@ -1,0 +1,56 @@
+% Source: Unknown
+% File: ".pdf"
+% Access: Unknown
+
+% comment out for student version
+% \ifdefined\Student\relax\else\def\Teacher{}\fi
+
+\documentclass[12pt]{article}
+
+\title{Activity \#21: Constructors and Overloading}
+\author{Unknown}
+\newcommand{\activityeditor}{Preston Carman}
+\newcommand{\activitysource}{\url{}}
+\date{Spring 2022}
+
+\input{../../cspogil.sty}
+
+\begin{document}
+
+  \begin{center}
+    \maketitle
+    \rolenames
+  \end{center}
+
+  \keyquestions{
+    \item Model 1, Question \#4
+    \item Model 2, Question \#12
+    \item Model 3, Question \#15
+  }
+
+  \newpage
+  \maketitle
+
+  In this activity, you will work in teams of 3--4 students to learn new concepts.
+  This activity will introduce you to constructors and operator overloading in C++.
+
+  \guide{
+    \item Explain how constructors are defined and called 
+    \item Explain how the implicit parameter {\tt this}
+      functions in C++
+    \item Explain what it means to overload an operator in
+      the context of a class
+  }{
+    \item Write constructors for a given class
+    \item Write operator methods for a given class\\[-5pt]
+  }{
+  No additional notes.
+  }
+
+  \input{cpp_matrix_class.tex}
+  \newpage
+  \input{more_constructor_options.tex}
+  \newpage
+  \input{adding_matrices.tex}
+
+\end{document}
