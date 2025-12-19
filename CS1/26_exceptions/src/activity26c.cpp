@@ -23,7 +23,8 @@ public:
     } else
       throw invalid_argument("Conversion Not Implemented");
   }
- private:
+  
+private:
   double cToF(double c) {
     if (c < -273.15)
       throw domain_error("Invalid Temp");
@@ -33,14 +34,14 @@ public:
     if (f < -459.67)
       throw domain_error("Invalid Temp");
     return (f - 32) * 5 / 9;
-  }   
+  }
   double kToC(double k) {
     if (k < 0)
       throw domain_error("Invalid Temp");
     return k + 273.15;
-  }                             
+  }
   string normalizeScale(string s) {
-    for_each(s.begin(), s.end(), [](char & c) { c = ::tolower(c); });
+    for_each(s.begin(), s.end(), [](char &c) { c = ::tolower(c); });
     if (s == "c" || s.substr(0, 4) == "cels") {
       return "C";
     }
@@ -65,7 +66,7 @@ int main() {
   for (int i = 0; i < 6; i++) {
     try {
       newT[i] = tc.convertTemp(t[i], u[i], "F");
-    } catch (logic_error & except) {
+    } catch (logic_error &except) {
       newT[i] = NAN;
     }
   }

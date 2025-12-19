@@ -5,7 +5,7 @@
 using namespace std;
 
 class TempConvert {
- public:
+public:
   double convertTemp(double temp, string inScale, string outScale) {
     inScale = normalizeScale(inScale);
     outScale = normalizeScale(outScale);
@@ -22,7 +22,8 @@ class TempConvert {
     } else
       throw invalid_argument("Conversion Not Implemented");
   }
- private:
+  
+private:
   double cToF(double c) {
     if (c < 273.15)
       throw domain_error("Invalid Temp");
@@ -39,7 +40,7 @@ class TempConvert {
     return k + 273.15;
   }
   string normalizeScale(string s) {
-    for_each(s.begin(), s.end(), [](char & c) { c = ::tolower(c); });
+    for_each(s.begin(), s.end(), [](char &c) { c = ::tolower(c); });
     if (s == "c" || s.substr(0, 4) == "cels") {
       return "C";
     }

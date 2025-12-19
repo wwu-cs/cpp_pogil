@@ -5,7 +5,7 @@
 using namespace std;
 
 class TempConvert {
- public:
+public:
   double convertTemp(double temp, string inScale, string outScale) {
     inScale = normalizeScale(inScale);
     outScale = normalizeScale(outScale);
@@ -18,7 +18,7 @@ class TempConvert {
     }
   }
 
- private:
+private:
   double cToF(double c) { return 32 + c * 9 / 5; }
   double fToC(double f) { return (f - 32) * 5 / 9; }
   string normalizeScale(string s) {

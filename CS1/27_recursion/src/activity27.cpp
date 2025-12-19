@@ -11,12 +11,11 @@ int factorial(int n) {
     int answer = factorial(n - 1);
     cout << "factorial of " << (n - 1) << " is " << answer << endl;
     return n * answer;
-  }  
+  }
 }
 
 int main() {
   cout << "Testing 5!" << endl;
   int ans = factorial(5);
-  cout << "5! = " << ans << endl;
-   
+  cout << "5! = " << ans << endl;   
 }
