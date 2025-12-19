@@ -1,11 +1,12 @@
 #include <algorithm>
+#include <cmath>
 #include <iostream>
 #include <string>
 
 using namespace std;
 
 class TempConvert {
- public:
+public:
   double convertTemp(double temp, string inScale, string outScale) {
     inScale = normalizeScale(inScale);
     outScale = normalizeScale(outScale);
@@ -24,7 +25,7 @@ class TempConvert {
   }
  private:
   double cToF(double c) {
-    if (c < 273.15)
+    if (c < -273.15)
       throw domain_error("Invalid Temp");
     return 32 + c * 9 / 5;
   }
@@ -32,12 +33,12 @@ class TempConvert {
     if (f < -459.67)
       throw domain_error("Invalid Temp");
     return (f - 32) * 5 / 9;
-  }
+  }   
   double kToC(double k) {
     if (k < 0)
       throw domain_error("Invalid Temp");
     return k + 273.15;
-  }
+  }                             
   string normalizeScale(string s) {
     for_each(s.begin(), s.end(), [](char & c) { c = ::tolower(c); });
     if (s == "c" || s.substr(0, 4) == "cels") {
@@ -55,18 +56,21 @@ class TempConvert {
 
 int main() {
   // variables
-  double iTemp, oTemp;
-  string iUnit, oUnit;
   TempConvert tc;
 
-  // get input temperature and units
-  cout << "I am the Temperature Converter." << endl;
-  cout << "  Input Temp: ";
-  cin >> iTemp;
-  cout << "  Input Units: ";
-  cin >> iUnit;
-  cout << "  Output Units: ";
-  cin >> oUnit;
-  oTemp = tc.convertTemp(iTemp, iUnit, oUnit);
-  cout << endl << "The answer is: " << oTemp << endl;
+  double t[6] = {20, -30, 170, 25, -12, 14};
+  string u[6] = {"C", "C", "K", "F", "K", "C"};
+  double newT[6];
+
+  for (int i = 0; i < 6; i++) {
+    try {
+      newT[i] = tc.convertTemp(t[i], u[i], "F");
+    } catch (logic_error & except) {
+      newT[i] = NAN;
+    }
+  }
+
+  for (int i = 0; i < 6; i++) {
+    cout << t[i] << u[i] << " = " << newT[i] << "F" << endl;
+  }
 }
