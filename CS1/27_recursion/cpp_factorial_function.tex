@@ -1,0 +1,124 @@
+\model{A C++ Factorial Function}
+    \begin{center}
+      \begin{minipage}{5in}
+        \begin{cpplst}
+int factorial(int n) {
+  cout << "n is " << n << endl;
+  if (n == 0) {
+    return 1;    // base case
+  } else {
+    cout << "need factorial of " << (n-1) << endl;
+    int answer = factorial(n-1);
+    cout << "factorial of " << (n-1) << " is " << answer << endl;
+    return n * answer;
+  }
+}
+        \end{cpplst}      
+      \end{minipage}
+    \end{center}
+
+  {\it\large Refer to Model 2 above as your team develops consensus answers
+    to the questions below.}
+
+  \quest{15 min}
+  
+  \Q This model gives a definition of the
+    \cpp{factorial} function.  Use it to answer the
+    following questions.
+    \begin{enumerate}
+      \itemsep 10pt
+      \item What specific function is called on line 10?
+        \hfill\ans[2.5in]{The function \cpp{factorial} is called with the argument
+        \cpp{n-1}.}
+
+      \item Why is the \cpp{if} statement on line 6
+        needed?
+        \begin{answer}[0.5in]
+          It defines the base case for the recursion.  Without it,
+          the function would call itself indefinitely.
+        \end{answer}       
+    \end{enumerate}
+
+  \vskip -30pt
+    
+  \Q A function that calls itself is called {\it recursive}.
+    What two steps are required to define the recursive function
+    \cpp}factorial}?
+    \begin{answer}[0.75in]
+    \end{answer}
+    \par\vskip -30pt\null
+    
+  \Q Because recursive functions call themselves as a part of
+    their execution, it takes some\key\\[-2.5mm] thought to understand 
+    their execution.
+    \begin{enumerate}
+      \itemsep 10pt
+      \item How many distinct function calls would be made to the
+        \cpp{factorial} function to compute $2!$?
+        Identify the function argument for each of those calls.
+        \begin{answer}[0.5in]
+          It would make three distinct calls:
+          \cpp{factorial(2)}, \cpp{factorial(1)}, \cpp{factorial(0)}
+        \end{answer}
+
+      \item How many distinct function calls would be made to the 
+        \cpp{factorial} function to compute $4!$?
+        Identify the function argument for each of those calls.
+        \begin{answer}[0.5in]
+          It would make five distinct calls:
+            \cpp{factorial(4)}, \cpp{factorial(3)}, \cpp{factorial(2)}
+            \cpp{factorial(1)}, \cpp{factorial(0)}
+        \end{answer}
+    \end{enumerate}
+
+  \vskip -20pt
+    
+  \Q The file {\tt activity27a.cpp.cpp} contains the function from    
+    this model along with a test function call to compute $5!$.  Run
+    this program and then identify the function call which produces
+    each line of output below.  Several have been done for you.    
+    \begin{enumerate}
+      \itemsep 10pt
+      \begin{multicols}{2}
+        \item {\tt n is 5} \hspace{1.3in}\underline{\tt{factorial(5)}}
+        \item {\tt need factorial of 4} \hspace{0.2in}\ans[1in]{\tt{factorial(5)}}
+        \item {\tt n is 4} \hspace{1.3in}\ans[1in]{\tt{factorial(4)}}
+        \item {\tt need factorial of 3} \hspace{0.2in}\ans[1in]{\tt{factorial(4)}}
+        \item {\tt n is 3} \hspace{1.3in}\ans[1in]{\tt{factorial(3)}}
+        \item {\tt need factorial of 2} \hspace{0.2in}\ans[1in]{\tt{factorial(3)}}
+        \item {\tt n is 2} \hspace{1.3in}\ans[1in]{\tt{factorial(2)}}
+        \item {\tt need factorial of 1} \hspace{0.2in}\underline{\tt{factorial(2)}}
+        \item {\tt n is 1} \hfill\ans[1in]{\tt{factorial(1)}}
+        \item {\tt need factorial of 0} \hfill\ans[1in]{\tt{factorial(1)}}
+        \item {\tt n is 0} \hfill\ans[1in]{\tt{factorial(0)}}
+        \item {\tt factorial of 0 is 1} \hfill\underline{\tt\hspace{5pt}factorial(1)\hspace{5pt}}
+        \item {\tt factorial of 1 is 1} \hfill\ans[1in]{\tt{factorial(2)}}
+        \item {\tt factorial of 2 is 2} \hfill\ans[1in]{\tt{factorial(3)}}
+        \item {\tt factorial of 3 is 6} \hfill\ans[1in]{\tt{factorial(4)}}
+        \item {\tt factorial of 4 is 24} \hfill\ans[1in]{\tt{factorial(5)}}
+      \end{multicols}
+    \end{enumerate}
+    
+  \Q What happens if you try to calculate the factorial of a
+    negative number?  Explain why this happens.
+    \begin{answer}[0.5in]
+      It results in a stack overflow error because the base case
+      is never reached and the function keeps calling itself
+      indefinitely.
+    \end{answer}
+    
+  \Q How could you prevent this behavior?
+    \begin{answer}[0.5in]
+      You could add an additional \cpp{if} statement to check if
+      the argument is negative and handle that case appropriately,
+      such as returning an error value or printing an error message.
+    \end{answer}
+
+  \Q What is the largest factorial you can compute in C++ without
+    changing the types of the variables in this function?  Play with
+    the code in {\tt activity08.cpp} to find out.
+    \begin{answer}[0.5in]
+      The largest factorial that can be computed without changing
+      the variable types is 12! because 13! exceeds the maximum
+      value for an \cpp{int}.
+    \end{answer}

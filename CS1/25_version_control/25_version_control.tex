@@ -1,0 +1,52 @@
+% Source: Unknown
+% File: ".pdf"
+% Access: Unknown
+
+% comment out for student version
+% \ifdefined\Student\relax\else\def\Teacher{}\fi
+
+\documentclass[12pt]{article}
+
+\title{Activity \#25: Version Control}
+\author{Unknown}
+\newcommand{\activityeditor}{Preston Carman}
+\newcommand{\activitysorce}{\url{}}
+\date{Spring 2022}
+
+\input{../../cspogil.sty}
+\usepackage{tikz}
+
+\begin{document}
+
+  \begin{center}
+    \maketitle
+    \rolenames
+  \end{center}
+  
+  \keyquestions{
+    \item Model 1, Question \#4
+    \item Model 2, Question \#8
+  }
+
+  \newpage
+  \maketitle
+
+  In this activity, you will work in teams of 3--4 students to learn new concepts.
+  This activity will introduce you to version control.
+
+  \guide{
+    \item Explain the core VCS concepts of {\it checking
+      out}, {\it updating}, {\it branching}, and {\it merging}
+    \item Describe an effective workflow for a VCS
+  }{
+    \item Construct timeline diagrams depicting various
+      interactions with a VCS
+  }{
+    No additional notes.
+  }
+
+  \input{version_control_scenarios.tex}
+  \newpage
+  \input{branching_and_merging.tex}
+       
+\end{document}

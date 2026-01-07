@@ -1,0 +1,58 @@
+% Source: Unknown
+% File: ".pdf"
+% Access: Unknown
+
+% comment out for student version
+% \ifdefined\Student\relax\else\def\Teacher{}\fi
+
+\documentclass[12pt]{article}
+
+\title{Activity \#27: Recursion}
+\author{Unknown}
+\newcommand{\activityeditor}{Preston Carman}
+\newcommand{\activitysource}{\url{}}
+\date{Spring 2022}
+
+\input{../../cspogil.sty}
+\usepackage{tikz}
+
+\begin{document}
+
+  \begin{center}
+    \maketitle
+    \rolenames
+  \end{center}
+  
+  \keyquestions{
+    \item Model 1, Question \#2
+    \item Model 2, Question \#7
+    \item Model 3, Question \#17
+  }
+
+  \newpage
+  \maketitle
+
+  In this activity, you will work in teams of 3--4 students to learn new concepts.
+  This activity will introduce you to recursion in C++.
+
+  \guide{
+    \item Identify the base case and recursive step of the
+      factorial function
+    \item Trace a recursive function by hand and and predict its
+      final output
+    \item Explain what happens in memory when a function
+      calls itself
+  }{
+    \item Write a recursive function to compute the sum of
+      the first $n$ numbers\\[-5pt]
+  }{
+    No additional notes.
+  }
+
+  \input{factorial_function.tex}
+  \newpage
+  \input{cpp_factorial_function.tex}
+  \newpage
+  \input{summations.tex}
+
+\end{document}

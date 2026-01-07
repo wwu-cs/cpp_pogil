@@ -1,0 +1,148 @@
+\model{More Constructor Options}
+  \begin{center}
+    \small
+    \begin{minipage}{4.5in}
+      \begin{cpplst}
+int main() {
+  Matrix Z(0);       // create a matrix of all zeros
+  cout << "Z = ";
+  Z.print();
+  
+  Matrix I;          // create identity matrix [ [1,0], [0,1] ]
+  cout << "I = ";
+  I.print();
+  
+  Matrix A(1,2,3,4); // create matrix [ [1,2], [3,4] ]
+  cout << "A = ";
+  A.print();  
+}  
+      \end{cpplst}
+    \end{minipage}
+  \end{center}
+  
+  {\it\large Refer to Model 2 above as your group develops consensus answers
+    to the questions below.}
+
+  \quest{15 min}
+    
+  \Q Based on the model (with comments) above, what output would 
+    you expect this program to produce?
+    \begin{answer}[0.75in]
+      \[ 
+        Z = \begin{vmatrix} 0 & 0 \\ 0 & 0 \end{vmatrix}
+        \qquad
+        I = \begin{vmatrix} 1 & 0 \\ 0 & 1 \end{vmatrix}
+        \qquad
+        A = \begin{vmatrix} 1 & 2 \\ 3 & 4 \end{vmatrix}
+      \]
+    \end{answer}
+    
+  \Q The file {\tt activity21b.cpp} contains the same class
+    definition and methods as in model 1, but with the {\tt main}
+    program above.  Try compiling the program and explain the
+    errors you see.
+    \begin{answer}[0.75in]
+      \fs
+      The errors indicate that there are no matching functions for:
+      \begin{itemize}
+        \item \cpp{Matrix::Matrix(int)}
+        \item \cpp{Matrix::Matrix(int,int,int,int)}
+      \end{itemize}
+    \end{answer}
+    
+  \Q Thinking back to what you learned about functions in CPTR 141
+    (or some other prerequisite class), answer the following
+    questions.
+    \begin{enumerate}
+      \item What does it mean to {\it overload} a function name?
+        \begin{answer}[0.5in]
+          It means to give several different functions the same
+          name, but distinguish them by the number and/or type of
+          parameters they have.              
+        \end{answer}
+
+      \item What is the {\it signature} of a function?
+        \begin{answer}[0.5in]
+          It is the name and list of parameter types of the function.
+        \end{answer}
+
+      \item Based on the error messages you saw above, what are the 
+        signatures for the missing constructors in this model?
+        \begin{answer}[0.5in]
+          They are:
+          \begin{itemize}
+            \begin{multicols}{2}
+              \item \cpp{Matrix::Matrix(int)}
+              \item \cpp{Matrix::Matrix(int,int,int,int)}
+            \end{multicols}
+          \end{itemize}
+        \end{answer}
+    \end{enumerate}
+    
+  \Q Suppose we wish to {\it overload} the constructor for this
+    class to allow for initializing all matrix entries to a single
+    value (as seen on line 27 of this model). We can accomplish
+    this by adding the following prototype to the public portion of the
+    {\tt Matrix} class.
+    \begin{center}
+      \cpp{Matrix(int);}
+    \end{center}
+    Add this prototype to the class in {\tt activity21b.cpp} and
+    then define it similarly to how the original constructor was
+    defined on lines 19-24 of the first model.  Hint: comment out
+    appropriate lines in the {\tt main} program so that you can test your code.
+    \begin{answer}[1.25in]
+      \begin{minipage}{3in}
+        \begin{cpplst}
+Matrix::Matrix(int x) {
+  a = x;
+  b = x;
+  c = x;
+  d = x;
+}
+        \end{cpplst}
+      \end{minipage}
+    \end{answer}
+        
+  \Q Give a method prototype for the constructor needed to
+    initialize matrix $A$ in this model.  Where should you put
+    this prototype?
+    \begin{answer}[0.5in]
+      An example prototype is \cpp{Matrix(int, int,
+      int, int);} and it should be added to the public portion of
+      the class declaration.
+    \end{answer}
+
+  \Q Fill in the definition of this constructor below.
+    \begin{center}
+      \begin{minipage}{4.5in}
+        \cpp{Matrix::Matrix(int a, int b, int c, int d);} \par
+        \begin{answer}[1in]
+          \cpp{a = a;  // this won't work, should be this->a = a}\\
+          \cpp{b = b;  // this won't work, should be this->b = b}\\
+          \cpp{c = c;  // this won't work, should be this->c = c}\\
+          \cpp{d = d;  // this won't work, should be this->d = d}\\
+        \end{answer}
+      \end{minipage}
+    \end{center}
+
+  \newpage
+    
+  \Q Add this constructor to the code in {\tt activity21b.cpp}
+    and then compile and run the \key\\[-2.5mm] code (uncommenting lines if
+    {\tt main} if needed). Does it work as expected?
+    \begin{answer}[0.5in]
+      Probably not.  See the comments above and the question below.
+    \end{answer}
+    
+  \Q In the example above, the parameter names ({\tt a}, 
+    {\tt b}, {\tt c}, and {\tt d}) {\it shadow} the data members
+    of the same name.  You can still access the class data members
+    using the {\it implicit parameter} {\tt this} to indicate that
+    you want the data members of the class.  For example, one line
+    of your definition above might be:
+    \begin{center}
+      \cpp{this->a = a;}
+    \end{center}
+    Adjust your definition to use {\tt this} so that the
+    constructor works as expected.
