@@ -3,17 +3,18 @@
     \begin{minipage}{5.5in}
       \begin{cpplst}
 #include <iostream>
+
 using namespace std;
 
 int main() {
   // declare variables
   int a = 5, b = 2, c = 0;
   // print output
-  cout << "Line 8:  " << (a == b) << endl;
-  cout << "Line 9:  " << (a != b) << endl;
-  cout << "Line 10: " << (a = b) << endl;
-  cout << "Line 11: " << ( (a > c) || ((b / c) == 1) ) << endl;
-  cout << "Line 12: " << ( (a > c) && ((b / c) == 1) ) << endl;
+  cout << "Line 9:  " << (a == b) << endl;
+  cout << "Line 10:  " << (a != b) << endl;
+  cout << "Line 11: " << (a = b) << endl;
+  cout << "Line 12: " << ( (a > c) || ((b / c) == 1) ) << endl;
+  cout << "Line 13: " << ( (a > c) && ((b / c) == 1) ) << endl;
 }      
       \end{cpplst}
     \end{minipage}
@@ -27,42 +28,42 @@ int main() {
   \Q This program can be found in {\tt activity05b.cpp}.  Run it and determine the output produced by each
     \cpp{cout} statement.
     \begin{enumerate}
-      \item The \cpp{cout} on line 8:  \hfill
-        \ans[4.5in]{Line 8:  0}
-
       \item The \cpp{cout} on line 9:  \hfill
-        \ans[4.5in]{Line 9:  1}
+        \ans[4.5in]{Line 9:  0}
 
       \item The \cpp{cout} on line 10:  \hfill
-        \ans[4.5in]{Line 10: 2}
+        \ans[4.5in]{Line 10:  1}
 
-      \item The \cpp{cout} on line 11:  \hfill 
-        \ans[4.5in]{Line 11: 1}
-        
+      \item The \cpp{cout} on line 11:  \hfill
+        \ans[4.5in]{Line 11: 2}
+
       \item The \cpp{cout} on line 12:  \hfill 
+        \ans[4.5in]{Line 12: 1}
+        
+      \item The \cpp{cout} on line 13:  \hfill 
         \ans[4.5in]{Floating-point Error, Core Dump}
     \end{enumerate}
             
-  \Q Based on the output observed in lines 8 and 9, how does C++ represent true and false?
+  \Q Based on the output observed in lines 9 and 10, how does C++ represent true and false?
     \begin{answer}[0.4in]
       True is represented as 1 and false as 0.
     \end{answer}
     
-  \Q Based on the output from lines 8 and 10, how does C++ treat \cpp{=} and \cpp{==}
+  \Q Based on the output from lines 9 and 11, how does C++ treat \cpp{=} and \cpp{==}
     differently?\key\\[-2.5mm]
     \begin{answer}[0.4in]
       \par
-      A single = is an assignment statement (line 10 assigns the value of b to a) that
+      A single = is an assignment statement (line 11 assigns the value of b to a) that
       returns the value being assigned.  The double == is a relational operator 
       and returns either true (1) or false (0).
     \end{answer}
     
-  \Q In the code above, line 11 prints a value, while line 12 produces an error.  Why do you think
+  \Q In the code above, line 12 prints a value, while line 13 produces an error.  Why do you think
     that is?
     \begin{answer}[1in]
       \par
-      On line 11, only the first part, \cpp{a > c}, is evaluated because the second part of the OR
+      On line 12, only the first part, \cpp{a > c}, is evaluated because the second part of the OR
       statement does not need to be checked to tell that the whole thing will be true.  So we never divide by zero.
-      But on line 12, the AND is only true if both sides are true, so we must check the second part, resulting in
+      But on line 13, the AND is only true if both sides are true, so we must check the second part, resulting in
       division by zero.
-    \end{answer}        
+    \end{answer}

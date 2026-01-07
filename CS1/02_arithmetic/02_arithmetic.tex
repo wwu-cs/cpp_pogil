@@ -3,7 +3,7 @@
 % Access: 04-15-2022
 
 % comment out for student version
-\ifdefined\Student\relax\else\def\Teacher{}\fi
+% \ifdefined\Student\relax\else\def\Teacher{}\fi
 
 \documentclass[12pt]{article}
 
@@ -18,49 +18,37 @@
 
 \begin{document}
 
-\begin{center}
-  \Large Activity \#2: Arithmetic Operations and Assignment \\[5pt]
-  \large Recorder's Report\\[20pt]
-  \normalsize
-  \begin{tabular}{lrp{0.1in}lr}
-      Manager:  & \ans{} &  & Reader: & \ans{}            \\[15pt]
-      Recorder: & \ans{} &  & Driver: & \ans{}            \\[15pt]
-      Date:     & \ans{} &  & Score:  & Satisfactory \hspace{10pt} /
-      \hspace{10pt} Not Satisfactory
-  \end{tabular}
-\end{center}
-\par\vskip 15pt
+  \begin{center}
+    \maketitle
+    \rolenames
+  \end{center}
 
-Record your team's answers to the key questions (marked with \mbox{\key})
-below.
-\begin{enumerate}[label=(\alph*)]
-  \itemsep 1.25in
-  \item Model 1, Question \#3
-  \item Model 2, Question \#9
-  \item Model 3, Question \#12
-\end{enumerate}
+  \keyquestions{
+    \item Model 1, Question \#3
+    \item Model 2, Question \#9
+    \item Model 3, Question \#12
+  }
 
-\newpage
-\maketitle
+  \newpage
+  \maketitle
 
-In this course, you will work in teams of 3--4 students to learn new concepts.
-This activity will introduce you to the process of analyzing an algorithm complexity.
+  In this course, you will work in teams of 3--4 students to learn new concepts.
+  This activity will introduce you to arithmetic operators and assignment statements in C++.
 
-%\rolenames
+  \guide{
+    \item Explain each C++ arithmetic operator
+    \item Explain the meaning and purpose of an assignment statement
+    \item Differentiate between integer division and floating point division
+    \item Explain the use of "+" with strings and numbers
+  }{
+    \item Create input and output statements in C++
+    \item Create C++ code that performs mathematical and string operations
+    \item Create C++ code that uses assignment statements
+    \item Discuss problems and programs with all group members\\[-5pt]
+  }{
+  No additional notes.
+  }
 
-\guide{
-  \item Explain each C++ arithmetic operator
-  \item Explain the meaning and purpose of an assignment statement
-  \item Differentiate between integer division and floating point division
-  \item Explain the use of "+" with strings and numbers
-}{
-  \item Create input and output statements in C++
-  \item Create C++ code that performs mathematical and string operations
-  \item Create C++ code that uses assignment statements
-  \item Discuss problems and programs with all group members\\[-5pt]
-}{
-No additional notes.
-}
   \input{a_cpp_program.tex}
   \newpage
   \input{some_arithmetic_expressions.tex}

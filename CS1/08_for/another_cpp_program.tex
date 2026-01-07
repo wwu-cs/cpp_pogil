@@ -1,9 +1,10 @@
-\model{Another C++ Program} \\
+\model{Another C++ Program}
   \begin{center}
     \small
     \begin{minipage}{5.5in}
       \begin{cpplst}
 #include <iostream>
+
 using namespace std;
 
 int main() {
@@ -36,9 +37,9 @@ int main() {
   \Q Explain what each of the indicated lines of code from the model above does.
     \begin{enumerate}
       \itemsep 10pt
-      \item Line 6:    \hfill \ans[5.25in]{Initializes the variable {\tt total} to zero}
-      \item Line 7:    \hfill \ans[5.25in]{Sets up the {\tt for} loop to repeat five times.}
-      \item Line 10:   \hfill \ans[5.25in]{Adds the user-entered number to the accumulated total}
+      \item Line 7:    \hfill \ans[5.25in]{Initializes the variable {\tt total} to zero}
+      \item Line 8:    \hfill \ans[5.25in]{Sets up the {\tt for} loop to repeat five times.}
+      \item Line 11:   \hfill \ans[5.25in]{Adds the user-entered number to the accumulated total}
     \end{enumerate}
     
   \Q An {\it accumulator} is a variable that stores the sum of a group of values.  Which variable 
@@ -49,7 +50,7 @@ int main() {
       \ans[0.5in]{} {\tt i}
     \end{center}
 
-  \Q Why is the variable {\tt total} initialized to zero in line 6 of the model?
+  \Q Why is the variable {\tt total} initialized to zero in line 7 of the model?
     \begin{answer}[0.5in]
       \par
       Because we need to start the loop with nothing accumulated so that after the loop is
@@ -68,22 +69,22 @@ int main() {
   \Q An accumulator can also store the product of a set of numbers.  How, if at all, \key\\[-2.5mm] would you
     change the following lines of the model to compute $5!$ ($5! = 1\times 2\times 3\times 4\times 5$ is called ``five factorial'').
     \begin{enumerate}
-      \item How would you change \cpp{int total = 0;} on line 6?
+      \item How would you change \cpp{int total = 0;} on line 7?
         \begin{answer}[0.5in]
           It would become \cpp{int total=1;} to initialize the accumulator to 1 instead of 0.
         \end{answer}
 
-      \item How would you change \cpp{for (int i = 0; i < 5; i += 1)} on line 7?
+      \item How would you change \cpp{for (int i = 0; i < 5; i += 1)} on line 8?
         \begin{answer}[0.5in]
           This does not need to change.
         \end{answer}
 
-      \item How would you change lines 8-9 in the model?
+      \item How would you change lines 9-10 in the model?
         \begin{answer}[0.5in]
           They would be deleted since user input is no longer needed.
         \end{answer}
 
-      \item How would you change \cpp{total += number} on line 10 of the model?
+      \item How would you change \cpp{total += number} on line 11 of the model?
         \begin{answer}[0.5in]
           It would become \cpp{total *= i+1} to multiply the accumulator by the counter.
         \end{answer}

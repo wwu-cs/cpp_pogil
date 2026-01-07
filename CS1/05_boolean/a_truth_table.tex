@@ -1,4 +1,4 @@
-\model{A Truth Table} \\
+\model{A Truth Table}
   \begin{center}
     \renewcommand{\arraystretch}{1.4}
     \begin{tabular}{|c|c|c|c|c|}
@@ -48,13 +48,16 @@ int numBooks = 40;
     into an English statement.  The first one is done for you.
     \par\vskip 10pt
     \begin{enumerate}
-      \itemsep 15pt
+      \itemsep 10pt
       \item \cpp{(x == 2) && (y > 3)}
         \hfill\underline{\hspace{8pt}The variable x equals two and the variable y is bigger than three.\hspace{9pt}}
+
       \item \cpp{(x != 4) || (y <= 7)}
         \hfill\ans[4.2in]{x is not equal to four or y is less than or equal to seven.}
+
       \item \cpp{(x >= 2) && (x <= 10)}
         \hfill\ans[4.2in]{x is between two and 10 inclusively}
+
       \item \cpp{!((x == 2) && (y == 1))}
         \hfill\ans[4.2in]{it is not the case that x is two and y is one.}
     \end{enumerate}

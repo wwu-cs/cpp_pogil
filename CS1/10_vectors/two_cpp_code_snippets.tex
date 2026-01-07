@@ -1,4 +1,4 @@
-\model{Two C++ Code Snippets}\\
+\model{Two C++ Code Snippets}
   \begin{center}
     \begin{minipage}{3.2in}
       \small
@@ -115,46 +115,44 @@ for (int i = 0; i < data.size(); i++) {
       \end{tabular}
     \end{center}
 
-    \Q Suppose the vector \cpp{vector<double> a} and
-      \cpp{vector<double> b} have been declared and filled
-      with elements.  Write code to find the pairwise maximum value in
-      these vectors and place it in a vector named {\tt myMax} which
-      you declare.  So, for example, \cpp{myMax.at(0)} should
-      contain the larger of \cpp{a.at(0)} and
-      \cpp{b.at(0)} and so on.
-      
-      \begin{answer}[1in]
-        \tiny
-        \begin{center}
-          \begin{minipage}{2.5in}
-            \begin{cpplst}
-  vector<double> myMax(x.size());
-  for (int i=0; i<a.size(); i++) {
-    if (a.at(i) > b.at(i)) {
-      myMax.at(i) = a.at(i);
-    } else {
-      myMax.at(i) = b.at(i);
-    }
+  \Q Suppose the vector \cpp{vector<double> a} and
+    \cpp{vector<double> b} have been declared and filled
+    with elements.  Write code to find the pairwise maximum value in
+    these vectors and place it in a vector named {\tt myMax} which
+    you declare.  So, for example, \cpp{myMax.at(0)} should
+    contain the larger of \cpp{a.at(0)} and
+    \cpp{b.at(0)} and so on.
+    \begin{answer}[1in]
+      \tiny
+      \begin{center}
+        \begin{minipage}{2.5in}
+          \begin{cpplst}
+vector<double> myMax(x.size());
+for (int i=0; i<a.size(); i++) {
+  if (a.at(i) > b.at(i)) {
+    myMax.at(i) = a.at(i);
+  } else {
+    myMax.at(i) = b.at(i);
   }
-            \end{cpplst}
-          \end{minipage}
-        \end{center}
-      \end{answer}
+}
+          \end{cpplst}
+        \end{minipage}
+      \end{center}
+    \end{answer}
 
-    \Q In a certain class 40\% of your final grade comes from your
-      homework average and 60\% comes from your exam average.  Suppose 
-      that vectors \cpp{vector<int> homeworkScores}
-      and \\ \cpp{vector<int> examScores} have been defined
-      and contain your individual homework and exam scores.  Write 
-      C++ code to compute your class grade and store it in
-      \cpp{double finalGrade}.  Don't forget to typecast
-      if needed!
-
-      \begin{answer}[1.2in]
-        \tiny
-        \begin{center}
-          \begin{minipage}{4.5in}
-            \begin{cpplst}
+  \Q In a certain class 40\% of your final grade comes from your
+    homework average and 60\% comes from your exam average.  Suppose 
+    that vectors \cpp{vector<int> homeworkScores}
+    and \\ \cpp{vector<int> examScores} have been defined
+    and contain your individual homework and exam scores.  Write 
+    C++ code to compute your class grade and store it in
+    \cpp{double finalGrade}.  Don't forget to typecast
+    if needed!
+    \begin{answer}[1.2in]
+      \tiny
+      \begin{center}
+        \begin{minipage}{4.5in}
+          \begin{cpplst}
 int homeworkSum = 0;
 for (int i=0; i<homeworkScores.size(); i++) {
   homeworkSum += homeworkScores.at(i);
@@ -166,7 +164,7 @@ for (int i=0; i<examScores.size(); i++) {
 double homeworkGrade = static_cast<double>(homeworkSum) / homeworkScores.size();
 double examGrade = static_cast<double>(examSum) / examScores.size();
 double finalGrade = 0.40 * homeworkGrade + 0.60 * examGrade;
-            \end{cpplst}
-          \end{minipage}
-        \end{center}
-      \end{answer}
+          \end{cpplst}
+        \end{minipage}
+      \end{center}
+    \end{answer}

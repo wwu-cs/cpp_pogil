@@ -1,10 +1,11 @@
-\model{Another C++ Program} \\
+\model{Another C++ Program}
   \begin{center}
     \small
     \begin{minipage}{5.5in}
       \begin{cpplst}
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
 
 int main() {
@@ -13,13 +14,14 @@ int main() {
   cin >> number;
   int x = 1;
   while (x <= number) {
-    if (x % 10 == 0 ) {
+    if (x % 10 == 0) {
       cout << setw(2) << x << endl;
     } else {
       cout << setw(2) << x << " ";
     }
     x = x + 1;
   }
+  cout << endl;
 }
       \end{cpplst}
     \end{minipage}
@@ -33,12 +35,14 @@ int main() {
     \par\vskip 10pt
     \begin{enumerate}
       \itemsep 10pt
-      \item Lines 7-8: \hfill \ans[5.15in]{Prompts the user for a number and saves it in {\tt number}}
-      \item Line 9:    \hfill \ans[5.15in]{Initializes the counter {\tt x} to 1}
-      \item Line 10:    \hfill \ans[5.15in]{Repeats lines 11-15 as long as the counter {\tt x} is not bigger than {\tt number}}
-      \item Lines 11-15: \hfill \ans[5.15in]{Prints the counter, with a new line when it is divisible by 10}
-      \item Line 16:   \hfill \ans[5.15in]{Increments the counter by one before going back to line 10}
+      \item Lines 8-9: \hfill \ans[5.15in]{Prompts the user for a number and saves it in {\tt number}}
+      \item Line 10:    \hfill \ans[5.15in]{Initializes the counter {\tt x} to 1}
+      \item Line 11:    \hfill \ans[5.15in]{Repeats lines 12-18 as long as the counter {\tt x} is not bigger than {\tt number}}
+      \item Lines 12-16: \hfill \ans[5.15in]{Prints the counter, with a new line when it is divisible by 10}
+      \item Line 17:   \hfill \ans[5.15in]{Increments the counter by one before going back to line 12}
     \end{enumerate}
+
+  \newpage
 
   \Q The complete program can be found in {\tt activity07b.cpp}.  Run it and answer the following questions.
     \begin{enumerate}
@@ -84,7 +88,7 @@ while (number <= 10) {
   \vskip 10pt
     
   \Q Enter and execute the code below, then answer the questions that follow.
-    \vskip 5pt
+    \vskip 2pt
     \begin{minipage}{3.5in}
       \begin{cpplst}
 int number = 0;
@@ -124,9 +128,9 @@ while (number <= 10) {
         \end{answer}
 
       \item Use the Boolean expression you just created to write a {\bf while loop} that executes when the user input is out
-        of range.  Leave the body of the while loop empty for now.
-        \begin{answer}[1in]
-          \cpp{while ((number < 1) || (number > 10)) { }}
+        of range. Leave the body of the while loop empty for now.
+        \begin{answer}[0.5in]
+          \cpp{while ((number < 1) || (number > 10)) \{ \}}
         \end{answer}
         
       \item Write code to prompt the user to re-enter a valid number and store it in the same variable.
@@ -165,6 +169,7 @@ while (number <= 10) {
       \begin{minipage}{5in}
         \begin{cpplst}
 #include <iostream>
+
 using namespace std;
 
 int main() {
@@ -185,36 +190,34 @@ int main() {
       
       \begin{enumerate}
         \item What does this program do?
-          \begin{answer}[0.5in]
+          \begin{answer}[0.3in]
             It prints out the first letter of any word entered until the user enters `y'.
           \end{answer}
 
         \item What is the variable name used to store the user's input?
-          \begin{answer}[0.5in]
+          \begin{answer}[0.3in]
             The word entered is stored in {\tt word} and the request to do again in {\tt doAgain}.
           \end{answer}
 
         \item What does \cpp{word.at(0)} represent?
-          \begin{answer}[0.5in]
+          \begin{answer}[0.2in]
             The first character of the word entered.
           \end{answer}
 
         \item What happens if you change 0 to 1 in \cpp{word.at(0)}?
-          \begin{answer}[0.5in]
+          \begin{answer}[0.2in]
             You would get the second character of the word entered.
           \end{answer}
 
         \item When will the program end?
-          \begin{answer}[0.5in]
+          \begin{answer}[0.3in]
             When the user types anything other than `y' when prompted to continue.
           \end{answer}
-
-        \newpage
           
         \item A {\it sentinel-controlled loop} is one in which the loop body repeats
           until the user enters \key\\[-2.5mm] a particular value or values.  Why is 
           this an example of a {\it sentinel-controlled loop}?
-          \begin{answer}[0.5in]
+          \begin{answer}[0.3in]
             Because it will keep going until the user decides not to.
           \end{answer}
       \end{enumerate}
