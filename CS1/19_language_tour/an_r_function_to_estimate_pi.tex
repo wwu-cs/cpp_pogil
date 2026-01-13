@@ -1,4 +1,4 @@
-\model{An R Function to Estimate $\pi$} \\
+\model{An R Function to Estimate $\pi$}
   \begin{center}
     \begin{minipage}{4in}
       \scriptsize
@@ -34,7 +34,7 @@ testEstimatePi()  # Run the test function
     \end{minipage}
   \end{center}    
       
-  {\it\large Refer to Model \M above as your team develops consensus answers
+  {\it\large Refer to Model 4 above as your team develops consensus answers
     to the questions below.}
 
   \quest{10 min}
@@ -89,7 +89,7 @@ testEstimatePi()  # Run the test function
     \end{answer}
 
   \Q An online R interpreter is available at
-    \url{https://repl.it/languages/rlang}.  Copy the code in {\tt activity19.R}
+    \url{https://www.programiz.com/r/online-compiler/}.  Copy the code in {\tt activity19.R}
     into this interpreter and run it.  What is the estimated value of
     $\pi$ with 2 terms?
     \begin{answer}[0.5in]
@@ -101,28 +101,29 @@ testEstimatePi()  # Run the test function
     \begin{enumerate}
       \item Add 1000 to the list of test values.
         \begin{answer}[1in]
-          Change line 16 to \python{vals <- c( -1, 0, 1, 2, 10, 100, 1000)}
+          Change line 21 to \python{vals <- c( -1, 0, 1, 2, 10, 100, 1000)}
         \end{answer}
-      \item Set {\tt numerator = 4.0} on line 4 and
+
+      \item Set {\tt numerator = 4.0} on line 7 and
         adjust the code so that it still returns the correct value
         of $\pi$.
         \begin{answer}[1in]
           \begin{itemize}
             \itemsep 0pt
-            \item Change line 4 to \python{4.0 -> numerator}
+            \item Change line 7 to \python{4.0 -> numerator}
             \item Change line 16 to \python{return(pi)}
           \end{itemize}
         \end{answer}
 
-      \item Change the loop starting on line 6 so that it steps
+      \item Change the loop starting on line 10 so that it steps
         through odd integers only (1, 3, 5, etc) and adjust the body
         of the loop so that the function still returns the correct value.
         \begin{answer}[0.5in]
           \begin{itemize}
             \itemsep 0pt
-            \item Change line 6 to \python{for ( i in seq(1, 2 * terms, 2))}
-            \item Change line 8 to \python{denominator <- i}
-            \item Change line 11 to \python{return(pi)}
+            \item Change line 10 to \python{for ( i in seq(1, 2 * terms, 2))}
+            \item Change line 12 to \python{denominator <- i}
+            \item Change line 16 to \python{return(pi)}
           \end{itemize}
         \end{answer}
     \end{enumerate}
