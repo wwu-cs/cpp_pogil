@@ -1,4 +1,4 @@
- \model{Assignment Operators} \\
+ \model{Assignment Operators}
   \begin{center}
     \renewcommand{\arraystretch}{1.3}
     \begin{tabular}{|c|c|c|}
@@ -21,6 +21,8 @@
   {\it\large Refer to Model 3 above as your team develops consensus answers
     to the questions below.}
 
+  \quest{15 min}
+
   \Q The code \cpp{x += 5;} is equivalent to which of the following lines of code?
     \begin{enumerate}[label=]
       \begin{minipage}{3in}
@@ -36,7 +38,6 @@
   \Q An {\it assignment operator} provides a concise way of creating assignment statements when the variable on the
     left-hand side (LHS) will also appear on the right-hand side (RHS).  In your own words, describe what each of the 
     following assignment operators does.
-    
     \begin{enumerate}
       \itemsep 10pt
       \item \cpp{+=} \hspace{20pt} 
@@ -59,7 +60,6 @@
     
   \Q The table below is similar to that seen in Model 3.  Fill in the missing pieces with appropriate values or
     assignment operator statements.  Assume that {\tt x} is an integer variable.
-    
     \begin{center}
       \renewcommand{\arraystretch}{1.5}
       \begin{tabular}{|c|c|c|c|}
@@ -68,7 +68,7 @@
         \hline
         \cpp{+=} & 6 & \ans[0.5in]{\cpp{x += 2;}} & 8 \\
         \hline
-        \cpp{+=} & 5 & \cpp{x += 1;} & \ans[0.5in]{11} \\
+        \cpp{+=} & 5 & \cpp{x += 1;} & \ans[0.5in]{6} \\
         \hline
         \cpp{-=} & \ans[0.5in]{9}  & \cpp{x -= 3;} & 6 \\
         \hline
@@ -106,37 +106,36 @@ while (countdown > 0) {
       \end{minipage}
     \end{tabular}
       
-    \Q Use assignment operators to write loops to do each of the following.  
-      You can test your code in the {\tt activity07c.cpp} file.
-      
-      \begin{enumerate}
-        \item A loop that prints out all multiples of three between 0 and 100. (i.e. 0, 3, 6, 9, {\ldots} )
-          \begin{answer}[1.5in]
-            \begin{center}
-              \begin{minipage}{3in}
-                \begin{cpplst}
+  \Q Use assignment operators to write loops to do each of the following.  
+    You can test your code in the {\tt activity07c.cpp} file.
+    \begin{enumerate}
+      \item A loop that prints out all multiples of three between 0 and 100. (i.e. 0, 3, 6, 9, {\ldots} )
+        \begin{answer}[1.5in]
+          \begin{center}
+            \begin{minipage}{3in}
+              \begin{cpplst}
 int num = 0;
 while (num <= 100) {
   cout << num << endl;
   num += 3;
 }
-                \end{cpplst}
-              \end{minipage}
-            \end{center}
-          \end{answer}
+              \end{cpplst}
+            \end{minipage}
+          \end{center}
+        \end{answer}
 
-        \item A loop that prints all powers of 2 (i.e. $2^n$) from 1 up to 100.
-          \begin{answer}[1.5in]
-            \begin{center}
-              \begin{minipage}{3in}
-                \begin{cpplst}
+      \item A loop that prints all powers of 2 (i.e. $2^n$) from 1 up to 100.
+        \begin{answer}[1.5in]
+          \begin{center}
+            \begin{minipage}{3in}
+              \begin{cpplst}
 int num = 1;
 while (num <= 100) {
   cout << num << endl;
   num *= 2;
 }
-                \end{cpplst} 
-              \end{minipage}
-           \end{center}              
-          \end{answer}
+              \end{cpplst} 
+            \end{minipage}
+          \end{center}              
+        \end{answer}
       \end{enumerate}

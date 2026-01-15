@@ -3,7 +3,14 @@
 using namespace std;
 
 int main() {
-  char charOne = '(';
-  char charTwo = ')';
-  cout << charOne + charTwo << endl;
+
+  // assign two character variables
+  char charOne = ' ';
+  char charTwo = ' ';
+
+  // print out their "sum"
+  char sum = charOne + charTwo;
+  cout << "sum = " << sum << endl;
+
+  return 0;
 }

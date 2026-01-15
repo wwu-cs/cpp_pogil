@@ -1,5 +1,5 @@
-#include <iomanip>
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -16,4 +16,5 @@ int main() {
     }
     x = x + 1;
   }
+  cout << endl;
 }

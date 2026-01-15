@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -18,33 +19,25 @@ void getMove(char turn, int &row, int &col);
 bool isWinningRow(char row[], int size, char &winner);
 
 // check if a board has a winning row/col/diagonal
-bool isWinningBoard(char board[][NUM_COLS], int rows, char &winner);
-
+bool isWinningBoard(char board[][NUM_COLS], 
+                    int rows, char &winner);
+             
 int main() {
   char board[NUM_ROWS][NUM_COLS];
-  char winner, playAgain;
+  char winner,playAgain;
   int row, col;
-  do {
+  do { 
     char turn = 'O';
-    initBoard(board, NUM_ROWS);
+    initBoard(board,NUM_ROWS);
     do {
-      if (turn == 'X')
-        turn = 'O';
-      else
-        turn = 'X';
-      printBoard(board, NUM_ROWS);
+      if(turn == 'X') turn = 'O'; else turn = 'X';
+      printBoard(board,NUM_ROWS);
       do {
-        getMove(turn, row, col);
-        // Check if spot is taken
-        if (board[row][col] != ' ') {
-          cout << "That spot is already taken. Try again." << endl;
-        }
-      } while (board[row][col] != ' ');
+        getMove(turn,row,col);
+      } while( board[row][col] != ' ');
       board[row][col] = turn;
-    } while (!isWinningBoard(board, NUM_ROWS, winner));
-
-    printBoard(board, NUM_ROWS);
-
+    } while(!isWinningBoard(board,NUM_ROWS,winner));
+    printBoard(board,NUM_ROWS);
     if (winner != 'D') {
       cout << "Congrats player " << winner << endl;
     } else {
@@ -53,101 +46,104 @@ int main() {
     cout << "Play again (y/n)? ";
     cin >> playAgain;
   } while (playAgain == 'y');
-  return 0;
 }
 
-// ---------------- IMPLEMENTATION ----------------
-void initBoard(char board[][NUM_COLS], int rows) {
-  for (int i = 0; i < rows; i++) {
-    for (int j = 0; j < NUM_COLS; j++) {
+void initBoard(char board[][NUM_COLS],int rows) {
+  // set all entries in board to spaces
+  for (int i=0; i < rows; i++) {
+    for (int j=0; j < NUM_COLS; j++) {
       board[i][j] = ' ';
     }
   }
+  return;
 }
 
-void printBoard(char board[][NUM_COLS], int rows) {
-  cout << endl;
-  for (int i = 0; i < rows; i++) {
-    for (int j = 0; j < NUM_COLS; j++) {
-      // Print cell with padding to match width of 3
-      cout << " " << board[i][j] << " ";
-
-      // Print vertical separator if not the last column
-      if (j < NUM_COLS - 1) {
-        cout << "|";
+void printBoard(char board[][NUM_COLS],int rows) {
+  // print board entries with separators for rows/cols
+  for (int i=0; i < rows; i++) {
+    for (int j=0; j < NUM_COLS; j++) {
+      cout << setw(2) << board[i][j];
+      if (j < NUM_COLS-1) cout << " |";
+    }
+    if (i < NUM_ROWS-1) {
+       cout << endl;
+      for (int k=0; k<NUM_COLS-1; k++) {
+        cout << "---+";
       }
-    }
-    cout << endl;
-
-    // Print horizontal separator line if not the last row
-    if (i < rows - 1) {
-      cout << "---+---+---" << endl;
+      cout << "---" << endl;
     }
   }
   cout << endl;
+  return;
 }
-
+   
 void getMove(char turn, int &row, int &col) {
-  while (true) {
-    cout << "Player " << turn << ", enter row (0-2) and col (0-2): ";
+  // prompt with player and get row and column coords
+  do {
+    cout << "Player " << turn << "'s Turn" << endl;
+    cout << "Enter row (1-" << NUM_ROWS << ") "
+         << "and column (1-" << NUM_COLS << "): ";
     cin >> row >> col;
-    // Validation: Check if input is within the array bounds
-    if (row >= 0 && row < NUM_ROWS && col >= 0 && col < NUM_COLS) {
-      break; // Input is valid
-    } else {
-      cout << "Invalid input. Please use numbers between 0 and 2." << endl;
-    }
-  }
+    // adjust for 0-indexed array
+    row--;
+    col--;
+  } while( row < 0 || row >= NUM_ROWS || col < 0 || col >= NUM_COLS );
+  return;
 }
 
 bool isWinningRow(char row[], int size, char &winner) {
-  // Check if the first cell is not empty, and if all cells match
-  if (row[0] != ' ' && row[0] == row[1] && row[1] == row[2]) {
-    winner = row[0];
-    return true;
+  // if the first entry is not blank and all are equal, winner!
+  bool foundWinner = true;
+  winner = row[0];
+  if(winner == ' ') foundWinner = false;
+  for(int i=0; i<size; i++) {
+    if (row[i] != winner) {
+      foundWinner = false;
+    }
   }
-  return false;
+  return foundWinner;  
 }
 
 bool isWinningBoard(char board[][NUM_COLS], int rows, char &winner) {
-  // 1. Check Horizontal Rows
-  for (int i = 0; i < rows; i++) {
-    // We can pass the row directly because a 2D array is an array of arrays
-    if (isWinningRow(board[i], NUM_COLS, winner)) {
+  // check for winning rows
+  for (int i=0; i < rows; i++) {
+    if (isWinningRow(board[i],rows,winner)) {
       return true;
     }
   }
-  // 2. Check Vertical Columns
-  // We must build a temporary array because columns aren't contiguous in memory
-  for (int j = 0; j < NUM_COLS; j++) {
-    char columnArray[3];
-    for (int i = 0; i < rows; i++) {
-      columnArray[i] = board[i][j];
-    }
-    if (isWinningRow(columnArray, 3, winner)) {
+  // check for winning columns
+  char tmpRow[NUM_ROWS];
+  for (int i=0; i < NUM_COLS; i++) {
+    for (int j=0; j < rows; j++ ) {
+      tmpRow[j] = board[i][j];
+    }   
+    if (isWinningRow(tmpRow,rows,winner)) {
       return true;
     }
   }
-  // 3. Check Diagonals
-  char diag1[3] = {board[0][0], board[1][1], board[2][2]};
-  if (isWinningRow(diag1, 3, winner))
+  // check main diagonal
+  for (int i=0; i<rows; i++) {
+    tmpRow[i] = board[i][i];
+  }
+  if (isWinningRow(tmpRow,rows,winner)) {
+    return true;  
+  }
+  // check other diagonal
+  for (int i=0; i<rows; i++) {
+    tmpRow[i] = board[i][NUM_COLS-i-1];
+  }
+  if (isWinningRow(tmpRow,rows,winner)) {
     return true;
-  char diag2[3] = {board[0][2], board[1][1], board[2][0]};
-  if (isWinningRow(diag2, 3, winner))
-    return true;
-  // 4. Check for Draw (Board Full)
-  bool isFull = true;
-  for (int i = 0; i < rows; i++) {
-    for (int j = 0; j < NUM_COLS; j++) {
+  }
+  // check for draw
+  bool full = true;
+  winner = 'D';
+  for (int i=0; i < rows; i++) {
+    for (int j=0; j < NUM_COLS; j++) {
       if (board[i][j] == ' ') {
-        isFull = false;
-        break; // Found an empty spot, game continues
+        full = false;
       }
     }
   }
-  if (isFull) {
-    winner = 'D'; // D for Draw
-    return true;  // Game over
-  }
-  return false; // Game continues
+  return full;
 }

@@ -9,3 +9,5 @@ int main() {
   cout << "Test Two: " << sum(1, 2, 3) << endl;
   cout << "Test Three: " << sum(1, 2) << endl;
 }
+
+int sum(int a, int b, int c, int d) { return a + b + c + d; }

@@ -1,4 +1,4 @@
-\model{Useful Vector Operations}\\
+\model{Useful Vector Operations}
   \begin{center}
     \small
     \renewcommand{\arraystretch}{1.4}    
@@ -144,78 +144,79 @@
   {\it\large Refer to Model 3 above as your team develops consensus answers
     to the questions below.}
 
-    \Q In your own words, describe what each of the following
-      vector operations does.
-      \par\vskip 10pt
-      
-      \begin{enumerate}
-        \item \cpp{myVec.resize(n)}
-          \begin{answer}[0.5in]
-            Changes the size of the vector to {\tt n}.
-          \end{answer}
+  \quest{20 min}
 
-        \item \cpp{myVec.push_back(value)}
-          \begin{answer}[0.5in]
-            Adds a value to the end of the vector, resizing it if
-            necessary.
-          \end{answer}
+  \Q In your own words, describe what each of the following
+    vector operations does.
+    \par\vskip 10pt
+    \begin{enumerate}
+      \item \cpp{myVec.resize(n)}
+        \begin{answer}[0.5in]
+          Changes the size of the vector to {\tt n}.
+        \end{answer}
 
-        \item \cpp{myVec.pop_back()}
-          \begin{answer}[0.5in]
-            Removes a value from the end of the vector (and returns
-            the value).
-          \end{answer}
+      \item \cpp{myVec.push_back(value)}
+        \begin{answer}[0.5in]
+          Adds a value to the end of the vector, resizing it if
+          necessary.
+        \end{answer}
 
-        \item \cpp{myVec.begin()}
-          \begin{answer}[0.5in]
-            Points to the beginning of the vector.
-          \end{answer}
+      \item \cpp{myVec.pop_back()}
+        \begin{answer}[0.5in]
+          Removes a value from the end of the vector (and returns
+          the value).
+        \end{answer}
 
-        \item \cpp{myVec.insert(location,value)}
-          \begin{answer}[0.5in]
-            Inserts a value at the given location, moving everything
-            over to make room.
-          \end{answer}
+      \item \cpp{myVec.begin()}
+        \begin{answer}[0.5in]
+          Points to the beginning of the vector.
+        \end{answer}
 
-        \item \cpp{myVec.end()}
-          \begin{answer}[0.5in]
-            Identifies the end of the vector (one slot past the end
-            actually).
-          \end{answer}
+      \item \cpp{myVec.insert(location,value)}
+        \begin{answer}[0.5in]
+          Inserts a value at the given location, moving everything
+          over to make room.
+        \end{answer}
 
-        \item \cpp{myVec.erase(location)}
-          \begin{answer}[0.5in]
-            Removes a value from the given location, shifting later
-            values left.
-          \end{answer}
+      \item \cpp{myVec.end()}
+        \begin{answer}[0.5in]
+          Identifies the end of the vector (one slot past the end
+          actually).
+        \end{answer}
 
-        \item \cpp{myVec.clear()}
-          \begin{answer}[0.5in]
-            Removes all values from the vector and sets its size to zero.
-          \end{answer}
-      \end{enumerate}
-      
-    \vskip -20pt
-      
-    \Q Suppose the vector {\tt myVec} is defined as shown below.
-      Sketch a diagram of the contents of the vector after each set of
-      vector operations.  Start over with the original {\tt myVec} for
-      each part of this problem.  This code can be found in {\tt activity10c.cpp}.
-      \begin{center}
-        \begin{tabular}{|r|c|c|c|c|c|}
-          \hline
-          {\tt myVec:} & 25 & 12 & 73 & 19 & 42 \\
-          \hline
-        \end{tabular}
-      \end{center}
-      
-      \begin{enumerate}
-        \item First set of commands\par
-          \begin{center}
-            \begin{tabular}{p{3in}p{3in}}
-              \begin{minipage}{3in}
-                \small
-                \begin{cpplst}
+      \item \cpp{myVec.erase(location)}
+        \begin{answer}[0.5in]
+          Removes a value from the given location, shifting later
+          values left.
+        \end{answer}
+
+      \item \cpp{myVec.clear()}
+        \begin{answer}[0.5in]
+          Removes all values from the vector and sets its size to zero.
+        \end{answer}
+    \end{enumerate}
+    
+  \vskip -20pt
+    
+  \Q Suppose the vector {\tt myVec} is defined as shown below.
+    Sketch a diagram of the contents of the vector after each set of
+    vector operations.  Start over with the original {\tt myVec} for
+    each part of this problem.  This code can be found in {\tt activity10c.cpp}.
+    \begin{center}
+      \begin{tabular}{|r|c|c|c|c|c|}
+        \hline
+        {\tt myVec:} & 25 & 12 & 73 & 19 & 42 \\
+        \hline
+      \end{tabular}
+    \end{center}
+    
+    \begin{enumerate}
+      \item First set of commands\par
+        \begin{center}
+          \begin{tabular}{p{3in}p{3in}}
+            \begin{minipage}{3in}
+              \small
+              \begin{cpplst}
   myVec.pop_back();
   myVec.insert(myVec.begin()+2,55);
   myVec.erase(myVec.begin()+1);
@@ -339,5 +340,4 @@
               \end{minipage}
             \end{center}
           \end{answer}
-
       \end{enumerate}

@@ -3,6 +3,7 @@
     \begin{minipage}{3.5in}
       \begin{cpplst}
 #include <iostream>
+
 using namespace std;
 
 int main() {
@@ -74,7 +75,6 @@ int main() {
     the variable on the left-hand side.
     Enter and execute the following two lies of C++ code (modify the {\tt activity02a.cpp}
     file to do this).
-      
     \begin{center}
       \begin{minipage}{3.5in}
         \begin{cpplst}
@@ -94,6 +94,7 @@ int main() {
       \item Split up the {\it variable declaration} and {\it assignment statement} into 
         two separate lines of code.
         \begin{answer}[0.5in]
+          \fs
           The lines would be
           \begin{enumerate}
             \itemsep -2pt
@@ -124,27 +125,26 @@ int main() {
           \end{cpplst}
         \end{minipage}
       \end{center}
-  
-    \begin{enumerate}
-      \item What value is stored in the {\tt fullName} variable at line 3?
-        \begin{answer}[0.5in]
-          ``Walla WallaUniversity''
-        \end{answer}
+      \begin{enumerate}
+        \item What value is stored in the {\tt fullName} variable at line 3?
+          \begin{answer}[0.5in]
+            ``Walla WallaUniversity''
+          \end{answer}
 
-      \item How does the ``+'' sign behave differently when used with strings instead of numbers?
-        \begin{answer}[0.5in]
-          It concatenates the strings instead of adding values.
-        \end{answer}           
-      
-      \item How could you fix the output so that the words are all separated?
-        \begin{answer}[1in]
-          For example, we could change line 3 to: \\
-          {\tt string fullName = schoolName + " " + schoolType;}
-        \end{answer}
-      
-      \item When two strings are ``glued'' together, they are said to be {\it concatenated}.
-        What would happen if you tried to concatenate a string with an integer?
-        \begin{answer}[1in]
-          A syntax error.
-        \end{answer}
-    \end{enumerate}
+        \item How does the ``+'' sign behave differently when used with strings instead of numbers?
+          \begin{answer}[0.5in]
+            It concatenates the strings instead of adding values.
+          \end{answer}           
+        
+        \item How could you fix the output so that the words are all separated?
+          \begin{answer}[1in]
+            For example, we could change line 3 to: \\
+            {\tt string fullName = schoolName + " " + schoolType;}
+          \end{answer}
+        
+        \item When two strings are ``glued'' together, they are said to be {\it concatenated}.
+          What would happen if you tried to concatenate a string with an integer?
+          \begin{answer}[1in]
+            A syntax error.
+          \end{answer}
+      \end{enumerate}

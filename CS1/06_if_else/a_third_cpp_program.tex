@@ -1,8 +1,9 @@
-\model{A Third C++ Program} \\
+\model{A Third C++ Program}
   \begin{center}
     \begin{minipage}{5.5in}
       \begin{cpplst}
 #include <iostream>
+
 using namespace std;
 
 int main() {
@@ -31,7 +32,7 @@ int main() {
   \Q Circle the {\tt if/else} statement that is {\it nested} inside of 
     another {\tt if/else} statement.
     \begin{answer}[0.4in]
-      The {\tt if/else} statement from lines 11-14 is nested inside the one from lines 8-16.
+      The {\tt if/else} statement from lines 12-16 is nested inside the one from lines 9-17.
     \end{answer}
 
   \Q This code can be found in the file {\tt activity06c.cpp}.  Give three different grade
@@ -44,11 +45,11 @@ int main() {
         \hline
         \rowcolor{orange!20} Test & {\tt grade} Value & Part of Program Tested \\
         \hline
-        1 & \ans[0.5in] {95} & \ans[2in] {Tests lines 8-9} \\
+        1 & \ans[0.5in] {95} & \ans[2in] {Tests lines 9-10} \\
         \hline
-        2 & \ans[0.5in] {82} & \ans[2in] {Tests lines 10-12} \\
+        2 & \ans[0.5in] {82} & \ans[2in] {Tests lines 11-13} \\
         \hline
-        3 & \ans[0.5in] {55} & \ans[2in] {Tests lines 10, 11, 13-14} \\
+        3 & \ans[0.5in] {55} & \ans[2in] {Tests lines 11, 12, 14-15} \\
         \hline
       \end{tabular}
     \end{center}
@@ -74,7 +75,7 @@ int main() {
     \end{center}
         
     \begin{enumerate}
-      \item Replace lines 8-16 in model 3 with this code. How does the output change?
+      \item Replace lines 9-17 in model 3 with this code. How does the output change?
         \begin{answer}[0.5in]
           The output does not change.
         \end{answer}
@@ -108,7 +109,7 @@ if (grade >= 90) {
       \item Does it make a difference where you add the additional {\tt else/if} statement? \key\\[-2.5mm]
         Compare adding it at line 3 in the code snippet above vs. at line 5.
         \begin{answer}[1in]
-          Yes, it makes a difference.  If we add it at line 5 instead of at line 3, then the ``Good!'' option is never used because
+          Yes, it makes a difference. If we add it at line 5 instead of at line 3, then the ``Good!'' option is never used because
           any grade above 80 will also be above 60 and would fall into the earlier ``Satisfactory.''
           part of the {\tt if/else/if} statement.
         \end{answer}

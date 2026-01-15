@@ -1,4 +1,4 @@
-\model{Two C++ Programs} \\
+\model{Two C++ Programs}
   \begin{center}
     \small
     \begin{tabular}{p{3.3in}p{3.9in}}
@@ -6,6 +6,7 @@
         \begin{cpplst}
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 int main() {
@@ -26,6 +27,7 @@ int main() {
         \begin{cpplst}
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 int main() {
@@ -61,13 +63,13 @@ string name;
     \begin{enumerate}
       \itemsep 10pt
       \item The Initialization Statement: \hfill
-        \ans[4in]{\cpp{int x = 0} on line 9}
+        \ans[4in]{\cpp{int x = 0} on line 10}
 
       \item The Test Condition: \hfill
-        \ans[4in]{\cpp{x < 10} on line 9}
+        \ans[4in]{\cpp{x < 10} on line 10}
 
       \item The Update Statement: \hfill
-        \ans[4in]{\cpp{x += 1} on line 9}
+        \ans[4in]{\cpp{x += 1} on line 10}
     \end{enumerate}
   
   \Q You should have noted above that both programs produce the
@@ -139,7 +141,7 @@ for (int i = 2; i <= 6; i += 2) {
           \begin{minipage}{2.6in}
             \begin{answer}[1in]
               \begin{cpplst}
-for (int i=100; i<=200; i+=1) {
+for (int i=100; i<=200; i+=2) {
   cout << i << " ";
 }
               \end{cpplst}
