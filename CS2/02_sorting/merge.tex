@@ -1,237 +1,222 @@
- {\bf\large Model 2: Merge} \\
+\model{Merge}
 
-            Some sort algorithms (e.g. bubble sort and selection sort) are simple but inefficient.
-            To understand a better sort algorithm, we'll start with something easier - \textbf{merge}.
+  \par\vskip 10pt
 
-      \item Recall that \textbf{$\theta()$}, \textbf{$O()$}, and \textbf{$\omega()$ notation} describes how input size
-            affects operation count and run time. If the input size \textbf{doubles},
-            what happens to the run time if an algorithm is O(1), O(N), etc?
-            Which line at right shows this?
+  {\it\large Refer to Model 2 above as your team develops consensus answers
+  to the questions below.}
 
+  \quest{15 min}
+  Some sort algorithms (e.g. bubble sort and selection sort) are simple but inefficient.
+  To understand a better sort algorithm, we'll start with something easier - \textbf{merge}.
 
-            \begin{center}
-                  \begin{tabular}{ |l|l|l|l| }
-                        \hline
-                        a. O(1) & b. O(N) & c. $O(N^2))$ & O(log N) \\
-                        \hline
-                                &         &              &          \\
-                                &         &              &          \\
-                        \hline
-                  \end{tabular}
-            \end{center}
+  \Q Recall that \textbf{$\theta()$}, \textbf{$O()$}, and \textbf{$\omega()$ notation} describes how input size
+    affects operation count and run time. If the input size \textbf{doubles},
+    what happens to the run time if an algorithm is O(1), O(N), etc?
+    Which line at right shows this?
+    \begin{center}
+      \begin{tabular}{ |l|l|l|l| }
+        \hline
+        a. O(1) & b. O(N) & c. $O(N^2)$ & d. O(log N) \\
+        \hline
+        &         &              &          \\
+        &         &              &          \\
+        \hline
+      \end{tabular}
+    \end{center}
 
+  \Q Use the table below to specify \textbf{unit tests} for \textbf{merge(arrA, arrB)},
+    which \textbf{merges} two sorted arrays into one sorted array.    \begin{center}
+      \begin{tabular}{ |l|l|l| }
+        \hline
+        \rowcolor{lightgray} \textbf{arrA} & \textbf{arrB} & \textbf{Expected Result} (return value, exception, etc) \\
+        \hline
+        (empty) & (empty) & (empty) \\
+        \hline
+        "B" & (empty) & \ans[4in]{"B"} \\
+        \hline
+        (empty) & "A" & \ans[4in]{"A"} \\
+        \hline
+        "B" & "A" & \ans[4in]{"A", "B"} \\
+        \hline
+        "B", "D" & "A", "C" & \ans[4in]{"A", "B", "C", "D"} \\
+        \hline
+        "B", "C", "D" & "A", "C" & \ans[4in]{"A", "B", "C", "C", "D"} \\
+        \hline
+      \end{tabular}
+    \end{center}
 
+  \Q Given 2 sorted arrays arrA \& arrB that will be merged into one sorted array arrC.\\
+    \begin{minipage}[c]{0.25\textwidth}
+      \begin{tabular}{ |c|c|c|c| }
+        \hline
+        \multicolumn{4}{|c|}{\textbf{arrA}} \\
+        \hline
+        $a^0$ & $a^1$ & $a^2$ & $a^3$ \\
+        \hline
+      \end{tabular}
+    \end{minipage}
+    \begin{minipage}[c]{0.25\textwidth}
+      \begin{tabular}{ |c|c|c|c| }
+        \hline
+        \multicolumn{4}{|c|}{\textbf{arrB}} \\
+        \hline
+        $b^0$ & $b^1$ & $b^2$ & $b^3$ \\
+        \hline
+      \end{tabular}
+    \end{minipage}
+    \begin{minipage}[c]{0.5\textwidth}
+      \begin{tabular}{ |c|c|c|c|c|c|c|c| }
+        \hline
+        \multicolumn{8}{|c|}{\textbf{$\Rightarrow$ arrC}} \\
+        \hline
+        $c^0$ & $c^1$ & $c^2$ & $c^3$ & $c^4$ & $c^5$ & $c^6$ & $c^7$ \\
+        \hline
+      \end{tabular}
+    \end{minipage}
 
+    \begin{enumerate}
+      \item What is the length of \texttt{arrC}, in terms of \texttt{arrA.length} and \texttt{arrB.length}?
+        \begin{answer}[0.6in]
+          \texttt{arrC.length = arrA.length + arrB.length}
+        \end{answer}
 
-      \item  (3 min) Use the table below to specify \textbf{unit tests} for \textbf{merge(arrA,arrB)},
-            which \textbf{merges} two sorted arrays into one sorted array.
+      \item There are only 2 values ($a_0$ and $b_0$) that could go into $c_0$. Explain why.
+        \begin{answer}[0.6in]
+          Since A and B are sorted, a0 is the smallest value in A and b0 is the smallest value in B,
+          and so one of these two must be the smallest value in C.
+        \end{answer}
 
-            \begin{center}
-                  \begin{tabular}{ |l|l|l| }
-                        \hline
-                        \rowcolor{lightgray} \textbf{arrA} & \textbf{arrB} & \textbf{Expected Result} (return value, exception, etc) \\
-                        \hline
-                        (empty)                            & (empty)       & (empty)                                                 \\
-                        \hline
-                        "B"                                & (empty)       & \ifprintanswers "B" \fi                                 \\
-                        \hline
-                        (empty)                            & "A"           & \ifprintanswers "A" \fi                                 \\
-                        \hline
-                        "B"                                & "A"           & \ifprintanswers "A", "B" \fi                            \\
-                        \hline
-                        "B", "D"                           & "A", "C"      & \ifprintanswers "A", "B", "C", "D" \fi                  \\
-                        \hline
-                        "B", "C", "D"                      & "A", "C"      & \ifprintanswers "A", "B", "C", "C", "D" \fi             \\
-                        \hline
-                  \end{tabular}
-            \end{center}
+      \item Once $c_0$ is chosen, there are only 2 values that could go into $c_1$. Explain why.
+        \begin{answer}[0.6in]
+          If a0 goes into c0, then compare a1 and b0. If b0 goes into c0, then compare a0 and b1.
+        \end{answer}
 
+      \item Similarly, once $c_0$ to $c_i$ are chosen, there are only 2 values that could go into $c_{i+1}$. Explain.
+        \begin{answer}[0.6in]
+          At each index we compare the smallest unused values from A \& B.
+        \end{answer}
+    \end{enumerate}
 
-      \item (5 min) Given 2 sorted arrays arrA \& arrB that will be merged into one sorted array arrC.
+  \vskip -40pt
 
-            \begin{minipage}[c]{0.25\textwidth}
-                  \begin{tabular}{ |c|c|c|c| }
-                        \hline
-                        \multicolumn{4}{|c|}{\textbf{arrA}} \\
-                        \hline
-                        $a^0$ & $a^1$ & $a^2$ & $a^3$       \\
-                        \hline
-                  \end{tabular}
-            \end{minipage}
-            \begin{minipage}[c]{0.25\textwidth}
-                  \begin{tabular}{ |c|c|c|c| }
-                        \hline
-                        \multicolumn{4}{|c|}{\textbf{arrB}} \\
-                        \hline
-                        $b^0$ & $b^1$ & $b^2$ & $b^3$       \\
-                        \hline
-                  \end{tabular}
-            \end{minipage}
-            \begin{minipage}[c]{0.5\textwidth}
-                  \begin{tabular}{ |c|c|c|c|c|c|c|c| }
-                        \hline
-                        \multicolumn{8}{|c|}{\textbf{$\Rightarrow$ arrC}}             \\
-                        \hline
-                        $c^0$ & $c^1$ & $c^2$ & $c^3$ & $c^4$ & $c^5$ & $c^6$ & $c^7$
-                        \\
-                        \hline
-                  \end{tabular}
-            \end{minipage}
+  \Q Given your answers above, how could we \textbf{merge()} 2 arrays efficiently?\key\\[-2.5mm]
+    In complete sentences or pseudocode, describe a general approach for \textbf{merge()}.
 
+    \texttt{void merge(string arrA[], int sizeA, string arrB[], int sizeB, string arrC[])}
 
-            a. What is the length of \texttt{arrC}, in terms of \texttt{arrA.length} and \texttt{arrB.length}?
+    \begin{answer}[1.5in]
+      Start at the beginning of both arrays. Step through both arrays at the same time,
+      keeping track of current position in each. Choose the smaller of the two values,
+      copy it to the merged list, and shift the position in that list. Continue until
+      the end of one array, and then copy any values left in the other array to the merged list.
 
-            \begin{solution}[0.6in]
-                  \texttt{arrC.length = arrA.length + arrB.length}
-            \end{solution}
+      \begin{cpplst}
+// pseudocode - see instructor sample code for more details
+void merge(string arrA[], int sizeA, string arrB[], int sizeB, string arrC[]) {
+    int ia = 0, ib = 0;
+    for (int i = 0; i < sizeA + sizeB; i++) {
+        if (ib == sizeB || (ia < sizeA && arrA[ia].compare(arrB[ib]) < 0)) {
+            arrC[i] = arrA[ia];
+            ia++;
+        } else {
+            arrC[i] = arrB[ib];
+            ib++;
+        }
+    }
+}
+      \end{cpplst}
+    \end{answer}
 
-            b. There are only 2 values ($a_0$ and $b_0$) that could go into $c_0$. Explain why.
+  \Q The table below shows the contents of sorted arrays arrayA and arrayB.
+    Complete the table to show how arrayC and the 3 index variables (ai, bi, ci) change over time.
+    \begin{center}
+      \begin{tabular}{ |r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r| }
+        \hline
+        \rowcolor{lightgray} \multicolumn{4}{|c|}{\textbf{arrayA}} & & \multicolumn{4}{|c|}{\textbf{arrayB}} & & \multicolumn{8}{|c|}{\textbf{arrayC}} & & \multicolumn{3}{|c|}{\textbf{vars}} \\
+        \hline
+        \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} & & \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} & & \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & & \textbf{ai} & \textbf{bi} & \textbf{ci} \\
+        \hline
+        2 & 6 & 12 & 14 & & 3 & 5 & 15 & 17 & & & & & & & & & & & 0 & 0 & 0 \\
+        \hline
+        2 & 6 & 12 & 14 & & 3 & 5 & 15 & 17 & & 2 & & & & & & & & & 1 & 0 & 1 \\
+        \hline
+        2 & 6 & 12 & 14 & & 3 & 5 & 15 & 17 & & 2 & 3 & & & & & & & & 1 & 1 & 2 \\
+        \hline
+        2 & 6 & 12 & 14 & & 3 & 5 & 15 & 17 & & 2 & 3 & \ans[0.2in]{5} & & & & & & & \ans[0.2in]{1} & \ans[0.2in]{2} & \ans[0.2in]{3} \\
+        \hline
+        2 & 6 & 12 & 14 & & 3 & 5 & 15 & 17 & & 2 & 3 & \ans[0.2in]{5} & \ans[0.2in]{6} & & & & & & \ans[0.2in]{2} & \ans[0.2in]{2} & \ans[0.2in]{4} \\
+        \hline
+        2 & 6 & 12 & 14 & & 3 & 5 & 15 & 17 & & 2 & 3 & \ans[0.2in]{5} & \ans[0.2in]{6} & \ans[0.2in]{12} & & & & & \ans[0.2in]{3} & \ans[0.2in]{2} & \ans[0.2in]{5} \\
+        \hline
+        2 & 6 & 12 & 14 & & 3 & 5 & 15 & 17 & & 2 & 3 & \ans[0.2in]{5} & \ans[0.2in]{6} & \ans[0.2in]{12} & \ans[0.2in]{14} & & & & \ans[0.2in]{4} & \ans[0.2in]{2} & \ans[0.2in]{6} \\
+        \hline
+        2 & 6 & 12 & 14 & & 3 & 5 & 15 & 17 & & 2 & 3 & \ans[0.2in]{5} & \ans[0.2in]{6} & \ans[0.2in]{12} & \ans[0.2in]{14} & \ans[0.2in]{15} & & & \ans[0.2in]{4} & \ans[0.2in]{3} & \ans[0.2in]{7} \\
+        \hline
+        2 & 6 & 12 & 14 & & 3 & 5 & 15 & 17 & & 2 & 3 & \ans[0.2in]{5} & \ans[0.2in]{6} & \ans[0.2in]{12} & \ans[0.2in]{14} & \ans[0.2in]{15} & \ans[0.2in]{17} & & \ans[0.2in]{4} & \ans[0.2in]{4} & \ans[0.2in]{8} \\
+        \hline
+      \end{tabular}
+    \end{center}
 
-            \begin{solution}[0.6in]
-                  Since A and B are sorted, a0 is the smallest value in A and b0 is the smallest value in B,
-                  and so one of these two must be the smallest value in C.
-            \end{solution}
+  \newpage
 
-            c. Once $c_0$ is chosen, there are only 2 values that could go into $c_1$. Explain why.
+  \Q During merge(), if there are N/2 values in each sorted array,
+    and N values in the merged array (also sorted), explain the \textbf{O()} effort to find:
+    \begin{center}
+      \begin{tabular}{ |l|m{3.5cm}|l|m{9cm}| }
+        \hline
+        \rowcolor{lightgray} & & \textbf{O()} & \textbf{Explanation} \\
+        \hline
+        a. & The \textbf{first value} in the merged array. & \ans[0.4in]{O(1)} & \ans[3in]{Compare 1st 2 values} \\
+        \hline
+        b. & The \textbf{second value} in the merged array. & \ans[0.4in]{O(1)} & \ans[3in]{Compare 1st value in one array and 2nd value in other array} \\
+        \hline
+        c. & Each \textbf{successive} value in the merged array. & \ans[0.4in]{O(1)} & \ans[3in]{Compare one value in each array} \\
+        \hline
+        d. & \textbf{All N} values in the merged array. & \ans[0.4in]{O(N)} & \ans[3in]{Repeat O(1) comparison for N values in merged array} \\
+        \hline
+      \end{tabular}
+    \end{center}
 
+  \Q In the following questions, a 2 item list is called a 2-list, a N item list
+    is called an N-list, etc. Decide if each of the following is always sorted (Y or N):
+    \begin{center}
+      \renewcommand{\arraystretch}{1.5}
+      \begin{tabular}{ |l|m{9cm}|m{3cm}| }
+        \hline
+        a. & a 16-list of random numbers & \ans[1in]{N=unsorted} \\
+        \hline
+        b. & the first half of a 32-list of random numbers & \ans[1in]{N=unsorted} \\
+        \hline
+        c. & a 1-list & \ans[1in]{Y=sorted} \\
+        \hline
+        d. & a 2-list made by merging 2 (sorted) 1-lists & \ans[1in]{Y=sorted} \\
+        \hline
+        e. & a 16-list made by merging 2 (sorted) 8-lists & \ans[1in]{Y=sorted} \\
+        \hline
+        f. & a N-list made by merging 2 (sorted) (N/2)-lists & \ans[1in]{Y=sorted} \\
+        \hline
+      \end{tabular}
+    \end{center}
 
-            \begin{solution}[0.6in]
-                  If a0 goes into c0, then compare a1 and b0. If b0 goes into c0, then compare a0 and b1.
-            \end{solution}
+  \Q Decide how many new lists are made when pairs of lists are merged from:
+    \begin{center}
+      \renewcommand{\arraystretch}{1.5}
+      \begin{tabular}{ |l|m{9cm}|m{3cm}| }
+        \hline
+        a. & 1024 1-lists into 2-lists & \ans[1in]{512 2-lists} \\
+        \hline
+        b. & all of those 2-lists into 4-lists & \ans[1in]{256 4-lists} \\
+        \hline
+        c. & N 1-lists (for any N) into 2-lists & \ans[1in]{N/2 2-lists} \\
+        \hline
+        d. & all of those 2-lists into 4-lists & \ans[1in]{N/4 4-lists} \\
+        \hline
+      \end{tabular}
+    \end{center}
 
-            d. Similarly, once $c_0$ to $c_i$ are chosen, there are only 2 values that could go into $c_{i+1}$. Explain.
-
-            \begin{solution}[0.6in]
-                  At each index we compare the smallest unused values from A \& B.
-            \end{solution}
-
-            \newpage
-      \item (3 min) Given your answers, above, how could we \textbf{merge()} 2 arrays efficiently?
-            In complete sentences or pseudocode, describe a general approach for \textbf{merge()}.
-
-            \texttt{String[] merge(String[] arrA, String[] arrB)}
-
-            \begin{solution}[0.6in]
-                  Start at the beginning of both arrays. Step through both arrays at the same time,
-                  keeping track of current position in each. Choose the smaller of the two values,
-                  copy it to the merged list, and shift the position in that list. Continue until
-                  the end of one array, and then copy any values left in the other array to the merged list.
-
-                  // pseudocode - see instructor sample code for more details
-                  String[] merge(String[] arrA, String[] arrB) {
-                              String[] result = new String[arrA.length + arrB.length];
-                              int ia = 0, ib = 0;
-                              for (int i=0; i<result.length; i++) {
-                                          if (ib == arrB.length || arrA[ia].compareTo(arrB[ib]) < 0) {
-                                                      result[i] = arrA[ia]; ia++; }
-                                          else {
-                                                      result[i] = arrB[ib]; ib++; }
-                                    }
-                              return result;
-                        }
-            \end{solution}
-
-
-            \newpage
-      \item (3 min) The table below shows the contents of sorted arrays arrayA  and arrayB.
-            Complete the table to show how arrayC and the 3 index variables (ai,bi,ci) change over time.
-
-
-            \begin{center}
-                  \begin{tabular}{ |r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r| }
-                        \hline
-                        \rowcolor{lightgray} \multicolumn{4}{|c|}{\textbf{arrayA}} &            & \multicolumn{4}{|c|}{\textbf{arrayB}} &            & \multicolumn{8}{|c|}{\textbf{arrayC}} &            & \multicolumn{3}{|c|}{\textbf{vars}}                                                                                                                                                                                                                                                                                       \\
-                        \hline
-                        \textbf{0}                                                 & \textbf{1} & \textbf{2}                            & \textbf{3} &                                       & \textbf{0} & \textbf{1}                          & \textbf{2} & \textbf{3} &  & \textbf{0} & \textbf{1} & \textbf{2}            & \textbf{3}            & \textbf{4}             & \textbf{5}             & \textbf{6}             & \textbf{7}             &  & \textbf{ai}           & \textbf{bi}           & \textbf{ci}           \\
-                        \hline
-                        2                                                          & 6          & 12                                    & 14         &                                       & 3          & 5                                   & 15         & 17         &  &            &            &                       &                       &                        &                        &                        &                        &  & 0                     & 0                     & 0                     \\
-                        \hline
-                        2                                                          & 6          & 12                                    & 14         &                                       & 3          & 5                                   & 15         & 17         &  & 2          &            &                       &                       &                        &                        &                        &                        &  & 1                     & 0                     & 1                     \\
-                        \hline
-                        2                                                          & 6          & 12                                    & 14         &                                       & 3          & 5                                   & 15         & 17         &  & 2          & 3          &                       &                       &                        &                        &                        &                        &  & 1                     & 1                     & 2                     \\
-                        \hline
-                        2                                                          & 6          & 12                                    & 14         &                                       & 3          & 5                                   & 15         & 17         &  & 2          & 3          & \ifprintanswers 5 \fi &                       &                        &                        &                        &                        &  & \ifprintanswers 1 \fi & \ifprintanswers 2 \fi & \ifprintanswers 3 \fi \\
-                        \hline
-                        2                                                          & 6          & 12                                    & 14         &                                       & 3          & 5                                   & 15         & 17         &  & 2          & 3          & \ifprintanswers 5 \fi & \ifprintanswers 6 \fi &                        &                        &                        &                        &  & \ifprintanswers 2 \fi & \ifprintanswers 2 \fi & \ifprintanswers 4 \fi \\
-                        \hline
-                        2                                                          & 6          & 12                                    & 14         &                                       & 3          & 5                                   & 15         & 17         &  & 2          & 3          & \ifprintanswers 5 \fi & \ifprintanswers 6 \fi & \ifprintanswers 12 \fi &                        &                        &                        &  & \ifprintanswers 3 \fi & \ifprintanswers 2 \fi & \ifprintanswers 5 \fi \\
-                        \hline
-                        2                                                          & 6          & 12                                    & 14         &                                       & 3          & 5                                   & 15         & 17         &  & 2          & 3          & \ifprintanswers 5 \fi & \ifprintanswers 6 \fi & \ifprintanswers 12 \fi & \ifprintanswers 14 \fi &                        &                        &  & \ifprintanswers 4 \fi & \ifprintanswers 2 \fi & \ifprintanswers 6 \fi \\
-                        \hline
-                        2                                                          & 6          & 12                                    & 14         &                                       & 3          & 5                                   & 15         & 17         &  & 2          & 3          & \ifprintanswers 5 \fi & \ifprintanswers 6 \fi & \ifprintanswers 12 \fi & \ifprintanswers 14 \fi & \ifprintanswers 15 \fi &                        &  & \ifprintanswers 4 \fi & \ifprintanswers 3 \fi & \ifprintanswers 7 \fi \\
-                        \hline
-                        2                                                          & 6          & 12                                    & 14         &                                       & 3          & 5                                   & 15         & 17         &  & 2          & 3          & \ifprintanswers 5 \fi & \ifprintanswers 6 \fi & \ifprintanswers 12 \fi & \ifprintanswers 14 \fi & \ifprintanswers 15 \fi & \ifprintanswers 17 \fi &  & \ifprintanswers 4 \fi & \ifprintanswers 4 \fi & \ifprintanswers 8 \fi \\
-                        \hline
-                  \end{tabular}
-            \end{center}
-
-      \item (3 min) During merge(), if there are N/2 values in each sorted array,
-            and N values in the merged array (also sorted), explain the \textbf{O()} effort to find:
-
-
-            \begin{center}
-                  \begin{tabular}{ |l|m{3.5cm}|l|m{9cm}| }
-                        \hline
-                        \rowcolor{lightgray} &                                                     & \textbf{O()}             & \textbf{Explanation}                                                            \\
-                        \hline
-                        a.                   & The \textbf{first value} in the merged array.       & \ifprintanswers O(1) \fi & \ifprintanswers Compare 1st 2 values \fi                                        \\
-                        \hline
-                        b.                   & The \textbf{second value} in the merged array.      & \ifprintanswers O(1) \fi & \ifprintanswers Compare 1st value in one array and 2nd value in other array \fi \\
-                        \hline
-                        c.                   & Each \textbf{successive} value in the merged array. & \ifprintanswers O(1) \fi & \ifprintanswers Compare one value in each array \fi                             \\
-                        \hline
-                        d.                   & \textbf{All N} values in the merged array.          & \ifprintanswers O(N) \fi & \ifprintanswers Repeat O(1) comparison for N values in merged array \fi         \\
-                        \hline
-                  \end{tabular}
-            \end{center}
-
-
-      \item (2 min) In the following questions, a 2 item list is called a 2-list, a N item list
-            is called an N-list, etc. Decide if each of the following is always sorted (Y or N):
-
-
-            \begin{center}
-                  \renewcommand{\arraystretch}{1.5}
-                  \begin{tabular}{ |l|m{9cm}|m{3cm}| }
-                        \hline
-                        a. & a 16-list of random numbers                       & \ifprintanswers N=unsorted \fi \\
-                        \hline
-                        b. & the first half of a 32-list of random numbers     & \ifprintanswers N=unsorted \fi \\
-                        \hline
-                        c. & a 1-list                                          & \ifprintanswers Y=sorted \fi   \\
-                        \hline
-                        d. & a 2-list made by merging 2 (sorted) 1-lists       & \ifprintanswers Y=sorted \fi   \\
-                        \hline
-                        3. & a a 16-list made by merging 2 (sorted) 8-lists    & \ifprintanswers Y=sorted \fi   \\
-                        \hline
-                        f. & a a N-list made by merging 2 (sorted) (N/2)-lists & \ifprintanswers Y=sorted \fi   \\
-                        \hline
-                  \end{tabular}
-            \end{center}
-
-
-      \item (2 min) Decide how many new lists are made when pairs of lists are merged from:
-
-            \begin{center}
-                  \renewcommand{\arraystretch}{1.5}
-                  \begin{tabular}{ |l|m{9cm}|m{3cm}| }
-                        \hline
-                        a. & 1024 1-lists into 2-lists          & \ifprintanswers 512 2-lists \fi \\
-                        \hline
-                        b. & all of those 2-lists into 4-lists  & \ifprintanswers 256 4-lists \fi \\
-                        \hline
-                        c. & N 1-lists (for any N) into 2-lists & \ifprintanswers N/2 2-lists \fi \\
-                        \hline
-                        d. & all of those 2-lists into 4-lists  & \ifprintanswers N/4 4-lists \fi \\
-                        \hline
-                  \end{tabular}
-            \end{center}
-            \newpage
-      \item (3 min) How could we use merge to sort an unsorted list? (Hint: think recursively.)
-            In complete English sentences, describe a general approach for mergesort.
-
-
-            \begin{solution}[0.6in]
-                  Treat N-list as N 1-lists. Merge pairs of 1-lists into sorted 2-lists. Merge pairs of 2-lists
-                  into sorted 4-lists. Repeat until 2 N/2 lists are merged into 1 sorted N-list.
-            \end{solution}
+  \Q How could we use merge to sort an unsorted list? (Hint: think recursively.)\key\\[-2.5mm]
+    In complete English sentences, describe a general approach for mergesort.
+    \begin{answer}[0.7in]
+      Treat N-list as N 1-lists. Merge pairs of 1-lists into sorted 2-lists. Merge pairs of 2-lists
+      into sorted 4-lists. Repeat until 2 N/2 lists are merged into 1 sorted N-list.
+    \end{answer}
