@@ -1,146 +1,132 @@
- {\bf\large Model 1: Linked List} \\
-\begin{enumerate}
+ \model{Linked List}
 
-    Suppose you want to model a collection of retail items.
+  Suppose you want to model a collection of retail items.
 
-    \begin{minted}[
-          bgcolor=gray!15,
-          baselinestretch=1
-        ]{cpp}
+  \begin{cpplst}
 typedef struct retail_item {
   int id;
   char * name;
   int price;
 } retail_item;
-\end{minted}
+  \end{cpplst}
 
-    We could create an inventory of retail\_items and store them into an array, as follows:
+  We could create an inventory of retail\_items and store them into an array, as follows:
 
-    \begin{minted}[
-          bgcolor=gray!15,
-          baselinestretch=1
-        ]{cpp}
+  \begin{cpplst}
 retail_item inventory[10000];
-\end{minted}
+  \end{cpplst}
 
+  Or, we could create an array of pointers to retail\_items like this:
 
-    Or, we could create an array of pointers to retail\_items like this:
-
-    \begin{minted}[
-          bgcolor=gray!15,
-          baselinestretch=1
-        ]{cpp}
+  \begin{cpplst}
 retail_item * inventory_p[10000];
-\end{minted}
+  \end{cpplst}
 
-    What do we need to do to complete the following tasks?
+  What do we need to do to complete the following tasks?
 
-    \begin{itemize}
-        \itemsep 0pt
-        \item Add a new retail item
-        \item Remove a retail item from the array
-        \item Update the price of a retail item (let's say it goes on sale)
-        \item Print all retail items
-        \item Find an item in the array (think HW 2)
-        \item Get total number of retail items in the array
-    \end{itemize}
+  \begin{itemize}
+    \itemsep 0pt
+    \item Add a new retail item
+    \item Remove a retail item from the array
+    \item Update the price of a retail item (let's say it goes on sale)
+    \item Print all retail items
+    \item Find an item in the array (think HW 2)
+    \item Get total number of retail items in the array
+  \end{itemize}
 
-    \item For these tasks, which are fast to do when retail items are stored in an array? Which take longer?
-          \begin{solution}[0.6in]
-          \end{solution}
-    \item What if the store has more than 10000 items?
-          \begin{solution}[0.6in]
-          \end{solution}
-    \item What if the store has much fewer than 10000 items?
-          \begin{solution}[0.6in]
-          \end{solution}
+  {\it\large Refer to Model 1 above as your team develops consensus answers
+    to the questions below.}
 
-          \newpage
-          \textbf{Linked Lists}
+  \quest{20 min}
 
-          A linked list is an alternate model for storing a list of items; it can grow and shrink dynamically.
-          A linked list is a chain of nodes, where each node has:
+  \Q For these tasks, which are fast to do when retail items are stored in an array? Which take longer?
+    \begin{answer}[0.6in]
+      The fast tasks are: updating the price, printing all items, finding an item, and getting the total number of items.
+      The slow tasks are: adding a new item and removing an item.
+    \end{answer}
 
-          \begin{itemize}
-              \item storage for a data item (or pointer to a data item)
-              \item a pointer to the next node (the last item's pointer is NULL)
-              \item there is a pointer to the first node in the list
-          \end{itemize}
+  \Q What if the store has more than 10000 items?
+    \begin{answer}[0.6in]
+      We would need to create a larger array and copy all the items over to the new array.
+    \end{answer}
 
-          To create a linked list of retail\_items:
+  \Q What if the store has much fewer than 10000 items?
+    \begin{answer}[0.6in]
+      We would be wasting memory.
+    \end{answer}
 
-          \begin{minted}[
-          bgcolor=gray!15,
-          baselinestretch=1
-        ]{cpp}
+  \textbf{Linked Lists}
+
+  A linked list is an alternate model for storing a list of items; it can grow and shrink dynamically.
+  A linked list is a chain of nodes, where each node has:
+
+  \begin{itemize}
+      \itemsep 0pt
+    \item storage for a data item (or pointer to a data item)
+    \item a pointer to the next node (the last item's pointer is NULL)
+    \item there is a pointer to the first node in the list
+  \end{itemize}
+
+  To create a linked list of retail\_items:
+
+  \begin{cpplst}
 typedef struct retail_item_list_tag retail_item_list;
 struct retail_item_list_tag {
   retail_item item;
   retail_item_list * next;
 };
-\end{minted}
+  \end{cpplst}
 
-          So, a single node would look like, where the first three boxes are retail\_item struct members and the fourth box is the pointer to the next retail item:
+  So, a single node would look like, where the first three boxes are retail\_item struct members and the fourth box is the pointer to the next retail item:
 
-          \includegraphics[height=2.8cm]{figures/single_node.png}
+  \includegraphics[height=2.8cm]{figures/single_node.png}
 
+  A linked list would look like:
 
-          A linked list would look like:
+  \includegraphics[height=8cm]{figures/linked_list.png}
 
-          \includegraphics[height=10cm]{figures/linked_list.png}
+  In memory, the consecutive nodes of the linked list do not need to occupy sequential places in memory (remember: an array is laid out in contiguous memory).
+  Each individual node would be stored in contiguous bytes as a struct object; however, the location of the wheat thins node could be after the location of basketball which is after the Clorox wipes in memory.
 
-          In memory, the consecutive nodes of the linked list do not need to occupy sequential places in memory (remember: an array is laid out in contiguous memory).
-          Each individual node would be stored in contiguous bytes as a struct object; however, the location of the wheat thins node could be after the location of basketball which is after the Clorox wipes in memory.
+  In the above picture, the memory could look like:
 
-          \newpage
-          In the above picture, the memory could look like:
+  \begin{tabular}{ l l l }
+    Memory address & Data     & Corresponds to                        \\ \hline\hline
+    2000           & 3012     & Id of second item in linked list      \\
+    2004           & 9000     & Pointer to ``Clorox Wipes''           \\
+    2012           & 450      & Price of second item in linked list   \\
+    2016           & 2050     & Pointer to third item in linked list  \\
+    ...            &          &                                       \\
+    2050           & 9009     & Id of third item in linked list       \\
+    2054           & 4000     & Pointer to ``Basketball''             \\
+    2062           & 1299     & Price of third item in linked list    \\
+    2066           & 0 / NULL & NULL                                  \\
+    ...            &          &                                       \\
+    3000           & 3008     & top                                   \\
+    3008           & 1002     & Id of first item in linked list       \\
+    3012           & 10000    & Pointer to ``Wheat thins''            \\
+    3020           & 389      & Price of first item in linked list    \\
+    3024           & 2000     & Pointer to second item in linked list \\
+    ...            &          &                                       \\
+    ...            &          &                                       \\
+  \end{tabular}
 
-          \begin{tabular}{ l l l }
-              Memory address & Data     & Corresponds to                        \\ \hline\hline
-              2000           & 3012     & Id of second item in linked list      \\
-              2004           & 9000     & Pointer to ``Clorox Wipes''           \\
-              2012           & 450      & Price of second item in linked list   \\
-              2016           & 2050     & Pointer to third item in linked list  \\
-              ...            &          &                                       \\
-              2050           & 9009     & Id of third item in linked list       \\
-              2054           & 4000     & Pointer to ``Basketball''             \\
-              2062           & 1299     & Price of third item in linked list    \\
-              2066           & 0 / NULL & NULL                                  \\
-              ...            &          &                                       \\
-              3000           & 3008     & top                                   \\
-              3008           & 1002     & Id of first item in linked list       \\
-              3012           & 10000    & Pointer to ``Wheat thins''            \\
-              3020           & 389      & Price of first item in linked list    \\
-              3024           & 2000     & Pointer to second item in linked list \\
-              ...            &          &                                       \\
-              ...            &          &                                       \\
-          \end{tabular}
+  \textbf{Creating a linked list node}
 
-          \textit{Creating a linked list node}
+  You can create a local variable as a node, like this:
 
-          You can create a local variable as a node, like this:
-
-          \begin{minted}[
-          bgcolor=gray!15,
-          baselinestretch=1
-        ]{cpp}
-retail_item_list r1 = {{9009, “Basketball”, 1299}, NULL};
-retail_item_list r2 = {{3012, “Clorox wipes”, 450}, &r1};
-retail_item_list r3 = {{1002, “Wheat thins”, 389}, &r2};
+  \begin{cpplst}
+retail_item_list r1 = {{9009, "Basketball", 1299}, NULL};
+retail_item_list r2 = {{3012, "Clorox wipes", 450}, &r1};
+retail_item_list r3 = {{1002, "Wheat thins", 389}, &r2};
 retail_item_list * top = &r3;
-\end{minted}
+  \end{cpplst}
 
-          However, this is pretty unusual.
-          It requires that you know all the members of the list; in this case, it may make more sense to use an array.
-          Instead, we can write a function to create a linked list node and return a pointer to it.
+  However, this is pretty unusual.
+  It requires that you know all the members of the list; in this case, it may make more sense to use an array.
+  Instead, we can write a function to create a linked list node and return a pointer to it.
 
-          \begin{minted}[
-          frame=lines,
-          framesep=2mm,
-          bgcolor=gray!15,
-          baselinestretch=1,
-          linenos
-        ]{cpp}
+  \begin{cpplst}
 retail_item_list * create_retail_item_list(
       int product_id,
       char * product_name,
@@ -154,14 +140,11 @@ retail_item_list * create_retail_item_list(
   ret->next = next_item;
   return ret;
 }
-\end{minted}
+  \end{cpplst}
 
-          So, to use this function in the code:
+  So, to use this function in the code:
 
-          \begin{minted}[
-          bgcolor=gray!15,
-          baselinestretch=1
-        ]{cpp}
+  \begin{cpplst}
 retail_item_list * top = NULL;
 // insert basketball
 top = create_retail_item_list(9009, “Basketball”, 1299, top);
@@ -169,82 +152,85 @@ top = create_retail_item_list(9009, “Basketball”, 1299, top);
 top = create_retail_item_list(3012, “Clorox wipes”, 450, top);
 // insert wheat thins
 top = create_retail_item_list(1002, “Wheat thins”, 389, top);
-\end{minted}
+  \end{cpplst}
 
-          What if instead we have a pointer to \texttt{retail\_item} in the  \texttt{retail\_item\_list} struct instead?
+  What if instead we have a pointer to \texttt{retail\_item} in the  \texttt{retail\_item\_list} struct instead?
 
-          \begin{minted}[
-          frame=lines,
-          framesep=2mm,
-          bgcolor=gray!15,
-          baselinestretch=1,
-          linenos
-        ]{cpp}
+  \begin{cpplst}
 typedef struct retail_item_list_tag retail_item_list;
 struct retail_item_list_tag {
-retail_item * item;
-  // pointer to retail_item object
+  retail_item * item;  // pointer to retail_item object
   retail_item_list * next;
 }
-\end{minted}
+  \end{cpplst}
 
-    \item What would the picture look like now? (assume the same 3 items are put in the list)
-          \begin{solution}[3in]
-          \end{solution}
+  \Q What would the picture look like now? (assume the same 3 items are put in the list)
+    \begin{answer}[3in]
+      The nodes would contain pointers to the retail\_item objects instead of the objects themselves.
+      So, each node would have a pointer to a retail\_item object stored somewhere else in memory.
+    \end{answer}
 
-    \item What are some advantages of linked lists?
-          \begin{solution}[0.8in]
-          \end{solution}
+  \newpage
 
-    \item What are some disadvantages of linked lists?
-          \begin{solution}[0.8in]
-          \end{solution}
+  \Q What are some advantages of linked lists?\key\\[-2.5mm]
+    \begin{answer}[0.8in]
+      Some advantages of linked lists are that they can grow and shrink dynamically, and that adding or removing items can be done more easily than in an array.
+    \end{answer}
 
-    \item When are arrays a better choice?
-          \begin{solution}[0.8in]
-          \end{solution}
+  \Q What are some disadvantages of linked lists?\key\\[-2.5mm]
+    \begin{answer}[0.8in]
+      Some disadvantages of linked lists are that they use more memory due to the pointers, and that accessing items can be slower since you have to traverse the list.
+    \end{answer}
 
-    \item When are linked lists a better choice?
-          \begin{solution}[0.8in]
-          \end{solution}
+  \Q When are arrays a better choice?
+    \begin{answer}[0.8in]
+      Arrays are a better choice when you need fast access to elements by index, and when the size of the collection is known and does not change frequently.
+    \end{answer}
 
-          \newpage
-          \textbf{Summary}
+  \Q When are linked lists a better choice?
+    \begin{answer}[0.8in]
+      Linked lists are a better choice when the size of the collection changes frequently, and when you need to frequently add or remove items from the list.
+    \end{answer}
 
-          Linked lists are a FUNDAMENTAL data structure in CS.
-          They are often used in job interviews.
-          \textit{Example:
-              Write the code to define a linked list of integers.
-              Write the code to traverse the linked list and find its
-              length.}
+  \textbf{Summary}
 
+  Linked lists are a FUNDAMENTAL data structure in CS.
+  They are often used in job interviews.
+  \textit{Example:
+    Write the code to define a linked list of integers.
+    Write the code to traverse the linked list and find its
+    length.}
 
-          What might we want to do with a linked list?
+  What might we want to do with a linked list?
 
-          \begin{itemize}
-              \item Create an empty linked list
-              \item Determine the number of nodes in a linked list (length)
-              \item Print the elements of the linked list
-              \item Find an element in the linked list
-              \item Insert item at beginning (head of list)
-              \item Insert item at end (tail of list)
-              \item Insert item in between certain items (for example, keep data in sorted order)
-              \item Remove first item
-              \item Remove last item
-              \item Remove a particular item
-              \item Remove the entire list
-              \item Reverse the list
-              \item Sort the list
-              \item Split into two lists
-              \item Merge two linked lists
-          \end{itemize}
+  \begin{itemize}
+    \item Create an empty linked list
+    \item Determine the number of nodes in a linked list (length)
+    \item Print the elements of the linked list
+    \item Find an element in the linked list
+    \item Insert item at beginning (head of list)
+    \item Insert item at end (tail of list)
+    \item Insert item in between certain items (for example, keep data in sorted order)
+    \item Remove first item
+    \item Remove last item
+    \item Remove a particular item
+    \item Remove the entire list
+    \item Reverse the list
+    \item Sort the list
+    \item Split into two lists
+    \item Merge two linked lists
+  \end{itemize}
 
-    \item Can you think of other operations you might want to do?
-          \begin{solution}[2in]
-          \end{solution}
+  \Q Can you think of other operations you might want to do?
+    \begin{answer}[1.8in]
+      Some other operations that might be useful include:
+      \begin{itemize}
+        \item Update the value of a node
+        \item Check if the list is empty
+        \item Get the first or last item without removing it
+        \item Iterate through the list with a callback function
+      \end{itemize}
+    \end{answer}
 
-
-          We will now use a linked list of integers to simplify the discussion and some of these operations.
-          Note that your textbook shows the implementation of several of the functions from the above list.
-
-          \newpage
+  We will now use a linked list of integers to simplify the discussion and some of these operations.
+  Note that your textbook shows the implementation of several of the functions from the above list.

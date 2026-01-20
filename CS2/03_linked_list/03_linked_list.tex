@@ -3,7 +3,7 @@
 % Access: 04-15-2022
 
 % comment out for student version
-%\ifdefined\Student\relax\else\def\Teacher{}\fi
+\ifdefined\Student\relax\else\def\Teacher{}\fi
 
 \documentclass[12pt]{article}
 
@@ -17,50 +17,38 @@
 
 \begin{document}
 
-\begin{center}
-  \Large Activity \#3: Linked List \\[5pt]
-  \large Recorder's Report\\[20pt]
-  \normalsize
-  \begin{tabular}{lrp{0.1in}lr}
-      Manager:  & \ans{} &  & Reader: & \ans{}            \\[15pt]
-      Recorder: & \ans{} &  & Driver: & \ans{}            \\[15pt]
-      Date:     & \ans{} &  & Score:  & Satisfactory \hspace{10pt} /
-      \hspace{10pt} Not Satisfactory
-  \end{tabular}
-\end{center}
-\par\vskip 15pt
+  \begin{center}
+    \maketitle
+    \rolenames
+  \end{center}
 
-Record your team's answers to the key questions (marked with
-\raisebox{-.3\height}{\includegraphics[width=0.5in]{../../figures/key.png}})
-below.
-\begin{enumerate}[label=(\alph*)]
-  \itemsep 1.25in
-  \item Model 1, Question \#5
-  \item Model 1, Question \#6
-  \item Model 2, Question \#15
-  \item Model 4, Question \#18
-\end{enumerate}
+  \keyquestions{
+    \item Model 1, Question \#5
+    \item Model 1, Question \#6
+    \item Model 2, Question \#15
+    \item Model 4, Question \#18
+  }
 
-\newpage
-\maketitle
+  \newpage
+  \maketitle
 
-In this course, you will work in teams of 3--4 students to learn new concepts.
-This activity will introduce you to the process of analyzing an algorithm complexity.
+  In this course, you will work in teams of 3--4 students to learn new concepts.
+  This activity will introduce you to linked lists and its variations.
 
-%\rolenames
+  \guide{
+    \item Explain the structure of linked list
+    \item Explain difference between a single, circular, and double linked list
+  }{
+    \item Write code that adds, removes, and accesses a linked list
+  }{
+  No additional notes.
+  }
 
-\guide{
-  \item Explain the structure of linked list
-  \item Explain difference between a single, circular, and double linked list
-}{
-  \item Write code that adds, removes, and accesses a linked list
-}{
-No additional notes.
-}
-
-\input{linked_list.tex}
-\input{a_cpp_program.tex}
-\input{circular_linked_lists.tex}
-\input{doubly_linked_lists.tex}
+  \input{linked_list.tex}
+  \newpage
+  \input{a_cpp_program.tex}
+  \newpage
+  \input{circular_linked_lists.tex}
+  \input{doubly_linked_lists.tex}
 
 \end{document}
