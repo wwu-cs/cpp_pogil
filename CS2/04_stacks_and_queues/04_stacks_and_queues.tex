@@ -18,67 +18,52 @@
 
 \begin{document}
 
-\begin{center}
-  \Large Activity \#4: Stacks and Queues \\[5pt]
-  \large Recorder's Report\\[20pt]
-  \normalsize
-  \begin{tabular}{lrp{0.1in}lr}
-      Manager:  & \ans{} &  & Reader: & \ans{}            \\[15pt]
-      Recorder: & \ans{} &  & Driver: & \ans{}            \\[15pt]
-      Date:     & \ans{} &  & Score:  & Satisfactory \hspace{10pt} /
-      \hspace{10pt} Not Satisfactory
-  \end{tabular}
-\end{center}
-\par\vskip 15pt
+  \begin{center}
+    \maketitle
+    \rolenames
+  \end{center}
 
-Record your team's answers to the key questions (marked with
-\raisebox{-.3\height}{\includegraphics[width=0.5in]{../figures/key.png}})
-below.
-\begin{enumerate}[label=(\alph*)]
-  \itemsep 1.25in
-  \item Model 2, Question \#5
-  \item Model 3, Question \#7
-  \item Model 5, Question \#12
-  \item Model 6, Question \#14
-\end{enumerate}
+  \keyquestions{
+    \item Model 2, Question \#5
+    \item Model 3, Question \#7
+    \item Model 5, Question \#12
+    \item Model 6, Question \#14
+  }
 
-\newpage
-\maketitle
+  \newpage
+  \maketitle
 
-We are studying \textbf{data structures} - ways to organize and structure data.  
-Implementing a data structure has pedagogical value, but as good (lazy?) computer scientists, 
-we don't want to implement a new version of a familiar data structure for every situation. 
-Instead, we want to design an \textbf{abstract data type (ADT)} that captures 
-the key ideas of a data structure and can be used in many different situations.
+  We are studying \textbf{data structures} - ways to organize and structure data.  
+  Implementing a data structure has pedagogical value, but as good (lazy?) computer scientists, 
+  we don't want to implement a new version of a familiar data structure for every situation. 
+  Instead, we want to design an \textbf{abstract data type (ADT)} that captures 
+  the key ideas of a data structure and can be used in many different situations.
 
-This activity will give you some experience analyzing requirements and designing ADTs.
-In particular, you will investigate \textbf{stacks} and \textbf{queues}.
+  This activity will give you some experience analyzing requirements and designing ADTs.
+  In particular, you will investigate \textbf{stacks} and \textbf{queues}.
 
-%\rolenames
+  \guide{
+    \item Explain a stack
+    \item Identify the operations needed to support a stack
+    \item Explain a queue
+    \item Identify the operations needed to support a queue
+  }{
+    \item Defining the operation function signatures for a stack
+    \item Defining the operation function signatures for a queue
+  }{
+  No additional notes.
+  }
 
-\guide{
-  \item Explain a stack
-  \item Identify the operations needed to support a stack
-  \item Explain a queue
-  \item Identify the operations needed to support a queue
-}{
-  \item Defining the operation function signatures for a stack
-  \item Defining the operation function signatures for a queue
-}{
-No additional notes.
-}
-
-\newpage
-\input{stacks_real_world.tex}
-\newpage
-\input{stacks_adt.tex}
-\newpage
-\input{stacks_array_implementation.tex}
-\newpage
-\input{queues_real_world.tex}
-\newpage
-\input{queues_adt.tex}
-\newpage
-\input{queues_array_implementation.tex}
+  \input{stacks_real_world.tex}
+  \newpage
+  \input{stacks_adt.tex}
+  \newpage
+  \input{stacks_array_implementation.tex}
+  \newpage
+  \input{queues_real_world.tex}
+  \newpage
+  \input{queues_adt.tex}
+  \newpage
+  \input{queues_array_implementation.tex}
 
 \end{document}
