@@ -8,7 +8,7 @@
 \documentclass[12pt]{article}
 
 \title{Activity \#5: Hashing}
-\author{ Tammy VanDeGrift}
+\author{Tammy VanDeGrift}
 \newcommand{\activityeditor}{Preston Carman}
 \newcommand{\activitysource}{\url{https://www.dropbox.com/sh/rl0yyth9g06psva/AADB0Cj4isIX5DAyrspqj8mFa}}
 \date{Spring 2022}
@@ -17,67 +17,54 @@
 
 \begin{document}
 
-\begin{center}
-  \Large Activity \#5: Hashing \\[5pt]
-  \large Recorder's Report\\[20pt]
-  \normalsize
-  \begin{tabular}{lrp{0.1in}lr}
-    Manager:  & \ans{} &  & Reader: & \ans{}                       \\[15pt]
-    Recorder: & \ans{} &  & Driver: & \ans{}                       \\[15pt]
-    Date:     & \ans{} &  & Score:  & Satisfactory \hspace{10pt} /
-    \hspace{10pt} Not Satisfactory
-  \end{tabular}
-\end{center}
-\par\vskip 15pt
+  \begin{center}
+    \maketitle
+    \rolenames
+  \end{center}
 
-Record your team's answers to the key questions (marked with
-\raisebox{-.3\height}{\includegraphics[width=0.5in]{../figures/key.png}})
-below.
-\begin{enumerate}[label=(\alph*)]
-  \itemsep 1in
-  \item Model 1, Question \#3
-  \item Model 2, Question \#11
-  \item Model 2, Question \#12
-  \item Model 4, Question \#20
-  \item Model 4, Question \#21
-\end{enumerate}
+  \keyquestions{
+    \item Model 1, Question \#3
+    \item Model 2, Question \#11
+    \item Model 2, Question \#12
+    \item Model 4, Question \#20
+    \item Model 4, Question \#21
+  }
 
-\newpage
-\maketitle
+  \newpage
+  \maketitle
 
-Recall the List ADT.
-Its operations include insert, find, and delete.
-Earlier, we looked at how find can be implemented using binary search over a sorted list.
-One advantage of binary search is that it only cost $O(log_2N)$ time to execute.
-\par
+  Recall the List ADT.
+  Its operations include insert, find, and delete.
+  Earlier, we looked at how find can be implemented using binary search over a sorted list.
+  One advantage of binary search is that it only cost $O(log_2N)$ time to execute.
+  \par
 
-One common tradeoff in computer science is the time/space tradeoff.
-In some (maybe many) cases, one can increase runtime speed at the expense of storage space.
-On the flip side, one can often gain efficiency in storage at the expense of running time.
-\par
+  One common tradeoff in computer science is the time/space tradeoff.
+  In some (maybe many) cases, one can increase runtime speed at the expense of storage space.
+  On the flip side, one can often gain efficiency in storage at the expense of running time.
+  \par
 
-We'll look at a way to implement the Dictionary ADT using hash tables.
-As you might guess, we will speed up the dictionary operations at the expense of using more storage space.
+  We'll look at a way to implement the Dictionary ADT using hash tables.
+  As you might guess, we will speed up the dictionary operations at the expense of using more storage space.
 
-%\rolenames
+  %\rolenames
 
-\guide{
-  \item Explain a hash function
-  \item Explain the structure of hash table
-  \item Explain how collisions are managed
-}{
-  \item Write code that adds, removes, and accesses a hash table
-}{
-  No additional notes.
-}
+  \guide{
+    \item Explain a hash function
+    \item Explain the structure of hash table
+    \item Explain how collisions are managed
+  }{
+    \item Write code that adds, removes, and accesses a hash table
+  }{
+    No additional notes.
+  }
 
-\newpage
-\input{dictionary_adt.tex}
-\newpage
-\input{hash_functions.tex}
-\newpage
-\input{hash_tables.tex}
-\newpage
-\input{open_address_linear_probing.tex}
+  \input{dictionary_adt.tex}
+  \newpage
+  \input{hash_functions.tex}
+  \newpage
+  \input{hash_tables.tex}
+  \newpage
+  \input{open_address_linear_probing.tex}
 
 \end{document}

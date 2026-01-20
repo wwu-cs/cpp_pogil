@@ -1,87 +1,106 @@
 \model{Dictionary ADT}
 
-\Q Think about how you use a dictionary. What do you "search for" in a dictionary?
-\begin{answer}[1in]
-\end{answer}
+  \quest{10 min}
 
-\Q  What information to you get back from a dictionary?
+  \Q Think about how you use a dictionary. What do you "search for" in a dictionary?
+    \begin{answer}[1in]
+      I search for a word (the key).
+    \end{answer}
 
-\begin{answer}[1in]
-\end{answer}
+  \Q  What information to you get back from a dictionary?
+    \begin{answer}[1in]
+      I get back the definition of the word (the value).
+    \end{answer}
 
-A dictionary ADT stores a collection of items and supports the following operations:
+  A dictionary ADT stores a collection of items and supports the following operations:
+    
+  \begin{cpplst}
+create()                           // create new Dictionary
+insert(Dictionary d, key k, value v) // insert a new value with given key
+find(Dictionary d, key k)      // search for a given key and return the value
+delete(Dictionary d, key k)    // delete key and item that goes with the key
+print(Dictionary d)            // print all items in dictionary
+  \end{cpplst}
 
-\begin{cpplst}
-create()                              // create new Dictionary
-insert(Dictionary d, key k, value v)  // insert a new value with given key
-find(Dictionary d, key k)             // search for a given key and return the value
-delete(Dictionary d, key k)           // delete key and item that corresponds to the key
-print(Dictionary d)                   // print all items in dictionary
-\end{cpplst}
+  \par\vskip 10pt
 
-\par\vskip 10pt
+  One common tradeoff in computer science is the time/space tradeoff.
+  In some (maybe many) cases, one can increase runtime speed at the expense of storage space.
+  On the flip side, one can often gain efficiency in storage at the expense of running time.
 
-One common tradeoff in computer science is the time/space tradeoff.
-In some (maybe many) cases, one can increase runtime speed at the expense of storage space.
-On the flip side, one can often gain efficiency in storage at the expense of running time.
-\par\vskip 10pt
+  \par\vskip 10pt
 
-We'll look at a way to implement the Dictionary ADT using hash tables.
-As you might guess, we will speed up the dictionary operations at the expense of using more storage space.
-\par\vskip 10pt
+  We'll look at a way to implement the Dictionary ADT using hash tables.
+  As you might guess, we will speed up the dictionary operations at the expense of using more storage space.
 
+  \par\vskip 10pt
 
-
-Consider this scenario.
-Your dictionary should store (student ID, student record) information.
-Student IDs are non-negative numbers.
-Your dictionary stores only currently enrolled UP students.
-Suppose the range of possible student IDs goes from 0 to 999,999,999.
-
-\newpage
-
-\Q  How might you build a Dictionary ADT for this scenario so that insert, find, and delete are O(1) operations?
-\begin{answer}[1in]
-\end{answer}
-
-\Q  How much memory does your solution in \#3 take?  \ans{}
-\par\vskip 10pt
+  Consider this scenario.
+  Your dictionary should store (student ID, student record) information.
+  Student IDs are non-negative numbers.
+  Your dictionary stores only currently enrolled WWU students.
+  Suppose the range of possible student IDs goes from 0 to 999,999,999.
 
 
-Consider that there are about 4000 currently enrolled UP students.
-If you implement an array of size 1,000,000,000 to store (student ID, student record) pairs, the array is sparse.
-Certainly, the insert, delete, and find operations are O(1) with this implementation, but the wasted space is quite large given the number of items in the dictionary.
-\par\vskip 10pt
+  \Q  How might you build a Dictionary ADT for this scenario so that insert, find, and delete are O(1) operations?
+    \begin{answer}[1in]
+      Create an array of size 1,000,000,000.
+      Use the student ID as the index into the array.
+      Store the student record at that index.
+    \end{answer}
 
+  \Q  How much memory does your solution in \#3 take?
+    \begin{answer}[1in]
+      It takes memory for an array of size 1,000,000,000.
+      Each entry in the array stores a student record (or null if no student with that ID is enrolled).
+    \end{answer}
 
-Here is one way to reduce the size of the array.
-If we know there are 4000 items in the dictionary, let's instead create an array of size 100,000 to store these items.
-Note that there are still 96,000 empty cells with this approach, but that is quite a bit smaller than 1 billion.
-\par\vskip 10pt
+  \par\vskip 10pt
 
+  Consider that there are about 4000 currently enrolled WWU students.
+  If you implement an array of size 1,000,000,000 to store (student ID, student record) pairs, the array is sparse.
+  Certainly, the insert, delete, and find operations are O(1) with this implementation, but the wasted space is quite large given the number of items in the dictionary.
 
-So, in order to insert a (student ID, student record) pair into the dictionary of size 100,000, we need to map student IDs to the range [0...99,999].
-One common way to do this is to use the mod operator:
+  \par\vskip 10pt
 
-\begin{cpplst}
+  Here is one way to reduce the size of the array.
+  If we know there are 4000 items in the dictionary, let's instead create an array of size 100,000 to store these items.
+  Note that there are still 96,000 empty cells with this approach, but that is quite a bit smaller than 1 billion.
+
+  \par\vskip 10pt
+
+  So, in order to insert a (student ID, student record) pair into the dictionary of size 100,000, we need to map student IDs to the range [0...99,999].
+  One common way to do this is to use the mod operator:
+
+  \begin{cpplst}
 location = studentID % 100000;
-\end{cpplst}
+  \end{cpplst}
 
-The mod (remainder) operator gives us values in the appropriate range.
+  The mod (remainder) operator gives us values in the appropriate range.
 
-\Q What is your student ID? \ans{}
+  \Q What is your student ID? \hfill\ans{Answers will vary}
 
-\Q In what array location would your ID be inserted, assuming the array has 100,000 items? \ans{}
+  \Q In what array location would your ID be inserted, assuming the array has 100,000 items?
+    \begin{answer}[0.3in]
+      Answers will vary
+    \end{answer}
 
-\Q Consider student ID 1152436. In what array location would this ID be inserted? \\ \ans{}
+  \Q Consider student ID 1152436. In what array location would this ID be inserted?
+    \begin{answer}[0.3in]
+      52436
+    \end{answer}
 
-\Q  What might be a downside to this approach?
-\begin{answer}[1in]
-\end{answer}
+  \Q  What might be a downside to this approach?
+    \begin{answer}[0.3in]
+      Different student IDs might map to the same array location.
+      For example, student ID 2152436 would also map to location 52436.
+      This is called a collision.
+    \end{answer}
 
+  Because we have limited the array size, it is now possible to have collisions.
+  A collision happens when two dictionary items are mapped to the same location in the array.
 
-Because we have limited the array size, it is now possible to have collisions.
-A collision happens when two dictionary items are mapped to the same location in the array.
-
-\Q What is another student ID number that would be mapped to the same array location as 1152436?
-\ans{}
+  \Q What is another student ID number that would be mapped to the same array location as 1152436?
+    \begin{answer}[0.3in]
+      152436, 2152436, 3152436, ...
+    \end{answer}
