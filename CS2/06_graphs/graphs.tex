@@ -1,122 +1,142 @@
+\model{Graphs}
 
-\model{Model 1: Graphs}
+  A graph in computer science consists of vertices (also called nodes) and edges (also called links).
+  Nodes are generally depicted as circles and labeled with a unique identifier.
+  Edges are generally depicted as lines for undirected graphs and arrows for directed graphs.
+  See how much you can glean from the graph below.
 
-A graph in computer science consists of vertices (also called nodes) and edges (also called links).
-Nodes are generally depicted as circles and labeled with a unique identifier.
-Edges are generally depicted as lines for undirected graphs and arrows for directed graphs.
-See how much you can glean from the graph below.
+  \includegraphics[width=.9\textwidth]{figures/graph1.png}
 
-\includegraphics[width=.9\textwidth]{figures/graph1.png}
+  {\it\large Refer to Model 1 above as your team develops consensus answers
+    to the questions below.}
 
-\Q What are the vertices?  \ans{}
+  \quest{20 min}
 
-\Q Is this graph directed or undirected? \ans[.5in]{X} directed \ans[.5in]{} undirected
+  \Q What are the vertices?  \ans{A, B, C, D, E}
 
-\Q Is there an edge from B to D? \ans[.5in]{X} yes \ans[.5in]{} no
+  \Q Is this graph directed or undirected? \ans[.3in]{\checkmark} directed \ans[.3in]{} undirected
 
-\Q Is there an edge from D to C? \ans[.5in]{X} yes \ans[.5in]{} no
+  \Q Is there an edge from B to D? \ans[.3in]{} yes \ans[.3in]{\checkmark} no
 
-\Q What is the cost of the edge from E to A?  \ans{}
+  \Q Is there an edge from D to C? \ans[.3in]{\checkmark} yes \ans[.3in]{} no
 
-\par\vskip 10pt
-Graphs with edges that have costs are called \textbf{weighted} graphs.
-\par\vskip 10pt
+  \Q What is the cost of the edge from E to A?  \ans{6}
 
-\Q What is the lowest cost path from D to A?   \ans{}
+  \par\vskip 10pt
 
-\newpage
-The \textbf{degree} of a vertex is the number of edges that are incident (touch) the vertex.
-For directed graphs, each node has an \textbf{``in degree''} and an \textbf{``out degree''}.
-The in degree is the number of edges that point to the vertex.
-The out degree is the number of edges that point away from the vertex.
-The in degree and out degree values do not need to match for a vertex.
-However, the total degree for a vertex of a directed graph is the in degree plus the out degree.
+  Graphs with edges that have costs are called \textbf{weighted} graphs.
 
-\Q What is the out degree for E?   \ans{}
+  \par\vskip 10pt
 
-\Q What is the in degree for E?   \ans{}
+  \Q What is the lowest cost path from D to A?   \ans{B, E, A with cost 12}
 
-\Q What is the out degree for B?   \ans{}
+  \par\vskip 10pt
 
-\Q What is the in degree for B?   \ans{}
+  The \textbf{degree} of a vertex is the number of edges that are incident (touch) the vertex.
+  For directed graphs, each node has an \textbf{``in degree''} and an \textbf{``out degree''}.
+  The in degree is the number of edges that point to the vertex.
+  The out degree is the number of edges that point away from the vertex.
+  The in degree and out degree values do not need to match for a vertex.
+  However, the total degree for a vertex of a directed graph is the in degree plus the out degree.
 
-\par\vskip 10pt
-A \textbf{path} through a graph is a sequence of vertices where each successive pair of vertices has an edge in the graph.
-\par\vskip 10pt
+  \Q What is the out degree for E?   \ans{The out degree is 2}
 
-\Q  Name two different paths, as a sequence of vertices, to get from B to C:
+  \Q What is the in degree for E?   \ans{The in degree is 1}
 
-\begin{itemize}
-    \item path 1: \ans{}
-    \item path 2: \ans{}
-\end{itemize}
+  \Q What is the out degree for B?   \ans{The out degree is 2}
 
-\par\vskip 10pt
-A \textbf{connected} graph has the property that every vertex is connected via a path to every other vertex in the graph.
-\par\vskip 10pt
+  \Q What is the in degree for B?   \ans{The in degree is 2}
 
-\Q  Is the graph above connected?  \ans[.5in]{X} yes \ans[.5in]{} no
+  \par\vskip 10pt
 
-\par\vskip 10pt
-A \textbf{cyclic} graph has the property that it contains one or more cycles.
-A \textbf{cycle} is a path that starts and ends with the same vertex.
-An \textbf{acyclic} graph has no cycles.
-A directed graph that is acyclic is often called a \textbf{DAG} (directed acyclic graph).
-\par\vskip 10pt
+  A \textbf{path} through a graph is a sequence of vertices where each successive pair of vertices has an edge in the graph.
 
+  \par\vskip 10pt
 
-\Q Is the graph above cyclic?  \ans[.5in]{X} yes \ans[.5in]{} no
-\par\vskip 10pt
+  \Q  Name two different paths, as a sequence of vertices, to get from B to C:
 
-We can think of a graph as having $|V|$ vertices and $|E|$ edges where V is the set of vertices and E is the set of edges.
-The vertical bars mean ``size of'' in mathematical notation.
-So, $|V|$ is the size of the vertex set.
-\par\vskip 10pt
+    \begin{itemize}
+      \item path 1: \ans{B, C}
+      \item path 2: \ans{B, E, D, C}
+    \end{itemize}
 
+  \par\vskip 10pt
 
-\Q What is $|V|$ for the graph above? \ans{}
+  A \textbf{connected} graph has the property that every vertex is connected via a path to every other vertex in the graph.
 
-\Q What is $|E|$ for the graph above? \ans{}
+  \par\vskip 10pt
 
-\newpage
-Two vertices are \textbf{adjacent} if they are connected by an edge.
-In an undirected graph, you can think of adjacent vertices as neighbors.
-In an undirected graph, if x is adjacent to y, then y is adjacent to x.
-In a directed graph, a vertex x is adjacent to vertex y if there is an edge from y to x.
-\par\vskip 10pt
+  \Q  Is the graph above connected?  \ans[.3in]{} yes \ans[.3in]{\checkmark} no
 
-\Q In the graph above, is e adjacent to b?  \ans[.5in]{X} yes \ans[.5in]{} no
+  \par\vskip 10pt
 
-\Q In the graph above, is d adjacent to b?  \ans[.5in]{X} yes \ans[.5in]{} no
+  A \textbf{cyclic} graph has the property that it contains one or more cycles.
+  A \textbf{cycle} is a path that starts and ends with the same vertex.
+  An \textbf{acyclic} graph has no cycles.
+  A directed graph that is acyclic is often called a \textbf{DAG} (directed acyclic graph).
 
-\par\vskip 10pt
-We have names for vertices in relationship to other vertices in a directed graph.
-A \textbf{successor} of a vertex v is any node n where there is a path from v to n.
-A \textbf{predecessor} of vertex v is any node n where there is a path from n to v.
-\par\vskip 10pt
+  \par\vskip 10pt
 
-\Q Is a a predecessor of d?  \ans[.5in]{X} yes \ans[.5in]{} no
+  \Q Is the graph above cyclic?  \ans[.3in]{\checkmark} yes \ans[.3in]{} no
 
-\Q Is a a successor of d?  \ans[.5in]{X} yes \ans[.5in]{} no
+  \par\vskip 10pt
 
-\newpage
-\textbf{Undirected Graphs}
-\par\vskip 10pt
+  We can think of a graph as having $|V|$ vertices and $|E|$ edges where V is the set of vertices and E is the set of edges.
+  The vertical bars mean ``size of'' in mathematical notation.
+  So, $|V|$ is the size of the vertex set.
 
-Now, let's look at an undirected graph. An undirected graph may or may not be weighted (costs for edges).
-Recall that an undirected graph has links for edges instead of arrows.
+  \par\vskip 10pt
 
-\includegraphics[width=.7\textwidth]{figures/graph2.png}
+  \Q What is $|V|$ for the graph above? \ans{The number of vertices is 5}
 
-\Q What is different about this undirected graph versus a directed graph?
+  \Q What is $|E|$ for the graph above? \ans{The number of edges is 7}
 
-\begin{answer}[1in]
-\end{answer}
+  Two vertices are \textbf{adjacent} if they are connected by an edge.
+  In an undirected graph, you can think of adjacent vertices as neighbors.
+  In an undirected graph, if x is adjacent to y, then y is adjacent to x.
+  In a directed graph, a vertex x is adjacent to vertex y if there is an edge from y to x.
 
-Note that the edges are links, so the cost between node b and c is the same as the cost between c and b.
-Here, the cost between b and c (and c and b) is 3.
-A path can be traversed in either direction of the link.
-So, in an undirected graph, if there is a path from vertex x to vertex y, there must also be a path from vertex y to vertex x (following the same set of vertices in reverse order).
-Because there are no more directed arrows, it no longer makes sense to think about cycles, successors, and predecessors in an undirected graph. An undirected graph could be connected, as follows:
+  \par\vskip 10pt
 
-\includegraphics[width=.7\textwidth]{figures/graph3.png}
+  \Q In the graph above, is e adjacent to b?  \ans[.3in]{} yes \ans[.3in]{\checkmark} no
+
+  \Q In the graph above, is d adjacent to b?  \ans[.3in]{\checkmark} yes \ans[.3in]{} no
+
+  \par\vskip 10pt
+
+  We have names for vertices in relationship to other vertices in a directed graph.
+  A \textbf{successor} of a vertex v is any node n where there is a path from v to n.
+  A \textbf{predecessor} of vertex v is any node n where there is a path from n to v.
+
+  \par\vskip 10pt
+
+  \Q Is a a predecessor of d?  \ans[.3in]{} yes \ans[.3in]{\checkmark} no
+
+  \Q Is a a successor of d?  \ans[.3in]{\checkmark} yes \ans[.3in]{} no
+
+  \par\vskip 10pt
+
+  \textbf{Undirected Graphs}
+
+  \par\vskip 10pt
+
+  Now, let's look at an undirected graph. An undirected graph may or may not be weighted (costs for edges).
+  Recall that an undirected graph has links for edges instead of arrows.
+
+  \includegraphics[width=.7\textwidth]{figures/graph2.png}
+
+  \vskip -20pt
+
+  \Q What is different about this undirected graph versus a directed graph?\key\\[-2.5mm]
+    \begin{answer}[0.3in]
+      There are no arrows on the edges.
+      The edges are links that can be traversed in either direction.
+    \end{answer}
+
+  Note that the edges are links, so the cost between node b and c is the same as the cost between c and b.
+  Here, the cost between b and c (and c and b) is 3.
+  A path can be traversed in either direction of the link.
+  So, in an undirected graph, if there is a path from vertex x to vertex y, there must also be a path from vertex y to vertex x (following the same set of vertices in reverse order).
+  Because there are no more directed arrows, it no longer makes sense to think about cycles, successors, and predecessors in an undirected graph. An undirected graph could be connected, as follows:
+
+  \includegraphics[width=.7\textwidth]{figures/graph3.png}
