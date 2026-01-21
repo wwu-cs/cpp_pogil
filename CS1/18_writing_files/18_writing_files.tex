@@ -3,7 +3,7 @@
 % Access: 04-15-2022
 
 % comment out for student version
-\ifdefined\Student\relax\else\def\Teacher{}\fi
+% \ifdefined\Student\relax\else\def\Teacher{}\fi
 
 \documentclass[12pt]{article}
 
@@ -17,39 +17,39 @@
 
 \begin{document}
 
-\begin{center}
+  \begin{center}
+    \maketitle
+    \rolenames
+  \end{center}
+
+  \keyquestions{
+    \item Model 1, Question \#4
+    \item Model 2, Question \#10
+    \item Model 3, Question \#18
+  }
+
+  \newpage
   \maketitle
-  \rolenames
-\end{center}
 
-\keyquestions{
-  \item Model 1, Question \#4
-  \item Model 2, Question \#13
-  \item Model 3, Question \#17
-}
+  In this activity, you will work in teams of 3--4 students to learn new concepts.
+  This activity will introduce you to writing to files in C++.
 
-\newpage
-\maketitle
+  \guide{
+    \item Explain how to open a text file for writing
+    \item Explain the difference between writing and appending to a file
+    \item Explain how files can be used to save program configuration information
 
-In this activity, you will work in teams of 3--4 students to learn new concepts.
-This activity will introduce you to writing to files in C++.
+  }{
+    \item Write code that opens, writes to, and closes a file 
+    \item Redirect the output of a program to a text file\\[-5pt]
+  }{
+  No additional notes.
+  }
 
-\guide{
-  \item Explain how to open a text file for writing
-  \item Explain the difference between writing and appending to a file
-  \item Explain how files can be used to save program configuration information
-
-}{
-  \item Write code that opens, writes to, and closes a file 
-  \item Redirect the output of a program to a text file\\[-5pt]
-}{
-No additional notes.
-}
-
-\input{a_cpp_main_function.tex}
-\newpage
-\input{redirecting_output_to_a_file.tex}
-\newpage
-\input{a_configuration_function.tex}
+  \input{a_cpp_main_function.tex}
+  \newpage
+  \input{redirecting_output_to_a_file.tex}
+  \newpage
+  \input{a_configuration_function.tex}
     
 \end{document}

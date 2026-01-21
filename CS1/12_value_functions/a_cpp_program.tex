@@ -5,6 +5,7 @@
         \scriptsize
         \begin{cpplst}
 #include <iostream>
+
 using namespace std;
 
 int getSmaller(int num1, int num2) {
@@ -41,7 +42,7 @@ int main() {
 
   \quest{10 min}
   
-  \Q What does the function defined on lines 4-12 do? The code is found in {\tt activity12a.cpp}.
+  \Q What does the function defined on lines 5-13 do? The code is found in {\tt activity12a.cpp}.
     \begin{answer}[0.25in]
       It returns the smaller of the two integer arguments passed to it.
     \end{answer}
@@ -55,10 +56,10 @@ int main() {
         \ans[1.8in]{An integer}
 
       \item On what line of code is the function call to {\tt getSmaller}? \hfill
-        \ans[1.8in]{Line 18}
+        \ans[1.8in]{Line 19}
 
       \item On what line does the function {\tt getSmaller} send back a value? \hfill
-        \ans[1.8in]{Line 11}
+        \ans[1.8in]{Line 12}
     \end{enumerate}    
 
   \vskip -10pt
@@ -66,7 +67,7 @@ int main() {
   \Q In a {\it void function} the {\it function call} is on a line by itself.
     Why is the function call in this model on the right-hand-side of an
     assignment statement?
-    \begin{answer}[0.5in]
+    \begin{answer}[0.3in]
       Because it returns a value that is being assigned to the variable {\tt
       smallerNum}.
     \end{answer}      
@@ -82,8 +83,8 @@ int main() {
       \cpp{double} in the following places.
       \begin{itemize}
         \begin{multicols}{2}
-          \item In the three instances on line 4
-          \item In the one instance on line 5
+          \item In the three instances on line 5
+          \item In the one instance on line 6
         \end{multicols}
       \end{itemize}
     \end{answer}

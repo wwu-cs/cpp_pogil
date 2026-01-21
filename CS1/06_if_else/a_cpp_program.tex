@@ -1,9 +1,10 @@
-\model{A C++ Program} \\
+\model{A C++ Program}
   \begin{center}
     \small
     \begin{minipage}{5.5in}
       \begin{cpplst}
 #include <iostream>
+
 using namespace std;
 
 int main() {
@@ -31,22 +32,22 @@ int main() {
   \Q You will find this program in {\tt activity06a.cpp}.  Run it with various
     original cost and sale prices and then answer the questions below.
     \begin{enumerate}
-      \item What do lines 6 and 7 do?
+      \item What do lines 7 and 8 do?
         \begin{answer}[0.4in]
           They prompt for and store the original price in the {\tt originalPrice} variable.
         \end{answer}
 
-      \item What do lines 8 and 9 do?
+      \item What do lines 9 and 10 do?
         \begin{answer}[0.4in]
           They prompt for and store the sale price in the {\tt salePrice} variable.
         \end{answer}
 
-      \item What do lines 10 and 11 do?
+      \item What do lines 11 and 12 do?
         \begin{answer}[0.4in]
           They compute the percent price reduction and print it out.
         \end{answer}
         
-      \item What do lines 12 and 13 do?
+      \item What do lines 13 and 14 do?
         \begin{answer}[0.4in]
           They print out ``You found a great deal!'' if the savings was
           50\% or more.
@@ -65,7 +66,7 @@ int main() {
           \end{cpplst}
         \end{minipage}
       \end{center}\vskip -15pt\null
-      right below line 13.
+      right below line 14.
     \end{answer}
       
   \Q Revise the code further so that it prints ``Done!'' when the program is
@@ -81,19 +82,17 @@ int main() {
           \end{cpplst}
         \end{minipage}
       \end{center}\vskip -15pt\null
-      right below the curly brace on line 14 of the original program (line 15 after or
+      right below the curly brace on line 15 of the original program (line 16 after or
       modification above.
     \end{answer}
 
   \Q What happens if you remove the open curly brace (\cpp{\{}) from the
-      end of line 12 and \key\\[-2.5mm] the close curly brace (\cpp{\}}) from line 14 (15 in
+      end of line 13 and \key\\[-2.5mm] the close curly brace (\cpp{\}}) from line 15 (16 in
       your modified program)?  Explain why this happens.
-      
     \begin{answer}[1in]
       \par
       If we remove these curly braces, the program always prints ``Congratulations!'',
       regardless of what the percent savings is.  This is because the {\tt if} statement
       only  applies to the next statement or block of statements.  Removing the curly brace
-      makes it only apply to line 13.
+      makes it only apply to line 14.
     \end{answer}
-  

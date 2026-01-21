@@ -1,8 +1,15 @@
 #include <iostream>
-#include <string>
 
 using namespace std;
 
 int main() {
-  // Test your solution here
+
+  int rows = 8, cols = 10;
+   
+  for (int i = 0; i < 7; i++) {
+    for (int j = 0; j < 5; j++) {
+      cout << "* ";
+    }
+    cout << endl;
+  }
 }
