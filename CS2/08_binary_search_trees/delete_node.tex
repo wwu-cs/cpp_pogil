@@ -1,9 +1,10 @@
 \model{Delete Node}
 
-The final dictionary operation that we need to examine is delete. Given the tree below, how would you delete each of the nodes (assume the deletions are independent, so you are starting with the same tree prior to each deletion).
+  \quest{10 min}
 
+  The final dictionary operation that we need to examine is delete. Given the tree below, how would you delete each of the nodes (assume the deletions are independent, so you are starting with the same tree prior to each deletion).
 
-\begin{tikzpicture}
+  \begin{tikzpicture}
     \Tree
     [.12
     [.5
@@ -21,113 +22,133 @@ The final dictionary operation that we need to examine is delete. Given the tree
     ]
     ]
     ]
-\end{tikzpicture}
+  \end{tikzpicture}
 
-\Q How would you delete 7?
-\begin{answer}[1in]
-\end{answer}
+  \vskip -10pt
 
-\Q How would you delete 15?
-\begin{answer}[1in]
-\end{answer}
+  \Q How would you delete 7?\key\\[-2.5mm]
+    \begin{answer}[1in]
+      7 is a leaf node. Simply delete it and set its parent (9) to have NULL as its left child.
+    \end{answer}
 
-\Q How would you delete 5?
-\begin{answer}[1in]
-\end{answer}
+  \vskip -10pt
 
-\newpage
-In general, here is the strategy for deletion:
-\par\vskip 10pt
+  \Q How would you delete 15?\key\\[-2.5mm]
+    \begin{answer}[1in]
+      15 is an interior node with only a right child (20). Delete 15 and update its parent (12) to point to 15's right child (20).
+    \end{answer}
 
-\textbf{Delete(D, T):}
+  \Q How would you delete 5?
+    \begin{answer}[1in]
+      5 is an interior node with two children. Find successor: go right to 9, then left to 7 (leftmost). Copy 7's value to node 5. Delete leaf node 7.
+    \end{answer}
 
-If Find(D, T) is false, do nothing.
+  In general, here is the strategy for deletion:
 
-If T is a leaf node, delete it and update its parent to point to null instead of T.
+  \par\vskip 10pt
 
-If T is an interior node and T has just a right child, delete T and update its parent to point to T's right child.
+  \textbf{Delete(D, T):}
 
-If T is an interior node and T has just a left child, delete T and update its parent to point to T's left child.
+  If Find(D, T) is false, do nothing.
 
-Else (T is interior with 2 children):
-\par\vskip 10pt
+  If T is a leaf node, delete it and update its parent to point to null instead of T.
 
-Find the next successor of T by traversing to T's right child and then going all the way to the leftmost leaf.
-This leftmost leaf is the next largest item in the tree.
-Copy the value of this leftmost leaf to T.
-If leftmost leaf does not have a right subtree, delete leftmost leaf with same procedure as leaf node above.
-If leftmost leaf has a right subtree, then delete with the same procedure as interior node with just a right child.
+  If T is an interior node and T has just a right child, delete T and update its parent to point to T's right child.
 
-\Q Delete node 5 with procedure above. Cross out nodes that are deleted and values that are updated.
+  If T is an interior node and T has just a left child, delete T and update its parent to point to T's left child.
 
-\begin{tikzpicture}
-    \Tree
-    [.12
-    [.5
-    2
-        [.9
-            7
-            10
-        ]
-    ]
-    [.15
-    \edge[blank]; \node[blank]{};
-    [.20
-    17
-    30
-    ]
-    ]
-    ]
-\end{tikzpicture}
+  Else (T is interior with 2 children):
 
-\Q Delete node 10 with procedure above.
-Cross out nodes that are deleted and values that are updated.
+  \par\vskip 10pt
 
-\begin{tikzpicture}
-    \Tree
-    [.12
-    [.5
-    2
-        [.9
-            7
-            10
-        ]
-    ]
-    [.15
-    \edge[blank]; \node[blank]{};
-    [.20
-    17
-    30
-    ]
-    ]
-    ]
-\end{tikzpicture}
+  Find the next successor of T by traversing to T's right child and then going all the way to the leftmost leaf.
+  This leftmost leaf is the next largest item in the tree.
+  Copy the value of this leftmost leaf to T.
+  If leftmost leaf does not have a right subtree, delete leftmost leaf with same procedure as leaf node above.
+  If leftmost leaf has a right subtree, then delete with the same procedure as interior node with just a right child.
+  
+  \vskip -10pt
 
-\newpage
-\Q Delete node 15 with procedure above.
-Cross out nodes that are deleted and values that are updated.
+  \Q Delete node 5 with procedure above. Cross out nodes that are deleted and values\key\\[-2.5mm] that are updated.
+    \begin{answer}[1in]
+      Node 5 has two children. Go right to 9, then left to 7 (successor). Copy 7 to node 5. Delete leaf 7. Result: node 5 becomes node 7, and the 7 leaf is removed.
+    \end{answer}\par\vskip 5pt
 
-\begin{tikzpicture}
-    \Tree
-    [.12
-    [.5
-    2
-        [.9
-            7
-            10
-        ]
-    ]
-    [.15
-    \edge[blank]; \node[blank]{};
-    [.20
-    17
-    30
-    ]
-    ]
-    ]
-\end{tikzpicture}
+    \begin{tikzpicture}
+      \Tree
+      [.12
+      [.5
+      2
+          [.9
+              7
+              10
+          ]
+      ]
+      [.15
+      \edge[blank]; \node[blank]{};
+      [.20
+      17
+      30
+      ]
+      ]
+      ]
+    \end{tikzpicture}
 
-Even though we are modeling BSTs with nodes having just one value, a (key, value) pair could be stored at each node, with the keys used as the comparison values when inserting, finding, and deleting.
+  \Q Delete node 10 with procedure above.
+    Cross out nodes that are deleted and values that are updated.
+    \begin{answer}[0.7in]
+      Node 10 is a leaf. Simply delete it and set its parent (9) to have NULL as its right child.
+    \end{answer}\par\vskip 5pt
 
-\Q Does your group have any questions about binary search trees? Post them to \key teams under the \textit{Questions} channel.
+    \begin{tikzpicture}
+      \Tree
+      [.12
+      [.5
+      2
+          [.9
+              7
+              10
+          ]
+      ]
+      [.15
+      \edge[blank]; \node[blank]{};
+      [.20
+      17
+      30
+      ]
+      ]
+      ]
+    \end{tikzpicture}
 
+  \Q Delete node 15 with procedure above.
+    Cross out nodes that are deleted and values that are updated.
+    \begin{answer}[1in]
+      Node 15 has only a right child (20). Delete 15 and update its parent (12) to point to 20 as its right child.
+    \end{answer}\par\vskip 5pt
+
+    \begin{tikzpicture}
+      \Tree
+      [.12
+      [.5
+      2
+          [.9
+              7
+              10
+          ]
+      ]
+      [.15
+      \edge[blank]; \node[blank]{};
+      [.20
+      17
+      30
+      ]
+      ]
+      ]
+    \end{tikzpicture}\par\vskip 5pt
+
+  Even though we are modeling BSTs with nodes having just one value, a (key, value) pair could be stored at each node, with the keys used as the comparison values when inserting, finding, and deleting.
+
+  \Q Does your group have any questions about binary search trees?\key\\[-2.5mm]
+    \begin{answer}[1in]
+      Answers will vary
+    \end{answer}

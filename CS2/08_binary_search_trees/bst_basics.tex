@@ -1,15 +1,20 @@
 \model{BST Basics}
 
-A \textbf{BINARY SEARCH} tree is a binary tree in which the data (keys) are stored in order such that all nodes to the right of node N have keys bigger than N and all nodes to the left of node N have keys smaller than N.
-\par\vskip 10pt
+  \quest{20 min}
 
-BSTs give us a good data structure to implement the dictionary ADT (insert, find, delete, create, print).
-\par\vskip 10pt
+  A \textbf{BINARY SEARCH} tree is a binary tree in which the data (keys) are stored in order such that all nodes to the right of node N have keys bigger than N and all nodes to the left of node N have keys smaller than N.
 
-Here is a simple BST where the keys are ints:
-\par\vskip 10pt
+  \par\vskip 10pt
 
-\begin{tikzpicture}
+  BSTs give us a good data structure to implement the dictionary ADT (insert, find, delete, create, print).
+
+  \par\vskip 10pt
+
+  Here is a simple BST where the keys are ints:
+
+  \par\vskip 10pt
+
+  \begin{tikzpicture}
     \Tree
     [.8
     [.2
@@ -21,19 +26,100 @@ Here is a simple BST where the keys are ints:
     ]
     9
     ]
-\end{tikzpicture}
+  \end{tikzpicture}
 
-\begin{itemize}
-    \item Choose any node in the tree.
-    \item Its left subtree descendants are less than the node's value.
-    \item Its right subtree descendants are greater than the node's value.
-\end{itemize}
+    \begin{itemize}
+      \item Choose any node in the tree.
+      \item Its left subtree descendants are less than the node's value.
+      \item Its right subtree descendants are greater than the node's value.
+    \end{itemize}
 
-\Q Is this a valid binary search tree? \ans[.5in]{} yes \ans[.5in]{X} no
+  \Q Is this a valid binary search tree? \ans[.3in]{\checkmark} yes \ans[.3in]{} no
+    If no, explain why.
+    \begin{answer}[1in]
+      Yes, this is valid. All nodes in left subtree of each node are less than that node, and all nodes in right subtree are greater. Node 3 is the right child of 1 (3 > 1 ✓), and the entire subtree under 4 has values less than 5 (1,3 < 4 < 5 ✓).
+    \end{answer}\par\vskip 5pt
+    \begin{tikzpicture}
+      \Tree
+      [.5
+              [.4
+                      [.1
+                          \edge[blank]; \node[blank]{};
+                          3
+                      ]
+                  \edge[blank]; \node[blank]{};
+              ]
+              [.8
+                  7
+                  11
+              ]
+      ]
+    \end{tikzpicture}
 
-If no, explain why.
+  \newpage
 
-\begin{tikzpicture}
+  \Q Is this a valid binary search tree? \ans[.3in]{} yes \ans[.3in]{\checkmark} no
+    If no, explain why.
+    \begin{answer}[1in]
+      No, node 15 is in the right subtree of node 10, but 15 > 10, so 15 should be a right child. However, 10 is in the left subtree of 11, so all descendants of 10 must be less than 11. Since 15 > 11, this violates the BST property.
+    \end{answer}\par\vskip 5pt
+    \begin{tikzpicture}
+      \Tree
+      [.8
+              [.5
+                      [.2
+                          \edge[blank]; \node[blank]{};
+                          4
+                      ]
+                  6
+              ]
+              [.11
+                      [.10
+                          \edge[blank]; \node[blank]{};
+                          15
+                      ]
+                      [.18
+                          \edge[blank]; \node[blank]{};
+                          20
+                      ]
+              ]
+      ]
+    \end{tikzpicture}
+
+  \Q Is this a valid binary search tree? \ans[.3in]{} yes \ans[.3in]{\checkmark} no
+    If no, explain why.
+    \begin{answer}[1in]
+      No, node 6 is the right child of node 7, but 6 < 7. Right children must be greater than their parent, so this violates the BST property.
+    \end{answer}\par\vskip 5pt
+    \begin{tikzpicture}
+      \Tree
+      [.8
+              [.5
+                      [.2
+                          \edge[blank]; \node[blank]{};
+                          4
+                      ]
+                  7
+                  6
+              ]
+              [.11
+                      [.9
+                          \edge[blank]; \node[blank]{};
+                          10
+                      ]
+                      [.18
+                          \edge[blank]; \node[blank]{};
+                          20
+                      ]
+              ]
+      ]
+    \end{tikzpicture}
+
+  \textbf{Inserting new nodes}
+
+  How do we insert new nodes into a BST?\par\vskip 5pt
+
+  \begin{tikzpicture}
     \Tree
     [.5
             [.4
@@ -48,99 +134,27 @@ If no, explain why.
                 11
             ]
     ]
-\end{tikzpicture}
+  \end{tikzpicture}
 
-\newpage
-\Q Is this a valid binary search tree? \ans[.5in]{X} yes \ans[.5in]{} no
+  \Q Suppose we want to insert the value 6. Where does it go?
+    \begin{answer}[1in]
+      6 becomes the left child of 7 (6 > 5, go right; 6 < 8, go left; 6 < 7, go left; 7 has no left child, insert there).
+    \end{answer}
 
-If no, explain why.
+  \Q Now, we want to insert 0. Where does it go?
+    \begin{answer}[1in]
+      0 becomes the left child of 1 (0 < 5, go left; 0 < 4, go left; 0 < 1, go left; 1 has no left child, insert there).
+    \end{answer}
 
-\begin{tikzpicture}
-    \Tree
-    [.8
-            [.5
-                    [.2
-                        \edge[blank]; \node[blank]{};
-                        4
-                    ]
-                6
-            ]
-            [.11
-                    [.10
-                        \edge[blank]; \node[blank]{};
-                        15
-                    ]
-                    [.18
-                        \edge[blank]; \node[blank]{};
-                        20
-                    ]
-            ]
-    ]
-\end{tikzpicture}
+  \Q Now, we want to insert 9. Where does it go?
+    \begin{answer}[1in]
+      9 becomes the left child of 11 (9 > 5, go right; 9 > 8, go right; 9 < 11, go left; 11 has no left child, insert there).
+    \end{answer}\par\vskip 5pt
 
-\Q Is this a valid binary search tree? \ans[.5in]{X} yes \ans[.5in]{} no
-
-If no, explain why.
-
-\begin{tikzpicture}
-    \Tree
-    [.8
-            [.5
-                    [.2
-                        \edge[blank]; \node[blank]{};
-                        4
-                    ]
-                7
-                6
-            ]
-            [.11
-                    [.9
-                        \edge[blank]; \node[blank]{};
-                        10
-                    ]
-                    [.18
-                        \edge[blank]; \node[blank]{};
-                        20
-                    ]
-            ]
-    ]
-\end{tikzpicture}
-
-\textbf{Inserting new nodes}
-
-How do we insert new nodes into a BST?
-
-
-\begin{tikzpicture}
-    \Tree
-    [.5
-            [.4
-                    [.1
-                        \edge[blank]; \node[blank]{};
-                        3
-                    ]
-                \edge[blank]; \node[blank]{};
-            ]
-            [.8
-                7
-                11
-            ]
-    ]
-\end{tikzpicture}
-
-
-\Q Suppose we want to insert the value 6. Where does it go?
-
-\Q Now, we want to insert 0. Where does it go?
-
-\Q Now, we want to insert 9. Where does it go?
-
-\newpage
-Inserting into a BST is quite simple. Insertions happen at the leaves.
-Here is an iterative version:
-
-\footnotesize
-\begin{cpplst}
+  Inserting into a BST is quite simple. Insertions happen at the leaves.
+  Here is an iterative version:
+  \footnotesize
+  \begin{cpplst}
 /* insert
  * inserts data item d into tree; note that this is a BST so it is ordered
  */
@@ -182,13 +196,14 @@ TreeNode *newTreeNode(TreeData d) {
     toReturn->right = NULL;
     return toReturn;
 }
-\end{cpplst}
+  \end{cpplst}
 
-\normalsize
-Here is a recursive version to insert an item:
+  \normalsize
 
-\footnotesize
-\begin{cpplst}
+  Here is a recursive version to insert an item:
+
+  \footnotesize
+  \begin{cpplst}
 /* insertR (this function is written recursively)
  * inserts data item d into tree; note that this is a BST so it is ordered
  */
@@ -201,5 +216,5 @@ void insertR(TreeData d, TreeNode **tptr) {
         insertR(d, &(*tptr)->right);
     }
 }
-\end{cpplst}
-\normalsize
+  \end{cpplst}
+  \normalsize

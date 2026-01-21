@@ -1,10 +1,12 @@
 \model{Creating a Tree}
 
-\textbf{Finding keys}
+  \quest{20 min}
 
-Now, how would we find an element in the tree?
+  \textbf{Finding keys}
 
-\begin{tikzpicture}
+  Now, how would we find an element in the tree?\par\vskip 5pt
+
+  \begin{tikzpicture}
     \Tree
     [.5
             [.3
@@ -16,38 +18,45 @@ Now, how would we find an element in the tree?
                 11
             ]
     ]
-\end{tikzpicture}
+  \end{tikzpicture}
 
-Let's find 7.
-Start with the root.
-If the item is equal to 7, return true (or a pointer to this item).
-If the item you are looking for is \textgreater ~ than the root, treat right subtree as root.
-Otherwise, treat left subtree as root.
-Keep applying this procedure until you hit a leaf.
-\par\vskip 10pt
+  Let's find 7.
+  Start with the root.
+  If the item is equal to 7, return true (or a pointer to this item).
+  If the item you are looking for is \textgreater ~ than the root, treat right subtree as root.
+  Otherwise, treat left subtree as root.
+  Keep applying this procedure until you hit a leaf.
 
-\Q What nodes are examined when looking for 7? \ans{}
-\par\vskip 10pt
+  \Q What nodes are examined when looking for 7?
+    \begin{answer}[0.5in]
+      5, 8, 7
+    \end{answer}
 
-\Q Now, look for 4. What nodes are examined when looking for 4? \ans{}
-\par\vskip 10pt
+  \Q Now, look for 4. What nodes are examined when looking for 4?
+    \begin{answer}[0.5in]
+      5, 3, 4
+    \end{answer}
 
-You will implement the find function in lab.
-\par\vskip 10pt
+  \par\vskip 10pt
 
-\textbf{Creating a new tree}
-\par\vskip 10pt
+  You will implement the find function in lab.
 
-Creating a new tree is pretty straightforward.
-A tree with no items is NULL.
+  \par\vskip 10pt
 
-\begin{cpplst}
+  \textbf{Creating a new tree}
+
+  \par\vskip 10pt
+
+  Creating a new tree is pretty straightforward.
+  A tree with no items is NULL.
+
+  \begin{cpplst}
     TreeNode * tree = NULL;
-\end{cpplst}
+  \end{cpplst}
 
-To instantiate a tree with a list of items, we could do this:
+  To instantiate a tree with a list of items, we could do this:
 
-\begin{cpplst}
+  \begin{cpplst}
 /* createTree
  * creates a binary search tree with data stored in array a
  */
@@ -62,12 +71,11 @@ TreeNode *createTree(TreeData a[], int size) {
     }
     return toReturn;
 }
-\end{cpplst}
+  \end{cpplst}
 
-\newpage
-An optional dictionary operation is size. Here is an implementation of size:
+  An optional dictionary operation is size. Here is an implementation of size:
 
-\begin{cpplst}
+  \begin{cpplst}
 /* size
  * returns the number of nodes in the tree
  */
@@ -77,11 +85,11 @@ int size(TreeNode *t) {
     }
     return 1 + size(t->left) + size(t->right);
 }
-\end{cpplst}
+  \end{cpplst}
 
-Suppose you create an empty tree and items are inserted as follows:
+  Suppose you create an empty tree and items are inserted as follows:
 
-\begin{cpplst}
+  \begin{cpplst}
     TreeNode * tree = NULL;
     insert(5, &tree);
     insert(8, &tree);
@@ -91,24 +99,25 @@ Suppose you create an empty tree and items are inserted as follows:
     insert(7, &tree);
     insert(9, &tree);
     insert(12, &tree);
-\end{cpplst}
+  \end{cpplst}
 
-\Q What does the BST look like?
-\begin{answer}[2in]
-\end{answer}
+  \Q What does the BST look like?
+    \begin{answer}[2in]
+      Root is 5. Left subtree: 2 (left of 5) with 1 as left child. Right subtree: 8 (right of 5) with left child 7 (which has right child 9) and right child 10 (which has right child 12).
+    \end{answer}\par\vskip -10pt
 
-\Q What nodes are examined when finding 7?
-\begin{answer}[0.5in]
-\end{answer}
+  \Q What nodes are examined when finding 7?\key\\[-2.5mm]
+    \begin{answer}[0.5in]
+      5, 8, 7
+    \end{answer}
 
-\Q What nodes are examined when finding 3?
-\begin{answer}[0.5in]
-\end{answer}
+  \Q What nodes are examined when finding 3?
+    \begin{answer}[0.5in]
+      5, 2 (then 3 is not found, would go right of 2 but NULL)
+    \end{answer}
 
-\newpage
-\Q Now, suppose this is a new tree and insertions are done in this order:
-
-\begin{cpplst}
+  \Q Now, suppose this is a new tree and insertions are done in this order:
+    \begin{cpplst}
     TreeNode * tree = NULL;
     insert(1, &tree);
     insert(3, &tree);
@@ -117,17 +126,18 @@ Suppose you create an empty tree and items are inserted as follows:
     insert(7, &tree);
     insert(8, &tree);
     insert(9, &tree);
-\end{cpplst}
+    \end{cpplst}
 
-What does this tree look like?
-\begin{answer}[2in]
-\end{answer}
+    What does this tree look like?
+    \begin{answer}[2in]
+      A completely skewed tree (linear chain). Root is 1, with only right children: 1->3->4->6->7->8->9. This is the worst case for BST, giving O(N) search time instead of O(log N).
+    \end{answer}
 
-There are ways to balance trees, so we get the win of searches happening closer to $O(log_2N)$ rather than $O(N)$.
-You can read about specific kinds of trees, such as red-black trees and AVL trees that support tree rotations.
+  There are ways to balance trees, so we get the win of searches happening closer to $O(log_2N)$ rather than $O(N)$.
+  You can read about specific kinds of trees, such as red-black trees and AVL trees that support tree rotations.
 
-\Q Give an insertion order of the same nodes in problem 4 that results in a full (complete) BST where most interior nodes have two children.
-Show the tree that results from this insertion order.
-
-\begin{answer}[2in]
-\end{answer}
+  \Q Give an insertion order of the same nodes in problem 4 that results in a full (complete) BST where most interior nodes have two children.
+    Show the tree that results from this insertion order.
+    \begin{answer}[2in]
+      Insert in this order: 6, 3, 8, 1, 4, 7, 9. Root is 6, left subtree has 3 (with children 1 and 4), right subtree has 8 (with children 7 and 9). Height is 3, well-balanced.
+    \end{answer}

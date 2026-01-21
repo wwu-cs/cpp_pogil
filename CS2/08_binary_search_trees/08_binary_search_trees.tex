@@ -3,7 +3,7 @@
 % Access: 05-18-2022
 
 % comment out for student version
-%\ifdefined\Student\relax\else\def\Teacher{}\fi
+% \ifdefined\Student\relax\else\def\Teacher{}\fi
 
 \documentclass[12pt]{article}
 
@@ -17,6 +17,7 @@
 
 % Included for drawing trees
 \usepackage{tikz-qtree}
+\usepackage{amssymb}
 \tikzset{every tree node/.style={minimum width=2em,draw,circle},
          blank/.style={draw=none},
          edge from parent/.style=
@@ -25,49 +26,39 @@
 
 \begin{document}
 
-\begin{center}
-  \Large Activity \#8: Binary Search Trees \\[5pt]
-  \large Recorder's Report\\[20pt]
-  \normalsize
-  \begin{tabular}{lrp{0.1in}lr}
-    Manager:  & \ans{} &  & Reader: & \ans{}                       \\[15pt]
-    Recorder: & \ans{} &  & Driver: & \ans{}                       \\[15pt]
-    Date:     & \ans{} &  & Score:  & Satisfactory \hspace{10pt} /
-    \hspace{10pt} Not Satisfactory
-  \end{tabular}
-\end{center}
-\par\vskip 15pt
+  \begin{center}
+    \maketitle
+    \rolenames
+  \end{center}
 
-Record your team's answers to the key questions (marked with key) below. \key
-\begin{enumerate}[label=(\alph*)]
-  \itemsep 1.25in
-  \item Model 2, Question \#7, 8
-  \item Model 2, Question \#10
-  \item Model 2, Question \#13
-  \item Model 3, Question \#17
-\end{enumerate}
+  Record your team's answers to the key questions (marked with key) below. \key
+  \begin{enumerate}[label=(\alph*)]
+    \itemsep 1.25in
+    \item Model 2, Question \#7, 8
+    \item Model 2, Question \#10
+    \item Model 2, Question \#13
+    \item Model 3, Question \#17
+  \end{enumerate}
 
-\newpage
-\maketitle
+  \newpage
+  \maketitle
 
-Binary search trees allow binary search for fast lookup, addition, and removal of data items, and can be used to implement dynamic sets and lookup tables.
-Since the nodes in a BST are laid out in such a way that each comparison skips about half of the remaining tree, the lookup performance is proportional to that of binary logarithm.
-%\rolenames
+  Binary search trees allow binary search for fast lookup, addition, and removal of data items, and can be used to implement dynamic sets and lookup tables.
+  Since the nodes in a BST are laid out in such a way that each comparison skips about half of the remaining tree, the lookup performance is proportional to that of binary logarithm.
 
-\guide{
-  \item Explain a binary search tree (BST)
-  \item Knowledge of the rules for a BST
-}{
-  \item Write code that adds and accesses a BST
-}{
-  No additional notes.
-}
+  \guide{
+    \item Explain a binary search tree (BST)
+    \item Knowledge of the rules for a BST
+  }{
+    \item Write code that adds and accesses a BST
+  }{
+    No additional notes.
+  }
 
-\newpage
-\input{bst_basics.tex}
-\newpage
-\input{delete_node.tex}
-\newpage
-\input{creating_a_tree.tex}
+  \input{bst_basics.tex}
+  \newpage
+  \input{delete_node.tex}
+  \newpage
+  \input{creating_a_tree.tex}
 
 \end{document}
