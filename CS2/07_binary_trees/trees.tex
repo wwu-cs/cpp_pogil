@@ -1,305 +1,271 @@
 \model{Trees}
 
-Below is an hierarchical filesystem storing a collection of files. Files marked by arrows are directories.
-Files marked by bullets are data files.
+  \quest{25 min}
 
-\vspace{0.2in}
+  Below is an hierarchical filesystem storing a collection of files. Files marked by arrows are directories.
+  Files marked by bullets are data files.
 
-\begin{figure}[h]
+  \vspace{0.2in}
+
+  \begin{figure}[h]
     \begin{center}
-        \begin{minipage}{3in}
-            \begin{compactitem}
-                \item /home
-                \begin{compactitem}
-                    \item /Documents
-                    \begin{compactitem}
-                        \item report.txt
-                        \item source.txt
-                        \item lab\_3.txt
-                    \end{compactitem}
-                    \item /Desktop
-                    \begin{compactitem}
-                        \item midterm.doc
-                        \item contacts
-                        \item model4
-                    \end{compactitem}
-                    \item /Pictures
-                    \begin{compactitem}
-                        \item 332450.png
-                        \item profile.jpg
-                    \end{compactitem}
-                    \setdefaultitem{$\rightarrow$}{$\rightarrow$}{$\rightarrow$}{}
-                    \begin{compactitem}
-                        \item /vacation2012
-                    \end{compactitem}
-                \end{compactitem}
-            \end{compactitem}
-        \end{minipage}
+      \begin{minipage}{3in}
+        \begin{itemize}
+          \item[$\rightarrow$] /home
+          \begin{itemize}
+            \item[$\rightarrow$] /Documents
+            \begin{itemize}
+              \item[$\bullet$] report.txt
+              \item[$\bullet$] source.txt
+              \item[$\bullet$] lab\_3.txt
+            \end{itemize}
+            \item[$\rightarrow$] /Desktop
+            \begin{itemize}
+              \item[$\bullet$] midterm.doc
+              \item[$\bullet$] contacts
+              \item[$\bullet$] model4
+            \end{itemize}
+            \item[$\rightarrow$] /Pictures
+            \begin{itemize}
+              \item[$\bullet$] 332450.png
+              \item[$\bullet$] profile.jpg
+            \end{itemize}
+            \item[$\rightarrow$] /vacation2012
+          \end{itemize}
+        \end{itemize}
+      \end{minipage}
     \end{center}
     \caption{Filesystem}
     \label{fig:filesystem}
-\end{figure}
+  \end{figure}
 
+  \Q How many directories are there?
+    \begin{answer}[0.5in]
+      There are 5 directories: /home, /Documents, /Desktop, /Pictures, and /vacation2012
+    \end{answer}
 
-\Q How many directories are there? \ans{}
+  \Q How many data files are there?
+    \begin{answer}[0.5in]
+      There are 8 data files
+    \end{answer}
 
-\Q How many data files are there? \ans{}
+  \Q Imagine this filesystem being represented visually as it would be on your computer: as a series of folders, windows, and files.
+    How would you navigate from the {\tt /home} directory to {\tt model4}?
+    \begin{answer}[0.5in]
+      Open /home, then open /Desktop, then open model4.
+    \end{answer}
 
-\Q Imagine this filesystem being represented visually as it would be on your computer: as a series of folders, windows, and files.
-   How would you navigate from the {\tt /home} directory to {\tt model4}?
+  \Q Are there any files which can not be reached from the {\tt /home} directory ?
+    \begin{answer}[0.5in]
+      No, all files can be reached from /home by following the directory structure.
+    \end{answer}
 
+  \Q Using only Figure \ref{fig:filesystem}, is the {\tt /home} directory located inside of any other directories?
+    \begin{answer}[0.5in]
+      No, the figure does not show /home inside any other directory. It appears to be the root.
+    \end{answer}
 
-\begin{answer}[0.5in]
-\end{answer}
-
-\Q Are there any files which can not be reached from the {\tt /home} directory ?
-
-
-\begin{answer}[0.5in]
-\end{answer}
-
-\Q Using only Figure \ref{fig:filesystem}, is the {\tt /home} directory located inside of any other directories?
-
-
-\begin{answer}[0.5in]
-\end{answer}
-
-\newpage
-\Q Illustrate the filesystem beginning with the {\tt /home} directory provided below.
+  \Q Illustrate the filesystem beginning with the {\tt /home} directory provided below.
     For files, draw a node (\includegraphics[scale=0.3]{figures/circle.pdf}).
     To illustrate that a file is located within another, draw a directed edge (\includegraphics[scale=0.5]{figures/directedExample.pdf}).
 
+    \centerline{\includegraphics[scale=0.55]{figures/initial_tree.pdf}}
 
-\centerline{\includegraphics[scale=0.55]{figures/initial_tree.pdf}}
+    \vspace{4in}
 
-\vspace{4in}
+  \newpage
 
-\Q
-    Compare your illustration to the structure below. Does the orientation of the information affect how you interpret
+  \Q Compare your illustration to the structure below. Does the orientation of the\key\\[-2.5mm] information affect how you interpret
     the information being conveyed?
 
-\begin{figure}[h]
-    \begin{center}
-        \includegraphics[scale=0.5]{figures/tree_graph.pdf}
-    \end{center}
-    \caption{Alternative structure}
-    \label{fig:graph}
-\end{figure}
-
-
-
-\begin{answer}[.5in]
-\end{answer}
-
-\Q
-    Is it clear in Figure \ref{fig:graph} that the {\tt /home} node is in any way distinguished?
-
-
-\begin{answer}[1in]
-\end{answer}
-
-\Q
-    In your illustration, the {\tt /home} directory node is the \emph{root} of the structure.
-    Define what it means for a node to be the root.
-
-
-\begin{answer}[1in]
-\end{answer}
-
-\Q
-    The graph you drew is an illustration of a \emph{tree data structure}.
-    Using the terms "node," "edge," and "root," define tree data structure.
-
-
-\begin{answer}[1in]
-\end{answer}
-
-\Q
-    {\tt report.txt} is a \emph{child} node of the {\tt /Documents} node. The {\tt /Documents} node, in turn, is the
-    \emph{parent} of the {\tt report.txt} node. What does it mean for a node to be a child? A parent?
-
-
-\begin{answer}[1in]
-\end{answer}
-
-\Q
-    Are there any nodes in the tree that do not have a parent? How many?
-
-
-\begin{answer}[.5in]
-\end{answer}
-
-\Q
-    Are there any nodes in the tree that do not have any children? How many?
-
-
-\begin{answer}[.5in]
-\end{answer}
-
-\Q
-    {\tt report.txt}, {\tt model4}, and {\tt /vacation2012} are examples of \emph{leaf} nodes.
-        {\tt /home} and {\tt /Pictures} are not.
-    Define what it means for a node to be a leaf.
-
-
-\begin{answer}[1in]
-\end{answer}
-
-\Q
-    Starting from the {\tt /home} node how many edges are traversed navigating to the {\tt contacts} node?
-
-
-\begin{answer}[1in]
-\end{answer}
-
-\Q
-    The {\tt contacts} node is at a \emph{depth} of $2$. Define the depth of a node.
-
-
-\begin{answer}[1in]
-\end{answer}
-
-\Q
-    How deep is the tree? \ans{}
-
-\Q
-    If a tree has $16$ nodes, what is the maximum possible depth of the tree? The minimum?
-
-
-\begin{answer}[1in]
-\end{answer}
-
-\Q
-    How many children does {\tt /home} have? {\tt /Documents}? {\tt /vacation2012}?
-
-
-\begin{answer}[1in]
-\end{answer}
-
-\Q
-    The tree that you drew has a \emph{branching factor} of $3$. Define branching factor.
-
-
-\begin{answer}[1in]
-\end{answer}
-
-\Q
-    What is the branching factor of the tree below?
-
     \begin{figure}[h]
-        \centering
-        \includegraphics[scale=0.5]{figures/binary.pdf}
-        \caption{}
-        \label{fig:binary}
+      \begin{center}
+        \includegraphics[scale=0.5]{figures/tree_graph.pdf}
+      \end{center}
+      \caption{Alternative structure}
+      \label{fig:graph}
     \end{figure}
 
+    \begin{answer}[.5in]
+      Yes, the orientation matters. The top-down hierarchy makes parent-child relationships clearer.
+    \end{answer}
 
-\begin{answer}[.5in]
-\end{answer}
-
-\Q
-    The tree in Figure \ref{fig:binary} is a \emph{binary} tree. Define binary tree.
-
+  \Q Is it clear in Figure \ref{fig:graph} that the {\tt /home} node is in any way distinguished?
 
     \begin{answer}[1in]
+      No, without additional context or visual distinction, /home doesn't stand out as the root node.
     \end{answer}
-    
 
-\Q
-    If a binary tree has $16$ nodes, what is the maximum possible depth of the tree? The minimum?
+  \Q In your illustration, the {\tt /home} directory node is the \emph{root} of the structure.
+    Define what it means for a node to be the root.
+    \begin{answer}[1in]
+      The root is the topmost node in the tree. It has no parent and all other nodes descend from it.
+    \end{answer}
 
+  \Q The graph you drew is an illustration of a \emph{tree data structure}.
+    Using the terms "node," "edge," and "root," define tree data structure.
+    \begin{answer}[1in]
+      A tree is a hierarchical data structure consisting of nodes connected by edges, with one node designated as the root from which all other nodes descend. Each node (except the root) has exactly one parent.
+    \end{answer}
 
-\begin{answer}[1in]
-\end{answer}
-\newpage
+  \Q {\tt report.txt} is a \emph{child} node of the {\tt /Documents} node. The {\tt /Documents} node, in turn, is the
+    \emph{parent} of the {\tt report.txt} node. What does it mean for a node to be a child? A parent?
+    \begin{answer}[1in]
+      A child node is directly connected to and descends from another node. A parent node is the node that has the child connected to it from above in the hierarchy.
+    \end{answer}
 
-\Q
-    Illustrate the management structure within an organization with the following employees:
+  \Q Are there any nodes in the tree that do not have a parent? How many?
+    \begin{answer}[.5in]
+      Yes, only one: the /home node (the root).
+    \end{answer}
 
+  \Q Are there any nodes in the tree that do not have any children? How many?
+    \begin{answer}[.5in]
+      Yes, there are 8 leaf nodes (all the data files have no children).
+    \end{answer}
+
+  \Q {\tt report.txt}, {\tt model4}, and {\tt /vacation2012} are examples of \emph{leaf} nodes.
+    {\tt /home} and {\tt /Pictures} are not.
+    Define what it means for a node to be a leaf.
+    \begin{answer}[1in]
+      A leaf node is a node that has no children.
+    \end{answer}
+
+  \Q Starting from the {\tt /home} node how many edges are traversed navigating to the {\tt contacts} node?
+    \begin{answer}[1in]
+      2 edges: /home to /Desktop, then /Desktop to contacts.
+    \end{answer}
+
+  \Q The {\tt contacts} node is at a \emph{depth} of $2$. Define the depth of a node.
+    \begin{answer}[1in]
+      The depth of a node is the number of edges from the root to that node.
+    \end{answer}
+
+  \Q How deep is the tree? \hfill\ans{3}
+
+  \Q If a tree has $16$ nodes, what is the maximum possible depth of the tree? The\key\\[-2.5mm] minimum?
+    \begin{answer}[1in]
+      Maximum depth: 15 (a chain with one child per node). Minimum depth: 4 (a complete tree with 16 nodes has depth 4).
+    \end{answer}
+
+  \Q How many children does {\tt /home} have? {\tt /Documents}? {\tt /vacation2012}?
+    \begin{answer}[1in]
+      /home has 4 children, /Documents has 3 children, /vacation2012 has 0 children.
+    \end{answer}
+
+  \Q The tree that you drew has a \emph{branching factor} of $3$. Define branching factor.
+    \begin{answer}[1in]
+      The branching factor is the maximum number of children any node in the tree has.
+    \end{answer}
+
+  \Q  What is the branching factor of the tree below?
+    \begin{figure}[h]
+      \centering
+      \includegraphics[scale=0.5]{figures/binary.pdf}
+      \caption{Binary Tree}
+      \label{fig:binary}
+    \end{figure}
+    \begin{answer}[.5in]
+      The branching factor is 2.
+    \end{answer}
+
+  \Q The tree in Figure \ref{fig:binary} is a \emph{binary} tree. Define binary tree.
+    \begin{answer}[1in]
+      A binary tree is a tree where each node has at most 2 children.
+    \end{answer}
+
+  \Q If a binary tree has $16$ nodes, what is the maximum possible depth of the tree? The minimum?
+    \begin{answer}[1in]
+      Maximum depth: 15 (a chain). Minimum depth: 3 (a complete binary tree with 16 nodes has depth 3 or 4).
+    \end{answer}
+
+  \Q Illustrate the management structure within an organization with the following employees:
     \begin{center}
-        \begin{tabular}[]{l}
-            President                         \\
-            Director of IT                    \\
-            Director of Customer Service (CS) \\
-            Director of Sales                 \\
-            IT Manager                        \\
-            CS Supervisor                     \\
-            Sales Coordinator                 \\
-            Telephone Support                 \\
-            IT Specialist                     \\
-            Salesman
-        \end{tabular}
+      \begin{tabular}[]{l}
+        President                         \\
+        Director of IT                    \\
+        Director of Customer Service (CS) \\
+        Director of Sales                 \\
+        IT Manager                        \\
+        CS Supervisor                     \\
+        Sales Coordinator                 \\
+        Telephone Support                 \\
+        IT Specialist                     \\
+        Salesman
+      \end{tabular}
     \end{center}
 
-    \begin{answer}[3in]
+    \begin{answer}[2in]
+      Answers will vary. Students should draw a tree structure.
     \end{answer}
 
-\Q  What data structure did you choose to use?
-    What properties of the data structure motivated that choice?
+  \Q  What data structure did you choose to use?
+    What properties of the data structure\key\\[-2.5mm] motivated that choice?
+    \begin{answer}[1in]
+      A tree data structure. The hierarchical nature of organizational reporting structures (each employee reports to exactly one manager) makes a tree the natural choice.
+    \end{answer}
 
-
-% \newpage
-
-% \Q
-%     Illustrate the connections that exist between webpages in a website that are connected by hyperlinks.
+%   \Q Illustrate the connections that exist between webpages in a website that are connected by hyperlinks.
 %     At minimum, assume that all of the pages are accessible from the homepage. For the sake of brevity,
 %     do not include more than $8$ webpages. What data structure did you choose to use?
 %     What properties of the data structure motivated that choice?
+%     \begin{answer}[2in]
+%       A graph data structure (not necessarily a tree). Webpages can have multiple incoming and outgoing links, creating cycles, so it's a general graph rather than a tree.
+%     \end{answer}
 
-
-% \begin{answer}[2in]
-% \end{answer}
-
-% \begin{figure}
+%   \begin{figure}[h]
 %     \begin{center}
-%         \begin{lstlisting}
-%     class TreeNode:
-%         private array<TreeNode> children
-%         private String data
-        
-%         public TreeNode(String data):
-%             children = new array()
-%             this.data = data
-            
-%         public String getData():
-%             return data
-            
-%         public void addChild(TreeNode child):
-%             children.append(child)
-            
-%         public String listChildren():
-%             String output
-        
-%             for TreeNode n in children:
-%                 output + n.getData + "\n"
-            
-%             return output
-            
-%         public array<TreeNode> getChildren():
-%             return children
-            
-%     end class TreeNode
-% \end{lstlisting}
+%       \begin{cpplst}
+% template<typename T>
+% class TreeNode {
+% private:
+%     vector<TreeNode<T>*> children;
+%     T data;
+
+% public:
+%     TreeNode(T data) {
+%         this->data = data;
+%     }
+
+%     T getData() {
+%         return data;
+%     }
+
+%     void addChild(TreeNode<T>* child) {
+%         children.push_back(child);
+%     }
+
+%     string listChildren() {
+%         string output;
+%         for (TreeNode<T>* n : children) {
+%             output += n->getData() + "\n";
+%         }
+%         return output;
+%     }
+
+%     vector<TreeNode<T>*> getChildren() {
+%         return children;
+%     }
+% };
+%       \end{cpplst}
 %     \end{center}
 %     \caption{A simplified Tree implementation}
 %     \label{fig:implementation}
-% \end{figure}
+%   \end{figure}
 
-% \Q Building upon the initial pseudocode provided below, construct the tree in Figure \ref{fig:impTree} using the {\tt TreeNode} class in Figure \ref{fig:implementation}
-
-
-% \begin{figure}
-%     \begin{center}
+%   \Q Building upon the initial code provided below, construct the tree in Figure \ref{fig:impTree} using the {\tt TreeNode} class in Figure \ref{fig:implementation}
+%     \begin{figure}[h]
+%       \begin{center}
 %         \includegraphics[scale=0.5]{figures/tree_final.pdf}
-%     \end{center}
-%     \caption{}
-%     \label{fig:impTree}
-% \end{figure}
+%       \end{center}
+%       \caption{}
+%       \label{fig:impTree}
+%     \end{figure}
 
+%     \begin{cpplst}
+% TreeNode<string>* root = new TreeNode<string>("John");
+%     \end{cpplst}
 
-% \begin{lstlisting}
-%     TreeNode root = new TreeNode("John")
-% \end{lstlisting}
-
-% \begin{answer}[1in]
-% \end{answer}
+%     \begin{answer}[1in]
+%       Students should add child nodes using addChild() method to construct the tree shown in the figure.
+%     \end{answer}
