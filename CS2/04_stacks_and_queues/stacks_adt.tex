@@ -1,15 +1,15 @@
 \model{Stacks - Abstract Data Type}
 
-Note that stacks are often described as \textbf{Last-In, First-Out (LIFO)} 
-or \textbf{First-In, Last-Out (FILO)} (particularly if you are Greek :-) ).
+  Note that stacks are often described as \textbf{Last-In, First-Out (LIFO)}
+  or \textbf{First-In, Last-Out (FILO)} (particularly if you are Greek :-) ).
 
+  \quest{5 min}
 
-\Q (3 min) Based on the key characteristics of stacks that you identified above,
-\textbf{list at least 3 key operations} for a stack ADT, and \textbf{rank them} (last column)
-by \textbf{importance} (1=high, 5=low).
-
-\begin{center}
-    \begin{tabular}{ |r|p{12cm}|l| }
+  \Q Based on the key characteristics of stacks that you identified above,
+    \textbf{list at least 3 key operations} for a stack ADT, and \textbf{rank them} (last column)
+    by \textbf{importance} (1=high, 5=low).
+    \begin{center}
+      \begin{tabular}{ |r|p{12cm}|l| }
         \hline
         \rowcolor{lightgray} & \textbf{action or operation} & \textbf{rank} \\
         \hline
@@ -21,22 +21,20 @@ by \textbf{importance} (1=high, 5=low).
         \hline
         d.                   &                              &               \\
         \hline
-    \end{tabular}
-\end{center}
+      \end{tabular}
+    \end{center}
 
-\Q (5 min) Start with the most important stack operation above, and define
-a \textbf{method signature} including an appropriate name, input parameters, and return types.
-You may write the method below, or create an interface file in your IDE (e.g. Code.CS).
-Use "T" or "Object" as a generic placeholder for the type of object stored in the stack.
-You may include constructors, although Java does not allow interfaces to specify constructors.
+  \par\vskip -20pt
 
-
-\begin{javabox}
-public interface IStack<T> {
-
-    public IStack<T>(int maxSize); // constructor
-
-    ?
+  \Q Start with the most important stack operation above, and define
+    a \textbf{method signature}\key\\[-2.5mm] including an appropriate name, input parameters, and return types.
+    You may write the method below, or create a class file in your IDE.
+    Use "T" as a generic placeholder for the type of object stored in the stack.
+    \begin{cpplst}
+template<typename T>
+class Stack {
+public:
+    Stack(int maxSize);  // constructor
 
     ?
 
@@ -46,16 +44,17 @@ public interface IStack<T> {
 
     ?
 
-} // end interface IStack
-\end{javabox}
+    ?
 
-Review progress with the facilitator before continuing.
+};  // end class Stack
+    \end{cpplst}
 
-\begin{answer}[1.5in]
-see Facilitator - Sample Code
-NOTE: if students are unfamiliar with generics, use Stack of Strings
+    Review progress with the facilitator before continuing.
 
-REPORT OUT: operations and method signatures, so teams have common framework
-Maybe have teams compare their interface to the Java API, Wikipedia,
-or their textbook, and summarize any differences, insights, or questions.
-\end{answer}
+    \begin{answer}[0.5in]
+      see Facilitator - Sample Code
+
+      REPORT OUT: operations and method signatures, so teams have common framework
+      Maybe have teams compare their class to the C++ STL stack, Wikipedia,
+      or their textbook, and summarize any differences, insights, or questions.
+    \end{answer}

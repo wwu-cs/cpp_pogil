@@ -1,32 +1,34 @@
 
-{\bf\large Model 2: Hash Functions}
+\model{Hash Functions}
 
-Above, we have considered the situation where the items are numbers to insert into the dictionary.
-Suppose now we want to insert strings into the dictionary (like an actual dictionary!!).
-We first need to map the string to a number.
-In this case, the string is our key and the number is our hash value.
-Once we have the value, we need to map the value to a location in the array.
-\par\vskip 10pt
+  \quest{10 min}
 
+  Above, we have considered the situation where the items are numbers to insert into the dictionary.
+  Suppose now we want to insert strings into the dictionary (like an actual dictionary!!).
+  We first need to map the string to a number.
+  In this case, the string is our key and the number is our hash value.
+  Once we have the value, we need to map the value to a location in the array.
 
-The mapping from a key to an integer is called the hash function.
-There are many implementations of hash functions.
-A good hash function spreads keys across the range of integers.
-A good hash function is fast to compute, given the length of the key.
-A really bad hash function is one that maps all keys to the value 6.
-You will learn more about creating good hash functions in CS 324, Algorithms, if you take that course.
-Another property of a good hash function is that it maps the strings ``abc'' and ``cba'' to different integers, so permutations of the same set of letters have different hash values.
-\par\vskip 10pt
+  \par\vskip 10pt
 
+  The mapping from a key to an integer is called the hash function.
+  There are many implementations of hash functions.
+  A good hash function spreads keys across the range of integers.
+  A good hash function is fast to compute, given the length of the key.
+  A really bad hash function is one that maps all keys to the value 6.
+  You will learn more about creating good hash functions in CS 324, Algorithms, if you take that course.
+  Another property of a good hash function is that it maps the strings ``abc'' and ``cba'' to different integers, so permutations of the same set of letters have different hash values.
 
-Another property of a good hash function is that if two keys are considered equal, they will map to the same hash value.
-For example, if uppercase ``SAM'' and lowercase ``sam'' are considered equivalent in your application, then they should map to the same hash value.
-\par\vskip 10pt
+  \par\vskip 10pt
 
+  Another property of a good hash function is that if two keys are considered equal, they will map to the same hash value.
+  For example, if uppercase ``SAM'' and lowercase ``sam'' are considered equivalent in your application, then they should map to the same hash value.
 
-Here is an example of a hash function:
+  \par\vskip 10pt
 
-\begin{cpplst}
+  Here is an example of a hash function:
+
+  \begin{cpplst}
 unsigned int hash(std::string key) {
   unsigned int rtnVal = 3253;
   for (int i = 0; i < key.size(); i++) {
@@ -35,23 +37,29 @@ unsigned int hash(std::string key) {
   }
   return rtnVal;
 }
-\end{cpplst}
+    \end{cpplst}
 
-So, hash("a") is:
+  So, hash("a") is:
 
-\begin{cpplst}
+  \begin{cpplst}
 rtnVal = 3253
 rtnVal = 3253 * 28277 // 91985081
 rtnVal = 91985081 + 97*2749 // note: 'a' in ASCII is 97
 rtnVal = 92251734
-\end{cpplst}
+  \end{cpplst}
 
+  \vskip -10pt
 
-\Q What is hash(``ab'')? \ans{}
+  \Q What is hash(``ab'')? \hfill\ans{It's 2611387551}
 
-\Q What is hash(``ba'')? \ans{}
+  \vskip -10pt
 
-(Note: 'b' in ASCII is value 98)
+  \Q What is hash(``ba'')? (Note: 'b' in ASCII is value 98)\key\\[-2.5mm] \hfill\ans{It's 2611452044}
 
-\Q Explain one reason a Dictionary ADT might use a hash function?
+  \vskip -15pt
 
+  \Q Explain one reason a Dictionary ADT might use a hash function?\key\\[-2.5mm]
+    \begin{answer}[0.2in]
+      A Dictionary ADT might use a hash function to map keys (like strings) to integer values
+      that can then be used to determine the location in an array where the corresponding value should be stored.
+    \end{answer}

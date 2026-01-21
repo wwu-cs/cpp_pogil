@@ -1,67 +1,66 @@
 \model{Normalize Function Analysis}
 
-Below is a Java method.  It maps values that are in the range $[min .. max]$ to the range $[0 .. 1]$.
+  \texttt{Normalize} is a function that maps values in the range $[min .. max]$ to the range $[0 .. 1]$.
 
-
-\begin{javalst}
-void normalize(double[] array, double min, double max) {
-    for (int i = 0; i < array.length; i++) {
+  \begin{cpplst}
+void normalize(double array[], int size, double min, double max) {
+    for (int i = 0; i < size; i++) {
         array[i] = (array[i] - min) / (max - min);
     }
 }
-\end{javalst}
+\end{cpplst}
 
-\Q
-Suppose an array \texttt{a} contains the values \texttt{\{5, 15, 10\}} and the
-method is called with the following method call:
-\begin{verbatim}
-normalize(a, 5, 15);
-\end{verbatim}
+  \par\vskip 10pt
 
-What are the contents of the array after this method call?
+  {\it\large Refer to Model 2 above as your team develops consensus answers
+    to the questions below.}
 
-\begin{answer}[1.25in]
-\end{answer}
+  \quest{15 min}
 
-\Q
-How many operations does the method execute when \texttt{normalize(a, 5, 15)} is called?
-\\
-{\small Note: the initialization of the variable \texttt{i} executes before the first
-iteration of the loop. The iteration and comparison statements occur after
-each iteration of the loop.}
+  \Q Suppose an array \texttt{a} contains the values \texttt{\{5, 15, 10\}} and the
+    function is called with the following function call:
+    \begin{verbatim}
+      normalize(a, 3, 5, 15);
+    \end{verbatim}
+    What are the contents of the array after this function call?
+    \begin{answer}[1.25in]
+      The contents of \texttt{a} are \texttt{\{0.0, 1.0, 0.5\}}.
+    \end{answer}
 
-\begin{answer}[1.25in]
-\end{answer}
+  \Q How many operations does the function execute when \texttt{normalize(a, 3, 5, 15)} is called?
+    \\
+    {\small Note: the initialization of the variable \texttt{i} executes before the first
+    iteration of the loop. The iteration and comparison statements occur after
+    each iteration of the loop.}
+    \begin{answer}[1.25in]
+      The function executes 13 operations.
+    \end{answer}
 
-\Q
-Suppose the \texttt{normalize} method is called with an array of length 20 as
-an argument.  How many operations are executed by the method?
+  \Q Suppose the \texttt{normalize} function is called with an array of length 20 as
+    an argument.  How many operations are executed by the function?
+    \begin{answer}[1.25in]
+			The function executes 83 operations.
+    \end{answer}
 
-\begin{answer}[1.25in]
-\end{answer}
+  \Q Suppose the \texttt{normalize} function is called with an array of length $n$ as
+    an argument.\key\\[-2.5mm]  How many operations are executed by the function?
+    \begin{answer}[1.25in]
+			The function executes $5n + 3$ operations.
+    \end{answer}
 
-\Q
-Suppose the \texttt{normalize} method is called with an array of length $n$ as
-an argument.  How many operations are executed by the method?
+  \Q We say that the \texttt{normalize} function runs in \emph{linear} time. Another
+    way to say this is that the function is $\Theta(n)$.  Complete the following
+    sentence: \\
+    \ \\
+    A function is $\Theta(n)$ (or executes in linear time) if...
+    \begin{answer}[1.25in]
+			...the number of operations it executes increases linearly with the size of its input.
+    \end{answer}
 
-\begin{answer}[1.25in]
-\end{answer}
-
-\Q
-We say that the \texttt{normalize} method runs in \emph{linear} time. Another
-way to say this is that the method is $\Theta(n)$.  Complete the following
-sentence: \\
-\ \\
-A method is $\Theta(n)$ (or executes in linear time) if...
-
-\begin{answer}[1.25in]
-\end{answer}
-
-\Q
-We say that \emph{quadratic} time methods are $\Theta(n^{2})$. Complete the
-following sentence: \\
-\ \\
-A method is $\Theta(n^{2})$ (or executes in quadratic time) if...
-
-\begin{answer}[1.25in]
-\end{answer}
+  \Q We say that \emph{quadratic} time functions are $\Theta(n^{2})$. Complete the
+    following sentence: \\
+    \ \\
+    A function is $\Theta(n^{2})$ (or executes in quadratic time) if...
+    \begin{answer}[1.25in]
+			...the number of operations it executes increases quadratically with the size of its input.
+    \end{answer}

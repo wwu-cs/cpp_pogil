@@ -1,81 +1,75 @@
 \model{Reorder Function Analysis}
 
-\texttt{Reorder} is a method that sorts two array elements.
+  \texttt{Reorder} is a method that sorts two array elements.
 
-\begin{cpplst}
-void reorder(int[] array, int i, int j) {
+  \begin{cpplst}
+void reorder(int array[], int i, int j) {
     if (array[i] > array[j]) {
       int temp = array[i];
       array[i] = array[j];
       array[j] = temp;
   }
 }
-\end{cpplst}
+  \end{cpplst}
 
-  \Q 
-        Suppose an array \texttt{a} contains the values \texttt{\{6, 11, 9, 13\}}.
-        List the contents of \texttt{a} after the method call \texttt{reorder(a, 1, 2)}.
+  \par\vskip 10pt
 
-        \begin{answer}[1.25in]
-        \end{answer}
+  {\it\large Refer to Model 1 above as your team develops consensus answers
+    to the questions below.}
 
+  \quest{15 min}
 
-  \Q
-        Suppose we define an \emph{operation} as an assignment statement,
-        arithmetic operation, or comparison.  How many operations does
-        the method execute when \texttt{reorder(a, 1, 2)} is called?
+  \Q Suppose an array \texttt{a} contains the values \texttt{\{6, 11, 9, 13\}}.
+    List the contents of \texttt{a} after the method call \texttt{reorder(a, 1, 2)}
+    \begin{answer}[1.25in]
+      The contents of \texttt{a} are \texttt{\{6, 9, 11, 13\}}.
+    \end{answer}
 
+  \Q Suppose we define an \emph{operation} as an assignment statement,
+    arithmetic operation, or comparison.  How many operations does
+    the method execute when \texttt{reorder(a, 1, 2)} is called?
+    \begin{answer}[1.25in]
+      The method executes 4 operations.
+    \end{answer}
 
-        \begin{answer}[1.25in]
-        \end{answer}
+  \Q How many operations does the method execute when \texttt{reorder(a, 0, 1)} is called?
+    \begin{answer}[1.25in]
+      The method executes 3 operations.
+    \end{answer}
 
-  \Q 
-        How many operations does the method execute when \texttt{reorder(a, 0, 1)} is called?
+  \Q Suppose an array \texttt{b} contains the values \texttt{\{2, 6, 13, 8, 3\}}.  How
+    many operations does the method execute when \texttt{reorder(b, 3, 4)} is
+    called?
+    \begin{answer}[1in]
+      The method executes 4 operations.
+    \end{answer}
 
+  \Q How many operations does the method execute when \texttt{reorder(b, 1, 2)} is called?
+    \begin{answer}[1in]
+      The method executes 3 operations.
+    \end{answer}
 
-        \begin{answer}[1.25in]
-        \end{answer}
+  \Q Is there an upper bound on the number of operations that \texttt{reroder} can
+    execute? Why or why not?
+    \begin{answer}[1in]
+      Yes. The upper bound is 4 operations because that is the maximum number of
+      operations that can be executed in any case.
+    \end{answer}
 
-  \Q 
-        Suppose an array \texttt{b} contains the values \texttt{\{2, 6, 13, 8, 3\}}.  How
-        many operations does the method execute when \texttt{reorder(b, 3, 4)} is
-        called?
+  \Q Does the number of operations the method executes depend on the size of its input\key\\[-2.5mm]
+    (\emph{i.e.}, the number of elements in the input)? Why or why not?
+    \begin{answer}[1in]
+      No. The number of operations does not depend on the size of the input
+      because the method only compares and possibly swaps two elements, regardless
+      of how many elements are in the array.
+    \end{answer}
 
-
-        \begin{answer}[1in]
-        \end{answer}
-
-  \Q 
-        How many operations does the method execute when \texttt{reorder(b, 1, 2)} is called?
-
-
-        \begin{answer}[1in]
-        \end{answer}
-
-  \Q 
-        Is there an upper bound on the number of operations that \texttt{reroder} can
-        execute? Why or why not?
-
-
-        \begin{answer}[1in]
-        \end{answer}
-
-  \Q 
-        Does the number of operations the method executes depend on the size of its input
-        (\emph{i.e.}, the number of elements in the input)? Why or why not?
-
-
-        \begin{answer}[1in]
-        \end{answer}
-
-  \Q 
-        We say that the \texttt{reorder} method executes in \emph{constant} time.
-        Another way to say this is that the method is $\Theta(1)$.  Complete the
-        following sentence: \\
-        \ \\
-        A method is $\Theta(1)$ (or executes in constant time)
-        if...
-
-
-        \begin{answer}[1in]
-        \end{answer}
+  \Q We say that the \texttt{reorder} method executes in \emph{constant} time.
+    Another way to say this is that the method is $\Theta(1)$.  Complete the
+    following sentence: \\
+    \ \\
+    A method is $\Theta(1)$ (or executes in constant time)
+    if...
+    \begin{answer}[1in]
+      ...the number of operations it executes does not depend on the size of its input.
+    \end{answer}

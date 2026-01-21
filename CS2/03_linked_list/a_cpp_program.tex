@@ -1,144 +1,141 @@
- {\bf\large Model 2: A C++ Program} \\
-          \begin{center}
-              \centering {\bf C++ Code}\vskip -15pt\null
-              \footnotesize
-              \begin{minted}[
-          frame=lines,
-          framesep=2mm,
-          bgcolor=gray!15,
-          baselinestretch=1,
-          linenos
-        ]{cpp}
-#include <stdlib.h>
-#include <stdio.h>
+\model{A C++ Program}
+  \begin{center}
+    \centering {\bf C++ Code}\vskip -15pt\null
+    \footnotesize
+    \begin{cpplst}
+#include <iostream>
 
-typedef struct nodeTag Node;
-/* a Node represents one node in the linked list */
-struct nodeTag {
-  int num;     // value stored in node
-  Node * next; // pointer to next node in list
+class Node {
+public:
+  int num;    // value stored in node
+  Node *next; // pointer to next node in list
 };
 
 /* function prototypes on linked lists */
-Node * makeNode(int n, Node * nextItem);
-int length(Node * list);
-void print(Node * list);
-void insertTail(int n, Node * list);
-Node * find(int n, Node * list);
-int remove(Node * toRemove, Node ** listPtr);
+Node *makeNode(int n, Node *nextItem);
+int length(Node *list);
+void print(Node *list);
+void insertTail(int n, Node **list);
+Node *find(int n, Node *list);
+int remove(Node *toRemove, Node **listPtr);
 
 /* main function */
 int main(void) {
   // create linked list
-  Node * top = NULL;
+  Node *top = NULL;
   top = makeNode(6, top);
   top = makeNode(10, top);
   top = makeNode(-3, top);
   top = makeNode(2, top);
   print(top);
-  
+
   // q1: What does the picture of top look like now?
   int len = length(top);
-  printf("Length of list: %d\n", len);
-  
+  std::cout << "Length of list: " << len << std::endl;
+
   // q2: What is the value of len?
   insertTail(25, &top);
   print(top);
-  
+
   // q3: What does the picture of top look like now?
-  Node * ten = find(10, top);
-  if(ten == NULL) {
-    printf("Not found: 10\n");
+  Node *ten = find(10, top);
+  if (ten == NULL) {
+    std::cout << "Not found: 10\n";
   } else {
-    printf("Found: 10, memory location: %p\n", ten);
+    std::cout << "Found: 10, memory location: " << ten << std::endl;
   }
-  printf("removing 10:\n");
+  std::cout << "removing 10:\n";
   int ret = remove(ten, &top);
   print(top);
-  
+
   // q4: What does the picture of top look like now?
-  printf("removing 2:\n");
-  Node * two = find(2, top);
+  std::cout << "removing 2:\n";
+  Node *two = find(2, top);
   ret = remove(two, &top);
   print(top);
-  
+
   // q5: What does the picture of top look like now?
-  printf("removing 15:\n");
-  Node * fifteen = find(15, top);
+  std::cout << "removing 15:\n";
+  Node *fifteen = find(15, top);
   ret = remove(fifteen, &top);
   print(top);
   return EXIT_SUCCESS;
 }
-        \end{minted}
+    \end{cpplst}
+  \end{center}
 
-          \end{center}
-          
-          {\it\large Refer to Model 2 above as your team develops consensus answers
-              to the questions below.}
-          \par\vskip 10pt
+  {\it\large Refer to Model 2 above as your team develops consensus answers
+    to the questions below.}
 
-          %  \begin{enumerate}
-    \itemsep 20pt
+  \quest{20 min}
 
-    \item Without seeing the code implementation, answer the questions in the comments in the main function above.
+  \Q Without seeing the code implementation, answer the questions in the comments in the main function above.
+    \begin{enumerate}
+      \itemsep 10pt
+      \item q1: What does the picture of top look like now?
+        \begin{answer}[1.2in]
+          The linked list would look like this:
+          2 -> -3 -> 10 -> 6 -> NULL
+        \end{answer}
 
-          \begin{enumerate}[(a)]
-              \itemsep 12pt
-              \item q1: What does the picture of top look like now?
-                    \begin{solution}[1.2in]
-                    \end{solution}
-              \item q2: What is the value of len?
-                    \begin{solution}[1.2in]
-                    \end{solution}
-              \item q3: What does the picture of top look like now?
-                    \begin{solution}[1.2in]
-                    \end{solution}
-              \item q4: What does the picture of top look like now?
-                    \begin{solution}[1.2in]
-                    \end{solution}
-              \item q5: What does the picture of top look like now?
-                    \begin{solution}[1.2in]
-                    \end{solution}
-          \end{enumerate}
+      \item q2: What is the value of len?
+        \begin{answer}[1.2in]
+          The value of len would be 4, since there are 4 nodes in the linked list.
+        \end{answer}
 
-          \newpage
+      \item q3: What does the picture of top look like now?
+        \begin{answer}[1.2in]
+          The linked list would look like this:
+          2 -> -3 -> 10 -> 6 -> 25 -> NULL
+        \end{answer}
 
-    \item Write the code snippet to insert at the bottom of the main function (before the return) to insert a node with a value of 11 at the front of {\tt top}:
-          \begin{solution}[0.7in]
-          \end{solution}
+      \item q4: What does the picture of top look like now?
+        \begin{answer}[1.2in]
+          The linked list would look like this:
+          2 -> -3 -> 6 -> 25 -> NULL
+        \end{answer}
 
-    \item  Write the code snippet to insert at the bottom of the main function (before the return) to insert a node with value -8 at the back of {\tt top}:
-          \begin{solution}[0.7in]
-          \end{solution}
+      \item q5: What does the picture of top look like now?
+        \begin{answer}[1.2in]
+          The linked list would look like this
+          -3 -> 6 -> 25 -> NULL
+        \end{answer}
+    \end{enumerate}
 
+  \vskip -20pt
 
+  \Q Write the code snippet to insert at the bottom of the main function (before the return) to insert a node with a value of 11 at the front of {\tt top}:
+    \begin{answer}[0.7in]
+      \cpp{top = makeNode(11, top);}
+    \end{answer}
 
-    \item This code can be found in {\tt activity3a.cpp}.
-          Run it.
-          Review the implementations of \texttt{makeNode}, \texttt{length}, \texttt{print}, \texttt{insertTail}, \texttt{find}, and \texttt{remove}.
+  \Q Write the code snippet to insert at the bottom of the main function (before the return) to insert a node with value -8 at the back of {\tt top}:
+    \begin{answer}[0.7in]
+      \cpp{insertTail(-8, &top);}
+    \end{answer}
 
-          Now that you can see the function definitions, do you need to edit any answers in question 1?
-          If so, write your new answers to the right of your original answers.
+  \Q This code can be found in {\tt activity3a.cpp}.
+    Run it.
+    Review the implementations of \cpp{makeNode}, \cpp{length}, \cpp{print}, \cpp{insertTail}, \cpp{find}, and \cpp{remove}.
 
+    Now that you can see the function definitions, do you need to edit any answers in question 10?
+    If so, write your new answers to the right of your original answers.
 
-    \item  Why must the functions \texttt{insertTail} and \texttt{remove} take \texttt{Node ** listPtr} as parameters instead of \texttt{Node *list}?
-          \begin{solution}[0.7in]
-          \end{solution}
+  \Q Why must the functions \cpp{insertTail} and \cpp{remove} take \cpp{Node ** listPtr} as parameters instead of \cpp{Node *list}?
+    \begin{answer}[0.7in]
+      Because these functions may need to modify the head pointer of the linked list, they need a pointer to a pointer (Node **).
+      This allows the function to change where the head of the list points to if necessary.
+    \end{answer}
 
-    \item  Complete the function definition for \texttt{insertHead}.
-          This function should insert a new node with value n at the head of the list pointed to by listPtr.
-          \begin{minted}[
-          frame=lines,
-          framesep=2mm,
-          bgcolor=gray!15
-        ]{cpp}
+  \newpage
+
+  \Q Complete the function definition for \texttt{insertHead}.
+    This function should insert a\key\\[-2.5mm] new node with value n at the head of the list pointed to by listPtr.
+    \begin{answer}[1in]
+      \begin{cpplst}
 void insertHead(int n, Node ** listPtr) {
-
-
-
-
-
-
+  Node *newNode = makeNode(n, *listPtr);
+  *listPtr = newNode;
 }
-\end{minted}
-
+      \end{cpplst}
+    \end{answer}

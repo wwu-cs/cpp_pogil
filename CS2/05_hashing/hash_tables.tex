@@ -1,50 +1,57 @@
-{\bf\large Model 3: Hash Tables}
+\model{Hash Tables}
 
-The array that was mentioned earlier is called a hash table. A hash table stores dictionary items. The
-storage location is based on the hash value and using \% of the hash table size.
+  \quest{10 min}
 
-\texttt{Insertion}
+  The array that was mentioned earlier is called a hash table. A hash table stores dictionary items. The
+  storage location is based on the hash value and using \% of the hash table size.
 
-Assume we have a hash table of size 10. We want to insert the following items:
-\begin{itemize}
-  \item “coconut''
-  \item ``milk''
-  \item ``apple''
-\end{itemize}
+  \texttt{Insertion}
 
-STEP 1: We'll use the hash function listed above to calculate the hash values for these keys:
-\begin{itemize}
-  \item ``coconut'' (hash value = 2104178476)
-  \item ``milk'' (hash value = 461110994)
-  \item ``apple'' (hash value = 3515030035)
-\end{itemize}
+  Assume we have a hash table of size 10. We want to insert the following items:
+    \begin{itemize}
+      \item "coconut''
+      \item ``milk''
+      \item ``apple''
+    \end{itemize}
 
-STEP 2: We'll map the hash values to the size for this hash table (\% 10):
-\begin{itemize}
-  \item  ``coconut'' (location = 6)
-  \item ``milk'' (location = 4)
-  \item ``apple'' (location = 5)
-\end{itemize}
+  STEP 1: We'll use the hash function listed above to calculate the hash values for these keys:
+    \begin{itemize}
+      \item ``coconut'' (hash value = 2104178476)
+      \item ``milk'' (hash value = 461110994)
+      \item ``apple'' (hash value = 3515030035)
+    \end{itemize}
 
-\includegraphics[width=.9\textwidth]{figures/hashing1.png}
+  STEP 2: We'll map the hash values to the size for this hash table (\% 10):
+    \begin{itemize}
+      \item  ``coconut'' (location = 6)
+      \item ``milk'' (location = 4)
+      \item ``apple'' (location = 5)
+    \end{itemize}
 
-\Q Now, suppose we want to insert ``orange'' into this hash table.
-Its hash value is 3410197053.
-Insert this key into the table above.
-\begin{answer}[1in]
-\end{answer}
+  \includegraphics[width=.9\textwidth]{figures/hashing1.png}
 
-\Q Now, let's insert ``corn''. Its hash value is 1347376851. Insert this key into the table above.
-\begin{answer}[1in]
-\end{answer}
+  \Q Now, suppose we want to insert ``orange'' into this hash table.
+    Its hash value is 3410197053.
+    Insert this key into the table above.
+    \begin{answer}[1in]
+      It goes into position 3.
+    \end{answer}
 
-\Q Now, let's insert ``eggs''. Its hash value is 881505635. Insert this key into the table above.
-\begin{answer}[1in]
-\end{answer}
+  \Q Now, let's insert ``corn''. Its hash value is 1347376851. Insert this key into the table above.
+    \begin{answer}[1in]
+      It goes into position 1.
+    \end{answer}
 
-What happens now?
-``apple'' is already stored at position 5.
-There are several techniques (see textbook) to address collisions.
-\par\vspace{10pt}
+  \Q Now, let's insert ``eggs''. Its hash value is 881505635. Insert this key into the table above.
+    \begin{answer}[1in]
+      It goes into position 5, but that position is already taken by ``apple''.
+      This is called a collision.
+    \end{answer}
 
-We'll first resolve collisions using open address linear probing.
+  What happens now?
+  ``apple'' is already stored at position 5.
+  There are several techniques (see textbook) to address collisions.
+
+  \par\vspace{10pt}
+
+  We'll first resolve collisions using open address linear probing.

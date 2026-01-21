@@ -1,99 +1,97 @@
 \model{Analysis Functions}
 
-Label each of the following methods either $\Theta(1)$, $\Theta(n)$, or $\Theta(n^{2})$.
+  \quest{20 min}
 
-\begin{javalst}
+  Label each of the following functions either $\Theta(1)$, $\Theta(n)$, or $\Theta(n^{2})$.
+
+  \begin{cpplst}
 int max(int a, int b) {
-  if (a > b) {
-    return a;
-  } else {
-    return b;
-  }
+    if (a > b) {
+        return a;
+    } else {
+        return b;
+    }
 }
-\end{javalst}
+  \end{cpplst}
 
-\Q
-The \texttt{max} method is $\Theta(\hspace{1 pc})$. Justify your answer.
-
-
-\begin{answer}[.25in]
-\end{answer}
+  \Q The \texttt{max} function is $\Theta(\ans[0.2in]{1})$. Justify your answer.
+    \begin{answer}[.25in]
+      Because the number of operations executed does not depend on the size of the input.
+    \end{answer}
 
 
-\begin{javalst}
-int maxElement(int[ ] array) {
-  int max = array[0];
-  for (int i = 0; i < array.length; i++) {
-    if (array[i] > max) {
-      max = array[i];
-    }//end if
-  } //end for
-  return max;
+  \begin{cpplst}
+int maxElement(int array[], int size) {
+    int max = array[0];
+    for (int i = 0; i < size; i++) {
+        if (array[i] > max) {
+            max = array[i];
+        }
+    }
+    return max;
 }
-\end{javalst}
+  \end{cpplst}
 
-
-\Q
-The \texttt{maxElement} method is $\Theta(\hspace{1 pc})$. Justify your answer.
-
-
-\begin{answer}[.25in]
-\end{answer}
-
-\begin{javalst}
-int maxSubseqSum(int[ ] array) {
-  int max = array[0];
-  for (int i = 0; i < array.length; i++) {
-    int sum = 0;
-    for (int j = i; j < array.length; j++) {
-      sum += j;
-      if (sum > max) {
-        max = sum;
-      } //end if
-    } //end for
-  } //end for
-  return max;
+  \Q The \texttt{maxElement} function is $\Theta(\ans[0.2in]{n})$. Justify your answer.
+    \begin{answer}[.25in]
+      Because the number of operations executed increases linearly with the size of the input.
+    \end{answer}
+  
+  \begin{cpplst}
+int maxSubseqSum(int array[], int size) {
+    int max = array[0];
+    for (int i = 0; i < size; i++) {
+        int sum = 0;
+        for (int j = i; j < size; j++) {
+            sum += j;
+            if (sum > max) {
+                max = sum;
+            }
+        }
+    }
+    return max;
 }
-\end{javalst}
+  \end{cpplst}
 
+  \Q The \texttt{maxSubseqSum} function is $\Theta(\ans[0.2in]{n^2})$. Justify your answer.
+    \begin{answer}[.25in]
+      Because the number of operations executed increases quadratically with the size of the input.
+    \end{answer}
 
-\Q
-The \texttt{maxSubseqSum} method is $\Theta(\hspace{1 pc})$. Justify your answer.
+  \Q We are using the number of operations a function executes as a measure
+    of its run\key\\[-2.5mm] time.  In a few complete sentences, explain why we are using
+    this measure of time rather than a wall-clock measure of time (\emph{i.e.},
+    minutes, seconds, \emph{etc}.).
+    \begin{answer}[1.25in]
+      Because wall-clock time can vary based on the hardware and software environment,
+      while counting operations provides a more consistent and comparable measure of
+      algorithm efficiency.
+    \end{answer}
 
+  \Q Why is knowing that a function is $\Theta(n)$ more valuable than knowing that
+    it takes fifteen seconds to execute on a 2.7GHz i7? In the space below,
+    list the pros and cons for each statement.\\
+    \begin{itemize}
+        \item ``The function is $\Theta(n)$.''
+              \begin{answer}[1.25in]
+                Because it provides a general understanding of how the function's performance
+                scales with input size, independent of specific hardware or conditions.
+              \end{answer}
 
-\begin{answer}[.25in]
-\end{answer}
+        \item ``The function took 15s on my i7.''
+              \begin{answer}[1.25in]
+                Because it gives a specific performance metric for a particular instance,
+                but does not inform about scalability or performance on different hardware.
+              \end{answer}
+    \end{itemize}
 
-\newpage
-\Q
-We are using the number of operations a method executes as a measure
-of its run time.  In a few complete sentences, explain why we are using
-this measure of time rather than a wall-clock measure of time (\emph{i.e.},
-minutes, seconds, \emph{etc}.).
+  \par\vskip -30pt
 
-\begin{answer}[1.25in]
-\end{answer}
-
-\Q
-Why is knowing that a method is $\Theta(n)$ more valuable than knowing that
-it takes fifteen seconds to execute on a 2.7GHz i7? In the space below,
-list the pros and cons for each statement.\\
-\begin{itemize}
-    \item ``The method is $\Theta(n)$.''
-          \begin{answer}[1.25in]
-          \end{answer}
-
-    \item ``The method took 15s on my i7.''
-          \begin{answer}[1.25in]
-          \end{answer}
-\end{itemize}
-
-
-
-\Q
-Is it possible that there are inputs for which a $\Theta(1)$ method
-executes more operations than a $\Theta(n)$ method that has the same
-specification? Why or why not?
-
-\begin{answer}[1.25in]
-\end{answer}
+  \Q Is it possible that there are inputs for which a $\Theta(1)$ function
+    executes more\key\\[-2.5mm] operations than a $\Theta(n)$ function that has the same
+    specification? Why or why not?
+    \begin{answer}[0.7in]
+      Yes. Because $\Theta(1)$ functions have a constant upper bound on operations,
+      but that bound could be higher than the number of operations executed by
+      a specific instance of a $\Theta(n)$ function with a small input size.
+    \end{answer}

@@ -1,15 +1,16 @@
 \model{Queues - Abstract Data Type}
 
-Note that queues are often described as \textbf{First-In, First-Out (FIFO)}
-or \textbf{Last-In, Last-Out (LILO)} (particularly if you are lazy :-) ).
+  Note that queues are often described as \textbf{First-In, First-Out (FIFO)}
+  or \textbf{Last-In, Last-Out (LILO)} (particularly if you are lazy :-) ).
 
-\Q (3 min) Based on the key characteristics of queues that you identified above,
-\textbf{list at least 3 key operations} for a queue ADT, and \textbf{rank them} (last column)
-by \textbf{importance} (1=high, 5=low).
-Review progress with the facilitator before continuing.
+  \quest{5 min}
 
-\begin{center}
-    \begin{tabular}{ |r|p{12cm}|l| }
+  \Q Based on the key characteristics of queues that you identified above,
+    \textbf{list at least 3 key operations} for a queue ADT, and \textbf{rank them} (last column)
+    by \textbf{importance} (1=high, 5=low).
+    Review progress with the facilitator before continuing.
+    \begin{center}
+      \begin{tabular}{ |r|p{12cm}|l| }
         \hline
         \rowcolor{lightgray} & \textbf{action or operation} & \textbf{rank} \\
         \hline
@@ -21,23 +22,20 @@ Review progress with the facilitator before continuing.
         \hline
         d.                   &                              &               \\
         \hline
-    \end{tabular}
-\end{center}
+      \end{tabular}
+    \end{center}
 
-\Q (5 min) Start with the most important queue operation above, and define
-a method signature including an appropriate name, input parameters, and return types.
-You may write the method below, or create an interface file in your IDE (e.g. Code.CS).
-Use "T" or "Object" as a generic placeholder for the type of object stored in the queue.
-You may include constructors, although Java does not allow interfaces to specify constructors.
+  \par\vskip -20pt
 
-\begin{javabox}
-public interface IQueue<T> {
-
-    public IQueue<T>(int maxSize); // constructor
-
-    ?
-
-    ?
+  \Q Start with the most important queue operation above, and define
+    a method\key\\[-2.5mm] signature including an appropriate name, input parameters, and return types.
+    You may write the method below, or create a class file in your IDE.
+    Use "T" as a generic placeholder for the type of object stored in the queue.
+    \begin{cpplst}
+template<typename T>
+class Queue {
+public:
+    Queue(int maxSize);  // constructor
 
     ?
 
@@ -45,16 +43,17 @@ public interface IQueue<T> {
 
     ?
 
-} // end interface IQueue
-\end{javabox}
+    ?
 
-Review progress with the facilitator before continuing.
+    ?
 
-\begin{answer}
-see Facilitator - Sample Code
-NOTE: if students are unfamiliar with generics, use Stack of Strings
+};  // end class Queue
+    \end{cpplst}
 
-REPORT OUT: operations and method signatures, so teams have common framework
-Maybe have teams compare their interface to the Java API, Wikipedia,
-or their textbook, and summarize any differences, insights, or questions.
-\end{answer}
+  Review progress with the facilitator before continuing.
+  \begin{answer}
+    see Facilitator - Sample Code
+    REPORT OUT: operations and method signatures, so teams have common framework
+    Maybe have teams compare their class to the C++ STL queue, Wikipedia,
+    or their textbook, and summarize any differences, insights, or questions.
+  \end{answer}

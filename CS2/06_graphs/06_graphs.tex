@@ -3,7 +3,7 @@
 % Access: 05-05-2022
 
 % comment out for student version
-%\ifdefined\Student\relax\else\def\Teacher{}\fi
+% \ifdefined\Student\relax\else\def\Teacher{}\fi
 
 \documentclass[12pt]{article}
 
@@ -14,59 +14,47 @@
 \date{Spring 2022}
 
 \input{../../cspogil.sty}
+\usepackage{amssymb}
 
 \begin{document}
 
-\begin{center}
-  \Large Activity \#6: Graphs \\[5pt]
-  \large Recorder's Report\\[20pt]
-  \normalsize
-  \begin{tabular}{lrp{0.1in}lr}
-    Manager:  & \ans{} &  & Reader: & \ans{}                       \\[15pt]
-    Recorder: & \ans{} &  & Driver: & \ans{}                       \\[15pt]
-    Date:     & \ans{} &  & Score:  & Satisfactory \hspace{10pt} /
-    \hspace{10pt} Not Satisfactory
-  \end{tabular}
-\end{center}
-\par\vskip 15pt
+  \begin{center}
+    \maketitle
+    \rolenames
+  \end{center}
 
-Record your team's answers to the key questions (marked with
-\raisebox{-.3\height}{\includegraphics[width=0.5in]{../figures/key.png}})
-below.
-\begin{enumerate}[label=(\alph*)]
-  \itemsep 1in
-  \item Model 1, Question \#20
-  \item Model 2, Question \#21
-  \item Model 2, Question \#22
-  \item Model 3, Question \#23
-  \item Model 3, Question \#32
-\end{enumerate}
+  \keyquestions{
+    \item Model 1, Question \#20
+    \item Model 2, Question \#21
+    \item Model 2, Question \#22
+    \item Model 3, Question \#23
+    \item Model 3, Question \#32
+  }
 
-\newpage
-\maketitle
+  \newpage
+  \maketitle
 
-Many items in the world are connected, such as computers on a network connected by wires, cities connected by roads, or people connected by friendship.
-A graph is a data structure for representing connections among items, and consists of vertices connected by edges. 
+  Many items in the world are connected, such as computers on a network connected by wires, cities connected by roads, or people connected by friendship.
+  A graph is a data structure for representing connections among items, and consists of vertices connected by edges. 
 
-%\rolenames
+  %\rolenames
 
-\guide{
-  \item Explain the components of a graph (vetices and edges)
-  \item Describe the difference between undirected and directed graphs
-  \item Describe the cycle in a graph
-  \item Explain how to represent a graph as a data structure
-}{
-  \item Find cycles in a graph
-  \item Translate a graph into an adjacency list or adjacency matrix
-}{
-  No additional notes.
-}
+  \guide{
+    \item Explain the components of a graph (vetices and edges)
+    \item Describe the difference between undirected and directed graphs
+    \item Describe the cycle in a graph
+    \item Explain how to represent a graph as a data structure
+  }{
+    \item Find cycles in a graph
+    \item Translate a graph into an adjacency list or adjacency matrix
+  }{
+    No additional notes.
+  }
 
-\newpage
-\input{graphs.tex}
-\newpage
-\input{representing_graphs.tex}
-\newpage
-\input{modeling_with_graphs.tex}
+  \input{graphs.tex}
+  \newpage
+  \input{representing_graphs.tex}
+  \newpage
+  \input{modeling_with_graphs.tex}
 
 \end{document}
