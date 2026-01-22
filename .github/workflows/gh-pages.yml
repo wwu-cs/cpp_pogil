@@ -33,7 +33,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Build PDFs
         run: |
-          ./renderAllPogils.sh
+          tlmgr install soul currfile fpl mathpazo && texhash && updmap-sys && ./renderAllPogils.sh
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
