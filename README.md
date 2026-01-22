@@ -64,7 +64,7 @@ For more information, see [POGIL](http://pogil.org), [CS POGIL](http://cspogil.o
 * [Binary Search Trees](https://wwu-cs.github.io/cpp_pogil/CS2/08_binary_search_trees.pdf)
 
 ## Architecture and Organization
-* To be added 
+* To be added
 
 ## Sources
 
