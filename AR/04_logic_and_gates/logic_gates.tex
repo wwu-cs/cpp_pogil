@@ -1,0 +1,172 @@
+\model{Logic Gates}
+
+  Figure 1 shows an electric circuit with a battery on the left, a light bulb on the right, two switches on the top, and a wire along the bottom (to complete the circuit). When a switch is open (as shown) we assign it a value of zero. When a switch is closed (and electricity can flow) we assign it a value of one. The light is on when electricity flows through it. When the light is off, we treat it as zero; when it is on it is one.
+
+  \vspace{10pt}
+  \begin{center}
+    \includegraphics[width=0.35\textwidth]{figures/switches_in_series.png}
+    \par\vspace{5pt}
+    {\small Figure 1: Switches in Series}
+  \end{center}
+
+  {\it\large Refer to Model 2 above as your team develops consensus answers
+  to the questions below.}
+
+  \quest{25 min}
+
+  \Q Considering Figure 1:
+    \begin{enumerate}
+      \item What are the values of the two switches?
+        \hfill\ans{0}
+
+      \item What is the value of the light?
+        \hfill\ans{0}
+
+      \item If we treat the switches as inputs and the light bulb as an output, which truth table matches Figure 1?
+        \begin{answer}[0.5in]
+          AND
+        \end{answer}
+    \end{enumerate}
+
+  Figure 2 shows an electric circuit with a voltage source on the left, a light bulb and ground on the right, and two switches in the center. (The voltage source and ground replace the battery and connecting wire.) When either switch is closed, electricity flows through the switch and the light bulb from the voltage source to ground.
+
+  \vspace{10pt}
+  \begin{center}
+    \includegraphics[width=0.3\textwidth]{figures/switches_in_parallel.png}
+    \par\vspace{5pt}
+    {\small Figure 2: Switches in Parallel}
+  \end{center}
+
+  \Q Which truth table matches Figure 2?
+    \hfill\ans{OR}
+
+  \vspace{10pt}
+  As shown above, we can create circuits with manual switches that mimic truth tables.
+  To create an automated computer, we need a way to automate these switches.\\
+
+  Figure 3 shows a circuit with two voltage sources, two switches (one black and one grey---more on this difference shortly), two grounds, a light,
+  and connecting wires, all of which were introduced above. In addition, in the center below the second (grey) switch and above the first ground,
+  we have an inductor (the diagram is supposed to look like a coil of wires). While a traditional switch is manually operated (you press it on or off with your finger),
+  you can also control a switch by a magnet, or inductor, which pulls the switch down when electricity runs through it. An inductor plus a switch is called a relay and forms one component
+  (the switch part of a relay can be operated only by the inductor, so is not considered a separate input to the circuit).
+
+  \vspace{10pt}
+  \begin{center}
+    \includegraphics[width=0.35\textwidth]{figures/switch_relay_light.png}
+    \par\vspace{5pt}
+    {\small Figure 3: Switch, Relay, and Light}
+  \end{center}
+
+  \Q Considering Figure 3 and the definition of inputs and outputs in question 8(c):
+    \begin{enumerate}
+      \item What external input(s) does this circuit have?
+        \hfill\ans{Just one, the first switch}
+
+      \item What external output(s) does this circuit have?
+        \hfill\ans{Just one, the light}
+    \end{enumerate}
+
+  Figure 4 shows a relay made up of a (grey) switch on the top and an inductor (connected to ground) on the bottom. Note that this is similar to the one in Figure 3,
+  but with input and output labels next to the four black dots. Note also that, unlike a manual switch that is either open (in which case electricity cannot pass) or closed
+  (so electricity can pass), the switch part of a relay has two outputs, and will send electricity on one path if the switch is up and on another path if the switch is down.
+  (Of course, if nothing is connected to the output then electricity will not flow.)
+
+  \vspace{10pt}
+  \begin{center}
+    \includegraphics[width=0.25\textwidth]{figures/generic_relay.png}
+    \par\vspace{5pt}
+    {\small Figure 4: Generic Relay}
+  \end{center}
+
+  \Q Consider the relay in Figure 3 and the labels in Figure 4. What is connected to the\key\\[-2.5mm] following labeled endpoints (more than just a wire!):
+    \begin{multicols}{2}
+      \begin{enumerate}
+        \item input 0?
+          \hfill\ans{A power source}
+
+        \item input 1?
+          \hfill\ans{One side of the manual switch}
+
+        \item output 0?
+          \hfill\ans{Nothing}
+
+        \item output 1?
+          \hfill\ans{One side of the light}
+      \end{enumerate}
+    \end{multicols}
+
+  \Q Complete Figure 5 to create an inverter (a NOT circuit; see question 4).
+    That is, when the input (left, black) switch is open (with a value of 0), the light is on (with a value of 1),
+    and when the switch is closed (1), the light is off (0). Hint: What would change from Figure 3 to have the light on instead of off when the switch is open (as shown)?
+    \vspace{10pt}
+    \begin{center}
+      \ifdefined\Teacher
+        \includegraphics[width=0.4\textwidth]{figures/inverter_solution.png}
+      \else
+        \includegraphics[width=0.4\textwidth]{figures/inverter_template.png}
+      \fi
+      \par\vspace{5pt}
+      {\small Figure 5: Inverter}
+    \end{center}
+
+  \Q A gate is a combination of two or more relays (so technically the inverter is not a gate since it has only one relay,
+    but it tends to be included in lists of digital logic gates).\\
+    Add wires to Figure 6 to create an AND gate (see question 3). (Hint: for the light to be on both switches need to be closed; think about what path would bring electricity to the light.)
+    \vspace{10pt}
+    \begin{center}
+      \ifdefined\Teacher
+        \includegraphics[width=0.5\textwidth]{figures/and_gate_solution.png}
+      \else
+        \includegraphics[width=0.5\textwidth]{figures/and_gate_template.png}
+      \fi
+      \par\vspace{5pt}
+      {\small Figure 6: AND Gate}
+    \end{center}
+
+  \Q Add voltage sources and wires to Figure 7 to create an OR gate (see question 2).
+    \vspace{10pt}
+    \begin{center}
+      \ifdefined\Teacher
+        \includegraphics[width=0.5\textwidth]{figures/or_gate_solution.png}
+      \else
+        \includegraphics[width=0.5\textwidth]{figures/or_gate_template.png}
+      \fi
+      \par\vspace{5pt}
+      {\small Figure 7: OR Gate}
+    \end{center}
+
+  Circuit designers use special symbols to represent the gates we discuss in this lesson. As you complete the exercises, consider how much easier it is to use a simple symbol. Learn them!
+
+  \vspace{10pt}
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{figures/logic_gate_symbols.png}
+    \par\vspace{5pt}
+    {\small Figure 8: Logic Gate Symbols}
+  \end{center}
+
+  \Q Add components (voltage sources, wires, and logic gates from Figure 8 as needed) to Figure 9 to create a NAND gate (see question 6).
+    \vspace{10pt}
+    \begin{center}
+      \ifdefined\Teacher
+        \includegraphics[width=0.5\textwidth]{figures/nand_gate_solution.png}
+      \else
+        \includegraphics[width=0.5\textwidth]{figures/nand_gate_template.png}
+      \fi
+      \par\vspace{5pt}
+      {\small Figure 9: NAND Gate}
+    \end{center}
+
+  \newpage
+
+  \Q Add components to Figure 10 to create an NOR gate (see question 5).
+
+  \vspace{10pt}
+  \begin{center}
+    \ifdefined\Teacher
+      \includegraphics[width=0.5\textwidth]{figures/nor_gate_solution.png}
+    \else
+      \includegraphics[width=0.5\textwidth]{figures/nor_gate_template.png}
+    \fi
+    \par\vspace{5pt}
+    {\small Figure 10: NOR Gate}
+  \end{center}
