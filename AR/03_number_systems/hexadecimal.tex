@@ -1,0 +1,67 @@
+\model{Hexadecimal}
+
+  \vspace{10pt}
+  So far, we have looked at number systems with bases of ten or less. But if we had six fingers per hand, then we would likely grow up using base twelve
+  (which is evenly divisible by 2, 3, 4, and 6, so has advantages!).
+
+  As it happens, while octal was popular in the early days of computers, it is more common today to use hexadecimal (base 16) to represent internal values.
+  By convention, we use A-F to represent ten through fifteen.\\
+
+  {\it\large Refer to Model 4 above as your team develops consensus answers
+  to the questions below.}
+
+  \quest{15 min}
+
+  \Q Complete the following table to convert the hexadecimal number 7E3$_{\text{sixteen}}$ to base ten.
+    \vspace{10pt}
+    \begin{center}
+      \begin{tabular}{|l|c|c|c|c|}
+        \hline
+        \textbf{Hexadecimal Numbers} & two hundred fifty-sixes & sixteens & ones & \textbf{Total} \\
+        \hline
+        Digit & 7 & E & 3 & \\
+        \hline
+        Place (full) & 256 & 16 & 1 & \\
+        \hline
+        Place (exponent notation) & $16^2$ & $16^1$ & $16^0$ & \\
+        \hline
+        Digit * Place & \ans[0.5in]{1792} & \ans[0.5in]{224} & \ans[0.5in]{3} & \ans[0.5in]{2025} \\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \Q Complete the following table to convert 99,324$_{\text{ten}}$ to hexadecimal.
+    \vspace{10pt}
+    \begin{center}
+      \begin{tabular}{|l|c|c|c|c|c|}
+        \hline
+        Start and Quotient & \ans[0.5in]{1} & \ans[0.5in]{24} & \ans[0.5in]{387} & \ans[0.5in]{6207} & \ans[0.5in]{99,324} \\
+        \hline
+        Divide by Base & $\div$ 16 & $\div$ 16 & $\div$ 16 & $\div$ 16 & $\div$ 16 \\
+        \hline
+        Remainder & \ans[0.5in]{1} & \ans[0.5in]{8} & \ans[0.5in]{3} & \ans[0.5in]{F} & \ans[0.5in]{C} \\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \Q As an extension to question 21, complete the following hexadecimal to binary table:
+    \vspace{10pt}
+    \begin{center}
+      \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+        \hline
+        \textbf{Hexadecimal} & F & E & D & C & B & A & 9 & 8 \\
+        \hline
+        \textbf{Binary} & \ans[0.4in]{1111} & \ans[0.4in]{1110} & \ans[0.4in]{1101} & \ans[0.4in]{1100} & \ans[0.4in]{1011} & \ans[0.4in]{1010} & \ans[0.4in]{1001} & \ans[0.4in]{1000} \\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \Q What is 1101'0101$_{\text{binary}}$ in hexadecimal (the apostrophe character is used to group four binary digits, much like commas are used to group three decimal digits)?
+    \begin{answer}[0.3in]
+      D5
+    \end{answer}
+
+  \Q Instead of using a subscript with the base spelled out as a word, many languages use a prefix of ``0x'' to designate a hexadecimal number. What is 0x7C1 in binary?
+    \begin{answer}[0.2in]
+      0111'1100'0001
+    \end{answer}

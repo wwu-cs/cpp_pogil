@@ -1,0 +1,59 @@
+% Source: CPTR 280 Computer Organization and Assembly Language Fall 2020
+% File: "03 Number Systems (key).pdf"
+% Author: James Foster, pogil@jgfoster.net
+
+% comment out for student version
+% \ifdefined\Student\relax\else\def\Teacher{}\fi
+
+\documentclass[12pt]{article}
+
+\title{Activity 3: Number Systems}
+
+\author{James Foster}
+\newcommand{\activityeditor}{James Foster}
+\newcommand{\activitysource}{\url{pogil@jgfoster.net}}
+\date{Fall 2020}
+
+\input{../../cspogil.sty}
+\usepackage{graphicx}
+\usepackage{tabularx}
+
+\begin{document}
+
+  \begin{center}
+    \maketitle
+    \rolenames
+  \end{center}
+
+  \keyquestions{
+  \item Model 1, Question \#6
+  \item Model 2, Question \#14
+  \item Model 3, Question \#23
+  }
+
+  \newpage
+  \maketitle
+
+  At the fundamental level digital computers work with high and low voltage, interpreted as ones and zeros and represented as binary numbers. Understanding how data is represented as binary numbers is important to understanding how computers work and how to writing programs.
+  
+  \guides{
+    \item explain the role of exponents in positional notation; and,
+    \item encode data in binary.
+   }{
+    \item convert between numbers in different bases.
+   }{
+    No additional notes
+   }{
+    \item Based in part on \href{https://drive.google.com/file/d/1twyZLJo5WvwJUgLYUG2FI21QRNWLwURL/view}{This activity}
+    \item Based in part on \href{https://drive.google.com/file/d/1FR4omsdMQIDgPbypDl73fpQ4MzMTu9nn/view}{This activity}
+   }
+
+   \input{representing_numbers.tex}
+   \newpage
+   \input{positional_notation.tex}
+   \newpage
+   \input{convert_between_bases.tex}
+   \newpage
+   \input{hexadecimal.tex}
+
+\end{document}
