@@ -1,0 +1,153 @@
+\model{Convert Between Bases}
+
+  There are (at least) two approaches to converting a decimal number to another base. Each approach involves divisions
+  (by powers of the base) and special treatment of the (integer) quotient and remainder.
+
+  \vspace{10pt}
+  One approach to converting a decimal number to another base is to start building the number from the left (with the most significant digit) and working to the right (with the least significant digit).
+  Observe how we use the following table to convert 1000$_{\text{ten}}$ to 1750$_{\text{eight}}$.
+
+  \vspace{10pt}
+  \begin{center}
+    \begin{tabular}{|l|c|c|c|c|}
+      \hline
+      \textbf{Step} & 1 & 2 & 3 & 4 \\
+      \hline
+      Start and Remainder & 1,000 & 488 & 40 & 0 \\
+      \hline
+      Place & $8^3$ & $8^2$ & $8^1$ & $8^0$ \\
+      \hline
+      Divide by Place & $\div$ 512 & $\div$ 64 & $\div$ 8 & $\div$ 1 \\
+      \hline
+      Quotient & 1 & 7 & 5 & 0 \\
+      \hline
+    \end{tabular}
+  \end{center}
+
+  {\it\large Refer to Model 3 above as your team develops consensus answers
+  to the questions below.}
+
+  \quest{15 min}
+
+  \Q Complete the following table to convert 10,000$_{\text{ten}}$ to octal.
+    \vspace{10pt}
+    \begin{center}
+      \begin{tabular}{|l|c|c|c|c|c|}
+        \hline
+        Start and Remainder & \ans[0.5in]{10,000} & \ans[0.5in]{1808} & \ans[0.5in]{272} & \ans[0.5in]{16} & \ans[0.5in]{0} \\
+        \hline
+        Place & $8^4$ & $8^3$ & $8^2$ & $8^1$ & $8^0$ \\
+        \hline
+        Divide by Place & $\div$ 4096 & $\div$ 512 & $\div$ 64 & $\div$ 8 & $\div$ 1 \\
+        \hline
+        Quotient & \ans[0.5in]{2} & \ans[0.5in]{3} & \ans[0.5in]{4} & \ans[0.5in]{2} & \ans[0.5in]{0} \\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \Q Complete the following table to convert 100$_{\text{ten}}$ to binary.
+    \vspace{10pt}
+    \begin{center}
+      \begin{tabular}{|l|c|c|c|c|c|c|c|}
+        \hline
+        Start and Remainder & \ans[0.4in]{100} & \ans[0.4in]{36} & \ans[0.4in]{4} & \ans[0.4in]{4} & \ans[0.4in]{4} & \ans[0.4in]{0} & \ans[0.4in]{0} \\
+        \hline
+        Place & $2^6$ & $2^5$ & $2^4$ & $2^3$ & $2^2$ & $2^1$ & $2^0$ \\
+        \hline
+        Divide by Place & $\div$ 64 & $\div$ 32 & $\div$ 16 & $\div$ 8 & $\div$ 4 & $\div$ 2 & $\div$ 1 \\
+        \hline
+        Quotient & \ans[0.4in]{1} & \ans[0.4in]{1} & \ans[0.4in]{0} & \ans[0.4in]{0} & \ans[0.4in]{1} & \ans[0.4in]{0} & \ans[0.4in]{0} \\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \newpage
+
+  \Q Recall that one bit can have two values (0 and 1), and that two bits can have four values (00, 01, 10, and 11).
+    \begin{enumerate}
+      \item How many values can 3 bits represent? (hint: not 6!)
+        \hfill\ans{8}
+
+      \item How many values can 4 bits represent?
+        \hfill\ans{16}
+
+      \item How many values can 8 bits represent?
+        \hfill\ans{256}
+
+      \item How many values can 10 bits represent?
+        \hfill\ans{1024}
+
+      \item What is the formula for how many values N bits can represent?
+        \hfill\ans[0.6in]{$2^N$}
+    \end{enumerate}
+
+  \vspace{5pt}
+  \textit{These values are very useful; remember them!}\\
+
+  Another approach to converting from decimal to a base is to start building the number from the right and work left. In this case we always divide by the base. Observe how we use the following table to convert 1000$_{\text{ten}}$ to 1750$_{\text{eight}}$.
+
+  \vspace{10pt}
+  \begin{center}
+    \begin{tabular}{|l|c|c|c|c|}
+      \hline
+      \textbf{Step} & 4 & 3 & 2 & 1 \\
+      \hline
+      Start and Quotient & 1 & 15 & 125 & 1000 \\
+      \hline
+      Divide by Base & $\div$ 8 & $\div$ 8 & $\div$ 8 & $\div$ 8 \\
+      \hline
+      Remainder & 1 & 7 & 5 & 0 \\
+      \hline
+    \end{tabular}
+  \end{center}
+
+  \Q Complete the following table to convert 10,000$_{\text{ten}}$ to octal.
+    \vspace{10pt}
+    \begin{center}
+      \begin{tabular}{|l|c|c|c|c|c|}
+        \hline
+        Start and Quotient & \ans[0.5in]{2} & \ans[0.5in]{19} & \ans[0.5in]{156} & \ans[0.5in]{1250} & \ans[0.5in]{10,000} \\
+        \hline
+        Divide by Base & $\div$ 8 & $\div$ 8 & $\div$ 8 & $\div$ 8 & $\div$ 8 \\
+        \hline
+        Remainder & \ans[0.5in]{2} & \ans[0.5in]{3} & \ans[0.5in]{4} & \ans[0.5in]{2} & \ans[0.5in]{0} \\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \Q Complete the following table to convert 100$_{\text{ten}}$ to binary.
+    \vspace{10pt}
+    \begin{center}
+      \begin{tabular}{|l|c|c|c|c|c|c|c|}
+        \hline
+        Start and Quotient & \ans[0.4in]{1} & \ans[0.4in]{3} & \ans[0.4in]{6} & \ans[0.4in]{12} & \ans[0.4in]{25} & \ans[0.4in]{50} & \ans[0.4in]{100} \\
+        \hline
+        Divide by Base & $\div$ 2 & $\div$ 2 & $\div$ 2 & $\div$ 2 & $\div$ 2 & $\div$ 2 & $\div$ 2 \\
+        \hline
+        Remainder & \ans[0.4in]{1} & \ans[0.4in]{1} & \ans[0.4in]{0} & \ans[0.4in]{0} & \ans[0.4in]{1} & \ans[0.4in]{0} & \ans[0.4in]{0} \\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \newpage
+  As a general rule, converting between non-decimal bases is done by converting to decimal and then the target base (unless you want to learn multiplication and division in other bases!). But shortcuts are possible when converting between bases where one is a power of the other. Specifically, converting between binary and octal (and later hexadecimal) is trivial. Note that each single octal digit (0-7) is always represented by exactly three binary digits, so you can build (or memorize) a simple conversion table.
+
+  \Q Complete the following octal to binary conversion table:
+    \vspace{10pt}
+    \begin{center}
+      \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+        \hline
+        \textbf{Octal} & 7 & 6 & 5 & 4 & 3 & 2 & 1 & 0 \\
+        \hline
+        \textbf{Binary} & \ans[0.4in]{111} & \ans[0.4in]{110} & \ans[0.4in]{101} & \ans[0.4in]{100} & \ans[0.4in]{011} & \ans[0.4in]{010} & \ans[0.4in]{001} & \ans[0.4in]{000} \\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \Q What is 4321$_{\text{eight}}$ in binary?
+    \hfill\ans{100 011 010 001}
+
+  \Q What is 11010101$_{\text{binary}}$ in octal?\key\\[-2.5mm]
+    \begin{answer}[0.5in]
+      325
+    \end{answer}

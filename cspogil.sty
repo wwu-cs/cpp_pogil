@@ -291,7 +291,7 @@ Record your team's answers to the key questions (marked with \mbox{\key}) below.
 \end{tabular}
 }
 
-% instructor's guide template
+% instructor's guide template for CS1 and CS2 activities
 \newcommand{\guide}[3]{
 \subsection*{Content Learning Objectives}
 \textit{After completing this activity, students should be able to:}
@@ -335,6 +335,59 @@ Record your team's answers to the key questions (marked with \mbox{\key}) below.
 \end{minipage}
 \clearpage
 }
+
+% instructor's guide template for AR Architecture and Organization activities
+\newcommand{\guides}[4]{
+\subsection*{Content Learning Objectives}
+\textit{After completing this activity, students should be able to:}
+
+\begin{itemize}[itemsep=0pt,after=]
+#1
+\end{itemize}
+
+\subsection*{Process Skill Goals}
+\textit{During the activity, students should make progress toward:}
+
+\begin{itemize}[itemsep=0pt,after=]
+#2
+\end{itemize}
+
+\ifdefined\Teacher
+\vspace*{-13pt}\color{answers}
+\subsection*{Facilitation Notes}
+\vspace{-\bigskipamount}
+\setlength{\parskip}{\bigskipamount}
+#3
+\setlength{\parskip}{0pt}
+\normalcolor
+\fi
+
+%\usepackage{xstring}
+%\IfSubStr{\theauthor}{ and }
+%  {\subsection*{Activity Authors}}
+%  {\subsection*{Activity Author}}
+%\theauthor
+
+\vfill
+\hrule
+
+\subsection*{Sources}
+\begin{itemize}[itemsep=0pt,after=]
+#4
+\end{itemize}
+
+\vspace{\baselineskip}
+\begin{minipage}{0.133\linewidth}
+\includegraphics[width=\linewidth]{../../figures/by-nc-sa.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.853\linewidth}
+\small
+\textsuperscript{\textcopyright}2019 by \activityeditor{}, \activitysource{}. This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+\end{minipage}
+\clearpage
+}
+
 
 % links on GitHub
 \newcommand{\github}[2]{\href{https://github.com/cspogil/PythonCS1/blob/master/#1}{#2}}
