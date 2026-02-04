@@ -1,4 +1,4 @@
-  \model{Braille}
+\model{Braille}
 
   As already mentioned, there are ways of presenting letters that don't involve placing ink on paper. Braille uses raised dots on heavy paper (represented here as black dots since raised dots is more difficult!).
 
@@ -10,55 +10,53 @@
   {\it\large Refer to Model 4 above as your team develops consensus answers
   to the questions below.}
 
-  \quest{9 min}
+  \quest{10 min}
 
   \Q Using the information above, give the Latin letters equivalent to the following:
-  \vspace{10pt}
-  \begin{center}
-    \includegraphics[width=0.3\textwidth]{figures/braille_code.png}
-  \end{center}
-    \begin{answer}[1in]
+    \vspace{10pt}
+    \begin{center}
+      \includegraphics[width=0.3\textwidth]{figures/braille_code.png}
+    \end{center}
+    \begin{answer}[0.5in]
       C \quad O \quad L \quad L \quad E \quad G \quad E
     \end{answer}
 
   \Q Looking at the top right dot for B and C, how many possible unique values are there for one dot?
-    \begin{answer}[0.75in]
+    \begin{answer}[0.5in]
       two (2)
     \end{answer}
 
   \Q Looking at the middle row for A, E, F, and G, how many possible unique combinations can two dots take?
-    \begin{answer}[0.75in]
+    \begin{answer}[0.5in]
       four (4)
     \end{answer}
 
   \Q How many dots are possible in one Braille block (or cell)?
-    \begin{answer}[0.75in]
-      six (6)
-    \end{answer}
+    \hfill\ans{six (6)}
 
   \Q How many unique combinations of dots can exist in one Braille cell?\key\\[-2.5mm]
-    \begin{answer}[0.75in]
+    \begin{answer}[0.5in]
       $2^6 = 64$
     \end{answer}
 
   \Q How did you calculate that value?
-    \begin{answer}[0.75in]
+    \begin{answer}[0.5in]
       combinations = $2^n$
     \end{answer}
 
-  \Q Imagine an alphabet with two letters, O and X. How many words could exist in this encoding if the word size were the following values (the first two have been done for you)? What is the formula for this calculation?
+  \Q Imagine an alphabet with two letters, O and X. How many words could exist in this encoding if the word size
+    were the following values (the first two have been done for you)? What is the formula for this calculation?
+    \vspace{10pt}
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+      \hline
+      1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+      \hline
+      2 & 4 & 8 & \ans[0.2in]{16} & \ans[0.2in]{32} & \ans[0.2in]{64} & \ans[0.2in]{128} & \ans[0.2in]{256} & \ans[0.2in]{512} & \ans[0.3in]{1024} \\
+      \hline
+    \end{tabular}
+    \end{center}
 
-  \vspace{10pt}
-  \begin{center}
-  \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
-    \hline
-    1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
-    \hline
-    2 & 4 & 8 & \ans[0.2in]{16} & \ans[0.2in]{32} & \ans[0.2in]{64} & \ans[0.2in]{128} & \ans[0.2in]{256} & \ans[0.2in]{512} & \ans[0.3in]{1024} \\
-    \hline
-  \end{tabular}
-  \end{center}
-
-    \begin{answer}[1in]
+    \begin{answer}[0.5in]
       The formula is $2^n$ (as given in question 20).
     \end{answer}
