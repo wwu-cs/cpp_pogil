@@ -61,7 +61,11 @@
 
       \vspace{10pt}
       \begin{center}
-        \includegraphics[width=0.8\textwidth]{figures/relay_extend_distance.png}
+        \ifdefined\Teacher
+          \includegraphics[width=0.6\textwidth]{figures/relay_extend_distance_solution.png}
+        \else
+          \includegraphics[width=0.6\textwidth]{figures/relay_extend_distance.png}
+        \fi
         \par\vspace{5pt}
         {\small Figure 10: Use of relay to extend distance}
       \end{center}
