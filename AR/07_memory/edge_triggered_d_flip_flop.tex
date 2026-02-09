@@ -1,0 +1,24 @@
+  \model{Edge-Triggered D-Type Flip-Flop}
+
+  \quest{10 min}
+
+  \Q What simple change would be required to have the flip-flop in Model C remember\key\\[-2.5mm] the data value when the write line is 0 (instead of 1)?
+    \begin{answer}[1in]
+      Add an inverter to the input so that it is interpreted as 1 instead of 0.
+    \end{answer}
+
+  \Q The following figure shows two level-trigger D-type flip-flops, along with two inputs (write and data), and one output.
+    Connect the inputs so that the first flip-flop latches the data value when the write line is 0 (the switch is open).
+    Connect the second flip-flop so that it latches the output of the first flip-flop when the write line is 1. Connect the output of the second flip-flop to the LED on the right.
+    \vspace{10pt}
+    \begin{center}
+      \ifdefined\Teacher
+        \includegraphics[width=0.6\textwidth]{figures/edge_triggered_fig12_solution.png}
+      \else
+        \includegraphics[width=0.6\textwidth]{figures/edge_triggered_fig12.png}
+      \fi
+      \par\vspace{5pt}
+      {\small Figure 12}
+    \end{center}
+
+  This circuit is an edge-triggered D-type flip-flop that latches a value only when the write line has a positive transition from 0 to 1. Note that Figure 12 is slightly different from that shown on page 229 of the text, but the behavior is the same (which do you like better and why?).
