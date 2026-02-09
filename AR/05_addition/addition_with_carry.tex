@@ -1,0 +1,125 @@
+\model{Addition with Carry}
+
+  \quest{10 min}
+
+  \Q Complete the decimal addition problem in the table below, then answer the following questions:
+    \vspace{10pt}
+    \begin{center}
+      \begin{tabular}{|c|c|c|}
+        \hline
+        & \ans[0.3in]{1} & \\
+        \hline
+        & 2 & 6 \\
+        \hline
+        + & 4 & 5 \\
+        \hline
+        & \ans[0.3in]{7} & \ans[0.3in]{1} \\
+        \hline
+      \end{tabular}
+    \end{center}
+
+    \begin{enumerate}
+      \item What is the sum of 6 + 5 (answer after completing the table)?
+        \hfill\ans[1in]{11}
+
+      \item How many digits are in that value?
+        \hfill\ans{2}
+
+      \item Where did you put the least significant (right-most) digit?
+        \begin{answer}[0.5in]
+          {The ``ones'' go below as part of the sum.}
+        \end{answer}
+
+      \item Where did you put the most significant (left-most) digit?
+        \begin{answer}[0.5in]
+          {The ``ten'' goes above the next column of digits to be included in the next set of additions.}
+        \end{answer}
+
+      \item When you have a one that ``carries'' to the next column, how is it used?
+        \begin{answer}[0.5in]
+          It is just another number that is added to the other values in the column.
+        \end{answer}
+
+      \item For the expression (9 + 8 + 7), do you add all three numbers at once or do you first add two of them and then add the third to the intermediate sum?
+        \begin{answer}[0.5in]
+          I only add two digits at a time; the third one is added to the intermediate sum.
+        \end{answer}
+
+      \item When adding two N-digit numbers, what is the maximum number of digits for the sum?
+        \begin{answer}[0.5in]
+          N + 1
+        \end{answer}
+    \end{enumerate}
+
+  \newpage
+
+  \Q The binary addition table (with four totals) is much simpler than the decimal addition table (with 100 totals).
+    \begin{enumerate}
+      \item Complete the left table below (labeled ``total'') with a two-digit sum in each of the empty cells.
+      \item Complete the ``sum'' table with the least-significant digit (right-most) from the first table.
+      \item Complete the ``carry'' table with the most-significant digit (left-most) from the first table.
+    \end{enumerate}
+
+  \vspace{10pt}
+  \begin{center}
+  \begin{minipage}{0.3\textwidth}
+    \centering
+    \begin{tabular}{|c|c|c|}
+      \hline
+      \textbf{total} & $A = 0$ & $A = 1$ \\
+      \hline
+      $B = 0$ & \ans[0.3in]{00} & \ans[0.3in]{01} \\
+      \hline
+      $B = 1$ & \ans[0.3in]{01} & \ans[0.3in]{10} \\
+      \hline
+    \end{tabular}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.3\textwidth}
+    \centering
+    \begin{tabular}{|c|c|c|}
+      \hline
+      \textbf{sum} & $A = 0$ & $A = 1$ \\
+      \hline
+      $B = 0$ & \ans[0.3in]{0} & \ans[0.3in]{1} \\
+      \hline
+      $B = 1$ & \ans[0.3in]{1} & \ans[0.3in]{0} \\
+      \hline
+    \end{tabular}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.3\textwidth}
+    \centering
+    \begin{tabular}{|c|c|c|}
+      \hline
+      \textbf{carry} & $A = 0$ & $A = 1$ \\
+      \hline
+      $B = 0$ & \ans[0.3in]{0} & \ans[0.3in]{0} \\
+      \hline
+      $B = 1$ & \ans[0.3in]{0} & \ans[0.3in]{1} \\
+      \hline
+    \end{tabular}
+  \end{minipage}
+  \end{center}
+
+  \Q The truth tables below were developed in an earlier exercise.\key\\[-2.5mm]
+    \begin{enumerate}
+      \item Which one matches the sum table?
+        \hfill\ans{XOR}
+
+      \item Which one matches the carry table?
+        \hfill\ans{AND}
+    \end{enumerate}
+
+  \vspace{10pt}
+  \begin{center}
+    \begin{tabular}{|c|c|c||c|c|c||c|c||c|c|c||c|c|c||c|c|c|}
+      \hline
+      \textbf{AND} & 0 & 1 & \textbf{OR} & 0 & 1 & \textbf{NOT} & & \textbf{NAND} & 0 & 1 & \textbf{NOR} & 0 & 1 & \textbf{XOR} & 0 & 1 \\
+      \hline
+      $B = 0$ & 0 & 0 & $B = 0$ & 0 & 1 & $B = 0$ & 1 & $B = 0$ & 1 & 1 & $B = 0$ & 1 & 0 & $B = 0$ & 0 & 1 \\
+      \hline
+      $B = 1$ & 0 & 1 & $B = 1$ & 1 & 1 & $B = 1$ & 0 & $B = 1$ & 1 & 0 & $B = 1$ & 0 & 0 & $B = 1$ & 1 & 0 \\
+      \hline
+    \end{tabular}
+  \end{center}

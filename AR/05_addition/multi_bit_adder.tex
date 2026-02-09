@@ -1,0 +1,47 @@
+\model{Multi-Bit Adder}
+
+  A circuit like the one built in question 8, that has three inputs and two outputs, a sum and carry, is called a Full Adder.
+  It can be represented with either of the images in Figure 6. The difference between them is whether then inputs and outputs are
+  on the left or right. While we have had inputs on the left so far, we will soon see how it may be convenient to have the inputs on the right.
+
+  \vspace{10pt}
+  \begin{center}
+    \includegraphics[width=0.4\textwidth]{figures/full_adders.png}
+    \par\vspace{5pt}
+    {\small Figure 6: Full Adders}
+  \end{center}
+
+  {\it\large Refer to Model 4 above as your team develops consensus answers
+  to the questions below.}
+
+  \quest{15 min}
+
+  \Q To add a pair of N-digit binary numbers, how many Full Adders do we need? (Hint:\key\\[-2.5mm] how many columns are we adding in question 7?)
+    \begin{answer}[0.5in]
+      N Full Adders, one for each column.
+    \end{answer}
+
+  \Q Follow the instructions below to make a 3-Bit Adder in Figure 7 to add A + B.
+    \vspace{10pt}
+    \begin{center}
+      \ifdefined\Teacher
+        \includegraphics[width=0.7\textwidth]{figures/3bit_adder_solution.png}
+      \else
+        \includegraphics[width=0.7\textwidth]{figures/3bit_adder.png}
+      \fi
+      \par\vspace{5pt}
+      {\small Figure 7: 3-Bit Adder}
+    \end{center}
+
+    \begin{enumerate}
+      \item Given that A is a three-bit number with the least-significant bit on the right (a0) and the most significant bit on the left (a2),
+      draw lines connecting each digit of A to the appropriate Full Adder.
+
+      \item Draw lines connecting each digit of B to the appropriate Full Adder.
+
+      \item Draw lines connecting the S output of each Full Adder to the appropriate output (s0-s2).
+
+      \item Draw lines connecting the C output of each Full Adder to the appropriate place.
+
+      \item Draw a component for the input for Cin on the least-significant Full Adder (at the right). (Hint: what is the value needed and what circuit element provides that value?)
+    \end{enumerate}

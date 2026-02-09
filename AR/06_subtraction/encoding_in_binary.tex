@@ -1,0 +1,73 @@
+\model{Encoding in Binary}
+
+  While we said that there isn't anything special about decimal (base ten), there is something special about binary:
+  it is the simplest number system possible and forms the foundation of all digital computers. Anything that can be mapped to
+  discrete values can be encoded in binary; the only requirement is that everyone who uses the code must understand the mapping.\\
+
+  {\it\large Refer to Model 4 above as your team develops consensus answers
+  to the questions below.}
+
+  \quest{15 min}
+
+  \Q ``Hang a lantern aloft in the belfry arch / Of the North Church tower as a special light, --- / One, if by land, and two. if by sea \ldots''
+    Map Paul Revere's code to binary.
+    \vspace{10pt}
+    \begin{center}
+      \begin{tabular}{|c|l|}
+        \hline
+        \textbf{Code} & \textbf{Meaning} \\
+        \hline
+        00 & \ans[1in]{``no invasion''} \\
+        \hline
+        01 & \ans[1in]{``by land''} \\
+        \hline
+        10 & \ans[1in]{``by land''} \\
+        \hline
+        11 & ``by sea'' \\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \Q The WWU CS department has four professors, Preston Carman, James Foster, John Foster, and Natalie Smith-Gray.
+    Assign each a unique ID using just two bits.
+    \vspace{10pt}
+    \begin{center}
+      \begin{tabular}{|c|l|}
+        \hline
+        \textbf{Code} & \textbf{Professor} \\
+        \hline
+        \ans[0.4in]{00} & Preston Carman \\
+        \hline
+        \ans[0.4in]{01} & James Foster \\
+        \hline
+        \ans[0.4in]{10} & John Foster \\
+        \hline
+        \ans[0.4in]{11} & Natalie Smith-Gray \\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \Q How many bits would be required to encode the following:\key\\[-2.5mm]
+    \begin{enumerate}
+      \item The letter grades A, B, C, D, F? (Hint: not 5!)
+        \begin{answer}[0.5in]
+          3 bits are needed to encode 5 values (2 bits give only 4 values)
+        \end{answer}
+
+      \item The 30 students enrolled in CPTR 280?
+        \begin{answer}[0.5in]
+          5 bits are needed to encode 30 values (4 bits give only 16 values)
+        \end{answer}
+
+      \item All 34 students if we admitted everyone on the wait list?
+        \begin{answer}[0.5in]
+          6 bits are needed to encode 34 values (5 bits give only 32 values)
+        \end{answer}
+    \end{enumerate}
+
+  \vspace{-20pt}
+
+  \Q If you were using four bits to represent a non-negative integer (to keep things simple), what is the range of numbers you could encode (that is, what would they convert to in decimal)?
+    \begin{answer}[0.5in]
+      4 bits can represent 16 values, from 0 to 15
+    \end{answer}

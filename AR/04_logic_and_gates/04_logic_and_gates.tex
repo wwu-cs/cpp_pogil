@@ -1,0 +1,52 @@
+% Source: CPTR 280 Computer Organization and Assembly Language Fall 2020
+% File: "04 Logic and Gates (key).pdf"
+% Author: James Foster, pogil@jgfoster.net
+
+% comment out for student version
+% \ifdefined\Student\relax\else\def\Teacher{}\fi
+
+\documentclass[12pt]{article}
+
+\title{Activity 4: Logic, Switches, and Gates}
+\author{James Foster}
+\newcommand{\activityeditor}{James Foster}
+\newcommand{\activitysource}{\url{pogil@jgfoster.net}}
+\date{Fall 2020}
+
+\input{../../cspogil.sty}
+\usepackage{graphicx}
+\usepackage{tabularx}
+
+\begin{document}
+
+  \begin{center}
+    \maketitle
+    \rolenames
+  \end{center}
+
+  \keyquestions{
+  \item Model 1, Question \#1, a--f
+  \item Model 1, Question \#7, a--d
+  \item Model 2, Question \#11 a--d
+  }
+
+  \newpage
+  \maketitle
+
+  Boolean logic forms the basis for designing the digital logic circuits that make up a computer. In this lesson we will look at how to build various digital logic gates using relays.
+  
+  \guides{
+    \item Create truth tables for AND, OR, NOT, NAND, NOR, and XOR; and
+    \item Use relays to create digital logic gates.
+   }{
+    \item Draw circuit diagrams representing six logic gates.
+   }{
+    No additional notes
+   }
+
+  \input{truth_tables.tex}
+  \newpage
+  \input{logic_gates.tex}
+  \newpage
+
+\end{document}

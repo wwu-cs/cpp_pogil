@@ -1,0 +1,186 @@
+\model{Truth Tables}
+  
+  In conventional algebra (with numbers), the operands (usually letters) represent numbers and the operators
+  (symbols such as + and $\cdot$) indicate how these numbers are to be combined. By contrast, in Boolean algebra
+  (named for George Boole) an operand represent a set of things and, while the operators still specify how they are to be combined,
+  the meanings of the symbols are different. The following table shows four operators, two operands, and three samples.
+  Carefully consider the ``Meaning'' of each operator, operand, and sample to answer the questions.
+
+  \vspace{10pt}
+  \begin{center}
+    \begin{tabular}{|c|l||c|l||c|l|}
+      \hline
+      \textbf{Operator} & \textbf{Meaning} & \textbf{Operand} & \textbf{Meaning} & \textbf{Sample} & \textbf{Meaning} \\
+      \hline
+      $x + y$ & union (elements & 0 & an empty set (not & F & female \\
+              & found in either $x$ or $y$) & & the number zero) & & cats \\
+      \hline
+      $x \cdot y$ & intersection (elements & 1 & a universal set & M & male cats \\
+              & found in both $x$ and $y$) & & (not the number 1) & & \\
+      \hline
+      $x - y$ & difference (a copy of & & & 0 & there are \\
+              & $x$ after removing all & & & & no other \\
+              & elements also in $y$) & & & & cats \\
+      \hline
+      $\bar{x}$ & not (same as $1 - x$) & & & & \\
+      \hline
+    \end{tabular}
+  \end{center}
+
+  {\it\large Refer to Model 1 above as your team develops consensus answers
+  to the questions below.}
+
+  \quest{25 min}
+
+  \Q Determine the value (0, 1, M, or F):\key\\[-2.5mm]
+    \begin{multicols}{2}
+      \begin{enumerate}
+        \item $M + F = $ \hfill\ans[0.5in]{1}
+        \item $1 - M = $ \hfill\ans[0.5in]{F}
+        \item $F \cdot M = $ \hfill\ans[0.5in]{0}
+        \item $1 \cdot F = $ \hfill\ans[0.5in]{F}
+        \item $0 \cdot F = $ \hfill\ans[0.5in]{0}
+        \item $0 + F = $ \hfill\ans[0.5in]{F}
+        \item $1 + F = $ \hfill\ans[0.5in]{1}
+        \item $F + (1 - F) = $ \hfill\ans[0.5in]{1}
+        \item $F \cdot (1 - F) = $ \hfill\ans[0.5in]{0}
+        \item $F \cdot F = $ \hfill\ans[0.5in]{F}
+        \item $F + F = $ \hfill\ans[0.5in]{F}
+        \item $\bar{M} = $ \hfill\ans[0.5in]{F}
+        \item $M + \bar{M} = $ \hfill\ans[0.5in]{1}
+      \end{enumerate}
+    \end{multicols}
+
+  \newpage
+
+  \Q Determine the value (0 or 1), then fill in the OR truth table.
+    \begin{multicols}{2}
+      \begin{enumerate}
+        \item $0 + 0 = $ \hfill\ans[0.5in]{0}
+        \item $0 + 1 = $ \hfill\ans[0.5in]{1}
+        \item $1 + 0 = $ \hfill\ans[0.5in]{1}
+        \item $1 + 1 = $ \hfill\ans[0.5in]{1}
+      \end{enumerate}
+    \end{multicols}
+    \vspace{10pt}
+    \begin{center}
+      \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{OR} & 0 & 1 \\
+        \hline
+        0 & \ans[0.3in]{0} & \ans[0.3in]{1} \\
+        \hline
+        1 & \ans[0.3in]{1} & \ans[0.3in]{1} \\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \Q Determine the value (0 or 1), then fill in the AND truth table.
+    \begin{multicols}{2}
+      \begin{enumerate}
+        \item $0 \cdot 0 = $ \hfill\ans[0.5in]{0}
+        \item $0 \cdot 1 = $ \hfill\ans[0.5in]{0}
+        \item $1 \cdot 0 = $ \hfill\ans[0.5in]{0}
+        \item $1 \cdot 1 = $ \hfill\ans[0.5in]{1}
+      \end{enumerate}
+    \end{multicols}
+    \vspace{10pt}
+    \begin{center}
+      \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{AND} & 0 & 1 \\
+        \hline
+        0 & \ans[0.3in]{0} & \ans[0.3in]{0} \\
+        \hline
+        1 & \ans[0.3in]{0} & \ans[0.3in]{1} \\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \Q Determine the value (0 or 1), then fill in the NOT Truth Table.
+    \begin{multicols}{2}
+      \begin{enumerate}
+        \item $\bar{0} = $ \hfill\ans[0.5in]{1}
+        \item $\bar{1} = $ \hfill\ans[0.5in]{0}
+      \end{enumerate}
+    \end{multicols}
+    \vspace{10pt}
+    \begin{center}
+      \begin{tabular}{|c|c|}
+        \hline
+        \textbf{NOT} & \\
+        \hline
+        0 & \ans[0.3in]{1} \\
+        \hline
+        1 & \ans[0.3in]{0} \\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \Q Determine the value (0 or 1), then fill in the NOR truth table.
+    \begin{multicols}{2}
+      \begin{enumerate}
+        \item $\overline{0 + 0} = $ \hfill\ans[0.5in]{1}
+        \item $\overline{0 + 1} = $ \hfill\ans[0.5in]{0}
+        \item $\overline{1 + 0} = $ \hfill\ans[0.5in]{0}
+        \item $\overline{1 + 1} = $ \hfill\ans[0.5in]{0}
+      \end{enumerate}
+    \end{multicols}
+    \vspace{10pt}
+    \begin{center}
+      \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{NOR} & 0 & 1 \\
+        \hline
+        0 & \ans[0.3in]{1} & \ans[0.3in]{0} \\
+        \hline
+        1 & \ans[0.3in]{0} & \ans[0.3in]{0} \\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \newpage
+
+  \Q Determine the value (0 or 1), then fill in the NAND truth table.
+    \begin{multicols}{2}
+      \begin{enumerate}
+        \item $\overline{0 \cdot 0} = $ \hfill\ans[0.5in]{1}
+        \item $\overline{0 \cdot 1} = $ \hfill\ans[0.5in]{1}
+        \item $\overline{1 \cdot 0} = $ \hfill\ans[0.5in]{1}
+        \item $\overline{1 \cdot 1} = $ \hfill\ans[0.5in]{0}
+      \end{enumerate}
+    \end{multicols}
+    \vspace{10pt}
+    \begin{center}
+      \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{NAND} & 0 & 1 \\
+        \hline
+        0 & \ans[0.3in]{1} & \ans[0.3in]{1} \\
+        \hline
+        1 & \ans[0.3in]{1} & \ans[0.3in]{0} \\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \Q Calculate $(x + y) \cdot (\overline{x \cdot y})$ for each of the following, then fill in the XOR truth table.\key\\[-2.5mm]
+    \begin{multicols}{2}
+      \begin{enumerate}
+        \item $x=0, y=0 \rightarrow $ \hfill\ans[0.5in]{0}
+        \item $x=0, y=1 \rightarrow $ \hfill\ans[0.5in]{1}
+        \item $x=1, y=0 \rightarrow $ \hfill\ans[0.5in]{1}
+        \item $x=1, y=1 \rightarrow $ \hfill\ans[0.5in]{0}
+      \end{enumerate}
+    \end{multicols}
+    \vspace{10pt}
+    \begin{center}
+      \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{XOR} & $y = 0$ & $y = 1$ \\
+        \hline
+        $x = 0$ & \ans[0.3in]{0} & \ans[0.3in]{1} \\
+        \hline
+        $x = 1$ & \ans[0.3in]{1} & \ans[0.3in]{0} \\
+        \hline
+      \end{tabular}
+    \end{center}

@@ -1,0 +1,79 @@
+\model{Wrap-Around}
+
+  \quest{10 min}
+
+  \Q Consider an odometer with only five digits (left of the decimal).
+    \vspace{10pt}
+    \begin{center}
+      \includegraphics[width=0.35\textwidth]{figures/odometer.png}
+    \end{center}
+
+    \begin{enumerate}
+      \item If it reads 99999 and you add one mile, what will it show?
+        \begin{answer}[0.5in]
+          00000
+        \end{answer}
+
+      \item If you have a limited number of digits, is there a way to avoid this wrap-around?
+        \begin{answer}[0.5in]
+          No, it will always happen eventually.
+        \end{answer}
+    \end{enumerate}
+
+  \vspace{-20pt}
+
+  \Q Consider a binary value with eight bits.\key\\[-2.5mm]
+    \begin{enumerate}
+      \item How many unique values could you represent (the count, not a formula)?
+        \begin{answer}[0.3in]
+          256
+        \end{answer}
+
+      \item If you chose to represent only non-negative integers, what would be the range of unsigned integers (converted to decimal)?
+        \begin{answer}[0.3in]
+          0 to 255
+        \end{answer}
+
+      \item If you added one to the maximum value, what would you get?
+        \begin{answer}[0.3in]
+          0
+        \end{answer}
+
+      \item If you subtracted one from the minimum value, what would you get?
+        \begin{answer}[0.3in]
+          255
+        \end{answer}
+
+      \item If you used one bit for a sign (indicating positive or negative), how many bits would be left for the number?
+        \begin{answer}[0.3in]
+          Seven (7)
+        \end{answer}
+
+      \item How many values could be represented using the remaining bits?
+        \begin{answer}[0.3in]
+          128 values
+        \end{answer}
+
+      \item What is the range of unsigned integers you could represent in the remaining bits?
+        \begin{answer}[0.3in]
+          0 to 127
+        \end{answer}
+
+      \item What would be the range of signed integers you could represent with a single sign bit and seven value bits?
+        \begin{answer}[0.3in]
+          -127 to +127
+        \end{answer}
+
+      \item How many unique values does that represent?
+        \begin{answer}[0.3in]
+          255 values
+        \end{answer}
+
+      \item Are there any missing values? If so, where did they go?
+        \begin{answer}[0.3in]
+          We have a representation for both +0 and -0, and we should not need both.
+        \end{answer}
+    \end{enumerate}
+
+  Next, we will consider another approach to representing negative numbers that allows us to store the maximum number of values and allows
+  adding negative numbers without any special work.

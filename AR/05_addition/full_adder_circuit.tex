@@ -1,0 +1,93 @@
+\model{Digital Circuit for a Full Adder}
+
+  \quest{15 min}
+
+  \Q Add the binary numbers 110 + 011 in the table to the right (fill each of the non-shaded cells). (Hint: see question 2.)
+    \vspace{10pt}
+    \begin{center}
+      \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \rowcolor{gray!25}
+        \cellcolor{gray!25} & digit & 3 & 2 & 1 & 0 \\
+        \hline
+        \cellcolor{gray!25} & \cellcolor{gray!25}carry & \ans[0.3in]{1} & \ans[0.3in]{1} & \ans[0.3in]{0} & \ans[0.3in]{0} \\
+        \hline
+        \cellcolor{gray!25} & \cellcolor{gray!25}A & \cellcolor{gray!25}& 1 & 1 & 0 \\
+        \hline
+        \cellcolor{gray!25}+ & \cellcolor{gray!25}B & \cellcolor{gray!25} & 0 & 1 & 1 \\
+        \hline
+        \cellcolor{gray!25} & \cellcolor{gray!25}sum & \ans[0.3in]{1} & \ans[0.3in]{0} & \ans[0.3in]{0} & \ans[0.3in]{1} \\
+        \hline
+      \end{tabular}
+    \end{center}
+
+    \begin{enumerate}
+      \item What is the value for carry for digit 2 in this problem (the third column from the right)? Will it always be that even for other values of A \& B?
+        \begin{answer}[0.5in]
+          1, no
+        \end{answer}
+
+      \item What is the value for carry for digit 1 in this problem? Will it always be that even for other values of A \& B?
+        \begin{answer}[0.5in]
+          0, no
+        \end{answer}
+
+      \item What is the value for carry for digit 0 in this problem? Will it always be that even for other values of A \& B?
+        \begin{answer}[0.5in]
+          0, yes
+        \end{answer}
+
+      \item If we wanted the circuit for each column to be the same (simplicity/consistency), how many inputs (digits or bits) should we allow for each column?
+        \begin{answer}[0.5in]
+          three
+        \end{answer}
+
+      \item How many outputs (digits or bits) should we allow for each column?
+        \hfill\ans[0.6in]{two}
+
+      \item When adding digits, does the order matter?
+        \begin{answer}[0.75in]
+          Overall, we need to go right to left, but within a column order doesn't matter.
+        \end{answer}
+    \end{enumerate}
+
+  \Q Follow the instructions below to create a Full Adder in Figure 5.
+    \vspace{10pt}
+    \begin{center}
+      \ifdefined\Teacher
+        \includegraphics[width=0.3\textwidth]{figures/adding_three_binary_digits_solution.png}
+      \else
+        \includegraphics[width=0.3\textwidth]{figures/adding_three_binary_digits.png}
+      \fi
+      \par\vspace{5pt}
+      {\small Figure 5: Adding Three Binary Digits}
+    \end{center}
+
+    \begin{enumerate}
+      \item Label the three inputs (on the left of the figure) for carry, A, and B. (Hint: see question 7f.)
+
+      \item How many outputs should we have? (Hint: see question 7e.)
+        \hfill\ans[1in]{two}
+
+      \item What should the outputs be named?
+        \hfill\ans{sum \& carry}
+
+      \item When adding two, one-bit values, will sum and carry ever both be one? (Hint: see question 2.)
+        \begin{answer}[0.5in]
+          no
+        \end{answer}
+
+      \item If C = 1 on the left Half Adder, what is the value of S on the left one?
+        \hfill\ans[1in]{always 0}
+
+      \item If S = 0 on the left Half Adder, what is the value of C on the right one?
+        \hfill\ans[1in]{always 0}
+
+      \item Will both C values from the Half Adders in Figure 5 ever both be one?\key\\[-2.5mm]
+        \hfill\ans[1in]{no}
+
+      \item Add the appropriate gate from Figure 1 on the right of Figure 5 to complete the circuit.
+
+      \item Label the outputs. (Hint: try various inputs and see what outputs you get.)
+
+    \end{enumerate}

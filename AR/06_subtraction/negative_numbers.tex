@@ -1,0 +1,160 @@
+\model{Negative Numbers}
+
+  \quest{15 min}
+
+  \Q Consider a traditional analog clock face.
+    \vspace{10pt}
+    \begin{center}
+      \includegraphics[width=0.25\textwidth]{figures/clock.png}
+    \end{center}
+
+    \begin{enumerate}
+      \item How many unique hours can it represent?
+        \hfill\ans{12}
+
+      \item What is the range of hours it represents?
+        \hfill\ans{1 to 12}
+
+      \item If we think of 3:00 as ``three hours after noon'' (or ``+3''), what hour position on the clock is represented by ``three hours before noon'' (``-3'')?
+        \begin{answer}[0.5in]
+          9
+        \end{answer}
+
+      \item What range of integers would support the same number of negative clock-face ``hours'' as nonnegative clock-face ``hours''?
+        \begin{answer}[0.5in]
+          -6 to +5
+        \end{answer}
+    \end{enumerate}
+
+  \vspace{-20pt}
+
+  \Q Complete the following table to map the typical clock face hours (line 1) to the hours before and after noon (line 2).
+    (Hint: start at each end and work to the middle.)
+    \vspace{10pt}
+    \begin{center}
+      \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        12 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\
+        \hline
+        \ans[0.3in]{0} & \ans[0.3in]{1} & \ans[0.3in]{2} & \ans[0.3in]{3} & \ans[0.3in]{4} & \ans[0.3in]{5} & \ans[0.3in]{-6} & \ans[0.3in]{-5} & \ans[0.3in]{-4} & \ans[0.3in]{-3} & \ans[0.3in]{-2} & \ans[0.3in]{-1} \\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \Q With this relabeled clock, answer the following questions:
+    \begin{enumerate}
+      \item If we start at 2 and add 2, what do we get?
+        \hfill\ans{+4}
+
+      \item If we start at 2 and subtract 1, what do we get?
+        \hfill\ans{+1}
+
+      \item If we start at 2 and subtract 2, what do we get? (Hint: not 12)
+        \hfill\ans[1.5in]{0}
+
+      \item If we start at 2 and subtract 5, what do we get?
+        \hfill\ans{-3}
+
+      \item If we start at -2 and subtract 2, what do we get?
+        \hfill\ans{-4}
+
+      \item If we start at -2 and add 6, what do we get?
+        \hfill\ans{+4}
+
+      \item So far this maps very nicely to ``normal'' arithmetic. But if we start at 5 and add 3, what do we get? (Hint: not 8!)
+        \begin{answer}[0.5in]
+          -4
+        \end{answer}
+
+      \item If we start at -5 and subtract 4, what do we get? (Hint: not -9!)
+        \hfill\ans[1.5in]{+3}
+    \end{enumerate}
+
+  \Q Using a similar approach, fill in the following table to map selected unsigned values [0, 255] to signed values [-128, 127]. This is called a two's complement.
+    \vspace{10pt}
+    \begin{center}
+      \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        0 & 1 & 2 & \ldots & 126 & 127 & 128 & 129 & 130 & \ldots & 254 & 255 \\
+        \hline
+        \ans[0.2in]{0} & \ans[0.2in]{1} & \ans[0.2in]{2} & \ldots & \ans[0.25in]{126} & \ans[0.25in]{127} & \ans[0.3in]{-128} & \ans[0.3in]{-127} & \ans[0.3in]{-126} & \ldots & \ans[0.2in]{-2} & \ans[0.2in]{-1} \\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \Q Convert some of these binary values to unsigned and signed decimal:\key\\[-2.5mm]
+    \vspace{10pt}
+    \begin{center}
+      \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Binary} & \textbf{Unsigned Decimal} & \textbf{Signed Decimal} \\
+        \hline
+        0000 0000 & \ans[0.4in]{0} & \ans[0.4in]{0} \\
+        \hline
+        0000 0001 & \ans[0.4in]{1} & \ans[0.4in]{1} \\
+        \hline
+        0111 1110 & \ans[0.4in]{126} & \ans[0.4in]{126} \\
+        \hline
+        0111 1111 & \ans[0.4in]{127} & \ans[0.4in]{127} \\
+        \hline
+        1000 0000 & \ans[0.4in]{128} & \ans[0.4in]{-128} \\
+        \hline
+        1000 0001 & \ans[0.4in]{129} & \ans[0.4in]{-127} \\
+        \hline
+        1111 1110 & \ans[0.4in]{254} & \ans[0.4in]{-2} \\
+        \hline
+        1111 1111 & \ans[0.4in]{255} & \ans[0.4in]{-1} \\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \Q How does the high-order (left-most) bit correlate with the sign?
+    \hfill\ans[1.5in]{0 $\Rightarrow$ positive; 1 $\Rightarrow$ negative}
+
+  \newpage
+
+  \Q Perform some addition of signed binary numbers and note how the sign works:
+  \vspace{10pt}
+  \begin{center}
+    \begin{tabular}{|c|c|c|c|}
+      \hline
+      11 & 0000 1011 & -118 & 1000 1010 \\
+      + 5 & + 0000 0101 & + 44 & + 0010 1100 \\
+      \hline
+      \ans[1in]{16} & \ans[1in]{0001 0000} & \ans[1in]{-74} & \ans[1in]{1011 0110} \\
+      \hline
+      106 & 0110 1010 & -22 & 1110 1010 \\
+      + -63 & + 1100 0001 & + -86 & +1010 1010 \\
+      \hline
+      \ans[1in]{43} & \ans[1in]{1 0010 1011} & \ans[1in]{-204} & \ans[1in]{1 1001 0100} \\
+      \hline
+    \end{tabular}
+  \end{center}
+  
+  This suggests that another way to do subtraction is just to add the negative value. So how do we get a negative? Compare a few examples and
+  note that in each case, if you added the values you would get zeros in the right-most (low order) 8 bits (which is, of course, correct).
+
+  \vspace{10pt}
+  \begin{center}
+    \begin{tabular}{ccc}
+      1 = 0000 0001 & & -1 = 1111 1111 \\
+      2 = 0000 0010 & & -2 = 1111 1110 \\
+      126 = 0111 1110 & & -126 = 1000 0010 \\
+      127 = 0111 1111 & & -127 = 1000 0001 \\
+    \end{tabular}
+  \end{center}
+
+  \Q For each positive value above (1, 2, 126, and 127), write out its one's complement or inverse (replace 0 with 1, 1 with 0).
+    \vspace{10pt}
+    \begin{center}
+      \begin{tabular}{cccc}
+        \ans[1in]{1111 1110} & \ans[1in]{1111 1101} & \ans[1in]{1000 0001} & \ans[1in]{1000 0000} \\
+      \end{tabular}
+    \end{center}
+
+  \vspace{-20pt}
+
+  \Q How does the inverse compare with the negative value? What would you add\key\\[-2.5mm] to the inverse to get the negative? Learn this useful rule for computing the negative of a number!
+    \begin{answer}[0.5in]
+      The inverse is one less than the negative. To get a negative, invert and add 1.
+    \end{answer}
