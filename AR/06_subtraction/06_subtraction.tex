@@ -1,0 +1,61 @@
+% Source: CPTR 280 Computer Organization and Assembly Language Fall 2021
+% File: "06 Subtraction (key).pdf"
+% Author: James Foster, pogil@jgfoster.net
+
+% comment out for student version
+% \ifdefined\Student\relax\else\def\Teacher{}\fi
+
+\documentclass[12pt]{article}
+
+\title{Activity 6: Subtraction}
+\author{James Foster}
+\newcommand{\activityeditor}{James Foster}
+\newcommand{\activitysource}{\url{pogil@jgfoster.net}}
+\date{Fall 2021}
+
+\input{../../cspogil.sty}
+\usepackage{graphicx}
+\usepackage{tabularx}
+
+\begin{document}
+
+  \begin{center}
+    \maketitle
+    \rolenames
+  \end{center}
+
+  \keyquestions{
+  \item Model 1, Question \#2
+  \item Model 2, Question \#7
+  \item Model 3, Question \#12
+  \item Model 3, Question \#16
+  \item Model 4, Question \#21, a--c
+  }
+
+  \newpage
+  \maketitle
+
+  We said earlier that most math operations can be simplified to addition. In this lesson we will build on
+  earlier exercises dealing with binary and with digital logic gates to understand how computers do subtraction.
+  
+  \guides{
+    \item Use nine's complement to subtract without borrowing; and,
+    \item Represent negative numbers in binary using two's complement.
+   }{
+    \item Reflect on how what how the team could work and learn more effectively.
+   }{
+    No additional notes
+   }{
+    \item odometer \href{https://search.creativecommons.org/photos/57c70ba8-18f2-482a-87ab-285606463446}{link here}
+    \item clock: \url{https://pngio.com/images/png-a1553797.html}
+   }
+
+  \input{subtraction_without_borrowing.tex}
+  \newpage
+  \input{wrap_around.tex}
+  \newpage
+  \input{negative_numbers.tex}
+  \newpage
+  \input{encoding_in_binary.tex}
+
+\end{document}

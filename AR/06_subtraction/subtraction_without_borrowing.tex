@@ -1,0 +1,101 @@
+\model{Subtraction without Borrowing}
+
+  \quest{10 min}
+
+  \Q Complete the problem below. With subtraction, what complexity arises analogous to (but more difficult than) the carry step in addition?
+    \vspace{10pt}
+    \begin{center}
+      \begin{tabular}{|c|c|c|c|}
+        \hline
+        & \ans[0.3in]{1} & \ans[0.3in]{14} & \\
+        \hline
+        & 2 & 5 & 3 \\
+        \hline
+        - & 1 & 7 & 6 \\
+        \hline
+        & & \ans[0.3in]{7} & \ans[0.3in]{7} \\
+        \hline
+      \end{tabular}
+    \end{center}
+    \begin{answer}[0.75in]
+      Borrowing.
+    \end{answer}
+
+  \Q Given the expression $x - y$ (where $y$ is no more than three digits), what decimal va-\key\\[-2.5mm]lue for $x$ will guarantee that you never have to borrow?
+    \begin{answer}[0.25in]
+      All nines (999)
+    \end{answer}
+
+  \Q To avoid borrowing, we can use algebra to rewrite $x - y$ as follows:
+    \vspace{5pt}
+    \begin{center}
+      \begin{align*}
+        x - y &= x - y + 0 \\
+              &= x - y + (1000 - 1000) \\
+              &= x - y + (999 + 1 - 1000) \\
+              &= x + (999 - y) + 1 - 1000 \\
+              &= (999 - y) + x + 1 - 1000
+      \end{align*}
+    \end{center}
+
+    Complete the problems in the table below and confirm that the result is the same.
+
+    \vspace{10pt}
+    \begin{center}
+      \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        & & 9 & 9 & 9 \\
+        \hline
+        - & & 1 & 7 & 6 \\
+        \hline
+        & \ans[0.3in]{} & \ans[0.3in]{8} & \ans[0.3in]{2} & \ans[0.3in]{3} \\
+        \hline
+        + & & 2 & 5 & 3 \\
+        \hline
+        & \ans[0.3in]{1} & \ans[0.3in]{0} & \ans[0.3in]{7} & \ans[0.3in]{6} \\
+        \hline
+        + & & & & 1 \\
+        \hline
+        & \ans[0.3in]{1} & \ans[0.3in]{0} & \ans[0.3in]{7} & \ans[0.3in]{7} \\
+        \hline
+        - & 1 & 0 & 0 & 0 \\
+        \hline
+        & & & \ans[0.3in]{7} & \ans[0.3in]{7} \\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \vspace{10pt}
+  The result of subtracting a number from nines gives us a nines' complement. Note that while the word \textit{compliment} means to say something nice,
+  the word \textit{complement} means ``a thing that completes.'' Adding a number and its nines' complement gives us all (or just) nines.
+
+  \Q Of course, in a computer with digital logic we will be using binary instead of decimal. Given the expression $x - y$ (where $y$ is no more than 8 digits), what binary value for $x$ will guarantee that you never have to borrow?
+    \begin{answer}[0.5in]
+      1111 1111
+    \end{answer}
+
+  \Q Complete the binary subtraction problem below.
+    \vspace{10pt}
+    \begin{center}
+      \begin{tabular}{|c|c|c|}
+        \hline
+        & 1 & 1 \\
+        \hline
+        - & 1 & 0 \\
+        \hline
+        & \ans[0.3in]{0} & \ans[0.3in]{1} \\
+        \hline
+      \end{tabular}
+    \end{center}
+
+    \begin{enumerate}
+      \item What pattern do you notice when you compare the bits in rows 2 and 3 column by column (the subtrahend and the difference)?
+        \begin{answer}[0.5in]
+          They are inverse (opposite).
+        \end{answer}
+
+      \item With respect to each column, which truth table takes one input (from line 2) and gives one output (line 3)?
+        \begin{answer}[0.5in]
+          NOT
+        \end{answer}
+    \end{enumerate}
