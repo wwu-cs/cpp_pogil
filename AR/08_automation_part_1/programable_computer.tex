@@ -1,0 +1,133 @@
+\model{A Programmable Computer}
+
+  \vspace{10pt}
+  \begin{center}
+    \includegraphics[width=0.85\textwidth]{figures/programmable_computer.png}
+    \par\vspace{5pt}
+    {\small Figure 2: Programmable Computer}
+  \end{center}
+
+  Early computers were hard-wired to perform certain tasks, and this worked okay for well-defined tasks such as calculating logarithms or trigonometry functions. But building a new circuit for each new task is cumbersome and computer engineers looked for a more flexible approach.
+
+  The circuit shown above demonstrates some enhancements. It has:
+  \begin{itemize}
+    \item a new memory module for code (having code in a separate module is less common now),
+    \item a decoder to interpret the instructions and set the appropriate control lines,
+    \item a control line to specify whether to read or write (store) memory,
+    \item a control line to stop the clock,
+    \item a control line to subtract instead of add, and
+    \item a separate control line to clear the latch (independent of the memory counter).
+  \end{itemize}
+
+  \newpage
+
+  {\it\large Refer to Model 2 above as your team develops consensus answers
+  to the questions below.}
+
+  \quest{25 min}
+
+  \Q The following table shows the five instructions supported by our computer. Convert the instruction codes from hexadecimal to binary and then identify what each bit means.
+
+  \vspace{10pt}
+  \begin{center}
+    \begin{tabular}{|l|c|c|}
+      \hline
+      \textbf{Instruction} & \textbf{Hexadecimal Code} & \textbf{Binary Code} \\
+      \hline
+      Add (data to latch) & 0x00 & 0000 0000 \\
+      \hline
+      Clear (latch) & 0x01 & \ans[1in]{0000 0001} \\
+      \hline
+      Subtract (data from latch) & 0x02 & \ans[1in]{0000 0010} \\
+      \hline
+      Stop (the clock) & 0x04 & \ans[1in]{0000 0100} \\
+      \hline
+      Store (latch to data) & 0x08 & \ans[1in]{0000 1000} \\
+      \hline
+    \end{tabular}
+  \end{center}
+
+  \begin{center}
+    \begin{tabular}{|c|c|c|c|c|}
+      \hline
+      \textbf{Bit} & 3 & 2 & 1 & 0 \\
+      \hline
+      \textbf{Meaning} & \ans[0.6in]{Store} & \ans[0.6in]{Stop} & \ans[0.6in]{Subtract} & Clear \\
+      \hline
+    \end{tabular}
+  \end{center}
+
+  \vspace{5pt}
+  Note that bit 0 is the least significant (right-most) bit.
+
+  \Q Describe the behavior of the decoder. How does it translate instruction codes\key\\[-2.5mm] to controls? (Hint: compare the binary code bits with the control lines coming from the decoder.)
+    \begin{answer}[0.5in]
+      It takes each bit from the instruction and puts it on a separate control line. Very simple!
+    \end{answer}
+
+  \Q What is the relationship between a code address and a data address?
+    \begin{answer}[0.5in]
+      Always the same.
+    \end{answer}
+
+  \Q If the instruction at memory address 0x100 in the memory module labeled Code is a Store, at what address in Data will it place a value?
+    \begin{answer}[0.5in]
+      Same: 0x100.
+    \end{answer}
+
+  \newpage
+
+  \Q Using the appropriate control panels, a programmer loaded five bytes of code and two bytes of data into memory. The remaining portions of both memory are undefined. Complete the ``Meaning'' column with the name of the instruction then ``execute'' the code showing what value is in the appropriate memory location and the latch after each instruction. Unspecified values should be indicated with a question mark (?).
+  \vspace{10pt}
+  \begin{center}
+    \begin{tabular}{|c|c|l|c|c|}
+      \hline
+      \textbf{Address} & \textbf{Code} & \textbf{Meaning} & \textbf{Data} & \textbf{Latch} \\
+      \hline
+      0x00 & 0x01 & \ans[1in]{Clear} & \ans[0.4in]{?} & \ans[0.4in]{0} \\
+      \hline
+      0x01 & 0x00 & \ans[1in]{Add} & 5 & \ans[0.4in]{5} \\
+      \hline
+      0x02 & 0x02 & \ans[1in]{Subtract} & 3 & \ans[0.4in]{2} \\
+      \hline
+      0x04 & 0x08 & \ans[1in]{Store} & \ans[0.4in]{2} & \ans[0.4in]{2} \\
+      \hline
+      0x08 & 0x04 & \ans[1in]{Stop} & \ans[0.4in]{?} & \ans[0.4in]{2} \\
+      \hline
+    \end{tabular}
+  \end{center}
+
+  \Q Write a program to calculate and store (11 + 6 -- 9) and then calculate and store (40 + 17). You need not use all memory.
+
+  \vspace{10pt}
+  \begin{center}
+    \begin{tabular}{|c|c|l|c|c|}
+      \hline
+      \textbf{Address} & \textbf{Code} & \textbf{Meaning} & \textbf{Data} & \textbf{Latch} \\
+      \hline
+      0x00 & \ans[0.4in]{0x01} & \ans[1in]{Clear} & \ans[0.4in]{?} & \ans[0.4in]{0} \\
+      \hline
+      0x01 & \ans[0.4in]{0x00} & \ans[1in]{Add} & \ans[0.4in]{11} & \ans[0.4in]{11} \\
+      \hline
+      0x02 & \ans[0.4in]{0x00} & \ans[1in]{Add} & \ans[0.4in]{6} & \ans[0.4in]{17} \\
+      \hline
+      0x03 & \ans[0.4in]{0x02} & \ans[1in]{Subtract} & \ans[0.4in]{9} & \ans[0.4in]{8} \\
+      \hline
+      0x04 & \ans[0.4in]{0x08} & \ans[1in]{Store} & \ans[0.4in]{8} & \ans[0.4in]{8} \\
+      \hline
+      0x05 & \ans[0.4in]{0x01} & \ans[1in]{Clear} & \ans[0.4in]{?} & \ans[0.4in]{0} \\
+      \hline
+      0x06 & \ans[0.4in]{0x00} & \ans[1in]{Add} & \ans[0.4in]{40} & \ans[0.4in]{40} \\
+      \hline
+      0x07 & \ans[0.4in]{0x00} & \ans[1in]{Add} & \ans[0.4in]{17} & \ans[0.4in]{57} \\
+      \hline
+      0x08 & \ans[0.4in]{0x08} & \ans[1in]{Store} & \ans[0.4in]{57} & \ans[0.4in]{57} \\
+      \hline
+      0x09 & \ans[0.4in]{0x04} & \ans[1in]{Stop} & \ans[0.4in]{?} & \ans[0.4in]{57} \\
+      \hline
+      0x0A & \ans[0.4in]{?} & \ans[1in]{?} & \ans[0.4in]{?} & \\
+      \hline
+      0x0B & \ans[0.4in]{?} & \ans[1in]{?} & \ans[0.4in]{?} & \\
+      \hline
+    \end{tabular}
+  \end{center}
