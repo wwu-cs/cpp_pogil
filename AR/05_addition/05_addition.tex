@@ -1,0 +1,56 @@
+% Source: CPTR 280 Computer Organization and Assembly Language Fall 2020
+% File: "05 Addition (key).pdf"
+% Author: James Foster, pogil@jgfoster.net
+
+% comment out for student version
+% \ifdefined\Student\relax\else\def\Teacher{}\fi
+
+\documentclass[12pt]{article}
+
+\title{Activity 5: Addition}
+\author{James Foster}
+\newcommand{\activityeditor}{James Foster}
+\newcommand{\activitysource}{\url{pogil@jgfoster.net}}
+\date{Fall 2020}
+
+\input{../../cspogil.sty}
+\usepackage{graphicx}
+\usepackage{tabularx}
+
+\begin{document}
+
+  \begin{center}
+    \maketitle
+    \rolenames
+  \end{center}
+
+  \keyquestions{
+  \item Model 1, Question \#3
+  \item Model 3, Question \#8.g
+  \item Model 4, Question \#9
+  }
+
+  \newpage
+  \maketitle
+
+  Just as number systems can be simplified to binary, most math operations can be simplified to addition. In this lesson we will build on earlier exercises dealing with binary and with digital logic gates to understand how computers do addition and subtraction.
+  
+  \guide{
+    \item Describe the logic circuits used in adding binary numbers;
+    \item Use nine's complement to subtract without borrowing; and,
+    \item Represent negative numbers in binary using two's complement.
+   }{
+    \item Reflect on how teams can ensure all members participate.
+   }{
+    No additional notes
+   }
+
+  \input{addition_with_carry.tex}
+  \newpage
+  \input{half_adder_circuit.tex}
+  \newpage
+  \input{full_adder_circuit.tex}
+  \newpage
+  \input{multi_bit_adder.tex}
+
+\end{document}
