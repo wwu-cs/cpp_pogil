@@ -23,7 +23,7 @@ Unless otherwise noted, this work is licensed under a [Creative Commons Attribut
 
 For more information, see [POGIL](http://pogil.org), [CS POGIL](http://cspogil.org), and [Intro CS POGIL](http://introcspogil.org/).
 
-## CS 1 and CS 2
+## CS 1 (Introduction to Programming in C++)
 * [Introduction to C++](https://wwu-cs.github.io/cpp_pogil/CS1/01_introduction.pdf)
 * [Arithmetic Operations and Assignment](https://wwu-cs.github.io/cpp_pogil/CS1/02_arithmetic.pdf)
 * [Algorithmic Thinking](https://wwu-cs.github.io/cpp_pogil/CS1/03_algorithms.pdf)
@@ -52,7 +52,7 @@ For more information, see [POGIL](http://pogil.org), [CS POGIL](http://cspogil.o
 * [Exception Handling](https://wwu-cs.github.io/cpp_pogil/CS1/26_exceptions.pdf)
 * [Recursion](https://wwu-cs.github.io/cpp_pogil/CS1/27_recursion.pdf)
 
-## Algorithms and Computation
+## CS 2 (Data Structures and Algorithms)
 
 * [Algorithm Analysis](https://wwu-cs.github.io/cpp_pogil/CS2/01_algorithm_analysis.pdf)
 * [Sorting](https://wwu-cs.github.io/cpp_pogil/CS2/02_sorting.pdf)
@@ -63,8 +63,17 @@ For more information, see [POGIL](http://pogil.org), [CS POGIL](http://cspogil.o
 * [Binary Trees](https://wwu-cs.github.io/cpp_pogil/CS2/07_binary_trees.pdf)
 * [Binary Search Trees](https://wwu-cs.github.io/cpp_pogil/CS2/08_binary_search_trees.pdf)
 
-## Architecture and Organization
-* To be added
+## AR (Architecture and Organization)
+* [Communication](https://wwu-cs.github.io/cpp_pogil/AR/01_communication.pdf)
+* [Electricity](https://wwu-cs.github.io/cpp_pogil/AR/02_electricity.pdf)
+* [Number Systems](https://wwu-cs.github.io/cpp_pogil/AR/03_number_systems.pdf)
+* [Logic and Gates](https://wwu-cs.github.io/cpp_pogil/AR/04_logic_and_gates.pdf)
+* [Addition](https://wwu-cs.github.io/cpp_pogil/AR/05_addition.pdf)
+* [Subtraction](https://wwu-cs.github.io/cpp_pogil/AR/06_subtraction.pdf)
+* [Memory](https://wwu-cs.github.io/cpp_pogil/AR/07_memory.pdf)
+* [Automation (Part 1)](https://wwu-cs.github.io/cpp_pogil/AR/08_automation_part_1.pdf)
+* [Automation (Part 2)](https://wwu-cs.github.io/cpp_pogil/AR/09_automation_part_2.pdf)
+* [Characters](https://wwu-cs.github.io/cpp_pogil/AR/10_characters.pdf)
 
 ## Sources
 

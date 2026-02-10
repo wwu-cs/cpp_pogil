@@ -48,4 +48,7 @@ process_folder "CS1"
 echo "Processing CS2 activities..."
 process_folder "CS2"
 
+echo "Processing AR activities..."
+process_folder "AR"
+
 echo "All done!"
