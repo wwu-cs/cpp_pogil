@@ -1,0 +1,70 @@
+\model{Addressable Memory}
+
+  The latch from Model D has two inputs for each bit, a write line and a data line. If you were going to build many such latches
+  (think millions or billions), it would be nice to have a way to let them share the write and data lines and do the selection with fewer lines.
+  For example, a thousand separate locations could be identified with only 10 lines and a billion locations could be identified with 30 lines.
+  Think of each location as having a unique integer address.
+
+  {\it\large Refer to Model 5 above as your team develops consensus answers
+  to the questions below.}
+
+  \quest{10 min}
+
+  \Q Consider the following 3-to-8 decoder. It has eight latches below (not shown), but only a single data in line and write line. A three-bit address is added on the left.
+    \vspace{10pt}
+    \begin{center}
+      \includegraphics[width=0.6\textwidth]{figures/decoder_fig13.png}
+      \par\vspace{5pt}
+      {\small Figure 13}
+    \end{center}
+    \begin{enumerate}
+      \item If the write line is 1 and each of the address lines (A0, A1, and A2) are 0, what are the output values for the 4-input AND gates labeled 7 to 0?
+        \vspace{10pt}
+        \begin{center}
+          \begin{tabular}{|c|c|c|c|c|c|c|c|}
+            \hline
+            7 & 6 & 5 & 4 & 3 & 2 & 1 & 0 \\
+            \hline
+            \ans[0.2in]{0} & \ans[0.2in]{0} & \ans[0.2in]{0} & \ans[0.2in]{0} & \ans[0.2in]{0} & \ans[0.2in]{0} & \ans[0.2in]{0} & \ans[0.2in]{1} \\
+            \hline
+          \end{tabular}
+        \end{center}
+
+      \item If the write line is 1 and each of the address lines are 1, what are the values for the 4-input AND gates labeled 7 to 0?
+        \vspace{10pt}
+        \begin{center}
+          \begin{tabular}{|c|c|c|c|c|c|c|c|}
+            \hline
+            7 & 6 & 5 & 4 & 3 & 2 & 1 & 0 \\
+            \hline
+            \ans[0.2in]{1} & \ans[0.2in]{0} & \ans[0.2in]{0} & \ans[0.2in]{0} & \ans[0.2in]{0} & \ans[0.2in]{0} & \ans[0.2in]{0} & \ans[0.2in]{0} \\
+            \hline
+          \end{tabular}
+        \end{center}
+
+      \item Generalize the relationship between the address lines and the AND gates.
+        \begin{answer}[0.75in]
+          The address lines make up a binary number equal to the AND gate number.
+        \end{answer}
+    \end{enumerate}
+
+  \Q Just like it would be nice to have a single data-in line for many latches, it would be nice to have a single data-out line.
+    An 8-input OR gate would have a 1 output if any of the latches had a 1 output. How could you modify Figure 13 to select which latch to read?
+    (After thinking about it, see Figure 14 for a hint!)
+    \begin{answer}[1.5in]
+      Have each 4-input AND gate receive three inputs from the address lines (as before) but have the fourth input for each be the output of the respective flip-flop.
+      So the output of the AND gate would be 1 if the address selected that gate and the flip-flop had a 1 as well.
+    \end{answer}
+
+  \vspace{10pt}
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{figures/addressable_memory_fig14.png}
+    \par\vspace{5pt}
+    {\small Figure 14}
+  \end{center}
+
+  \vspace{10pt}
+  Figure 14 shows an addressable 8-bit array of memory. The address control lines specify which bit to read or write. There is a single data-in line that can be used to store to memory (if the write control line is enabled) and read from memory.
+  Instead of storing eight bits these circuits could be stacked eight high to store eight bytes. The address and write control lines would be shared, and the data lines would be unique for each bit of the byte (so 20 lines total).
+  Instead of having only eight locations (with a three-bit address), these circuits could be expanded to have (say) a 16-bit address and 65,536 locations (64 KiB of RAM).
+  We now have addressable memory!

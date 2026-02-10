@@ -1,0 +1,63 @@
+% Source: CPTR 280 Computer Organization and Assembly Language Fall 2023
+% File: "10 Characters (key).pdf"
+% Author: James Foster, pogil@jgfoster.net
+
+% comment out for student version
+% \ifdefined\Student\relax\else\def\Teacher{}\fi
+
+\documentclass[12pt]{article}
+
+\title{Activity 10: Characters}
+\author{James Foster}
+\newcommand{\activityeditor}{James Foster}
+\newcommand{\activitysource}{\url{pogil@jgfoster.net}}
+\date{Fall 2023}
+
+\input{../../cspogil.sty}
+\usepackage{graphicx}
+\usepackage{tabularx}
+
+\begin{document}
+
+  \begin{center}
+    \maketitle
+    \rolenames
+  \end{center}
+
+  \keyquestions{
+  \item Model 1, Question \#5
+  \item Model 3, Question \#15
+  \item Model 4, Question \#35
+  }
+
+  \newpage
+  \maketitle
+
+  In our discussion of encoding (lesson 1) we noted that characters (including letters, numbers, and punctuation) could be represented as a glyph (using ink on paper), as a gesture (using American Sign Language), as a combination of short and long tones (Morse Code), or as raised dots on paper (Braille). At the end of the lesson on subtraction (lesson 6) we noted that anything that can be mapped to discrete values, like the form of the British invasion (``one if by land, two if by sea''), could be encoded as binary numbers.
+
+  In this lesson we look at encoding printable characters as numeric codes.
+  
+  \guides{
+    \item Identify the range of codes used for ASCII;
+    \item Describe the types of characters included in Unicode; and,
+    \item Describe the difference between a character codepoint and an encoding.
+   }{
+    \item Translate characters to and from ASCII given a chart.
+   }{
+    No additional notes
+   }{
+    \item Figure 1: \url{https://en.wikipedia.org/wiki/File:ASCII-Table-wide.svg}
+    \item Figure 2: \url{https://en.wikipedia.org/wiki/ISO/IEC_8859-1}
+    \item Unicode: \url{https://en.wikipedia.org/wiki/Unicode}
+    \item UTF-8: \url{https://en.wikipedia.org/wiki/UTF-8}
+   }
+
+  \input{character_codes.tex}
+  \newpage
+  \input{ascii.tex}
+  \newpage
+  \input{code_pages.tex}
+  \newpage
+  \input{unicode.tex}
+
+\end{document}

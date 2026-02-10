@@ -1,0 +1,53 @@
+\model{Level-Trigger D-Type Flip-Flop}
+
+  \quest{10 min}
+
+  \Q Recall that an AND gate has an output of 1 only if both inputs are 1. In Figure 8 enter the value 0 for Write, Data, and output (Q). Highlight the lines that have high voltage for this state to exist.
+    \vspace{10pt}
+    \begin{center}
+      \ifdefined\Teacher
+        \includegraphics[width=0.5\textwidth]{figures/level_trigger_fig8_solution.png}
+      \else
+        \includegraphics[width=0.5\textwidth]{figures/level_trigger_fig8.png}
+      \fi
+      \par\vspace{5pt}
+      {\small Figure 8}
+    \end{center}
+
+  \Q With the circuit in the state shown in Figure 8, imagine that Data changes from 0 to 1. Highlight the lines in Figure 9 that have high voltage and update Q.
+    \vspace{10pt}
+    \begin{center}
+      \ifdefined\Teacher
+        \includegraphics[width=0.5\textwidth]{figures/level_trigger_fig9_solution.png}
+      \else
+        \includegraphics[width=0.5\textwidth]{figures/level_trigger_fig9.png}
+      \fi
+      \par\vspace{5pt}
+      {\small Figure 9}
+    \end{center}
+
+  \Q With the circuit in the state shown in Figure 9, imagine that Write changes from 0 to 1. Highlight the lines in Figure 10 that have high voltage and update Q.
+    \vspace{10pt}
+    \begin{center}
+      \ifdefined\Teacher
+        \includegraphics[width=0.4\textwidth]{figures/level_trigger_fig10_solution.png}
+      \else
+        \includegraphics[width=0.4\textwidth]{figures/level_trigger_fig10.png}
+      \fi
+      \par\vspace{5pt}
+      {\small Figure 10}
+    \end{center}
+
+  \Q With the circuit in the state shown in Figure 10, imagine that Write changes from 1 to 0. Highlight the lines in Figure 11 that have high voltage and update Q.
+    \vspace{10pt}
+    \begin{center}
+      \ifdefined\Teacher
+        \includegraphics[width=0.6\textwidth]{figures/level_trigger_fig11_solution.png}
+      \else
+        \includegraphics[width=0.5\textwidth]{figures/level_trigger_fig11.png}
+      \fi
+      \par\vspace{5pt}
+      {\small Figure 11}
+    \end{center}
+
+  We now have a circuit that latches onto (remembers) a data line only when the write line is 1.

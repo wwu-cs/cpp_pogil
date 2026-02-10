@@ -1,0 +1,185 @@
+\model{Unicode}
+
+  Unicode was created to provide a unique, unified, universal (notice the repetition of `u'!) encoding of all characters in common use in all modern languages. The goal was to support any text used in a recently published newspaper or magazine,
+  and this was expected to be far below $2^{14}$ or 16,384 so would fit comfortably in 16 bits. Not surprisingly, more and more characters were added and Unicode 14.0 (March 2020) specifies 143,859 characters, each with its own unique number or codepoint.
+  A codepoint is denoted as U+0000 through U+10FFFF (``U+'' plus the code point value in hexadecimal, prepended with leading zeros as necessary to result in a minimum of four digits, e.g., U+00F7 for the division sign, $\div$, versus U+13254 for the Egyptian hieroglyph designating a reed shelter or a winding wall:
+  \includegraphics[height=1em]{figures/hieroglyph.png}).
+
+  The first 256 codepoints match ISO/IEC 8859 Part 1 Latin-1 Western European (introduced above), so the first 128 codepoints match ASCII.\\
+
+  {\it\large Refer to Model 4 above as your team develops consensus answers
+  to the questions below.}
+
+  \quest{30 min}
+
+  \Q How many unique codes can be represented in 2 bytes (feel free to use a calculator)? Is two bytes sufficient to represent a full Unicode character?
+    \begin{answer}[0.5in]
+      Two bytes can represent 65,536 codes which is not enough to represent all codepoints.
+    \end{answer}
+
+  \Q Computer manufacturers tend to use powers of two for words (processor byte sizes). This allows backwards compatibility (a single four-byte register holds exactly
+    two 16-bit values, while a three-byte register could hold only one 16-bit value). The following shows the history of Intel's CPU architecture:
+    \begin{enumerate}
+      \item 8-bit words in the Intel 8008 (1972)
+      \item 16-bit words in the Intel 8086 (1978)
+      \item 32-bit words in the Intel 30368 (1985)
+      \item 64-bit words in the Intel Pentium 4 (2004)
+    \end{enumerate}
+
+    Which word size from the above list would be the most compact form to hold any Unicode codepoint?
+    \begin{answer}[0.75in]
+      32-bit (four-byte) words would be needed to hold the maximum codepoint.
+    \end{answer}
+
+  \Q Given a document containing approximately 10,000 ASCII characters, about how kilobytes (thousand bytes) will the file size be if stored as one-byte characters?
+    \begin{answer}[0.75in]
+      A file with 10,000 8-bit characters size will be about 10 KB.
+    \end{answer}
+
+  \Q Unicode's ``Base Multilingual Plane'' (BMP) uses codepoints from U+0000 to U+FFFF and contains characters for almost all modern languages, including Chinese, Japanese, and Korean characters.
+    How many bytes are required to represent a character in the BMP?
+    \begin{answer}[0.5in]
+      U+0000 to U+FFFF requires 16 bits or 2 bytes.
+    \end{answer}
+
+  \Q If each codepoint were saved as a two-byte value, about how big (in KB) would a file be that had approximately 10,000 characters? If those characters all happened to be in the ASCII range, how much space would be ``wasted'' with zero-filled bytes?
+    \begin{answer}[1in]
+      A file with 10,000 16-bit characters would take 20 KB of which half would be zero bytes if the characters were all ASCII.
+    \end{answer}
+
+  \Q If each codepoint were saved as a four-byte value, about how big (in KB) would a file be that had approximately 10,000 characters? If those characters all happened to be in the ASCII range, how much space would be ``wasted'' with zero-filled bytes?
+    \begin{answer}[1in]
+      A file with 10,000 32-bit characters would take 40 KB of which three-quarters would be zero bytes if the characters were all ASCII.
+    \end{answer}
+
+  \vspace{10pt}
+  If four bytes were used to store each character, a great deal of space would be wasted, particularly in the United States where most text is ASCII (but also in the rest of the world where the BMP requires only two bytes).
+  Unicode defines various encodings that can be used to store character's codepoint in memory. Note that there is a difference between a codepoint (the number for a character) and the encoding of the codepoint (how it is represented in memory).
+
+  As discussed in Lesson 1, a common way to get more codes from a limited range is to use an escape code. An escape code indicates that the subsequent item is to be interpreted in an alternate manner. For example, in Braille, one code isn't an actual character but is used to indicate that the character that follows is uppercase (instead of the default of lowercase).
+
+  \Q If an `a' takes one Braille space, how many spaces does an `A' take? If approximately 2\% of text is uppercase, about how many spaces would be taken by a document with 10,000 characters?
+    \begin{answer}[0.5in]
+      In Braille the `A' character would take 2 spaces and a document with 10,000 characters would take about 10,200 spaces.
+    \end{answer}
+
+  \Q If you were given an offset into a Braille document for a letter that might be uppercase, what would you need to do to determine if it was uppercase or lowercase?
+    \begin{answer}[0.5in]
+      You would need to check the previous character to see if it was the escape code.
+    \end{answer}
+
+  \Q What is the range of codes used by the BMP (hint: see question 22)?
+    \begin{answer}[0.5in]
+      U+0000 to U+FFFF
+    \end{answer}
+
+  \Q What is the range of codes for all of Unicode (hint: see the beginning of this section)?
+    \begin{answer}[0.5in]
+      U+0000 to U+10FFFF
+    \end{answer}
+
+  \Q What is the range of codes not in the BMP?
+    \begin{answer}[0.5in]
+      U+10000 to U+10FFFF
+    \end{answer}
+
+  \Q What is the size of the non-BMP range in hexadecimal? (Hint: max -- min + 1)
+    \begin{answer}[0.5in]
+      0x100000
+    \end{answer}
+
+  \Q How many bits are required to represent the non-BMP range (not codepoints)?
+    \begin{answer}[0.5in]
+      The values 0x0 to 0xFFFFF can be represented in 20 bits.
+    \end{answer}
+
+  \Q Unicode reserves 2048 codepoints in the BMP (from 0xD800 to 0xDFFF) that are not used as characters but as surrogates for characters outside the BMP. Convert the minimum and maximum surrogate codepoints to binary:
+    \begin{answer}[1in]
+      0xD800 = 1101 1000 0000 0000 \\
+      0xDFFF = 1101 1111 1111 1111
+    \end{answer}
+
+  \Q What bit values and positions indicates that a codepoint is not a character but a surrogate?
+    \begin{answer}[0.5in]
+      The pattern ``1101 1'' as the top (high order) five bits.
+    \end{answer}
+
+  \Q In a two-byte word, how many bits does that leave for the surrogate (non-BMP) codepoint?
+    \begin{answer}[0.5in]
+      Eleven of the 16 bits are left.
+    \end{answer}
+
+  \Q If a non-BMP codepoint were stored in two surrogate words, we could use\key\\[-2.5mm] one bit to indicate whether this is the first (0) or second (1) surrogate word. How many bits per surrogate does that leave for the non-BMP codepoint? If two surrogates are used to encode a non-BMP codepoint, how many bits are available? How does this compare to the number of bits needed (see question 31)?
+    \begin{answer}[1.5in]
+      With the five bits to indicate a surrogate and one bit to indicate which surrogate, this leaves ten bits for the non-BMP codepoint (per 16-bit word). Given two surrogate words, there are 20 bits available for the non-BMP range---which is exactly what is needed.
+    \end{answer}
+
+  \vspace{10pt}
+  UTF-16 is a variable-length Unicode encoding that uses 16 bits for BMP codepoints (including ASCII), storing the codepoint as data, and 32 bits for non-BMP codepoints, breaking the codepoint over two surrogate words. It is used internally by Java, JavaScript, and (until recently) Microsoft Windows.
+
+  A similar variable-length approach has been used to define UTF-8.
+
+  \vspace{10pt}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{figures/utf8_encoding.png}
+    \par\vspace{5pt}
+    {\small Figure 3: UTF-8 Encoding}
+  \end{center}
+
+  \Q In UTF-8, how many bytes are required to encode the full range of ASCII? (Hint: see question 8.)
+    \begin{answer}[0.5in]
+      UTF-8 encodes all ASCII characters in one byte.
+    \end{answer}
+
+  \Q Recall that ISO 8859-1 defines one-byte character codes that support much of Western Europe. In UTF-8, how many bytes are required to encode non-ASCII codes from ISO 8859-1?
+    \begin{answer}[0.5in]
+      UTF-8 requires two bytes for non-ASCII codes from ISO 8859-1.
+    \end{answer}
+
+  \Q In UTF-8, how many bytes are required to encode the majority of BMP codepoints?
+    \begin{answer}[0.5in]
+      UTF-8 requires three bytes for most BMP codepoints.
+    \end{answer}
+
+  \Q In UTF-8, how many bytes are required to encode non-BMP codepoints?
+    \begin{answer}[0.5in]
+      UTF-8 requires four bytes for non-BMP codepoints.
+    \end{answer}
+
+  \Q Is there any size difference between encoded ASCII and the same characters in UTF-8?
+    \begin{answer}[0.5in]
+      No, in each case a character takes one byte.
+    \end{answer}
+
+  \Q If most of your characters were ASCII, which (if any) would be more compact, UTF-8 or UTF-16?
+    \begin{answer}[0.5in]
+      UTF-8 would be more compact.
+    \end{answer}
+
+  \Q If most of your characters were Western European, which (if any) would be more compact, UTF-8 or UTF-16?
+    \begin{answer}[0.5in]
+      Although the encodings would be different, the size would be essentially the same.
+    \end{answer}
+
+  \Q If most of your characters were East Asian (Chinese, Japanese, or Korean), which (if any) would be more compact, UTF-8 or UTF-16?
+    \begin{answer}[0.5in]
+      UTF-16 would be more compact.
+    \end{answer}
+
+  \Q In UTF-8, what distinguishes a single-byte character from a multi-byte character?
+    \begin{answer}[0.5in]
+      The single-byte character has a zero as the high-order bit while a multi-byte character has a one as the high-order bit in every byte.
+    \end{answer}
+
+  \Q In UTF-8, what distinguishes the first byte of a multi-byte character from the subsequent bytes?
+    \begin{answer}[0.5in]
+      The first byte of a multi-byte character has a one as the second most significant bit while the remaining bytes in a multi-byte character have zero as the second most significant bit.
+    \end{answer}
+
+  \Q If you were given an arbitrary byte offset into a UTF-8 encoded string, how would you determine the number of bytes?
+    \begin{answer}[0.5in]
+      If the high-order bit is zero, then it is a one-byte character. If the high-order bit is one, then it is a multi-byte character and you need to find the beginning. If the second most significant bit is one, then you are at the beginning of the character. If not, then move back one byte at a time till you find the first byte. From that byte you can determine the number of bytes by counting the number of consecutive high-order bits set to 1 (see Figure 3).
+    \end{answer}
+
+      \vspace{10pt}
+  UTF-8 accounts for the vast majority of all web pages (over 95\%) and is the default for use in Microsoft Windows (as of 2019).

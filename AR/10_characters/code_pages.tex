@@ -1,0 +1,96 @@
+\model{Code Pages}
+
+  While ASCII was fine in America (it is, after the American Standard \ldots), other countries had reason to need character encoding as well.
+  Even English-speaking countries, like England, would want to use a currency symbol (`\pounds') that is not provided in ASCII.\\
+
+  {\it\large Refer to Model 3 above as your team develops consensus answers
+  to the questions below.}
+
+  \quest{10 min}
+
+  \Q Are there any codes are available in a byte that are not used by ASCII (hint: see questions 7 \& 8)? If so, how many? What is their range?
+    \begin{answer}[0.5in]
+      Yes, there are 128 codes in the range 128 to 255 (0x80 to 0xFF).
+    \end{answer}
+
+  \vspace{10pt}
+  In the closing decades of the 20th century codes were defined for a variety of geographical regions. ISO/IEC 8859 defined fifteen code sets or ``Parts'' that each keep ASCII in the lower half of the 8-bit range and in the upper half add just under 100 region-specific characters.
+
+  \vspace{10pt}
+  \begin{center}
+    \begin{tabular}{|c|c|}
+      \hline
+      Part 1 & Latin-1 Western European \\
+      \hline
+      Part 2 & Latin-2 Central European \\
+      \hline
+      Part 3 & Latin-3 South European \\
+      \hline
+      Part 4 & Latin-4 North European \\
+      \hline
+      Part 5 & Latin/Cyrillic \\
+      \hline
+      Part 6 & Latin/Arabic \\
+      \hline
+      Part 7 & Latin/Greek \\
+      \hline
+      Part 8 & Latin/Hebrew \\
+      \hline
+      Part 9 & Latin-5 Turkish \\
+      \hline
+      Part 10 & Latin-6 Nordic \\
+      \hline
+      Part 11 & Latin/Thai \\
+      \hline
+      Part 13 & Latin-7 Baltic Rim \\
+      \hline
+      Part 14 & Latin-8 Celtic \\
+      \hline
+      Part 15 & Latin-9 \\
+      \hline
+      Part 16 & Latin-10 South-Eastern European \\
+      \hline
+    \end{tabular}
+  \end{center}
+
+  \newpage
+  Part 1 has characters for the following Western European languages: Danish, Dutch, English, Faeroese, Finnish, French, German,
+  Icelandic, Irish, Italian, Norwegian, Portuguese, Rhaeto-Romantic, Scottish Gaelic, Spanish, Catalan, and Swedish and is shown in the Figure 2.
+
+  \vspace{10pt}
+  \begin{center}
+    \includegraphics[width=0.85\textwidth]{figures/iso_8859_1.png}
+    \par\vspace{5pt}
+    {\small Figure 2: ISO 8859-1}
+  \end{center}
+
+  \Q What does the inclusion of Hebrew (Part 8) in this list say about the number of characters in the Hebrew alphabet?
+    What is a rough estimate of the upper limit?
+    \begin{answer}[0.5in]
+      The total number of characters in the Hebrew alphabet is well under 100.
+    \end{answer}
+
+  \Q While the code page approach allows many languages to be represented, each\key\\[-2.5mm] Part can use the same code for a different character,
+    so 0xAA is `\={E}' in Part 4 and `\v{S}' in Part 10. So, while documents written in Part 8 (Hebrew) can be read by other users in Israel,
+    the document would be gibberish to someone in the United States (using Part 1), even if that person was fluent in Hebrew because the computer
+    would present the wrong character for a particular code. When using Code Pages, what information needs to accompany every string of text (document, email, etc.)?
+    \begin{answer}[0.5in]
+      Every string of text must be accompanied by the Code Page used to interpret it.
+    \end{answer}
+
+  \Q Because each Part uses ASCII for the first 128 values, (American) English can be shared with another language (that is, Part 6 supports English and Arabic while Part 8
+    supports English and Hebrew). But a computer can generally run in only one mode at a time (using a specific Part to describe its character set). What problem does this present?
+    \begin{answer}[0.5in]
+      A document cannot have text from different Code Pages, such as Arabic and Hebrew.
+    \end{answer}
+
+  \Q China, Japan, and Korea had as much or more need for computer support as many of the countries supported by ISO/IEC 8859 (Japan was---and is---more technologically advanced than, say, Turkey or Thailand),
+    yet there was no eight-bit encoding for their alphabets. What characteristic of their alphabets would make 8-bit encoding impossible?
+    \begin{answer}[0.5in]
+      Instead of having less than 100 characters in their alphabets, they have several thousand characters.
+    \end{answer}
+
+  \Q Because memory is typically addressed in units of a byte, data is typically coded into multiples of a byte. How many bits are in two bytes? What is the range of values that can be encoded in two bytes?
+    \begin{answer}[0.5in]
+      Two bytes contain sixteen bits and can hold values from 0 to 65535 (0x0000 to 0xFFFF).
+    \end{answer}

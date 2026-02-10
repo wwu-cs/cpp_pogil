@@ -1,0 +1,67 @@
+% Source: CPTR 280 Computer Organization and Assembly Language Fall 2023
+% File: "07 Memory (key).pdf"
+% Author: James Foster, pogil@jgfoster.net
+
+% comment out for student version
+% \ifdefined\Student\relax\else\def\Teacher{}\fi
+
+\documentclass[12pt]{article}
+
+\title{Activity 7: Memory}
+\author{James Foster}
+\newcommand{\activityeditor}{James Foster}
+\newcommand{\activitysource}{\url{pogil@jgfoster.net}}
+\date{Fall 2023}
+
+\input{../../cspogil.sty}
+\usepackage{graphicx}
+\usepackage{tabularx}
+
+\begin{document}
+
+  \begin{center}
+    \maketitle
+    \rolenames
+  \end{center}
+
+  \keyquestions{
+  \item Model 1, Question \#10
+  \item Model 2, Question \#14
+  \item Model 3, Question \#21
+  }
+
+  \newpage
+  \maketitle
+
+  In previous activities, we explored combinational logic circuits where outputs depend only on current inputs.
+  However, computers need to remember information—they need memory. This activity introduces sequential logic circuits,
+  where outputs depend on both current inputs and previous states. We'll build up from the simplest memory element (a flip-flop that stores one bit)
+  to more complex circuits that can store and retrieve multiple bits using addresses. Understanding how memory works at the hardware level is fundamental to
+  grasping how computers store programs, data, and maintain state during execution.
+  
+  \guides{
+    \item Students will be able to explain how a flip-flop maintains state using feedback.
+    \item Students will be able to distinguish between level-triggered and edge-triggered D flip-flops.
+    \item Students will be able to describe how addressable memory uses select lines to read or write specific memory locations.
+    \item Students will be able to trace the flow of data through memory circuits.
+   }{
+    \item Analyzing circuit diagrams to understand data storage and retrieval.
+    \item Comparing different types of flip-flops and their timing characteristics.
+    \item Collaborating to trace signals through sequential circuits and build understanding collectively.
+   }{
+    No additional notes
+   }{
+    \item \url{https://www.codehiddenlanguage.com/}
+   }
+
+  \input{feedback.tex}
+  \newpage
+  \input{flip_flop.tex}
+  \newpage
+  \input{level_trigger_d_flip_flop.tex}
+  \newpage
+  \input{edge_triggered_d_flip_flop.tex}
+  \newpage
+  \input{addressable_memory.tex}
+
+\end{document}

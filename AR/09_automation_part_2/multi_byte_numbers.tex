@@ -1,0 +1,117 @@
+\model{Multi-Byte Numbers}
+
+  {\it\large Refer to Model 3 above as your team develops consensus answers
+  to the questions below.}
+
+  \quest{20 min}
+
+  \Q Consider the expression with two unsigned integers: (1100 0001$_2$ + 0100 0011$_2$).
+    \begin{itemize}
+      \item What is the binary sum?
+        \hfill\ans{1 0000 0100}
+      \item How many bits are required for the answer?
+        \hfill\ans{9}
+    \end{itemize}
+
+  \Q Consider the 8-Bit Adder shown in Figure 4.
+    \vspace{10pt}
+    \begin{center}
+      \includegraphics[width=0.3\textwidth]{figures/8bit_adder.png}
+      \par\vspace{5pt}
+      {\small Figure 4: 8-Bit Adder}
+    \end{center}
+    \begin{itemize}
+      \item What are the data path widths (number of bits) for A, B, and Sum?
+        \hfill\ans[1.5in]{8, 8, and 8}
+
+      \item What are the data path widths for Carry In and Carry Out?
+        \hfill\ans[1in]{1 and 1}
+
+      \item How is this 8-Bit Adder different from the one shown in Figure 1?
+        \begin{answer}[0.75in]
+          It has a carry in and carry out.
+        \end{answer}
+
+      \item If you were to use this 8-Bit Adder in the circuit shown in Figure 1, what value would you need for Carry In?
+        What circuit component (from an earlier lesson) would you attach to the Carry In line to do proper math?
+        \begin{answer}[1in]
+          Carry in should always be zero; this can be achieved with ground.
+        \end{answer}
+
+      \item What component would you add to the Carry Out line to ignore the overflow bit?
+        \begin{answer}[0.75in]
+          Carry out could be attached to ground.
+        \end{answer}
+
+      \item If the carry lines are ignored for simple 8-bit addition, why do they exist?
+        \begin{answer}[0.75in]
+          So that we can do complex addition (say, 16-bit values).
+        \end{answer}
+    \end{itemize}
+  
+  \vspace{-40pt}
+
+  \Q Consider the expression with two unsigned hexadecimal integers: (2345$_{16}$ + 3456$_{16}$)\key\\[-2.5mm]
+    \begin{itemize}
+      \item How many bits are required for each number?
+        \begin{answer}[0.5in]
+          4 bits for each digit, so 16-bits for each number.
+        \end{answer}
+
+      \item How many bits are required to represent the sum?
+        \begin{answer}[0.5in]
+          The value 579B$_{16}$ is also just 16 bits.
+        \end{answer}
+
+      \item Describe how you would use an 8-Bit Adder to perform this operation.
+        \begin{answer}[1.5in]
+          Add the low-order bytes: 45$_{16}$ + 56$_{16}$ = 9B$_{16}$ \\
+          Add the high-order bytes: 23$_{16}$ + 34$_{16}$ = 57$_{16}$ \\
+          Combine the high-order and low-order bytes to get the result of 579B$_{16}$
+        \end{answer}
+    \end{itemize}
+
+  \Q Consider the expression with two unsigned hexadecimal integers: (2385$_{16}$ + 3496$_{16}$).
+    \begin{itemize}
+      \item How would you use the Carry In line to add the low-order 8 bits (85$_{16}$ + 96$_{16}$)?
+        \begin{answer}[0.75in]
+          The carry-in value should be zero.
+        \end{answer}
+
+      \item How would you use the Carry In line to add the high-order 8 bits?
+        \begin{answer}[1in]
+          The carry-in value for the high-order addition should be the (saved) carry out for the low-order addition.
+        \end{answer}
+
+      \item Suggest a name for this new kind of Add command.
+        \begin{answer}[0.75in]
+          Add with carry.
+        \end{answer}
+    \end{itemize}
+
+  \Q What does the circuit in Figure 1 use to hold intermediate 8-bit sums?
+    \begin{answer}[0.75in]
+      An 8-bit latch.
+    \end{answer}
+
+  \Q What has been added in Figure 5 compared to Figure 4?
+    \vspace{10pt}
+    \begin{center}
+      \includegraphics[width=0.35\textwidth]{figures/add_with_carry.png}
+      \par\vspace{5pt}
+      {\small Figure 5: Add with Carry}
+    \end{center}
+
+    \begin{answer}[0.75in]
+      A Use Carry control line and a carry buffer or latch.
+    \end{answer}
+
+  \Q If we used 0x20 as the code for the Add with Carry instruction, how would it differ from the Add instruction code?
+    \begin{answer}[1in]
+      It has a 1 in bit 5 (the 6th bit from the right), while all other are 0.
+    \end{answer}
+
+  \Q If we attached bit 5 of the instruction decoder to the ``Use Carry'' control line, what logic gate(s) would provide the desired behavior?
+    \begin{answer}[1in]
+      An AND gate would have a 1 out if both the carry latch and the use carry control line are 1.
+    \end{answer}

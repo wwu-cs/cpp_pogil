@@ -1,0 +1,78 @@
+\model{Load Instruction}
+
+  \vspace{10pt}
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{figures/programmable_computer_part2.png}
+    \par\vspace{5pt}
+    {\small Figure 1: Programmable Computer}
+  \end{center}
+
+  \vspace{10pt}
+  \begin{center}
+    \begin{tabular}{|l|c|c|}
+      \hline
+      \textbf{Instruction} & \textbf{Hexadecimal Code} & \textbf{Binary Code} \\
+      \hline
+      Add (data to latch) & 0x00 & 0000 0000 \\
+      \hline
+      Clear (latch) & 0x01 & 0000 0001 \\
+      \hline
+      Subtract (data from latch) & 0x02 & 0000 0010 \\
+      \hline
+      Stop (the clock) & 0x04 & 0000 0100 \\
+      \hline
+      Store (latch to data) & 0x08 & 0000 1000 \\
+      \hline
+    \end{tabular}
+  \end{center}
+
+  Figure 1 (copied from the previous lesson) shows a simple programmable computer with the following characteristics:
+  \begin{itemize}
+    \item A counter with 16-bit output that will increment on each clock tick (it can be reset to zero with the Start control line),
+    \item Separate addressable memory for code and data that each output an 8-bit value based on the same 16-bit address (the value of the data memory can be set to the current data latch value by the Store control line),
+    \item An 8-bit adder that calculates the sum (or difference based on the Subtract control line) of the latch and the value from memory,
+    \item A latch that captures the result of the adder on each clock tick (or is cleared based on the Clear sum control line), and
+    \item A decoder that takes each 8-bit instruction and sets the control lines appropriately.
+  \end{itemize}
+
+  \newpage
+
+  {\it\large Refer to Model 1 above as your team develops consensus answers
+  to the questions below.}
+
+  \quest{15 min}
+
+  \Q In Figure 1, the data path into the latch comes from what component?
+    \hfill\ans[1in]{Adder}
+
+  \Q In Figure 1, what two instructions are required to get the value of a single memory location into the latch?
+    (Hint: what would you add to a value to get the same value?)
+    \begin{answer}[0.5in]
+      Clear, Add
+    \end{answer}
+
+  Figure 2 adds a new control line and a new component to our computer.
+
+  \vspace{10pt}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{figures/load_instruction.png}
+    \par\vspace{5pt}
+    {\small Figure 2: Load Instruction}
+  \end{center}
+
+  \Q What are the new elements?
+    \hfill\ans{A 2-to-1 Selector and a Selection control line}
+
+  \vspace{10pt}
+  A 2-to-1 Selector will pass on one of two inputs based on a control line. In this configuration, if the control line is 0,
+  then the value from the adder will be passed to the latch. If the control line is 1, then the value from memory will be passed to the latch.
+
+  \Q How does this circuit simplify loading a value from memory into the latch?
+    \begin{answer}[0.5in]
+      Now it takes only one instruction.
+    \end{answer}
+
+  \Q Suggest a name and a code for this instruction. (Hint: see the name of Figure 2\key\\[-2.5mm] and the pattern of hexadecimal codes used for previous instructions.)
+    \begin{answer}[0.5in]
+      Load (0x10)
+    \end{answer}

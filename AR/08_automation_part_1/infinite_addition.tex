@@ -1,0 +1,109 @@
+\model{Infinite Addition}
+
+  \vspace{10pt}
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{figures/simple_addition.png}
+    \par\vspace{5pt}
+    {\small Figure 1: Simple Addition}
+  \end{center}
+
+  With digital logic circuits we can build various components:
+  \begin{itemize}
+    \item An oscillator with output that switches rapidly between 0 and 1;
+    \item A counter with 16-bit output that can be reset to all zeros and will increment on each ``clock tick'' (the oscillator has a change from 0 to 1);
+    \item Addressable memory that outputs an 8-bit value based on a 16-bit address (a separate control panel with various switches is used to manipulate memory and is not shown);
+    \item An adder that takes as input two 8-bit values and gives as output an 8-bit sum (carry in and out is ignored for now);
+    \item A latch that captures an input value at a clock tick (and can be reset); and,
+    \item Lights to show the current latch value.
+  \end{itemize}
+
+  {\it\large Refer to Model 1 above as your team develops consensus answers
+  to the questions below.}
+
+  \quest{25 min}
+
+  \Q What is the size of the data path out of RAM?
+    \hfill\ans{8 bits}
+
+  \Q What are the sizes of the data paths into and out of the Adder and Latch?
+    \hfill\ans[1in]{8 bits}
+
+  \Q What is the size (number of bits) of the address path into RAM?
+    \hfill\ans[1.5in]{16 bits}
+
+  \Q The range of values for a decimal digit is [0, 9]. What is the range of values for a hexadecimal digit?
+    \begin{answer}[0.5in]
+      [0, F] (yes, you could say [0, 15] but when we get to question 14 you should think of `F')
+    \end{answer}
+
+  \Q How many bits are required to represent the full range of a single hexadecimal digit? (Hint: not 16!)
+    \begin{answer}[0.5in]
+      4 bits
+    \end{answer}
+
+  \Q How many hexadecimal digits can be represented on the address path into RAM?
+    \begin{answer}[0.5in]
+      4 digits
+    \end{answer}
+
+  \Q What happens to the Counter when you close the ``Clear'' switch?
+    \begin{answer}[0.5in]
+      The counter will be reset to all zeros.
+    \end{answer}
+
+  \Q What happens to the Latch when you close the ``Clear'' switch?
+    \begin{answer}[0.5in]
+      The latch will be reset to all zeros.
+    \end{answer}
+
+  \Q What happens to the Counter on a 0-to-1 clock tick?
+    \begin{answer}[0.5in]
+      The counter will increment by one.
+    \end{answer}
+
+  \Q What happens to the Latch on a 1-to-0 clock tick?
+    \begin{answer}[0.5in]
+      The latch will capture the output of the adder.
+    \end{answer}
+
+  \Q Describe the value on the data line coming out of RAM when the value on the address line into RAM is all zero bits (you might not be able to give an exact value).
+    \begin{answer}[0.5in]
+      The contents of location 0x0000 in RAM.
+    \end{answer}
+
+  \Q Describe the value of the Counter
+    \begin{itemize}
+      \item after a clear,
+        \hfill\ans[1in]{0}
+      \item after one clock tick,
+        \hfill\ans[1in]{1}
+      \item and after N clock ticks.
+        \hfill\ans[1in]{N}
+    \end{itemize}
+
+  \Q Describe the value of the Latch\key\\[-2.5mm]
+    \begin{itemize}
+      \item after a clear,
+        \hfill\ans[1in]{0}
+
+      \item after one clock tick (hint: probably not 0 or 1),
+        \hfill\ans{The value of memory location 0x0000 (the sum of that and zero).}
+        
+      \item And after N clock ticks (hint: probably not N).
+        \hfill\ans{The sum of the first N memory locations.}
+    \end{itemize}
+
+  \Q What is the maximum value of the Counter in hexadecimal (the convention for addresses)? (Hint: see question 6.)
+    \begin{answer}[0.5in]
+      0xFFFF
+    \end{answer}
+
+  \Q If the Counter is at the maximum value, what is the value after a clock tick?
+    \begin{answer}[0.5in]
+      0
+    \end{answer}
+
+  \Q Does circuit ever stop? If, so, how? If not, why not?
+    \begin{answer}[0.5in]
+      No, the oscillator keeps running and incrementing the counter (which eventually wraps).
+    \end{answer}
