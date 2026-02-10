@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Ensure we're in the script's directory
+cd "$(dirname "$0")" || exit 1
+
 # Create output directories
 mkdir -p pdfs/CS1
 mkdir -p pdfs/CS2
@@ -8,6 +11,12 @@ mkdir -p pdfs/AR
 # Function to process all subfolders in a given directory
 process_folder() {
     local base_dir=$1
+    
+    # Check if directory exists
+    if [ ! -d "$base_dir" ]; then
+        echo "Warning: Directory $base_dir does not exist, skipping..."
+        return
+    fi
     
     # Find all subdirectories (one level deep)
     for dir in "$base_dir"/*/ ; do
@@ -32,9 +41,11 @@ process_folder() {
             if [ -f "${folder_name}.pdf" ]; then
                 mv "${folder_name}.pdf" "../../pdfs/${base_dir}/${folder_name}.pdf"
                 echo "Moved PDF to pdfs/${base_dir}/${folder_name}.pdf"
+            else
+                echo "Warning: PDF was not created for $folder_name"
             fi
             
-            cd - > /dev/null || exit
+            cd - > /dev/null || { echo "Failed to return to previous directory"; continue; }
         else
             echo "Skipping $folder_name - no matching .tex file found"
         fi
