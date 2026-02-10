@@ -3,6 +3,7 @@
 # Create output directories
 mkdir -p pdfs/CS1
 mkdir -p pdfs/CS2
+mkdir -p pdfs/AR
 
 # Function to process all subfolders in a given directory
 process_folder() {
