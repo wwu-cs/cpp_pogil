@@ -1,0 +1,52 @@
+% Source: CPTR 280 Computer Organization and Assembly Language Fall 2023
+% File: "09 Automation (part 2) (key).pdf"
+% Author: James Foster, pogil@jgfoster.net
+
+% comment out for student version
+% \ifdefined\Student\relax\else\def\Teacher{}\fi
+
+\documentclass[12pt]{article}
+
+\title{Activity 9: Addressable Memory}
+\author{James Foster}
+\newcommand{\activityeditor}{James Foster}
+\newcommand{\activitysource}{\url{pogil@jgfoster.net}}
+\date{Fall 2023}
+
+\input{../../cspogil.sty}
+\usepackage{graphicx}
+\usepackage{tabularx}
+
+\begin{document}
+
+  \begin{center}
+    \maketitle
+    \rolenames
+  \end{center}
+
+  \keyquestions{
+  \item Model 1, Question \#5
+  \item Model 2, Question \#11
+  \item Model 3, Question \#20
+  }
+
+  \newpage
+  \maketitle
+
+  We have looked a simple programmable computer. Now we add hardware and instructions for storing the code and the data in the same memory module.
+  
+  \guides{
+    \item Do 16-bit math with 8-bit memory.
+   }{
+    \item No additional process skills.
+   }{
+    No additional notes
+   }
+
+  \input{load_instruction.tex}
+  \newpage
+  \input{addressable_memory.tex}
+  \newpage
+  \input{multi_byte_numbers.tex}
+
+\end{document}

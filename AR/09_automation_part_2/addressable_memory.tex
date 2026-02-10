@@ -1,0 +1,79 @@
+  \model{Addressable Memory}
+
+  \vspace{10pt}
+  \begin{center}
+    \includegraphics[width=0.85\textwidth]{figures/addressable_memory.png}
+    \par\vspace{5pt}
+    {\small Figure 3: Addressable Memory}
+  \end{center}
+
+  Figure 3 shows the final major enhancement to the computer we are building.
+  \begin{itemize}
+    \item To the 16-Bit Program Counter (PC) we have added a Set control line that allows us to set the next instruction address to a 16-bit value obtained from the bottom two 8-bit (address) latches.
+    \item The memory address for read/write is now specified by either the PC or the bottom two (address) latches based on a Select control line sent to the 2-1 Address Selector.
+    \item Instead of having separate memory for code and data, we now share the memory (reducing cost and increasing flexibility).
+    \item Instead of having a sequence of 8-bit instruction codes, we now have instructions made of an 8-bit opcode (operation code) followed by a 16-bit address (operand location). These values are read into the three latches shown in three consecutive clock ticks.
+    \item Not shown are the instruction Decoder (to the right of the arrow labeled ``Code''), the 8-Bit Adder and the 8-Bit Data Latch (to the right of the arrows labeled ``8-Bit Data''), and the control lines coming out from the Decoder (the endpoints are shown with the affected components).
+  \end{itemize}
+
+  \newpage
+
+  {\it\large Refer to Model 2 above as your team develops consensus answers
+  to the questions below.}
+
+  \quest{15 min}
+
+  \Q What was the previous instruction size? What is the new instruction size? By what factor has the overall size of the instructions increased?
+    \begin{answer}[0.5in]
+      Previous instruction size: 1; new instruction size: 3; instruction size grew by 3x.
+    \end{answer}
+
+  \Q Assuming that we can still read only one byte per clock cycle and that the clock speed is the same, what is the impact on speed by the instruction size changes?
+    \begin{answer}[0.5in]
+      One-third the speed.
+    \end{answer}
+
+  \Q In Figure 1, what happened to the counter on each clock tick?
+    \begin{answer}[0.5in]
+      Counter increases by one.
+    \end{answer}
+
+  \Q In Figure 1, what can be done to change the value of the counter to something other than the next integer? What value(s) (if any) can be assigned to the program counter?
+    \begin{answer}[0.5in]
+      Clear will reset it to zero.
+    \end{answer}
+
+  \Q What new control line is added to the program counter in Figure 3? What does it do?
+    \begin{answer}[0.5in]
+      Set0 will take the values from high and low latches and put it into the counter.
+    \end{answer}
+
+  \Q What is the impact of allowing a ``Set'' instruction (``Jump'') for the Program\key\\[-2.5mm] Counter?
+    \begin{answer}[0.5in]
+      We can now specify an address for the next instruction, so loop or skip.
+    \end{answer}
+
+  \Q In Figure 1, what determines which address in memory will be provided to the adder?
+    \begin{answer}[0.5in]
+      The counter.
+    \end{answer}
+
+  \Q What new component is added in Figure 3 between the counter and the memory?
+    \begin{answer}[0.5in]
+      The 2-to-1 Address Selector and a Select control line.
+    \end{answer}
+
+  \Q In Figure 3, what determines which address in memory will be provided as output?
+    \begin{answer}[0.5in]
+      The 2-to-1 Address Selector selects either the Counter or the High and Low Latches.
+    \end{answer}
+
+  \Q What is the impact of allowing a load/add/store instruction to specify an address?
+    \begin{answer}[0.5in]
+      We can now select something other than the counter, so the data can be in a separate location from the code.
+    \end{answer}
+
+  \Q A variation of the Jump command is a Conditional Jump where the change to the PC happens only on if some specified condition exists. What conditions would be interesting?
+    \begin{answer}[0.5in]
+      Zero, non-zero, carry on or off, value negative or positive.
+    \end{answer}
