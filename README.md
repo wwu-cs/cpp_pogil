@@ -24,6 +24,7 @@ Unless otherwise noted, this work is licensed under a [Creative Commons Attribut
 For more information, see [POGIL](http://pogil.org), [CS POGIL](http://cspogil.org), and [Intro CS POGIL](http://introcspogil.org/).
 
 ## CS 1 (Introduction to Programming in C++)
+
 * [Introduction to C++](https://wwu-cs.github.io/cpp_pogil/CS1/01_introduction.pdf)
 * [Arithmetic Operations and Assignment](https://wwu-cs.github.io/cpp_pogil/CS1/02_arithmetic.pdf)
 * [Algorithmic Thinking](https://wwu-cs.github.io/cpp_pogil/CS1/03_algorithms.pdf)
@@ -64,6 +65,9 @@ For more information, see [POGIL](http://pogil.org), [CS POGIL](http://cspogil.o
 * [Binary Search Trees](https://wwu-cs.github.io/cpp_pogil/CS2/08_binary_search_trees.pdf)
 
 ## AR (Architecture and Organization)
+
+These activities are based on the first chapters of Code: The Hidden Language of Computer Hardware and Software (1st ed.) by Charles Petzold, though the material largely corresponds to the structure of the 2nd edition.
+
 * [Communication](https://wwu-cs.github.io/cpp_pogil/AR/01_communication.pdf)
 * [Electricity](https://wwu-cs.github.io/cpp_pogil/AR/02_electricity.pdf)
 * [Number Systems](https://wwu-cs.github.io/cpp_pogil/AR/03_number_systems.pdf)
