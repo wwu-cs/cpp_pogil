@@ -1,8 +1,8 @@
 \model{Map and Set}
   \begin{center}
     \small
-    \begin{tabular}{p{3.1in} p{2.7in}}
-      \begin{minipage}{3.1in}
+    \begin{tabular}{p{3.9in} p{1.9in}}
+      \begin{minipage}{3.9in}
         \begin{cpplst}
 #include <map>
 
@@ -21,8 +21,7 @@ cout << population.count("Portland");
         \end{cpplst}
       \end{minipage}
       &
-      \begin{minipage}{2.7in}
-        \vskip 6pt
+      \begin{minipage}{1.9in}
         {\bf population map:}\\[4pt]
         \renewcommand{\arraystretch}{1.2}
         \begin{tabular}{|c|c|}
@@ -46,13 +45,12 @@ cout << population.count("Portland");
       \end{minipage}
     \end{tabular}
     \vskip 10pt
-    \begin{tabular}{p{3.1in} p{2.7in}}
-      \begin{minipage}{3.1in}
+    \begin{tabular}{p{3.9in} p{1.9in}}
+      \begin{minipage}{3.9in}
         \begin{cpplst}
 #include <set>
 
-set<int> scores =
-    {85, 92, 78, 92, 85, 100};
+set<int> scores = {85, 92, 78, 92, 85, 100};
 scores.insert(73);
 scores.insert(92);
 
@@ -63,8 +61,7 @@ cout << "size: " << scores.size();
         \end{cpplst}
       \end{minipage}
       &
-      \begin{minipage}{2.7in}
-        \vskip 6pt
+      \begin{minipage}{1.9in}
         {\bf scores set (sorted, unique):}\\[4pt]
         \begin{tabular}{|c|c|c|c|c|}
           \hline
@@ -101,8 +98,13 @@ cout << "size: " << scores.size();
       \item What syntax is used to insert or update a value in the map?
         \hfill\ans[2in]{\cpp{map[key] = value}}
 
+      \newpage
+
       \item What happens when {\tt population["Seattle"]} is assigned
         a second time?  Does it create a new entry or modify the existing one?
+
+        \vskip -5pt
+
         \begin{answer}[0.5in]
           It modifies the existing entry.  A map key is unique; assigning
           to an existing key overwrites its associated value.
@@ -113,12 +115,11 @@ cout << "size: " << scores.size();
 
   \Q What does {\tt map.count(key)} return?  What are the two possible
     return values and what does each mean?
-    \begin{answer}[0.75in]
+    \begin{answer}[0.5in]
       It returns {\tt 1} if the key exists in the map, and {\tt 0} if
       it does not.  (A map can hold at most one entry per key.)
     \end{answer}
 
-  \vskip -20pt
 
   \Q When iterating over a {\tt map} or {\tt set} with a range-based
     for loop, the elements are visited in a particular order.\key\\[-2mm]
@@ -126,14 +127,17 @@ cout << "size: " << scores.size();
       \itemsep 10pt
       \item In what order does the {\tt for} loop print the cities from
         the {\tt map}?
-        \hfill\ans[2.5in]{Alphabetical (sorted by key)}
+        \hfill\ans[1.5in]{Alphabetical (sorted by key)}
 
       \item In what order does the {\tt for} loop print the values from
         the {\tt set}?
-        \hfill\ans[2.5in]{Ascending numeric order}
+        \hfill\ans[1.5in]{Ascending numeric order}
 
       \item Both {\tt map} and {\tt set} keep their elements
         {\it sorted}.  How does this differ from {\tt vector} and {\tt list}?
+
+        \vskip -5pt
+
         \begin{answer}[0.5in]
           A \cpp{vector} and \cpp{list} maintain {\it insertion order};
           elements appear in the order you added them.  A \cpp{map}
@@ -152,10 +156,13 @@ cout << "size: " << scores.size();
         \hfill\ans[0.75in]{5}
 
       \item After {\tt scores.insert(92)}, does the set size increase?
-        \hfill\ans[0.5in]{No}
+        \hfill\ans[0.75in]{No}
 
       \item When would a {\tt set} be more useful than a {\tt vector}
         for storing a collection of values?
+
+        \vskip -5pt
+
         \begin{answer}[0.5in]
           A \cpp{set} is useful when you need to store only unique
           values, automatically eliminate duplicates, or quickly test
@@ -169,7 +176,7 @@ cout << "size: " << scores.size();
     and verify the output.  Then write C++ code to count the number
     of times each word appears in the sentence {\tt "the cat sat on
     the mat"}.  Use a {\tt map<string,int>}.
-    \begin{answer}[1.25in]
+    \begin{answer}[1.05in]
       \begin{cpplst}
 map<string, int> wordCount;
 vector<string> words =
