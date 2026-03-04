@@ -1,0 +1,185 @@
+\model{Map and Set}
+  \begin{center}
+    \small
+    \begin{tabular}{p{3.1in} p{2.7in}}
+      \begin{minipage}{3.1in}
+        \begin{cpplst}
+#include <map>
+
+map<string, int> population;
+population["Seattle"] = 750000;
+population["Bellingham"] = 90000;
+population["Olympia"] = 52000;
+population["Seattle"] += 1000;
+
+for (pair<string,int> city : population) {
+    cout << city.first << ": ";
+    cout << city.second << endl;
+}
+cout << population.count("Seattle");
+cout << population.count("Portland");
+        \end{cpplst}
+      \end{minipage}
+      &
+      \begin{minipage}{2.7in}
+        \vskip 6pt
+        {\bf population map:}\\[4pt]
+        \renewcommand{\arraystretch}{1.2}
+        \begin{tabular}{|c|c|}
+          \hline
+          \rowcolor{orange!20} \textbf{key} & \textbf{value} \\
+          \hline
+          \tt "Bellingham" & 90000 \\
+          \hline
+          \tt "Olympia"    & 52000 \\
+          \hline
+          \tt "Seattle"    & 751000 \\
+          \hline
+        \end{tabular}\\[10pt]
+        {\bf Output:}
+        \hrule\vskip 5pt
+        {\tt Bellingham: 90000}\\
+        {\tt Olympia: 52000}\\
+        {\tt Seattle: 751000}\\
+        {\tt 1}\\
+        {\tt 0}
+      \end{minipage}
+    \end{tabular}
+    \vskip 10pt
+    \begin{tabular}{p{3.1in} p{2.7in}}
+      \begin{minipage}{3.1in}
+        \begin{cpplst}
+#include <set>
+
+set<int> scores =
+    {85, 92, 78, 92, 85, 100};
+scores.insert(73);
+scores.insert(92);
+
+for (int score : scores) {
+    cout << score << endl;
+}
+cout << "size: " << scores.size();
+        \end{cpplst}
+      \end{minipage}
+      &
+      \begin{minipage}{2.7in}
+        \vskip 6pt
+        {\bf scores set (sorted, unique):}\\[4pt]
+        \begin{tabular}{|c|c|c|c|c|}
+          \hline
+          73 & 78 & 85 & 92 & 100 \\
+          \hline
+        \end{tabular}\\[10pt]
+        {\bf Output:}
+        \hrule\vskip 5pt
+        {\tt 73}\\
+        {\tt 78}\\
+        {\tt 85}\\
+        {\tt 92}\\
+        {\tt 100}\\
+        {\tt size: 5}
+      \end{minipage}
+    \end{tabular}
+  \end{center}
+
+  {\it\large Refer to Model 3 above as your team develops consensus answers
+    to the questions below.}
+
+  \quest{20 min}
+
+  \Q A {\tt map} stores key-value pairs, where each key maps to exactly
+    one value.  Answer the following about the {\tt map} example above.
+    \begin{enumerate}
+      \itemsep 10pt
+      \item What is the type of the {\it key} in {\tt population}?
+        \hfill\ans[1.5in]{\cpp{string}}
+
+      \item What is the type of the {\it value} in {\tt population}?
+        \hfill\ans[1.5in]{\cpp{int}}
+
+      \item What syntax is used to insert or update a value in the map?
+        \hfill\ans[2in]{\cpp{map[key] = value}}
+
+      \item What happens when {\tt population["Seattle"]} is assigned
+        a second time?  Does it create a new entry or modify the existing one?
+        \begin{answer}[0.5in]
+          It modifies the existing entry.  A map key is unique; assigning
+          to an existing key overwrites its associated value.
+        \end{answer}
+    \end{enumerate}
+
+  \vskip -20pt
+
+  \Q What does {\tt map.count(key)} return?  What are the two possible
+    return values and what does each mean?
+    \begin{answer}[0.75in]
+      It returns {\tt 1} if the key exists in the map, and {\tt 0} if
+      it does not.  (A map can hold at most one entry per key.)
+    \end{answer}
+
+  \vskip -20pt
+
+  \Q When iterating over a {\tt map} or {\tt set} with a range-based
+    for loop, the elements are visited in a particular order.\key\\[-2mm]
+    \begin{enumerate}
+      \itemsep 10pt
+      \item In what order does the {\tt for} loop print the cities from
+        the {\tt map}?
+        \hfill\ans[2.5in]{Alphabetical (sorted by key)}
+
+      \item In what order does the {\tt for} loop print the values from
+        the {\tt set}?
+        \hfill\ans[2.5in]{Ascending numeric order}
+
+      \item Both {\tt map} and {\tt set} keep their elements
+        {\it sorted}.  How does this differ from {\tt vector} and {\tt list}?
+        \begin{answer}[0.5in]
+          A \cpp{vector} and \cpp{list} maintain {\it insertion order};
+          elements appear in the order you added them.  A \cpp{map}
+          and \cpp{set} always store elements in sorted order
+          regardless of insertion order.
+        \end{answer}
+    \end{enumerate}
+
+  \vskip -20pt
+
+  \Q The {\tt set} in the model is initialized with six values, two
+    of which are duplicates (92 appears twice, 85 appears twice).
+    \begin{enumerate}
+      \itemsep 10pt
+      \item How many elements does the set actually contain?
+        \hfill\ans[0.75in]{5}
+
+      \item After {\tt scores.insert(92)}, does the set size increase?
+        \hfill\ans[0.5in]{No}
+
+      \item When would a {\tt set} be more useful than a {\tt vector}
+        for storing a collection of values?
+        \begin{answer}[0.5in]
+          A \cpp{set} is useful when you need to store only unique
+          values, automatically eliminate duplicates, or quickly test
+          whether a value is present (using \cpp{count}).
+        \end{answer}
+    \end{enumerate}
+
+  \vskip -20pt
+
+  \Q The file {\tt activity28c.cpp} contains both examples.  Run it
+    and verify the output.  Then write C++ code to count the number
+    of times each word appears in the sentence {\tt "the cat sat on
+    the mat"}.  Use a {\tt map<string,int>}.
+    \begin{answer}[1.25in]
+      \begin{cpplst}
+map<string, int> wordCount;
+vector<string> words =
+    {"the","cat","sat","on","the","mat"};
+for (string word : words) {
+    wordCount[word]++;
+}
+for (pair<string,int> entry : wordCount) {
+    cout << entry.first << ": ";
+    cout << entry.second << endl;
+}
+      \end{cpplst}
+    \end{answer}

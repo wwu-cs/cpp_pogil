@@ -1,0 +1,210 @@
+\model{Queue and Deque}
+  \begin{center}
+    \small
+    \begin{tabular}{p{3.1in} p{2.7in}}
+      \begin{minipage}{3.1in}
+        \begin{cpplst}
+#include <queue>
+
+queue<string> waitlist;
+waitlist.push("Alice");
+waitlist.push("Bob");
+waitlist.push("Carol");
+
+while (!waitlist.empty()) {
+    cout << waitlist.front() << endl;
+    waitlist.pop();
+}
+        \end{cpplst}
+      \end{minipage}
+      &
+      \begin{minipage}{2.7in}
+        \vskip 6pt
+        {\bf waitlist queue (FIFO):}\\[4pt]
+        $\rightarrow$\begin{tabular}{|c|c|c|}
+          \hline
+          Alice & Bob & Carol \\
+          \hline
+        \end{tabular}$\leftarrow$\\
+        \hspace*{0.1in}{\small front (served first)} \hfill {\small back (added here)}\hspace*{0.3in}\\[8pt]
+        {\bf Output:}
+        \hrule\vskip 5pt
+        {\tt Alice}\\
+        {\tt Bob}\\
+        {\tt Carol}
+      \end{minipage}
+    \end{tabular}
+    \vskip 14pt
+    \begin{tabular}{p{3.1in} p{2.7in}}
+      \begin{minipage}{3.1in}
+        \begin{cpplst}
+#include <deque>
+
+deque<int> dq;
+dq.push_back(3);
+dq.push_front(2);
+dq.push_front(1);
+dq.push_back(4);
+
+for (int val : dq) {
+    cout << val << " ";
+}
+cout << endl;
+dq.pop_front();
+dq.pop_back();
+        \end{cpplst}
+      \end{minipage}
+      &
+      \begin{minipage}{2.7in}
+        \vskip 6pt
+        {\bf dq after all push operations:}\\[4pt]
+        \begin{tabular}{|c|c|c|c|}
+          \hline
+          1 & 2 & 3 & 4 \\
+          \hline
+        \end{tabular}\\[8pt]
+        {\bf Output:}
+        \hrule\vskip 5pt
+        {\tt 1 2 3 4}\\[8pt]
+        {\bf dq after pop\_front and pop\_back:}\\[4pt]
+        \begin{tabular}{|c|c|}
+          \hline
+          2 & 3 \\
+          \hline
+        \end{tabular}
+      \end{minipage}
+    \end{tabular}
+    \vskip 14pt
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{|l|c|c|c|c|c|c|}
+      \hline
+      \rowcolor{orange!20}
+      \textbf{Container} & \textbf{push\_front} & \textbf{push\_back} & \textbf{pop\_front} & \textbf{pop\_back} & \textbf{at(i)} & \textbf{range-for} \\
+      \hline
+      \tt vector & no  & yes & no  & yes & yes & yes \\
+      \hline
+      \tt list   & yes & yes & yes & yes & no  & yes \\
+      \hline
+      \tt queue  & no  & yes & yes & no  & no  & no  \\
+      \hline
+      \tt deque  & yes & yes & yes & yes & yes & yes \\
+      \hline
+    \end{tabular}
+  \end{center}
+
+  {\it\large Refer to Model 4 above as your team develops consensus answers
+    to the questions below.}
+
+  \quest{15 min}
+
+  \Q A {\tt queue} models a waiting line: items are added at the back
+    and removed from the front.  This behavior is called
+    {\it FIFO} (First In, First Out).
+    \begin{enumerate}
+      \itemsep 10pt
+      \item Who was the first person pushed onto the {\tt waitlist}?
+        \hfill\ans[1.5in]{"Alice"}
+
+      \item Who was printed (served) first?
+        \hfill\ans[1.5in]{"Alice"}
+
+      \item If you called {\tt waitlist.push("Dave")} before the
+        {\tt while} loop, what would be the last name printed?
+        \hfill\ans[1.5in]{"Dave"}
+
+      \item Why can't you use a range-based for loop to print the
+        contents of a {\tt queue}?  (Hint: look at the table.)
+        \begin{answer}[0.5in]
+          A \cpp{queue} does not support range-based for iteration.
+          It only exposes the front element; elements must be removed
+          one at a time with \cpp{pop()}.
+        \end{answer}
+    \end{enumerate}
+
+  \vskip -20pt
+
+  \Q Using the operations table, compare {\tt queue} and {\tt deque}.\key\\[-2mm]
+    \begin{enumerate}
+      \itemsep 10pt
+      \item What does the ``d'' in {\tt deque} stand for?
+        \hfill\ans[2in]{``double-ended''}
+
+      \item List two operations that {\tt deque} supports but {\tt queue}
+        does not.
+        \begin{answer}[0.5in]
+          \cpp{push_front}, \cpp{pop_back}, \cpp{at(i)}, and
+          range-based for.  (Any two are acceptable.)
+        \end{answer}
+
+      \item A {\tt deque} supports {\tt at(i)} but a {\tt queue} does not.
+        What does this tell you about which container supports random access?
+        \begin{answer}[0.5in]
+          Only \cpp{deque} supports random access by index.
+          A \cpp{queue} only allows access to the front element.
+        \end{answer}
+    \end{enumerate}
+
+  \vskip -20pt
+
+  \Q For each scenario below, choose the most appropriate container
+    from {\tt vector}, {\tt list}, {\tt map}, {\tt set}, {\tt queue},
+    or {\tt deque}.  Justify each choice.
+    \begin{enumerate}
+      \itemsep 12pt
+      \item Storing a list of student exam scores that you need to
+        access by index and sort.
+        \begin{answer}[0.5in]
+          \cpp{vector} --- supports random access by index and works
+          well with sorting algorithms.
+        \end{answer}
+
+      \item Keeping track of customers waiting in line at a support desk
+        (serve in the order they arrived).
+        \begin{answer}[0.5in]
+          \cpp{queue} --- FIFO behavior naturally models a waiting line.
+        \end{answer}
+
+      \item Storing a dictionary mapping English words to their
+        definitions.
+        \begin{answer}[0.5in]
+          \cpp{map} --- stores key-value pairs and supports fast lookup
+          by key (word).
+        \end{answer}
+
+      \item Recording which usernames have already been taken (no
+        duplicates, fast lookup).
+        \begin{answer}[0.5in]
+          \cpp{set} --- stores unique values and supports fast
+          membership testing with \cpp{count}.
+        \end{answer}
+
+      \item Simulating a deck of cards where cards can be drawn or
+        added from either end.
+        \begin{answer}[0.5in]
+          \cpp{deque} --- supports efficient push and pop from both
+          ends.
+        \end{answer}
+    \end{enumerate}
+
+  \vskip -10pt
+
+  \Q The file {\tt activity28d.cpp} contains the queue and deque
+    examples.  Run it and verify the output matches the model.
+    Then write C++ code using a {\tt deque<int>} that adds the
+    values 1, 2, 3 to the front (in order) and 4, 5, 6 to the
+    back, then prints all values.
+    \begin{answer}[1.25in]
+      \begin{cpplst}
+deque<int> dq;
+dq.push_front(3);
+dq.push_front(2);
+dq.push_front(1);
+dq.push_back(4);
+dq.push_back(5);
+dq.push_back(6);
+for (int val : dq) {
+    cout << val << " ";
+}
+cout << endl;
+      \end{cpplst}
+    \end{answer}

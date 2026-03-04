@@ -1,0 +1,162 @@
+\model{List and Pair}
+  \begin{center}
+    \small
+    \begin{tabular}{p{3.0in} p{2.8in}}
+      \begin{minipage}{3.0in}
+        \begin{cpplst}
+#include <list>
+#include <utility>
+
+list<string> tasks =
+    {"breakfast", "class", "lunch"};
+
+tasks.push_front("wake up");
+tasks.push_back("dinner");
+tasks.pop_front();
+
+for (string task : tasks) {
+    cout << task << endl;
+}
+        \end{cpplst}
+      \end{minipage}
+      &
+      \begin{minipage}{2.8in}
+        \vskip 10pt
+        {\bf After push\_front("wake up"):}\\[4pt]
+        \begin{tabular}{|c|c|c|c|c|}
+          \hline
+          wake up & breakfast & class & lunch \\
+          \hline
+        \end{tabular}\\[8pt]
+        {\bf After push\_back("dinner"):}\\[4pt]
+        \begin{tabular}{|c|c|c|c|c|}
+          \hline
+          wake up & breakfast & class & lunch & dinner \\
+          \hline
+        \end{tabular}\\[8pt]
+        {\bf After pop\_front():}\\[4pt]
+        \begin{tabular}{|c|c|c|c|}
+          \hline
+          breakfast & class & lunch & dinner \\
+          \hline
+        \end{tabular}\\[10pt]
+        {\bf Output:}
+        \hrule\vskip 5pt
+        {\tt breakfast}\\
+        {\tt class}\\
+        {\tt lunch}\\
+        {\tt dinner}
+      \end{minipage}
+    \end{tabular}
+    \vskip 12pt
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{|c|c|c|}
+      \hline
+      \rowcolor{orange!20}
+      \textbf{Operation} & \textbf{vector} & \textbf{list} \\
+      \hline
+      \cpp{push_back(val)}  & yes & yes \\
+      \hline
+      \cpp{pop_back()}      & yes & yes \\
+      \hline
+      \cpp{push_front(val)} & no  & yes \\
+      \hline
+      \cpp{pop_front()}     & no  & yes \\
+      \hline
+      \cpp{at(i)}           & yes & no  \\
+      \hline
+      range-based for       & yes & yes \\
+      \hline
+    \end{tabular}
+    \vskip 12pt
+    \begin{minipage}{3.5in}
+      \begin{cpplst}
+pair<string, int> student = {"Alice", 95};
+cout << student.first << " scored ";
+cout << student.second << endl;
+      \end{cpplst}
+    \end{minipage}
+    \quad
+    \begin{minipage}{2in}
+      {\bf Output:}
+      \hrule\vskip 5pt
+      {\tt Alice scored 95}
+    \end{minipage}
+  \end{center}
+
+  {\it\large Refer to Model 2 above as your team develops consensus answers
+    to the questions below.}
+
+  \quest{15 min}
+
+  \Q What {\tt \#include} header is required to use each of the following?
+    \begin{enumerate}
+      \itemsep 10pt
+      \item \cpp{list} \hfill\ans[2.5in]{\cpp{#include <list>}}
+      \item \cpp{pair} \hfill\ans[2.5in]{\cpp{#include <utility>}}
+    \end{enumerate}
+
+  \vskip -20pt
+
+  \Q Using the operations table in the model, answer the following.
+    \begin{enumerate}
+      \itemsep 10pt
+      \item Write a line of C++ to access the 3rd element (index~2)
+        of a {\tt vector<int>} named {\tt v}.
+        \hfill\ans[2in]{\cpp{v.at(2)}}
+
+      \item Can you do the same operation with a {\tt list}?
+        Explain why or why not.
+        \begin{answer}[0.5in]
+          No. A \cpp{list} does not support \cpp{at(i)} because it is
+          a linked structure; elements are not stored contiguously,
+          so random access by index is not supported.
+        \end{answer}
+
+      \item A {\tt vector} does not support {\tt push\_front}.  Why
+        might adding an element to the front of a vector be slow compared
+        to a list?
+        \begin{answer}[0.5in]
+          Every existing element must be shifted one position to the
+          right to make room at index~0, which takes time proportional
+          to the size of the vector.  A list can insert at the front
+          in constant time by adjusting pointers.
+        \end{answer}
+    \end{enumerate}
+
+  \vskip -20pt
+
+  \Q When would you choose a {\tt list} over a {\tt vector}?  \key\\[-2mm]
+    When would you choose a {\tt vector} over a {\tt list}?
+    \begin{answer}[0.75in]
+      Use a \cpp{list} when you need to frequently add or remove
+      elements from both ends, or when random access is not needed.
+      Use a \cpp{vector} when you need fast random access by index
+      or when you mostly add/remove from the back.
+    \end{answer}
+
+  \vskip -20pt
+
+  \Q A {\tt pair} stores two related values of potentially different
+    types and is accessed via {\tt .first} and {\tt .second}.
+    \begin{enumerate}
+      \itemsep 10pt
+      \item In the pair declaration above, what is the type of
+        {\tt student.first}?
+        \hfill\ans[1.5in]{\cpp{string}}
+
+      \item What is the type of {\tt student.second}?
+        \hfill\ans[1.5in]{\cpp{int}}
+
+      \item Write one line of C++ to declare a {\tt pair} that stores
+        a city name (string) and its population (int), with the city
+        {\tt "Bellingham"} and population {\tt 90000}.
+        \begin{answer}[0.5in]
+          \cpp{pair<string, int> city = {"Bellingham", 90000};}
+        \end{answer}
+
+      \item The file {\tt activity28b.cpp} contains the list and pair
+        examples.  Run it and verify the output matches the model.
+        What does {\tt tasks.front()} return?
+        \hfill\ans[1.5in]{\cpp{"breakfast"}}
+    \end{enumerate}

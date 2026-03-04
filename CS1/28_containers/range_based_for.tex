@@ -1,0 +1,151 @@
+\model{Range-Based For Loops}
+  \begin{center}
+    \small
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{p{2.8in} p{2.8in}}
+      \textbf{Traditional For Loop} & \textbf{Range-Based For Loop} \\[4pt]
+      \begin{minipage}{2.8in}
+        \begin{cpplst}
+vector<int> scores =
+    {92, 78, 85, 91, 63};
+
+for (int i = 0;
+     i < scores.size(); i++) {
+    cout << scores.at(i) << " ";
+}
+cout << endl;
+        \end{cpplst}
+      \end{minipage}
+      &
+      \begin{minipage}{2.8in}
+        \begin{cpplst}
+vector<int> scores =
+    {92, 78, 85, 91, 63};
+
+for (int score : scores) {
+    cout << score << " ";
+}
+cout << endl;
+        \end{cpplst}
+      \end{minipage}
+      \\[6pt]
+      \multicolumn{2}{c}{%
+        \textbf{Output:} \quad {\tt 92 78 85 91 63}
+      }
+    \end{tabular}
+  \end{center}
+
+  {\it\large Refer to Model 1 above as your team develops consensus answers
+    to the questions below.}
+
+  \quest{15 min}
+
+  \Q Compare the traditional for loop on the left with the
+    range-based for loop on the right.
+    \begin{enumerate}
+      \itemsep 10pt
+      \item What three parts appear in the traditional for loop header
+        (before the opening brace), separated by semicolons?
+        \begin{answer}[0.5in]
+          Initialization (\cpp{int i = 0}), condition
+          (\cpp{i < scores.size()}), and increment (\cpp{i++}).
+        \end{answer}
+
+      \item In the range-based for loop, what symbol separates the loop
+        variable from the container being iterated?
+        \hfill\ans[1in]{The colon \cpp{:}}
+
+      \item How many times does the body of each loop execute?
+        \hfill\ans[2in]{Five times (once per element)}
+
+      \item What is the value of {\tt score} during the third
+        iteration of the range-based for loop?
+        \hfill\ans[1in]{85}
+    \end{enumerate}
+
+  \vskip -20pt
+
+  \Q The range-based for loop declares a variable that takes on the
+    value of each element during each iteration.
+    \begin{enumerate}
+      \itemsep 10pt
+      \item In the range-based for loop above, what is the declared
+        type and name of this variable?
+        \hfill\ans[2.5in]{Type: \cpp{int}, name: \cpp{score}}
+
+      \item If {\tt scores} were a {\tt vector<string>}, what type should
+        the loop variable be declared as?
+        \hfill\ans[1.5in]{\cpp{string}}
+
+      \item Write a range-based for loop that prints each element of
+        a {\tt vector<double>} named {\tt temps} on its own line.
+        \begin{answer}[0.75in]
+          \begin{cpplst}
+for (double temp : temps) {
+    cout << temp << endl;
+}
+          \end{cpplst}
+        \end{answer}
+    \end{enumerate}
+
+  \vskip -20pt
+
+  \Q Consider the two loops below. \key\\[-2mm]
+    \begin{center}
+      \small
+      \begin{tabular}{p{2.6in} p{2.6in}}
+        \textbf{Loop A} & \textbf{Loop B} \\[4pt]
+        \begin{minipage}{2.6in}
+          \begin{cpplst}
+for (int score : scores) {
+    score += 5;
+}
+          \end{cpplst}
+        \end{minipage}
+        &
+        \begin{minipage}{2.6in}
+          \begin{cpplst}
+for (int& score : scores) {
+    score += 5;
+}
+          \end{cpplst}
+        \end{minipage}
+      \end{tabular}
+    \end{center}
+    \begin{enumerate}
+      \itemsep 10pt
+      \item What is the only syntactic difference between Loop A and Loop B?
+        \hfill\ans[1.5in]{The \cpp{&} after \cpp{int}}
+
+      \item In Loop A, {\tt score} is a copy of each element.  Does
+        modifying {\tt score} inside the loop change the original vector?
+        \hfill\ans[0.5in]{No}
+
+      \item The \cpp{&} in Loop B declares {\tt score} as a
+        {\it reference}, meaning it refers directly to the element
+        in the vector.  Does modifying {\tt score} in Loop B change
+        the original vector?
+        \hfill\ans[0.5in]{Yes}
+
+      \item The file {\tt activity28a.cpp} contains both loop styles.
+        Run it and record the output of the last two lines.
+        \begin{answer}[0.75in]
+          {\tt After copy loop:  92 78 85 91 63}\\
+          {\tt After ref loop:   97 83 90 96 68}
+        \end{answer}
+    \end{enumerate}
+
+  \vskip -20pt
+
+  \Q Write a range-based for loop that computes the sum of all
+    elements in a {\tt vector<int>} named {\tt values}.  Use a
+    reference when appropriate.
+    \begin{answer}[1in]
+      References are not needed since we are only reading:
+      \begin{cpplst}
+int sum = 0;
+for (int val : values) {
+    sum += val;
+}
+      \end{cpplst}
+    \end{answer}

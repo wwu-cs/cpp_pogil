@@ -1,0 +1,59 @@
+% Source: Unknown
+% File: ".pdf"
+% Access: Unknown
+
+% comment out for student version
+% \ifdefined\Student\relax\else\def\Teacher{}\fi
+
+\documentclass[12pt]{article}
+
+\title{Activity \#28: Containers}
+\author{Claude Sonnet 4.6}
+\newcommand{\activityeditor}{Preston Carman}
+\newcommand{\activitysource}{\url{unknown}}
+\date{Winter 2026}
+
+\input{../../cspogil.sty}
+
+\begin{document}
+
+  \begin{center}
+    \maketitle
+    \rolenames
+  \end{center}
+
+  \keyquestions{
+    \item Model 1, Question \#3
+    \item Model 2, Question \#7
+    \item Model 3, Question \#11
+    \item Model 4, Question \#14
+  }
+
+  \newpage
+  \maketitle
+
+  In this activity, you will work in teams of 3--4 students to learn new concepts.
+  This activity will introduce you to C++ containers beyond the vector.
+
+  \guide{
+    \item Use a range-based for loop to iterate over a container
+    \item Distinguish between {\tt list}, {\tt pair}, {\tt map}, {\tt set},
+      {\tt queue}, and {\tt deque}
+    \item Select the appropriate container for a given programming task
+  }{
+    \item Write C++ code using range-based for loops with value and reference
+      variables\\[-5pt]
+    \item Write C++ code that stores and retrieves data using {\tt map} and {\tt set}\\[-5pt]
+  }{
+    No additional notes.
+  }
+
+  \input{range_based_for.tex}
+  \newpage
+  \input{list_and_pair.tex}
+  \newpage
+  \input{map_and_set.tex}
+  \newpage
+  \input{queue_and_deque.tex}
+
+\end{document}

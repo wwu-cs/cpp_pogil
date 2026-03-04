@@ -52,6 +52,7 @@ For more information, see [POGIL](http://pogil.org), [CS POGIL](http://cspogil.o
 * [Version Control](https://wwu-cs.github.io/cpp_pogil/CS1/25_version_control.pdf)
 * [Exception Handling](https://wwu-cs.github.io/cpp_pogil/CS1/26_exceptions.pdf)
 * [Recursion](https://wwu-cs.github.io/cpp_pogil/CS1/27_recursion.pdf)
+* [Containers](https://wwu-cs.github.io/cpp_pogil/CS1/28_containers.pdf)
 
 ## CS 2 (Data Structures and Algorithms)
 
